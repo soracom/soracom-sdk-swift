@@ -1,0 +1,412 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		932D693D1CB9B18E002F9D99 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D693A1CB9B183002F9D99 /* APIError.swift */; };
+		932D693E1CB9B18E002F9D99 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D693A1CB9B183002F9D99 /* APIError.swift */; };
+		932D693F1CB9B191002F9D99 /* APIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D693C1CB9B183002F9D99 /* APIErrorTests.swift */; };
+		93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */; };
+		93BDF91A1CB8FD1A0058C5BC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BDF9181CB8FD1A0058C5BC /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		93BDF9211CB8FD1A0058C5BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93BDF9091CB8FD1A0058C5BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93BDF9101CB8FD1A0058C5BC;
+			remoteInfo = TestRunnerForSoracomSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		932D693A1CB9B183002F9D99 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		932D693C1CB9B183002F9D99 /* APIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorTests.swift; sourceTree = "<group>"; };
+		93BDF9111CB8FD1A0058C5BC /* TestRunnerForSoracomSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestRunnerForSoracomSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		93BDF9191CB8FD1A0058C5BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		93BDF91B1CB8FD1A0058C5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93BDF9201CB8FD1A0058C5BC /* TestRunnerForSoracomSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestRunnerForSoracomSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93BDF9261CB8FD1A0058C5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93BDF90E1CB8FD1A0058C5BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93BDF91D1CB8FD1A0058C5BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		932D69391CB9B183002F9D99 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				932D693A1CB9B183002F9D99 /* APIError.swift */,
+			);
+			name = Sources;
+			path = ../../Sources;
+			sourceTree = "<group>";
+		};
+		932D693B1CB9B183002F9D99 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				932D693C1CB9B183002F9D99 /* APIErrorTests.swift */,
+			);
+			name = Tests;
+			path = ../../Tests;
+			sourceTree = "<group>";
+		};
+		93BDF9081CB8FD1A0058C5BC = {
+			isa = PBXGroup;
+			children = (
+				932D69391CB9B183002F9D99 /* Sources */,
+				932D693B1CB9B183002F9D99 /* Tests */,
+				93BDF9131CB8FD1A0058C5BC /* TestRunnerForSoracomSDK */,
+				93BDF9231CB8FD1A0058C5BC /* TestRunnerForSoracomSDKTests */,
+				93BDF9121CB8FD1A0058C5BC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		93BDF9121CB8FD1A0058C5BC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93BDF9111CB8FD1A0058C5BC /* TestRunnerForSoracomSDK.app */,
+				93BDF9201CB8FD1A0058C5BC /* TestRunnerForSoracomSDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93BDF9131CB8FD1A0058C5BC /* TestRunnerForSoracomSDK */ = {
+			isa = PBXGroup;
+			children = (
+				93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */,
+				93BDF9181CB8FD1A0058C5BC /* MainMenu.xib */,
+				93BDF91B1CB8FD1A0058C5BC /* Info.plist */,
+			);
+			path = TestRunnerForSoracomSDK;
+			sourceTree = "<group>";
+		};
+		93BDF9231CB8FD1A0058C5BC /* TestRunnerForSoracomSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				93BDF9261CB8FD1A0058C5BC /* Info.plist */,
+			);
+			path = TestRunnerForSoracomSDKTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		93BDF9101CB8FD1A0058C5BC /* TestRunnerForSoracomSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93BDF9291CB8FD1A0058C5BC /* Build configuration list for PBXNativeTarget "TestRunnerForSoracomSDK" */;
+			buildPhases = (
+				93BDF90D1CB8FD1A0058C5BC /* Sources */,
+				93BDF90E1CB8FD1A0058C5BC /* Frameworks */,
+				93BDF90F1CB8FD1A0058C5BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestRunnerForSoracomSDK;
+			productName = TestRunnerForSoracomSDK;
+			productReference = 93BDF9111CB8FD1A0058C5BC /* TestRunnerForSoracomSDK.app */;
+			productType = "com.apple.product-type.application";
+		};
+		93BDF91F1CB8FD1A0058C5BC /* TestRunnerForSoracomSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93BDF92C1CB8FD1A0058C5BC /* Build configuration list for PBXNativeTarget "TestRunnerForSoracomSDKTests" */;
+			buildPhases = (
+				93BDF91C1CB8FD1A0058C5BC /* Sources */,
+				93BDF91D1CB8FD1A0058C5BC /* Frameworks */,
+				93BDF91E1CB8FD1A0058C5BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93BDF9221CB8FD1A0058C5BC /* PBXTargetDependency */,
+			);
+			name = TestRunnerForSoracomSDKTests;
+			productName = TestRunnerForSoracomSDKTests;
+			productReference = 93BDF9201CB8FD1A0058C5BC /* TestRunnerForSoracomSDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93BDF9091CB8FD1A0058C5BC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Soracom, Inc.";
+				TargetAttributes = {
+					93BDF9101CB8FD1A0058C5BC = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					93BDF91F1CB8FD1A0058C5BC = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 93BDF9101CB8FD1A0058C5BC;
+					};
+				};
+			};
+			buildConfigurationList = 93BDF90C1CB8FD1A0058C5BC /* Build configuration list for PBXProject "TestRunnerForSoracomSDK" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 93BDF9081CB8FD1A0058C5BC;
+			productRefGroup = 93BDF9121CB8FD1A0058C5BC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93BDF9101CB8FD1A0058C5BC /* TestRunnerForSoracomSDK */,
+				93BDF91F1CB8FD1A0058C5BC /* TestRunnerForSoracomSDKTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93BDF90F1CB8FD1A0058C5BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93BDF91A1CB8FD1A0058C5BC /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93BDF91E1CB8FD1A0058C5BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93BDF90D1CB8FD1A0058C5BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */,
+				932D693D1CB9B18E002F9D99 /* APIError.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93BDF91C1CB8FD1A0058C5BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				932D693E1CB9B18E002F9D99 /* APIError.swift in Sources */,
+				932D693F1CB9B191002F9D99 /* APIErrorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		93BDF9221CB8FD1A0058C5BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93BDF9101CB8FD1A0058C5BC /* TestRunnerForSoracomSDK */;
+			targetProxy = 93BDF9211CB8FD1A0058C5BC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		93BDF9181CB8FD1A0058C5BC /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93BDF9191CB8FD1A0058C5BC /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		93BDF9271CB8FD1A0058C5BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		93BDF9281CB8FD1A0058C5BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		93BDF92A1CB8FD1A0058C5BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TestRunnerForSoracomSDK/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.TestRunnerForSoracomSDK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		93BDF92B1CB8FD1A0058C5BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TestRunnerForSoracomSDK/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.TestRunnerForSoracomSDK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		93BDF92D1CB8FD1A0058C5BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TestRunnerForSoracomSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.TestRunnerForSoracomSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestRunnerForSoracomSDK.app/Contents/MacOS/TestRunnerForSoracomSDK";
+			};
+			name = Debug;
+		};
+		93BDF92E1CB8FD1A0058C5BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TestRunnerForSoracomSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.TestRunnerForSoracomSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestRunnerForSoracomSDK.app/Contents/MacOS/TestRunnerForSoracomSDK";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93BDF90C1CB8FD1A0058C5BC /* Build configuration list for PBXProject "TestRunnerForSoracomSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93BDF9271CB8FD1A0058C5BC /* Debug */,
+				93BDF9281CB8FD1A0058C5BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93BDF9291CB8FD1A0058C5BC /* Build configuration list for PBXNativeTarget "TestRunnerForSoracomSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93BDF92A1CB8FD1A0058C5BC /* Debug */,
+				93BDF92B1CB8FD1A0058C5BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93BDF92C1CB8FD1A0058C5BC /* Build configuration list for PBXNativeTarget "TestRunnerForSoracomSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93BDF92D1CB8FD1A0058C5BC /* Debug */,
+				93BDF92E1CB8FD1A0058C5BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 93BDF9091CB8FD1A0058C5BC /* Project object */;
+}

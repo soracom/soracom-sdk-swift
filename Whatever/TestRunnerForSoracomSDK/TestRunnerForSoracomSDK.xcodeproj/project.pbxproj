@@ -10,6 +10,9 @@
 		932D693D1CB9B18E002F9D99 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D693A1CB9B183002F9D99 /* APIError.swift */; };
 		932D693E1CB9B18E002F9D99 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D693A1CB9B183002F9D99 /* APIError.swift */; };
 		932D693F1CB9B191002F9D99 /* APIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D693C1CB9B183002F9D99 /* APIErrorTests.swift */; };
+		932D69411CB9BA46002F9D99 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69401CB9BA46002F9D99 /* Keychain.swift */; };
+		932D69421CB9BA46002F9D99 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69401CB9BA46002F9D99 /* Keychain.swift */; };
+		932D69441CB9BA50002F9D99 /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69431CB9BA50002F9D99 /* KeychainTests.swift */; };
 		93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */; };
 		93BDF91A1CB8FD1A0058C5BC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BDF9181CB8FD1A0058C5BC /* MainMenu.xib */; };
 /* End PBXBuildFile section */
@@ -27,6 +30,8 @@
 /* Begin PBXFileReference section */
 		932D693A1CB9B183002F9D99 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		932D693C1CB9B183002F9D99 /* APIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorTests.swift; sourceTree = "<group>"; };
+		932D69401CB9BA46002F9D99 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		932D69431CB9BA50002F9D99 /* KeychainTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainTests.swift; sourceTree = "<group>"; };
 		93BDF9111CB8FD1A0058C5BC /* TestRunnerForSoracomSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestRunnerForSoracomSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93BDF9191CB8FD1A0058C5BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -57,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				932D693A1CB9B183002F9D99 /* APIError.swift */,
+				932D69401CB9BA46002F9D99 /* Keychain.swift */,
 			);
 			name = Sources;
 			path = ../../Sources;
@@ -66,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				932D693C1CB9B183002F9D99 /* APIErrorTests.swift */,
+				932D69431CB9BA50002F9D99 /* KeychainTests.swift */,
 			);
 			name = Tests;
 			path = ../../Tests;
@@ -210,6 +217,7 @@
 			files = (
 				93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */,
 				932D693D1CB9B18E002F9D99 /* APIError.swift in Sources */,
+				932D69411CB9BA46002F9D99 /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +226,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				932D693E1CB9B18E002F9D99 /* APIError.swift in Sources */,
+				932D69441CB9BA50002F9D99 /* KeychainTests.swift in Sources */,
 				932D693F1CB9B191002F9D99 /* APIErrorTests.swift in Sources */,
+				932D69421CB9BA46002F9D99 /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

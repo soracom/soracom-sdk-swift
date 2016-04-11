@@ -16,6 +16,12 @@
 		932D69461CB9C002002F9D99 /* SoracomCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69451CB9C002002F9D99 /* SoracomCredentials.swift */; };
 		932D69481CB9C00A002F9D99 /* SoracomCredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69471CB9C00A002F9D99 /* SoracomCredentialsTests.swift */; };
 		932D69491CB9C016002F9D99 /* SoracomCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69451CB9C002002F9D99 /* SoracomCredentials.swift */; };
+		93408AEC1CBB4E900084DC18 /* APIStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AEB1CBB4E900084DC18 /* APIStructures.swift */; };
+		93408AEE1CBB4FA90084DC18 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AED1CBB4FA90084DC18 /* Payload.swift */; };
+		93408AF11CBB4FC40084DC18 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AED1CBB4FA90084DC18 /* Payload.swift */; };
+		93408AF21CBB4FC70084DC18 /* APIStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AEB1CBB4E900084DC18 /* APIStructures.swift */; };
+		93408AF41CBB4FD80084DC18 /* PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */; };
+		93408AF91CBB4FDF0084DC18 /* APIStructuresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AE91CBB4E8D0084DC18 /* APIStructuresTests.swift */; };
 		93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */; };
 		93BDF91A1CB8FD1A0058C5BC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BDF9181CB8FD1A0058C5BC /* MainMenu.xib */; };
 /* End PBXBuildFile section */
@@ -37,6 +43,10 @@
 		932D69431CB9BA50002F9D99 /* KeychainTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainTests.swift; sourceTree = "<group>"; };
 		932D69451CB9C002002F9D99 /* SoracomCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoracomCredentials.swift; sourceTree = "<group>"; };
 		932D69471CB9C00A002F9D99 /* SoracomCredentialsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoracomCredentialsTests.swift; sourceTree = "<group>"; };
+		93408AE91CBB4E8D0084DC18 /* APIStructuresTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStructuresTests.swift; sourceTree = "<group>"; };
+		93408AEB1CBB4E900084DC18 /* APIStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStructures.swift; sourceTree = "<group>"; };
+		93408AED1CBB4FA90084DC18 /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
+		93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadTests.swift; sourceTree = "<group>"; };
 		93BDF9111CB8FD1A0058C5BC /* TestRunnerForSoracomSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestRunnerForSoracomSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93BDF9191CB8FD1A0058C5BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -67,7 +77,9 @@
 			isa = PBXGroup;
 			children = (
 				932D693A1CB9B183002F9D99 /* APIError.swift */,
+				93408AEB1CBB4E900084DC18 /* APIStructures.swift */,
 				932D69401CB9BA46002F9D99 /* Keychain.swift */,
+				93408AED1CBB4FA90084DC18 /* Payload.swift */,
 				932D69451CB9C002002F9D99 /* SoracomCredentials.swift */,
 			);
 			name = Sources;
@@ -78,7 +90,9 @@
 			isa = PBXGroup;
 			children = (
 				932D693C1CB9B183002F9D99 /* APIErrorTests.swift */,
+				93408AE91CBB4E8D0084DC18 /* APIStructuresTests.swift */,
 				932D69431CB9BA50002F9D99 /* KeychainTests.swift */,
+				93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */,
 				932D69471CB9C00A002F9D99 /* SoracomCredentialsTests.swift */,
 			);
 			name = Tests;
@@ -223,9 +237,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */,
+				93408AEE1CBB4FA90084DC18 /* Payload.swift in Sources */,
 				932D69491CB9C016002F9D99 /* SoracomCredentials.swift in Sources */,
 				932D693D1CB9B18E002F9D99 /* APIError.swift in Sources */,
 				932D69411CB9BA46002F9D99 /* Keychain.swift in Sources */,
+				93408AEC1CBB4E900084DC18 /* APIStructures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,9 +249,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93408AF41CBB4FD80084DC18 /* PayloadTests.swift in Sources */,
 				932D693E1CB9B18E002F9D99 /* APIError.swift in Sources */,
+				93408AF11CBB4FC40084DC18 /* Payload.swift in Sources */,
 				932D69441CB9BA50002F9D99 /* KeychainTests.swift in Sources */,
+				93408AF91CBB4FDF0084DC18 /* APIStructuresTests.swift in Sources */,
 				932D693F1CB9B191002F9D99 /* APIErrorTests.swift in Sources */,
+				93408AF21CBB4FC70084DC18 /* APIStructures.swift in Sources */,
 				932D69421CB9BA46002F9D99 /* Keychain.swift in Sources */,
 				932D69461CB9C002002F9D99 /* SoracomCredentials.swift in Sources */,
 				932D69481CB9C00A002F9D99 /* SoracomCredentialsTests.swift in Sources */,

@@ -1,4 +1,4 @@
-// APIError.swift Created by mason on 3/6/16. Copyright © 2016 Soracom, Inc. All rights reserved.
+// APIError.swift Created by mason on 2016-03-06. Copyright © 2016 Soracom, Inc. All rights reserved.
 
 import Foundation
 

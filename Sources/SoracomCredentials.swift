@@ -77,6 +77,8 @@ public struct SoracomCredentials: Equatable {
     /// Write the credentials to secure persistent storage (system keychain). If `identifier` is `nil`, then the default storage identifier for the credentials type is used. Any credentials that were previously stored with the same `identifier` are overwritten. This means that you can choose not to provide an identifier if you only need to store a maximimum of one credentials structure of each type (the default key is provided by `SoracomCredentialType`, and is unique per-type). Also, if `replaceDefault` is true (which it is by default), the credentials are also separately persisted using the identifier `SoracomCredentials.defaultStorageIdentifier`. This allows retrieval of the "default" credentials (the meaning of which is application-specific), regardless of type.
     ///
     /// This makes it easy by default to retrieve the last-saved credentials of each type, and also to retrieve the last-saved credentials regardless of type.
+    ///
+    /// FIXME: need namespacing mechanism so that different clients don't trample on each other's stored credentials and also so that automated tests don't either.
     
     func writeToSecurePersistentStorage(identifier: String? = nil, replaceDefault : Bool = true) -> Bool {
         

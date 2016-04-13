@@ -165,7 +165,7 @@ final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Equatable
 }
 
 
-/// PayloadError is a work in progress. May not be useful.
+/// FIXME: PayloadError is a work in progress. May not be useful. At the least, on deserialization error, the error should capture the data so that the error handler can look at it. 
 
 enum PayloadError: ErrorType {
     case WTF

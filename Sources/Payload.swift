@@ -268,7 +268,7 @@ public enum PayloadKey: String {
 
 // MARK: - PaylodConvertible protocol
 
-/// A request value dictionary is of type Payload. However, that class doesn't know how to serialize struct types like AirStats. So types like that need to implement RequestValueConvertible, so that they can provide a Payload representation of themselves that can then be transalted to [String:AnyObject] so that the JSON encoder can deal with it.
+/// A request value dictionary is of type Payload. However, that class doesn't know how to serialize struct types like AirStats. So types like that need to implement PayloadConvertible, so that they can provide a Payload representation of themselves that can then be transalted to [String:AnyObject] so that the JSON encoder can deal with it.
 
 protocol PayloadConvertible {
     func toPayload() -> Payload

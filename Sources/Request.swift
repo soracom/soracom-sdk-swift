@@ -90,9 +90,9 @@ public class Request {
     var shouldSendAPIKeyAndTokenInHTTPHeaders = true
     
     
-    /// Many API requests have a payload of keys and values that are sent to the server in the HTTP body of the request. The `requestValue` property contains those values. (It is not normally necessary to explicitly set this property, because it will happen automatically when using the one of the convenience methods for creating a request.) This list will be converted to a JSON object when being sent to the server.
+    /// Many API requests have a payload of keys and values that are sent to the server in the HTTP body of the request. The `requestPayload` property contains those values. (It is not normally necessary to explicitly set this property, because it will happen automatically when using the one of the convenience methods for creating a request.) This list will be converted to a JSON object when being sent to the server.
     
-    var requestValues: Payload?
+    var requestPayload: Payload?
     
     /// The URL path, e.g. "/operators/verify". (It is not normally necessary to explicitly set this property, because it will happen automatically when using the one of the convenience methods for creating a request.)
     
@@ -197,9 +197,9 @@ public class Request {
         
         request.HTTPMethod = self.method.rawValue
         
-        if let requestValues = requestValues
+        if let requestPayload = requestPayload
         {
-            request.HTTPBody = requestValues.toJSONData()
+            request.HTTPBody = requestPayload.toJSONData()
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         
@@ -240,7 +240,7 @@ extension Request: CustomStringConvertible {
         
         var result = "\(method) \(buildURL())"
         
-        if let vals = requestValues?.toDictionary() {
+        if let vals = requestPayload?.toDictionary() {
             for (k, v) in vals {
                 result += "\n  \(k): \(v)"
             }

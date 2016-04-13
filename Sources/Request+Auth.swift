@@ -24,7 +24,7 @@ extension Request {
         
         if req.credentials.type == .RootAccount {
             
-            req.requestValues = [
+            req.requestPayload = [
                 .email               : req.credentials.emailAddress,
                 .password            : req.credentials.password,
                 .tokenTimeoutSeconds : timeout
@@ -32,7 +32,7 @@ extension Request {
             
         } else if req.credentials.type == .SAM {
             
-            req.requestValues = [
+            req.requestPayload = [
                 .operatorId          : req.credentials.operatorID,
                 .userName            : req.credentials.username,
                 .password            : req.credentials.password,
@@ -41,7 +41,7 @@ extension Request {
             
         } else if req.credentials.type == .AuthKey {
             
-            req.requestValues = [
+            req.requestPayload = [
                 .authKey             : req.credentials.authKeySecret,
                 .authKeyId           : req.credentials.authKeyID,
                 .tokenTimeoutSeconds : timeout
@@ -63,7 +63,7 @@ extension Request {
     public class func issuePasswordResetToken(email: String) -> Request {
         
         let req = self.init("/auth/password_reset_token/issue")
-        req.requestValues = [
+        req.requestPayload = [
             .email: email
         ]
         return req
@@ -75,7 +75,7 @@ extension Request {
     public class func verifyPasswordResetToken(password: String, token: String) -> Request {
         
         let req = self.init("/auth/password_reset_token/verify")
-        req.requestValues = [
+        req.requestPayload = [
             .password : password,
             .token    : token,
         ]

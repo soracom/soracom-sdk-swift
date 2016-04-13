@@ -48,21 +48,34 @@ public class Request {
     private var _endpoint: String? = nil
     
     
-    /// The credentials object that is used to authorize the API request. The credentials object can store different kinds of credentials; for instance, an email/password pair (required to authenticate with a root account), or the operatorID/username/password corresponding to a SAM user.
+    /// The credentials object that is used to authorize the API request.
+    ///
+    /// Directly setting this property on a Request instance is supported, but it may be more convenient to set `credentialsFinder` instead, to supply a lookup routine (either on a Request instance, or on the Request type itself to make it the default for all new instances).
+    ///
+    /// If this property has not been set, the "default" stored credentials of type .KeyAndToken will normally be used, which may suffice for simple applications.
 
     var credentials: SoracomCredentials {
         
-        if let finder = self.credentialsFinder {
-
-            return finder(self)
+        get {
+            if let finder = self.credentialsFinder {
+                
+                return finder(self)
+                
+            } else if let finder = Request.credentialsFinder {
+                
+                return finder(self)
+                
+            } else {
+                
+                return SoracomCredentials(withStoredType: .KeyAndToken)
+            }
+        }
         
-        } else if let finder = Request.credentialsFinder {
-            
-            return finder(self)
-
-        } else {
-            
-            return SoracomCredentials(withStoredType: .KeyAndToken)
+        set {
+            let creds = newValue
+            credentialsFinder = { (req) in
+                return creds
+            }
         }
     }
     

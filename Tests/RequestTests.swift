@@ -85,4 +85,26 @@ class RequestTests: BaseTestCase {
         confirm(120.0)
     }
     
+    
+    func test_set_credentials() {
+        // Assert that setting credentials as if they were a regular property works.
+        
+        let defaultCredentials = SoracomCredentials(type: .KeyAndToken, emailAddress: "default@foo.bar")
+        defaultCredentials.writeToSecurePersistentStorage()
+
+        let req = Request("fake")
+        
+        XCTAssertEqual(req.credentials, defaultCredentials)
+        
+        let creds = SoracomCredentials(type: .RootAccount, emailAddress: "me@foo.bar")
+        req.credentials = creds
+        
+        XCTAssertEqual(req.credentials, creds)
+        
+        // You cannot do this: req.credentials = nil
+        // There is not really a reason to do this (vs just create a new request) but you can achieve the intention above by doing this:
+        req.credentialsFinder = nil
+        XCTAssertEqual(req.credentials, defaultCredentials)
+    }
+    
 }

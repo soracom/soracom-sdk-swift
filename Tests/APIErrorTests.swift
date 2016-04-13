@@ -10,4 +10,16 @@ class APIErrorTests: XCTestCase {
         XCTAssertTrue(e.errorCode.containsString("WTF"))
     }
     
+    
+    func test_APIError_init_with_payload() {
+        
+        let bad: Payload  = [.email: "no error code", .message: "a message"]
+        let good: Payload = [.code: "no error code", .message: "a message"]
+        
+        XCTAssertNil(APIError(payload: bad))
+        XCTAssertNil(APIError(payload: nil))
+        
+        XCTAssertNotNil(APIError(payload:good))
+    }
+    
 }

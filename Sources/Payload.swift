@@ -200,6 +200,7 @@ public enum PayloadKey: String {
     case balance
     case beamStatsMap
     case billItemName
+    case code
     case couponCode
     case createDateTime
     case credentials
@@ -218,6 +219,7 @@ public enum PayloadKey: String {
     case inTcp
     case inUdp
     case lastUsedDateTime
+    case message
     case name
     case number
     case operatorId

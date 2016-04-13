@@ -45,5 +45,26 @@ public struct APIError {
         self.errorCode = "CLI0666"
         self.message   = "A client side error occurred: \(underlyingError)"
     }
+    
+    
+    /// Init a new APIError from a Payload structure. Returns nil unless Payload exists and has `.code` and `.message` keys.
+    
+    init?(payload: Payload?) {
+        
+        guard let payload = payload else {
+            return nil
+        }
+        
+        let code    = payload[.code] as? String
+        let message = payload[.message] as? String
+        
+        // FIXME: add messageArgs (see note above)
+        
+        if code != nil && message != nil {
+            self.init(errorCode:code, message:message)
+        } else {
+            return nil;
+        }
+    }
 
 }

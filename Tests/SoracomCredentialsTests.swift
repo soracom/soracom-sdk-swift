@@ -110,5 +110,42 @@ class SoracomCredentialsTests: XCTestCase {
         foo.emailAddress = bar.emailAddress
         XCTAssert(foo == bar && bar == baz && baz == foo)
     }
+    
+    
+    func test_namespaces() {
+        // Mason 2016-04-13: doing the namespace feature test-first.
+        
+        let badNamespace = NSUUID(UUIDString: SoracomCredentials.debugNamespaceString)
+        XCTAssertNotNil(badNamespace)
+        
+        one.writeToSecurePersistentStorage()
+        var read = SoracomCredentials(withStorageIdentifier: nil)
+        XCTAssert(read == one)
+
+        two.writeToSecurePersistentStorage()
+        read = SoracomCredentials(withStorageIdentifier: nil)
+        XCTAssert(read == two)
+        
+        let namespace1 = NSUUID()
+        let namespace2 = NSUUID()
+        
+        one.writeToSecurePersistentStorage(namespace: namespace1)
+        
+        read = SoracomCredentials(withStorageIdentifier: nil)
+        XCTAssert(read == two) // should still be two, because we wrote one with a different namespcce
+        
+        read = SoracomCredentials(withStorageIdentifier: nil, namespace: namespace1)
+        XCTAssert(read == one)
+
+        read = SoracomCredentials(withStorageIdentifier: nil, namespace: namespace2)
+        XCTAssert(read != two) // should be blank instance; we haven't written yet
+        two.writeToSecurePersistentStorage(namespace: namespace2)
+        read = SoracomCredentials(withStorageIdentifier: nil, namespace: namespace2)
+        XCTAssert(read == two)
+        
+        // Now for good measure, let's assert writing to namespace2 didn't fubar namespace1
+        read = SoracomCredentials(withStorageIdentifier: nil, namespace: namespace1)
+        XCTAssert(read == one)
+    }
 
 }

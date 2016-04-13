@@ -54,10 +54,13 @@ public struct SoracomCredentials: Equatable {
     
     
     /// Initialize a credentials struct from the data stored in secure persistent storage (system keychain) with the given `identifier`. A `nil` value for `identifier` means the default identifier should be used (`SoracomCredentials.keychainItemDefault`).
+    ///
+    /// Under normal circumstances, the `namespace` parameter should be nil (because `SoracomCredentials.defaultStorageNamespace` should have already been set).
     
-    init(withStorageIdentifier identifier: String?) {
+    init(withStorageIdentifier identifier: String?, namespace: NSUUID? = nil) {
         
-        let identifier = identifier ?? SoracomCredentials.defaultStorageIdentifier
+        let base       = identifier ?? SoracomCredentials.defaultStorageIdentifier
+        let identifier = SoracomCredentials.buildNamespacedIdentifier( base, namespace: namespace )
         
         if let data = Keychain.read(identifier), let dict = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [String:String] {
             self.init(withDictionary: dict)
@@ -68,9 +71,11 @@ public struct SoracomCredentials: Equatable {
     
     
     /// Initialize and return a new credentials instance based on the values (if any) stored in secure persistent storage, using the default storage identifier for `type`. If nothing is stored for that identifier, a new empty credentials instance will be returned.
-    
-    init(withStoredType type: SoracomCredentialType) {
-        self.init(withStorageIdentifier: type.defaultStorageIdentifier())
+    ///
+    /// Under normal circumstances, the `namespace` parameter should be nil (because `SoracomCredentials.defaultStorageNamespace` should have already been set).
+
+    init(withStoredType type: SoracomCredentialType, namespace: NSUUID? = nil) {
+        self.init(withStorageIdentifier: type.defaultStorageIdentifier(), namespace: namespace)
     }
     
     
@@ -78,17 +83,29 @@ public struct SoracomCredentials: Equatable {
     ///
     /// This makes it easy by default to retrieve the last-saved credentials of each type, and also to retrieve the last-saved credentials regardless of type.
     ///
-    /// FIXME: need namespacing mechanism so that different clients don't trample on each other's stored credentials and also so that automated tests don't either.
+    /// Under normal circumstances, the `namespace` parameter should be nil (because `SoracomCredentials.defaultStorageNamespace` should have already been set).
     
-    func writeToSecurePersistentStorage(identifier: String? = nil, replaceDefault : Bool = true) -> Bool {
+    func writeToSecurePersistentStorage(identifier: String? = nil, namespace: NSUUID? = nil, replaceDefault : Bool = true) -> Bool {
         
-        let identifier = identifier ?? type.defaultStorageIdentifier()
+        let base       = identifier ?? type.defaultStorageIdentifier()
+        let identifier = self.dynamicType.buildNamespacedIdentifier(base, namespace: namespace)
         let data       = NSKeyedArchiver.archivedDataWithRootObject(dictionaryRepresentation())
         var result     = Keychain.write(identifier, data: data)
         
         if (replaceDefault) {
-            let identifier = SoracomCredentials.defaultStorageIdentifier
-            result = result && Keychain.write(identifier, data: data)
+            let base       = self.dynamicType.defaultStorageIdentifier
+            let identifier = self.dynamicType.buildNamespacedIdentifier(base, namespace: namespace)
+            result         = result && Keychain.write(identifier, data: data)
+        }
+        
+        if (self.dynamicType.buildNamespacedIdentifier("") == self.dynamicType.debugNamespaceString) {
+            print("*** WARNING: Default debug namespace string was used to write credentials to persistent storage.")
+            print("***")
+            print("*** This is acceptable for initial experimentation, tests, debugging, etc.")
+            print("***")
+            print("*** However, the default debug namespace string should never be used in production, because")
+            print("*** credentials may be overwritten without warning. See the documentation for")
+            print("*** defaultStorageNamespace for details.")
         }
         
         return result
@@ -117,6 +134,56 @@ public struct SoracomCredentials: Equatable {
     /// The storage identifier used to look up the "default" credentials. This is similar to SoracomCredentialType.defaultStorageIdentifier(), except that it is used to store and retrieve the default credentials, whatever type they happen to be. (What "default" means is application-specific, and no assumptions are made in this SDK about how it is to be used.)
     
     static let defaultStorageIdentifier = "jp.soracom.soracom-sdk-swift.SoracomCredentials.Default"
+    
+    
+    /// The default storage namespace is a UUID that uniquely identifies the storage for a client application. Each application that uses this SDK should initialize this property to a hardcoded, globally unique UUID value. 
+    ///
+    /// When writing credentials to secure persistent storage, the default storage namespace is used to create unique storage keys, preventing applications that use the default read/write methods from overwriting credentials stored by another application that also uses this SDK.
+    ///
+    /// If a default storage namespace is not provided, then the a UUID based on `debugNamespaceString` will be used. **WARNING**: You should *always* specify a default storage namespace in production; the debug namespace is only intended for initial experimentation and debugging.
+    ///
+    /// To creat a unique string on OS X, run the `uuidgen` command in the Terminal. This will create a string like "1087FC09-CF01-4E6E-AEEE-2F9EACB0A3C9".
+    ///
+    /// Such a unique string should be hardcoded into every client somewhere early in initialization, like this:
+    ///
+    ///     if let namespace = NSUUID(UUIDString: "1087FC09-CF01-4E6E-AEEE-2F9EACB0A3C9") {
+    ///         SoracomCredentials.defaultStorageNamespace = namespace
+    ///     } else {
+    ///         fatalError("App needs a valid UUID for its default storage namespace.")
+    ///     }
+
+    static var defaultStorageNamespace: NSUUID? = nil
+
+    
+    /// **WARNING**: You should *always* specify a default storage namespace in production. For initial experimentation and debugging convenience, however, a UUID based on this constant will be used. This means other clients of this SDK may overwrite your stored credentials, however.
+    
+    static let debugNamespaceString = "DEADBEEF-DEAD-BEEF-DEAD-DECAFBADDEAD"
+    
+    
+    /// Get a valid storage namespace.
+    
+    static func buildNamespacedIdentifier(identifier: String, namespace: NSUUID? = nil) ->  String {
+        
+        var result = identifier
+        
+        if let namespace = namespace {
+            result += namespace.UUIDString
+            
+        } else if let namespace = self.defaultStorageNamespace {
+            result += namespace.UUIDString
+            
+        } else {
+
+            if let namespace = NSUUID(UUIDString: self.debugNamespaceString) {
+                result += namespace.UUIDString
+            } else {
+                result += "error"
+                fatalError("fatal error: unable to create storage namespace")
+            }
+        }
+        return result
+    }
+    
 }
 
 

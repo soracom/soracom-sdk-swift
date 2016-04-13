@@ -123,29 +123,18 @@ public struct Response {
     var error: APIError?
     
     
-    /// Returns a value from the API response payload, or nil if not present. FIXME: this used to make sense when we didn't have a Payload object and the response sort of served as the payload... but does it still make sense? (my hunch is no)
-    
-    subscript(key: String) -> AnyObject? {
-        if let key = PayloadKey(rawValue: key) {
-            return payload?[key]
-        }
-        return nil
-    }
-    
-    
     /// Internal func to compare the actual `HTTPStatus` with the `expectedHTTPStatus`, and construct and return an appropriate `APIError` if they don't match. Returns nil if `HTTPStatus == expectedHTTPStatus`.
     
     func getErrorIfHTTPStatusIsUnexpected() -> APIError? {
+        
         guard HTTPStatus != request.expectedHTTPStatus else {
             return nil
         }
         
         // The API reported an error. Let's see if we can parse this as a regular API error response:
-        let c = self["code"] as? String
-        let m = self["message"] as? String
         
-        if c != nil {
-            return APIError(errorCode: c, message: m)
+        if let error = APIError(payload: payload) {
+            return error
         } else {
             // Hmm. The server didn't return the [code:, message:] err result that we understand, so make a generic error instead:
             return APIError(errorCode: "CLI0666", message: "got HTTP status \(HTTPStatus), but expected \(request.expectedHTTPStatus)")
@@ -156,6 +145,7 @@ public struct Response {
     /// Internal func to check for missing keys and return an appropriate APIError if required keys are missing. Returns nil if no keys are missing. FIXME: Should be Payload's job, but that's not in yet.
     
     func getErrorIfExpectedKeysAreMissing() -> APIError? {
+        
         var missingKeys: [String] = []
         let dict = dictionary
         

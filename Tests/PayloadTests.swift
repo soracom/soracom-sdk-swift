@@ -91,6 +91,53 @@ class PayloadTests: XCTestCase {
     }
     
     
+    func test_toDictionary_extended_with_nested_payload() {
+        
+        let requestValues: Payload = [
+            PayloadKey.name     : [.cvc: "fee fie foe fum", .authKey: 666] as Payload,
+            PayloadKey.unixtime : "💩"
+        ]
+        
+        let actual = requestValues.toDictionary()
+        
+        let expected: [String: AnyObject] = [
+            "name"     : ["cvc" : "fee fie foe fum", "authKey": 666],
+            "unixtime" : "💩"
+        ]
+        
+        XCTAssertEqual(actual as NSDictionary, expected as NSDictionary)
+    }
+    
+    
+    func test_more_extended_nested_toDictionary() {
+        let granddaughter: Payload = [
+            .email   : "granddaughter@soracom.jp",
+            ]
+        
+        let daughter: Payload = [
+            .email        : "daughter@soracom.jp",
+            .beamStatsMap : granddaughter
+        ]
+        
+        let mama: Payload = [
+            .email               : "mama@soracom.jp",
+            .dataTrafficStatsMap : daughter
+        ]
+        
+        do {
+            let encoded = mama.toDictionary()
+            let decoded = try Payload.fromDictionary(encoded)
+            let recoded = decoded.toDictionary()
+            
+            XCTAssertEqual(encoded as NSDictionary, recoded as NSDictionary)
+            
+        } catch {
+            XCTFail("unexpected error: \(error)")
+        }
+    }
+
+    
+    
     func test_fromDictionary() {
         let d = [
             "email"          : "foo@bar.com",
@@ -125,36 +172,6 @@ class PayloadTests: XCTestCase {
             gotError = true
         }
        XCTAssertTrue(gotError)
-    }
-    
-    
-    func test_nested_toDictionary() {
-        let granddaughter: Payload = [
-            .email   : "granddaughter@soracom.jp",
-        ]
-        
-        let daughter: Payload = [
-            .email        : "daughter@soracom.jp",
-            .beamStatsMap : granddaughter
-        ]
-        
-        let mama: Payload = [
-            .email               : "mama@soracom.jp",
-            .dataTrafficStatsMap : daughter
-        ]
-
-        do {
-            let encoded = mama.toDictionary()
-            let decoded = try Payload.fromDictionary(encoded)
-            let recoded = decoded.toDictionary()
-            
-            XCTAssertEqual(encoded as NSDictionary, recoded as NSDictionary)
-            
-        } catch {
-            XCTFail("unexpected error: \(error)")
-        }
-        
-        print("hoo haw!")
     }
     
     

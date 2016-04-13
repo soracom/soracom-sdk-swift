@@ -7,6 +7,8 @@ import XCTest
 
 class BaseTestCase: XCTestCase {
     
+    let storageNamespaceForTestCredentials = NSUUID(UUIDString: "C73085D8-FF86-4749-8CA0-2B6B71298FD6")!
+    
     func expect(description: String = #function) -> XCTestExpectation {
         print("EXPECT: \(description)")
         return expectationWithDescription(#function)

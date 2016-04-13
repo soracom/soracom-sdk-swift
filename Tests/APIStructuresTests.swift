@@ -62,4 +62,25 @@ class APIStructuresTests: XCTestCase {
         }
     }
     
+    
+    func test_AuthResponse_init() {
+        let good: Payload = [
+            .apiKey     : "some key",
+            .token      : "some token value",
+            .operatorId : "OP666",
+        ]
+        
+        let bad: Payload = [
+            .token      : "some token value",
+            .operatorId : "OP666",
+        ]
+        
+        XCTAssertNil( AuthResponse(bad) )
+        
+        let a = AuthResponse(good)
+        
+        XCTAssertNotNil(a)
+        
+    }
+    
 }

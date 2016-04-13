@@ -10,6 +10,28 @@ enum HTTPMethod: String {
 }
 
 
+/// This is the object included in the response returned by the API auth() call. [API docs](https://dev.soracom.io/jp/docs/api/#!/Auth/auth)
+
+public struct AuthResponse {
+    
+    var apiKey: String?     = nil
+    var operatorId: String? = nil
+    var token: String?      = nil
+    var userName: String?   = nil
+    
+    init?(_ payload: Payload) {
+        apiKey     = payload[.apiKey] as? String
+        operatorId = payload[.operatorId] as? String
+        token      = payload[.token] as? String
+        userName   = payload[.userName] as? String
+        
+        guard apiKey != nil && token != nil else {
+            return nil
+        }
+    }
+}
+
+
 /// FIXME: Mason 2016-03-23: What is this and what is it for? Generic credentials for cloud providers?
 
 public struct Credential: PayloadConvertible {

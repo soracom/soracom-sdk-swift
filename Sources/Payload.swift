@@ -195,6 +195,7 @@ func ==(lhs: Payload, rhs: Payload) -> Bool
 public enum PayloadKey: String {
     
     case amount
+    case apiKey
     case authKey
     case authKeyId
     case balance

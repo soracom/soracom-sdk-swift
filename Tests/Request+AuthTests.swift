@@ -8,56 +8,37 @@ class RequestAuthTests: BaseTestCase {
     
     func test_auth_with_root_account() {
         
-        let credentials = SoracomCredentials(withStoredType: .RootAccount, namespace: storageNamespaceForTestCredentials)
-        
-        if credentials.emailAddress == "" {
-            print("")
-            print("TEST CREDENTIALS FOR API SANDBOX NOT FOUND.")
-            print("This means that \(#function) will not execute.")
-            print("Set a breakpoint here to add credentials if you")
-            print("want this test to run.")
-            print("")
-            
-            // To store your credentials in the keychain, uncomment the method call below,
-            // and change the parameters to your real API sandbox login info.
-            // Then, re-run this test. After it runs, revert your changes.
-            //
-            // Ideally we would do this on the lldb command line in Xcode, but as of Xcode 7.3
-            // that does not work:
-            //
-            //     ((lldb) p save_sandbox_root_credentials("foo", password: "bar")
-            //     error: Execution was interrupted, reason: internal c++ exception breakpoint(-4)..
-            //     The process has been returned to the state before expression evaluation.
+        guard let credentials = credentialsForTestUse(.RootAccount) else {
+            // To store your credentials, set a breakpoint here and do this (see note in method documentation):
+            // saveSandboxRootCredentials("foo", password: "bar")
 
-            // save_sandbox_root_credentials("foo", password: "bar")
+            return
+        }
         
-        } else {
+        let expectation = expect()
+        
+        Request.auth(credentials).run { (result) in
             
-            let expectation = expect()
-
-            Request.auth(credentials).run { (result) in
+            print("AUTH: ", result)
+            XCTAssert(result.error == nil)
+            
+            if let payload = result.payload {
                 
-                print("AUTH: ", result)
-                XCTAssert(result.error == nil)
+                let authResponse = AuthResponse(payload)
                 
-                if let payload = result.payload {
-                    
-                    let authResponse = AuthResponse(payload)
-                    
-                    XCTAssertNotNil(authResponse)
-                    XCTAssertNotNil(authResponse?.operatorId)
-                    XCTAssertNotNil(authResponse?.apiKey)
-                    XCTAssertNotNil(authResponse?.token)
-                    
-                } else {
-                    XCTFail("auth() did not receive a payload")
-                }
+                XCTAssertNotNil(authResponse)
+                XCTAssertNotNil(authResponse?.operatorId)
+                XCTAssertNotNil(authResponse?.apiKey)
+                XCTAssertNotNil(authResponse?.token)
                 
-                expectation.fulfill()
+            } else {
+                XCTFail("auth() did not receive a payload")
             }
             
-            confirm()
+            expectation.fulfill()
         }
+        
+        confirm()
     }
     
     
@@ -68,8 +49,8 @@ class RequestAuthTests: BaseTestCase {
     /// Make a bogus request and assert the expected error happens.
     
     func test_issue_password_reset_token() {
+
         let expectation = expect()
-        
         
         Request.issuePasswordResetToken("fragnock@whut.com").run { (result) in
             
@@ -86,16 +67,6 @@ class RequestAuthTests: BaseTestCase {
         }
         
         confirm()
-    }
-    
-    
-    /// This function makes it easy for the end user running these tests to store credentials in the Keychain.
-    
-    func save_sandbox_root_credentials(emailAddress: String, password: String) {
-        let creds     = SoracomCredentials(type: .RootAccount, emailAddress: emailAddress, password: password)
-        let namespace = storageNamespaceForTestCredentials
-        let wrote = creds.writeToSecurePersistentStorage(namespace: namespace)
-        print(wrote ? "SUCCESSFULLY WROTE CREDENTIALS. \(namespace)" : "ERROR! COULD NOT WRITE CREDENTIALS.")
     }
     
 }

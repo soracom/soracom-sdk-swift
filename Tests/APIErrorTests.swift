@@ -6,8 +6,8 @@ class APIErrorTests: XCTestCase {
     
     func test_APIError_existence() {
         
-        let e = APIError(errorCode: "WTF01234", message: "Hello, error!")
-        XCTAssertTrue(e.errorCode.containsString("WTF"))
+        let e = APIError(code: "WTF01234", message: "Hello, error!")
+        XCTAssertTrue(e.code.containsString("WTF"))
     }
     
     

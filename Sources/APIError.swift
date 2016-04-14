@@ -11,7 +11,7 @@ public struct APIError {
     
     /// The error code. In most cases, this is an error code returned by the API server. However, if the error code begins with "CLI" then it is a client-side error, e.g. something that prevented even getting a response from the server (such as, 'network not available').
     
-    let errorCode: String
+    let code: String
     
     
     /// The error messsage describing what went wrong.
@@ -26,9 +26,9 @@ public struct APIError {
     
     /// Init an error the normal way, for an error condition returned by the API server.
     
-    init(errorCode: String?, message: String?) {
-        self.errorCode = errorCode ?? "UNK0001" // copy what Go SDK does
-        self.message   = message ?? "unknown error"
+    init(code: String?, message: String?) {
+        self.code    = code ?? "UNK0001" // copy what Go SDK does
+        self.message = message ?? "unknown error"
         // FIXME: Mason 2016-03-06: the Go SDK has one more field, messageArgs, which is used to compose the actual message string, but I haven't yet had time to make that work. (See: api_error.go)
         
         self.underlyingError = nil
@@ -42,8 +42,8 @@ public struct APIError {
         
         // FIXME: Someday we should have more intelligent error codes and messages based on what the underlying error is.
         
-        self.errorCode = "CLI0666"
-        self.message   = "A client side error occurred: \(underlyingError)"
+        self.code    = "CLI0666"
+        self.message = "A client side error occurred: \(underlyingError)"
     }
     
     
@@ -61,7 +61,7 @@ public struct APIError {
         // FIXME: add messageArgs (see note above)
         
         if code != nil && message != nil {
-            self.init(errorCode:code, message:message)
+            self.init(code:code, message:message)
         } else {
             return nil;
         }

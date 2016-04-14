@@ -137,7 +137,7 @@ public struct Response {
             return error
         } else {
             // Hmm. The server didn't return the [code:, message:] err result that we understand, so make a generic error instead:
-            return APIError(errorCode: "CLI0666", message: "got HTTP status \(HTTPStatus), but expected \(request.expectedHTTPStatus)")
+            return APIError(code: "CLI0666", message: "got HTTP status \(HTTPStatus), but expected \(request.expectedHTTPStatus)")
             // FIXME: See if we can add real err codes for client-side errs, that don't potentially conflict with API-side err codes.
         }
     }
@@ -155,7 +155,7 @@ public struct Response {
             }
         }
         if missingKeys.count > 0 {
-            return APIError(errorCode:"CLI0667", message: "failed to parse response: missing data for \(missingKeys.joinWithSeparator(", "))" )
+            return APIError(code:"CLI0667", message: "failed to parse response: missing data for \(missingKeys.joinWithSeparator(", "))" )
         } else {
             return nil
         }

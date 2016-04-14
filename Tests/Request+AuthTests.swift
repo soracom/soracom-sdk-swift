@@ -74,7 +74,7 @@ class RequestAuthTests: BaseTestCase {
         Request.issuePasswordResetToken("fragnock@whut.com").run { (result) in
             
             XCTAssert(result.error != nil)
-            XCTAssert(result.error?.errorCode == "AUM0004")
+            XCTAssert(result.error?.code == "AUM0004")
             
             let message = result.error?.message ?? ""
             XCTAssert(message.containsString("nvalid email address"))

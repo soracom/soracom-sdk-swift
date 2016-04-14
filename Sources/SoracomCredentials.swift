@@ -28,7 +28,7 @@ public struct SoracomCredentials: Equatable {
         self.username      = username
         self.password      = password
         self.authKeyID     = authKeyID
-        self.authKeySecret = password
+        self.authKeySecret = authKeySecret
         self.apiKey        = apiKey
         self.apiToken      = apiToken
     }

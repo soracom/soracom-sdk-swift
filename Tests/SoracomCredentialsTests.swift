@@ -147,5 +147,21 @@ class SoracomCredentialsTests: XCTestCase {
         read = SoracomCredentials(withStorageIdentifier: nil, namespace: namespace1)
         XCTAssert(read == one)
     }
+    
+    
+    func test_blank() {
+        
+        var c: SoracomCredentials
+        c = SoracomCredentials(type: .RootAccount)
+        XCTAssert(c.blank)
+        c.emailAddress = "a"
+        XCTAssert(!c.blank)
+        c.emailAddress = ""
+        XCTAssert(c.blank)
+        c.apiToken = "hi, my name is"
+        XCTAssert(!c.blank)
+        c.apiToken = ""
+        XCTAssert(c.blank)
+    }
 
 }

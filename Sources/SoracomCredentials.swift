@@ -131,6 +131,13 @@ public struct SoracomCredentials: Equatable {
     }
     
     
+    /// Returns true if all of the receiver's string properties are the empty string.
+    var blank: Bool {
+        let other = SoracomCredentials(type: self.type)
+        return self == other
+    }
+    
+    
     /// The storage identifier used to look up the "default" credentials. This is similar to SoracomCredentialType.defaultStorageIdentifier(), except that it is used to store and retrieve the default credentials, whatever type they happen to be. (What "default" means is application-specific, and no assumptions are made in this SDK about how it is to be used.)
     
     static let defaultStorageIdentifier = "jp.soracom.soracom-sdk-swift.SoracomCredentials.Default"

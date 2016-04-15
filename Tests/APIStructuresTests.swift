@@ -1,9 +1,8 @@
 // APIStructuresTests.swift Created by mason on 2016-03-21. Copyright © 2016 Soracom, Inc. All rights reserved.
 
-
 import XCTest
 
-class APIStructuresTests: XCTestCase {
+class APIStructuresTests: BaseTestCase {
     
     func test_AirStats_serialization() {
         

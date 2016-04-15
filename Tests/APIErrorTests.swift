@@ -2,7 +2,7 @@
 
 import XCTest
 
-class APIErrorTests: XCTestCase {
+class APIErrorTests: BaseTestCase {
     
     func test_APIError_existence() {
         

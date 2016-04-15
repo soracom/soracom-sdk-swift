@@ -2,15 +2,105 @@
 
 import XCTest
 
+var oneTimeTestSetupToken: dispatch_once_t  = 0
 
 /// A base class that implements some common conveniences/hacks for the project's tests. e.g. making async tests require less boilerplate.
 
 class BaseTestCase: XCTestCase {
+
+    /// We override `setUp()` to:
+    ///
+    /// - set the default credentials storage namespace to `BaseTestCase.storageNamespaceForSandboxCredentials`. This lets the tests fetch and use a unique set of credentials. Tests that **write** credentials as part of their testing should do a similar thing, so they do not clobber the credentials used by other tests.
+    /// 
+    /// - run some one-time setup code that tries to log in to the API sandbox using those credentials, to fetch an expiring API Key and API Token, which is needed for most tests that exercise the API.
+    
+    override func setUp() {
+        
+        super.setUp()
+        
+        SoracomCredentials.defaultStorageNamespace = self.storageNamespaceForSandboxCredentials
+        
+        dispatch_once(&oneTimeTestSetupToken) {
+            
+            // FIXME: This is the first working iteration of this code. Provided you have manually entered a .RootAccount credential
+            // for the API Sandbox, it will use that to create an API Key and API Token that is then used to run the tests.
+            //
+            // However, API Sandbox accounts expire after about a week or so, so this means that the user will have to manually
+            // enter credentials if the tests have not run for a week.
+            //
+            // In the end, this should use the credentials for a real production SAM user, and then automatically create an account
+            // in the API Sandbox, if necessary, before doing what it currently does. That way, the user will only have to manually
+            // enter credentials one time per machine the tests are run on. (Not doing that today, though.)
+            
+            print("------------------------------")
+            print("--- BaseTestCase will now attempt to set up the testing environment for this test run.")
+            print("--- ✅ Set the app-wide default storage namespace to BaseTestCase.storageNamespaceForSandboxCredentials.")
+            
+            let creds = self.credentialsForTestUse(.RootAccount)
+            
+            if (creds == nil) {
+                print("--- ⚠️ There are no stored API sandbox credentials. This is OK, but it means many tests will not run.")
+            
+            } else {
+             
+                print("--- ✅ Found stored API sandbox credentials. Will attempt to refresh API key and token... ")
+
+                self.beginAsyncSection()
+                
+                Request.auth(creds).run { (response) in
+                    
+                    if let err = response.error {
+                     
+                        print("--- ⚠️ An error occurred:")
+                        print("--- ⚠️ \(err)")
+                    
+                    } else {
+                        
+                        var wentOK = false
+                        
+                        if let authResponse = AuthResponse(response.payload),
+                           let operatorId   = authResponse.operatorId,
+                           let apiKey       = authResponse.apiKey,
+                           let apiToken     = authResponse.token
+                        {
+                            wentOK = SoracomCredentials(type: .KeyAndToken, operatorID: operatorId, apiKey: apiKey, apiToken: apiToken).writeToSecurePersistentStorage() // no need to set namespace because we set default above
+                            print(apiToken)
+                        }
+                        
+                        if (wentOK) {
+                            print("--- ✅ Stored API Key and Token successfully. All tests will therefore run. ")
+
+                        } else {
+                            print("--- ⚠️ WTF: unexpected happening! 🤔")
+                            print(response)
+                        }
+                    }
+                    
+                    self.endAsyncSection()
+                }
+                
+                self.waitForAsyncSection()
+
+                print("------------------------------")
+            }
+            
+        }
+    }
+    
+
+    /// This credentials storage namespace is used when tests need **actual production** credentials. For example, some tests need credentials for a real Soracom SAM user, in order to create an account in the API sandbox. Writing any other credentials to this namespace should be avoided.
     
     let storageNamespaceForProductionCredentials = NSUUID(UUIDString: "454BA030-3DBC-4D09-BFC3-35CE9C7BDFFF")!
     
+
+    /// This credentials storage namespace is used when tests need working API Sandbox credentials. Most tests that make network requests to exercise API functions need these credentials. Writing any other credentials to this namespace should be avoided.
+
     let storageNamespaceForSandboxCredentials = NSUUID(UUIDString: "C73085D8-FF86-4749-8CA0-2B6B71298FD6")!
     
+    /// /// This credentials storage namespace is used when tests need to read/write credentials as part of their test work. This namespace should be used when the credentials are only needed during the execution of a single test. Various test cases may write to this namespace, so no assumptions should be made about what it contains. 
+    
+    let storageNamespaceForJunkCredentials = NSUUID(UUIDString: "FE083FA9-79CB-4D61-9E12-9BD609C9743B")!
+
     
     /// This method looks up the credentials for test use. Many tests require some kind of credentials created in the API sandbox. Rarely, actual production credentials will be required (e.g. to create a new sandbox user for testing). Even for testing credentials, we don't want to store them in plaintext, so they are stored in secure persistent storage, in their own namespace.
     ///

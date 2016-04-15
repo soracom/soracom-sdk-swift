@@ -2,7 +2,15 @@
 
 import XCTest
 
-class SoracomCredentialsTests: XCTestCase {
+class SoracomCredentialsTests: BaseTestCase {
+    
+    /// Overridden to set the default credentials storage namespace to `storageNamespaceForJunkCredentials`, becuase these tests exercise the actual credentials read/write API. 
+    
+    override func setUp() {
+        super.setUp()
+        SoracomCredentials.defaultStorageNamespace = storageNamespaceForJunkCredentials
+    }
+    
     
     var one = SoracomCredentials(type: .RootAccount, emailAddress: "one", operatorID: "one", username: "one", password: "one", authKeyID: "one", authKeySecret: "one", apiKey: "one", apiToken: "one")
     

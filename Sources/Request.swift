@@ -167,6 +167,8 @@ public class Request {
         let request = buildURLRequest()
         self.URLRequest = request
 
+        // FIXME: check for 'no credentials' and error appropriately         
+
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error -> Void in
             

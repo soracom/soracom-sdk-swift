@@ -5,6 +5,14 @@ import XCTest
 
 class RequestTests: BaseTestCase {
     
+    /// Overridden to set the default credentials storage namespace to `storageNamespaceForJunkCredentials`, becuase these tests write credentials as part of their work.
+    
+    override func setUp() {
+        super.setUp()
+        SoracomCredentials.defaultStorageNamespace = storageNamespaceForJunkCredentials
+    }
+    
+
     func test_lookup_credentials_for_HTTP_headers() {
         // By default, Request will look up the "default" stored credentials of type SoracomCredentialType.KeyAndToken. However, the client
         // code may override that behavior by passing a function/closure to do the lookup. This can be done on a global or per-instance basis.

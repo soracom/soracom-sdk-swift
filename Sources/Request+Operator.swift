@@ -4,24 +4,46 @@ import Foundation
 
 extension Request {
     
-    /// [API documentation](https://dev.soracom.io/jp/docs/api/#!/Operator/createOperator)
+    /// Register a new operator. In the sandbox environment, this is one of the first steps that needs to be done. ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Operator/createOperator))
     
     public class func createOperator(email: String, password: String) -> Request {
         
-        /// This request does not require credentials (in the sandbox, at least...)
-        
         let req = self.init("/operators")
-        req.expectedHTTPStatus = 201
-
+        
         req.requestPayload = [
             .email    : email,
             .password : password,
         ]
         
+        req.expectedHTTPStatus = 201
+        
         return req
+        
+        // DISCUSSION
+        //
+        //    print(response)
+        //    print(responseData)
+        //    print(error)
+        
+        // 0.) RESPONSE IF IT WORKS:
+        //        Optional(<NSHTTPURLResponse: 0x60000002b500> { URL: https://api-sandbox.soracom.io/v1/operators } { status code: 201, headers {...} })
+        //    Optional("")
+        //    nil
+        
+        // 1.) RESPONSE IF ALREADY REGISTERED:
+        //        Optional(<NSHTTPURLResponse: 0x62000002bee0> { URL: https://api-sandbox.soracom.io/v1/operators } { status code: 400, headers {...} })
+        //    Optional("{\"code\":\"AUM0003\",\"message\":\"This email is already registered.\"}")
+        
+        // NOTE: It seems to let me create the same user over and over. But it failed "already registered" when I used my previous credentials. So maybe it lets you create multiple times if the sandbox user being created has no records/activity associated with it?
     }
     
     
+    /// Verify an operator. ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Operator/verifyOperator))
     
+    public class func verifyOperator(token token: String) -> Request {
+        let req = self.init("/operators/verify")
+        req.requestPayload = [.token: token]
+        return req
+    }
 
 }

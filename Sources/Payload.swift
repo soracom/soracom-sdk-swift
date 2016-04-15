@@ -196,6 +196,7 @@ public enum PayloadKey: String {
     
     case amount
     case apiKey
+    case apn
     case authKey
     case authKeyId
     case balance
@@ -203,6 +204,7 @@ public enum PayloadKey: String {
     case billItemName
     case code
     case couponCode
+    case createdAt
     case createDateTime
     case credentials
     case credentialsId
@@ -214,15 +216,22 @@ public enum PayloadKey: String {
     case email
     case expireMonth
     case expireYear
+    case expiryTime
     case expiryYearMonth
+    case imsi
     case inHttp
     case inMqtt
     case inTcp
     case inUdp
+    case ipAddress
+    case lastModifiedAt
     case lastUsedDateTime
     case message
+    case moduleType
+    case msisdn
     case name
     case number
+    case online
     case operatorId
     case outHttp
     case outHttps
@@ -237,6 +246,11 @@ public enum PayloadKey: String {
     case s1_minimum               // string key is "s1.minimum"
     case s1_slow                  // string key is "s1.slow"
     case s1_standard              // string key is "s1.standard"
+    case serialNumber
+    case sessionStatus
+    case speedClass
+    case status
+    case tags
     case token
     case tokenTimeoutSeconds
     case type

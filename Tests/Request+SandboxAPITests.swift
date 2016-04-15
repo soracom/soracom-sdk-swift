@@ -80,7 +80,112 @@ class RequestSandboxAPITests: BaseTestCase {
             // One possibility: {"code":"SBX1003","message":"Unable to get verified one time token. please create an user at first"}】
         }
         waitForAsyncSection()
-        
     }
     
+    
+    func test_deleteSandboxOperator_error() {
+        
+        beginAsyncSection()
+        
+        let req = Request.deleteSandboxOperator("butt")
+        req.run { (response) in
+            
+            print(response)
+            
+            XCTAssert(response.error != nil)
+            XCTAssert(response.HTTPStatus == 400)
+            
+            self.endAsyncSection()
+        }
+        waitForAsyncSection()
+    }
+    
+    
+    func test_insertAirStats() {
+
+        beginAsyncSection()
+
+        withNewIMSI { (imsi) in
+            
+            let fast  = AirStatsForSpeedClass(uploadBytes: 0, uploadPackets: 0, downloadBytes: 0, downloadPackets: 0)
+            
+            let nowInterval = NSDate().timeIntervalSince1970
+            let nowInt   = Int64(nowInterval)
+            let now = nowInt * 1000
+            // Mason 2016-03-23: Building for iOS, get this: exc_bad_instruction (code=exc_i386_invop subcode=0x0)
+            // Because type was just Int. Oopsie! Forgot there are still 32-bit platforms? :-/
+            
+            let stats = AirStats(traffic: [.s1_fast: fast, .s1_slow: fast, .s1_minimum: fast, .s1_standard: fast], unixtime: now)
+            
+            Request.insertAirStats(imsi, stats: stats).run() { (response) in
+                XCTAssert(response.error == nil)
+                self.endAsyncSection()
+            }
+        }
+        waitForAsyncSection()
+    }
+
+
+    func test_createSandboxSubscriber() {
+        
+        beginAsyncSection()
+        
+        Request.createSandboxSubscriber().run { (response) in
+            
+            XCTAssert(response.error == nil)
+            
+            if let imsi = response.payload?[.imsi] as? String {
+                XCTAssert(imsi.characters.count > 10)
+            } else {
+                XCTFail("Could not get IMSI")
+            }
+            self.endAsyncSection()
+        }
+        waitForAsyncSection()
+    }
+    
+    
+    func test_insertBeamStats() {
+        
+        let time      = 0
+        let beamStats = BeamStats(inHttp: 1, inMqtt: 2, inTcp: 3, inUdp: 4, outHttp: 5, outHttps: 6, outMqtt: 7, outMqtts: 8, outTcp: 9, outTcps: 10, outUdp: 11)
+        let toInsert  = BeamStatsInsertion(beamStats: beamStats, unixtime: time)
+
+        beginAsyncSection()
+
+        withNewIMSI { (imsi) in
+            
+            let req = Request.insertBeamStats(imsi, stats: toInsert)
+            
+            req.run { (response) in
+                print(response)
+                
+                XCTAssert(response.error == nil)
+                XCTAssert(response.HTTPStatus == 200)
+                
+                self.endAsyncSection()
+            }
+        }
+        waitForAsyncSection()
+    }
+    
+    
+    func test_createSandboxCoupon() {
+
+        beginAsyncSection()
+
+        withNewIMSI { (imsi) in
+            
+            let req = Request.createSandboxCoupon(100, balance: 100, billItemName: "what", couponCode: "YUCK-FOU", expiryYearMonth: "201609")
+            
+            req.run { (response) in
+                
+                XCTAssert(response.error == nil)
+                XCTAssert(response.HTTPStatus == 200)
+                self.endAsyncSection()
+            }
+        }
+        waitForAsyncSection()
+    }
+
 }

@@ -72,7 +72,7 @@ class RequestTests: BaseTestCase {
         foo.endpoint         = "https://www.soracom.jp"
         foo.method           = .GET
         
-        let expectation = expect()
+        beginAsyncSection()
         
         foo.run { (response) in
             
@@ -80,9 +80,9 @@ class RequestTests: BaseTestCase {
             XCTAssert(response.HTTPStatus == 404)
             // Mason 2016-04-12: we don't currently capture errors rendered as HTML so this is about as good as we can test for now.
 
-            expectation.fulfill()
+            self.endAsyncSection()
         }
-        confirm(120.0)
+        waitForAsyncSection()
     }
     
     

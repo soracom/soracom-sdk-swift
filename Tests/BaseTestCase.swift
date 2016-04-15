@@ -7,7 +7,6 @@ import XCTest
 
 class BaseTestCase: XCTestCase {
     
-    
     let storageNamespaceForProductionCredentials = NSUUID(UUIDString: "454BA030-3DBC-4D09-BFC3-35CE9C7BDFFF")!
     
     let storageNamespaceForSandboxCredentials = NSUUID(UUIDString: "C73085D8-FF86-4749-8CA0-2B6B71298FD6")!
@@ -83,46 +82,56 @@ class BaseTestCase: XCTestCase {
     }
     
     
-    /// Convenience method for async tests.
+    // MARK: - Asychronous testing conveniences
+    // These are intended to make our normal async test pattern slightly more convenient.
     
-    func expect(description: String = #function) -> XCTestExpectation {
-        print("EXPECT: \(description)")
-        return expectationWithDescription(#function)
-        
+    private var asyncSectionExpectation: [String: XCTestExpectation] = [:]
+    
+    
+    /// Creates a test expectation, the same as XCTestCase's `expectationWithDescription()` does. The difference is that it stores the expectation, so keeping the expectation object around in a variable in the test case isn't required. Normally, you end the async section (i.e., fulfill the expectation) by calling `self.endAsyncSection()` from within the async block. However, this method does return the expectation, so that you can capture it and fulfill it the normal XCTestCase way, if you for some reason want to avoid capturing self in the async block.
+    
+    func beginAsyncSection(description: String = #function) -> XCTestExpectation {
+        let expectation = expectationWithDescription(description)
+        asyncSectionExpectation["\(description)"] = expectation
+        return expectation
     }
     
     
-    /// Convenience method for async tests.
+    func endAsyncSection(description: String = #function) {
+        guard let ex = asyncSectionExpectation["\(description)"] else {
+            fatalError("Ooops! Your async tests seem fubared.")
+        }
+        ex.fulfill()
+    }
     
-    func confirm(timeout: NSTimeInterval = 10.0) {
+    
+    func waitForAsyncSection(description: String = #function, timeout: NSTimeInterval = 60.0) {
         waitForExpectationsWithTimeout(timeout) { error in
             if let error = error {
-                print( error.localizedDescription )
+                print( "waitForExpectationsWithTimeout got error: \(error.localizedDescription)")
             }
         }
     }
-
     
-// Mason 2016-04-12: FIXME: relocate this code somewhere down the chain. It doesn't need to be in the base class.
     
-//    /// Convenience method to get a new dummy IMSI from the API sandbox, before running your actual tests. You still need to set up expectations in your main test method body. Example:
-//    ///
-//    ///     let expectation = expect()
-//    ///
-//    ///     withNewIMSI { (imsi) in
-//    ///         // do your test here
-//    ///     }
-//    ///     confirm()
-//
-//    func withNewIMSI(handler: (imsi: String) -> ()) {
-//        Request.createSandboxSubscriber().run { (result) in
-//            XCTAssert(result.error == nil)
-//            if let imsi = result["imsi"] as? String {
-//                handler(imsi: imsi)
-//            } else {
-//                XCTFail("withNewIMSI() could not get new IMSI")
-//            }
-//        }
-//    }
+    func test_asyncTestConveniences() {
+        
+        var x = "foo"
+        
+        beginAsyncSection()
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            x += "bar"
+            NSThread.sleepForTimeInterval(0.001)
+            x += "baz"
+            NSThread.sleepForTimeInterval(0.001)
+            x += "😬"
+            
+            self.endAsyncSection()
+        }
+        waitForAsyncSection()
+        
+        XCTAssert(x == "foobarbaz😬")
+    }
 
 }

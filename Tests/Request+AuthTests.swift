@@ -15,7 +15,7 @@ class RequestAuthTests: BaseTestCase {
             return
         }
         
-        let expectation = expect()
+        beginAsyncSection()
         
         Request.auth(credentials).run { (result) in
             
@@ -35,10 +35,10 @@ class RequestAuthTests: BaseTestCase {
                 XCTFail("auth() did not receive a payload")
             }
             
-            expectation.fulfill()
+            self.endAsyncSection()
         }
         
-        confirm()
+        waitForAsyncSection()
     }
     
     
@@ -50,7 +50,7 @@ class RequestAuthTests: BaseTestCase {
     
     func test_issue_password_reset_token() {
 
-        let expectation = expect()
+        beginAsyncSection()
         
         Request.issuePasswordResetToken("fragnock@whut.com").run { (result) in
             
@@ -63,10 +63,10 @@ class RequestAuthTests: BaseTestCase {
             print("\(result.error)" ?? "")
             print(result.text)
             
-            expectation.fulfill()
+            self.endAsyncSection()
         }
         
-        confirm()
+        waitForAsyncSection()
     }
     
 }

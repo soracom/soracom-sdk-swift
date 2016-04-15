@@ -8,22 +8,23 @@ class RequestSandboxAPITests: BaseTestCase {
     func test_getSignupToken_bad_credentials() {
     
         let uniqueEmail = "\(NSUUID().UUIDString)@fivespeed.com"
-        let expectation = expect()
         let badRequest  = Request.getSignupToken(email: uniqueEmail, authKeyId: "this-is-wrong", authKey: "this-is-also-wrong")
         
-        badRequest.run { (result) in
+        beginAsyncSection()
+        
+        badRequest.run { (response) in
             
-            print(result)
-            XCTAssertNotNil(result.error)
+            print(response)
+            XCTAssertNotNil(response.error)
             
-            let code = result.error?.code ?? "no code"
+            let code = response.error?.code ?? "no code"
             XCTAssert(code.containsString("SBX"))
               // Just assert it is some kind of sandbox error.
             
-            expectation.fulfill()
+            self.endAsyncSection()
         }
         
-        confirm()
+        waitForAsyncSection()
     }
     
     
@@ -44,7 +45,10 @@ class RequestSandboxAPITests: BaseTestCase {
         let uniqueEmail    = "\(NSUUID().UUIDString)@fivespeed.com"
         let uniquePassword = "(NSUUID().UUIDString)a$d5555"
         
-        let creationExpectation = expect()
+        
+        // CREATE THE OPERATOR:
+        
+        beginAsyncSection()
         
         Request.createOperator(uniqueEmail, password: uniquePassword).run { (response) in
             
@@ -52,14 +56,16 @@ class RequestSandboxAPITests: BaseTestCase {
             
             XCTAssertNil(response.error)
             
-            creationExpectation.fulfill()
+            self.endAsyncSection()
         }
+        waitForAsyncSection()
         
-        confirm()
+       
+        // AUTHORIZE CREATION OF, AND CREATE, A SIGNUP TOKEN:
         
         let req = Request.getSignupToken(email: uniqueEmail, authKeyId: credentials.authKeyID, authKey: credentials.authKeySecret)
         
-        let expectation = expect()
+        beginAsyncSection()
 
         req.run { (response) in
             print(response)
@@ -69,12 +75,12 @@ class RequestSandboxAPITests: BaseTestCase {
             let token = response.payload?[.token]
             XCTAssertNotNil(token)
             
-            expectation.fulfill()
+            self.endAsyncSection()
             
             // One possibility: {"code":"SBX1003","message":"Unable to get verified one time token. please create an user at first"}】
         }
+        waitForAsyncSection()
         
-        confirm()
     }
     
 }

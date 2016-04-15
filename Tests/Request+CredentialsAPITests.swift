@@ -5,7 +5,7 @@ class RequestCredentialsAPITests
     //    // MARK: CREDENTIALS API
     //    
     //    func DISABLED_test_listCredentials() {
-    //        let expectation = expect()
+    //        beginAsyncSection()
     //        
     //        Request.listCredentials().run { (result) in
     //            print(result)
@@ -27,7 +27,7 @@ class RequestCredentialsAPITests
     //            //            }
     //            
     //            XCTAssert(result.error == nil)
-    //            expectation.fulfill()
+    //            self.endAsyncSection()
     //        }
     //        
     //        confirm(60.0)
@@ -35,7 +35,7 @@ class RequestCredentialsAPITests
     //    
     //    
     //    func DISABLED_test_createCredential() {
-    //        let expectation = expect()
+    //        beginAsyncSection()
     //        
     //        let cred = Credential()
     //        Request.createCredential(cred).run { (result) in
@@ -46,7 +46,7 @@ class RequestCredentialsAPITests
     //            XCTAssert(result.error == nil)
     //            // Mason 2016-03-23: this also gets {"code":"AGW0005", "message":"Internal error"} every time. Deferring...
     //            
-    //            expectation.fulfill()
+    //            self.endAsyncSection()
     //        }
     //        confirm(60.0)
     //        

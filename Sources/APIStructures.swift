@@ -19,7 +19,12 @@ public struct AuthResponse {
     var token: String?      = nil
     var userName: String?   = nil
     
-    init?(_ payload: Payload) {
+    init?(_ payload: Payload?) {
+        
+        guard let payload = payload else {
+            return nil
+        }
+        
         apiKey     = payload[.apiKey] as? String
         operatorId = payload[.operatorId] as? String
         token      = payload[.token] as? String

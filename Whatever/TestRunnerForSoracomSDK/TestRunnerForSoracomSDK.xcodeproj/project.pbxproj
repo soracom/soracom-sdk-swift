@@ -43,6 +43,7 @@
 		936D93911CC0A8CA005D24DA /* Request+Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938F1CC0A8CA005D24DA /* Request+Subscriber.swift */; };
 		936D93931CC0DE14005D24DA /* Request+Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D93921CC0DE14005D24DA /* Request+Payment.swift */; };
 		936D93941CC0DE14005D24DA /* Request+Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D93921CC0DE14005D24DA /* Request+Payment.swift */; };
+		936D93971CC0E3D5005D24DA /* RegisterSIMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D93951CC0E3D5005D24DA /* RegisterSIMTests.swift */; };
 		93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */; };
 		93BDF91A1CB8FD1A0058C5BC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BDF9181CB8FD1A0058C5BC /* MainMenu.xib */; };
 		93CFB67F1CBDC5A20054F8B6 /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */; };
@@ -85,6 +86,7 @@
 		936D938D1CC0A55C005D24DA /* Request+CredentialsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+CredentialsTests.swift"; sourceTree = "<group>"; };
 		936D938F1CC0A8CA005D24DA /* Request+Subscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Subscriber.swift"; sourceTree = "<group>"; };
 		936D93921CC0DE14005D24DA /* Request+Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Payment.swift"; sourceTree = "<group>"; };
+		936D93951CC0E3D5005D24DA /* RegisterSIMTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterSIMTests.swift; sourceTree = "<group>"; };
 		93BDF9111CB8FD1A0058C5BC /* TestRunnerForSoracomSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestRunnerForSoracomSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93BDF9191CB8FD1A0058C5BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -124,9 +126,9 @@
 				93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */,
 				936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */,
 				9320887B1CBF59CB00384EC7 /* Request+Operator.swift */,
+				936D93921CC0DE14005D24DA /* Request+Payment.swift */,
 				932088781CBF3D5400384EC7 /* Request+SandboxAPI.swift */,
 				936D938F1CC0A8CA005D24DA /* Request+Subscriber.swift */,
-				936D93921CC0DE14005D24DA /* Request+Payment.swift */,
 				932D694B1CBBA02E002F9D99 /* Response.swift */,
 				932D69451CB9C002002F9D99 /* SoracomCredentials.swift */,
 			);
@@ -143,6 +145,7 @@
 				936D93881CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift */,
 				932D69431CB9BA50002F9D99 /* KeychainTests.swift */,
 				93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */,
+				936D93951CC0E3D5005D24DA /* RegisterSIMTests.swift */,
 				93CFB6811CBDCE920054F8B6 /* Request+AuthTests.swift */,
 				936D938D1CC0A55C005D24DA /* Request+CredentialsTests.swift */,
 				932D695B1CBC58A5002F9D99 /* Request+SandboxAPITests.swift */,
@@ -333,6 +336,7 @@
 				932D69541CBC551C002F9D99 /* ResponseTests.swift in Sources */,
 				9320887A1CBF3D5400384EC7 /* Request+SandboxAPI.swift in Sources */,
 				932D69581CBC55F2002F9D99 /* BaseTestCase.swift in Sources */,
+				936D93971CC0E3D5005D24DA /* RegisterSIMTests.swift in Sources */,
 				932D695C1CBC58A5002F9D99 /* Request+SandboxAPITests.swift in Sources */,
 				936D93911CC0A8CA005D24DA /* Request+Subscriber.swift in Sources */,
 				932D69421CB9BA46002F9D99 /* Keychain.swift in Sources */,

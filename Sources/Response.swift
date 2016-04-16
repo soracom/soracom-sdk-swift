@@ -59,6 +59,10 @@ public struct Response {
             return nil
         }
         
+        guard data.length > 0 else {
+            return nil
+        }
+        
         var result: [String:AnyObject]? = nil
         
         do {

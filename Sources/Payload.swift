@@ -192,6 +192,7 @@ func ==(lhs: Payload, rhs: Payload) -> Bool
 ///
 ///     let foo = [.amount: 1000, .description: "whataver"]
 
+
 public enum PayloadKey: String {
     
     case amount
@@ -206,18 +207,24 @@ public enum PayloadKey: String {
     case couponCode
     case createdAt
     case createDateTime
+    case createdTime
     case credentials
     case credentialsId
     case cvc
     case dataTrafficStatsMap
     case description
+    case dnsServers
     case downloadByteSizeTotal
     case downloadPacketSizeTotal
     case email
+    case expiredAt
     case expireMonth
     case expireYear
+    case expiryAction
     case expiryTime
     case expiryYearMonth
+    case groupId
+    case imei
     case imsi
     case inHttp
     case inMqtt
@@ -225,7 +232,10 @@ public enum PayloadKey: String {
     case inUdp
     case ipAddress
     case lastModifiedAt
+    case lastModifiedTime
     case lastUsedDateTime
+    case lastUpdatedAt
+    case location
     case message
     case moduleType
     case msisdn
@@ -241,6 +251,7 @@ public enum PayloadKey: String {
     case outTcps
     case outUdp
     case password
+    case plan
     case registrationSecret
     case s1_fast                  // string key is "s1.fast"
     case s1_minimum               // string key is "s1.minimum"
@@ -251,9 +262,11 @@ public enum PayloadKey: String {
     case speedClass
     case status
     case tags
+    case terminationEnabled
     case token
     case tokenTimeoutSeconds
     case type
+    case ueIpAddress
     case unixtime
     case updateDateTime
     case uploadByteSizeTotal

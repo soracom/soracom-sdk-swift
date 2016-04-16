@@ -36,7 +36,7 @@ class BaseTestCase: XCTestCase {
             print("--- BaseTestCase will now attempt to set up the testing environment for this test run.")
             print("--- ✅ Set the app-wide default storage namespace to BaseTestCase.storageNamespaceForSandboxCredentials.")
             
-            let creds = self.credentialsForTestUse(.RootAccount)
+            let creds = self.credentialsForTestUse(.RootAccount, caller: "tests that need them")
             
             if (creds == nil) {
                 print("--- ⚠️ There are no stored API sandbox credentials. This is OK, but it means many tests will not run.")
@@ -149,6 +149,16 @@ class BaseTestCase: XCTestCase {
     /// Make it easy for the end user running these tests to store credentials in the Keychain, from within Xcode. (See note.)
     
     func saveProductionAuthKeyCredentialsForTests(authKeyID authKeyID: String, authKeySecret: String) {
+        saveAuthKeyCredentialsForTests(authKeyID: authKeyID, authKeySecret: authKeySecret, production: true)
+    }
+    
+    
+    func saveSandboxAuthKeyCredentialsForTests(authKeyID authKeyID: String, authKeySecret: String) {
+        saveAuthKeyCredentialsForTests(authKeyID: authKeyID, authKeySecret: authKeySecret, production: false)
+    }
+    
+    
+    func saveAuthKeyCredentialsForTests(authKeyID authKeyID: String, authKeySecret: String, production: Bool = false) {
         print("ooooh!!!")
         
         let creds     = SoracomCredentials(type: .AuthKey, authKeyID: authKeyID, authKeySecret: authKeySecret)

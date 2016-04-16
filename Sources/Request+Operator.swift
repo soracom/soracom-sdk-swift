@@ -15,6 +15,8 @@ extension Request {
             .password : password,
         ]
         
+        req.shouldSendAPIKeyAndTokenInHTTPHeaders = false
+        
         req.expectedHTTPStatus = 201
         
         return req

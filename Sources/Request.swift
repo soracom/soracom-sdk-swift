@@ -9,9 +9,9 @@ import Foundation
 /// Example:
 ///
 ///        let req = Request.createOperator("foo@bar.baz", password: "bacon")
-///        req.run { (result) in
-///            if result.error != nil {
-///                print("With regret, I must inform you an error occurred: \(result.error)")
+///        req.run { (response) in
+///            if response != nil {
+///                print("With regret, I must inform you an error occurred: \(response.error)")
 ///            } else {
 ///                print("Operator created.")
 ///            }
@@ -164,17 +164,17 @@ public class Request {
     
     func run(completionHandler: ResponseHandler) {
         
-        let request = buildURLRequest()
-        self.URLRequest = request
+        let urlRequest  = buildURLRequest()
+        self.URLRequest = urlRequest
 
         // FIXME: check for 'no credentials' and error appropriately         
 
         let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request) { data, response, error -> Void in
+        let task = session.dataTaskWithRequest(urlRequest) { data, httpResponse, error -> Void in
             
-            let response = response as? NSHTTPURLResponse
+            let httpResponse = httpResponse as? NSHTTPURLResponse
             
-            var result = Response(request: self, underlyingURLResponse: response, data: data)
+            var result = Response(request: self, underlyingURLResponse: httpResponse, data: data)
         
             if let error = error {
                 result.error = APIError(underlyingError: error)

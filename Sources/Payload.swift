@@ -183,14 +183,14 @@ func ==(lhs: Payload, rhs: Payload) -> Bool
 }
 
 
-// MARK: - PaylodKey enum
+// MARK: - PayloadKey enum
 
 /// The PayloadKey enum contains every valid key that is used in JSON objects sent to or received from the API server.
 /// Its purpose is to make it a compile-time error if there is a typo in a key name.
 ///
 /// The main use case is creating Payload objects:
 ///
-///     let foo = [.amount: 1000, .description: "whataver"]
+///     let foo = [.amount: 1000, .description: "whatever"]
 
 
 public enum PayloadKey: String {

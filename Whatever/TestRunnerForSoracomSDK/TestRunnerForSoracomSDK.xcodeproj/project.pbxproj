@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		932088791CBF3D5400384EC7 /* Request+SandboxAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932088781CBF3D5400384EC7 /* Request+SandboxAPI.swift */; };
-		9320887A1CBF3D5400384EC7 /* Request+SandboxAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932088781CBF3D5400384EC7 /* Request+SandboxAPI.swift */; };
+		932088791CBF3D5400384EC7 /* Request+Sandbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932088781CBF3D5400384EC7 /* Request+Sandbox.swift */; };
+		9320887A1CBF3D5400384EC7 /* Request+Sandbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932088781CBF3D5400384EC7 /* Request+Sandbox.swift */; };
 		9320887C1CBF59CB00384EC7 /* Request+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320887B1CBF59CB00384EC7 /* Request+Operator.swift */; };
 		9320887D1CBF59CB00384EC7 /* Request+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320887B1CBF59CB00384EC7 /* Request+Operator.swift */; };
 		932D693D1CB9B18E002F9D99 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D693A1CB9B183002F9D99 /* APIError.swift */; };
@@ -26,8 +26,8 @@
 		932D694F1CBBA04D002F9D99 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D694B1CBBA02E002F9D99 /* Response.swift */; };
 		932D69541CBC551C002F9D99 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69531CBC551C002F9D99 /* ResponseTests.swift */; };
 		932D69581CBC55F2002F9D99 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69571CBC55F2002F9D99 /* BaseTestCase.swift */; };
-		932D695A1CBC5842002F9D99 /* Request+SubscriberAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69591CBC5842002F9D99 /* Request+SubscriberAPITests.swift */; };
-		932D695C1CBC58A5002F9D99 /* Request+SandboxAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D695B1CBC58A5002F9D99 /* Request+SandboxAPITests.swift */; };
+		932D695A1CBC5842002F9D99 /* Request+SubscriberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69591CBC5842002F9D99 /* Request+SubscriberTests.swift */; };
+		932D695C1CBC58A5002F9D99 /* Request+SandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D695B1CBC58A5002F9D99 /* Request+SandboxTests.swift */; };
 		932D695F1CBC59C5002F9D99 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69501CBC5480002F9D99 /* RequestTests.swift */; };
 		93408AEC1CBB4E900084DC18 /* APIStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AEB1CBB4E900084DC18 /* APIStructures.swift */; };
 		93408AEE1CBB4FA90084DC18 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AED1CBB4FA90084DC18 /* Payload.swift */; };
@@ -62,7 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		932088781CBF3D5400384EC7 /* Request+SandboxAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+SandboxAPI.swift"; sourceTree = "<group>"; };
+		932088781CBF3D5400384EC7 /* Request+Sandbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Sandbox.swift"; sourceTree = "<group>"; };
 		9320887B1CBF59CB00384EC7 /* Request+Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Operator.swift"; sourceTree = "<group>"; };
 		932D693A1CB9B183002F9D99 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		932D693C1CB9B183002F9D99 /* APIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorTests.swift; sourceTree = "<group>"; };
@@ -75,8 +75,8 @@
 		932D69501CBC5480002F9D99 /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
 		932D69531CBC551C002F9D99 /* ResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
 		932D69571CBC55F2002F9D99 /* BaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
-		932D69591CBC5842002F9D99 /* Request+SubscriberAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+SubscriberAPITests.swift"; sourceTree = "<group>"; };
-		932D695B1CBC58A5002F9D99 /* Request+SandboxAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+SandboxAPITests.swift"; sourceTree = "<group>"; };
+		932D69591CBC5842002F9D99 /* Request+SubscriberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+SubscriberTests.swift"; sourceTree = "<group>"; };
+		932D695B1CBC58A5002F9D99 /* Request+SandboxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+SandboxTests.swift"; sourceTree = "<group>"; };
 		93408AE91CBB4E8D0084DC18 /* APIStructuresTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStructuresTests.swift; sourceTree = "<group>"; };
 		93408AEB1CBB4E900084DC18 /* APIStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStructures.swift; sourceTree = "<group>"; };
 		93408AED1CBB4FA90084DC18 /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 				936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */,
 				9320887B1CBF59CB00384EC7 /* Request+Operator.swift */,
 				936D93921CC0DE14005D24DA /* Request+Payment.swift */,
-				932088781CBF3D5400384EC7 /* Request+SandboxAPI.swift */,
+				932088781CBF3D5400384EC7 /* Request+Sandbox.swift */,
 				936D938F1CC0A8CA005D24DA /* Request+Subscriber.swift */,
 				932D694B1CBBA02E002F9D99 /* Response.swift */,
 				932D69451CB9C002002F9D99 /* SoracomCredentials.swift */,
@@ -148,8 +148,8 @@
 				936D93951CC0E3D5005D24DA /* RegisterSIMTests.swift */,
 				93CFB6811CBDCE920054F8B6 /* Request+AuthTests.swift */,
 				936D938D1CC0A55C005D24DA /* Request+CredentialsTests.swift */,
-				932D695B1CBC58A5002F9D99 /* Request+SandboxAPITests.swift */,
-				932D69591CBC5842002F9D99 /* Request+SubscriberAPITests.swift */,
+				932D695B1CBC58A5002F9D99 /* Request+SandboxTests.swift */,
+				932D69591CBC5842002F9D99 /* Request+SubscriberTests.swift */,
 				932D69501CBC5480002F9D99 /* RequestTests.swift */,
 				932D69531CBC551C002F9D99 /* ResponseTests.swift */,
 				932D69471CB9C00A002F9D99 /* SoracomCredentialsTests.swift */,
@@ -296,7 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9320887C1CBF59CB00384EC7 /* Request+Operator.swift in Sources */,
-				932088791CBF3D5400384EC7 /* Request+SandboxAPI.swift in Sources */,
+				932088791CBF3D5400384EC7 /* Request+Sandbox.swift in Sources */,
 				932D694D1CBBA02E002F9D99 /* Response.swift in Sources */,
 				93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */,
 				93408AEE1CBB4FA90084DC18 /* Payload.swift in Sources */,
@@ -317,7 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93408AF41CBB4FD80084DC18 /* PayloadTests.swift in Sources */,
-				932D695A1CBC5842002F9D99 /* Request+SubscriberAPITests.swift in Sources */,
+				932D695A1CBC5842002F9D99 /* Request+SubscriberTests.swift in Sources */,
 				936D93941CC0DE14005D24DA /* Request+Payment.swift in Sources */,
 				936D93891CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift in Sources */,
 				932D693E1CB9B18E002F9D99 /* APIError.swift in Sources */,
@@ -334,10 +334,10 @@
 				932D695F1CBC59C5002F9D99 /* RequestTests.swift in Sources */,
 				93408AF21CBB4FC70084DC18 /* APIStructures.swift in Sources */,
 				932D69541CBC551C002F9D99 /* ResponseTests.swift in Sources */,
-				9320887A1CBF3D5400384EC7 /* Request+SandboxAPI.swift in Sources */,
+				9320887A1CBF3D5400384EC7 /* Request+Sandbox.swift in Sources */,
 				932D69581CBC55F2002F9D99 /* BaseTestCase.swift in Sources */,
 				936D93971CC0E3D5005D24DA /* RegisterSIMTests.swift in Sources */,
-				932D695C1CBC58A5002F9D99 /* Request+SandboxAPITests.swift in Sources */,
+				932D695C1CBC58A5002F9D99 /* Request+SandboxTests.swift in Sources */,
 				936D93911CC0A8CA005D24DA /* Request+Subscriber.swift in Sources */,
 				932D69421CB9BA46002F9D99 /* Keychain.swift in Sources */,
 				932D69461CB9C002002F9D99 /* SoracomCredentials.swift in Sources */,

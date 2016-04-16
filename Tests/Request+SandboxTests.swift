@@ -2,7 +2,7 @@
 
 import XCTest
 
-class RequestSandboxAPITests: BaseTestCase {
+class RequestSandboxTests: BaseTestCase {
     
     
     func test_getSignupToken_bad_credentials() {

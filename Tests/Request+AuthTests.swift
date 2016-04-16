@@ -17,12 +17,12 @@ class RequestAuthTests: BaseTestCase {
         
         beginAsyncSection()
         
-        Request.auth(credentials).run { (result) in
+        Request.auth(credentials).run { (response) in
             
-            print("AUTH: ", result)
-            XCTAssert(result.error == nil)
+            print("AUTH: ", response)
+            XCTAssert(response.error == nil)
             
-            if let payload = result.payload {
+            if let payload = response.payload {
                 
                 let authResponse = AuthResponse(payload)
                 
@@ -52,16 +52,16 @@ class RequestAuthTests: BaseTestCase {
 
         beginAsyncSection()
         
-        Request.issuePasswordResetToken("fragnock@whut.com").run { (result) in
+        Request.issuePasswordResetToken("fragnock@whut.com").run { (response) in
             
-            XCTAssert(result.error != nil)
-            XCTAssert(result.error?.code == "AUM0004")
+            XCTAssert(response.error != nil)
+            XCTAssert(response.error?.code == "AUM0004")
             
-            let message = result.error?.message ?? ""
+            let message = response.error?.message ?? ""
             XCTAssert(message.containsString("nvalid email address"))
             
-            print("\(result.error)" ?? "")
-            print(result.text)
+            print("\(response.error)" ?? "")
+            print(response.text)
             
             self.endAsyncSection()
         }

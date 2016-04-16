@@ -242,7 +242,7 @@ class RegisterSIMTests: BaseTestCase {
             print(response)
             print(response.payload)
             
-            // Result looks like:
+            // Payload looks like:
             // [
             //      "msisdn": 999923082204,
             //      "tags": {},

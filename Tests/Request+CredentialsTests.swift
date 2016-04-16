@@ -6,18 +6,19 @@ class RequestCredentialsTests: BaseTestCase {
     
     func test_listCredentials() {
         
-        guard let credentials = credentialsForTestUse(.RootAccount) else {
+        if credentialsForTestUse(.RootAccount) == nil {
             // To store your credentials, set a breakpoint here and do this (see note in method documentation):
             // saveSandboxRootCredentials("foo", password: "bar")
             
             return
         }
+    
         beginAsyncSection()
         
-        Request.listCredentials().run { (result) in
-            print(result)
+        Request.listCredentials().run { (response) in
+            print(response)
             
-            print(result.payload)
+            print(response.payload)
             
             // Mason 2016-03-23: I get some kind of pathological behavior here... it takes 30+ sec, then this error result:
             //
@@ -48,9 +49,9 @@ class RequestCredentialsTests: BaseTestCase {
         
         var cred = Credential()
         cred.credentialsId = "foobar"
-        Request.createCredential(cred).run { (result) in
+        Request.createCredential(cred).run { (response) in
             
-            print(result)
+            print(response)
             print("did it blend?")
             
             // DEFERRING due to WTF noted below: XCTAssert(result.error == nil)

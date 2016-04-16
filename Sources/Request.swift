@@ -205,16 +205,15 @@ public class Request {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         
-        
         if (shouldSendAPIKeyAndTokenInHTTPHeaders) {
             let creds = credentials
             request.setValue(creds.apiKey, forHTTPHeaderField: "X-Soracom-API-Key")
-            request.setValue(creds.apiToken, forHTTPHeaderField: "X-Soracom-API-Token")
+            request.setValue(creds.apiToken, forHTTPHeaderField: "X-Soracom-Token")
         }
         
         return request
     }
-
+    
     
     /// Set this instance property to provide your own routine to look up the credentials (API Key and API Token that are sent in HTTP headers). This will override any global custom routine you have set, and the default lookup routine.
     

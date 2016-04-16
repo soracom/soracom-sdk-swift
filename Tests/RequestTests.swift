@@ -38,10 +38,10 @@ class RequestTests: BaseTestCase {
         let defaultHeaders     = defaultURLRequest.allHTTPHeaderFields
         
         XCTAssert(defaultHeaders?["X-Soracom-API-Key"] == defaultCredentials.apiKey)
-        XCTAssert(defaultHeaders?["X-Soracom-API-Token"] == defaultCredentials.apiToken)
+        XCTAssert(defaultHeaders?["X-Soracom-Token"] == defaultCredentials.apiToken)
         
         XCTAssert(instanceHeaders?["X-Soracom-API-Key"] == instanceCredentials.apiKey)
-        XCTAssert(instanceHeaders?["X-Soracom-API-Token"] == instanceCredentials.apiToken)
+        XCTAssert(instanceHeaders?["X-Soracom-Token"] == instanceCredentials.apiToken)
         
         // A global override should affect all Request instances:
         Request.credentialsFinder = { (req) in
@@ -52,7 +52,7 @@ class RequestTests: BaseTestCase {
         let globalHeaders     = globalURLRequest.allHTTPHeaderFields
         
         XCTAssert(globalHeaders?["X-Soracom-API-Key"] == globalCredentials.apiKey)
-        XCTAssert(globalHeaders?["X-Soracom-API-Token"] == globalCredentials.apiToken)
+        XCTAssert(globalHeaders?["X-Soracom-Token"] == globalCredentials.apiToken)
         
         Request.credentialsFinder = nil // good test manners :)
     }

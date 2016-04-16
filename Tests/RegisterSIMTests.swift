@@ -21,7 +21,7 @@ class RegisterSIMTests: BaseTestCase {
     
     /// The password for the account in the sandbox environment.
     
-    var sandboxUserPassword: String = shortUniquishString() + "$$" + shortUniquishString().lowercaseString
+    var sandboxUserPassword: String = shortUniquishString() + "$zA$" + shortUniquishString().lowercaseString
     
     
     /// Returns a credentials object created from `sandboxUserEmail` and `sandboxUserPassword`

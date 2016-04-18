@@ -162,31 +162,58 @@ public class Request {
     
     /// Send the actual request to the API server, asynchronously doing the network request on a background thread, and then invoking `completionHandler` on the main thread after the response is received (or, potentially, when the request times out or an error occurs).
     
-    func run(completionHandler: ResponseHandler) {
+    func run(completionHandler: ResponseHandler? = nil) {
         
         let urlRequest  = buildURLRequest()
         self.URLRequest = urlRequest
 
-        // FIXME: check for 'no credentials' and error appropriately         
+        // FIXME: check for 'no credentials' and error appropriately
+        
+        for (handler) in self.dynamicType.willRunHandlers {
+            handler(self)
+        }
 
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(urlRequest) { data, httpResponse, error -> Void in
             
             let httpResponse = httpResponse as? NSHTTPURLResponse
             
-            var result = Response(request: self, underlyingURLResponse: httpResponse, data: data)
+            var response = Response(request: self, underlyingURLResponse: httpResponse, data: data)
         
             if let error = error {
-                result.error = APIError(underlyingError: error)
+                response.error = APIError(underlyingError: error)
             }
             
-            dispatch_async(dispatch_get_main_queue()) {
-                completionHandler(result)
+            for (handler) in self.dynamicType.didRunHandlers {
+                handler(response)
             }
-
+            
+            if let completionHandler = completionHandler {
+                dispatch_async(dispatch_get_main_queue()) {
+                    completionHandler(response)
+                }                
+            }
         }
         task.resume()
     }
+    
+    
+    /// Registers a handler, which is then executed when every request is run. Intended as a convenience for logging, experimentation, and debugging. The handler will be executed just before the Request makes its HTTP request. Handlers are executed **in an arbitrary thread** in the order they are registered.
+    
+    public static func beforeRun(handler: RequestWillRunHandler) {
+        willRunHandlers.append(handler)
+    }
+    
+    private static var willRunHandlers: [RequestWillRunHandler] = []
+
+    
+    /// Registers a handler, which is then executed after every request is run. Intended as a convenience for logging, experimentation, and debugging. The handler will be executed just after the HTTP response has been received (or an error occurs), and immediately before the `completionHandler` executes. Handlers are executed **in an arbitrary thread** in the order they are registered.
+
+    public static func afterRun(handler: RequestDidRunHandler) {
+        didRunHandlers.append(handler)
+    }
+    
+    private static var didRunHandlers: [RequestDidRunHandler] = []
     
     
     /// Builds the receiver's underlying NSURLRequest object, which is used when `run()` is invoked. This just builds it and returns the result; it doesn't modify the receiver's `URLRequest` property.
@@ -252,11 +279,22 @@ extension Request: CustomStringConvertible {
     }
 }
 
+
 // MARK: - typealias definitions
 
 /// ResponseHandler defines the type of closure that it used to handle the Response object that is the result of running a Request.
 
 public typealias ResponseHandler = ((Response) -> ())
+
+
+/// See beforeRun().
+
+public typealias RequestWillRunHandler = ((Request) -> ())
+
+
+/// See afterRun().
+
+public typealias RequestDidRunHandler = ((Response) -> ())
 
 
 /// The CredentialsFinder typealias names a closure that looks up credentials. If the default behavior isn't suitable, client code can provide its own lookup routine, on a per-instance or global basis.

@@ -115,4 +115,30 @@ class RequestTests: BaseTestCase {
         XCTAssertEqual(req.credentials, defaultCredentials)
     }
     
+    
+    func test_attached_behaviors() {
+        
+        var accumulator: [String] = []
+        
+        Request.beforeRun { (request) in
+            accumulator.append("beforeRun")
+        }
+        
+        Request.afterRun { (request) in
+            accumulator.append("afterRun")
+        }
+        
+        let req = Request("fake")
+
+        beginAsyncSection()
+        req.run { (response) in
+            accumulator.append("response handler")
+            self.endAsyncSection()
+        }
+        waitForAsyncSection()
+        
+        XCTAssertEqual(accumulator, ["beforeRun", "afterRun", "response handler"])
+        
+    }
+    
 }

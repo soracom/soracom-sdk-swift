@@ -2,10 +2,14 @@
 
 import XCTest
 
-public class KeychainTests: XCTestCase
-{
-    let key1 = "foo.bar.baz.mary.had.a.little.lamb.bro.and.its.fleece.was.red.white.and.blue.KeychainTests"
-    let key2 = "the.freedom.of.birds.is.an.insult.to.me.KeychainTests"
+public class KeychainTests: XCTestCase {
+    
+    static var bundleId: String {
+        return NSBundle.mainBundle().bundleIdentifier ?? "missing-bundle-id"
+    }
+    
+    let key1 = "\(KeychainTests.bundleId).foo.bar.baz.test.key.for.KeychainTests"
+    let key2 = "\(KeychainTests.bundleId).the.freedom.of.birds.is.an.insult.to.me.KeychainTests"
     
     
     func test_basic() {
@@ -13,10 +17,12 @@ public class KeychainTests: XCTestCase
         let data2 = NSUUID().UUIDString.dataUsingEncoding(NSUTF8StringEncoding)!
         XCTAssertNotEqual(data1, data2) // just a sanity check, of course this is always true
         
-        Keychain.write(key1, data: data1)
+        var wroteOK = Keychain.write(key1, data: data1)
+        XCTAssertTrue(wroteOK)
         XCTAssertEqual(Keychain.read(key1), data1)
         
-        Keychain.write(key2, data: data2)
+        wroteOK = Keychain.write(key2, data: data2)
+        XCTAssertTrue(wroteOK)
         XCTAssertEqual(Keychain.read(key2), data2)
         
         XCTAssertNil(Keychain.read(NSUUID().UUIDString))

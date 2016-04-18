@@ -43,7 +43,19 @@ public class Keychain {
             kSecValueData as String   : data
         ]
         
-        SecItemDelete(query as CFDictionary)
+        let deleteResult = SecItemDelete(query as CFDictionary)
+        if deleteResult != noErr && deleteResult != errSecItemNotFound {
+            // not found is a normal occurence
+            
+            print("delete keychain item failed: \(deleteResult)")
+            #if os(OSX)
+                print(SecCopyErrorMessageString(deleteResult, nil))
+                // Mason 2016-04-18: I am seeing -25244 "Invalid attempt to change the owner of this item" during unit tests.
+                // Some debuggery reveals that this is because the SDK unit tests are being run by multiple different
+                // apps, but the tests use the same keychain keys. This is not something this simple Keychain wrapper supports.
+                // I fixed this in the tests by uniquing the keys per-app, but am leaving this note for posterity.
+            #endif
+        }
         
         let status: OSStatus = SecItemAdd(query as CFDictionary, nil)
         

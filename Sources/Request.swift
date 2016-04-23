@@ -189,7 +189,7 @@ public class Request {
             }
             
             if let completionHandler = completionHandler {
-                dispatch_async(dispatch_get_main_queue()) {
+                dispatch_sync(dispatch_get_main_queue()) {
                     completionHandler(response)
                 }                
             }

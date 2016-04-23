@@ -17,7 +17,7 @@ public struct SoracomCredentials: Equatable {
     var apiToken       = ""
     
     // FIXME: add this to stash the expire time of credentials (for KeyAndToken case):    var expirationDate
-    
+
     
     /// The canonical initializer, allows setting any/all properties.
     
@@ -53,6 +53,30 @@ public struct SoracomCredentials: Equatable {
     }
     
     
+    /// Initialize from data in JSON format (e.g., that produced by `toJSON()`).
+    
+    init(jsonData: NSData) {
+        
+        var dict: [String: String]? = nil
+        
+        do {
+            let decoded = try NSJSONSerialization.JSONObjectWithData(jsonData, options: [])
+            if let decoded = decoded as? [String:String] {
+                dict = decoded
+            }
+        } catch {
+            print("Note: SoracomCredentials init(jsonData:) failed.")
+            // Could happen, e.g. if user edited data in Keychain
+        }
+        
+        if let dict = dict {
+            self.init(withDictionary: dict)
+        } else {
+            self.init()
+        }
+    }
+    
+    
     /// Initialize a credentials struct from the data stored in secure persistent storage (system keychain) with the given `identifier`. A `nil` value for `identifier` means the default identifier should be used (`SoracomCredentials.keychainItemDefault`).
     ///
     /// The `namespace` parameter can typically be omitted.
@@ -62,10 +86,8 @@ public struct SoracomCredentials: Equatable {
         let base       = identifier ?? SoracomCredentials.defaultStorageIdentifier
         let identifier = SoracomCredentials.buildNamespacedIdentifier( base, namespace: namespace )
         
-        // FIXME: Get NSKeyedUnarchiver the hell out of here! Use JSON.
-        
-        if let data = Keychain.read(identifier), let dict = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [String:String] {
-            self.init(withDictionary: dict)
+        if let data = Keychain.read(identifier) {
+            self.init(jsonData: data)
         } else {
             self.init()
         }
@@ -91,7 +113,7 @@ public struct SoracomCredentials: Equatable {
         
         let base       = identifier ?? type.defaultStorageIdentifier()
         let identifier = SoracomCredentials.buildNamespacedIdentifier(base, namespace: namespace)
-        let data       = NSKeyedArchiver.archivedDataWithRootObject(dictionaryRepresentation())
+        let data       = toJSONData()
         var result     = Keychain.write(identifier, data: data)
         
         if (replaceDefault) {
@@ -120,8 +142,24 @@ public struct SoracomCredentials: Equatable {
             
             kAccountCredentialsStorageFormatVersion: "2"
         ]
+        
+        // FIXME: are we using "toDictionary()" or "dictionaryRepresentation()"?? Make it consistent, please.
     }
     
+    
+    /// Returns an NSData instance, which contains the receiver's contents as JSON.
+    
+    func toJSONData() -> NSData {
+        
+        do {
+            let dict = dictionaryRepresentation()
+            let jsonData = try NSJSONSerialization.dataWithJSONObject(dict, options: .PrettyPrinted)
+            return jsonData
+        } catch {
+            fatalError("should be impossible: JSON serialization of credentials failed: \(error)")
+        }
+    }
+
     
     /// Returns true if all of the receiver's string properties are the empty string.
     var blank: Bool {

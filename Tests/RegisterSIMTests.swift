@@ -36,7 +36,7 @@ class RegisterSIMTests: BaseTestCase {
     var sandboxSignUpToken: String?
     
     
-    /// Overridden to set the default credentials storage namespace to `storageNamespaceForJunkCredentials`, becuase these tests need to save credentials for a new test user.
+    /// Overridden to set the default credentials storage namespace to `storageNamespaceForJunkCredentials`, because these tests need to save credentials for a new test user.
     
     override func setUp() {
         super.setUp()

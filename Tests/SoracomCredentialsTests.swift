@@ -4,7 +4,7 @@ import XCTest
 
 class SoracomCredentialsTests: BaseTestCase {
     
-    /// Overridden to set the default credentials storage namespace to `storageNamespaceForJunkCredentials`, becuase these tests exercise the actual credentials read/write API. 
+    /// Overridden to set the default credentials storage namespace to `storageNamespaceForJunkCredentials`, because these tests exercise the actual credentials read/write API.
     
     override func setUp() {
         super.setUp()
@@ -123,8 +123,8 @@ class SoracomCredentialsTests: BaseTestCase {
     func test_namespaces() {
         // Mason 2016-04-13: doing the namespace feature test-first.
         
-        let badNamespace = NSUUID(UUIDString: SoracomCredentials.debugNamespaceString)
-        XCTAssertNotNil(badNamespace)
+        let namespaceFromDefaultStr = NSUUID(UUIDString: "00000000-0000-0000-0000-DEFDEFDEFDEF")
+        XCTAssertNotNil(namespaceFromDefaultStr)
         
         one.writeToSecurePersistentStorage()
         var read = SoracomCredentials(withStorageIdentifier: nil)
@@ -170,6 +170,11 @@ class SoracomCredentialsTests: BaseTestCase {
         XCTAssert(!c.blank)
         c.apiToken = ""
         XCTAssert(c.blank)
+    }
+    
+    
+    func test_buildNamespacedIdentifier() {
+        
     }
 
 }

@@ -275,27 +275,17 @@ public class Request {
 
 // MARK: - CustomStringConvertible
 
-/// This extension is intended to make attractive and understandable end-user-facing textual representations of the API request.
-
 extension Request: CustomStringConvertible {
     
+    /// Return attractive and understandable end-user-facing textual representations of the API request. Intended for debugging and learning. (And maybe verbose logging?)
+
     public var description: String {
-        
-        // FIXME: filter sensitive data unless (some flag, yet to be implemented)
-        
-        // FIXME: an atomically incremented ID number would make printing more useful (actually, when responses are printed, they could reference it to disambiguate what they are a response *to*).
-        
-        var result = "\(method) \(buildURL())"
-        
-        if let vals = requestPayload?.toDictionary() {
-            for (k, v) in vals {
-                result += "\n  \(k): \(v)"
-            }
-            result += "\n"
-        }
-        
-        return result
+        let f = RequestResponseFormatter()
+        return f.formatRequest(self)
     }
+    
+    
+
 }
 
 

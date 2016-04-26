@@ -168,44 +168,13 @@ public struct Response {
 }
 
 
-/// This extension is intended to make attractive and understandable end-user-facing textual representations of the API result, for use e.g. in a log.
-
 extension Response: CustomStringConvertible {
     
-    public var description: String {
-        
-        // FIXME: filter sensitive data unless (some flag, yet to be implemented)
-        
-        let typeName = self.dynamicType
-        
-        var result = ""
-        
-        result += "\(typeName) {\n"
-        
-        if let status = HTTPStatus {
-            result += "  HTTP status:  \(status)\n"
-        }
-        
-        result += "  In response to: \(request.method) \(request.buildURL()) \n"
-        result += "    - request payload: \(request.HTTPBodyText ?? "") \n"
-        
-        if let underlyingURLResponse = underlyingURLResponse {
-            result += "  HTTP headers: {\n"
+    /// Return an attractive and understandable end-user-facing textual representations of the response. Intended for debugging and learning. (And maybe verbose logging?)
 
-            for (k,v) in underlyingURLResponse.allHeaderFields {
-                result += "    \(k): \(v)\n"
-            }
-            
-            result += "  }\n"
-        }
-        
-        if let text = text {
-            result += "  Data (as UTF-8): 【\(text)】\n"
-        }
-        
-        result += "}"
-        
-        return result
+    public var description: String {
+        let f = RequestResponseFormatter()
+        return f.formatResponse(self)
     }
-    
+
 }

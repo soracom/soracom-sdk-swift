@@ -122,7 +122,7 @@ public class Request {
     /// An array of keys indicating the values the response payload **must** have to be considered successful. // FIXME: this responsibility should probably be delegated to Payload, and this should then become something like `expectedPayloadTypes`.
     
     var expectedResponseKeys: [String] = []
-
+    
     
     /// The basic initializer can be used if (for some reason) you want to create an API request manually. The `path` should begin with "/".
     
@@ -251,6 +251,25 @@ public class Request {
     
     public static var credentialsFinder: CredentialsFinder? = nil
 
+    
+    /// Returns the unique integer ID of the request.
+    
+    public let requestId = Request.nextRequestId
+    
+    
+    /// Reserves and returns the next available unique integer ID.
+    
+    private static var nextRequestId: Int64  {
+        var result: Int64 = -1
+        dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            result = lastRequestId
+            lastRequestId += 1
+        }
+        return result
+    }
+    private static var lastRequestId: Int64 = 1
+    
+    
 }
 
 

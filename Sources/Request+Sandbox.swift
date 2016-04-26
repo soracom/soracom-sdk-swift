@@ -11,6 +11,8 @@ extension Request {
         
         let req = self.init("/sandbox/operators/token/" + email)
         
+        req.shouldSendAPIKeyAndTokenInHTTPHeaders = false
+        
         req.requestPayload = [
             .authKeyId : authKeyId,
             .authKey   : authKey,
@@ -38,6 +40,7 @@ extension Request {
     
     public class func createSandboxSubscriber() -> Request {
         let req = self.init("/sandbox/subscribers/create")
+        req.shouldSendAPIKeyAndTokenInHTTPHeaders = false
         return req
     }
     

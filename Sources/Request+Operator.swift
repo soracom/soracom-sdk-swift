@@ -43,7 +43,10 @@ extension Request {
     /// Verify an operator. ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Operator/verifyOperator))
     
     public class func verifyOperator(token token: String) -> Request {
+        
         let req = self.init("/operators/verify")
+        
+        req.shouldSendAPIKeyAndTokenInHTTPHeaders = false
         req.requestPayload = [.token: token]
         return req
     }

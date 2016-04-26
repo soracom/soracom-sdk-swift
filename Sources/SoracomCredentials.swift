@@ -30,7 +30,7 @@ public struct SoracomCredentials: Equatable {
         self.authKeyID     = authKeyID
         self.authKeySecret = authKeySecret
         self.apiKey        = apiKey
-        self.apiToken      = apiToken
+        self.apiToken      = apiToken // FIXME: rename to 'token' for consistency with API keys
     }
     
     
@@ -77,7 +77,7 @@ public struct SoracomCredentials: Equatable {
     }
     
     
-    /// Initialize a credentials struct from the data stored in secure persistent storage (system keychain) with the given `identifier`. A `nil` value for `identifier` means the default identifier should be used (`SoracomCredentials.keychainItemDefault`).
+    /// Initialize a credentials struct from the data stored in secure persistent storage (system keychain) with the given `identifier`. A `nil` value for `identifier` means the default identifier should be used (`SoracomCredentials.defaultStorageIdentifier`).
     ///
     /// The `namespace` parameter can typically be omitted.
     

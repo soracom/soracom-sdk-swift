@@ -98,11 +98,11 @@
 		936D938F1CC0A8CA005D24DA /* Request+Subscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Subscriber.swift"; sourceTree = "<group>"; };
 		936D93921CC0DE14005D24DA /* Request+Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Payment.swift"; sourceTree = "<group>"; };
 		936D93951CC0E3D5005D24DA /* RegisterSIMTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterSIMTests.swift; sourceTree = "<group>"; };
-		93BDF9111CB8FD1A0058C5BC /* TestRunnerForSoracomSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestRunnerForSoracomSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93BDF9111CB8FD1A0058C5BC /* MacDemoAppForSoracomSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacDemoAppForSoracomSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93BDF9191CB8FD1A0058C5BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		93BDF91B1CB8FD1A0058C5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93BDF9201CB8FD1A0058C5BC /* TestRunnerForSoracomSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestRunnerForSoracomSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93BDF9201CB8FD1A0058C5BC /* MacDemoAppForSoracomSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacDemoAppForSoracomSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BDF9261CB8FD1A0058C5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Auth.swift"; sourceTree = "<group>"; };
 		93CFB6811CBDCE920054F8B6 /* Request+AuthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+AuthTests.swift"; sourceTree = "<group>"; };
@@ -178,8 +178,8 @@
 			children = (
 				932D69391CB9B183002F9D99 /* Sources */,
 				932D693B1CB9B183002F9D99 /* Tests */,
-				93BDF9131CB8FD1A0058C5BC /* TestRunnerForSoracomSDK */,
-				93BDF9231CB8FD1A0058C5BC /* TestRunnerForSoracomSDKTests */,
+				93BDF9131CB8FD1A0058C5BC /* MacDemoAppForSoracomSDK */,
+				93BDF9231CB8FD1A0058C5BC /* MacDemoAppForSoracomSDKTests */,
 				93BDF9121CB8FD1A0058C5BC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -187,36 +187,36 @@
 		93BDF9121CB8FD1A0058C5BC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				93BDF9111CB8FD1A0058C5BC /* TestRunnerForSoracomSDK.app */,
-				93BDF9201CB8FD1A0058C5BC /* TestRunnerForSoracomSDKTests.xctest */,
+				93BDF9111CB8FD1A0058C5BC /* MacDemoAppForSoracomSDK.app */,
+				93BDF9201CB8FD1A0058C5BC /* MacDemoAppForSoracomSDKTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		93BDF9131CB8FD1A0058C5BC /* TestRunnerForSoracomSDK */ = {
+		93BDF9131CB8FD1A0058C5BC /* MacDemoAppForSoracomSDK */ = {
 			isa = PBXGroup;
 			children = (
 				93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */,
 				93BDF9181CB8FD1A0058C5BC /* MainMenu.xib */,
 				93BDF91B1CB8FD1A0058C5BC /* Info.plist */,
 			);
-			path = TestRunnerForSoracomSDK;
+			path = MacDemoAppForSoracomSDK;
 			sourceTree = "<group>";
 		};
-		93BDF9231CB8FD1A0058C5BC /* TestRunnerForSoracomSDKTests */ = {
+		93BDF9231CB8FD1A0058C5BC /* MacDemoAppForSoracomSDKTests */ = {
 			isa = PBXGroup;
 			children = (
 				93BDF9261CB8FD1A0058C5BC /* Info.plist */,
 			);
-			path = TestRunnerForSoracomSDKTests;
+			path = MacDemoAppForSoracomSDKTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		93BDF9101CB8FD1A0058C5BC /* TestRunnerForSoracomSDK */ = {
+		93BDF9101CB8FD1A0058C5BC /* MacDemoAppForSoracomSDK */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 93BDF9291CB8FD1A0058C5BC /* Build configuration list for PBXNativeTarget "TestRunnerForSoracomSDK" */;
+			buildConfigurationList = 93BDF9291CB8FD1A0058C5BC /* Build configuration list for PBXNativeTarget "MacDemoAppForSoracomSDK" */;
 			buildPhases = (
 				93BDF90D1CB8FD1A0058C5BC /* Sources */,
 				93BDF90E1CB8FD1A0058C5BC /* Frameworks */,
@@ -226,14 +226,14 @@
 			);
 			dependencies = (
 			);
-			name = TestRunnerForSoracomSDK;
+			name = MacDemoAppForSoracomSDK;
 			productName = TestRunnerForSoracomSDK;
-			productReference = 93BDF9111CB8FD1A0058C5BC /* TestRunnerForSoracomSDK.app */;
+			productReference = 93BDF9111CB8FD1A0058C5BC /* MacDemoAppForSoracomSDK.app */;
 			productType = "com.apple.product-type.application";
 		};
-		93BDF91F1CB8FD1A0058C5BC /* TestRunnerForSoracomSDKTests */ = {
+		93BDF91F1CB8FD1A0058C5BC /* MacDemoAppForSoracomSDKTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 93BDF92C1CB8FD1A0058C5BC /* Build configuration list for PBXNativeTarget "TestRunnerForSoracomSDKTests" */;
+			buildConfigurationList = 93BDF92C1CB8FD1A0058C5BC /* Build configuration list for PBXNativeTarget "MacDemoAppForSoracomSDKTests" */;
 			buildPhases = (
 				93BDF91C1CB8FD1A0058C5BC /* Sources */,
 				93BDF91D1CB8FD1A0058C5BC /* Frameworks */,
@@ -244,9 +244,9 @@
 			dependencies = (
 				93BDF9221CB8FD1A0058C5BC /* PBXTargetDependency */,
 			);
-			name = TestRunnerForSoracomSDKTests;
+			name = MacDemoAppForSoracomSDKTests;
 			productName = TestRunnerForSoracomSDKTests;
-			productReference = 93BDF9201CB8FD1A0058C5BC /* TestRunnerForSoracomSDKTests.xctest */;
+			productReference = 93BDF9201CB8FD1A0058C5BC /* MacDemoAppForSoracomSDKTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -268,7 +268,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 93BDF90C1CB8FD1A0058C5BC /* Build configuration list for PBXProject "TestRunnerForSoracomSDK" */;
+			buildConfigurationList = 93BDF90C1CB8FD1A0058C5BC /* Build configuration list for PBXProject "MacDemoAppForSoracomSDK" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -281,8 +281,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				93BDF9101CB8FD1A0058C5BC /* TestRunnerForSoracomSDK */,
-				93BDF91F1CB8FD1A0058C5BC /* TestRunnerForSoracomSDKTests */,
+				93BDF9101CB8FD1A0058C5BC /* MacDemoAppForSoracomSDK */,
+				93BDF91F1CB8FD1A0058C5BC /* MacDemoAppForSoracomSDKTests */,
 			);
 		};
 /* End PBXProject section */
@@ -373,7 +373,7 @@
 /* Begin PBXTargetDependency section */
 		93BDF9221CB8FD1A0058C5BC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 93BDF9101CB8FD1A0058C5BC /* TestRunnerForSoracomSDK */;
+			target = 93BDF9101CB8FD1A0058C5BC /* MacDemoAppForSoracomSDK */;
 			targetProxy = 93BDF9211CB8FD1A0058C5BC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -477,9 +477,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = TestRunnerForSoracomSDK/Info.plist;
+				INFOPLIST_FILE = MacDemoAppForSoracomSDK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.TestRunnerForSoracomSDK;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -489,9 +489,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = TestRunnerForSoracomSDK/Info.plist;
+				INFOPLIST_FILE = MacDemoAppForSoracomSDK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.TestRunnerForSoracomSDK;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -501,11 +501,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = TestRunnerForSoracomSDKTests/Info.plist;
+				INFOPLIST_FILE = MacDemoAppForSoracomSDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.TestRunnerForSoracomSDKTests;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestRunnerForSoracomSDK.app/Contents/MacOS/TestRunnerForSoracomSDK";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacDemoAppForSoracomSDK.app/Contents/MacOS/MacDemoAppForSoracomSDK";
 			};
 			name = Debug;
 		};
@@ -514,18 +514,18 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = TestRunnerForSoracomSDKTests/Info.plist;
+				INFOPLIST_FILE = MacDemoAppForSoracomSDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.TestRunnerForSoracomSDKTests;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestRunnerForSoracomSDK.app/Contents/MacOS/TestRunnerForSoracomSDK";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacDemoAppForSoracomSDK.app/Contents/MacOS/MacDemoAppForSoracomSDK";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		93BDF90C1CB8FD1A0058C5BC /* Build configuration list for PBXProject "TestRunnerForSoracomSDK" */ = {
+		93BDF90C1CB8FD1A0058C5BC /* Build configuration list for PBXProject "MacDemoAppForSoracomSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93BDF9271CB8FD1A0058C5BC /* Debug */,
@@ -534,7 +534,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		93BDF9291CB8FD1A0058C5BC /* Build configuration list for PBXNativeTarget "TestRunnerForSoracomSDK" */ = {
+		93BDF9291CB8FD1A0058C5BC /* Build configuration list for PBXNativeTarget "MacDemoAppForSoracomSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93BDF92A1CB8FD1A0058C5BC /* Debug */,
@@ -543,7 +543,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		93BDF92C1CB8FD1A0058C5BC /* Build configuration list for PBXNativeTarget "TestRunnerForSoracomSDKTests" */ = {
+		93BDF92C1CB8FD1A0058C5BC /* Build configuration list for PBXNativeTarget "MacDemoAppForSoracomSDKTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93BDF92D1CB8FD1A0058C5BC /* Debug */,

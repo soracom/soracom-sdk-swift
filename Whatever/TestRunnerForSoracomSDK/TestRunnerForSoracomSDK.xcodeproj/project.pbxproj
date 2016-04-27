@@ -35,6 +35,13 @@
 		93408AF21CBB4FC70084DC18 /* APIStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AEB1CBB4E900084DC18 /* APIStructures.swift */; };
 		93408AF41CBB4FD80084DC18 /* PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */; };
 		93408AF91CBB4FDF0084DC18 /* APIStructuresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AE91CBB4E8D0084DC18 /* APIStructuresTests.swift */; };
+		935285331CD09AAF00B17B73 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285301CD09AAF00B17B73 /* APIOperation.swift */; };
+		935285341CD09AAF00B17B73 /* NSOperationQueue+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285311CD09AAF00B17B73 /* NSOperationQueue+Request.swift */; };
+		935285351CD09AAF00B17B73 /* RequestResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */; };
+		935285361CD09AB700B17B73 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285301CD09AAF00B17B73 /* APIOperation.swift */; };
+		935285371CD09AB700B17B73 /* NSOperationQueue+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285311CD09AAF00B17B73 /* NSOperationQueue+Request.swift */; };
+		935285381CD09AB700B17B73 /* RequestResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */; };
+		935285491CD09AC500B17B73 /* APIOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285391CD09ABC00B17B73 /* APIOperationTests.swift */; };
 		936D93891CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D93881CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift */; };
 		936D938B1CC0A3A5005D24DA /* Request+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */; };
 		936D938C1CC0A3A5005D24DA /* Request+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */; };
@@ -81,6 +88,10 @@
 		93408AEB1CBB4E900084DC18 /* APIStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStructures.swift; sourceTree = "<group>"; };
 		93408AED1CBB4FA90084DC18 /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
 		93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadTests.swift; sourceTree = "<group>"; };
+		935285301CD09AAF00B17B73 /* APIOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
+		935285311CD09AAF00B17B73 /* NSOperationQueue+Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSOperationQueue+Request.swift"; sourceTree = "<group>"; };
+		935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestResponseFormatter.swift; sourceTree = "<group>"; };
+		935285391CD09ABC00B17B73 /* APIOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOperationTests.swift; sourceTree = "<group>"; };
 		936D93881CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseTestCase+withNewIMSI.swift"; sourceTree = "<group>"; };
 		936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Credentials.swift"; sourceTree = "<group>"; };
 		936D938D1CC0A55C005D24DA /* Request+CredentialsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+CredentialsTests.swift"; sourceTree = "<group>"; };
@@ -119,8 +130,10 @@
 			isa = PBXGroup;
 			children = (
 				932D693A1CB9B183002F9D99 /* APIError.swift */,
+				935285301CD09AAF00B17B73 /* APIOperation.swift */,
 				93408AEB1CBB4E900084DC18 /* APIStructures.swift */,
 				932D69401CB9BA46002F9D99 /* Keychain.swift */,
+				935285311CD09AAF00B17B73 /* NSOperationQueue+Request.swift */,
 				93408AED1CBB4FA90084DC18 /* Payload.swift */,
 				932D694A1CBBA02E002F9D99 /* Request.swift */,
 				93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */,
@@ -129,6 +142,7 @@
 				936D93921CC0DE14005D24DA /* Request+Payment.swift */,
 				932088781CBF3D5400384EC7 /* Request+Sandbox.swift */,
 				936D938F1CC0A8CA005D24DA /* Request+Subscriber.swift */,
+				935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */,
 				932D694B1CBBA02E002F9D99 /* Response.swift */,
 				932D69451CB9C002002F9D99 /* SoracomCredentials.swift */,
 			);
@@ -140,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				932D693C1CB9B183002F9D99 /* APIErrorTests.swift */,
+				935285391CD09ABC00B17B73 /* APIOperationTests.swift */,
 				93408AE91CBB4E8D0084DC18 /* APIStructuresTests.swift */,
 				932D69571CBC55F2002F9D99 /* BaseTestCase.swift */,
 				936D93881CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift */,
@@ -296,12 +311,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9320887C1CBF59CB00384EC7 /* Request+Operator.swift in Sources */,
+				935285331CD09AAF00B17B73 /* APIOperation.swift in Sources */,
 				932088791CBF3D5400384EC7 /* Request+Sandbox.swift in Sources */,
 				932D694D1CBBA02E002F9D99 /* Response.swift in Sources */,
+				935285341CD09AAF00B17B73 /* NSOperationQueue+Request.swift in Sources */,
 				93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */,
 				93408AEE1CBB4FA90084DC18 /* Payload.swift in Sources */,
 				932D69491CB9C016002F9D99 /* SoracomCredentials.swift in Sources */,
 				932D693D1CB9B18E002F9D99 /* APIError.swift in Sources */,
+				935285351CD09AAF00B17B73 /* RequestResponseFormatter.swift in Sources */,
 				936D93901CC0A8CA005D24DA /* Request+Subscriber.swift in Sources */,
 				936D93931CC0DE14005D24DA /* Request+Payment.swift in Sources */,
 				932D694C1CBBA02E002F9D99 /* Request.swift in Sources */,
@@ -323,14 +341,18 @@
 				932D693E1CB9B18E002F9D99 /* APIError.swift in Sources */,
 				93CFB6831CBDCE920054F8B6 /* Request+AuthTests.swift in Sources */,
 				93408AF11CBB4FC40084DC18 /* Payload.swift in Sources */,
+				935285371CD09AB700B17B73 /* NSOperationQueue+Request.swift in Sources */,
 				932D69441CB9BA50002F9D99 /* KeychainTests.swift in Sources */,
+				935285361CD09AB700B17B73 /* APIOperation.swift in Sources */,
 				93CFB6801CBDC5A20054F8B6 /* Request+Auth.swift in Sources */,
 				932D694F1CBBA04D002F9D99 /* Response.swift in Sources */,
 				932D694E1CBBA04D002F9D99 /* Request.swift in Sources */,
 				93408AF91CBB4FDF0084DC18 /* APIStructuresTests.swift in Sources */,
 				936D938E1CC0A55C005D24DA /* Request+CredentialsTests.swift in Sources */,
+				935285381CD09AB700B17B73 /* RequestResponseFormatter.swift in Sources */,
 				932D693F1CB9B191002F9D99 /* APIErrorTests.swift in Sources */,
 				9320887D1CBF59CB00384EC7 /* Request+Operator.swift in Sources */,
+				935285491CD09AC500B17B73 /* APIOperationTests.swift in Sources */,
 				932D695F1CBC59C5002F9D99 /* RequestTests.swift in Sources */,
 				93408AF21CBB4FC70084DC18 /* APIStructures.swift in Sources */,
 				932D69541CBC551C002F9D99 /* ResponseTests.swift in Sources */,

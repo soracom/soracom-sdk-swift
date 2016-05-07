@@ -291,6 +291,10 @@ extension Request: CustomStringConvertible {
 
 // MARK: - typealias definitions
 
+/// RequestBuilder 
+
+public typealias RequestBuilder = (() -> Request)
+
 /// ResponseHandler defines the type of closure that it used to handle the Response object that is the result of running a Request.
 
 public typealias ResponseHandler = ((Response) -> ())

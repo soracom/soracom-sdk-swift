@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		930DD8761CDE0E3E000EB36A /* BaseTestCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930DD8741CDE0E38000EB36A /* BaseTestCaseTests.swift */; };
 		931C38FA1CD0A47700FDF6B4 /* AppDelegate+APIExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C38F81CD0A47700FDF6B4 /* AppDelegate+APIExamples.swift */; };
 		931C38FB1CD0A47700FDF6B4 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C38F91CD0A47700FDF6B4 /* TextStyle.swift */; };
 		931C38FD1CD0A4CD00FDF6B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931C38FC1CD0A4CD00FDF6B4 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 
 /* Begin PBXFileReference section */
 		930DD8721CDDDFAA000EB36A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		930DD8741CDE0E38000EB36A /* BaseTestCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCaseTests.swift; sourceTree = "<group>"; };
 		931C38F81CD0A47700FDF6B4 /* AppDelegate+APIExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+APIExamples.swift"; sourceTree = "<group>"; };
 		931C38F91CD0A47700FDF6B4 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		931C38FC1CD0A4CD00FDF6B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				935285391CD09ABC00B17B73 /* APIOperationTests.swift */,
 				93408AE91CBB4E8D0084DC18 /* APIStructuresTests.swift */,
 				932D69571CBC55F2002F9D99 /* BaseTestCase.swift */,
+				930DD8741CDE0E38000EB36A /* BaseTestCaseTests.swift */,
 				936D93881CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift */,
 				932D69431CB9BA50002F9D99 /* KeychainTests.swift */,
 				93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */,
@@ -377,6 +380,7 @@
 				932D695C1CBC58A5002F9D99 /* Request+SandboxTests.swift in Sources */,
 				936D93911CC0A8CA005D24DA /* Request+Subscriber.swift in Sources */,
 				932D69421CB9BA46002F9D99 /* Keychain.swift in Sources */,
+				930DD8761CDE0E3E000EB36A /* BaseTestCaseTests.swift in Sources */,
 				932D69461CB9C002002F9D99 /* SoracomCredentials.swift in Sources */,
 				936D938C1CC0A3A5005D24DA /* Request+Credentials.swift in Sources */,
 				932D69481CB9C00A002F9D99 /* SoracomCredentialsTests.swift in Sources */,

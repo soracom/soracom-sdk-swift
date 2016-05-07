@@ -220,25 +220,4 @@ class BaseTestCase: XCTestCase {
         }
     }
     
-    
-    func test_asyncTestConveniences() {
-        
-        var x = "foo"
-        
-        beginAsyncSection()
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            x += "bar"
-            NSThread.sleepForTimeInterval(0.001)
-            x += "baz"
-            NSThread.sleepForTimeInterval(0.001)
-            x += "😬"
-            
-            self.endAsyncSection()
-        }
-        waitForAsyncSection()
-        
-        XCTAssert(x == "foobarbaz😬")
-    }
-
 }

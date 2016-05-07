@@ -22,7 +22,7 @@ extension AppDelegate {
         
         let authReq = Request.auth(credentials)
         
-        queue.addRequest(authReq) { (response) in
+        let authOp = APIOperation(authReq) { (response) in
             
             if response.error != nil {
                 self.log("Authentication failed. Note that API Sandbox users do expire periodically; you can create a new sandbox user in that case.")
@@ -41,6 +41,8 @@ extension AppDelegate {
                 }
             }
         }
+        
+        queue.addOperation(authOp)
         
         // Before we had an operation queue, it looked like this:
         //
@@ -65,7 +67,8 @@ extension AppDelegate {
         log("This operation will attempt to create a subscriber object (SIM) in the API sandbox. You can then use the data pertaining to that subscriber for testing, as if they were real SIMs that you had purchased. (The first step would be to register it.)")
         
         let req = Request.createSandboxSubscriber()
-        queue.addRequest(req)
+        let op  = APIOperation(req)
+        queue.addOperation(op)
           // The above could insted be done like this: req.run()
     }
     
@@ -111,9 +114,9 @@ extension AppDelegate {
         
         let dummyUserTokenIdentifier = "createDummyUser.token"
         
-        let createOperator = Request.createOperator(emailAddress, password: password)
+        let createOperatorRequest = Request.createOperator(emailAddress, password: password)
         
-        queue.addRequest(createOperator) { (response) in
+        let createOperatorOperation = APIOperation(createOperatorRequest) { (response) in
             
             self.log("The createOperator request has returned its response.")
             
@@ -124,10 +127,11 @@ extension AppDelegate {
                 self.log("No errors occurred, so the next operation in the queue will be run.")
             }
         }
+        queue.addOperation(createOperatorOperation)
         
-        let getSignupToken = Request.getSignupToken(email: emailAddress, authKeyId: productionCredentials.authKeyID, authKey: productionCredentials.authKeySecret)
+        let signupRequest = Request.getSignupToken(email: emailAddress, authKeyId: productionCredentials.authKeyID, authKey: productionCredentials.authKeySecret)
         
-        queue.addRequest(getSignupToken) { (response) in
+        let signupOperation = APIOperation(signupRequest) { (response) in
             
             self.log("The getSignupToken request has returned its response.")
             
@@ -151,51 +155,51 @@ extension AppDelegate {
                 }
             }
         }
+        queue.addOperation(signupOperation)
         
-        // This next step is a bit weird. We cannot queue up a verifyOperator request yet, because we don't
-        // yet have the token we need. However, we can use addOperationWithBlock to add an operation that will
-        // queue the verifyOperator request after we have received the token.
+        // This next step illustrates initializing an APIOperation with a RequestBuilder instead of a Request, 
+        // which allows you to defer the creation of the request until the time the operation is executed.
         //
-        // This is handy for this particular 3-step process, in which only the final step needs data from the
-        // preceding steps. But it wouldn't be sensible for a process that was much longer than this, because
-        // we don't yet have a way to make requests run synchronously. Therefore this block operation will
-        // finish (its job of just adding another operation to the queue) before the actual verifyOperator
-        // request is finished.
+        // We use this form because at this point we are just building the queue; we haven't run any of these
+        // operations yet, and therefore don't yet have the API Token we want to verify. (We won't have it 
+        // until the `signupOperation` above executes.)
         //
-        // More generally useful would be a special type of APIOperation, which takes a closure to build its request,
-        // that would be able to be scheduled (added to queue) right now, but then wait for preceding operations to 
-        // finish and provide the values that it would use to build its Request instance later (just before it starts).
-        //
-        // The SDK does not currently have such a thing, but it will soon.
+        // So, we initialize `verifyOperation` using the `RequestBuilder` below. By the time `verifyOperation`
+        // executes, `signupOperation` will have executed, and the token will have been stored, so we can look
+        // it up and use it to create the Request instance that `verifyOperation` will run to verify the token.
         
-        queue.addOperationWithBlock {
+        let builder: RequestBuilder = {
             
             let credentials    = SoracomCredentials(withStorageIdentifier: dummyUserTokenIdentifier)
             let verifyOperator = Request.verifyOperator(token: credentials.apiToken)
             
-            self.queue.addRequest(verifyOperator) { (response) in
+            return verifyOperator
+        }
+        
+        let handler: ResponseHandler = { (response) in
+            
+            if response.error != nil {
+                self.queue.cancelAllOperations()
+                self.log("Because there was an error, all further operations in this queue have been canceled.")
+            } else {
                 
-                if response.error != nil {
-                    self.queue.cancelAllOperations()
-                    self.log("Because there was an error, all further operations in this queue have been canceled.")
-                } else {
-                    
-                    // If we get here, then the multi-operation process of creating a user in the API Sandbox
-                    // has completed successfully. So, store the credentials so that we may use this sandbox
-                    // user to do various other things:
-                    
-                    let dummyUserCredentials = SoracomCredentials(type: .RootAccount, emailAddress: emailAddress, password: password)
-                    dummyUserCredentials.writeToSecurePersistentStorage(namespace: self.dummyUserStorageNamespace)
-                    
-                    // And, tell the user:
-                    
-                    self.log("No errors occurred. The dummy user in the API Sandbox was created successfully, and the credentials for the dummy user were stored under the special namespace \(self.dummyUserStorageNamespace.UUIDString):")
-                    self.log("  Email Address: \(emailAddress)")
-                    self.log("  Password:      \(password)")
-
-                }
+                // If we get here, then the multi-operation process of creating a user in the API Sandbox
+                // has completed successfully. So, store the credentials so that we may use this sandbox
+                // user to do various other things:
+                
+                let dummyUserCredentials = SoracomCredentials(type: .RootAccount, emailAddress: emailAddress, password: password)
+                dummyUserCredentials.writeToSecurePersistentStorage(namespace: self.dummyUserStorageNamespace)
+                
+                // And, tell the user:
+                
+                self.log("No errors occurred. The dummy user in the API Sandbox was created successfully, and the credentials for the dummy user were stored under the special namespace \(self.dummyUserStorageNamespace.UUIDString):")
+                self.log("  Email Address: \(emailAddress)")
+                self.log("  Password:      \(password)")
             }
         }
+        
+        let verifyOperation = APIOperation(builder, completionHandler: handler)
+        queue.addOperation(verifyOperation)        
     }
 
 }

@@ -4,33 +4,47 @@ import Foundation
 
 
 /// The APIOperation class makes it easy to use Request instances with NSOperationQueue. The semantics are
-/// similar to Request's `run(_:)` method. The normal way to use APIOperation is to take advantage of the
-/// extension to NSOperationQueue that allows you to add a request directly to a queue:
-///
-///     let createOperator = Request.createOperator(emailAddress, password: password)
-///
-///     queue.addRequest(createOperator) { (response) in
-///
-///         // do something with response...
-///     }
-///
-/// That will automatically create an APIOperation instance from the request, and add that operation to the
-/// queue. However, you can also directly instantiate an APIOperation instance and add it to a queue:
+/// similar to Request's `run(_:)` method. There are two typical ways to use APIOperation. The simplest way
+/// is to init an APIOperation with a Request instance, and then add the operation to a queue:
 ///
 ///     let op = APIOperation(request) {  (response) in
 ///          
 ///         // do something with response...
 ///      }
+///     myQueue.addOperation(op);
 ///
-/// The second more verbose form is mainly for if you are doing something more complicated with the 
-/// operations themselves, like setting up dependencies between them.
+/// However, in many cases, a request will depend on values returned from previous requests. For those cases,
+/// you can initialize an APIOperation instance with a RequestBuilder, instead of a Request.
+/// 
+/// A RequestBuilder is a closure that returns a Request. However, the operation will not execute its
+/// RequestBuilder closure, and thereby build the Request, until the operation itself is about to execute.
+/// Assuming you use a queue whose `maxConcurrentOperationCount` property is set to `1`, 
+/// this means that all previous operations in the queue will have finished before the Request is built.
+/// That means you can do things like store a token fetched by a previous request, and then use the token when
+/// subsequent operations create their Request objects.
 ///
-/// FIXME: Mason 2016-05-07: on second thought, delete the NSOperationQueue extension and everything related to it.
-/// It saves a tiny amount of typing, but it makes things harded to understand and the tradeoff isn't worth it,
-/// expecially now that we have deferred-request-creating operations that can't use this stuff. Begone!
+/// For example, suppose we want to create an operation that makes a request to verify a token, but we don't
+/// yet have the API token. Assuming a preceding operation in the queue will get that token and store it in 
+/// the form of a SoracomCredentials object, then we could create an operation that will fetch and use the
+/// token to build its own request, like this:
 ///
-/// APIOperation is implemented as a synchronous operation, intended to be run on a background 
-/// thread (normally by NSOperationQueue. You can manually `start()` one if you wish, but because
+///        let builder: RequestBuilder = {
+///
+///            let creds = SoracomCredentials(withStorageIdentifier: myIdent)
+///            return Request.verifyOperator(token: credentials.apiToken)
+///        }
+///
+///        let handler: ResponseHandler = { (response) in
+///
+///         // do something with response...
+///        }
+///
+///        let verifyOp = APIOperation(builder, completionHandler: handler)
+///        queue.addOperation(verifyOp)
+///
+///
+/// APIOperation is implemented as a synchronous operation, intended to be run on a background
+/// thread (normally by NSOperationQueue). You can manually `start()` one if you wish, but because
 /// Request completion handlers call back to the main thread, you cannot start an APIOperation on
 /// the main thread (it will deadlock). They must be started in a background thread.
 

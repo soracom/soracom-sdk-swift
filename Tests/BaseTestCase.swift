@@ -31,6 +31,9 @@ class BaseTestCase: XCTestCase {
             // In the end, this should use the credentials for a real production SAM user, and then automatically create an account
             // in the API Sandbox, if necessary, before doing what it currently does. That way, the user will only have to manually
             // enter credentials one time per machine the tests are run on. (Not doing that today, though.)
+            //
+            // Update 2016-05-07: Now the demo app can at least be used to create a sandbox user, which will then be used to run the tests.
+            // This means you don't really have to do it in the debugger anymore.
             
             print("------------------------------")
             print("--- BaseTestCase will now attempt to set up the testing environment for this test run.")
@@ -39,7 +42,13 @@ class BaseTestCase: XCTestCase {
             let creds = self.credentialsForTestUse(.RootAccount, caller: "tests that need them")
             
             if (creds == nil) {
-                print("--- ⚠️ There are no stored API sandbox credentials. This is OK, but it means many tests will not run.")
+                print("--- ⚠️ There are no stored API sandbox credentials. This is OK, but it means")
+                print("--- many tests will not run.")
+                print("--- ")
+                print("--- Note that one easy way to store API sandbox credentials is to run the demo app ")
+                print("--- and use the GUI to create a sandbox user. The credentials for that sandbox user ")
+                print("--- will be stored securely, and used for the tests that need a sandbox user to run. ")
+                print("--- ")
             
             } else {
              
@@ -93,9 +102,9 @@ class BaseTestCase: XCTestCase {
     let storageNamespaceForProductionCredentials = NSUUID(UUIDString: "454BA030-3DBC-4D09-BFC3-35CE9C7BDFFF")!
     
 
-    /// This credentials storage namespace is used when tests need working API Sandbox credentials. Most tests that make network requests to exercise API functions need these credentials. Writing any other credentials to this namespace should be avoided.
+    /// This credentials storage namespace is used when tests need working API Sandbox credentials. Most tests that make network requests to exercise API functions need these credentials. Writing any other credentials to this namespace should be avoided. **NOTE**: The UUID used for this namespace is intentially the same as the demo app uses, so that the demo app can be used to create a dummy user in the sandbox that will then be used to run the tests which require a sandbox user.
 
-    let storageNamespaceForSandboxCredentials = NSUUID(UUIDString: "C73085D8-FF86-4749-8CA0-2B6B71298FD6")!
+    let storageNamespaceForSandboxCredentials = NSUUID(UUIDString: "DEAE490F-0A00-49CD-B2AF-401215E15122")!
     
     /// /// This credentials storage namespace is used when tests need to read/write credentials as part of their test work. This namespace should be used when the credentials are only needed during the execution of a single test. Various test cases may write to this namespace, so no assumptions should be made about what it contains. 
     
@@ -159,14 +168,12 @@ class BaseTestCase: XCTestCase {
     
     
     func saveAuthKeyCredentialsForTests(authKeyID authKeyID: String, authKeySecret: String, production: Bool = false) {
-        print("ooooh!!!")
         
         let creds     = SoracomCredentials(type: .AuthKey, authKeyID: authKeyID, authKeySecret: authKeySecret)
         let namespace = storageNamespaceForProductionCredentials
         let wrote     = creds.writeToSecurePersistentStorage(namespace: namespace)
         
         print(wrote ? "SUCCESSFULLY WROTE CREDENTIALS. \(namespace)" : "ERROR! COULD NOT WRITE CREDENTIALS.")
-
     }
     
     

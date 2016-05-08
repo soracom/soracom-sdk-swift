@@ -75,7 +75,7 @@ extension AppDelegate {
     
     // MARK: - Multi-step examples
     
-    /// Create a new user in the API sandbox. This is a 3-step process. Using the operation queue, we can run the different steps sequentiually, waiting on each before running the next.
+    /// Create a new user in the API sandbox. This is a multi-step process. Using the operation queue, we can run the different steps sequentially, waiting on each before running the next.
     
     func createSandboxUser() {
         
@@ -196,6 +196,58 @@ extension AppDelegate {
             return verifyOperator
         }
         queue.addOperation(verifyOperation)
+
+        // Log in as newly-verified sandbox user, and update the API key and token.
+        // But since we only persist the credentials for the sandbox user upon successful 
+        // completion of verifyOperation above, we have to use APIOperation's capability
+        // to defer creation of the request (so that we can look up the credentials stored
+        // in that previous step):
+        
+        let reauthOperation = APIOperation() {
+            
+            let reAuthRequest = Request.auth(self.sandboxUserRootCredentials)
+            
+            reAuthRequest.responseHandler = { (response) in
+                
+                if let payload = response.payload,
+                    let apiKey  = payload[.apiKey] as? String,
+                    let token   = payload[.token] as? String
+                {
+                    var creds = self.sandboxUserCredentials
+                    creds.apiKey = apiKey
+                    creds.apiToken = token
+                    creds.writeToSecurePersistentStorage(nil, namespace: self.dummyUserStorageNamespace, replaceDefault: true)
+                    
+                    self.log("Authenticated successfully as the newly-created sandbox user, and stored the updated API key and token.")
+                    
+                } else {
+                    self.log("Authentication as the newly-created sandbox user failed.")
+                }
+            }
+            return reAuthRequest
+        }
+        queue.addOperation(reauthOperation)
+
+        
+        // Register web payment method:
+        
+        let paymentMethodInfo = PaymentMethodInfoWebPay(cvc: "123", expireMonth: 12, expireYear: 20, name: "SORAO TAMAGAWA", number: "4242424242424242")
+          // This fake credit card info comes from the API Sandbox docs.
+
+        let registerPaymentMethodRequest = Request.registerWebPayPaymentMethod(paymentMethodInfo)
+        registerPaymentMethodRequest.responseHandler = { (response) in
+            
+            if let error = response.error {
+                self.log("Hmm. An error ocurred after the sandbox user was successfully created, preventing a payment method from being registered.")
+                self.log("\(error)")
+            
+            } else {
+                self.log("Successfully addded a (fake) payment method to the sandbox user's account.")
+            }
+        }
+        
+        let registerPaymentMethodOperation = APIOperation(registerPaymentMethodRequest)
+        queue.addOperation(registerPaymentMethodOperation)
     }
 
 }

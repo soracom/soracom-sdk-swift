@@ -33,7 +33,8 @@ class BaseTestCase: XCTestCase {
             // enter credentials one time per machine the tests are run on. (Not doing that today, though.)
             //
             // Update 2016-05-07: Now the demo app can at least be used to create a sandbox user, which will then be used to run the tests.
-            // This means you don't really have to do it in the debugger anymore.
+            // This means you don't really have to do it in the debugger anymore, at least when playing with the demo app. You will still
+            // have to do it when running the tests in your own app, though, as storage keys are unique across apps.
             
             print("------------------------------")
             print("--- BaseTestCase will now attempt to set up the testing environment for this test run.")

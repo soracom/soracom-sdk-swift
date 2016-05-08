@@ -10,6 +10,8 @@ class RequestCredentialsTests: BaseTestCase {
             // To store your credentials, set a breakpoint here and do this (see note in method documentation):
             // saveSandboxRootCredentials("foo", password: "bar")
             
+            XCTFail("Cannot run \(#function) because no credentials are available. See comments in test method.")
+
             return
         }
     

@@ -36,7 +36,7 @@ class RequestSandboxTests: BaseTestCase {
             // To add credentials, set a breakpoint here and do this (see notes in method documentation):
             // saveProductionAuthKeyCredentialsForTests(authKeyID: "xxxxxx", authKeySecret: "xxxxxx")
             
-            print ("skipping \(#function) because no credentials are available.")
+            XCTFail("Cannot run \(#function) because no credentials are available. See comments in test method.")
             return
         }
         

@@ -50,6 +50,7 @@ extension Request {
         } else {
             
             fatalError("unsupported auth type other than RootAccount, SAM, or AuthKey. ")
+            // FIXME: fatalError is a little extreme bro... just make the request error. 
         }
         
         req.shouldSendAPIKeyAndTokenInHTTPHeaders = false // is auth() the only false case?

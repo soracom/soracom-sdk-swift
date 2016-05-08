@@ -9,6 +9,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var dummyEmailField: NSTextField!
+    @IBOutlet weak var dummyPasswordField: NSTextField!
     @IBOutlet weak var authKeyIDField: NSTextField!
     @IBOutlet weak var authKeySecretField: NSTextField!
     @IBOutlet weak var redactSwitch: NSButton!
@@ -32,6 +33,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var sandboxUserCredentials: SoracomCredentials {
         return SoracomCredentials(withStorageIdentifier: nil, namespace: dummyUserStorageNamespace)
+    }
+    
+    var sandboxUserRootCredentials: SoracomCredentials {
+        return SoracomCredentials(withStoredType: .RootAccount, namespace: self.dummyUserStorageNamespace)
     }
 
     /// A separate namespace in which credentials for dummy users (API Sandbox users) are stored
@@ -172,7 +177,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
 
     @IBAction func authWithDummyUserCredentials(sender: AnyObject) {
-        self.authWithCredentials(sandboxUserCredentials, userType: .Sandbox)
+        self.authWithCredentials(sandboxUserRootCredentials)
     }
     
     

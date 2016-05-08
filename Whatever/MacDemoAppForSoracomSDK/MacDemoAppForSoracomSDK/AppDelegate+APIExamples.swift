@@ -97,17 +97,16 @@ extension AppDelegate {
         }
         
         let emailAddress = dummyEmailField.stringValue
-        let password     = NSUUID().UUIDString + "aBc0157$"
+        var password     = dummyPasswordField.stringValue
+        
+        if password == "" {
+            password = NSUUID().UUIDString + "aBc0157$"
+        }
         
         var msg = "This operation will attempt to create a dummy user for testing, in the API sandbox.\n\n"
         msg    += "  Email Address: \(emailAddress)\n"
         msg    += "  Password:      \(password)\n"
         log(msg)
-        
-        // Mason 2016-04-19: OK this is interesting. Let's do a bunch of operations in a sequence.
-        // We already have all the building blocks, except the queue that will manage the actual
-        // sequence, waiting for one Request to return a Response, and then deciding whether or not
-        // to run the next Request. NSOperationQueue can do this for us, probably, with a little help.
         
         // First, create the operator. In the API Sandbox, this operation does not need to be authorized
         // with credentials, because it is the equivalent of signing up with a new account.
@@ -196,8 +195,6 @@ extension AppDelegate {
             
             return verifyOperator
         }
-        
-        
         queue.addOperation(verifyOperation)
     }
 

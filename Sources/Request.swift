@@ -3,19 +3,48 @@
 import Foundation
 
 
-/// The Request class defines and executes a single request to the Soracom API server. Typically, the API request is normally constructed via one of the convenience constructor methods, which takes an appropriate set of zero or more arguments, and the request is then executed with `run()`. The request executes asynchronously, and upon completion of the HTTP request, the `ResponseHandler` closure passed to `run()` is invoked to handle the server's response (or any error that occurred).
+/// The Request class defines and executes a single request to the Soracom API server. Typically, the API request is normally constructed via one of the convenience constructor methods, which takes an appropriate set of zero or more arguments. 
+///
+/// A Request instance may be executed with `run()`, or else wrapped in an APIOperation object and added to an NSOperationQueue for later execution. 
+///
+/// The request executes asynchronously, doing its network communication in an arbitrary background thread, and upon completion of the HTTP request, the `ResponseHandler` closure associated with the Request instance is invoked to handle the server's response (or any error that occurred). The response handler is executed on the main thread, for convenience, so things like updating UI may be done without additional work.
+///
+/// There are two ways to designate a response handler for a request. It's a read-write instance property, so you can simply set it, or supply it as a parameter when initializing a response. It is the last parameter of the various init and constructor methods, so that Swift's convenient trailing closure syntax may be used:
 ///
 ///
 /// Example:
 ///
-///        let req = Request.createOperator("foo@bar.baz", password: "bacon")
-///        req.run { (response) in
+///        let req = Request.createOperator("foo@bar.baz", password: "bacon") { (response) in
 ///            if response != nil {
 ///                print("With regret, I must inform you an error occurred: \(response.error)")
 ///            } else {
 ///                print("Operator created.")
 ///            }
 ///        }
+///        req.run()
+///
+/// ...or:
+///
+///        let req = Request.createOperator("foo@bar.baz", password: "bacon")
+///        req.responseHandler = { (response) in
+///            if response != nil {
+///                print("With regret, I must inform you an error occurred: \(response.error)")
+///            } else {
+///                print("Operator created.")
+///            }
+///        }
+///        req.run()
+///
+/// However, the response handler can also be supplied as an argument to the `run()` method, in which case it
+/// takes precedence over any existing `responseHandler` instance property:
+///
+///     req.run { (response) in
+///         // do something different
+///     }
+///
+/// Request instances can be manually run, but often should be performed in a certain sequence, depending on the
+/// results of previous requests. In such cases, it can be convenient to use APIOperation to sequentially 
+/// execute requests from an NSOperationQueue.
 
 public class Request {
     
@@ -94,9 +123,15 @@ public class Request {
     
     var requestPayload: Payload?
     
+    
     /// The URL path, e.g. "/operators/verify". (It is not normally necessary to explicitly set this property, because it will happen automatically when using the one of the convenience methods for creating a request.)
     
     let path: String
+    
+    
+    /// The ResponseHandler function that, if it exists, will be use to process the response to the request (or potentially the error that occurred).
+    
+    var responseHandler: ResponseHandler?
     
     
     /// This property provides access to the request's underlying NSURLRequest object, which is created when `run()` is invoked. It is normally `nil` until then.
@@ -124,10 +159,11 @@ public class Request {
     var expectedResponseKeys: [String] = []
     
     
-    /// The basic initializer can be used if (for some reason) you want to create an API request manually. The `path` should begin with "/".
+    /// The basic initializer can be used if (for some reason) you want to create an API request manually. The `path` should begin with "/". It is also possible to supply the `responseHandler` at init time (in which case Swift trailing closure syntax may be used).
     
-    public required init(_ path: String) {
+    public required init(_ path: String, responseHandler: ResponseHandler? = nil) {
         self.path = path
+        self.responseHandler = responseHandler
     }
     
     
@@ -160,9 +196,9 @@ public class Request {
     }
     
     
-    /// Send the actual request to the API server, asynchronously doing the network request on a background thread, and then invoking `completionHandler` on the main thread after the response is received (or, potentially, when the request times out or an error occurs).
+    /// Send the actual request to the API server, asynchronously doing the network request on a background thread, and then invoking `responseHandler` on the main thread after the response is received (or, potentially, when the request times out or an error occurs). If the `responseHandler` argument is non-nil, it will be used and the receiver's `responseHandler` instance property will be ignored.
     
-    func run(completionHandler: ResponseHandler? = nil) {
+    func run(responseHandler: ResponseHandler? = nil) {
         
         let urlRequest  = buildURLRequest()
         self.URLRequest = urlRequest
@@ -188,9 +224,9 @@ public class Request {
                 handler(response)
             }
             
-            if let completionHandler = completionHandler {
+            if let responseHandler = responseHandler ?? self.responseHandler {
                 dispatch_sync(dispatch_get_main_queue()) {
-                    completionHandler(response)
+                    responseHandler(response)
                 }                
             }
         }
@@ -207,7 +243,7 @@ public class Request {
     private static var willRunHandlers: [RequestWillRunHandler] = []
 
     
-    /// Registers a handler, which is then executed after every request is run. Intended as a convenience for logging, experimentation, and debugging. The handler will be executed just after the HTTP response has been received (or an error occurs), and immediately before the `completionHandler` executes. Handlers are executed **in an arbitrary thread** in the order they are registered.
+    /// Registers a handler, which is then executed after every request is run. Intended as a convenience for logging, experimentation, and debugging. The handler will be executed just after the HTTP response has been received (or an error occurs), and immediately before the `responseHandler` executes. Handlers are executed **in an arbitrary thread** in the order they are registered.
 
     public static func afterRun(handler: RequestDidRunHandler) {
         didRunHandlers.append(handler)
@@ -284,16 +320,15 @@ extension Request: CustomStringConvertible {
         return f.formatRequest(self)
     }
     
-    
-
 }
 
 
 // MARK: - typealias definitions
 
-/// RequestBuilder 
+/// RequestBuilder defines a simple closure with no parameters, which returns a Request. This is used by APIOperation to make it simple to queue operations in advance, but defer creation of Request instances until previous requests have run and returned their data.
 
 public typealias RequestBuilder = (() -> Request)
+
 
 /// ResponseHandler defines the type of closure that it used to handle the Response object that is the result of running a Request.
 

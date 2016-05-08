@@ -27,8 +27,9 @@ extension Request {
     
     /// FIXME: description forthcoming [API docs](https://dev.soracom.io/jp/docs/api/#!/Credential/listCredentials)
     
-    public class func listCredentials() -> Request {
-        let req = self.init("/credentials")
+    public class func listCredentials(responseHandler: ResponseHandler? = nil) -> Request {
+        
+        let req = self.init("/credentials", responseHandler: responseHandler)
         req.method = .GET
         return req
     }
@@ -36,11 +37,11 @@ extension Request {
     
     /// FIXME: description forthcoming [API docs](https://dev.soracom.io/jp/docs/api/#!/Credential/createCredential)
     
-    public class func createCredential(credentials: Credential) -> Request {
+    public class func createCredential(credentials: Credential, responseHandler: ResponseHandler? = nil) -> Request {
         
         let safeComponent = credentials.credentialsId.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
         
-        let req = self.init("/credentials/" + (safeComponent ?? ""))
+        let req = self.init("/credentials/" + (safeComponent ?? ""), responseHandler: responseHandler)
         // FIXME: blank component will cause error, but we should fail better here
         
         req.expectedHTTPStatus = 201

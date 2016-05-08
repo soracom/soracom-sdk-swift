@@ -15,9 +15,9 @@ extension Request {
     ///
     /// Upon success, the Response will have a payload that can be used to initialize an AuthResponse struct, that contains the API Key and API Token.
     
-    public class func auth(credentials: SoracomCredentials? = nil) -> Request {
+    public class func auth(credentials: SoracomCredentials? = nil, responseHandler: ResponseHandler? = nil) -> Request {
         
-        let req = self.init("/auth")
+        let req = self.init("/auth", responseHandler: responseHandler)
         let timeout = 86400
         
         req.credentials = credentials ?? SoracomCredentials(withStoredType: .RootAccount)
@@ -60,9 +60,9 @@ extension Request {
     
     /// Issue a one-time operator password reset token (sent via email_. [API docs](https://dev.soracom.io/jp/docs/api/#!/Auth/issuePasswordResetToken)
     
-    public class func issuePasswordResetToken(email: String) -> Request {
+    public class func issuePasswordResetToken(email: String, responseHandler: ResponseHandler? = nil) -> Request {
         
-        let req = self.init("/auth/password_reset_token/issue")
+        let req = self.init("/auth/password_reset_token/issue", responseHandler: responseHandler)
         req.requestPayload = [
             .email: email
         ]
@@ -72,9 +72,9 @@ extension Request {
     
     /// Verify an operator password reset token. [API docs](https://dev.soracom.io/jp/docs/api/#!/Auth/verifyPasswordResetToken)
     
-    public class func verifyPasswordResetToken(password: String, token: String) -> Request {
+    public class func verifyPasswordResetToken(password: String, token: String, responseHandler: ResponseHandler? = nil) -> Request {
         
-        let req = self.init("/auth/password_reset_token/verify")
+        let req = self.init("/auth/password_reset_token/verify", responseHandler: responseHandler)
         req.requestPayload = [
             .password : password,
             .token    : token,

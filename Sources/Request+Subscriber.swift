@@ -4,9 +4,9 @@ extension Request {
      
     /// Register a subscriber (a SIM). ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Subscriber/registerSubscriber))
     
-    public class func registerSubscriber(imsi: String, registrationSecret: String) -> Request {
+    public class func registerSubscriber(imsi: String, registrationSecret: String, responseHandler: ResponseHandler? = nil) -> Request {
         
-        let req = self.init("/subscribers/\(imsi)/register")
+        let req = self.init("/subscribers/\(imsi)/register", responseHandler: responseHandler)
         
         req.requestPayload = [.registrationSecret: registrationSecret]
         

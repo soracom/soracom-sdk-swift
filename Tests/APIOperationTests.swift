@@ -7,22 +7,15 @@ class APIOperationTests: BaseTestCase {
     var bogusCreds: SoracomCredentials {
         return SoracomCredentials(type: .RootAccount, emailAddress: "bogus", password: "bogus")
     }
-    
-    var bogusAuthRequest: Request {
-        return Request.auth(bogusCreds)
-    }
 
+    
     func test_basic() {
         
         // This just tests that APIOperation can run a request and that the completion handler gets executed.
         
         var testValue        = 0
         var error: APIError? = nil
-        let request          = bogusAuthRequest
-        
-        beginAsyncSection()
-        
-        let op = APIOperation(request) { (response) in
+        let request          = Request.auth(bogusCreds) { (response) in
             
             testValue = 5
             error     = response.error
@@ -30,6 +23,9 @@ class APIOperationTests: BaseTestCase {
             self.endAsyncSection()
         }
         
+        beginAsyncSection()
+        
+        let op = APIOperation(request)
         let queue = NSOperationQueue()
         queue.addOperation(op)
         
@@ -55,40 +51,39 @@ class APIOperationTests: BaseTestCase {
         // to do something like authenticate and capture a token, then use that token to do something. But to keep the
         // test simple, I am just going to attempt a bogus login and capture the error code.
         
-        let requestBuilder: RequestBuilder = { () in
+        let opThatDependsOnPredecessor = APIOperation() {
             
             let valFromFuture = values.last ?? "test bug"
             XCTAssert(valFromFuture == COM0008)
             
             let credentialsBasedOnPreviousOperation = SoracomCredentials(type: .RootAccount, emailAddress: valFromFuture, password: valFromFuture)
             
-            return Request.auth(credentialsBasedOnPreviousOperation)
-        }
-        
-        let responseHandler = { (response: Response) in
-            
-            values.append("second operation did run")
-            
-            let payload = response.request.requestPayload
-            
-            if let email    = payload?[.email] as? String,
-               let password = payload?[.password] as? String
-            {
-                XCTAssert(email == COM0008)
-                XCTAssert(password == COM0008)
-            } else {
-                XCTFail("Operation's request should have used value from previous requedt for email and password. (Instead: \(payload)")
+            return Request.auth(credentialsBasedOnPreviousOperation) { (response: Response) in
+                
+                values.append("second operation did run")
+                
+                let payload = response.request.requestPayload
+                
+                if let email    = payload?[.email] as? String,
+                    let password = payload?[.password] as? String
+                {
+                    XCTAssert(email == COM0008)
+                    XCTAssert(password == COM0008)
+                } else {
+                    XCTFail("Operation's request should have used value from previous requedt for email and password. (Instead: \(payload)")
+                }
+                self.endAsyncSection()
             }
-            self.endAsyncSection()
+
         }
         
-        let opThatDependsOnPredecessor = APIOperation(requestBuilder, completionHandler: responseHandler)
-        
-        let opThatRunsFirst = APIOperation(bogusAuthRequest) { (response) in
+        // Now let's build the first request operation, which is simple and doesn't depend on anything:
+        let bogusAuthRequest = Request.auth(bogusCreds) { (response) in
             let valueCapturedFromFirstOperation = response.error?.code ?? "test bug"
             values.append(valueCapturedFromFirstOperation)
         }
-        
+
+        let opThatRunsFirst = APIOperation(bogusAuthRequest)
         let queue = NSOperationQueue()
         queue.maxConcurrentOperationCount = 1
         queue.addOperations([opThatRunsFirst, opThatDependsOnPredecessor], waitUntilFinished: false)

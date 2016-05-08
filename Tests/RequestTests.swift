@@ -138,7 +138,45 @@ class RequestTests: BaseTestCase {
         waitForAsyncSection()
         
         XCTAssertEqual(accumulator, ["beforeRun", "afterRun", "response handler"])
+    }
+    
+    
+    func test_response_handler_precedence() {
         
+        var values: [String] = []
+        
+        let req1 = Request("fake") { (response) in
+            values.append("req1 initial instance responseHandler ran")
+        }
+        
+        let req2 = Request("fake") { (response) in
+            values.append("req2 initial instance responseHandler ran")
+        }
+        req2.responseHandler = { (response) in
+            values.append("req2 modified responseHandler ran")
+        }
+        
+        let req3 = Request("fake") { (response) in
+            values.append("req3 instance responseHandler ran")
+        }
+        
+        beginAsyncSection()
+
+        req1.run()
+        req2.run()
+        req3.run { (response) in
+            values.append("req3 run method argument responseHandler ran")
+            self.endAsyncSection()
+        }
+        
+        waitForAsyncSection()
+        
+        let expected = [
+            "req1 initial instance responseHandler ran",
+            "req2 modified responseHandler ran",
+            "req3 run method argument responseHandler ran"
+        ]
+        XCTAssertEqual(values, expected)
     }
     
 }

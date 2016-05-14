@@ -170,6 +170,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     // MARK: - UI actions
     
+    @IBAction func clearLog(sender: AnyObject) {
+        let cleared = NSAttributedString(string: "", attributes: [NSFontAttributeName: NSFont.userFixedPitchFontOfSize(10.0)!])
+        outputTextView.textStorage?.setAttributedString(cleared)
+    }
+    
     @IBAction func copyAuthKeyID(sender: AnyObject) {
         copyStringToPasteboard(productionCredentials.authKeyID)
     }

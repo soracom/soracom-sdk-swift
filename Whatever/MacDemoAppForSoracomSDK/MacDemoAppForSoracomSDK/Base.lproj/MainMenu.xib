@@ -632,6 +632,12 @@
                                     <action selector="runToolbarCustomizationPalette:" target="-1" id="pQI-g3-MTW"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="a2n-t4-FpC"/>
+                            <menuItem title="Clear Log" keyEquivalent="k" id="DCa-3e-B7N">
+                                <connections>
+                                    <action selector="clearLog:" target="Voe-Tx-rLC" id="Fl4-Rd-i7g"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>

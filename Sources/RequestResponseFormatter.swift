@@ -29,6 +29,16 @@ public class RequestResponseFormatter {
         }
     }
     private var _shouldRedact: Bool? = nil
+    
+    
+    /// Return the key and value, redacting if necessary.
+    
+    func format(key: String, value: String, redact: Bool = shouldRedact) -> (key: String, value: String) {
+        
+        let sensitiveKeys = ["token", "authKey", "password", "X-Soracom-Token", "X-Soracom-API-Key"]
+
+        return (redact && sensitiveKeys.contains(key)) ? (key: key, value: "<REDACTED>") : (key: key, value: value)
+    }
 
     
     /// Format a Request instance in human-readable form.
@@ -48,7 +58,8 @@ public class RequestResponseFormatter {
             
             if let fields = urlReq.allHTTPHeaderFields {
                 for (k, v) in fields {
-                    result += "\n    \(k): \(v)"
+                    let formatted = format(k, value: v)
+                    result += "\n    \(formatted.key): \(formatted.value)"
                 }
                 if fields.count > 0 {
                     result += "\n  "
@@ -88,7 +99,8 @@ public class RequestResponseFormatter {
             let fields = underlyingURLResponse.allHeaderFields
             
             for (k,v) in fields {
-                result += "\n    \(k): \(v)"
+                let formatted = format("\(k)", value: "\(v)")
+                result += "\n    \(formatted.key): \(formatted.value)"
             }
             
             if fields.count > 0 {

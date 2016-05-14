@@ -15,6 +15,7 @@
 		9320887A1CBF3D5400384EC7 /* Request+Sandbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932088781CBF3D5400384EC7 /* Request+Sandbox.swift */; };
 		9320887C1CBF59CB00384EC7 /* Request+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320887B1CBF59CB00384EC7 /* Request+Operator.swift */; };
 		9320887D1CBF59CB00384EC7 /* Request+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320887B1CBF59CB00384EC7 /* Request+Operator.swift */; };
+		932A5B811CE71FA1007D0B5C /* AppDelegate+DebugConveniences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5B801CE71FA1007D0B5C /* AppDelegate+DebugConveniences.swift */; };
 		932D693D1CB9B18E002F9D99 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D693A1CB9B183002F9D99 /* APIError.swift */; };
 		932D693E1CB9B18E002F9D99 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D693A1CB9B183002F9D99 /* APIError.swift */; };
 		932D693F1CB9B191002F9D99 /* APIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D693C1CB9B183002F9D99 /* APIErrorTests.swift */; };
@@ -78,6 +79,7 @@
 		931C38FC1CD0A4CD00FDF6B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		932088781CBF3D5400384EC7 /* Request+Sandbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Sandbox.swift"; sourceTree = "<group>"; };
 		9320887B1CBF59CB00384EC7 /* Request+Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Operator.swift"; sourceTree = "<group>"; };
+		932A5B801CE71FA1007D0B5C /* AppDelegate+DebugConveniences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+DebugConveniences.swift"; sourceTree = "<group>"; };
 		932D693A1CB9B183002F9D99 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		932D693C1CB9B183002F9D99 /* APIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorTests.swift; sourceTree = "<group>"; };
 		932D69401CB9BA46002F9D99 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			children = (
 				93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */,
 				931C38F81CD0A47700FDF6B4 /* AppDelegate+APIExamples.swift */,
+				932A5B801CE71FA1007D0B5C /* AppDelegate+DebugConveniences.swift */,
 				931C38FC1CD0A4CD00FDF6B4 /* Assets.xcassets */,
 				93BDF91B1CB8FD1A0058C5BC /* Info.plist */,
 				93BDF9181CB8FD1A0058C5BC /* MainMenu.xib */,
@@ -337,6 +340,7 @@
 				93408AEE1CBB4FA90084DC18 /* Payload.swift in Sources */,
 				932D69491CB9C016002F9D99 /* SoracomCredentials.swift in Sources */,
 				932D693D1CB9B18E002F9D99 /* APIError.swift in Sources */,
+				932A5B811CE71FA1007D0B5C /* AppDelegate+DebugConveniences.swift in Sources */,
 				935285351CD09AAF00B17B73 /* RequestResponseFormatter.swift in Sources */,
 				936D93901CC0A8CA005D24DA /* Request+Subscriber.swift in Sources */,
 				936D93931CC0DE14005D24DA /* Request+Payment.swift in Sources */,

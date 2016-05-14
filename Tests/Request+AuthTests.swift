@@ -71,4 +71,29 @@ class RequestAuthTests: BaseTestCase {
         waitForAsyncSection()
     }
     
+    func test_example_for_documentation() {
+        
+        // Mason 2016-05-14: This code is used as an example in README.md 
+        
+        beginAsyncSection()
+
+        let req = Request.issuePasswordResetToken("bob@example.com")
+        
+        req.responseHandler = { (response) in
+            
+            if let error = response.error {
+                print("😞 Failed to issue token: \(error)" )
+            } else {
+                print("😁 Token issued successfully!" )
+                // do something with the token...
+            }
+            self.endAsyncSection()
+        }
+        
+        req.run()
+
+        waitForAsyncSection()
+
+    }
+    
 }

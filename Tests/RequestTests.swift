@@ -143,25 +143,32 @@ class RequestTests: BaseTestCase {
     
     func test_response_handler_precedence() {
         
+        beginAsyncSection()
+        
+        let expectation1 = expectationWithDescription("uno")
+        let expectation2 = expectationWithDescription("dos")
+
         var values: [String] = []
         
         let req1 = Request("fake") { (response) in
             values.append("req1 initial instance responseHandler ran")
+            expectation1.fulfill()
         }
         
         let req2 = Request("fake") { (response) in
             values.append("req2 initial instance responseHandler ran")
+            expectation2.fulfill()
         }
         req2.responseHandler = { (response) in
             values.append("req2 modified responseHandler ran")
+            expectation2.fulfill()
         }
         
         let req3 = Request("fake") { (response) in
             values.append("req3 instance responseHandler ran")
         }
         
-        beginAsyncSection()
-
+        
         req1.run()
         req2.run()
         req3.run { (response) in

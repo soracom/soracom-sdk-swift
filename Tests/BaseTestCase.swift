@@ -16,6 +16,8 @@ class BaseTestCase: XCTestCase {
     
     override func setUp() {
         
+        // FIXME: Credentials needs to be dramatically simplified. In doing that work, make this credentials stuff work with both the iOS and the OS X demo app. (Currently, only works with Mac demo app.) 
+        
         super.setUp()
         
         SoracomCredentials.defaultStorageNamespace = self.storageNamespaceForSandboxCredentials

@@ -1,0 +1,627 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		932A5B901CE80CE4007D0B5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5B8F1CE80CE4007D0B5C /* AppDelegate.swift */; };
+		932A5B951CE80CE4007D0B5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932A5B931CE80CE4007D0B5C /* Main.storyboard */; };
+		932A5B971CE80CE4007D0B5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 932A5B961CE80CE4007D0B5C /* Assets.xcassets */; };
+		932A5B9A1CE80CE4007D0B5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932A5B981CE80CE4007D0B5C /* LaunchScreen.storyboard */; };
+		932A5BA51CE80CE4007D0B5C /* iOSDemoAppForSoracomSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BA41CE80CE4007D0B5C /* iOSDemoAppForSoracomSDKTests.swift */; };
+		932A5BB01CE8111A007D0B5C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BAF1CE8111A007D0B5C /* MainViewController.swift */; };
+		932A5BB11CE8111A007D0B5C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BAF1CE8111A007D0B5C /* MainViewController.swift */; };
+		932A5BB31CE81151007D0B5C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BB21CE81151007D0B5C /* SettingsViewController.swift */; };
+		932A5BB41CE81151007D0B5C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BB21CE81151007D0B5C /* SettingsViewController.swift */; };
+		932A5BC61CE81592007D0B5C /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BB71CE81592007D0B5C /* APIError.swift */; };
+		932A5BC71CE81592007D0B5C /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BB71CE81592007D0B5C /* APIError.swift */; };
+		932A5BC81CE81592007D0B5C /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BB81CE81592007D0B5C /* APIOperation.swift */; };
+		932A5BC91CE81592007D0B5C /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BB81CE81592007D0B5C /* APIOperation.swift */; };
+		932A5BCA1CE81592007D0B5C /* APIStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BB91CE81592007D0B5C /* APIStructures.swift */; };
+		932A5BCB1CE81592007D0B5C /* APIStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BB91CE81592007D0B5C /* APIStructures.swift */; };
+		932A5BCC1CE81592007D0B5C /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BBA1CE81592007D0B5C /* Keychain.swift */; };
+		932A5BCD1CE81592007D0B5C /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BBA1CE81592007D0B5C /* Keychain.swift */; };
+		932A5BCE1CE81592007D0B5C /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BBB1CE81592007D0B5C /* Payload.swift */; };
+		932A5BCF1CE81592007D0B5C /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BBB1CE81592007D0B5C /* Payload.swift */; };
+		932A5BD01CE81592007D0B5C /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BBC1CE81592007D0B5C /* Request+Auth.swift */; };
+		932A5BD11CE81592007D0B5C /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BBC1CE81592007D0B5C /* Request+Auth.swift */; };
+		932A5BD21CE81592007D0B5C /* Request+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BBD1CE81592007D0B5C /* Request+Credentials.swift */; };
+		932A5BD31CE81592007D0B5C /* Request+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BBD1CE81592007D0B5C /* Request+Credentials.swift */; };
+		932A5BD41CE81592007D0B5C /* Request+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BBE1CE81592007D0B5C /* Request+Operator.swift */; };
+		932A5BD51CE81592007D0B5C /* Request+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BBE1CE81592007D0B5C /* Request+Operator.swift */; };
+		932A5BD61CE81592007D0B5C /* Request+Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BBF1CE81592007D0B5C /* Request+Payment.swift */; };
+		932A5BD71CE81592007D0B5C /* Request+Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BBF1CE81592007D0B5C /* Request+Payment.swift */; };
+		932A5BD81CE81592007D0B5C /* Request+Sandbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BC01CE81592007D0B5C /* Request+Sandbox.swift */; };
+		932A5BD91CE81592007D0B5C /* Request+Sandbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BC01CE81592007D0B5C /* Request+Sandbox.swift */; };
+		932A5BDA1CE81592007D0B5C /* Request+Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BC11CE81592007D0B5C /* Request+Subscriber.swift */; };
+		932A5BDB1CE81592007D0B5C /* Request+Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BC11CE81592007D0B5C /* Request+Subscriber.swift */; };
+		932A5BDC1CE81592007D0B5C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BC21CE81592007D0B5C /* Request.swift */; };
+		932A5BDD1CE81592007D0B5C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BC21CE81592007D0B5C /* Request.swift */; };
+		932A5BDE1CE81592007D0B5C /* RequestResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BC31CE81592007D0B5C /* RequestResponseFormatter.swift */; };
+		932A5BDF1CE81592007D0B5C /* RequestResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BC31CE81592007D0B5C /* RequestResponseFormatter.swift */; };
+		932A5BE01CE81592007D0B5C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BC41CE81592007D0B5C /* Response.swift */; };
+		932A5BE11CE81592007D0B5C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BC41CE81592007D0B5C /* Response.swift */; };
+		932A5BE21CE81592007D0B5C /* SoracomCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BC51CE81592007D0B5C /* SoracomCredentials.swift */; };
+		932A5BE31CE81592007D0B5C /* SoracomCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BC51CE81592007D0B5C /* SoracomCredentials.swift */; };
+		932A5BF51CE8159E007D0B5C /* APIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BE51CE8159E007D0B5C /* APIErrorTests.swift */; };
+		932A5BF61CE8159E007D0B5C /* APIOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BE61CE8159E007D0B5C /* APIOperationTests.swift */; };
+		932A5BF71CE8159E007D0B5C /* APIStructuresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BE71CE8159E007D0B5C /* APIStructuresTests.swift */; };
+		932A5BF81CE8159E007D0B5C /* BaseTestCase+withNewIMSI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BE81CE8159E007D0B5C /* BaseTestCase+withNewIMSI.swift */; };
+		932A5BF91CE8159E007D0B5C /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BE91CE8159E007D0B5C /* BaseTestCase.swift */; };
+		932A5BFA1CE8159E007D0B5C /* BaseTestCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BEA1CE8159E007D0B5C /* BaseTestCaseTests.swift */; };
+		932A5BFB1CE8159E007D0B5C /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BEB1CE8159E007D0B5C /* KeychainTests.swift */; };
+		932A5BFC1CE8159E007D0B5C /* PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BEC1CE8159E007D0B5C /* PayloadTests.swift */; };
+		932A5BFD1CE8159E007D0B5C /* RegisterSIMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BED1CE8159E007D0B5C /* RegisterSIMTests.swift */; };
+		932A5BFE1CE8159E007D0B5C /* Request+AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BEE1CE8159E007D0B5C /* Request+AuthTests.swift */; };
+		932A5BFF1CE8159E007D0B5C /* Request+CredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BEF1CE8159E007D0B5C /* Request+CredentialsTests.swift */; };
+		932A5C001CE8159E007D0B5C /* Request+SandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BF01CE8159E007D0B5C /* Request+SandboxTests.swift */; };
+		932A5C011CE8159E007D0B5C /* Request+SubscriberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BF11CE8159E007D0B5C /* Request+SubscriberTests.swift */; };
+		932A5C021CE8159E007D0B5C /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BF21CE8159E007D0B5C /* RequestTests.swift */; };
+		932A5C031CE8159E007D0B5C /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BF31CE8159E007D0B5C /* ResponseTests.swift */; };
+		932A5C041CE8159E007D0B5C /* SoracomCredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BF41CE8159E007D0B5C /* SoracomCredentialsTests.swift */; };
+		932A5C071CE82951007D0B5C /* APIExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5C061CE82951007D0B5C /* APIExamples.swift */; };
+		932A5C081CE82951007D0B5C /* APIExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5C061CE82951007D0B5C /* APIExamples.swift */; };
+		932A5C0D1CE835CA007D0B5C /* RequestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5C0C1CE835CA007D0B5C /* RequestQueue.swift */; };
+		932A5C0E1CE835CA007D0B5C /* RequestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5C0C1CE835CA007D0B5C /* RequestQueue.swift */; };
+		932A5C101CE859D4007D0B5C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5C0F1CE859D4007D0B5C /* Constants.swift */; };
+		932A5C111CE859D4007D0B5C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5C0F1CE859D4007D0B5C /* Constants.swift */; };
+		932A5C131CE86CC2007D0B5C /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5C121CE86CC2007D0B5C /* Credentials.swift */; };
+		932A5C141CE86CC2007D0B5C /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5C121CE86CC2007D0B5C /* Credentials.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		932A5BA11CE80CE4007D0B5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 932A5B841CE80CE4007D0B5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 932A5B8B1CE80CE4007D0B5C;
+			remoteInfo = iOSDemoAppForSoracomSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		932A5B8C1CE80CE4007D0B5C /* iOSDemoAppForSoracomSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemoAppForSoracomSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		932A5B8F1CE80CE4007D0B5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		932A5B941CE80CE4007D0B5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		932A5B961CE80CE4007D0B5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		932A5B991CE80CE4007D0B5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		932A5B9B1CE80CE4007D0B5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		932A5BA01CE80CE4007D0B5C /* iOSDemoAppForSoracomSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSDemoAppForSoracomSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		932A5BA41CE80CE4007D0B5C /* iOSDemoAppForSoracomSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSDemoAppForSoracomSDKTests.swift; sourceTree = "<group>"; };
+		932A5BA61CE80CE4007D0B5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		932A5BAF1CE8111A007D0B5C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		932A5BB21CE81151007D0B5C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		932A5BB71CE81592007D0B5C /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		932A5BB81CE81592007D0B5C /* APIOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
+		932A5BB91CE81592007D0B5C /* APIStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStructures.swift; sourceTree = "<group>"; };
+		932A5BBA1CE81592007D0B5C /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		932A5BBB1CE81592007D0B5C /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
+		932A5BBC1CE81592007D0B5C /* Request+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Auth.swift"; sourceTree = "<group>"; };
+		932A5BBD1CE81592007D0B5C /* Request+Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Credentials.swift"; sourceTree = "<group>"; };
+		932A5BBE1CE81592007D0B5C /* Request+Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Operator.swift"; sourceTree = "<group>"; };
+		932A5BBF1CE81592007D0B5C /* Request+Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Payment.swift"; sourceTree = "<group>"; };
+		932A5BC01CE81592007D0B5C /* Request+Sandbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Sandbox.swift"; sourceTree = "<group>"; };
+		932A5BC11CE81592007D0B5C /* Request+Subscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Subscriber.swift"; sourceTree = "<group>"; };
+		932A5BC21CE81592007D0B5C /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		932A5BC31CE81592007D0B5C /* RequestResponseFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestResponseFormatter.swift; sourceTree = "<group>"; };
+		932A5BC41CE81592007D0B5C /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		932A5BC51CE81592007D0B5C /* SoracomCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoracomCredentials.swift; sourceTree = "<group>"; };
+		932A5BE51CE8159E007D0B5C /* APIErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIErrorTests.swift; sourceTree = "<group>"; };
+		932A5BE61CE8159E007D0B5C /* APIOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOperationTests.swift; sourceTree = "<group>"; };
+		932A5BE71CE8159E007D0B5C /* APIStructuresTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStructuresTests.swift; sourceTree = "<group>"; };
+		932A5BE81CE8159E007D0B5C /* BaseTestCase+withNewIMSI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseTestCase+withNewIMSI.swift"; sourceTree = "<group>"; };
+		932A5BE91CE8159E007D0B5C /* BaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
+		932A5BEA1CE8159E007D0B5C /* BaseTestCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCaseTests.swift; sourceTree = "<group>"; };
+		932A5BEB1CE8159E007D0B5C /* KeychainTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainTests.swift; sourceTree = "<group>"; };
+		932A5BEC1CE8159E007D0B5C /* PayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadTests.swift; sourceTree = "<group>"; };
+		932A5BED1CE8159E007D0B5C /* RegisterSIMTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterSIMTests.swift; sourceTree = "<group>"; };
+		932A5BEE1CE8159E007D0B5C /* Request+AuthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+AuthTests.swift"; sourceTree = "<group>"; };
+		932A5BEF1CE8159E007D0B5C /* Request+CredentialsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+CredentialsTests.swift"; sourceTree = "<group>"; };
+		932A5BF01CE8159E007D0B5C /* Request+SandboxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+SandboxTests.swift"; sourceTree = "<group>"; };
+		932A5BF11CE8159E007D0B5C /* Request+SubscriberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+SubscriberTests.swift"; sourceTree = "<group>"; };
+		932A5BF21CE8159E007D0B5C /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
+		932A5BF31CE8159E007D0B5C /* ResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
+		932A5BF41CE8159E007D0B5C /* SoracomCredentialsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoracomCredentialsTests.swift; sourceTree = "<group>"; };
+		932A5C061CE82951007D0B5C /* APIExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIExamples.swift; sourceTree = "<group>"; };
+		932A5C0C1CE835CA007D0B5C /* RequestQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestQueue.swift; sourceTree = "<group>"; };
+		932A5C0F1CE859D4007D0B5C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		932A5C121CE86CC2007D0B5C /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		932A5B891CE80CE4007D0B5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		932A5B9D1CE80CE4007D0B5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		932A5B831CE80CE4007D0B5C = {
+			isa = PBXGroup;
+			children = (
+				932A5BB51CE81568007D0B5C /* soracom-sdk-swift */,
+				932A5C051CE82926007D0B5C /* ExampleCode */,
+				932A5B8E1CE80CE4007D0B5C /* iOSDemoAppForSoracomSDK */,
+				932A5BA31CE80CE4007D0B5C /* iOSDemoAppForSoracomSDKTests */,
+				932A5B8D1CE80CE4007D0B5C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		932A5B8D1CE80CE4007D0B5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				932A5B8C1CE80CE4007D0B5C /* iOSDemoAppForSoracomSDK.app */,
+				932A5BA01CE80CE4007D0B5C /* iOSDemoAppForSoracomSDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		932A5B8E1CE80CE4007D0B5C /* iOSDemoAppForSoracomSDK */ = {
+			isa = PBXGroup;
+			children = (
+				932A5B8F1CE80CE4007D0B5C /* AppDelegate.swift */,
+				932A5B961CE80CE4007D0B5C /* Assets.xcassets */,
+				932A5B9B1CE80CE4007D0B5C /* Info.plist */,
+				932A5B981CE80CE4007D0B5C /* LaunchScreen.storyboard */,
+				932A5B931CE80CE4007D0B5C /* Main.storyboard */,
+				932A5BAF1CE8111A007D0B5C /* MainViewController.swift */,
+				932A5BB21CE81151007D0B5C /* SettingsViewController.swift */,
+				932A5C0F1CE859D4007D0B5C /* Constants.swift */,
+			);
+			path = iOSDemoAppForSoracomSDK;
+			sourceTree = "<group>";
+		};
+		932A5BA31CE80CE4007D0B5C /* iOSDemoAppForSoracomSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				932A5BA41CE80CE4007D0B5C /* iOSDemoAppForSoracomSDKTests.swift */,
+				932A5BA61CE80CE4007D0B5C /* Info.plist */,
+			);
+			path = iOSDemoAppForSoracomSDKTests;
+			sourceTree = "<group>";
+		};
+		932A5BB51CE81568007D0B5C /* soracom-sdk-swift */ = {
+			isa = PBXGroup;
+			children = (
+				932A5BB61CE81592007D0B5C /* Sources */,
+				932A5BE41CE8159E007D0B5C /* Tests */,
+			);
+			name = "soracom-sdk-swift";
+			path = ../..;
+			sourceTree = SOURCE_ROOT;
+		};
+		932A5BB61CE81592007D0B5C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				932A5BB71CE81592007D0B5C /* APIError.swift */,
+				932A5BB81CE81592007D0B5C /* APIOperation.swift */,
+				932A5BB91CE81592007D0B5C /* APIStructures.swift */,
+				932A5BBA1CE81592007D0B5C /* Keychain.swift */,
+				932A5BBB1CE81592007D0B5C /* Payload.swift */,
+				932A5BC21CE81592007D0B5C /* Request.swift */,
+				932A5BBC1CE81592007D0B5C /* Request+Auth.swift */,
+				932A5BBD1CE81592007D0B5C /* Request+Credentials.swift */,
+				932A5BBE1CE81592007D0B5C /* Request+Operator.swift */,
+				932A5BBF1CE81592007D0B5C /* Request+Payment.swift */,
+				932A5BC01CE81592007D0B5C /* Request+Sandbox.swift */,
+				932A5BC11CE81592007D0B5C /* Request+Subscriber.swift */,
+				932A5C0C1CE835CA007D0B5C /* RequestQueue.swift */,
+				932A5BC31CE81592007D0B5C /* RequestResponseFormatter.swift */,
+				932A5BC41CE81592007D0B5C /* Response.swift */,
+				932A5BC51CE81592007D0B5C /* SoracomCredentials.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		932A5BE41CE8159E007D0B5C /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				932A5BE51CE8159E007D0B5C /* APIErrorTests.swift */,
+				932A5BE61CE8159E007D0B5C /* APIOperationTests.swift */,
+				932A5BE71CE8159E007D0B5C /* APIStructuresTests.swift */,
+				932A5BE81CE8159E007D0B5C /* BaseTestCase+withNewIMSI.swift */,
+				932A5BE91CE8159E007D0B5C /* BaseTestCase.swift */,
+				932A5BEA1CE8159E007D0B5C /* BaseTestCaseTests.swift */,
+				932A5BEB1CE8159E007D0B5C /* KeychainTests.swift */,
+				932A5BEC1CE8159E007D0B5C /* PayloadTests.swift */,
+				932A5BED1CE8159E007D0B5C /* RegisterSIMTests.swift */,
+				932A5BEE1CE8159E007D0B5C /* Request+AuthTests.swift */,
+				932A5BEF1CE8159E007D0B5C /* Request+CredentialsTests.swift */,
+				932A5BF01CE8159E007D0B5C /* Request+SandboxTests.swift */,
+				932A5BF11CE8159E007D0B5C /* Request+SubscriberTests.swift */,
+				932A5BF21CE8159E007D0B5C /* RequestTests.swift */,
+				932A5BF31CE8159E007D0B5C /* ResponseTests.swift */,
+				932A5BF41CE8159E007D0B5C /* SoracomCredentialsTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		932A5C051CE82926007D0B5C /* ExampleCode */ = {
+			isa = PBXGroup;
+			children = (
+				932A5C061CE82951007D0B5C /* APIExamples.swift */,
+				932A5C121CE86CC2007D0B5C /* Credentials.swift */,
+			);
+			name = ExampleCode;
+			path = ../ExampleCode;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		932A5B8B1CE80CE4007D0B5C /* iOSDemoAppForSoracomSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 932A5BA91CE80CE4007D0B5C /* Build configuration list for PBXNativeTarget "iOSDemoAppForSoracomSDK" */;
+			buildPhases = (
+				932A5B881CE80CE4007D0B5C /* Sources */,
+				932A5B891CE80CE4007D0B5C /* Frameworks */,
+				932A5B8A1CE80CE4007D0B5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOSDemoAppForSoracomSDK;
+			productName = iOSDemoAppForSoracomSDK;
+			productReference = 932A5B8C1CE80CE4007D0B5C /* iOSDemoAppForSoracomSDK.app */;
+			productType = "com.apple.product-type.application";
+		};
+		932A5B9F1CE80CE4007D0B5C /* iOSDemoAppForSoracomSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 932A5BAC1CE80CE4007D0B5C /* Build configuration list for PBXNativeTarget "iOSDemoAppForSoracomSDKTests" */;
+			buildPhases = (
+				932A5B9C1CE80CE4007D0B5C /* Sources */,
+				932A5B9D1CE80CE4007D0B5C /* Frameworks */,
+				932A5B9E1CE80CE4007D0B5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				932A5BA21CE80CE4007D0B5C /* PBXTargetDependency */,
+			);
+			name = iOSDemoAppForSoracomSDKTests;
+			productName = iOSDemoAppForSoracomSDKTests;
+			productReference = 932A5BA01CE80CE4007D0B5C /* iOSDemoAppForSoracomSDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		932A5B841CE80CE4007D0B5C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Soracom, Inc.";
+				TargetAttributes = {
+					932A5B8B1CE80CE4007D0B5C = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					932A5B9F1CE80CE4007D0B5C = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 932A5B8B1CE80CE4007D0B5C;
+					};
+				};
+			};
+			buildConfigurationList = 932A5B871CE80CE4007D0B5C /* Build configuration list for PBXProject "iOSDemoAppForSoracomSDK" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 932A5B831CE80CE4007D0B5C;
+			productRefGroup = 932A5B8D1CE80CE4007D0B5C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				932A5B8B1CE80CE4007D0B5C /* iOSDemoAppForSoracomSDK */,
+				932A5B9F1CE80CE4007D0B5C /* iOSDemoAppForSoracomSDKTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		932A5B8A1CE80CE4007D0B5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				932A5B9A1CE80CE4007D0B5C /* LaunchScreen.storyboard in Resources */,
+				932A5B971CE80CE4007D0B5C /* Assets.xcassets in Resources */,
+				932A5B951CE80CE4007D0B5C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		932A5B9E1CE80CE4007D0B5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		932A5B881CE80CE4007D0B5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				932A5BB01CE8111A007D0B5C /* MainViewController.swift in Sources */,
+				932A5C101CE859D4007D0B5C /* Constants.swift in Sources */,
+				932A5C0D1CE835CA007D0B5C /* RequestQueue.swift in Sources */,
+				932A5BDC1CE81592007D0B5C /* Request.swift in Sources */,
+				932A5BDA1CE81592007D0B5C /* Request+Subscriber.swift in Sources */,
+				932A5BE01CE81592007D0B5C /* Response.swift in Sources */,
+				932A5BD61CE81592007D0B5C /* Request+Payment.swift in Sources */,
+				932A5B901CE80CE4007D0B5C /* AppDelegate.swift in Sources */,
+				932A5BCE1CE81592007D0B5C /* Payload.swift in Sources */,
+				932A5BE21CE81592007D0B5C /* SoracomCredentials.swift in Sources */,
+				932A5C071CE82951007D0B5C /* APIExamples.swift in Sources */,
+				932A5BCA1CE81592007D0B5C /* APIStructures.swift in Sources */,
+				932A5BD41CE81592007D0B5C /* Request+Operator.swift in Sources */,
+				932A5BDE1CE81592007D0B5C /* RequestResponseFormatter.swift in Sources */,
+				932A5C131CE86CC2007D0B5C /* Credentials.swift in Sources */,
+				932A5BD01CE81592007D0B5C /* Request+Auth.swift in Sources */,
+				932A5BD21CE81592007D0B5C /* Request+Credentials.swift in Sources */,
+				932A5BC61CE81592007D0B5C /* APIError.swift in Sources */,
+				932A5BCC1CE81592007D0B5C /* Keychain.swift in Sources */,
+				932A5BC81CE81592007D0B5C /* APIOperation.swift in Sources */,
+				932A5BB31CE81151007D0B5C /* SettingsViewController.swift in Sources */,
+				932A5BD81CE81592007D0B5C /* Request+Sandbox.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		932A5B9C1CE80CE4007D0B5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				932A5BD51CE81592007D0B5C /* Request+Operator.swift in Sources */,
+				932A5C111CE859D4007D0B5C /* Constants.swift in Sources */,
+				932A5BD31CE81592007D0B5C /* Request+Credentials.swift in Sources */,
+				932A5BD71CE81592007D0B5C /* Request+Payment.swift in Sources */,
+				932A5BE11CE81592007D0B5C /* Response.swift in Sources */,
+				932A5BFA1CE8159E007D0B5C /* BaseTestCaseTests.swift in Sources */,
+				932A5BA51CE80CE4007D0B5C /* iOSDemoAppForSoracomSDKTests.swift in Sources */,
+				932A5BF71CE8159E007D0B5C /* APIStructuresTests.swift in Sources */,
+				932A5C041CE8159E007D0B5C /* SoracomCredentialsTests.swift in Sources */,
+				932A5BFE1CE8159E007D0B5C /* Request+AuthTests.swift in Sources */,
+				932A5BC91CE81592007D0B5C /* APIOperation.swift in Sources */,
+				932A5C021CE8159E007D0B5C /* RequestTests.swift in Sources */,
+				932A5BF81CE8159E007D0B5C /* BaseTestCase+withNewIMSI.swift in Sources */,
+				932A5BDF1CE81592007D0B5C /* RequestResponseFormatter.swift in Sources */,
+				932A5BE31CE81592007D0B5C /* SoracomCredentials.swift in Sources */,
+				932A5BCF1CE81592007D0B5C /* Payload.swift in Sources */,
+				932A5BC71CE81592007D0B5C /* APIError.swift in Sources */,
+				932A5BF91CE8159E007D0B5C /* BaseTestCase.swift in Sources */,
+				932A5BDD1CE81592007D0B5C /* Request.swift in Sources */,
+				932A5BB11CE8111A007D0B5C /* MainViewController.swift in Sources */,
+				932A5BF61CE8159E007D0B5C /* APIOperationTests.swift in Sources */,
+				932A5BF51CE8159E007D0B5C /* APIErrorTests.swift in Sources */,
+				932A5BCB1CE81592007D0B5C /* APIStructures.swift in Sources */,
+				932A5BFF1CE8159E007D0B5C /* Request+CredentialsTests.swift in Sources */,
+				932A5BFB1CE8159E007D0B5C /* KeychainTests.swift in Sources */,
+				932A5C0E1CE835CA007D0B5C /* RequestQueue.swift in Sources */,
+				932A5C081CE82951007D0B5C /* APIExamples.swift in Sources */,
+				932A5C011CE8159E007D0B5C /* Request+SubscriberTests.swift in Sources */,
+				932A5BFD1CE8159E007D0B5C /* RegisterSIMTests.swift in Sources */,
+				932A5C001CE8159E007D0B5C /* Request+SandboxTests.swift in Sources */,
+				932A5BDB1CE81592007D0B5C /* Request+Subscriber.swift in Sources */,
+				932A5BB41CE81151007D0B5C /* SettingsViewController.swift in Sources */,
+				932A5C141CE86CC2007D0B5C /* Credentials.swift in Sources */,
+				932A5BCD1CE81592007D0B5C /* Keychain.swift in Sources */,
+				932A5BD91CE81592007D0B5C /* Request+Sandbox.swift in Sources */,
+				932A5BFC1CE8159E007D0B5C /* PayloadTests.swift in Sources */,
+				932A5C031CE8159E007D0B5C /* ResponseTests.swift in Sources */,
+				932A5BD11CE81592007D0B5C /* Request+Auth.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		932A5BA21CE80CE4007D0B5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 932A5B8B1CE80CE4007D0B5C /* iOSDemoAppForSoracomSDK */;
+			targetProxy = 932A5BA11CE80CE4007D0B5C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		932A5B931CE80CE4007D0B5C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				932A5B941CE80CE4007D0B5C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		932A5B981CE80CE4007D0B5C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				932A5B991CE80CE4007D0B5C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		932A5BA71CE80CE4007D0B5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		932A5BA81CE80CE4007D0B5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		932A5BAA1CE80CE4007D0B5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = iOSDemoAppForSoracomSDK/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.iOSDemoAppForSoracomSDK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		932A5BAB1CE80CE4007D0B5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = iOSDemoAppForSoracomSDK/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.iOSDemoAppForSoracomSDK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		932A5BAD1CE80CE4007D0B5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = iOSDemoAppForSoracomSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.iOSDemoAppForSoracomSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSDemoAppForSoracomSDK.app/iOSDemoAppForSoracomSDK";
+			};
+			name = Debug;
+		};
+		932A5BAE1CE80CE4007D0B5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = iOSDemoAppForSoracomSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.iOSDemoAppForSoracomSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSDemoAppForSoracomSDK.app/iOSDemoAppForSoracomSDK";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		932A5B871CE80CE4007D0B5C /* Build configuration list for PBXProject "iOSDemoAppForSoracomSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				932A5BA71CE80CE4007D0B5C /* Debug */,
+				932A5BA81CE80CE4007D0B5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		932A5BA91CE80CE4007D0B5C /* Build configuration list for PBXNativeTarget "iOSDemoAppForSoracomSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				932A5BAA1CE80CE4007D0B5C /* Debug */,
+				932A5BAB1CE80CE4007D0B5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		932A5BAC1CE80CE4007D0B5C /* Build configuration list for PBXNativeTarget "iOSDemoAppForSoracomSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				932A5BAD1CE80CE4007D0B5C /* Debug */,
+				932A5BAE1CE80CE4007D0B5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 932A5B841CE80CE4007D0B5C /* Project object */;
+}

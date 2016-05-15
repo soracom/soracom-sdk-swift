@@ -13,14 +13,19 @@ A future goal, once Swift 3 is released, is to to build as [a Swift 3 package](h
 
 
 
-### Demo app
-The demo app lets you interactively play with some of the API features, and is probably the easiest way to get started. It prints out a color-coded text representation every request and response, to illustrate how the API works:
+### Demo apps
+The Mac demo app lets you interactively play with some of the API features, and is probably the easiest way to get started. It prints out a color-coded text representation every request and response, to illustrate how the API works:
 
 ![demo app](Whatever/Documentation/demo-app.png) 
 
 The demo app creates a user in the API Sandbox, which can then be used for testing and experimentation. The app includes various examples of how to use the API, and provides a ready-made environment where new code can be easily added and debugged.
 
 It also serves as the test host for all of the SDK's automated tests.
+
+> Note: There is also an iOS demo app, but as of this writing (2016-05-15) it is incomplete. It runs **most** of the tests, but until [this issue](https://github.com/soracom/soracom-sdk-swift/issues/1) is closed, it cannot authenticate as a user in the API Sandbox to run all of the tests.
+
+![demo app](Whatever/Documentation/ios-demo-app.png) 
+
 
 # The basics
 The SDK is designed around two objects: `Request` and `Response`. 
@@ -190,7 +195,7 @@ let token = p[.token] // → nil
 let bogus = p[.bogus] // this line results in compile-time error
 ```
 
-Payload works like a Swift dictionary of type `[PayloadKey: AnyObject]`. Only values defined by the `PayloadKey` enum are valid. This allows Xcode to flag mistyped keys as a compile-time error:
+Payload works like a Swift dictionary of type `[PayloadKey: AnyObject]`. Only values defined by the `PayloadKey` enum are valid. This allows Xcode to flag most mistyped keys as a compile-time error:
 
 
 ![screenshot: Xcode flags invalid keys](Whatever/Documentation/xcode-flags-invalid-payload-key.png)

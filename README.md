@@ -102,7 +102,7 @@ Textual representations of both the request sent and the response received are s
 
 The `Request.issuePasswordResetToken() ` convenience constructor handles the details of creating the setting the API request URI, the HTTP verb to use, what HTTP headers need to be included, and how to encode the data payload (if any) that is sent in the body of the request.
 
-Looking at the response (shown in green), we can see that the value of `response.HTTPStatus` is 200, and that it returned an empty payload (HTTP body).
+Looking at the response (shown in green), we can see that the value of `response.HTTPStatus` is 200, and that it returned an empty payload (HTTP message body).
 
 In simple cases like this, you don't typically need to do anything with the respond beyond checking to see if an error occurred. But other times, you may need to retrieve data from the payload of the response.
 
@@ -177,7 +177,7 @@ Authenticated successfully. 😁
 
 #### The Payload class
 
-This introduces the `Payload` object. Both `Request` and `Response` use the `Payload` class to represent the data payload that is sent in the HTTP body.
+This introduces the `Payload` object. Both `Request` and `Response` use the `Payload` class to represent the data payload that is sent in the HTTP message body.
 
 The `Payload` class is in many ways similar to a Swift dictionary. It can be initialized like a Swift dictionary:
 

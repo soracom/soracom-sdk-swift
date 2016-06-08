@@ -199,7 +199,7 @@ class RegisterSIMTests: BaseTestCase {
         
         beginAsyncSection()
         
-        let paymentMethodInfo = PaymentMethodInfoWebPay(cvc: "123", expireMonth: 12, expireYear: 20, name: "SORAO TAMAGAWA", number: "4242424242424242")
+        let paymentMethodInfo = PaymentMethodInfoWebPay(cvc: "123", expireMonth: 12, expireYear: 2020, name: "SORAO TAMAGAWA", number: "4242424242424242")
         // This fake credit card info comes from the API Sandbox docs.
         
         let addPaymentMethodReq = Request.registerWebPayPaymentMethod(paymentMethodInfo)

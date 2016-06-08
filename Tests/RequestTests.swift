@@ -58,18 +58,19 @@ class RequestTests: BaseTestCase {
     }
     
     
-    func test_buildURL_and_endpoint() {
+    func test_buildURL_and_endpointHost() {
         
-        let foo = Request("foo")
+        let foo = Request("/foo")
         
         XCTAssertEqual(foo.buildURL().absoluteString, "https://api-sandbox.soracom.io/v1/foo")
         
-        let bar = Request("/bar")
-        bar.endpoint = "http://stink.pot"
+        let bar              = Request("/bar")
+        bar.endpointHost     = "stink.pot"
         bar.apiVersionString = ""
-        XCTAssertEqual(bar.buildURL().absoluteString, "http://stink.pot/bar")
-        bar.endpoint = "http://yes.no"
-        XCTAssertEqual(bar.buildURL().absoluteString, "http://yes.no/bar")
+        XCTAssertEqual(bar.buildURL().absoluteString, "https://stink.pot/bar")
+        
+        bar.endpointHost     = "yes.no"
+        XCTAssertEqual(bar.buildURL().absoluteString, "https://yes.no/bar")
     }
     
     
@@ -77,7 +78,7 @@ class RequestTests: BaseTestCase {
         
         let foo              = Request("/you-aint-no-valid-url-bruv")
         foo.apiVersionString = ""
-        foo.endpoint         = "https://www.soracom.jp"
+        foo.endpointHost     = "www.soracom.jp"
         foo.method           = .GET
         
         beginAsyncSection()

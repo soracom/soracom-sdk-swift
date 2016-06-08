@@ -48,14 +48,14 @@ import Foundation
 
 public class Request {
     
-    /// The URL of the production Soracom API server endpoint.
+    /// The host name of the production Soracom API server endpoint.
     
-    static let productionEndpoint = "https://api.soracom.io"
+    static let productionEndpointHost = "api.soracom.io"
     
     
-    /// The URL of the API sandbox Soracom API server endpoint, used for testing and development.
+    /// The host name of the API sandbox Soracom API server endpoint, used for testing and development.
     
-    static let sandboxEndpoint = "https://api-sandbox.soracom.io"
+    static let sandboxEndpointHost = "api-sandbox.soracom.io"
     
     
     /// The API version, currently should always be left at the default "v1".
@@ -65,16 +65,16 @@ public class Request {
  
     /// By default, the API sandbox endpoint will be used. Set this property to override the default. FIXME: Implement a way to set the global default.
     
-    var endpoint: String {
+    var endpointHost: String {
         get {
-            return _endpoint ?? self.dynamicType.sandboxEndpoint
+            return _endpointHost ?? self.dynamicType.sandboxEndpointHost
         }
         set {
-            _endpoint = newValue
+            _endpointHost = newValue
         }
     }
     
-    private var _endpoint: String? = nil
+    private var _endpointHost: String? = nil
     
     
     /// The credentials object that is used to authorize the API request.
@@ -121,12 +121,17 @@ public class Request {
     
     /// Many API requests have a payload of keys and values that are sent to the server in the HTTP body of the request. The `requestPayload` property contains those values. (It is not normally necessary to explicitly set this property, because it will happen automatically when using the one of the convenience methods for creating a request.) This list will be converted to a JSON object when being sent to the server.
     
-    var requestPayload: Payload?
+    var requestPayload: Payload? // FIXME: rename to just 'payload'
     
     
     /// The URL path, e.g. "/operators/verify". (It is not normally necessary to explicitly set this property, because it will happen automatically when using the one of the convenience methods for creating a request.)
     
     let path: String
+    
+    
+    /// The query that should be encoded into the URL when built.
+    
+    var query: [String:String]? = nil
     
     
     /// The ResponseHandler function that, if it exists, will be use to process the response to the request (or potentially the error that occurred).
@@ -167,32 +172,35 @@ public class Request {
     }
     
     
-    /// Returns the complete URL, based on endpoint, API version, and path.
+    /// Returns the complete URL, based on endpointHost, API version, path, and query.
     
     func buildURL() -> NSURL {
         
-        //        let baseURL    = NSURL(string: endpoint)
-        //        let versionURL = NSURL(string: "\(apiVersionString)/", relativeToURL:  baseURL)
-        //        let fullURL    = NSURL(string: path, relativeToURL: versionURL)
-        // Mason 2016-04-12: someday it might be better to use something like the above; for now we just hack a string.
+        let urlComponents    = NSURLComponents()
+        urlComponents.scheme = "https";
+        urlComponents.host   = endpointHost
         
-        var urlString = endpoint
-        if apiVersionString != "" {
-            urlString += "/"
-            urlString += apiVersionString
+        var fullPath = ""
+        if apiVersionString.characters.count > 0 {
+            fullPath += "/" + apiVersionString
         }
-        if !path.hasPrefix("/") {
-            urlString += "/"
-            // Mason 2016-04-12: I think we should probably just require path to start with '/', or prohibit it. This smells.
+        fullPath += path
+        urlComponents.path = fullPath
+        
+        if let query = query {
+            var queryItems: [NSURLQueryItem] = []
+            for (k,v) in query {
+                let qi = NSURLQueryItem(name: k, value: v)
+                queryItems.append(qi)
+            }
+            urlComponents.queryItems = queryItems
         }
-        urlString += path
-        
-        
-        if let result = NSURL(string: urlString) {
+
+        if let result = urlComponents.URL {
             return result
         } else {
             fatalError("failed to build URL")
-        }
+        }        
     }
     
     

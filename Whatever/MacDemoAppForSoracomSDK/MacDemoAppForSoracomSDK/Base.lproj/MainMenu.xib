@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
         <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
@@ -17,10 +16,10 @@
             <connections>
                 <outlet property="authKeyIDField" destination="Gd3-Gj-qU3" id="CYd-PE-SZO"/>
                 <outlet property="authKeySecretField" destination="Wwg-Pi-pi3" id="KsA-ro-ayz"/>
-                <outlet property="dummyEmailField" destination="uo1-jP-ouE" id="w8g-dq-DKV"/>
-                <outlet property="dummyPasswordField" destination="61a-8N-cDD" id="yjX-sg-nk2"/>
                 <outlet property="outputTextView" destination="oK1-gg-B2k" id="eEa-gw-hBG"/>
                 <outlet property="redactSwitch" destination="ZBt-Em-QC6" id="b6h-Up-gLN"/>
+                <outlet property="sandboxUserEmailField" destination="uo1-jP-ouE" id="w8g-dq-DKV"/>
+                <outlet property="sandboxUserPasswordField" destination="61a-8N-cDD" id="yjX-sg-nk2"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -876,7 +875,7 @@
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
                                     <connections>
-                                        <action selector="authWithDummyUserCredentials:" target="Voe-Tx-rLC" id="ezZ-9x-Z1d"/>
+                                        <action selector="authWithSandboxUserCredentials:" target="Voe-Tx-rLC" id="3Mz-gf-H5g"/>
                                     </connections>
                                 </button>
                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZBt-Em-QC6">
@@ -896,7 +895,7 @@
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
                                     <connections>
-                                        <action selector="createDummySIMs:" target="Voe-Tx-rLC" id="4j7-Lb-Ers"/>
+                                        <action selector="createSandboxSIMs:" target="Voe-Tx-rLC" id="4j7-Lb-Ers"/>
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aoq-be-Mbn">
@@ -944,7 +943,7 @@
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
                                     <connections>
-                                        <action selector="createDummyUser:" target="Voe-Tx-rLC" id="B3h-Qu-xCS"/>
+                                        <action selector="createSandboxUser:" target="Voe-Tx-rLC" id="9kE-Ps-h4A"/>
                                     </connections>
                                 </button>
                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uo1-jP-ouE">

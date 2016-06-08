@@ -32,7 +32,7 @@ extension AppDelegate {
                     case .Sandbox:
                         var creds = self.sandboxUserCredentials
                         creds.apiToken = token
-                        creds.writeToSecurePersistentStorage(nil, namespace: self.dummyUserStorageNamespace, replaceDefault: true)
+                        creds.writeToSecurePersistentStorage(nil, namespace: self.sandboxUserStorageNamespace, replaceDefault: true)
                     default:
                         break
                     }
@@ -62,7 +62,7 @@ extension AppDelegate {
     /// Create a single dummy SIM in the sandbox environment.
     
     func createSandboxSIM() {
-        log("🚀 Will try to create dummy SIM (aka 'subscriber') in the API Sandbox...")
+        log("🚀 Will try to create a SIM (aka 'subscriber') in the API Sandbox...")
 
         log("This operation will attempt to create a subscriber object (SIM) in the API sandbox. You can then use the data pertaining to that subscriber for testing, as if they were real SIMs that you had purchased. (The first step would be to register it.)")
         
@@ -96,14 +96,14 @@ extension AppDelegate {
             return
         }
         
-        let emailAddress = dummyEmailField.stringValue
-        var password     = dummyPasswordField.stringValue
+        let emailAddress = sandboxUserEmailField.stringValue
+        var password     = sandboxUserPasswordField.stringValue
         
         if password == "" {
             password = NSUUID().UUIDString + "aBc0157$"
         }
         
-        var msg = "This operation will attempt to create a dummy user for testing, in the API sandbox.\n\n"
+        var msg = "This operation will attempt to create a sandbox user for testing, in the API sandbox.\n\n"
         msg    += "  Email Address: \(emailAddress)\n"
         msg    += "  Password:      \(password)\n"
         log(msg)
@@ -111,7 +111,7 @@ extension AppDelegate {
         // First, create the operator. In the API Sandbox, this operation does not need to be authorized
         // with credentials, because it is the equivalent of signing up with a new account.
         
-        let dummyUserTokenIdentifier = "createDummyUser.token"
+        let sandboxUserTokenIdentifier = "createSandboxUser.token"
         
         let createOperatorRequest = Request.createOperator(emailAddress, password: password) { (response) in
             
@@ -142,9 +142,9 @@ extension AppDelegate {
                 if let token = response.payload?[.token] as? String {
                     
                     let tokenCredentials = SoracomCredentials(apiToken: token)
-                    tokenCredentials.writeToSecurePersistentStorage(dummyUserTokenIdentifier, replaceDefault: false)
+                    tokenCredentials.writeToSecurePersistentStorage(sandboxUserTokenIdentifier, replaceDefault: false)
                     
-                    self.log("The token for the dummy user has been saved for use in the next step.")
+                    self.log("The token for the sandbox user has been saved for use in the next step.")
                     self.log("No errors occurred, so the next operation in the queue will be run.")
                     
                 } else {
@@ -169,7 +169,7 @@ extension AppDelegate {
         
         let verifyOperation = APIOperation() {
             
-            let credentials    = SoracomCredentials(withStorageIdentifier: dummyUserTokenIdentifier)
+            let credentials    = SoracomCredentials(withStorageIdentifier: sandboxUserTokenIdentifier)
             
             let verifyOperator = Request.verifyOperator(token: credentials.apiToken) { (response) in
                 
@@ -182,12 +182,12 @@ extension AppDelegate {
                     // has completed successfully. So, store the credentials so that we may use this sandbox
                     // user to do various other things:
                     
-                    let dummyUserCredentials = SoracomCredentials(type: .RootAccount, emailAddress: emailAddress, password: password)
-                    dummyUserCredentials.writeToSecurePersistentStorage(namespace: self.dummyUserStorageNamespace)
+                    let sandboxUserCredentials = SoracomCredentials(type: .RootAccount, emailAddress: emailAddress, password: password)
+                    sandboxUserCredentials.writeToSecurePersistentStorage(namespace: self.sandboxUserStorageNamespace, replaceDefault: true)
                     
                     // And, tell the user:
                     
-                    self.log("No errors occurred. The dummy user in the API Sandbox was created successfully, and the credentials for the dummy user were stored under the special namespace \(self.dummyUserStorageNamespace.UUIDString):")
+                    self.log("No errors occurred. The sandbox user was created in the API Sandbox successfully, and the sandbox user's credentials were stored under the special namespace \(self.sandboxUserStorageNamespace.UUIDString):")
                     self.log("  Email Address: \(emailAddress)")
                     self.log("  Password:      \(password)")
                 }
@@ -216,7 +216,7 @@ extension AppDelegate {
                     var creds = self.sandboxUserCredentials
                     creds.apiKey = apiKey
                     creds.apiToken = token
-                    creds.writeToSecurePersistentStorage(nil, namespace: self.dummyUserStorageNamespace, replaceDefault: true)
+                    creds.writeToSecurePersistentStorage(nil, namespace: self.sandboxUserStorageNamespace, replaceDefault: true)
                     
                     self.log("Authenticated successfully as the newly-created sandbox user, and stored the updated API key and token.")
                     

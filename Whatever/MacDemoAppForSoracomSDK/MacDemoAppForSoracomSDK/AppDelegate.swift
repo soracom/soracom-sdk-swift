@@ -8,8 +8,8 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var window: NSWindow!
-    @IBOutlet weak var dummyEmailField: NSTextField!
-    @IBOutlet weak var dummyPasswordField: NSTextField!
+    @IBOutlet weak var sandboxUserEmailField: NSTextField!
+    @IBOutlet weak var sandboxUserPasswordField: NSTextField!
     @IBOutlet weak var authKeyIDField: NSTextField!
     @IBOutlet weak var authKeySecretField: NSTextField!
     @IBOutlet weak var redactSwitch: NSButton!
@@ -32,16 +32,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /// Returns the credentials of the API Sandbox user. This demo app saves credentials for only one sandbox user at a time (which can be recreated whenever needed from the main window). Since this app also has to store a set of real-world credentials for a SAM user, it uses a different storage namespace for the sandbox user's credentials.
     
     var sandboxUserCredentials: SoracomCredentials {
-        return SoracomCredentials(withStorageIdentifier: nil, namespace: dummyUserStorageNamespace)
+        return SoracomCredentials(withStorageIdentifier: nil, namespace: sandboxUserStorageNamespace)
     }
     
     var sandboxUserRootCredentials: SoracomCredentials {
-        return SoracomCredentials(withStoredType: .RootAccount, namespace: self.dummyUserStorageNamespace)
+        return SoracomCredentials(withStoredType: .RootAccount, namespace: sandboxUserStorageNamespace)
     }
 
     /// A separate namespace in which credentials for dummy users (API Sandbox users) are stored
     
-    let dummyUserStorageNamespace = NSUUID(UUIDString: "DEAE490F-0A00-49CD-B2AF-401215E15122")!
+    let sandboxUserStorageNamespace = NSUUID(UUIDString: "DEAE490F-0A00-49CD-B2AF-401215E15122")!
 
     
     /// Initial housekeeping
@@ -74,7 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         redactSwitch.state = RequestResponseFormatter.shouldRedact ? NSOnState : NSOffState
         
         Request.credentialsFinder = { (request) in
-            // This app is a bit unusual since it does most things as a dummy sandbox user, but sometimes
+            // This app is unusual since it does most things as a user in the API Sandbox, but sometimes
             // needs production credentials too. Here we set the default credentials to the ones we store
             // for the sandbox user. This makes these the default credentials used by all requests, unless
             // otherwise specified.
@@ -113,7 +113,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         let sbc = sandboxUserCredentials
-        dummyEmailField.stringValue = sbc.emailAddress
+        sandboxUserEmailField.stringValue = sbc.emailAddress
         if sbc.blank {
             log("There are no stored sandbox user credentials.")
         }
@@ -185,12 +185,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     
-    @IBAction func createDummyUser(sender: AnyObject) {
+    @IBAction func createSandboxUser(sender: AnyObject) {
         createSandboxUser()
     }
     
 
-    @IBAction func authWithDummyUserCredentials(sender: AnyObject) {
+    @IBAction func authWithSandboxUserCredentials(sender: AnyObject) {
         self.authWithCredentials(sandboxUserRootCredentials)
     }
     
@@ -206,7 +206,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return
         }
         
-        SoracomCredentials().writeToSecurePersistentStorage(namespace: self.dummyUserStorageNamespace)
+        SoracomCredentials().writeToSecurePersistentStorage(namespace: sandboxUserStorageNamespace)
         // Mason 2016-04-23: that's a fairly hackneyed method of deletion, bro...
         
         self.log("Stored credentials deleted successfully. 😁")
@@ -214,7 +214,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     
-    @IBAction func createDummySIMs(sender: AnyObject) {
+    @IBAction func createSandboxSIMs(sender: AnyObject) {
         createSandboxSIM()
     }
     
@@ -234,6 +234,6 @@ enum UserType {
     /// The actual production SAM user (in this demo app, used only for creating a dummy user in the API Sandbox)
     case Production
     
-    /// The dummy sandbox user, used to play with the API
+    /// The sandbox user, used to play with the API without affecting things in the real production environment.
     case Sandbox
 }

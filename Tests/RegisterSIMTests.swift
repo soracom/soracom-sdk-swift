@@ -80,11 +80,11 @@ class RegisterSIMTests: BaseTestCase {
         auth(sandboxRootAccountCredentials)
           // ...  and refresh token.
         
-        let dummy = createSandboxSubscriber()
+        let subscriber = createSandboxSubscriber()
           // 5 Create dummy Subscriber (SIM).
         
-        registerSubscriber(dummy.IMSI, registrationSecret: dummy.registrationSecret)
-          // Finally, register the dummy SIM!
+        registerSubscriber(subscriber.IMSI, registrationSecret: subscriber.registrationSecret)
+          // Finally, register the SIM!
         
         // FIXME: Okay, all our test assertions have passed, but one final sanity check on a test like this would be to look up the registered SIM and compare its values with what we think we should have.
     }

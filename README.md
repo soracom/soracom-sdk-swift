@@ -22,7 +22,7 @@ The demo app creates a user in the API Sandbox, which can then be used for testi
 
 It also serves as the test host for all of the SDK's automated tests.
 
-> Note: There is also an iOS demo app, but as of this writing (2016-05-15) it is incomplete. It runs **most** of the tests, but until [this issue](https://github.com/soracom/soracom-sdk-swift/issues/1) is closed, it cannot authenticate as a user in the API Sandbox to run all of the tests.
+> Note: There is also an iOS demo app, but as of this writing (2016-06-08) it is incomplete. It runs **most** of the tests, but until [this issue](https://github.com/soracom/soracom-sdk-swift/issues/1) is closed, it cannot authenticate as a user in the API Sandbox to run all of the tests.
 
 ![demo app](Whatever/Documentation/ios-demo-app.png) 
 

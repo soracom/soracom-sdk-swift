@@ -2,7 +2,7 @@
 
 An SDK for the Soracom API in Swift.
 
-Current status (2016-05-14): This SDK is a work in progress, still in the design stage.
+Current status (2016-06-08): This SDK is a work in progress, still in the design stage. (It currently only implements a small portion of the API, and won't be very useful until that work is complete.)
 
 ### Target audience
 This SDK is intended for programmers who want to interact with the [Soracom API](https://dev.soracom.io/jp/docs/api_guide/) from Swift code.
@@ -179,7 +179,7 @@ Authenticated successfully. 😁
 
 This introduces the `Payload` object. Both `Request` and `Response` use the `Payload` class to represent the data payload that is sent in the HTTP message body.
 
-The `Payload` class is in many ways similar to a Swift dictionary. It can be initialized like a Swift dictionary:
+The `Payload` class is in many ways similar to a Swift dictionary. It conforms to the `DictionaryLiteralConvertible` protocol, so it can be initialized like a Swift dictionary:
 
 ```swift
 let p: Payload = [
@@ -195,7 +195,7 @@ let token = p[.token] // → nil
 let bogus = p[.bogus] // this line results in compile-time error
 ```
 
-Payload works like a Swift dictionary of type `[PayloadKey: AnyObject]`. Only values defined by the `PayloadKey` enum are valid. This allows Xcode to flag most mistyped keys as a compile-time error:
+Payload works like a Swift dictionary of type `[PayloadKey: AnyObject]` . The keys must be values defined by the `PayloadKey` enum. This allows Xcode to flag most mistyped keys as a compile-time error:
 
 
 ![screenshot: Xcode flags invalid keys](Whatever/Documentation/xcode-flags-invalid-payload-key.png)

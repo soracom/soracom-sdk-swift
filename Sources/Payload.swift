@@ -101,6 +101,9 @@ final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Equatable
             else if let newValue = oldValue as? NSDictionary {
                 result[newKey] = newValue
             }
+            else if let newValue = oldValue as? NSArray {
+                result[newKey] = newValue
+            }
             else {
                 fatalError("work in progress bro (FIXME)")
             }
@@ -253,6 +256,15 @@ public enum PayloadKey: String {
     case password
     case plan
     case registrationSecret
+    
+    case rootObject
+      // This rootObject is a special case. Sometimes the Soracom API returns a root object that is not a
+      // dictionary, when it returns a JSON string the HTTP message body of a response. In such cases, the
+      // resulting Payload instance will contain that root object as its single value, under this key.
+      // 
+      // Mason: 2016-06-08 this is an artifact of the Payload design. I am not yet sure whether I want to 
+      // just live with it, or try to think of something better.
+    
     case s1_fast                  // string key is "s1.fast"
     case s1_minimum               // string key is "s1.minimum"
     case s1_slow                  // string key is "s1.slow"
@@ -299,4 +311,10 @@ public enum PayloadKey: String {
 
 protocol PayloadConvertible {
     func toPayload() -> Payload
+}
+
+
+// MARK: - Error types
+enum PayloadDecodeError: ErrorType {
+    case NotYetImplemented
 }

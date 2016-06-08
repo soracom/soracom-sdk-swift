@@ -51,9 +51,11 @@ public struct Response {
     }
     
     
-    /// Parses `self.data` as JSON, and returns it in native dictionary format. Returns nil if JSON parsing fails, or JSON → dictionary deserialization fails.
+    /// Parses `self.data` as JSON, and returns it in native dictionary format. Returns nil if JSON parsing fails, or JSON → dictionary || JSON → array deserialization fails.
     
     var dictionary: [String:AnyObject]? {
+        
+        // FIXME: This should not be Response's job. Response should only go so far as storing data and maybe decoding UTF-8 text. Any parsing beyond that should be Payload's job. So this whole method should be moved.
         
         guard let data = data else {
             return nil
@@ -66,9 +68,16 @@ public struct Response {
         var result: [String:AnyObject]? = nil
         
         do {
-            let dict = try NSJSONSerialization.JSONObjectWithData(data, options: [])
-            if let dict = dict as? [String:AnyObject] {
+            let obj = try NSJSONSerialization.JSONObjectWithData(data, options: [])
+            
+            if let dict = obj as? [String:AnyObject] {
                 result = dict
+            
+            } else if let a = obj as? [[String:AnyObject]] {
+                result = ["rootObject": a]
+            
+            } else {
+                throw PayloadDecodeError.NotYetImplemented
             }
         } catch {
             print ("JSON deserialization of received data failed: \(error)")
@@ -178,3 +187,4 @@ extension Response: CustomStringConvertible {
     }
 
 }
+

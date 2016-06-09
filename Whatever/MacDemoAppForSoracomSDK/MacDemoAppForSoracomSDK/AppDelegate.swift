@@ -218,6 +218,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         createSandboxSIM()
     }
     
+    
+    @IBAction func listSandboxSIMs(sender: AnyObject) {
+        listSandboxSIMs()
+    }
+    
+    
     @IBAction func updateRedactionOption(sender: NSButton) {
         let newValue = sender.state == NSOnState
         RequestResponseFormatter.shouldRedact = newValue

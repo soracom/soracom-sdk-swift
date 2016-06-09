@@ -119,15 +119,7 @@ public struct Response {
             return nil
         }
         
-        do {
-            return try Payload.fromDictionary(dict)
-        } catch {
-            print("\(#function)Got an error constructing a Payload instance from this received data:")
-            print(text)
-            print("For now, PayloadError is 'under study' and not yet nailed-down, so here we just ignore the error and return nil.")
-            return nil
-        }
-        
+        return Payload.fromDictionary(dict)        
     }
     
     

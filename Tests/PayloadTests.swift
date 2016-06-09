@@ -124,15 +124,15 @@ class PayloadTests: XCTestCase {
             .dataTrafficStatsMap : daughter
         ]
         
-        do {
-            let encoded = mama.toDictionary()
-            let decoded = try Payload.fromDictionary(encoded)
+        let encoded = mama.toDictionary()
+        let decoded =  Payload.fromDictionary(encoded)
+        
+        if let decoded = decoded {
             let recoded = decoded.toDictionary()
-            
             XCTAssertEqual(encoded as NSDictionary, recoded as NSDictionary)
-            
-        } catch {
-            XCTFail("unexpected error: \(error)")
+        
+        } else {
+            XCTFail("expectations failed")
         }
     }
 
@@ -151,28 +151,31 @@ class PayloadTests: XCTestCase {
             .type           : "yes"
         ]
         
-        do {
-            let actual = try Payload.fromDictionary(d)
-            let actualDict = actual.toDictionary()
+        let actual       =  Payload.fromDictionary(d)
+        
+        if let actual = actual {
+            let actualDict   = actual.toDictionary()
             let expectedDict = expected.toDictionary()
+            
             XCTAssertEqual(actualDict as NSDictionary, expectedDict as NSDictionary)
-
-        } catch {
-            XCTFail("unexpected error: \(error)")
+            
+        } else {
+            XCTFail("bogus condition")
         }
     }
     
     
-    func test_fromDictionary_bogus() {
-        var gotError = false
-        do {
-            let nope = try Payload.fromDictionary(["nonexistent key": "nonexistent key"])
-            XCTFail("expected error to be thrown, precluding getting here \(nope)")
-        } catch {
-            gotError = true
-        }
-       XCTAssertTrue(gotError)
-    }
+    // Mason 2016-06-09: commented out this test below, because today I changed the behavior of fromDictionary(). It no longer throws. However,leaving this here for now because we might change this behavior again... 
+    //    func test_fromDictionary_bogus() {
+    //        var gotError = false
+    //        do {
+    //            let nope = Payload.fromDictionary(["nonexistent key": "nonexistent key"])
+    //            XCTFail("expected error to be thrown, precluding getting here \(nope)")
+    //        } catch {
+    //            gotError = true
+    //        }
+    //       XCTAssertTrue(gotError)
+    //    }
     
     
     func test_equatable() {

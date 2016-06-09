@@ -62,14 +62,35 @@ extension AppDelegate {
     /// Create a single dummy SIM in the sandbox environment.
     
     func createSandboxSIM() {
-        log("🚀 Will try to create a SIM (aka 'subscriber') in the API Sandbox...")
+        log("🚀 Will try to create a SIM (aka 'subscriber') in the API Sandbox, and register it...")
 
         log("This operation will attempt to create a subscriber object (SIM) in the API sandbox. You can then use the data pertaining to that subscriber for testing, as if they were real SIMs that you had purchased. (The first step would be to register it.)")
         
-        let req = Request.createSandboxSubscriber()
+        let req = Request.createSandboxSubscriber() { (response) in
+         
+            if let payload = response.payload, imsi = payload[.imsi] as? String, secret = payload[.registrationSecret] as? String{
+                
+                let registerRequest = Request.registerSubscriber(imsi, registrationSecret: secret)
+                self.queue.addOperation(APIOperation(registerRequest))
+            
+            } else {
+                self.log("Uh-oh: couldn't create SIM, but handling that error is beyond the scope of this demo app.")
+            }
+            
+        }
         let op  = APIOperation(req)
         queue.addOperation(op)
           // The above could insted be done like this: req.run()
+    }
+    
+    
+    /// List all sandbox SIMs
+    func listSandboxSIMs() {
+        log("🚀 Will try to list all SIMs (aka 'subscribers') that are regsitered in the API Sandbox...")
+        
+        let req = Request.listSubscribers()
+        let op  = APIOperation(req)
+        queue.addOperation(op)
     }
     
     
@@ -197,13 +218,48 @@ extension AppDelegate {
         }
         queue.addOperation(verifyOperation)
 
-        // Log in as newly-verified sandbox user, and update the API key and token.
+        // Next, we in as newly-verified sandbox user, and update the API key and token.
         // But since we only persist the credentials for the sandbox user upon successful 
-        // completion of verifyOperation above, we have to use APIOperation's capability
+        // completion of verifyOperation above, and those credentials are used to initialize
+        // this next REquest object, we have to use APIOperation's capability
         // to defer creation of the request (so that we can look up the credentials stored
         // in that previous step):
         
-        let reauthOperation = APIOperation() {
+        queue.addOperation(deferredAuthOperation())
+
+        
+        // Register web payment method:
+        
+        let paymentMethodInfo = PaymentMethodInfoWebPay(cvc: "123", expireMonth: 12, expireYear: 2020, name: "SORAO TAMAGAWA", number: "4242424242424242")
+          // This fake credit card info comes from the API Sandbox docs.
+
+        let registerPaymentMethodRequest = Request.registerWebPayPaymentMethod(paymentMethodInfo)
+        registerPaymentMethodRequest.responseHandler = { (response) in
+            
+            if let error = response.error {
+                self.log("Hmm. An error ocurred after the sandbox user was successfully created, preventing a payment method from being registered.")
+                self.log("\(error)")
+            
+            } else {
+                self.log("Successfully addded a (fake) payment method to the sandbox user's account.")
+            }
+        }
+        
+        let registerPaymentMethodOperation = APIOperation(registerPaymentMethodRequest)
+        queue.addOperation(registerPaymentMethodOperation)
+        
+        // Finally, after adding payment method, we have to refresh our token one more time: 
+        queue.addOperation(deferredAuthOperation())
+    }
+    
+    
+    /// Create a 'deferred' request operation to authenticate, using the sandbox user root credentials. The
+    /// reason this method exists is that we sometimes have to do some work, wait for the results of that work
+    /// to be returned by the server, save updated credentials, and then log in using those credentials.
+    
+    func deferredAuthOperation() -> APIOperation {
+        
+        let authOperation = APIOperation() {
             
             let reAuthRequest = Request.auth(self.sandboxUserRootCredentials)
             
@@ -226,28 +282,8 @@ extension AppDelegate {
             }
             return reAuthRequest
         }
-        queue.addOperation(reauthOperation)
-
         
-        // Register web payment method:
-        
-        let paymentMethodInfo = PaymentMethodInfoWebPay(cvc: "123", expireMonth: 12, expireYear: 2020, name: "SORAO TAMAGAWA", number: "4242424242424242")
-          // This fake credit card info comes from the API Sandbox docs.
-
-        let registerPaymentMethodRequest = Request.registerWebPayPaymentMethod(paymentMethodInfo)
-        registerPaymentMethodRequest.responseHandler = { (response) in
-            
-            if let error = response.error {
-                self.log("Hmm. An error ocurred after the sandbox user was successfully created, preventing a payment method from being registered.")
-                self.log("\(error)")
-            
-            } else {
-                self.log("Successfully addded a (fake) payment method to the sandbox user's account.")
-            }
-        }
-        
-        let registerPaymentMethodOperation = APIOperation(registerPaymentMethodRequest)
-        queue.addOperation(registerPaymentMethodOperation)
+        return authOperation
     }
 
 }

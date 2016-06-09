@@ -9,6 +9,7 @@ import XCTest
 /// - gets a signup token, and verifies it
 /// - registers a payment method
 /// - registers a dummy SIM as the sandbox user
+/// - fetches the subscriber data to do sanity checks / assert expected values
 ///
 /// See the [doc](https://dev.soracom.io/jp/docs/api_sandbox/) for more info. Also [this English version](https://soracom.slack.com/files/yuta/F0PL4L12L/sandbox_tutorial.md). The numbers in the comments below refer to those steps.
 
@@ -86,7 +87,17 @@ class RegisterSIMTests: BaseTestCase {
         registerSubscriber(subscriber.IMSI, registrationSecret: subscriber.registrationSecret)
           // Finally, register the SIM!
         
-        // FIXME: Okay, all our test assertions have passed, but one final sanity check on a test like this would be to look up the registered SIM and compare its values with what we think we should have.
+        updateSpeedClass(subscriber.IMSI, speedClass: .s1_fast)
+        
+        let list = listSubscribers()
+            
+        if list.count > 0 {
+            // There will only be one SIM in the list
+            let subscriber = list[0]
+            let imsi = subscriber.imsi
+            
+            getSubscriber(imsi)
+        }
     }
     
     
@@ -298,6 +309,83 @@ class RegisterSIMTests: BaseTestCase {
         // FIXME: someday return a Subscriber struct here. I haven't created the Subscriber struct yet though.
     }
     
+    
+    /// Update the speed class.
+    
+    func updateSpeedClass(imsi: String, speedClass: SpeedClass) {
+
+        beginAsyncSection()
+        
+        let req = Request.updateSpeedClass(imsi, speedClass: speedClass)
+        
+        req.run { (response) in
+            XCTAssert(response.error == nil)
+            self.endAsyncSection()
+        }
+        waitForAsyncSection()
+    }
+    
+    
+    /// Get the list of subscribers (will be a list onf just 1, in this test's case).
+    
+    func listSubscribers() -> [Subscriber] {
+        
+        beginAsyncSection()
+        
+        let req = Request.listSubscribers(speedClassFilter: [.s1_fast], limit: 999);
+        
+        var result: [Subscriber] = []
+        
+        req.run { (response) in
+        
+            XCTAssert(response.error == nil)
+            
+            if let payload = response.payload, list = payload.toSubscriberList() {
+                result.appendContentsOf(list)
+            } else {
+                XCTFail("could not get subscriber list")
+            }
+            
+            self.endAsyncSection()
+        }
+        waitForAsyncSection()
+        
+        return result
+    }
+    
+    
+    /// Get the record for the single subscriber referenced by `imsi`.
+    
+    func getSubscriber(imsi: String?) {
+        
+        guard let imsi = imsi else {
+            XCTFail("test expectation failure: didn't get IMSI")
+            return
+        }
+        
+        beginAsyncSection()
+        
+        let req = Request.getSubscriber(imsi)
+        
+        req.run { (response) in
+            
+            XCTAssert(response.error == nil)
+            
+            if let payload = response.payload, subscriber = payload.toSubscriber() {
+                
+                XCTAssert(subscriber.imsi == imsi)
+                XCTAssert(subscriber.speedClass == SpeedClass.s1_fast.rawValue)
+                  // beacause we set this in previous step
+            
+            } else {
+                XCTFail("didn't get subscriber record")
+            }
+            
+            self.endAsyncSection()
+        }
+
+        waitForAsyncSection()
+    }
 }
 
 

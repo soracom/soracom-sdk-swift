@@ -104,6 +104,9 @@ final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Equatable
             else if let newValue = oldValue as? NSArray {
                 result[newKey] = newValue
             }
+            else if oldValue is NSNull {
+                // do nothing in this case, I guess?
+            }
             else {
                 fatalError("work in progress bro (FIXME)")
             }
@@ -115,21 +118,17 @@ final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Equatable
     
     /// Initialize and return a new Payload instance from `src`. 
     
-    static func fromDictionary(src: [String: AnyObject]) throws -> Payload {
+    static func fromDictionary(src: [String: AnyObject]) -> Payload? {
+        
         let result = self.init()
+        
         for (k,v) in src {
+            
             if let key = PayloadKey(rawValue: k) {
                 result[key] = v
+            
             } else {
-                print("Payload.fromDictionary(): returning nil because: \(k) is not a valid PayloadKey value.")
-                throw PayloadError.InvalidKey(key: k)
-                
-                // FIXME: Throwing an error when encountering an unknown key is a preliminary behavior that may change, as
-                // mentioned in the Payload class documentation. For now, it is helpful during development, but it may be
-                // counterproductive in production. (E.g., what if there is a latent typo somewhere, that this SDK's tests
-                // don't uncover, which could cause entire payloads coming back from the server to not get parsed? OTOH
-                // returning a partially-parsed response is also Not Good, so... for now I am just marking this to be
-                // revisited later.
+                print("Payload.fromDictionary(): warning: \(k) is not a known PayloadKey value; ignoring")
             }
         }
         return result
@@ -158,7 +157,37 @@ final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Equatable
             // FIXME: still thinking about how to properly handle this kind of error. Seems like it should be a fatal error.
         }
     }
-
+    
+    
+    /// If the receiver's root object is an array of JSON-encoded subscriber objects, this decodes the list, and returns an array of Subscriber structs. The list may be an empty array if no subscribers have been registered. Returns nil if the data seems bogus.
+    
+    func toSubscriberList() -> [Subscriber]? {
+        
+        guard let a = self[.rootObject] as? NSArray else {
+            return nil;
+        }
+        
+        var result: [Subscriber] = []
+        
+        for d in a {
+            
+            if let dict = d as? [String: AnyObject], subload = Payload.fromDictionary(dict)
+            {
+                result.append(Subscriber(subload))
+            }
+        }
+        
+        return result
+    }
+    
+    
+    /// If the receiver's root object is a JSON object representing a subcriber, this decodes the object, and a Subscriber struct. Returns nil otherwise.
+    
+    func toSubscriber() -> Subscriber? {
+        return Subscriber(self)
+    }
+    
+    
     // MARK: - Private:
     
     /// The underlying private storage.
@@ -302,10 +331,11 @@ public enum PayloadKey: String {
             return self.rawValue
         }
     }
+
 }
 
 
-// MARK: - PaylodConvertible protocol
+// MARK: - PayloadConvertible protocol
 
 /// A request value dictionary is of type Payload. However, that class doesn't know how to serialize struct types like AirStats. So types like that need to implement PayloadConvertible, so that they can provide a Payload representation of themselves that can then be transalted to [String:AnyObject] so that the JSON encoder can deal with it.
 

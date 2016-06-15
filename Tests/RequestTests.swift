@@ -21,7 +21,7 @@ class RequestTests: BaseTestCase {
         let instanceCredentials = SoracomCredentials(type: .KeyAndToken, emailAddress: "instance@foo.bar", apiKey: "instance", apiToken: "instance")
         let globalCredentials   = SoracomCredentials(type: .KeyAndToken, emailAddress: "global@foo.bar", apiKey: "global", apiToken: "global")
         
-        defaultCredentials.writeToSecurePersistentStorage()
+        defaultCredentials.writeToSecurePersistentStorage(replaceDefault: true)
         
         // An instance-level override should override how credentials are looked up for that instance only...
         let instanceRequest     = Request("/foo")
@@ -32,7 +32,7 @@ class RequestTests: BaseTestCase {
         let instanceHeaders     = instanceURLRequest.allHTTPHeaderFields
 
         // ... but not for subsequent Request instances.
-        // With no overrides, the default credentials of type .KeyAndToken should be returned:
+        // With no overrides, the default credentials should be used:
         let defaultRequest     = Request("foo")
         let defaultURLRequest  = defaultRequest.buildURLRequest()
         let defaultHeaders     = defaultURLRequest.allHTTPHeaderFields
@@ -99,7 +99,7 @@ class RequestTests: BaseTestCase {
         // Assert that setting credentials as if they were a regular property works.
         
         let defaultCredentials = SoracomCredentials(type: .KeyAndToken, emailAddress: "default@foo.bar")
-        defaultCredentials.writeToSecurePersistentStorage()
+        defaultCredentials.writeToSecurePersistentStorage(replaceDefault: true)
 
         let req = Request("fake")
         

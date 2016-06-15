@@ -16,35 +16,68 @@ class BaseTestCase: XCTestCase {
     
     override func setUp() {
         
-        // FIXME: Credentials needs to be dramatically simplified. In doing that work, make this credentials stuff work with both the iOS and the OS X demo app. (Currently, only works with Mac demo app.) 
-        
         super.setUp()
         
         SoracomCredentials.defaultStorageNamespace = SoracomCredentials.storageNamespaceForSandboxCredentials
         
         dispatch_once(&oneTimeTestSetupToken) {
             
-            // FIXME: This is the first working iteration of this code. Provided you have manually entered a .RootAccount credential
-            // for the API Sandbox, it will use that to create an API Key and API Token that is then used to run the tests.
-            //
-            // However, API Sandbox accounts expire after about a week or so, so this means that the user will have to manually
-            // enter credentials if the tests have not run for a week.
-            //
-            // In the end, this should use the credentials for a real production SAM user, and then automatically create an account
-            // in the API Sandbox, if necessary, before doing what it currently does. That way, the user will only have to manually
-            // enter credentials one time per machine the tests are run on. (Not doing that today, though.)
-            //
-            // Update 2016-05-07: Now the demo app can at least be used to create a sandbox user, which will then be used to run the tests.
-            // This means you don't really have to do it in the debugger anymore, at least when playing with the demo app. You will still
-            // have to do it when running the tests in your own app, though, as storage keys are unique across apps.
-            
             print("------------------------------")
             print("--- BaseTestCase will now attempt to set up the testing environment for this test run.")
             print("--- ✅ Set the app-wide default storage namespace to BaseTestCase.storageNamespaceForSandboxCredentials.")
+
+            var shouldCreateNewSandboxUser = false
+            let existingSandboxCredentials = SoracomCredentials.sandboxCredentials
             
-            let creds = self.credentialsForTestUse(.RootAccount, caller: "tests that need them")
+            if existingSandboxCredentials.blank {
+                
+                shouldCreateNewSandboxUser = true
             
-            if (creds == nil) {
+            } else {
+                
+                let authRequest  = Request.auth(existingSandboxCredentials)
+                let authResponse = authRequest.wait()
+                
+                // If we get an error here, it might be AUM0002 "Invalid username/password supplied."
+                // This can be expected to happen frequently, because API Sandbox credentials
+                // periodically expire (weekly?).
+                //
+                // Therefore we should try to make a new sandbox user and auth with it here. If THAT
+                // fails, then something else is wrong and we can't fix it here.
+                
+                if authResponse.error?.code == "AUM0002" {
+                    shouldCreateNewSandboxUser = true
+                }
+            }
+            
+            if shouldCreateNewSandboxUser {
+                
+                let existingProductionCredentials = SoracomCredentials.productionCredentials
+                
+                if !existingProductionCredentials.blank {
+                    
+                    if let newSandboxCredentials = self.createSandboxUser(existingProductionCredentials) {
+                        SoracomCredentials.sandboxCredentials = newSandboxCredentials
+                    } else {
+                        print("--- ")
+                        print("--- ⚠️ Unable to automatically create an API sandbox user. This probably means")
+                        print("--- that the stored production SAM user credentials are not valid. This problem")
+                        print("--- cannot be fixed automatically. Try using the demo app to save new credentials.")
+                    }
+                }
+            }
+            
+            // Many tests need a valid API key/token, and those expire, so we should update even if we have credentials:
+            
+            if let creds = self.updateToken(SoracomCredentials.sandboxCredentials) {
+            
+                print("--- ")
+                print("--- ✅ Sandbox user \(creds.emailAddress) can authenticate, and will be used to run tests.")
+                print("--- ")
+
+            } else {
+            
+                print("--- ")
                 print("--- ⚠️ There are no stored API sandbox credentials. This is OK, but it means")
                 print("--- many tests will not run.")
                 print("--- ")
@@ -52,128 +85,10 @@ class BaseTestCase: XCTestCase {
                 print("--- and use the GUI to create a sandbox user. The credentials for that sandbox user ")
                 print("--- will be stored securely, and used for the tests that need a sandbox user to run. ")
                 print("--- ")
-            
-            } else {
-             
-                print("--- ✅ Found stored API sandbox credentials. Will attempt to refresh API key and token... ")
-
-                self.beginAsyncSection()
-                
-                Request.auth(creds).run { (response) in
-                    
-                    if let err = response.error {
-                     
-                        print("--- ⚠️ An error occurred:")
-                        print("--- ⚠️ \(err)")
-                    
-                    } else {
-                        
-                        var wentOK = false
-                        
-                        if let authResponse = AuthResponse(response.payload),
-                           let operatorId   = authResponse.operatorId,
-                           let apiKey       = authResponse.apiKey,
-                           let apiToken     = authResponse.token
-                        {
-                            wentOK = SoracomCredentials(type: .KeyAndToken, operatorID: operatorId, apiKey: apiKey, apiToken: apiToken).writeToSecurePersistentStorage() // no need to set namespace because we set default above
-                            print(apiToken)
-                        }
-                        
-                        if (wentOK) {
-                            print("--- ✅ Stored API Key and Token successfully. All tests will therefore run. ")
-
-                        } else {
-                            print("--- ⚠️ WTF: unexpected happening! 🤔")
-                            print(response)
-                        }
-                    }
-                    
-                    self.endAsyncSection()
-                }
-                
-                self.waitForAsyncSection()
-
-                print("------------------------------")
             }
             
+            print("------------------------------")
         }
-    }
-    
-    /// This method looks up the credentials for test use. Many tests require some kind of credentials created in the API sandbox. Rarely, actual production credentials will be required (e.g. to create a new sandbox user for testing). Even for testing credentials, we don't want to store them in plaintext, so they are stored in secure persistent storage, in their own namespace.
-    ///
-    /// The tests that require credentials will use this method to look them up. If there are no stored credentials, or if they are blank, then this method will return nil, and the tests that need credentials will be skipped.
-    ///
-    /// The `production` parameter is `false` by default. If `true` that means the production credentials should be returned; currently the only use case there is creating a new API Sandbox user, which does require the .AuthKey credentials for a SAM user from the real production environment.
-    
-    func credentialsForTestUse(type: SoracomCredentialType, production: Bool = false, caller: StaticString = #function) -> SoracomCredentials? {
-        
-        let namespace   = production ? SoracomCredentials.storageNamespaceForProductionCredentials : SoracomCredentials.storageNamespaceForSandboxCredentials
-        let credentials = SoracomCredentials(withStoredType: type, namespace: namespace)
-        
-        if credentials.blank {
-            print("")
-            print("TEST CREDENTIALS FOR API SANDBOX NOT FOUND.")
-            print("This means that \(caller) will not execute.")
-            print("Set a breakpoint there to add credentials if you")
-            print("want this test to run.")
-            print("")
-            
-            return nil
-        
-        } else {
-            
-            return credentials
-        }
-    }
-    
-    
-    // A NOTE ABOUT SAVING CREDENTIALS WITH THE METHODS BELOW:
-    //
-    // Ideally, we would do this on the lldb command line in Xcode, but as of Xcode 7.3
-    // that does not work:
-    //
-    //     ((lldb) p save_sandbox_root_credentials("foo", password: "bar")
-    //     error: Execution was interrupted, reason: internal c++ exception breakpoint(-4)..
-    //     The process has been returned to the state before expression evaluation.
-    //
-    // It did used to work; seems like an Xcode bug. At any rate, the workaround is to uncomment 
-    // the method call where it appears in the test case using it, and then change the parameters
-    // to your real credentials instead of "foo" and "bar" or whatever.
-    //
-    // Then, re-run the test. After it runs once, be sure revert your changes immediately and not
-    // accidentally commit your credemtials to your revision control history.
-    
-    /// Make it easy for the end user running these tests to store credentials in the Keychain, from within Xcode. (See note.)
-    
-    func saveProductionAuthKeyCredentialsForTests(authKeyID authKeyID: String, authKeySecret: String) {
-        saveAuthKeyCredentialsForTests(authKeyID: authKeyID, authKeySecret: authKeySecret, production: true)
-    }
-    
-    
-    func saveSandboxAuthKeyCredentialsForTests(authKeyID authKeyID: String, authKeySecret: String) {
-        saveAuthKeyCredentialsForTests(authKeyID: authKeyID, authKeySecret: authKeySecret, production: false)
-    }
-    
-    
-    func saveAuthKeyCredentialsForTests(authKeyID authKeyID: String, authKeySecret: String, production: Bool = false) {
-        
-        let creds     = SoracomCredentials(type: .AuthKey, authKeyID: authKeyID, authKeySecret: authKeySecret)
-        let namespace = SoracomCredentials.storageNamespaceForProductionCredentials
-        let wrote     = creds.writeToSecurePersistentStorage(namespace: namespace)
-        
-        print(wrote ? "SUCCESSFULLY WROTE CREDENTIALS. \(namespace)" : "ERROR! COULD NOT WRITE CREDENTIALS.")
-    }
-    
-    
-    /// Make it easy for the end user running these tests to store credentials in the Keychain, from within Xcode. (See note.)
-    
-    func saveSandboxRootCredentials(emailAddress: String, password: String) {
-        
-        let creds     = SoracomCredentials(type: .RootAccount, emailAddress: emailAddress, password: password)
-        let namespace = SoracomCredentials.storageNamespaceForSandboxCredentials
-        let wrote     = creds.writeToSecurePersistentStorage(namespace: namespace)
-        
-        print(wrote ? "SUCCESSFULLY WROTE CREDENTIALS. \(namespace)" : "ERROR! COULD NOT WRITE CREDENTIALS.")
     }
     
     
@@ -206,6 +121,128 @@ class BaseTestCase: XCTestCase {
                 print( "waitForExpectationsWithTimeout got error: \(error.localizedDescription)")
             }
         }
+    }
+    
+    
+    // MARK: - Multi-step API operations
+    
+    /// Create a user in the API Sandbox, returning the new user's credentials if successful, otherwise nil.
+    
+    func createSandboxUser(productionCredentials: SoracomCredentials, email: String? = nil, password: String? = nil) -> SoracomCredentials? {
+        
+        print("CREATE SANDBOX USER")
+        
+        let uuid     = NSUUID().UUIDString
+        let email    = email    ?? "\(uuid)@example.com"
+        let password = password ?? "\(uuid)aBc0157$"
+        
+        var msg = "This operation will attempt to create a sandbox user for testing, in the API sandbox.\n\n"
+        msg    += "  Email Address: \(email)\n"
+        msg    += "  Password:      \(password)\n"
+        print(msg)
+        
+        // Create operator:
+        
+        let createOperatorResponse = Request.createOperator(email, password: password).wait()
+        
+        guard createOperatorResponse.error == nil else {
+            print("failed to create a new sandbox user: could not create operator: \(createOperatorResponse)")
+            return nil
+        }
+        
+        // Get signup token (this is the step that needs the production credentials):
+        
+        let signupRequest = Request.getSignupToken(email: email, authKeyId: productionCredentials.authKeyID, authKey: productionCredentials.authKeySecret)
+        
+        let signupResponse = signupRequest.wait()
+        
+        guard signupResponse.error == nil else {
+            print("failed to create a new sandbox user: could not get signup token: \(signupResponse)")
+            return nil
+        }
+        
+        guard let token = signupResponse.payload?[.token] as? String else {
+            print("failed to create a new sandbox user: response did not contain signup token: \(signupResponse)")
+            return nil
+        }
+        
+        // Verify the token:
+        
+        let verifyOperatorRequest  = Request.verifyOperator(token: token)
+        let verifyOperatorResponse = verifyOperatorRequest.wait()
+        
+        guard verifyOperatorResponse.error == nil else {
+            print("failed to create a new sandbox user: could not verify signup token: \(verifyOperatorResponse)")
+            return nil
+        }
+        
+        // Authenticate as new sandbox user:
+        // (if we get here, we should have working .RootAccount credentials for the new API Sandbox user)
+        
+        var newUserCredentials = SoracomCredentials(type: .RootAccount, emailAddress: email, password: password)
+        
+        let authRequest  = Request.auth(newUserCredentials)
+        let authResponse = authRequest.wait()
+        
+        guard let payload = authResponse.payload, let apiKey = payload[.apiKey] as? String, let newToken = payload[.token] as? String else
+        {
+            print("failed to create a new sandbox user: could not authenticate as sandbox user: \(authResponse)")
+            return nil
+        }
+        
+        newUserCredentials.apiKey   = apiKey
+        newUserCredentials.apiToken = newToken
+        
+        // Register a (fake) credit card:
+        
+        let paymentMethodInfo = PaymentMethodInfoWebPay(cvc: "123", expireMonth: 12, expireYear: 2020, name: "SORAO TAMAGAWA", number: "4242424242424242")
+        // This fake credit card info comes from the API Sandbox docs.
+        
+        let registerPaymentMethodRequest  = Request.registerWebPayPaymentMethod(paymentMethodInfo)
+        
+        registerPaymentMethodRequest.credentials = newUserCredentials
+          // This step is necessary because we have not yet saved the credentials anywhere, so the request would otherwise use previously-cached credentials (and therefore, fail).
+        
+        let registerPaymentMethodResponse = registerPaymentMethodRequest.wait()
+        
+        guard registerPaymentMethodResponse.error == nil else {
+            print("failed to create a new sandbox user: could not add payment method: \(registerPaymentMethodResponse)")
+            return nil
+        }
+        
+        // Authenticate as new sandbox user again, after adding payment method, to update token:
+        
+        guard let updatedCredentials = updateToken(newUserCredentials) else {
+            print("failed to create a new sandbox user: could not re-authenticate as sandbox user: \(authResponse)")
+            return nil
+        }
+        
+        return updatedCredentials
+    }
+    
+    
+    /// Attempts to authenticate using `credentials`. Upon success, this returns a copy or `credentials` with the updated API key and token returned by the server.
+    
+    func updateToken(credentials: SoracomCredentials?) -> SoracomCredentials? {
+        
+        guard let credentials = credentials else {
+            return nil
+        }
+        
+        let authRequest  = Request.auth(credentials)
+        let authResponse = authRequest.wait()
+        
+        guard let payload = authResponse.payload, let apiKey = payload[.apiKey] as? String, let newToken = payload[.token] as? String else
+        {
+            print("failed to update token: authentication failed: \(authResponse)")
+            return nil
+        }
+        
+        var newCredentials      = credentials
+        newCredentials.apiKey   = apiKey
+        newCredentials.apiToken = newToken
+        
+        return credentials
     }
     
 }

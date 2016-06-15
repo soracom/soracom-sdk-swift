@@ -32,11 +32,10 @@ class RequestSandboxTests: BaseTestCase {
         
         // For this test, we need the credentials for a SAM user from the real production environment.
         
-        guard let credentials = credentialsForTestUse(.AuthKey, production: true) else {
-            // To add credentials, set a breakpoint here and do this (see notes in method documentation):
-            // saveProductionAuthKeyCredentialsForTests(authKeyID: "xxxxxx", authKeySecret: "xxxxxx")
-            
-            XCTFail("Cannot run \(#function) because no credentials are available. See comments in test method.")
+        let credentials = SoracomCredentials.productionCredentials
+        
+        guard !credentials.blank else {
+            XCTFail("Cannot run \(#function) because no credentials are available. You can use the demo app to store credentials.")
             return
         }
         

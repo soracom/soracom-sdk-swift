@@ -30,9 +30,9 @@ extension AppDelegate {
                 if let userType = userType, payload = response.payload, token = payload[.token] as? String {
                     switch userType {
                     case .Sandbox:
-                        var creds = self.sandboxUserCredentials
+                        var creds = SoracomCredentials.sandboxCredentials
                         creds.apiToken = token
-                        creds.writeToSecurePersistentStorage(nil, namespace: self.sandboxUserStorageNamespace, replaceDefault: true)
+                        SoracomCredentials.sandboxCredentials = creds
                     default:
                         break
                     }
@@ -102,6 +102,8 @@ extension AppDelegate {
         
         log("🚀 Will try to create a new API Sandbox user...")
         
+        let productionCredentials = SoracomCredentials.productionCredentials
+
         guard !productionCredentials.blank else {
             log("Sorry, we need credentials (for a real SAM user from the production environment) to proceed. Please enter credentials above, and try again.")
             return
@@ -148,6 +150,7 @@ extension AppDelegate {
         
         let createOperatorOperation = APIOperation(createOperatorRequest)
         queue.addOperation(createOperatorOperation)
+        
         
         let signupRequest = Request.getSignupToken(email: emailAddress, authKeyId: productionCredentials.authKeyID, authKey: productionCredentials.authKeySecret) { (response) in
             
@@ -203,12 +206,11 @@ extension AppDelegate {
                     // has completed successfully. So, store the credentials so that we may use this sandbox
                     // user to do various other things:
                     
-                    let sandboxUserCredentials = SoracomCredentials(type: .RootAccount, emailAddress: emailAddress, password: password)
-                    sandboxUserCredentials.writeToSecurePersistentStorage(namespace: self.sandboxUserStorageNamespace, replaceDefault: true)
+                    SoracomCredentials.sandboxCredentials = SoracomCredentials(type: .RootAccount, emailAddress: emailAddress, password: password)
                     
                     // And, tell the user:
                     
-                    self.log("No errors occurred. The sandbox user was created in the API Sandbox successfully, and the sandbox user's credentials were stored under the special namespace \(self.sandboxUserStorageNamespace.UUIDString):")
+                    self.log("No errors occurred. The sandbox user was created in the API Sandbox successfully, and the sandbox user's credentials were stored under the special namespace \(SoracomCredentials.storageNamespaceForSandboxCredentials.UUIDString):")
                     self.log("  Email Address: \(emailAddress)")
                     self.log("  Password:      \(password)")
                 }
@@ -221,7 +223,7 @@ extension AppDelegate {
         // Next, we in as newly-verified sandbox user, and update the API key and token.
         // But since we only persist the credentials for the sandbox user upon successful 
         // completion of verifyOperation above, and those credentials are used to initialize
-        // this next REquest object, we have to use APIOperation's capability
+        // this next Request object, we have to use APIOperation's capability
         // to defer creation of the request (so that we can look up the credentials stored
         // in that previous step):
         
@@ -261,7 +263,7 @@ extension AppDelegate {
         
         let authOperation = APIOperation() {
             
-            let reAuthRequest = Request.auth(self.sandboxUserRootCredentials)
+            let reAuthRequest = Request.auth(SoracomCredentials.sandboxCredentials)
             
             reAuthRequest.responseHandler = { (response) in
                 
@@ -269,10 +271,10 @@ extension AppDelegate {
                     let apiKey  = payload[.apiKey] as? String,
                     let token   = payload[.token] as? String
                 {
-                    var creds = self.sandboxUserCredentials
+                    var creds = SoracomCredentials.sandboxCredentials
                     creds.apiKey = apiKey
                     creds.apiToken = token
-                    creds.writeToSecurePersistentStorage(nil, namespace: self.sandboxUserStorageNamespace, replaceDefault: true)
+                    SoracomCredentials.sandboxCredentials = creds
                     
                     self.log("Authenticated successfully as the newly-created sandbox user, and stored the updated API key and token.")
                     

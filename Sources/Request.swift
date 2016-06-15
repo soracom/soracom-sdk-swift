@@ -96,7 +96,8 @@ public class Request {
                 
             } else {
                 
-                return SoracomCredentials(withStoredType: .KeyAndToken)
+                return SoracomCredentials(withStorageIdentifier: nil)
+                  // FIXME: make a more intuitive way to look up default credential
             }
         }
         

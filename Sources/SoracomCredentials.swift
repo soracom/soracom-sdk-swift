@@ -17,8 +17,38 @@ public struct SoracomCredentials: Equatable {
     var apiToken       = ""
     
     // FIXME: add this to stash the expire time of credentials (for KeyAndToken case):    var expirationDate
-
     
+    
+    /// Reads/writes the default credentials object in the production namespace. The getter returns a blank credentials object if no credentials are stored. In the context of these tests and the SDK demo apps, the only reason actual production credentials are ever required is to create a new sandbox user for testing; that sandbox user's credentials are used for all other purposes (e.g. running tests against the sandbox, or playing with the API via the demo app).
+    
+    public static var productionCredentials: SoracomCredentials {
+        get {
+            return SoracomCredentials(withStorageIdentifier: nil, namespace: SoracomCredentials.storageNamespaceForProductionCredentials)
+        }
+        set {
+            let creds = newValue ?? SoracomCredentials()
+            // FIXME: implement delete() in Keychain, the above is stupid
+            creds.writeToSecurePersistentStorage(namespace:SoracomCredentials.storageNamespaceForSandboxCredentials, replaceDefault: true)
+        }
+    }
+    
+    
+    /// Reads/writes the default credentials object in the production namespace. The getter returns a blank credentials object if no credentials are stored. In the context of these tests and the SDK demo apps, the sandbox credentials are used for all interactions with the Soracom API (via the API Sandbox), with the exception of creating the sandbox user (that step requires production SAM user credentials
+    
+    public static var sandboxCredentials: SoracomCredentials {
+        get {
+            return SoracomCredentials(withStorageIdentifier: nil, namespace: SoracomCredentials.storageNamespaceForSandboxCredentials)
+        }
+        set {
+            let creds = newValue ?? SoracomCredentials()
+            // FIXME: implement delete() in Keychain, the above is stupid
+            creds.writeToSecurePersistentStorage(namespace:SoracomCredentials.storageNamespaceForSandboxCredentials, replaceDefault: true)
+        }
+    }
+    
+    // FIXME: change above 2 to methods, not computed properties, because otherwise there is no way to handle keychain read/write errors
+    
+        
     /// The canonical initializer, allows setting any/all properties.
     
     init(type: SoracomCredentialType = .RootAccount, emailAddress: String = "", operatorID: String = "", username: String = "", password: String = "", authKeyID: String = "", authKeySecret: String = "", apiKey: String = "", apiToken: String = "") {
@@ -93,14 +123,7 @@ public struct SoracomCredentials: Equatable {
         }
     }
     
-    
-    /// Initialize and return a new credentials instance based on the values (if any) stored in secure persistent storage, using the default storage identifier for `type`. If nothing is stored for that identifier, a new empty credentials instance will be returned.
-    ///
-    /// The `namespace` parameter can typically be omitted.
-
-    init(withStoredType type: SoracomCredentialType, namespace: NSUUID? = nil) {
-        self.init(withStorageIdentifier: type.defaultStorageIdentifier(), namespace: namespace)
-    }
+    // FIXME: SoracomCredentials(withStorageIdentifier: nil) is how you look up the default credentials but that it not at all intuitive
     
     
     /// Write the credentials to secure persistent storage (system keychain). If `identifier` is `nil`, then the default storage identifier for the credentials type is used. Any credentials that were previously stored with the same `identifier` are overwritten. This means that you can choose not to provide an identifier if you only need to store a maximimum of one credentials structure of each type (the default key is provided by `SoracomCredentialType`, and is unique per-type). Also, if `replaceDefault` is true (which it is by default), the credentials are also separately persisted using the identifier `SoracomCredentials.defaultStorageIdentifier`. This allows retrieval of the "default" credentials (the meaning of which is application-specific), regardless of type.

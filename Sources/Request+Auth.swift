@@ -20,7 +20,7 @@ extension Request {
         let req = self.init("/auth", responseHandler: responseHandler)
         let timeout = 86400
         
-        req.credentials = credentials ?? SoracomCredentials(withStoredType: .RootAccount)
+        req.credentials = credentials ?? SoracomCredentials(withStorageIdentifier: nil)
         
         if req.credentials.type == .RootAccount {
             

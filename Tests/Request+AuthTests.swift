@@ -8,7 +8,9 @@ class RequestAuthTests: BaseTestCase {
     
     func test_auth_with_root_account() {
         
-        guard let credentials = credentialsForTestUse(.RootAccount) else {
+        let credentials = SoracomCredentials.sandboxCredentials
+        
+        guard !credentials.blank else {
             // To store your credentials, set a breakpoint here and do this (see note in method documentation):
             // saveSandboxRootCredentials("foo", password: "bar")
 

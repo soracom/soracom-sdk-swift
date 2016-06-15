@@ -56,13 +56,6 @@ class SoracomCredentialsTests: BaseTestCase {
             let defaultCredentials = SoracomCredentials(withStorageIdentifier: nil)
             XCTAssert(defaultCredentials == c)
         }
-        
-        for c in allCredentials {
-            let type = c.type
-            let read = SoracomCredentials(withStoredType: type)
-            
-            XCTAssert(read == c)
-        }
     }
     
     

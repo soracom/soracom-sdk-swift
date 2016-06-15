@@ -6,11 +6,8 @@ class RequestCredentialsTests: BaseTestCase {
     
     func test_listCredentials() {
         
-        if credentialsForTestUse(.RootAccount) == nil {
-            // To store your credentials, set a breakpoint here and do this (see note in method documentation):
-            // saveSandboxRootCredentials("foo", password: "bar")
-            
-            XCTFail("Cannot run \(#function) because no credentials are available. See comments in test method.")
+        guard !SoracomCredentials.sandboxCredentials.blank else {
+            XCTFail("Cannot run \(#function) because no credentials are available. You can use the demo app to store credentials.")
 
             return
         }

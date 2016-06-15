@@ -22,28 +22,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let queue = NSOperationQueue()
     
     
-    /// Returns the **production** credentials from the production Soracom environment, which (for the purposes of this demo app) should be the AuthKey ID and AuthKey Secret of a SAM user. (You can use the real Soracom web console to create a SAM user for testing.) These credentials are needed to create a dummy user in the API Sandbox, and can be entered in the main window.
-    
-    var productionCredentials: SoracomCredentials {
-        return SoracomCredentials(withStoredType: .AuthKey)
-    }
-    
-    
-    /// Returns the credentials of the API Sandbox user. This demo app saves credentials for only one sandbox user at a time (which can be recreated whenever needed from the main window). Since this app also has to store a set of real-world credentials for a SAM user, it uses a different storage namespace for the sandbox user's credentials.
-    
-    var sandboxUserCredentials: SoracomCredentials {
-        return SoracomCredentials(withStorageIdentifier: nil, namespace: sandboxUserStorageNamespace)
-    }
-    
-    var sandboxUserRootCredentials: SoracomCredentials {
-        return SoracomCredentials(withStoredType: .RootAccount, namespace: sandboxUserStorageNamespace)
-    }
-
-    /// A separate namespace in which credentials for dummy users (API Sandbox users) are stored
-    
-    let sandboxUserStorageNamespace = NSUUID(UUIDString: "DEAE490F-0A00-49CD-B2AF-401215E15122")!
-
-    
     /// Initial housekeeping
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
@@ -79,7 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             // for the sandbox user. This makes these the default credentials used by all requests, unless
             // otherwise specified.
             
-            return self.sandboxUserCredentials
+            return SoracomCredentials.sandboxCredentials
         }
     }
     
@@ -103,7 +81,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /// Loads credentials and updates GUI. Informs user if no credentials exist.
     
     func loadCredentials() {
-        
+        let productionCredentials = SoracomCredentials.productionCredentials
         authKeyIDField.stringValue = productionCredentials.authKeyID
         authKeySecretField.stringValue = productionCredentials.authKeySecret
         
@@ -112,7 +90,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             log("Enter the AuthKey ID and AuthKey secret for a SAM user in the boxes above.")
         }
         
-        let sbc = sandboxUserCredentials
+        let sbc = SoracomCredentials.sandboxCredentials
         sandboxUserEmailField.stringValue = sbc.emailAddress
         if sbc.blank {
             log("There are no stored sandbox user credentials.")
@@ -127,12 +105,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         credentials.authKeyID     = authKeyIDField.stringValue
         credentials.authKeySecret = authKeySecretField.stringValue
         
-        if !credentials.writeToSecurePersistentStorage() {
-            fatalError("can't save credentials")
-        } else {
-            log("Saved production SAM user credentials.")
-        }
-        
+        SoracomCredentials.productionCredentials = credentials        
     }
     
     
@@ -176,12 +149,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func copyAuthKeyID(sender: AnyObject) {
-        copyStringToPasteboard(productionCredentials.authKeyID)
+        copyStringToPasteboard(SoracomCredentials.productionCredentials.authKeyID)
     }
     
     
     @IBAction func copyAuthKeySecret(sender: AnyObject) {
-        copyStringToPasteboard(productionCredentials.authKeySecret)
+        copyStringToPasteboard(SoracomCredentials.productionCredentials.authKeySecret)
     }
     
     
@@ -191,7 +164,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
 
     @IBAction func authWithSandboxUserCredentials(sender: AnyObject) {
-        self.authWithCredentials(sandboxUserRootCredentials)
+        self.authWithCredentials(SoracomCredentials.sandboxCredentials)
     }
     
     
@@ -199,14 +172,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         log("🚀 Will try to delete the stored credentials for the API Sandbox user...")
         
-        let credentials = sandboxUserCredentials
+        let credentials = SoracomCredentials.sandboxCredentials
         
         guard !credentials.blank else {
             log("No credentials were found, so nothing was deleted.")
             return
         }
         
-        SoracomCredentials().writeToSecurePersistentStorage(namespace: sandboxUserStorageNamespace)
+        SoracomCredentials.sandboxCredentials = SoracomCredentials()
         // Mason 2016-04-23: that's a fairly hackneyed method of deletion, bro...
         
         self.log("Stored credentials deleted successfully. 😁")

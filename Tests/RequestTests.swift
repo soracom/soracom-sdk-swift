@@ -169,7 +169,6 @@ class RequestTests: BaseTestCase {
             values.append("req3 instance responseHandler ran")
         }
         
-        
         req1.run()
         req2.run()
         req3.run { (response) in
@@ -184,7 +183,30 @@ class RequestTests: BaseTestCase {
             "req2 modified responseHandler ran",
             "req3 run method argument responseHandler ran"
         ]
-        XCTAssertEqual(values, expected)
+        
+        // XCTAssertEqual(values, expected)
+        // Nope that fails like this sometimes, due to race condition (each run() call spawns a subthread, and occasionally a thread created later finishes earlier):
+        // XCTAssertEqual failed: ("["req1 initial instance responseHandler ran", "req3 run method argument responseHandler ran", "req2 modified responseHandler ran"]") is not equal to ("["req1 initial instance responseHandler ran", "req2 modified responseHandler ran", "req3 run method argument responseHandler ran"]")
+        // Instead:
+        
+        for x in expected {
+            XCTAssert(values.contains(x))
+        }
+    }
+    
+    
+    func test_wait() {
+        
+        // this test just proves that wait() doesn't block, but does return a value
+        
+        let req1 = Request.createSandboxSubscriber()
+        let req2 = Request.createSandboxSubscriber()
+        
+        let response1 = req1.wait()
+        XCTAssertNotNil(response1)
+
+        let response2 = req2.wait()
+        XCTAssertNotNil(response2)
     }
     
 }

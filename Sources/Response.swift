@@ -15,6 +15,8 @@ import Foundation
 
 public struct Response {
     
+    /// The normal way that Response objects are instantiated (by Request). Outside of testing, it would be unusual to need to manually init a Response.
+    
     init(request: Request, underlyingURLResponse: NSHTTPURLResponse?, data: NSData? = nil) {
         
         self.request               = request
@@ -23,6 +25,14 @@ public struct Response {
         
         error = getErrorIfHTTPStatusIsUnexpected() ?? getErrorIfExpectedKeysAreMissing()
           // Mason 2016-03-12: This is bad design; it checks before necessary and it impairs testability. FIXME: Make APIError a computed property or something.
+    }
+    
+    
+    /// Init a Response with an error. This is for when a response object is required, but an error occurs on the client side before an actual HTTP response can be obtained.
+    
+    init(error: APIError) {
+        self.request = Request("error") // slightly hacky, but I don't want to make path optional right now
+        self.error   = error
     }
     
     

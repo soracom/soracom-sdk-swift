@@ -139,6 +139,11 @@ public class Request {
     var responseHandler: ResponseHandler?
     
     
+    /// If true (the default), the `responseHandler` (if any) will be executed on the main thread. Set to false to disable that (in which case, the handler will be executed on an **arbitrary** thread). The `wait()` method sets this propery to false, so that it can be called in the main thread without deadlocking.
+    
+    var handleResponseInMainThread = true
+    
+    
     /// This property provides access to the request's underlying NSURLRequest object, which is created when `run()` is invoked. It is normally `nil` until then.
     
     var URLRequest: NSMutableURLRequest?
@@ -205,6 +210,8 @@ public class Request {
     
     
     /// Send the actual request to the API server, asynchronously doing the network request on a background thread, and then invoking `responseHandler` on the main thread after the response is received (or, potentially, when the request times out or an error occurs). If the `responseHandler` argument is non-nil, it will be used and the receiver's `responseHandler` instance property will be ignored.
+    ///
+    /// (You can opt out of handling the response on the main thread by setting the receiver's `handleResponseInMainThread` property to false.)
     
     func run(responseHandler: ResponseHandler? = nil) {
         
@@ -233,15 +240,46 @@ public class Request {
             }
             
             if let responseHandler = responseHandler ?? self.responseHandler {
-                dispatch_sync(dispatch_get_main_queue()) {
+                
+                if self.handleResponseInMainThread {
+                    dispatch_sync(dispatch_get_main_queue()) {
+                        responseHandler(response)
+                    }
+                } else {
                     responseHandler(response)
-                }                
+                }
             }
         }
         task.resume()
     }
     
     
+    /// Run request synchronously, blocking the calling thread until the Response is available. This isn't the most performant way to make a request, and it is [discouraged for various good reasons](https://forums.developer.apple.com/thread/11519), but in some circumstances it may be appropriate and convenient.
+    
+    func wait() -> Response {
+        
+        var result: Response? = nil
+        let waitSemaphore     = dispatch_semaphore_create(0);
+        
+        handleResponseInMainThread = false
+        
+        self.run { (response) in
+            
+            result  = response
+            dispatch_semaphore_signal(waitSemaphore);
+        }
+        
+        dispatch_semaphore_wait(waitSemaphore, DISPATCH_TIME_FOREVER);
+        
+        guard let response = result else {
+            let err = APIError(code: "CLI0666", message: "client-side error: synchronous execution failed")
+            return Response(error: err)
+        }
+        
+        return response
+    }
+    
+
     /// Registers a handler, which is then executed when every request is run. Intended as a convenience for logging, experimentation, and debugging. The handler will be executed just before the Request makes its HTTP request. Handlers are executed **in an arbitrary thread** in the order they are registered.
     
     public static func beforeRun(handler: RequestWillRunHandler) {

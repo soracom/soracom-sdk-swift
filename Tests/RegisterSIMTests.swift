@@ -41,7 +41,7 @@ class RegisterSIMTests: BaseTestCase {
     
     override func setUp() {
         super.setUp()
-        SoracomCredentials.defaultStorageNamespace = storageNamespaceForJunkCredentials
+        SoracomCredentials.defaultStorageNamespace = SoracomCredentials.storageNamespaceForJunkCredentials
     }
     
 

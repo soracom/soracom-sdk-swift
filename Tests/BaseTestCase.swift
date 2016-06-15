@@ -20,7 +20,7 @@ class BaseTestCase: XCTestCase {
         
         super.setUp()
         
-        SoracomCredentials.defaultStorageNamespace = self.storageNamespaceForSandboxCredentials
+        SoracomCredentials.defaultStorageNamespace = SoracomCredentials.storageNamespaceForSandboxCredentials
         
         dispatch_once(&oneTimeTestSetupToken) {
             
@@ -99,21 +99,6 @@ class BaseTestCase: XCTestCase {
         }
     }
     
-
-    /// This credentials storage namespace is used when tests need **actual production** credentials. For example, some tests need credentials for a real Soracom SAM user, in order to create an account in the API sandbox. Writing any other credentials to this namespace should be avoided.
-    
-    let storageNamespaceForProductionCredentials = NSUUID(UUIDString: "454BA030-3DBC-4D09-BFC3-35CE9C7BDFFF")!
-    
-
-    /// This credentials storage namespace is used when tests need working API Sandbox credentials. Most tests that make network requests to exercise API functions need these credentials. Writing any other credentials to this namespace should be avoided. **NOTE**: The UUID used for this namespace is intentially the same as the demo app uses, so that the demo app can be used to create a user in the API Sandbox that will then be used to run the tests which require a sandbox user.
-
-    let storageNamespaceForSandboxCredentials = NSUUID(UUIDString: "DEAE490F-0A00-49CD-B2AF-401215E15122")!
-    
-    /// /// This credentials storage namespace is used when tests need to read/write credentials as part of their test work. This namespace should be used when the credentials are only needed during the execution of a single test. Various test cases may write to this namespace, so no assumptions should be made about what it contains. 
-    
-    let storageNamespaceForJunkCredentials = NSUUID(UUIDString: "FE083FA9-79CB-4D61-9E12-9BD609C9743B")!
-
-    
     /// This method looks up the credentials for test use. Many tests require some kind of credentials created in the API sandbox. Rarely, actual production credentials will be required (e.g. to create a new sandbox user for testing). Even for testing credentials, we don't want to store them in plaintext, so they are stored in secure persistent storage, in their own namespace.
     ///
     /// The tests that require credentials will use this method to look them up. If there are no stored credentials, or if they are blank, then this method will return nil, and the tests that need credentials will be skipped.
@@ -122,7 +107,7 @@ class BaseTestCase: XCTestCase {
     
     func credentialsForTestUse(type: SoracomCredentialType, production: Bool = false, caller: StaticString = #function) -> SoracomCredentials? {
         
-        let namespace   = production ? storageNamespaceForProductionCredentials : storageNamespaceForSandboxCredentials
+        let namespace   = production ? SoracomCredentials.storageNamespaceForProductionCredentials : SoracomCredentials.storageNamespaceForSandboxCredentials
         let credentials = SoracomCredentials(withStoredType: type, namespace: namespace)
         
         if credentials.blank {
@@ -173,7 +158,7 @@ class BaseTestCase: XCTestCase {
     func saveAuthKeyCredentialsForTests(authKeyID authKeyID: String, authKeySecret: String, production: Bool = false) {
         
         let creds     = SoracomCredentials(type: .AuthKey, authKeyID: authKeyID, authKeySecret: authKeySecret)
-        let namespace = storageNamespaceForProductionCredentials
+        let namespace = SoracomCredentials.storageNamespaceForProductionCredentials
         let wrote     = creds.writeToSecurePersistentStorage(namespace: namespace)
         
         print(wrote ? "SUCCESSFULLY WROTE CREDENTIALS. \(namespace)" : "ERROR! COULD NOT WRITE CREDENTIALS.")
@@ -185,7 +170,7 @@ class BaseTestCase: XCTestCase {
     func saveSandboxRootCredentials(emailAddress: String, password: String) {
         
         let creds     = SoracomCredentials(type: .RootAccount, emailAddress: emailAddress, password: password)
-        let namespace = storageNamespaceForSandboxCredentials
+        let namespace = SoracomCredentials.storageNamespaceForSandboxCredentials
         let wrote     = creds.writeToSecurePersistentStorage(namespace: namespace)
         
         print(wrote ? "SUCCESSFULLY WROTE CREDENTIALS. \(namespace)" : "ERROR! COULD NOT WRITE CREDENTIALS.")

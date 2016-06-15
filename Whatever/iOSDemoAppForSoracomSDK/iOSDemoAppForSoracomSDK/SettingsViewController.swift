@@ -34,6 +34,8 @@ class SettingsViewController: UITableViewController {
         
         newCredentials.writeToSecurePersistentStorage()
         
+        newCredentials.writeToSecurePersistentStorage(namespace: SoracomCredentials.storageNamespaceForProductionCredentials)
+        
         // FIXME: maybe don't crete new sandbox user unless ______?
         
         Credentials.authenticateAsSandboxUser(recreateOnFailure: true)

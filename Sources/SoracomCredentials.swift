@@ -186,6 +186,21 @@ public struct SoracomCredentials: Equatable {
     static var defaultStorageNamespace: NSUUID = NSUUID(UUIDString: "00000000-0000-0000-0000-DEFDEFDEFDEF")!
 
     
+    /// This credentials storage namespace is used when tests need **actual production** credentials. For example, some tests need credentials for a real Soracom SAM user, in order to create an account in the API sandbox. Writing any other credentials to this namespace should be avoided.
+    
+    static let storageNamespaceForProductionCredentials = NSUUID(UUIDString: "454BA030-3DBC-4D09-BFC3-35CE9C7BDFFF")!
+    
+    
+    /// This credentials storage namespace is used when tests need working API Sandbox credentials. Most tests that make network requests to exercise API functions need these credentials. Writing any other credentials to this namespace should be avoided. **NOTE**: The UUID used for this namespace is intentially the same as the demo app uses, so that the demo app can be used to create a user in the API Sandbox that will then be used to run the tests which require a sandbox user.
+    
+    static let storageNamespaceForSandboxCredentials = NSUUID(UUIDString: "DEAE490F-0A00-49CD-B2AF-401215E15122")!
+    
+    
+    /// /// This credentials storage namespace is used when tests need to read/write credentials as part of their test work. This namespace should be used when the credentials are only needed during the execution of a single test. Various test cases may write to this namespace, so no assumptions should be made about what it contains.
+    
+    static let storageNamespaceForJunkCredentials = NSUUID(UUIDString: "FE083FA9-79CB-4D61-9E12-9BD609C9743B")!
+
+    
     /// The bundle ID is used (along with namespaces) to make storage keys unique on a per-app basis (because different apps may make use of this SDK).
     
     static var bundleId: String {

@@ -26,16 +26,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Credentials for production SAM user: \(Credentials.credentialsForProductionSAMUser.blank ? "⚠️ ABSENT" : "✓ PRESENT")")
         
         // To make all the automated tests run, you need to enter real production credentials for a SAM user.
-        // But is very cumbersome to enter text into the iOS Simulator. One alternative is to enter your
-        // credentials below and uncomment the code and run it once. (Then, undo your changes.)
+        // But is very cumbersome to enter text into the iOS Simulator. One alternative is to set a breakpoint
+        // and do it from the lldb debugger console in Xcode, as described below:
+        
+        var authKeyId      = ""
+        var authKeySecret  = ""
+        
+        authKeyId     += authKeySecret
+        authKeySecret += authKeyId
+          // this bit of jiggery-pokery is to prevent the compiler from optimizing out our if check below
+        
+        // Set a breakpoint on this line, then do this in the debugger:
         //
-                let authKeyId      = "keyId-ZFdYUtCstiVgpFragbOPhsdSOCuMGUSR"
-                let authKeySecret  = "secret-bUAvMnBlBv0KsjYsHSIvwDnoCLhQbOFXYoDAAmqwCPzI1TkXiQZgN5ZvcFDVSoA9"
-                let samCredentials = SoracomCredentials(type: .AuthKey, authKeyID: authKeyId, authKeySecret: authKeySecret)
-                let saved = Credentials.saveCredentialsForProductionSAMUser(samCredentials)
-                print("Save credential result: \(saved)")
+        //        (lldb) p authKeyId = "keyId-xXxXx_YOUR_REAL_KEY_ID_HERE_xXXxX"
+        //        (lldb) p authKeySecret = "secret-xXxXx_YOUR_REAL_KEY_SECRET_HERE_xXXxX"
+        //
+        // ...then, continue execution to allow the code below to store your credentials securely
+        // in the iOS keychain. Note: you may have to navigate into the Settings screen and back out
+        // one time for the new credentials to be noticed.
+        
+        if (authKeyId.characters.count > 2 && authKeySecret.characters.count > 2) {
 
-        // Uncommenting the below can be useful for debugging:
+            let productionCredentials = SoracomCredentials(type: .AuthKey, authKeyID: authKeyId, authKeySecret: authKeySecret)
+            Client.sharedInstance.saveCredentialsForProductionSAMUser(productionCredentials)
+        }
+        
+        // Uncommenting the below can also be useful for debugging. It will cause every request and response
+        // to be printed.
         //
         //        Request.beforeRun { (request) in
         //            print(request)

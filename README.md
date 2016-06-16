@@ -2,35 +2,35 @@
 
 An SDK for the Soracom API in Swift.
 
-Current status (2016-06-08): This SDK is a work in progress, still in the design stage. (It currently only implements a small portion of the API, and won't be very useful until that work is complete.)
+Current status (2016-06-16): This SDK is a work in progress, still in the design stage. (It currently only implements a small portion of the API, and won't be very useful until that work is complete.)
 
 ### Target audience
 This SDK is intended for programmers who want to interact with the [Soracom API](https://dev.soracom.io/jp/docs/api_guide/) from Swift code.
 
-The initial goal is to fully support current versions of iOS and (Mac) OS X. The only requirement for developing against those platforms is a [Soracom account](https://console.soracom.io/#/signup) and [Xcode](https://developer.apple.com/xcode/) 7.3.1 or later.
+The initial goal is to fully support current versions of iOS and macOS (including "OS X" 10.11). The only requirement for developing against those platforms is a [Soracom account](https://console.soracom.io/#/signup) and [Xcode](https://developer.apple.com/xcode/) 7.3.1 or later.
 
-A future goal, once Swift 3 is released, is to to build as [a Swift 3 package](https://swift.org/package-manager/#conceptual-overview), and to fully support Linux (and, hopefully, [other significant platforms?](http://thenextweb.com/dd/2016/04/07/google-facebook-uber-swift/)). 
+A future goal, once Swift 3 is released, is to to build as [a Swift 3 package](https://swift.org/package-manager/#conceptual-overview), and to fully support Linux (and, hopefully, [other significant platforms?](http://thenextweb.com/dd/2016/04/07/google-facebook-uber-swift/)).
 
 
 
 ### Demo apps
 The Mac demo app lets you interactively play with some of the API features, and is probably the easiest way to get started. It prints out a color-coded text representation every request and response, to illustrate how the API works:
 
-![demo app](Whatever/Documentation/demo-app.png) 
+![demo app](Whatever/Documentation/demo-app.png)
 
 The demo app creates a user in the API Sandbox, which can then be used for testing and experimentation. The app includes various examples of how to use the API, and provides a ready-made environment where new code can be easily added and debugged.
 
 It also serves as the test host for all of the SDK's automated tests.
 
-> Note: There is also an iOS demo app, but as of this writing (2016-06-08) it is incomplete. It runs **most** of the tests, but until [this issue](https://github.com/soracom/soracom-sdk-swift/issues/1) is closed, it cannot authenticate as a user in the API Sandbox to run all of the tests.
+There is also an iOS demo app. Unlike the Mac app, it doesn't really have any functionality beyond logging into the API Sandbox and running the automated test suite.
 
-![demo app](Whatever/Documentation/ios-demo-app.png) 
+![demo app](Whatever/Documentation/ios-demo-app.png)
 
 
 # The basics
-The SDK is designed around two objects: `Request` and `Response`. 
+The SDK is designed around two objects: `Request` and `Response`.
 
-A `Request` instance encapsulates all the details of (and executes) an HTTP request, while the corresponding `Response` object contains the result after execution. 
+A `Request` instance encapsulates all the details of (and executes) an HTTP request, while the corresponding `Response` object contains the result after execution.
 
 
 ### Creating a request
@@ -86,7 +86,7 @@ If we actually run that code above, we will see this in the Xcode debugger:
 😞 Failed to issue token: APIError(code: "AUM0004", message: "Invalid email address.", underlyingError: nil)
 ```
 
-That's the expected behavior; since there isn't actually a `bob@example.com` user, a password reset token cannot be issued, and the API server reports that to us as an error. 
+That's the expected behavior; since there isn't actually a `bob@example.com` user, a password reset token cannot be issued, and the API server reports that to us as an error.
 
 The Swift SDK will automatically construct an `APIError` if an error occurs. As illustrated in the example above, within the response handler, the `request.error` property will hold the error. It will be set to `nil` if no error occurred.
 
@@ -112,22 +112,22 @@ Example:
 
 ```swift
 
-let credentials = getCredentials() 
+let credentials = getCredentials()
 
 // 1. Create the request object:
 
 let authReq = Request.auth(credentials)
 
-// 2. Execute the request. Instead of first setting the 
-// responseHandler property, you can supply the run handler as 
+// 2. Execute the request. Instead of first setting the
+// responseHandler property, you can supply the run handler as
 // a parameter to run(), using Swift trailing closure syntax:
 
 authReq.run { (response) in
-    
+
     if let payload = response.payload, token = payload[.token] {
         print("Authenticated successfully. 😁")
         print("Token: \(token)")
-    
+
     } else {
         print("Authentication failed: \(response.error)")
     }
@@ -135,7 +135,7 @@ authReq.run { (response) in
 
 ```
 
-Here, instead of explicitly checking for an error, we instead just check for the values we require in the returned data. 
+Here, instead of explicitly checking for an error, we instead just check for the values we require in the returned data.
 
 If the response has a payload, and the payload contains a value for `.token`, then we have what we need. Running the above code in the demo app results in something like this:
 
@@ -207,7 +207,7 @@ let ipAddress = payload[.ipAddress],
 let type      = payload[.type]
 ```
 
-A common idiom in response handlers is to use `if let` to simultaneously check for the existence of a payload in the response, and for a set of required values that should be in the payload: 
+A common idiom in response handlers is to use `if let` to simultaneously check for the existence of a payload in the response, and for a set of required values that should be in the payload:
 
 ```swift
 if  let payload   = response.payload,
@@ -255,47 +255,47 @@ This allows you to add an operation to a queue, and have that operation build it
 That allows you to have the operation build its request based on values returned by previous requests executed by the queue:
 
 ```swift
-// This next step illustrates initializing an APIOperation 
+// This next step illustrates initializing an APIOperation
 // with a RequestBuilder instead of a Request.
 
 // We use this form because at this point we are just building
-// the queue; we haven't run any of the queued operations yet, 
-// and therefore don't yet have the API Token we want to verify. 
+// the queue; we haven't run any of the queued operations yet,
+// and therefore don't yet have the API Token we want to verify.
 // (We won't have it until a previously-queued operation executes.)
 //
 // But by the time `verifyOperation` executes, all the previous
-// operations will  have executed, and the token will have been 
-// stored, so we can look it up and use it to create the Request 
+// operations will  have executed, and the token will have been
+// stored, so we can look it up and use it to create the Request
 // instance that `verifyOperation` will run to verify the token.
 
 let verifyOperation = APIOperation() {
-    
+
     let credentials    = lookUpCredentials()
     let verifyOperator = Request.verifyOperator(token: credentials.apiToken)
-    
+
     verifyOperator.requestHandler = { (response) in
-        
+
         if response.error != nil {
             self.queue.cancelAllOperations()
             self.log("Because there was an error, all further operations in this queue have been canceled.")
         } else {
-            // handle success            
+            // handle success
         }
     }
-    
+
     return verifyOperator
 }
 queue.addOperation(verifyOperation)
 
-// We have now queued verifyOperation, but the closure that builds 
-// the  request has not yet executed. It will execute after all 
-// previously-queued operations. 
+// We have now queued verifyOperation, but the closure that builds
+// the  request has not yet executed. It will execute after all
+// previously-queued operations.
 
 ```
 
-A full example of a multi-step sequence of requests that makes use of both types of APIOperation can be found in [AppDelegate+APIExamples.swift](Whatever/MacDemoAppForSoracomSDK/MacDemoAppForSoracomSDK/AppDelegate+APIExamples.swift)
+Complete examples of a multi-step sequences of requests that make use of both types of APIOperation can be found in [Client.swift](Sources/Client.swift)
 
-#### For more information 
+#### For more information
 The Swift SDK source code itself is extensively documented, which means the standard Xcode conveniences work, such as auto-complete with documentation hints:
 
 ![screenshot: Xcode autocomplete](Whatever/Documentation/xcode-autocomplete.png)

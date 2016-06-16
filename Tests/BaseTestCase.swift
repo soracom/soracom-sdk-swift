@@ -242,7 +242,7 @@ class BaseTestCase: XCTestCase {
         newCredentials.apiKey   = apiKey
         newCredentials.apiToken = newToken
         
-        return credentials
+        return newCredentials
     }
     
 }

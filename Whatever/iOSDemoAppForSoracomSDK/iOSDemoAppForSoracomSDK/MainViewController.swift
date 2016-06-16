@@ -4,7 +4,6 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    var sanboxUserAuthStatus = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,21 +13,36 @@ class MainViewController: UIViewController {
         let nc = NSNotificationCenter.defaultCenter()
         
         nc.addObserverForName(Notifications.SandboxUserAuthenticationDidUpdate, object: nil, queue: nil) { (notif) in
-            self.authStatusField.text = Credentials.sandboxUserAuthenticationStatus
+            
+            self.authStatusField.text  = Client.sharedInstance.sandboxUserAuthenticationStatus
+            self.helpMessageField.text = Client.sharedInstance.helpMessage
         }
         
-        authStatusField.text = Credentials.sandboxUserAuthenticationStatus
-        
+        authStatusField.text = Client.sharedInstance.sandboxUserAuthenticationStatus
+        helpMessageField.text = Client.sharedInstance.helpMessage
+
     }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         print("\(self): prepareForSegue: \(segue)")
     }
 
+    
     override func viewWillDisappear(animated: Bool) {
         print("\(self): viewWillDisappear: \(animated)")
     }
  
-    @IBOutlet weak var authStatusField: UILabel!
+    
+    @IBOutlet weak var authStatusField:  UILabel!
+    @IBOutlet weak var helpMessageField: UILabel!
+
+    
+    @IBAction func startButtonPressed(sender: AnyObject) {
+        
+        Client.sharedInstance.authenticateAsSandboxUser(recreateOnFailure: true)
+        // trigger auth and update the status display
+        
+    }
 
 }

@@ -7,7 +7,7 @@ extension AppDelegate {
     
     @IBAction func debug1(sender: AnyObject) {
         log("🐞 DEBUG 1: This will print the operation queue. Edit debug1() in AppDelegate.swift to change what this does.")
-        log("\(queue.operations)")
+        log("\(apiClient.queue.operations)")
     }
     
     

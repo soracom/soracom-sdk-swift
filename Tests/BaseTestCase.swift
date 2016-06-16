@@ -56,7 +56,7 @@ class BaseTestCase: XCTestCase {
                 
                 if !existingProductionCredentials.blank {
                     
-                    if let newSandboxCredentials = self.createSandboxUser(existingProductionCredentials) {
+                    if let newSandboxCredentials = Client.sharedInstance.synchronousCreateSandboxUser(existingProductionCredentials) {
                         SoracomCredentials.sandboxCredentials = newSandboxCredentials
                     } else {
                         print("--- ")
@@ -69,7 +69,7 @@ class BaseTestCase: XCTestCase {
             
             // Many tests need a valid API key/token, and those expire, so we should update even if we have credentials:
             
-            if let creds = self.updateToken(SoracomCredentials.sandboxCredentials) {
+            if let creds = Client.sharedInstance.synchronousUpdateToken(SoracomCredentials.sandboxCredentials) {
             
                 print("--- ")
                 print("--- ✅ Sandbox user \(creds.emailAddress) can authenticate, and will be used to run tests.")
@@ -121,128 +121,6 @@ class BaseTestCase: XCTestCase {
                 print( "waitForExpectationsWithTimeout got error: \(error.localizedDescription)")
             }
         }
-    }
-    
-    
-    // MARK: - Multi-step API operations
-    
-    /// Create a user in the API Sandbox, returning the new user's credentials if successful, otherwise nil.
-    
-    func createSandboxUser(productionCredentials: SoracomCredentials, email: String? = nil, password: String? = nil) -> SoracomCredentials? {
-        
-        print("CREATE SANDBOX USER")
-        
-        let uuid     = NSUUID().UUIDString
-        let email    = email    ?? "\(uuid)@example.com"
-        let password = password ?? "\(uuid)aBc0157$"
-        
-        var msg = "This operation will attempt to create a sandbox user for testing, in the API sandbox.\n\n"
-        msg    += "  Email Address: \(email)\n"
-        msg    += "  Password:      \(password)\n"
-        print(msg)
-        
-        // Create operator:
-        
-        let createOperatorResponse = Request.createOperator(email, password: password).wait()
-        
-        guard createOperatorResponse.error == nil else {
-            print("failed to create a new sandbox user: could not create operator: \(createOperatorResponse)")
-            return nil
-        }
-        
-        // Get signup token (this is the step that needs the production credentials):
-        
-        let signupRequest = Request.getSignupToken(email: email, authKeyId: productionCredentials.authKeyID, authKey: productionCredentials.authKeySecret)
-        
-        let signupResponse = signupRequest.wait()
-        
-        guard signupResponse.error == nil else {
-            print("failed to create a new sandbox user: could not get signup token: \(signupResponse)")
-            return nil
-        }
-        
-        guard let token = signupResponse.payload?[.token] as? String else {
-            print("failed to create a new sandbox user: response did not contain signup token: \(signupResponse)")
-            return nil
-        }
-        
-        // Verify the token:
-        
-        let verifyOperatorRequest  = Request.verifyOperator(token: token)
-        let verifyOperatorResponse = verifyOperatorRequest.wait()
-        
-        guard verifyOperatorResponse.error == nil else {
-            print("failed to create a new sandbox user: could not verify signup token: \(verifyOperatorResponse)")
-            return nil
-        }
-        
-        // Authenticate as new sandbox user:
-        // (if we get here, we should have working .RootAccount credentials for the new API Sandbox user)
-        
-        var newUserCredentials = SoracomCredentials(type: .RootAccount, emailAddress: email, password: password)
-        
-        let authRequest  = Request.auth(newUserCredentials)
-        let authResponse = authRequest.wait()
-        
-        guard let payload = authResponse.payload, let apiKey = payload[.apiKey] as? String, let newToken = payload[.token] as? String else
-        {
-            print("failed to create a new sandbox user: could not authenticate as sandbox user: \(authResponse)")
-            return nil
-        }
-        
-        newUserCredentials.apiKey   = apiKey
-        newUserCredentials.apiToken = newToken
-        
-        // Register a (fake) credit card:
-        
-        let paymentMethodInfo = PaymentMethodInfoWebPay(cvc: "123", expireMonth: 12, expireYear: 2020, name: "SORAO TAMAGAWA", number: "4242424242424242")
-        // This fake credit card info comes from the API Sandbox docs.
-        
-        let registerPaymentMethodRequest  = Request.registerWebPayPaymentMethod(paymentMethodInfo)
-        
-        registerPaymentMethodRequest.credentials = newUserCredentials
-          // This step is necessary because we have not yet saved the credentials anywhere, so the request would otherwise use previously-cached credentials (and therefore, fail).
-        
-        let registerPaymentMethodResponse = registerPaymentMethodRequest.wait()
-        
-        guard registerPaymentMethodResponse.error == nil else {
-            print("failed to create a new sandbox user: could not add payment method: \(registerPaymentMethodResponse)")
-            return nil
-        }
-        
-        // Authenticate as new sandbox user again, after adding payment method, to update token:
-        
-        guard let updatedCredentials = updateToken(newUserCredentials) else {
-            print("failed to create a new sandbox user: could not re-authenticate as sandbox user: \(authResponse)")
-            return nil
-        }
-        
-        return updatedCredentials
-    }
-    
-    
-    /// Attempts to authenticate using `credentials`. Upon success, this returns a copy or `credentials` with the updated API key and token returned by the server.
-    
-    func updateToken(credentials: SoracomCredentials?) -> SoracomCredentials? {
-        
-        guard let credentials = credentials else {
-            return nil
-        }
-        
-        let authRequest  = Request.auth(credentials)
-        let authResponse = authRequest.wait()
-        
-        guard let payload = authResponse.payload, let apiKey = payload[.apiKey] as? String, let newToken = payload[.token] as? String else
-        {
-            print("failed to update token: authentication failed: \(authResponse)")
-            return nil
-        }
-        
-        var newCredentials      = credentials
-        newCredentials.apiKey   = apiKey
-        newCredentials.apiToken = newToken
-        
-        return newCredentials
     }
     
 }

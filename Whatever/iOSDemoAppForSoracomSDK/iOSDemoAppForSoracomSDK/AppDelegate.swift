@@ -19,11 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // For almost everything it does, this app will use the credentials for the API Sandbox user.
             // The only exception is the real SAM user credentials it needs to create the sandbox user.
             
-            return Credentials.credentialsForSandboxUser
+            return Client.sharedInstance.credentialsForSandboxUser
         }
         
-        print("Credentials for API Sandbox user: \(Credentials.credentialsForSandboxUser.blank ? "⚠️ ABSENT" : "✓ PRESENT")")
-        print("Credentials for production SAM user: \(Credentials.credentialsForProductionSAMUser.blank ? "⚠️ ABSENT" : "✓ PRESENT")")
+        print("Credentials for API Sandbox user: \(Client.sharedInstance.credentialsForSandboxUser.blank ? "⚠️ ABSENT" : "✓ PRESENT")")
+        print("Credentials for production SAM user: \(Client.sharedInstance.credentialsForProductionSAMUser.blank ? "⚠️ ABSENT" : "✓ PRESENT")")
         
         // To make all the automated tests run, you need to enter real production credentials for a SAM user.
         // But is very cumbersome to enter text into the iOS Simulator. One alternative is to set a breakpoint
@@ -64,7 +64,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //
         //        RequestResponseFormatter.shouldRedact = false
         
-        Credentials.authenticateAsSandboxUser() // udpate the status display
 
         return true
     }

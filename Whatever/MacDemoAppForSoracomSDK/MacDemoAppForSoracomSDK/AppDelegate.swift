@@ -17,16 +17,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       // Mason 2016-03-13: NOTE: For historical reasons, NSTextView is marked as NS_AUTOMATED_REFCOUNT_WEAK_UNAVAILABLE, so weak ref will cause crash. (In this app, we don't really care, though.)
     
     
-    /// The single operation used to schedule operations
+    /// A reference to the singlton Client instance, which implements most of the API-related behavior of this demo app.
     
-    let queue = NSOperationQueue()
+    let apiClient = Client()
     
     
     /// Initial housekeeping
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         
-        queue.maxConcurrentOperationCount = 1 // keep it simple and easy to follow
+        apiClient.logger = { (str: String, attrs: TextStyle) in
+            self.log(str, attrs: attrs)
+        }
         
         // This app can't really do anything without some credentials that allow
         // it to use the API Sandbox. So we try to load them on launch:
@@ -159,12 +161,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     
     @IBAction func createSandboxUser(sender: AnyObject) {
-        createSandboxUser()
+        
+        let emailAddress = sandboxUserEmailField.stringValue
+        let password     = sandboxUserPasswordField.stringValue
+
+        apiClient.createSandboxUser(email: emailAddress, password:password)
     }
     
 
     @IBAction func authWithSandboxUserCredentials(sender: AnyObject) {
-        self.authWithCredentials(SoracomCredentials.sandboxCredentials)
+        apiClient.authenticateSandboxUserAndUpdateStoredCredentials()
     }
     
     
@@ -188,12 +194,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     
     @IBAction func createSandboxSIMs(sender: AnyObject) {
-        createSandboxSIM()
+        apiClient.createSandboxSIM()
     }
     
     
     @IBAction func listSandboxSIMs(sender: AnyObject) {
-        listSandboxSIMs()
+        apiClient.listSandboxSIMs()
     }
     
     
@@ -203,16 +209,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         log("Redaction set to \(newValue ? "ON" : "OFF").")
     }
     
-}
-
-
-/// The two types of user this demo app knows about.
-
-enum UserType {
-    
-    /// The actual production SAM user (in this demo app, used only for creating a dummy user in the API Sandbox)
-    case Production
-    
-    /// The sandbox user, used to play with the API without affecting things in the real production environment.
-    case Sandbox
 }

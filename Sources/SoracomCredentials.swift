@@ -28,7 +28,7 @@ public struct SoracomCredentials: Equatable {
         set {
             let creds = newValue ?? SoracomCredentials()
             // FIXME: implement delete() in Keychain, the above is stupid
-            creds.writeToSecurePersistentStorage(namespace:SoracomCredentials.storageNamespaceForSandboxCredentials, replaceDefault: true)
+            creds.writeToSecurePersistentStorage(namespace:SoracomCredentials.storageNamespaceForProductionCredentials, replaceDefault: true)
         }
     }
     

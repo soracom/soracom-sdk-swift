@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WLh-LS-wfP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WLh-LS-wfP">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -25,7 +25,7 @@ Label
 Label
 Label</string>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="API Sandbox authentication status:" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9Q-f1-5mR">
@@ -34,7 +34,7 @@ Label</string>
                                     <constraint firstAttribute="height" constant="17" id="DpB-EP-Hrz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GxZ-sf-mr0">
@@ -44,15 +44,40 @@ Label</string>
                                     <segue destination="YGq-Bk-wXM" kind="show" id="oqZ-ya-Iof"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="middleTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdk-Zr-Occ">
+                                <rect key="frame" x="20" y="172" width="560" height="128"/>
+                                <string key="text">Label
+Label
+Label
+Label
+Label
+Label
+Label</string>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TzI-Lw-TEa">
+                                <rect key="frame" x="32" y="562" width="34" height="30"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="Xxj-RA-oLT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TzI-Lw-TEa" secondAttribute="bottom" constant="8" id="0hX-QR-Q47"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GxZ-sf-mr0" secondAttribute="bottom" constant="8" id="2jR-yE-mL4"/>
+                            <constraint firstItem="TzI-Lw-TEa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="12" id="2tQ-0E-iwU"/>
+                            <constraint firstItem="bdk-Zr-Occ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="6NI-MK-2aY"/>
                             <constraint firstItem="85T-yq-j0Z" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="33" id="Gij-3J-vtV"/>
                             <constraint firstItem="85T-yq-j0Z" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Gu2-ta-ncR"/>
                             <constraint firstItem="GxZ-sf-mr0" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="IPU-l5-IVW"/>
                             <constraint firstItem="85T-yq-j0Z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Ks0-Kn-HdV"/>
                             <constraint firstItem="F9Q-f1-5mR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="N6P-zD-IrE"/>
+                            <constraint firstItem="bdk-Zr-Occ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Q9e-Kl-hDA"/>
+                            <constraint firstItem="bdk-Zr-Occ" firstAttribute="top" secondItem="85T-yq-j0Z" secondAttribute="bottom" constant="8" id="fMR-pl-SbF"/>
                             <constraint firstItem="F9Q-f1-5mR" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="knB-Mo-n8i"/>
                             <constraint firstItem="F9Q-f1-5mR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="mWB-yt-7Re"/>
                         </constraints>
@@ -60,6 +85,7 @@ Label</string>
                     <navigationItem key="navigationItem" id="d0W-Dk-m6Y"/>
                     <connections>
                         <outlet property="authStatusField" destination="85T-yq-j0Z" id="x16-Xa-abo"/>
+                        <outlet property="helpMessageField" destination="bdk-Zr-Occ" id="ERf-2L-JDv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -91,7 +117,7 @@ Label</string>
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="RQV-W1-bgg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Production SAM user credentials" id="XH8-Hc-tKE">
                                 <string key="footerTitle">The automated tests require a user to be created in the API sandbox. That user can be created automatically, but that requires real credentials for a SAM user associated with your (production) Soracom account.
@@ -111,7 +137,7 @@ To enable all tests to execute, please enter the SAM user credentials above.</st
                                                         <constraint firstAttribute="width" constant="85" id="06A-zX-4ON"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="WJe-gL-UaX">
@@ -145,7 +171,7 @@ To enable all tests to execute, please enter the SAM user credentials above.</st
                                                         <constraint firstAttribute="width" constant="119" id="6Qh-10-Sts"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>

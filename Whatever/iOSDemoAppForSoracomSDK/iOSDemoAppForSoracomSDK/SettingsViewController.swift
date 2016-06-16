@@ -7,7 +7,7 @@ class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let credentials = Credentials.credentialsForProductionSAMUser
+        let credentials = Client.sharedInstance.credentialsForProductionSAMUser
         
         authKeyIDField.text     = credentials.authKeyID
         authKeySecretField.text = credentials.authKeySecret
@@ -32,16 +32,15 @@ class SettingsViewController: UITableViewController {
         let authKeySecret  = authKeySecretField.text ?? ""
         let newCredentials = SoracomCredentials(type: .AuthKey,  authKeyID: authKeyID, authKeySecret: authKeySecret)
         
-        newCredentials.writeToSecurePersistentStorage()
-        
-        newCredentials.writeToSecurePersistentStorage(namespace: SoracomCredentials.storageNamespaceForProductionCredentials)
+        Client.sharedInstance.saveCredentialsForProductionSAMUser(newCredentials)
         
         // FIXME: maybe don't crete new sandbox user unless ______?
         
-        Credentials.authenticateAsSandboxUser(recreateOnFailure: true)
+        Client.sharedInstance.authenticateAsSandboxUser(recreateOnFailure: true)
     }
     
     
     @IBOutlet weak var authKeyIDField:     UITextField!
     @IBOutlet weak var authKeySecretField: UITextField!
+    
 }

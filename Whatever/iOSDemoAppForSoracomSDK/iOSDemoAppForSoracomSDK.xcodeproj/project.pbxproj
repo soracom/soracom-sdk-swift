@@ -62,14 +62,13 @@
 		932A5C021CE8159E007D0B5C /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BF21CE8159E007D0B5C /* RequestTests.swift */; };
 		932A5C031CE8159E007D0B5C /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BF31CE8159E007D0B5C /* ResponseTests.swift */; };
 		932A5C041CE8159E007D0B5C /* SoracomCredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BF41CE8159E007D0B5C /* SoracomCredentialsTests.swift */; };
-		932A5C071CE82951007D0B5C /* APIExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5C061CE82951007D0B5C /* APIExamples.swift */; };
-		932A5C081CE82951007D0B5C /* APIExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5C061CE82951007D0B5C /* APIExamples.swift */; };
 		932A5C0D1CE835CA007D0B5C /* RequestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5C0C1CE835CA007D0B5C /* RequestQueue.swift */; };
 		932A5C0E1CE835CA007D0B5C /* RequestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5C0C1CE835CA007D0B5C /* RequestQueue.swift */; };
-		932A5C101CE859D4007D0B5C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5C0F1CE859D4007D0B5C /* Constants.swift */; };
-		932A5C111CE859D4007D0B5C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5C0F1CE859D4007D0B5C /* Constants.swift */; };
-		932A5C131CE86CC2007D0B5C /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5C121CE86CC2007D0B5C /* Credentials.swift */; };
-		932A5C141CE86CC2007D0B5C /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5C121CE86CC2007D0B5C /* Credentials.swift */; };
+		939BF3A11D12480E0069B3EF /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A01D12480E0069B3EF /* Client.swift */; };
+		939BF3A21D12480E0069B3EF /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A01D12480E0069B3EF /* Client.swift */; };
+		939BF3A71D12718E0069B3EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5B8F1CE80CE4007D0B5C /* AppDelegate.swift */; };
+		939BF3AB1D1280FF0069B3EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3AA1D1280FF0069B3EF /* Constants.swift */; };
+		939BF3AC1D1280FF0069B3EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3AA1D1280FF0069B3EF /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,10 +124,9 @@
 		932A5BF21CE8159E007D0B5C /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
 		932A5BF31CE8159E007D0B5C /* ResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
 		932A5BF41CE8159E007D0B5C /* SoracomCredentialsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoracomCredentialsTests.swift; sourceTree = "<group>"; };
-		932A5C061CE82951007D0B5C /* APIExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIExamples.swift; sourceTree = "<group>"; };
 		932A5C0C1CE835CA007D0B5C /* RequestQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestQueue.swift; sourceTree = "<group>"; };
-		932A5C0F1CE859D4007D0B5C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		932A5C121CE86CC2007D0B5C /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		939BF3A01D12480E0069B3EF /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		939BF3AA1D1280FF0069B3EF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				932A5BB51CE81568007D0B5C /* soracom-sdk-swift */,
-				932A5C051CE82926007D0B5C /* ExampleCode */,
 				932A5B8E1CE80CE4007D0B5C /* iOSDemoAppForSoracomSDK */,
 				932A5BA31CE80CE4007D0B5C /* iOSDemoAppForSoracomSDKTests */,
 				932A5B8D1CE80CE4007D0B5C /* Products */,
@@ -179,7 +176,6 @@
 				932A5B931CE80CE4007D0B5C /* Main.storyboard */,
 				932A5BAF1CE8111A007D0B5C /* MainViewController.swift */,
 				932A5BB21CE81151007D0B5C /* SettingsViewController.swift */,
-				932A5C0F1CE859D4007D0B5C /* Constants.swift */,
 			);
 			path = iOSDemoAppForSoracomSDK;
 			sourceTree = "<group>";
@@ -209,6 +205,8 @@
 				932A5BB71CE81592007D0B5C /* APIError.swift */,
 				932A5BB81CE81592007D0B5C /* APIOperation.swift */,
 				932A5BB91CE81592007D0B5C /* APIStructures.swift */,
+				939BF3A01D12480E0069B3EF /* Client.swift */,
+				939BF3AA1D1280FF0069B3EF /* Constants.swift */,
 				932A5BBA1CE81592007D0B5C /* Keychain.swift */,
 				932A5BBB1CE81592007D0B5C /* Payload.swift */,
 				932A5BC21CE81592007D0B5C /* Request.swift */,
@@ -247,16 +245,6 @@
 				932A5BF41CE8159E007D0B5C /* SoracomCredentialsTests.swift */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		932A5C051CE82926007D0B5C /* ExampleCode */ = {
-			isa = PBXGroup;
-			children = (
-				932A5C061CE82951007D0B5C /* APIExamples.swift */,
-				932A5C121CE86CC2007D0B5C /* Credentials.swift */,
-			);
-			name = ExampleCode;
-			path = ../ExampleCode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,7 +349,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				932A5BB01CE8111A007D0B5C /* MainViewController.swift in Sources */,
-				932A5C101CE859D4007D0B5C /* Constants.swift in Sources */,
 				932A5C0D1CE835CA007D0B5C /* RequestQueue.swift in Sources */,
 				932A5BDC1CE81592007D0B5C /* Request.swift in Sources */,
 				932A5BDA1CE81592007D0B5C /* Request+Subscriber.swift in Sources */,
@@ -370,11 +357,11 @@
 				932A5B901CE80CE4007D0B5C /* AppDelegate.swift in Sources */,
 				932A5BCE1CE81592007D0B5C /* Payload.swift in Sources */,
 				932A5BE21CE81592007D0B5C /* SoracomCredentials.swift in Sources */,
-				932A5C071CE82951007D0B5C /* APIExamples.swift in Sources */,
 				932A5BCA1CE81592007D0B5C /* APIStructures.swift in Sources */,
+				939BF3A11D12480E0069B3EF /* Client.swift in Sources */,
+				939BF3AB1D1280FF0069B3EF /* Constants.swift in Sources */,
 				932A5BD41CE81592007D0B5C /* Request+Operator.swift in Sources */,
 				932A5BDE1CE81592007D0B5C /* RequestResponseFormatter.swift in Sources */,
-				932A5C131CE86CC2007D0B5C /* Credentials.swift in Sources */,
 				932A5BD01CE81592007D0B5C /* Request+Auth.swift in Sources */,
 				932A5BD21CE81592007D0B5C /* Request+Credentials.swift in Sources */,
 				932A5BC61CE81592007D0B5C /* APIError.swift in Sources */,
@@ -390,7 +377,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				932A5BD51CE81592007D0B5C /* Request+Operator.swift in Sources */,
-				932A5C111CE859D4007D0B5C /* Constants.swift in Sources */,
+				939BF3AC1D1280FF0069B3EF /* Constants.swift in Sources */,
+				939BF3A71D12718E0069B3EF /* AppDelegate.swift in Sources */,
 				932A5BD31CE81592007D0B5C /* Request+Credentials.swift in Sources */,
 				932A5BD71CE81592007D0B5C /* Request+Payment.swift in Sources */,
 				932A5BE11CE81592007D0B5C /* Response.swift in Sources */,
@@ -415,13 +403,12 @@
 				932A5BFF1CE8159E007D0B5C /* Request+CredentialsTests.swift in Sources */,
 				932A5BFB1CE8159E007D0B5C /* KeychainTests.swift in Sources */,
 				932A5C0E1CE835CA007D0B5C /* RequestQueue.swift in Sources */,
-				932A5C081CE82951007D0B5C /* APIExamples.swift in Sources */,
 				932A5C011CE8159E007D0B5C /* Request+SubscriberTests.swift in Sources */,
 				932A5BFD1CE8159E007D0B5C /* RegisterSIMTests.swift in Sources */,
 				932A5C001CE8159E007D0B5C /* Request+SandboxTests.swift in Sources */,
 				932A5BDB1CE81592007D0B5C /* Request+Subscriber.swift in Sources */,
 				932A5BB41CE81151007D0B5C /* SettingsViewController.swift in Sources */,
-				932A5C141CE86CC2007D0B5C /* Credentials.swift in Sources */,
+				939BF3A21D12480E0069B3EF /* Client.swift in Sources */,
 				932A5BCD1CE81592007D0B5C /* Keychain.swift in Sources */,
 				932A5BD91CE81592007D0B5C /* Request+Sandbox.swift in Sources */,
 				932A5BFC1CE8159E007D0B5C /* PayloadTests.swift in Sources */,
@@ -612,6 +599,7 @@
 				932A5BAB1CE80CE4007D0B5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		932A5BAC1CE80CE4007D0B5C /* Build configuration list for PBXNativeTarget "iOSDemoAppForSoracomSDKTests" */ = {
 			isa = XCConfigurationList;
@@ -620,6 +608,7 @@
 				932A5BAE1CE80CE4007D0B5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

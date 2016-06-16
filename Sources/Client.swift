@@ -1,0 +1,596 @@
+// Client.swift Created by mason on 2016-06-16. Copyright © 2016 Soracom, Inc. All rights reserved.
+
+import Foundation
+
+
+/// The Client is a higher-level object that demonstrates how to use the SDK building blocks like `Request` and `Response` to perform multi-step operations via the Soracom API. It is not necessary to use the Client class, but it may be useful as a starting point for your own applications. (It is the core of the demo apps on both macOS and iOS, s
+
+public class Client {
+    
+    /// Returns a single shared Client instance.
+
+    static let sharedInstance = Client()
+
+    
+    /// The queue that the Client will use for scheduling API operations. Uses the global shared RequestQueue by default, but you can set this if desired.
+    
+    var queue = RequestQueue.sharedQueue
+    
+    
+    /// This type allows you to define your own logging implementation to replace the default (which just does print() and ignores text attributes).
+    
+    public typealias Logger = ((str: String, attrs: TextStyle) -> ())
+    
+    
+    /// The logging implementation that will be used. If nil, the default implementation will be used (equivalent to `print()`).
+    
+    var logger: Logger?  = nil
+
+    
+    /// Logs `str` using the `logger` logging implementation if set, otherwise using the default implementation (equivalent to `print()`).
+    
+    func log(str: String, attrs: TextStyle = .Normal) {
+        
+        guard let logger = logger else {
+            print(str)
+            return
+        }
+        logger(str: str, attrs: attrs)
+    }
+    
+    
+    /// Global status message used by iOS demo app.
+    public var sandboxUserAuthenticationStatus = "😑 Idle. Tap Start to begin."
+    
+    
+    /// Global help message used by iOS demo app.
+    
+    public var helpMessage = ""
+
+    
+    
+    /// Cancel all queued operations and log a message to that effect.
+    
+    func cancelAllOperations(errorObj: Any? = nil) {
+        self.queue.cancelAllOperations()
+        log("Because there was an error, all queued operations have been canceled.")
+        log("The error was: \(errorObj ?? "unknown error")")
+    }
+    
+
+    // MARK: - Conventions for reading/writing credentials
+    
+    /// Returns the credentials for the API Sandbox user. (May be blank.)
+    
+    public var credentialsForSandboxUser: SoracomCredentials {
+        
+        return SoracomCredentials.sandboxCredentials
+    }
+    
+    
+    /// Persist the credentials for the API Sandbox user to secure storage.
+    
+    public func saveCredentialsForSandboxUser(credentials: SoracomCredentials) {
+        
+        SoracomCredentials.sandboxCredentials = credentials
+    }
+    
+    
+    /// Returns the credentials for the production SAM user. (May be blank.)
+    
+    public var credentialsForProductionSAMUser: SoracomCredentials {
+
+        return SoracomCredentials.productionCredentials
+    }
+    
+    
+    /// Persist the credentials for the production SAM user to secure storage.
+    
+    public func saveCredentialsForProductionSAMUser(credentials: SoracomCredentials) {
+        
+        SoracomCredentials.productionCredentials = credentials
+    }
+
+    
+    // MARK: - Authentication
+    
+    
+    // FIXME: there are too many similar-but-different authentications methods, clean this up:
+    // deferredAuthOperation(), synchronousUpdateToken(), authenticateAsSandboxUser(), authenticateSandboxUserAndUpdateStoredCredentials() ... this is for historical reasons from all the code that was pulled into this class.
+
+    /// Try to authenticate as sandbox user, and post notification with the result.
+    
+    /// Create a 'deferred' request operation to authenticate, using the sandbox user root credentials. The
+    /// reason this method exists is that we sometimes have to do some work, wait for the results of that work
+    /// to be returned by the server, save updated credentials, and then log in using those credentials.
+    
+    func deferredAuthOperation() -> APIOperation {
+        
+        let authOperation = APIOperation() {
+            
+            let reAuthRequest = Request.auth(SoracomCredentials.sandboxCredentials)
+            
+            reAuthRequest.responseHandler = { (response) in
+                
+                if let payload = response.payload,
+                    let apiKey  = payload[.apiKey] as? String,
+                    let token   = payload[.token] as? String
+                {
+                    var creds = SoracomCredentials.sandboxCredentials
+                    creds.apiKey = apiKey
+                    creds.apiToken = token
+                    SoracomCredentials.sandboxCredentials = creds
+                    
+                    self.log("Authenticated successfully as the newly-created sandbox user, and stored the updated API key and token.")
+                    
+                } else {
+                    self.log("Authentication as the newly-created sandbox user failed.")
+                }
+            }
+            return reAuthRequest
+        }
+        
+        return authOperation
+    }
+    
+    
+    /// Attempts to authenticate using `credentials`. Upon success, this returns a copy or `credentials` with the updated API key and token returned by the server.
+    
+    func synchronousUpdateToken(credentials: SoracomCredentials?) -> SoracomCredentials? {
+        
+        guard let credentials = credentials else {
+            return nil
+        }
+        
+        let authRequest  = Request.auth(credentials)
+        let authResponse = authRequest.wait()
+        
+        guard let payload = authResponse.payload, let apiKey = payload[.apiKey] as? String, let newToken = payload[.token] as? String else
+        {
+            print("failed to update token: authentication failed: \(authResponse)")
+            return nil
+        }
+        
+        var newCredentials      = credentials
+        newCredentials.apiKey   = apiKey
+        newCredentials.apiToken = newToken
+        
+        return newCredentials
+    }
+
+    
+    public func authenticateAsSandboxUser(recreateOnFailure recreateOnFailure: Bool = false) {
+        
+        var credentials = credentialsForSandboxUser
+        let nc = NSNotificationCenter.defaultCenter()
+        
+        guard !credentials.blank else {
+            sandboxUserAuthenticationStatus = "⚠️ There is no API Sandbox user. To create one, enter your credentials in Settings."
+            nc.postNotificationName(Notifications.SandboxUserAuthenticationDidUpdate, object: nil)
+            
+            if recreateOnFailure {
+                self.createSandboxUser()
+            }
+            
+            return
+        }
+        
+        let authReq     = Request.auth(credentials)
+        
+        authReq.run { (response) in
+            
+            if let payload = response.payload,
+                apiKey  = payload[.apiKey] as? String,
+                token   = payload[.token] as? String
+            {
+                credentials.apiKey   = apiKey
+                credentials.apiToken = token
+                credentials.writeToSecurePersistentStorage()
+                
+                self.sandboxUserAuthenticationStatus = "🆗 Authenticated as: \(credentials.emailAddress)"
+                self.helpMessage = ""
+                
+            } else {
+                
+                let message = response.error?.message ?? "generic error"
+                
+                self.sandboxUserAuthenticationStatus = "⚠️ Failed: \(message)"
+                
+                self.helpMessage = "(Valid SAM user credentials from the production environment are required.)"
+
+                if recreateOnFailure {
+                    self.createSandboxUser()
+                }
+            }
+            
+            nc.postNotificationName(Notifications.SandboxUserAuthenticationDidUpdate, object: nil)
+        }
+    }
+    
+    
+    /// This method looks up the stored sandbox user credentials, tries to authenticate with them, and on success updates the stored credentials. This assumes that SoracomCredentials.sandboxCredentials is used to read/write the sandbox user's credentials (which isn't necessarily true, but happens to be true for the SDK demo apps).
+    
+    func authenticateSandboxUserAndUpdateStoredCredentials() {
+        
+        // FIXME: this could be made more generic...
+        
+        log("🚀 Will try to authenticate...")
+        
+        sandboxUserAuthenticationStatus = "Trying to authenticate as API Sandbox user..."
+        
+        let credentials = SoracomCredentials.sandboxCredentials
+        
+        guard !credentials.blank else {
+            log("No credentials were found. Try creating the API Sandbox user first.")
+            return
+        }
+        
+        let authReq = Request.auth(credentials) { (response) in
+            
+            if response.error != nil {
+            
+                self.log("Authentication failed. Note that API Sandbox users do expire periodically; you may need to create a new sandbox user in that case.")
+            
+            } else {
+                
+                if let payload = response.payload, token = payload[.token] as? String {
+
+                    self.log("Authenticated successfully. 😁")
+
+                    var creds = SoracomCredentials.sandboxCredentials
+                    creds.apiToken = token
+                    SoracomCredentials.sandboxCredentials = creds
+                }
+            }
+        }
+        
+        let authOp = APIOperation(authReq)
+        queue.addOperation(authOp)
+    }
+
+
+    
+    // MARK: - Create dummy SIM(s) (which exist in the API Sandbox)
+    
+    /// Create a single dummy SIM in the sandbox environment.
+    
+    func createSandboxSIM() {
+        log("🚀 Will try to create a SIM (aka 'subscriber') in the API Sandbox, and register it...")
+        
+        log("This operation will attempt to create a subscriber object (SIM) in the API sandbox. You can then use the data pertaining to that subscriber for testing, as if they were real SIMs that you had purchased. (The first step would be to register it.)")
+        
+        let req = Request.createSandboxSubscriber() { (response) in
+            
+            if let payload = response.payload, imsi = payload[.imsi] as? String, secret = payload[.registrationSecret] as? String{
+                
+                let registerRequest = Request.registerSubscriber(imsi, registrationSecret: secret)
+                self.queue.addOperation(APIOperation(registerRequest))
+                
+            } else {
+                self.log("Uh-oh: couldn't create SIM, but handling that error is beyond the scope of this demo app.")
+            }
+            
+        }
+        let op  = APIOperation(req)
+        queue.addOperation(op)
+        // The above could insted be done like this: req.run()
+    }
+    
+    
+    /// List all sandbox SIMs
+    func listSandboxSIMs() {
+        log("🚀 Will try to list all SIMs (aka 'subscribers') that are regsitered in the API Sandbox...")
+        
+        let req = Request.listSubscribers()
+        let op  = APIOperation(req)
+        queue.addOperation(op)
+    }
+    
+    
+    // MARK: - Multi-step examples
+    
+    /// Queues a series of asynchronous operations to create a new user in the API sandbox. This is a multi-step process. Using the operation queue, we can run the different steps sequentially, waiting on each before running the next. Returns nothing, because the operations queued by this function will be executed at a later time.
+    
+    func createSandboxUser(productionCredentials: SoracomCredentials? = nil, email: String? = nil, password: String? = nil) {
+        
+        // FIXME: make read/write credentials overridable somehow
+        // FIXME: then, add a unit test for this, which tests this method without affecting stored credentials used elsewhere
+        
+        log("🚀 Will try to create a new API Sandbox user...")
+
+        let productionCredentials = productionCredentials ?? SoracomCredentials.productionCredentials
+
+        guard !productionCredentials.blank else {
+            log("Sorry, we need credentials (for a real SAM user from the production environment) to proceed. Please enter credentials above, and try again.")
+            return
+        }
+        
+        guard queue.operationCount == 0 else {
+            print("Sorry, the queue has existing operations pending (see below). For clarity, this demo app only supports a single queue, and only accepts new operations when idle. Feel free to fork it and go wild, though!")
+            print("Here is what is currently in the queue: ")
+            
+            for op in queue.operations {
+                print("     \(op)")
+            }
+            return
+        }
+
+        func makeValid(orig: String?, _ sub: String) -> String {
+            guard let orig = orig else {
+                return sub
+            }
+            return orig == "" ? sub : orig
+        }
+        
+        let uuid     = NSUUID().UUIDString
+        let email    = makeValid(email, "\(uuid)@example.com")
+        let password = makeValid(password, "\(uuid)aBc0157$")
+    
+        log("This operation will attempt to create a sandbox user for testing, in the API sandbox.")
+        log("  Email Address: \(email)")
+        log("  Password:      \(password)")
+
+        
+        // CREATE OPERATOR
+        // First, create the operator. In the API Sandbox, this operation does not need to be authorized
+        // with credentials, because it is the equivalent of signing up with a new account.
+
+        let createOperatorRequest = Request.createOperator(email, password: password) { (response) in
+            
+            self.log("The createOperator request has returned its response.")
+            
+            if let error = response.error {
+                self.cancelAllOperations(error)
+            } else {
+                print("No errors occurred, so the next operation in the queue will be run.")
+            }
+        }
+        
+        let createOperatorOperation = APIOperation(createOperatorRequest)
+        queue.addOperation(createOperatorOperation)
+        
+        
+        // GET SIGNUP TOKEN
+        // This is the one step that requires real SAM user credentials from the production environment.
+        
+        let sandboxUserTokenIdentifier = "createSandboxUser.token"
+
+        let signupRequest = Request.getSignupToken(email: email, authKeyId: productionCredentials.authKeyID, authKey: productionCredentials.authKeySecret) { (response) in
+            
+            self.log("The getSignupToken request has returned its response.")
+            
+            if let error = response.error {
+                
+                self.cancelAllOperations(error)
+                
+            } else {
+                
+                if let token = response.payload?[.token] as? String {
+                    
+                    let tokenCredentials = SoracomCredentials(apiToken: token)
+                    tokenCredentials.writeToSecurePersistentStorage(sandboxUserTokenIdentifier, replaceDefault: false)
+                    
+                    self.log("The token for the sandbox user has been saved for use in the next step.")
+                    self.log("No errors occurred, so the next operation in the queue will be run.")
+                    
+                } else {
+                    self.cancelAllOperations("Hmm, no token was received, which should have caused an error. This is a bug in the SDK itself! 😮")
+                }
+            }
+        }
+        
+        let signupOperation = APIOperation(signupRequest)
+        queue.addOperation(signupOperation)
+        
+
+        // VERIFY OPERATOR
+        // This next step illustrates initializing an APIOperation with a RequestBuilder instead of a Request,
+        // which allows you to defer the creation of the request until the time the operation is executed.
+        //
+        // We use this form because at this point we are just building the queue; we haven't run any of these
+        // operations yet, and therefore don't yet have the API Token we want to verify. (We won't have it
+        // until the `signupOperation` above executes.)
+        //
+        // So, we initialize `verifyOperation` using the `RequestBuilder` below. By the time `verifyOperation`
+        // executes, `signupOperation` will have executed, and the token will have been stored, so we can look
+        // it up and use it to create the Request instance that `verifyOperation` will run to verify the token.
+
+        let verifyOperation = APIOperation() {
+            
+            let credentials    = SoracomCredentials(withStorageIdentifier: sandboxUserTokenIdentifier)
+            
+            let verifyOperator = Request.verifyOperator(token: credentials.apiToken) { (response) in
+                
+                if let error = response.error {
+                    
+                    self.cancelAllOperations(error)
+                    
+                } else {
+                    
+                    // If we get here, then the multi-operation process of creating a user in the API Sandbox
+                    // has completed successfully. So, store the credentials so that we may use this sandbox
+                    // user to do various other things:
+                    
+                    SoracomCredentials.sandboxCredentials = SoracomCredentials(type: .RootAccount, emailAddress: email, password: password)
+                    
+                    // And, tell the user:
+                    
+                    self.log("No errors occurred. The sandbox user was created in the API Sandbox successfully, and the sandbox user's credentials were stored under the special namespace \(SoracomCredentials.storageNamespaceForSandboxCredentials.UUIDString):")
+                    self.log("  Email Address: \(email)")
+                    self.log("  Password:      \(password)")
+                }
+            }
+            
+            return verifyOperator
+        }
+        queue.addOperation(verifyOperation)
+        
+        
+        // AUTHENTICATE
+        // Next, we log in as newly-verified sandbox user, and update the API key and token.
+        // But since we only persist the credentials for the sandbox user upon successful
+        // completion of verifyOperation above, and those credentials are used to initialize
+        // this next Request object, we have to use APIOperation's capability
+        // to defer creation of the request (so that we can look up the credentials stored
+        // in that previous step):
+        
+        queue.addOperation(deferredAuthOperation())
+        
+        
+        // REGISTER PAYMENT METHOD
+        // Register web payment method:
+        
+        let paymentMethodInfo = PaymentMethodInfoWebPay(cvc: "123", expireMonth: 12, expireYear: 2020, name: "SORAO TAMAGAWA", number: "4242424242424242")
+        // This fake credit card info comes from the API Sandbox docs.
+        
+        let registerPaymentMethodRequest = Request.registerWebPayPaymentMethod(paymentMethodInfo)
+        registerPaymentMethodRequest.responseHandler = { (response) in
+            
+            if let error = response.error {
+                self.log("Hmm. An error ocurred after the sandbox user was successfully created, preventing a payment method from being registered.")
+                self.log("\(error)")
+                
+            } else {
+                self.log("Successfully addded a (fake) payment method to the sandbox user's account.")
+            }
+        }
+        
+        let registerPaymentMethodOperation = APIOperation(registerPaymentMethodRequest)
+        queue.addOperation(registerPaymentMethodOperation)
+        
+        // Finally, after adding payment method, we have to refresh our token one more time:
+        queue.addOperation(deferredAuthOperation())
+    }
+
+    
+    /// Create a user in the API Sandbox, returning the new user's credentials if successful, otherwise nil.
+    
+    func synchronousCreateSandboxUser(productionCredentials: SoracomCredentials, email: String? = nil, password: String? = nil) -> SoracomCredentials? {
+        
+        print("CREATE SANDBOX USER")
+        
+        let uuid     = NSUUID().UUIDString
+        let email    = email    ?? "\(uuid)@example.com"
+        let password = password ?? "\(uuid)aBc0157$"
+        
+        var msg = "This operation will attempt to create a sandbox user for testing, in the API sandbox.\n\n"
+        msg    += "  Email Address: \(email)\n"
+        msg    += "  Password:      \(password)\n"
+        print(msg)
+        
+        // Create operator:
+        
+        let createOperatorResponse = Request.createOperator(email, password: password).wait()
+        
+        guard createOperatorResponse.error == nil else {
+            print("failed to create a new sandbox user: could not create operator: \(createOperatorResponse)")
+            return nil
+        }
+        
+        // Get signup token (this is the step that needs the production credentials):
+        
+        let signupRequest = Request.getSignupToken(email: email, authKeyId: productionCredentials.authKeyID, authKey: productionCredentials.authKeySecret)
+        
+        let signupResponse = signupRequest.wait()
+        
+        guard signupResponse.error == nil else {
+            print("failed to create a new sandbox user: could not get signup token: \(signupResponse)")
+            return nil
+        }
+        
+        guard let token = signupResponse.payload?[.token] as? String else {
+            print("failed to create a new sandbox user: response did not contain signup token: \(signupResponse)")
+            return nil
+        }
+        
+        // Verify the token:
+        
+        let verifyOperatorRequest  = Request.verifyOperator(token: token)
+        let verifyOperatorResponse = verifyOperatorRequest.wait()
+        
+        guard verifyOperatorResponse.error == nil else {
+            print("failed to create a new sandbox user: could not verify signup token: \(verifyOperatorResponse)")
+            return nil
+        }
+        
+        // Authenticate as new sandbox user:
+        // (if we get here, we should have working .RootAccount credentials for the new API Sandbox user)
+        
+        var newUserCredentials = SoracomCredentials(type: .RootAccount, emailAddress: email, password: password)
+        
+        let authRequest  = Request.auth(newUserCredentials)
+        let authResponse = authRequest.wait()
+        
+        guard let payload = authResponse.payload, let apiKey = payload[.apiKey] as? String, let newToken = payload[.token] as? String else
+        {
+            print("failed to create a new sandbox user: could not authenticate as sandbox user: \(authResponse)")
+            return nil
+        }
+        
+        newUserCredentials.apiKey   = apiKey
+        newUserCredentials.apiToken = newToken
+        
+        // Register a (fake) credit card:
+        
+        let paymentMethodInfo = PaymentMethodInfoWebPay(cvc: "123", expireMonth: 12, expireYear: 2020, name: "SORAO TAMAGAWA", number: "4242424242424242")
+        // This fake credit card info comes from the API Sandbox docs.
+        
+        let registerPaymentMethodRequest  = Request.registerWebPayPaymentMethod(paymentMethodInfo)
+        
+        registerPaymentMethodRequest.credentials = newUserCredentials
+        // This step is necessary because we have not yet saved the credentials anywhere, so the request would otherwise use previously-cached credentials (and therefore, fail).
+        
+        let registerPaymentMethodResponse = registerPaymentMethodRequest.wait()
+        
+        guard registerPaymentMethodResponse.error == nil else {
+            print("failed to create a new sandbox user: could not add payment method: \(registerPaymentMethodResponse)")
+            return nil
+        }
+        
+        // Authenticate as new sandbox user again, after adding payment method, to update token:
+        
+        guard let updatedCredentials = synchronousUpdateToken(newUserCredentials) else {
+            print("failed to create a new sandbox user: could not re-authenticate as sandbox user: \(authResponse)")
+            return nil
+        }
+        
+        return updatedCredentials
+    }
+
+}
+
+
+#if os(OSX)
+    import Cocoa
+    
+    public enum TextStyle {
+        
+        case Normal, Red, Blue, Green
+        
+        var attributes: [String:AnyObject] {
+            switch self {
+            case Red:
+                return [NSFontAttributeName: NSFont.userFixedPitchFontOfSize(10.0)!, NSForegroundColorAttributeName: NSColor.redColor()]
+            case Green:
+                return [NSFontAttributeName: NSFont.userFixedPitchFontOfSize(10.0)!, NSForegroundColorAttributeName: NSColor(red:0.0, green: 0.6, blue: 0.0, alpha: 1.0)]
+            case Blue:
+                return [NSFontAttributeName: NSFont.userFixedPitchFontOfSize(10.0)!, NSForegroundColorAttributeName: NSColor.blueColor()]
+            default:
+                return [NSFontAttributeName: NSFont.userFixedPitchFontOfSize(10.0)!]
+            }
+        }
+    }
+    
+#else
+    
+    public enum TextStyle {
+        
+        case Normal, Red, Blue, Green
+        
+        var attributes: [String:AnyObject] {
+            return [:]
+        }
+    }
+    
+#endif
+

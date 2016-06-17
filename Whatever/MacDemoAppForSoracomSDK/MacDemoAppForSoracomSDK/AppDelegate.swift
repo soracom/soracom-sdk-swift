@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       // Mason 2016-03-13: NOTE: For historical reasons, NSTextView is marked as NS_AUTOMATED_REFCOUNT_WEAK_UNAVAILABLE, so weak ref will cause crash. (In this app, we don't really care, though.)
     
     
-    /// A reference to the singlton Client instance, which implements most of the API-related behavior of this demo app.
+    /// A reference to the singleton Client instance, which implements most of the API-related behavior of this demo app.
     
     let apiClient = Client()
     
@@ -61,6 +61,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             return SoracomCredentials.sandboxCredentials
         }
+        
+        Client.sharedInstance.doInitialHousekeeping()
+          // This will allow us to use Xcode to securely input credentials that can be used by the tests.
     }
     
     

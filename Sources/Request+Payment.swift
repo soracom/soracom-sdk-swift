@@ -6,7 +6,7 @@ extension Request {
     
     public class func registerWebPayPaymentMethod(info: PaymentMethodInfoWebPay, responseHandler: ResponseHandler? = nil) -> Request {
         let req = self.init("/payment_methods/webpay", responseHandler: responseHandler)
-        req.requestPayload = [
+        req.payload = [
             .cvc         : info.cvc,
             .expireMonth : info.expireMonth,
             .expireYear  : info.expireYear,

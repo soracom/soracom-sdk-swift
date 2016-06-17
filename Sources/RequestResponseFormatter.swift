@@ -68,7 +68,7 @@ public class RequestResponseFormatter {
         }
         result += "}"
         
-        let pretty = prettifyJSON(request.requestPayload?.toJSON())
+        let pretty = prettifyJSON(request.payload?.toJSON())
         
         result += "\n  HTTP body (payload): \(pretty)"
         

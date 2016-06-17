@@ -13,7 +13,7 @@ extension Request {
         
         req.shouldSendAPIKeyAndTokenInHTTPHeaders = false
         
-        req.requestPayload = [
+        req.payload = [
             .authKeyId : authKeyId,
             .authKey   : authKey,
         ]
@@ -58,7 +58,7 @@ extension Request {
         req.expectedHTTPStatus = 200
         req.method = .POST
 
-        req.requestPayload = stats.toPayload()
+        req.payload = stats.toPayload()
 
         return req
     }
@@ -69,7 +69,7 @@ extension Request {
     public class func insertBeamStats(imsi: String, stats: BeamStatsInsertion, responseHandler: ResponseHandler? = nil) -> Request {
     
         let req = self.init("/sandbox/stats/beam/subscribers/" + imsi, responseHandler: responseHandler)
-        req.requestPayload = stats.toPayload()
+        req.payload = stats.toPayload()
         return req
     }
     
@@ -80,7 +80,7 @@ extension Request {
 
         let req = self.init("/sandbox/coupons/create", responseHandler: responseHandler)
         
-        req.requestPayload = [
+        req.payload = [
             .amount          : amount,
             .balance         : balance,
             .billItemName    : billItemName,

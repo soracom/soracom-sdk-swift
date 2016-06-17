@@ -10,7 +10,7 @@ extension Request {
         
         let req = self.init("/operators", responseHandler: responseHandler)
         
-        req.requestPayload = [
+        req.payload = [
             .email    : email,
             .password : password,
         ]
@@ -47,7 +47,7 @@ extension Request {
         let req = self.init("/operators/verify", responseHandler: responseHandler)
         
         req.shouldSendAPIKeyAndTokenInHTTPHeaders = false
-        req.requestPayload = [.token: token]
+        req.payload = [.token: token]
         return req
     }
 

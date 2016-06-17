@@ -46,7 +46,7 @@ extension Request {
         
         req.expectedHTTPStatus = 201
         
-        req.requestPayload = credentials.toPayload()
+        req.payload = credentials.toPayload()
         
         return req
     }

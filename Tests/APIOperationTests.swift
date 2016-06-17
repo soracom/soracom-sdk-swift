@@ -62,7 +62,7 @@ class APIOperationTests: BaseTestCase {
                 
                 values.append("second operation did run")
                 
-                let payload = response.request.requestPayload
+                let payload = response.request.payload
                 
                 if let email    = payload?[.email] as? String,
                     let password = payload?[.password] as? String

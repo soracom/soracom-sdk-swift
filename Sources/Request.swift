@@ -120,9 +120,9 @@ public class Request {
     var shouldSendAPIKeyAndTokenInHTTPHeaders = true
     
     
-    /// Many API requests have a payload of keys and values that are sent to the server in the HTTP body of the request. The `requestPayload` property contains those values. (It is not normally necessary to explicitly set this property, because it will happen automatically when using the one of the convenience methods for creating a request.) This list will be converted to a JSON object when being sent to the server.
+    /// Many API requests have a payload of keys and values that are sent to the server in the HTTP body of the request. The `payload` property contains those values. (It is not normally necessary to explicitly set this property, because it will happen automatically when using the one of the convenience methods for creating a request.) This list will be converted to a JSON object when being sent to the server.
     
-    var requestPayload: Payload? // FIXME: rename to just 'payload'
+    var payload: Payload?
     
     
     /// The URL path, e.g. "/operators/verify". (It is not normally necessary to explicitly set this property, because it will happen automatically when using the one of the convenience methods for creating a request.)
@@ -309,9 +309,9 @@ public class Request {
         
         request.HTTPMethod = self.method.rawValue
         
-        if let requestPayload = requestPayload
+        if let payload = payload
         {
-            request.HTTPBody = requestPayload.toJSONData()
+            request.HTTPBody = payload.toJSONData()
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         

@@ -62,7 +62,7 @@ extension Request {
         
         let req = self.init("/subscribers/\(imsi)/register", responseHandler: responseHandler)
         
-        req.requestPayload = [.registrationSecret: registrationSecret]
+        req.payload = [.registrationSecret: registrationSecret]
         
         // FIXME: groupId and tags
         
@@ -90,7 +90,7 @@ extension Request {
 
         let req = self.init("/subscribers/\(imsi)/update_speed_class", responseHandler: responseHandler)
         
-        req.requestPayload     = [.speedClass: speedClass.rawValue]
+        req.payload = [.speedClass: speedClass.rawValue]
         req.expectedHTTPStatus = 200
         return req
     }

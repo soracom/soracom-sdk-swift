@@ -93,12 +93,12 @@ class PayloadTests: XCTestCase {
     
     func test_toDictionary_extended_with_nested_payload() {
         
-        let requestPayload: Payload = [
+        let payload: Payload = [
             PayloadKey.name     : [.cvc: "fee fie foe fum", .authKey: 666] as Payload,
             PayloadKey.unixtime : "💩"
         ]
         
-        let actual = requestPayload.toDictionary()
+        let actual = payload.toDictionary()
         
         let expected: [String: AnyObject] = [
             "name"     : ["cvc" : "fee fie foe fum", "authKey": 666],

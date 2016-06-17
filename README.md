@@ -295,6 +295,37 @@ queue.addOperation(verifyOperation)
 
 Complete examples of a multi-step sequences of requests that make use of both types of APIOperation can be found in [Client.swift](Sources/Client.swift)
 
+### Synchronous requests
+
+The `Request` class also supports making synchronous requests:
+
+```swift
+        let authRequest  = Request.auth(credentials)
+        
+        // to execute a request synchronously, use wait() 
+        // instead of run(), like this:
+        
+        let authResponse = authRequest.wait()
+        
+        guard let payload = authResponse.payload, let apiKey = payload[.apiKey] as? String, let newToken = payload[.token] as? String else
+        {
+            print("failed to update token: authentication failed: \(authResponse)")
+            return nil
+        }
+        
+        // do something with newToken...
+```
+
+The above code will block the current thread until `authRequest` has made its request to the API server, and will return the `Response` instance after that is done.
+
+This is not usually recommended, though; it is not as performant as doing things asynchronously. Also, if your app uses synchronous requests, it should generally **only** use synchronous requests, because deadlocks may occur of asynchronous or queued operations are executing on other threads.
+
+Still, because synchronous code is simpler and easier to write and to read, this mode might be a good match for some use cases, such as a command-line tool that just wants to do some operations in sequence and doesn't need to be as fast as possible, and doesn't manage a GUI that needs the main thread to run an event loop.
+
+### More examples
+
+The `Client` class powers the SDK's demo apps, and it implements various multi-step API transactions. It contains examples of using various different kinds of requests, and operation queues.
+
 #### For more information
 The Swift SDK source code itself is extensively documented, which means the standard Xcode conveniences work, such as auto-complete with documentation hints:
 

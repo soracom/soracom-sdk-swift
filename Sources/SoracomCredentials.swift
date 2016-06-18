@@ -119,26 +119,17 @@ public struct SoracomCredentials: Equatable {
     // FIXME: SoracomCredentials(withStorageIdentifier: nil) is how you look up the default credentials but that it not at all intuitive
     
     
-    /// Write the credentials to secure persistent storage (system keychain). If `identifier` is `nil`, then the default storage identifier for the credentials type is used. Any credentials that were previously stored with the same `identifier` are overwritten. This means that you can choose not to provide an identifier if you only need to store a maximimum of one credentials structure of each type (the default key is provided by `SoracomCredentialType`, and is unique per-type). Also, if `replaceDefault` is true (which it is by default), the credentials are also separately persisted using the identifier `SoracomCredentials.defaultStorageIdentifier`. This allows retrieval of the "default" credentials (the meaning of which is application-specific), regardless of type.
-    ///
-    /// This makes it easy by default to retrieve the last-saved credentials of each type, and also to retrieve the last-saved credentials regardless of type.
+    
+    /// Write the credentials to secure persistent storage (system keychain). If `identifier` is `nil`, then the default storage identifier is used. Any credentials that were previously stored with the same `identifier` are overwritten. This means that you can choose not to provide an identifier if you only need to store a single set of credentials per storage namespace (and a simple app might use only the default storage namespace).
     ///
     /// The `namespace` parameter can typically be omitted.
-    
-// FIXME: get rid of 'replaceDefault'
-    
-    func writeToSecurePersistentStorage(identifier: String? = nil, namespace: NSUUID? = nil, replaceDefault : Bool = false) -> Bool {
+        
+    func writeToSecurePersistentStorage(identifier: String? = nil, namespace: NSUUID? = nil) -> Bool {
                 
-        let base       = identifier ?? type.defaultStorageIdentifier()
+        let base       = identifier ?? SoracomCredentials.defaultStorageIdentifier
         let identifier = SoracomCredentials.buildNamespacedIdentifier(base, namespace: namespace)
         let data       = toJSONData()
-        var result     = Keychain.write(identifier, data: data)
-        
-        if (replaceDefault) {
-            let base       = SoracomCredentials.defaultStorageIdentifier
-            let identifier = SoracomCredentials.buildNamespacedIdentifier(base, namespace: namespace)
-            result         = result && Keychain.write(identifier, data: data)
-        }
+        let result     = Keychain.write(identifier, data: data)
         
         return result
     }
@@ -194,7 +185,7 @@ public struct SoracomCredentials: Equatable {
     }
     
     
-    /// The storage identifier used to look up the "default" credentials. This is similar to SoracomCredentialType.defaultStorageIdentifier(), except that it is used to store and retrieve the default credentials, whatever type they happen to be. (What "default" means is application-specific, and no assumptions are made in this SDK about how it is to be used.)
+    /// The storage identifier used to look up the "default" credentials. When reading/writing credentials, if you don't specify an identifier, this will be used.
     
     static let defaultStorageIdentifier = "SoracomCredentials.Default"
     
@@ -248,7 +239,7 @@ public func ==(lhs: SoracomCredentials, rhs: SoracomCredentials) -> Bool
 }
 
 
-// MARK: - SoracomCredentialType enum
+// MARK: - SoracomCredentialType                        
 
 /// Defines the different types of authentication (see the [API Documentation](https://dev.soracom.io/jp/docs/api/#!/Auth/auth) for details).
 
@@ -258,15 +249,6 @@ enum SoracomCredentialType: String {
     case SAM
     case AuthKey
     case KeyAndToken
-    
-    /// Returns the default identifier used to store credentials data of a given type. If your client code only needs to store one (or fewer) set of credentials for each type, then you can choose to omit the identifier when using `writeToSecurePersistentStorage()` and the default identifier will be used.
-    
-    func defaultStorageIdentifier() -> String {
-        switch self {
-        default:
-            return "SoracomCredentials.Default.\(self.rawValue)"
-        }
-    }
 }
 
 

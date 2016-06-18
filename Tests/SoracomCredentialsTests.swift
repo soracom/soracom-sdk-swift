@@ -36,7 +36,7 @@ class SoracomCredentialsTests: BaseTestCase {
     
     func test_store_in_keychain_original() {
         
-        one.writeToSecurePersistentStorage(replaceDefault: true)
+        one.writeToSecurePersistentStorage()
         two = SoracomCredentials(withStorageIdentifier: nil)
         
         XCTAssert(two == one)
@@ -55,7 +55,7 @@ class SoracomCredentialsTests: BaseTestCase {
         let allCredentials     = [rootCredentials, samCredentials, authKeyCredentials, tokenCredentials]
         
         for c in allCredentials {
-            let stored = c.writeToSecurePersistentStorage(replaceDefault: true)
+            let stored = c.writeToSecurePersistentStorage()
             XCTAssertTrue(stored)
             
             let defaultCredentials = SoracomCredentials(withStorageIdentifier: nil)
@@ -124,18 +124,18 @@ class SoracomCredentialsTests: BaseTestCase {
         let namespaceFromDefaultStr = NSUUID(UUIDString: "00000000-0000-0000-0000-DEFDEFDEFDEF")
         XCTAssertNotNil(namespaceFromDefaultStr)
         
-        one.writeToSecurePersistentStorage(replaceDefault: true)
+        one.writeToSecurePersistentStorage()
         var read = SoracomCredentials(withStorageIdentifier: nil)
         XCTAssert(read == one)
 
-        two.writeToSecurePersistentStorage(replaceDefault: true)
+        two.writeToSecurePersistentStorage()
         read = SoracomCredentials(withStorageIdentifier: nil)
         XCTAssert(read == two)
         
         let namespace1 = NSUUID()
         let namespace2 = NSUUID()
         
-        one.writeToSecurePersistentStorage(namespace: namespace1, replaceDefault: true)
+        one.writeToSecurePersistentStorage(namespace: namespace1)
         
         read = SoracomCredentials(withStorageIdentifier: nil)
         XCTAssert(read == two) // should still be two, because we wrote one with a different namespcce
@@ -145,7 +145,7 @@ class SoracomCredentialsTests: BaseTestCase {
 
         read = SoracomCredentials(withStorageIdentifier: nil, namespace: namespace2)
         XCTAssert(read != two) // should be blank instance; we haven't written yet
-        two.writeToSecurePersistentStorage(namespace: namespace2, replaceDefault: true)
+        two.writeToSecurePersistentStorage(namespace: namespace2)
         read = SoracomCredentials(withStorageIdentifier: nil, namespace: namespace2)
         XCTAssert(read == two)
         

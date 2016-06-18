@@ -337,7 +337,7 @@ public class Client {
                 if let token = response.payload?[.token] as? String {
                     
                     let tokenCredentials = SoracomCredentials(token: token)
-                    tokenCredentials.writeToSecurePersistentStorage(sandboxUserTokenIdentifier, replaceDefault: false)
+                    tokenCredentials.writeToSecurePersistentStorage(sandboxUserTokenIdentifier)
                     
                     self.log("The token for the sandbox user has been saved for use in the next step.")
                     self.log("No errors occurred, so the next operation in the queue will be run.")
@@ -623,7 +623,7 @@ public class Client {
     /// Store the credentials in secure persistent storage (i.e., system keychain), as the default credentials in the namespace appropriate for `user`.
     
     public func saveCredentials(credentials: SoracomCredentials, user: User) {
-        credentials.writeToSecurePersistentStorage(namespace: storageNamespaceForUser(user), replaceDefault: true)
+        credentials.writeToSecurePersistentStorage(namespace: storageNamespaceForUser(user))
           // the SDK demo apps are simple 
     }
     

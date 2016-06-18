@@ -85,9 +85,9 @@ public class Client {
                     let apiKey  = payload[.apiKey] as? String,
                     let token   = payload[.token] as? String
                 {
-                    var updatedCredentials      = self.credentialsForUser(.APISandboxUser)
-                    updatedCredentials.apiKey   = apiKey
-                    updatedCredentials.apiToken = token
+                    var updatedCredentials    = self.credentialsForUser(.APISandboxUser)
+                    updatedCredentials.apiKey = apiKey
+                    updatedCredentials.token  = token
                     self.saveCredentials(updatedCredentials, user: .APISandboxUser)
                     
                     self.log("Authenticated successfully as the newly-created sandbox user, and stored the updated API key and token.")
@@ -120,9 +120,9 @@ public class Client {
             return nil
         }
         
-        var newCredentials      = credentials
-        newCredentials.apiKey   = apiKey
-        newCredentials.apiToken = newToken
+        var newCredentials    = credentials
+        newCredentials.apiKey = apiKey
+        newCredentials.token  = newToken
         
         return newCredentials
     }
@@ -152,8 +152,8 @@ public class Client {
                 apiKey  = payload[.apiKey] as? String,
                 token   = payload[.token] as? String
             {
-                credentials.apiKey   = apiKey
-                credentials.apiToken = token
+                credentials.apiKey = apiKey
+                credentials.token  = token
                 credentials.writeToSecurePersistentStorage()
                 
                 self.sandboxUserAuthenticationStatus = "🆗 Authenticated as: \(credentials.emailAddress)"
@@ -206,8 +206,8 @@ public class Client {
 
                     self.log("Authenticated successfully. 😁")
 
-                    var updatedCredentials      = self.credentialsForSandboxUser
-                    updatedCredentials.apiToken = token
+                    var updatedCredentials   = self.credentialsForSandboxUser
+                    updatedCredentials.token = token
                     self.saveCredentials(updatedCredentials, user: .APISandboxUser)
                 }
             }
@@ -336,7 +336,7 @@ public class Client {
                 
                 if let token = response.payload?[.token] as? String {
                     
-                    let tokenCredentials = SoracomCredentials(apiToken: token)
+                    let tokenCredentials = SoracomCredentials(token: token)
                     tokenCredentials.writeToSecurePersistentStorage(sandboxUserTokenIdentifier, replaceDefault: false)
                     
                     self.log("The token for the sandbox user has been saved for use in the next step.")
@@ -368,7 +368,7 @@ public class Client {
             
             let credentials    = SoracomCredentials(withStorageIdentifier: sandboxUserTokenIdentifier)
             
-            let verifyOperator = Request.verifyOperator(token: credentials.apiToken) { (response) in
+            let verifyOperator = Request.verifyOperator(token: credentials.token) { (response) in
                 
                 if let error = response.error {
                     
@@ -497,8 +497,8 @@ public class Client {
             return nil
         }
         
-        newUserCredentials.apiKey   = apiKey
-        newUserCredentials.apiToken = newToken
+        newUserCredentials.apiKey = apiKey
+        newUserCredentials.token  = newToken
         
         // Register a (fake) credit card:
         

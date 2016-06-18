@@ -14,7 +14,7 @@ public struct SoracomCredentials: Equatable {
     var authKeyID      = ""
     var authKeySecret  = ""
     var apiKey         = ""
-    var apiToken       = ""
+    var token          = ""
     
     // FIXME: add this to stash the expire time of credentials (for KeyAndToken case):    var expirationDate
     
@@ -22,7 +22,7 @@ public struct SoracomCredentials: Equatable {
         
     /// The canonical initializer, allows setting any/all properties.
     
-    init(type: SoracomCredentialType = .RootAccount, emailAddress: String = "", operatorID: String = "", username: String = "", password: String = "", authKeyID: String = "", authKeySecret: String = "", apiKey: String = "", apiToken: String = "") {
+    init(type: SoracomCredentialType = .RootAccount, emailAddress: String = "", operatorID: String = "", username: String = "", password: String = "", authKeyID: String = "", authKeySecret: String = "", apiKey: String = "", token: String = "") {
         self.type          = type
         self.emailAddress  = emailAddress
         self.operatorID    = operatorID
@@ -31,7 +31,7 @@ public struct SoracomCredentials: Equatable {
         self.authKeyID     = authKeyID
         self.authKeySecret = authKeySecret
         self.apiKey        = apiKey
-        self.apiToken      = apiToken // FIXME: rename to 'token' for consistency with API keys
+        self.token         = token
     }
     
     
@@ -50,7 +50,29 @@ public struct SoracomCredentials: Equatable {
         authKeyID     = dictionary[kAuthKeyID] ?? ""
         authKeySecret = dictionary[kAuthKeySecret] ?? ""
         apiKey        = dictionary[kAPIKey] ?? ""
-        apiToken      = dictionary[kAPIToken] ?? ""
+        token         = dictionary[kToken] ?? ""
+        
+        checkForObsoleteFormat(dictionary)
+    }
+    
+    
+    /// Support initializing from obsolete formats from previous versions of this SDK.
+    
+    mutating func checkForObsoleteFormat(dictionary: Dictionary<String, String>) {
+        let format = dictionary[kAccountCredentialsStorageFormatVersion] ?? "0"
+        
+        guard let version = Int(format) else {
+            return
+        }
+        
+        if version < 3 {
+            
+            if token == "" {
+                if let token = dictionary["apiToken"] {
+                    self.token = token
+                }
+            }
+        }
     }
     
     
@@ -141,9 +163,9 @@ public struct SoracomCredentials: Equatable {
             kAuthKeyID     : authKeyID,
             kAuthKeySecret : authKeySecret,
             kAPIKey        : apiKey,
-            kAPIToken      : apiToken,
+            kToken         : token   ,
             
-            kAccountCredentialsStorageFormatVersion: "2"
+            kAccountCredentialsStorageFormatVersion: "3"
         ]
         
         // FIXME: are we using "toDictionary()" or "dictionaryRepresentation()"?? Make it consistent, please.
@@ -214,15 +236,15 @@ public struct SoracomCredentials: Equatable {
 
 public func ==(lhs: SoracomCredentials, rhs: SoracomCredentials) -> Bool
 {
-    return (lhs.type == rhs.type) &&
-    (lhs.emailAddress == rhs.emailAddress) &&
-    (lhs.operatorID == rhs.operatorID) &&
-    (lhs.username == rhs.username) &&
-    (lhs.password == rhs.password) &&
-    (lhs.authKeyID == rhs.authKeyID) &&
-    (lhs.authKeySecret == rhs.authKeySecret) &&
-    (lhs.apiKey == rhs.apiKey) &&
-    (lhs.apiToken == rhs.apiToken)
+    return (lhs.type    == rhs.type) &&
+    (lhs.emailAddress   == rhs.emailAddress) &&
+    (lhs.operatorID     == rhs.operatorID) &&
+    (lhs.username       == rhs.username) &&
+    (lhs.password       == rhs.password) &&
+    (lhs.authKeyID      == rhs.authKeyID) &&
+    (lhs.authKeySecret  == rhs.authKeySecret) &&
+    (lhs.apiKey         == rhs.apiKey) &&
+    (lhs.token          == rhs.token   )
 }
 
 
@@ -236,7 +258,6 @@ enum SoracomCredentialType: String {
     case SAM
     case AuthKey
     case KeyAndToken
-    
     
     /// Returns the default identifier used to store credentials data of a given type. If your client code only needs to store one (or fewer) set of credentials for each type, then you can choose to omit the identifier when using `writeToSecurePersistentStorage()` and the default identifier will be used.
     
@@ -259,6 +280,6 @@ private let kPassword      = "password"
 private let kAuthKeyID     = "authKeyID"
 private let kAuthKeySecret = "authKeySecret"
 private let kAPIKey        = "apiKey"
-private let kAPIToken      = "apiToken"
+private let kToken         = "token"
 
 private let kAccountCredentialsStorageFormatVersion = "accountCredentialsStorageFormatVersion"

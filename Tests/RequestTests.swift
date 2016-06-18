@@ -17,9 +17,9 @@ class RequestTests: BaseTestCase {
         // By default, Request will look up the "default" stored credentials of type SoracomCredentialType.KeyAndToken. However, the client
         // code may override that behavior by passing a function/closure to do the lookup. This can be done on a global or per-instance basis.
         
-        let defaultCredentials  = SoracomCredentials(type: .KeyAndToken, emailAddress: "default@foo.bar", apiKey: "default", apiToken: "default")
-        let instanceCredentials = SoracomCredentials(type: .KeyAndToken, emailAddress: "instance@foo.bar", apiKey: "instance", apiToken: "instance")
-        let globalCredentials   = SoracomCredentials(type: .KeyAndToken, emailAddress: "global@foo.bar", apiKey: "global", apiToken: "global")
+        let defaultCredentials  = SoracomCredentials(type: .KeyAndToken, emailAddress: "default@foo.bar", apiKey: "default", token: "default")
+        let instanceCredentials = SoracomCredentials(type: .KeyAndToken, emailAddress: "instance@foo.bar", apiKey: "instance", token: "instance")
+        let globalCredentials   = SoracomCredentials(type: .KeyAndToken, emailAddress: "global@foo.bar", apiKey: "global", token: "global")
         
         defaultCredentials.writeToSecurePersistentStorage(replaceDefault: true)
         
@@ -38,10 +38,10 @@ class RequestTests: BaseTestCase {
         let defaultHeaders     = defaultURLRequest.allHTTPHeaderFields
         
         XCTAssert(defaultHeaders?["X-Soracom-API-Key"] == defaultCredentials.apiKey)
-        XCTAssert(defaultHeaders?["X-Soracom-Token"] == defaultCredentials.apiToken)
+        XCTAssert(defaultHeaders?["X-Soracom-Token"] == defaultCredentials.token)
         
         XCTAssert(instanceHeaders?["X-Soracom-API-Key"] == instanceCredentials.apiKey)
-        XCTAssert(instanceHeaders?["X-Soracom-Token"] == instanceCredentials.apiToken)
+        XCTAssert(instanceHeaders?["X-Soracom-Token"] == instanceCredentials.token)
         
         // A global override should affect all Request instances:
         Request.credentialsFinder = { (req) in
@@ -52,7 +52,7 @@ class RequestTests: BaseTestCase {
         let globalHeaders     = globalURLRequest.allHTTPHeaderFields
         
         XCTAssert(globalHeaders?["X-Soracom-API-Key"] == globalCredentials.apiKey)
-        XCTAssert(globalHeaders?["X-Soracom-Token"] == globalCredentials.apiToken)
+        XCTAssert(globalHeaders?["X-Soracom-Token"] == globalCredentials.token)
         
         Request.credentialsFinder = nil // good test manners :)
     }

@@ -271,7 +271,7 @@ That allows you to have the operation build its request based on values returned
 let verifyOperation = APIOperation() {
 
     let credentials    = lookUpCredentials()
-    let verifyOperator = Request.verifyOperator(token: credentials.apiToken)
+    let verifyOperator = Request.verifyOperator(token: credentials.token)
 
     verifyOperator.requestHandler = { (response) in
 

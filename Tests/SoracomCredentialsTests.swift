@@ -17,9 +17,9 @@ class SoracomCredentialsTests: BaseTestCase {
     }
     
     
-    var one = SoracomCredentials(type: .RootAccount, emailAddress: "one", operatorID: "one", username: "one", password: "one", authKeyID: "one", authKeySecret: "one", apiKey: "one", apiToken: "one")
+    var one = SoracomCredentials(type: .RootAccount, emailAddress: "one", operatorID: "one", username: "one", password: "one", authKeyID: "one", authKeySecret: "one", apiKey: "one", token: "one")
     
-    var two = SoracomCredentials(type: .SAM, emailAddress: "two", operatorID: "two", username: "two", password: "two", authKeyID: "two", authKeySecret: "two", apiKey: "two", apiToken: "two")
+    var two = SoracomCredentials(type: .SAM, emailAddress: "two", operatorID: "two", username: "two", password: "two", authKeyID: "two", authKeySecret: "two", apiKey: "two", token: "two")
     
     var testValues = [
         "type"          : "type value",
@@ -30,7 +30,7 @@ class SoracomCredentialsTests: BaseTestCase {
         "authKeyID"     : "authKeyID value",
         "authKeySecret" : "authKeySecret value",
         "apiKey"        : "apiKey value",
-        "apiToken"      : "apiToken value",
+        "token"         : "token value",
     ]
     
     
@@ -87,7 +87,7 @@ class SoracomCredentialsTests: BaseTestCase {
         XCTAssert(foo.authKeyID == "authKeyID value")
         XCTAssert(foo.authKeySecret == "authKeySecret value")
         XCTAssert(foo.apiKey == "apiKey value")
-        XCTAssert(foo.apiToken == "apiToken value")
+        XCTAssert(foo.token == "token value")
         
         let bar = SoracomCredentials.init(withDictionary: [:])
         XCTAssert(bar.type == .RootAccount)
@@ -98,7 +98,7 @@ class SoracomCredentialsTests: BaseTestCase {
         XCTAssert(bar.authKeyID == "")
         XCTAssert(bar.authKeySecret == "")
         XCTAssert(bar.apiKey == "")
-        XCTAssert(bar.apiToken == "")
+        XCTAssert(bar.token == "")
     }
     
     
@@ -164,9 +164,9 @@ class SoracomCredentialsTests: BaseTestCase {
         XCTAssert(!c.blank)
         c.emailAddress = ""
         XCTAssert(c.blank)
-        c.apiToken = "hi, my name is"
+        c.token = "hi, my name is"
         XCTAssert(!c.blank)
-        c.apiToken = ""
+        c.token = ""
         XCTAssert(c.blank)
     }
     

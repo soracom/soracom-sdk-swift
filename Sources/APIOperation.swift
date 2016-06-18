@@ -33,7 +33,7 @@ import Foundation
 ///            
 ///            // creds doesn't yet exist when this operation is created and queued...
 ///
-///            let req = Request.verifyOperator(token: credentials.apiToken)
+///            let req = Request.verifyOperator(token: credentials.token)
 ///
 ///            req.responseHandler = { (response) in
 ///

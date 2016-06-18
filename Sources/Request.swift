@@ -318,7 +318,7 @@ public class Request {
         if (shouldSendAPIKeyAndTokenInHTTPHeaders) {
             let creds = credentials
             request.setValue(creds.apiKey, forHTTPHeaderField: "X-Soracom-API-Key")
-            request.setValue(creds.apiToken, forHTTPHeaderField: "X-Soracom-Token")
+            request.setValue(creds.token, forHTTPHeaderField: "X-Soracom-Token")
         }
         
         return request

@@ -7,7 +7,10 @@ class RequestCredentialsTests: BaseTestCase {
     func test_listCredentials() {
         
         guard !Client.sharedInstance.credentialsForSandboxUser.blank else {
-            XCTFail("Cannot run \(#function) because no credentials are available. You can use the demo app to store credentials.")
+            // API Sandbox user can be created automatically as needed, but only if production SAM user credentials have been stored.
+            // For the SDK demo apps, you can use the GUI to save these credentials; otherwise, you can do it in the debugger. See Client.doInitialHousekeeping() for details
+            
+            XCTFail("Cannot run \(#function) because no credentials are available. See test method comments for details.")
 
             return
         }

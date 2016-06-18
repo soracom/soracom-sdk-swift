@@ -12,8 +12,9 @@ class RegisterSIMTests: BaseTestCase {
         
         guard !sandboxCredentials.blank else {
             // This test has to have the production SAM user credentials, because it makes a new unique sandbox user.
+            // For the SDK demo apps, you can use the GUI to save these credentials; otherwise, you can do it in the debugger. See Client.doInitialHousekeeping() for details
             
-            XCTFail("Cannot run \(#function) because no production SAM user credentials are available. You can use the demo app to store credentials.")
+            XCTFail("Cannot run \(#function) because no production SAM user credentials are available. See test method comments for more info.")
             
             return
         }

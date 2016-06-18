@@ -11,9 +11,9 @@ class RequestAuthTests: BaseTestCase {
         let credentials = Client.sharedInstance.credentialsForSandboxUser
         
         guard !credentials.blank else {
-            // To store your credentials, set a breakpoint here and do this (see note in method documentation):
-            // saveSandboxRootCredentials("foo", password: "bar")
-
+            // API Sandbox user can be created automatically as needed, but only if production SAM user credentials have been stored. 
+            // For the SDK demo apps, you can use the GUI to save these credentials; otherwise, you can do it in the debugger. See Client.doInitialHousekeeping() for details
+            
             XCTFail("Cannot run \(#function) because no credentials are available. See comments in test method.")
             
             return

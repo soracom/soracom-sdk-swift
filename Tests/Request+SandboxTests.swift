@@ -35,7 +35,10 @@ class RequestSandboxTests: BaseTestCase {
         let credentials = Client.sharedInstance.credentialsForProductionSAMUser
         
         guard !credentials.blank else {
-            XCTFail("Cannot run \(#function) because no credentials are available. You can use the demo app to store credentials.")
+            // API Sandbox user can be created automatically as needed, but only if production SAM user credentials have been stored.
+            // For the SDK demo apps, you can use the GUI to save these credentials; otherwise, you can do it in the debugger. See Client.doInitialHousekeeping() for details
+
+            XCTFail("Cannot run \(#function) because no credentials are available. See comments in the test method for more info.")
             return
         }
         

@@ -63,6 +63,20 @@ public class Keychain {
     }
     
     
+    /// Delete the blob of data stored under `key`, if any.
+    
+    public static func delete(key: String) -> Bool {
+        let query = [
+            kSecClass as String       : kSecClassGenericPassword,
+            kSecAttrAccount as String : key
+        ]
+        
+        let status: OSStatus = SecItemDelete(query as CFDictionaryRef)
+        
+        return status == noErr
+    }
+    
+    
     /// Convenience method to read a UTF-8 string.
     
     public static func readString(key: String) -> String? {

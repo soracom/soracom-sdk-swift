@@ -26,6 +26,16 @@ public class KeychainTests: XCTestCase {
         XCTAssertEqual(Keychain.read(key2), data2)
         
         XCTAssertNil(Keychain.read(NSUUID().UUIDString))
+        
+        XCTAssertTrue( Keychain.delete(key1) )
+        XCTAssertNil( Keychain.read(key1) )
+        
+        XCTAssertNotNil( Keychain.read(key2) )
+        XCTAssertTrue( Keychain.delete(key2) )
+        XCTAssertNil( Keychain.read(key1) )
+        
+        XCTAssertFalse( Keychain.delete(key1) )
+        XCTAssertFalse( Keychain.delete(key2) )
     }
     
     

@@ -69,6 +69,8 @@
 		939BF3A71D12718E0069B3EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5B8F1CE80CE4007D0B5C /* AppDelegate.swift */; };
 		939BF3AB1D1280FF0069B3EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3AA1D1280FF0069B3EF /* Constants.swift */; };
 		939BF3AC1D1280FF0069B3EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3AA1D1280FF0069B3EF /* Constants.swift */; };
+		93F3DED51D157F7800C60E33 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3DED41D157F7800C60E33 /* TextStyle.swift */; };
+		93F3DED61D15803400C60E33 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3DED41D157F7800C60E33 /* TextStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +129,7 @@
 		932A5C0C1CE835CA007D0B5C /* RequestQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestQueue.swift; sourceTree = "<group>"; };
 		939BF3A01D12480E0069B3EF /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		939BF3AA1D1280FF0069B3EF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		93F3DED41D157F7800C60E33 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +223,7 @@
 				932A5BC31CE81592007D0B5C /* RequestResponseFormatter.swift */,
 				932A5BC41CE81592007D0B5C /* Response.swift */,
 				932A5BC51CE81592007D0B5C /* SoracomCredentials.swift */,
+				93F3DED41D157F7800C60E33 /* TextStyle.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -291,6 +295,7 @@
 		932A5B841CE80CE4007D0B5C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Soracom, Inc.";
@@ -362,6 +367,7 @@
 				932A5BCA1CE81592007D0B5C /* APIStructures.swift in Sources */,
 				939BF3A11D12480E0069B3EF /* Client.swift in Sources */,
 				939BF3AB1D1280FF0069B3EF /* Constants.swift in Sources */,
+				93F3DED51D157F7800C60E33 /* TextStyle.swift in Sources */,
 				932A5BD41CE81592007D0B5C /* Request+Operator.swift in Sources */,
 				932A5BDE1CE81592007D0B5C /* RequestResponseFormatter.swift in Sources */,
 				932A5BD01CE81592007D0B5C /* Request+Auth.swift in Sources */,
@@ -396,6 +402,7 @@
 				932A5BE31CE81592007D0B5C /* SoracomCredentials.swift in Sources */,
 				932A5BCF1CE81592007D0B5C /* Payload.swift in Sources */,
 				932A5BC71CE81592007D0B5C /* APIError.swift in Sources */,
+				93F3DED61D15803400C60E33 /* TextStyle.swift in Sources */,
 				932A5BF91CE8159E007D0B5C /* BaseTestCase.swift in Sources */,
 				932A5BDD1CE81592007D0B5C /* Request.swift in Sources */,
 				932A5BB11CE8111A007D0B5C /* MainViewController.swift in Sources */,

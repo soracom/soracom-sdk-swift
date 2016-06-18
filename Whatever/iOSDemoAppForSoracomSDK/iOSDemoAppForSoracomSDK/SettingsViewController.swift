@@ -32,11 +32,11 @@ class SettingsViewController: UITableViewController {
         let authKeySecret  = authKeySecretField.text ?? ""
         let newCredentials = SoracomCredentials(type: .AuthKey,  authKeyID: authKeyID, authKeySecret: authKeySecret)
         
-        Client.sharedInstance.saveCredentialsForProductionSAMUser(newCredentials)
+        Client.sharedInstance.saveCredentials(newCredentials, user: .ProductionSAMUser)
         
         // FIXME: maybe don't crete new sandbox user unless ______?
         
-        Client.sharedInstance.authenticateAsSandboxUser(recreateOnFailure: true)
+        Client.sharedInstance.authenticateAsSandboxUser(true)
     }
     
     

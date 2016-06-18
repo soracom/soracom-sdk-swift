@@ -40,7 +40,7 @@ class MainViewController: UIViewController {
     
     @IBAction func startButtonPressed(sender: AnyObject) {
         
-        Client.sharedInstance.authenticateAsSandboxUser(recreateOnFailure: true)
+        Client.sharedInstance.authenticateAsSandboxUser(true)
         // trigger auth and update the status display
         
     }

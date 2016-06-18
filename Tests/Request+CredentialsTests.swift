@@ -6,7 +6,7 @@ class RequestCredentialsTests: BaseTestCase {
     
     func test_listCredentials() {
         
-        guard !SoracomCredentials.sandboxCredentials.blank else {
+        guard !Client.sharedInstance.credentialsForSandboxUser.blank else {
             XCTFail("Cannot run \(#function) because no credentials are available. You can use the demo app to store credentials.")
 
             return
@@ -63,6 +63,5 @@ class RequestCredentialsTests: BaseTestCase {
         waitForAsyncSection()
         
     }
-    
 
 }

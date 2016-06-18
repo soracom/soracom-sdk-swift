@@ -59,7 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             // for the sandbox user. This makes these the default credentials used by all requests, unless
             // otherwise specified.
             
-            return SoracomCredentials.sandboxCredentials
+            return Client.sharedInstance.credentialsForSandboxUser
         }
         
         Client.sharedInstance.doInitialHousekeeping()
@@ -86,8 +86,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /// Loads credentials and updates GUI. Informs user if no credentials exist.
     
     func loadCredentials() {
-        let productionCredentials = SoracomCredentials.productionCredentials
-        authKeyIDField.stringValue = productionCredentials.authKeyID
+        let productionCredentials      = Client.sharedInstance.credentialsForProductionSAMUser
+        authKeyIDField.stringValue     = productionCredentials.authKeyID
         authKeySecretField.stringValue = productionCredentials.authKeySecret
         
         if productionCredentials.blank {
@@ -95,7 +95,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             log("Enter the AuthKey ID and AuthKey secret for a SAM user in the boxes above.")
         }
         
-        let sbc = SoracomCredentials.sandboxCredentials
+        let sbc = Client.sharedInstance.credentialsForSandboxUser
         sandboxUserEmailField.stringValue = sbc.emailAddress
         if sbc.blank {
             log("There are no stored sandbox user credentials.")
@@ -110,7 +110,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         credentials.authKeyID     = authKeyIDField.stringValue
         credentials.authKeySecret = authKeySecretField.stringValue
         
-        SoracomCredentials.productionCredentials = credentials        
+        Client.sharedInstance.saveCredentials(credentials, user: .ProductionSAMUser)
     }
     
     
@@ -154,12 +154,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func copyAuthKeyID(sender: AnyObject) {
-        copyStringToPasteboard(SoracomCredentials.productionCredentials.authKeyID)
+        copyStringToPasteboard(Client.sharedInstance.credentialsForProductionSAMUser.authKeyID)
     }
     
     
     @IBAction func copyAuthKeySecret(sender: AnyObject) {
-        copyStringToPasteboard(SoracomCredentials.productionCredentials.authKeySecret)
+        copyStringToPasteboard(Client.sharedInstance.credentialsForProductionSAMUser.authKeySecret)
     }
     
     
@@ -181,14 +181,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         log("🚀 Will try to delete the stored credentials for the API Sandbox user...")
         
-        let credentials = SoracomCredentials.sandboxCredentials
+        let credentials = Client.sharedInstance.credentialsForSandboxUser
         
         guard !credentials.blank else {
             log("No credentials were found, so nothing was deleted.")
             return
         }
         
-        SoracomCredentials.sandboxCredentials = SoracomCredentials()
+        // FIXME: make this work: Client.sharedInstance.deleteCredentialsForUser(.APISandboxUser)
+        
+        Client.sharedInstance.saveCredentials(SoracomCredentials(), user: .APISandboxUser)
+        
+        // SoracomCredentials.sandboxCredentials = SoracomCredentials()
         // Mason 2016-04-23: that's a fairly hackneyed method of deletion, bro...
         
         self.log("Stored credentials deleted successfully. 😁")

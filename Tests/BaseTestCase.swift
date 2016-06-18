@@ -18,7 +18,7 @@ class BaseTestCase: XCTestCase {
         
         super.setUp()
         
-        SoracomCredentials.defaultStorageNamespace = SoracomCredentials.storageNamespaceForSandboxCredentials
+        SoracomCredentials.defaultStorageNamespace = Client.sharedInstance.storageNamespaceForSandboxCredentials
         
         dispatch_once(&oneTimeTestSetupToken) {
             
@@ -27,7 +27,7 @@ class BaseTestCase: XCTestCase {
             print("--- ✅ Set the app-wide default storage namespace to BaseTestCase.storageNamespaceForSandboxCredentials.")
 
             var shouldCreateNewSandboxUser = false
-            let existingSandboxCredentials = SoracomCredentials.sandboxCredentials
+            let existingSandboxCredentials = Client.sharedInstance.credentialsForSandboxUser
             
             if existingSandboxCredentials.blank {
                 
@@ -52,12 +52,15 @@ class BaseTestCase: XCTestCase {
             
             if shouldCreateNewSandboxUser {
                 
-                let existingProductionCredentials = SoracomCredentials.productionCredentials
+                let existingProductionCredentials = Client.sharedInstance.credentialsForProductionSAMUser
                 
                 if !existingProductionCredentials.blank {
                     
                     if let newSandboxCredentials = Client.sharedInstance.synchronousCreateSandboxUser(existingProductionCredentials) {
-                        SoracomCredentials.sandboxCredentials = newSandboxCredentials
+                        
+                        //SoracomCredentials.sandboxCredentials = newSandboxCredentials
+                        Client.sharedInstance.saveCredentials(newSandboxCredentials, user: .APISandboxUser)
+                        
                     } else {
                         print("--- ")
                         print("--- ⚠️ Unable to automatically create an API sandbox user. This probably means")
@@ -69,7 +72,7 @@ class BaseTestCase: XCTestCase {
             
             // Many tests need a valid API key/token, and those expire, so we should update even if we have credentials:
             
-            if let creds = Client.sharedInstance.synchronousUpdateToken(SoracomCredentials.sandboxCredentials) {
+            if let creds = Client.sharedInstance.synchronousUpdateToken(Client.sharedInstance.credentialsForSandboxUser) {
             
                 print("--- ")
                 print("--- ✅ Sandbox user \(creds.emailAddress) can authenticate, and will be used to run tests.")

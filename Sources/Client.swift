@@ -58,39 +58,7 @@ public class Client {
     }
     
 
-    // MARK: - Conventions for reading/writing credentials
     
-    /// Returns the credentials for the API Sandbox user. (May be blank.)
-    
-    public var credentialsForSandboxUser: SoracomCredentials {
-        
-        return SoracomCredentials.sandboxCredentials
-    }
-    
-    
-    /// Persist the credentials for the API Sandbox user to secure storage.
-    
-    public func saveCredentialsForSandboxUser(credentials: SoracomCredentials) {
-        
-        SoracomCredentials.sandboxCredentials = credentials
-    }
-    
-    
-    /// Returns the credentials for the production SAM user. (May be blank.)
-    
-    public var credentialsForProductionSAMUser: SoracomCredentials {
-
-        return SoracomCredentials.productionCredentials
-    }
-    
-    
-    /// Persist the credentials for the production SAM user to secure storage.
-    
-    public func saveCredentialsForProductionSAMUser(credentials: SoracomCredentials) {
-        
-        SoracomCredentials.productionCredentials = credentials
-    }
-
     
     // MARK: - Authentication
     
@@ -108,7 +76,8 @@ public class Client {
         
         let authOperation = APIOperation() {
             
-            let reAuthRequest = Request.auth(SoracomCredentials.sandboxCredentials)
+            let credentials   = self.credentialsForSandboxUser
+            let reAuthRequest = Request.auth(credentials)
             
             reAuthRequest.responseHandler = { (response) in
                 
@@ -116,10 +85,10 @@ public class Client {
                     let apiKey  = payload[.apiKey] as? String,
                     let token   = payload[.token] as? String
                 {
-                    var creds = SoracomCredentials.sandboxCredentials
-                    creds.apiKey = apiKey
-                    creds.apiToken = token
-                    SoracomCredentials.sandboxCredentials = creds
+                    var updatedCredentials      = self.credentialsForUser(.APISandboxUser)
+                    updatedCredentials.apiKey   = apiKey
+                    updatedCredentials.apiToken = token
+                    self.saveCredentials(updatedCredentials, user: .APISandboxUser)
                     
                     self.log("Authenticated successfully as the newly-created sandbox user, and stored the updated API key and token.")
                     
@@ -159,7 +128,7 @@ public class Client {
     }
 
     
-    public func authenticateAsSandboxUser(recreateOnFailure recreateOnFailure: Bool = false) {
+    public func authenticateAsSandboxUser(recreateOnFailure: Bool = false) {
         
         var credentials = credentialsForSandboxUser
         let nc = NSNotificationCenter.defaultCenter()
@@ -218,7 +187,7 @@ public class Client {
         
         sandboxUserAuthenticationStatus = "Trying to authenticate as API Sandbox user..."
         
-        let credentials = SoracomCredentials.sandboxCredentials
+        let credentials = self.credentialsForSandboxUser
         
         guard !credentials.blank else {
             log("No credentials were found. Try creating the API Sandbox user first.")
@@ -237,9 +206,9 @@ public class Client {
 
                     self.log("Authenticated successfully. 😁")
 
-                    var creds = SoracomCredentials.sandboxCredentials
-                    creds.apiToken = token
-                    SoracomCredentials.sandboxCredentials = creds
+                    var updatedCredentials      = self.credentialsForSandboxUser
+                    updatedCredentials.apiToken = token
+                    self.saveCredentials(updatedCredentials, user: .APISandboxUser)
                 }
             }
         }
@@ -298,7 +267,7 @@ public class Client {
         
         log("🚀 Will try to create a new API Sandbox user...")
 
-        let productionCredentials = productionCredentials ?? SoracomCredentials.productionCredentials
+        let productionCredentials = productionCredentials ?? self.credentialsForProductionSAMUser
 
         guard !productionCredentials.blank else {
             log("Sorry, we need credentials (for a real SAM user from the production environment) to proceed. Please enter credentials above, and try again.")
@@ -411,11 +380,12 @@ public class Client {
                     // has completed successfully. So, store the credentials so that we may use this sandbox
                     // user to do various other things:
                     
-                    SoracomCredentials.sandboxCredentials = SoracomCredentials(type: .RootAccount, emailAddress: email, password: password)
+                    let sandboxCredentials = SoracomCredentials(type: .RootAccount, emailAddress: email, password: password)
+                    self.saveCredentials(sandboxCredentials, user: .APISandboxUser)
                     
                     // And, tell the user:
                     
-                    self.log("No errors occurred. The sandbox user was created in the API Sandbox successfully, and the sandbox user's credentials were stored under the special namespace \(SoracomCredentials.storageNamespaceForSandboxCredentials.UUIDString):")
+                    self.log("No errors occurred. The sandbox user was created in the API Sandbox successfully, and the sandbox user's credentials were stored under the special namespace \(self.storageNamespaceForSandboxCredentials.UUIDString):")
                     self.log("  Email Address: \(email)")
                     self.log("  Password:      \(password)")
                 }
@@ -589,7 +559,7 @@ public class Client {
         if (authKeyId.characters.count > 2 && authKeySecret.characters.count > 2) {
             
             let productionCredentials = SoracomCredentials(type: .AuthKey, authKeyID: authKeyId, authKeySecret: authKeySecret)
-            Client.sharedInstance.saveCredentialsForProductionSAMUser(productionCredentials)
+            Client.sharedInstance.saveCredentials(productionCredentials, user: .ProductionSAMUser)
         }
         
         // Uncommenting the below can also be useful for debugging. It will cause every request and response
@@ -608,41 +578,83 @@ public class Client {
 
     }
     
+    // MARK: - Conventions for reading/writing credentials
+    
+    
+    /// This credentials storage namespace is used when **actual production** credentials are needed. Note that this is sometimes true of the automated tests; some tests need credentials for a real Soracom SAM user, in order to create an account in the API sandbox. (Note: this namespace is just defined for convenience, so that the demo apps and automated tests can use the same namespaces.)
+    
+    public let storageNamespaceForProductionCredentials = NSUUID(UUIDString: "454BA030-3DBC-4D09-BFC3-35CE9C7BDFFF")!
+    
+    
+    /// This credentials storage namespace is intended for API Sandbox credentials. Most tests that make network requests to exercise API functions need these credentials. Writing any other credentials to this namespace should be avoided.
+    
+    public let storageNamespaceForSandboxCredentials = NSUUID(UUIDString: "DEAE490F-0A00-49CD-B2AF-401215E15122")!
+    
+    
+    /// This credentials storage namespace is used when tests need to read/write credentials as part of their test work. This namespace should be used when the credentials are only needed during the execution of a single test. Various test cases may write to this namespace, so no assumptions should be made about what it contains.
+    
+    public let storageNamespaceForJunkCredentials = NSUUID(UUIDString: "FE083FA9-79CB-4D61-9E12-9BD609C9743B")!
+    
+    
+    /// Returns the credentials for the API Sandbox user. (May be blank.)
+    
+    public var credentialsForSandboxUser: SoracomCredentials {
+        
+        return self.credentialsForUser(.APISandboxUser)
+    }
+    
+    
+    /// Returns the credentials for the production SAM user. (May be blank.)
+    
+    public var credentialsForProductionSAMUser: SoracomCredentials {
+        
+        return self.credentialsForUser(.ProductionSAMUser)
+    }
+    
+    
+    /// Returns the stored credentials corresponding to `user` (or a blank SoracomCredentials struct if none are stored).
+    
+    public func credentialsForUser(user: User) -> SoracomCredentials {
+        
+        return SoracomCredentials(withStorageIdentifier: nil, namespace: storageNamespaceForUser(user))
+    }
+    
+    
+    /// Store the credentials in secure persistent storage (i.e., system keychain), as the default credentials in the namespace appropriate for `user`.
+    
+    public func saveCredentials(credentials: SoracomCredentials, user: User) {
+        credentials.writeToSecurePersistentStorage(namespace: storageNamespaceForUser(user), replaceDefault: true)
+          // the SDK demo apps are simple 
+    }
+    
+    
+//    public func deleteCredentialsForUser(user: User) {
+//        
+//    }
+    
+    
+    /// Returns the storage namespace for the given user. (This implementation is for the SDK demo apps, which have simple requirements; all the possible user types are known in advance.)
+    
+    public func storageNamespaceForUser(user: User) -> NSUUID {
+        
+        switch user {
+        
+        case .ProductionSAMUser:
+            return storageNamespaceForProductionCredentials
+        
+        case .APISandboxUser:
+            return storageNamespaceForSandboxCredentials
+        }
+    }
+    
 
 }
 
 
-#if os(OSX)
-    import Cocoa
-    
-    public enum TextStyle {
-        
-        case Normal, Red, Blue, Green
-        
-        var attributes: [String:AnyObject] {
-            switch self {
-            case Red:
-                return [NSFontAttributeName: NSFont.userFixedPitchFontOfSize(10.0)!, NSForegroundColorAttributeName: NSColor.redColor()]
-            case Green:
-                return [NSFontAttributeName: NSFont.userFixedPitchFontOfSize(10.0)!, NSForegroundColorAttributeName: NSColor(red:0.0, green: 0.6, blue: 0.0, alpha: 1.0)]
-            case Blue:
-                return [NSFontAttributeName: NSFont.userFixedPitchFontOfSize(10.0)!, NSForegroundColorAttributeName: NSColor.blueColor()]
-            default:
-                return [NSFontAttributeName: NSFont.userFixedPitchFontOfSize(10.0)!]
-            }
-        }
-    }
-    
-#else
-    
-    public enum TextStyle {
-        
-        case Normal, Red, Blue, Green
-        
-        var attributes: [String:AnyObject] {
-            return [:]
-        }
-    }
-    
-#endif
 
+/// This enum defines values (with raw values that are strings) that identify the types of users for which the SDK demo apps (and the automated tests) need to read/write credentials.
+
+public enum User: String {
+    case ProductionSAMUser
+    case APISandboxUser
+}

@@ -65,6 +65,8 @@
 		93BDF91A1CB8FD1A0058C5BC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BDF9181CB8FD1A0058C5BC /* MainMenu.xib */; };
 		93CFB67F1CBDC5A20054F8B6 /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */; };
 		93CFB6831CBDCE920054F8B6 /* Request+AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFB6811CBDCE920054F8B6 /* Request+AuthTests.swift */; };
+		93F3DED21D15515400C60E33 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3DED11D15515400C60E33 /* TextStyle.swift */; };
+		93F3DED31D15515400C60E33 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3DED11D15515400C60E33 /* TextStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +123,7 @@
 		93BDF9261CB8FD1A0058C5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Auth.swift"; sourceTree = "<group>"; };
 		93CFB6811CBDCE920054F8B6 /* Request+AuthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+AuthTests.swift"; sourceTree = "<group>"; };
+		93F3DED11D15515400C60E33 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +176,7 @@
 				935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */,
 				932D694B1CBBA02E002F9D99 /* Response.swift */,
 				932D69451CB9C002002F9D99 /* SoracomCredentials.swift */,
+				93F3DED11D15515400C60E33 /* TextStyle.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -344,6 +348,7 @@
 				9320887C1CBF59CB00384EC7 /* Request+Operator.swift in Sources */,
 				935285331CD09AAF00B17B73 /* APIOperation.swift in Sources */,
 				932088791CBF3D5400384EC7 /* Request+Sandbox.swift in Sources */,
+				93F3DED21D15515400C60E33 /* TextStyle.swift in Sources */,
 				932D694D1CBBA02E002F9D99 /* Response.swift in Sources */,
 				93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */,
 				93408AEE1CBB4FA90084DC18 /* Payload.swift in Sources */,
@@ -404,6 +409,7 @@
 				9346E1ED1D128DFC006B0D01 /* Client.swift in Sources */,
 				9346E1F31D128DFC006B0D01 /* Request+Credentials.swift in Sources */,
 				932D69481CB9C00A002F9D99 /* SoracomCredentialsTests.swift in Sources */,
+				93F3DED31D15515400C60E33 /* TextStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

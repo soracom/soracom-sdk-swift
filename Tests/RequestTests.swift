@@ -9,7 +9,7 @@ class RequestTests: BaseTestCase {
     
     override func setUp() {
         super.setUp()
-        SoracomCredentials.defaultStorageNamespace = SoracomCredentials.storageNamespaceForJunkCredentials
+        SoracomCredentials.defaultStorageNamespace = Client.sharedInstance.storageNamespaceForJunkCredentials
     }
     
 

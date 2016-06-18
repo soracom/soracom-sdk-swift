@@ -8,7 +8,7 @@ class RegisterSIMTests: BaseTestCase {
     
     func testSimulatedSIMRegistrationCompleteProcess() {
         
-        let sandboxCredentials = SoracomCredentials.sandboxCredentials
+        let sandboxCredentials = Client.sharedInstance.credentialsForSandboxUser
         
         guard !sandboxCredentials.blank else {
             // This test has to have the production SAM user credentials, because it makes a new unique sandbox user.

@@ -8,7 +8,12 @@ class SoracomCredentialsTests: BaseTestCase {
     
     override func setUp() {
         super.setUp()
-        SoracomCredentials.defaultStorageNamespace = SoracomCredentials.storageNamespaceForJunkCredentials
+        SoracomCredentials.defaultStorageNamespace = Client.sharedInstance.storageNamespaceForJunkCredentials
+    }
+    
+    
+    override func tearDown() {
+        SoracomCredentials.defaultStorageNamespace = Client.sharedInstance.storageNamespaceForJunkCredentials
     }
     
     
@@ -168,6 +173,25 @@ class SoracomCredentialsTests: BaseTestCase {
     
     func test_buildNamespacedIdentifier() {
         
+        guard let bundleId = NSBundle.mainBundle().bundleIdentifier else {
+            XCTFail("this test can't work if bundleId is nil")
+            return
+        }
+        
+        let identifier = SoracomCredentials.buildNamespacedIdentifier("foobarbaz")
+        
+        XCTAssertEqual(identifier, "\(bundleId).\(SoracomCredentials.defaultStorageNamespace.UUIDString).foobarbaz")
+        
+        guard let uuid = NSUUID(UUIDString: "A57DC53C-BC86-4306-AFE4-D9F6D663FC69") else {
+            XCTFail("wtf")
+            return
+        }
+        
+        SoracomCredentials.defaultStorageNamespace = uuid
+
+        let identifier2 = SoracomCredentials.buildNamespacedIdentifier("foobarbaz")
+
+        XCTAssertEqual(identifier2, "\(bundleId).A57DC53C-BC86-4306-AFE4-D9F6D663FC69.foobarbaz")
     }
 
 }

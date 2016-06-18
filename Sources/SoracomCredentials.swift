@@ -19,35 +19,6 @@ public struct SoracomCredentials: Equatable {
     // FIXME: add this to stash the expire time of credentials (for KeyAndToken case):    var expirationDate
     
     
-    /// Reads/writes the default credentials object in the production namespace. The getter returns a blank credentials object if no credentials are stored. In the context of these tests and the SDK demo apps, the only reason actual production credentials are ever required is to create a new sandbox user for testing; that sandbox user's credentials are used for all other purposes (e.g. running tests against the sandbox, or playing with the API via the demo app).
-    
-    public static var productionCredentials: SoracomCredentials {
-        get {
-            return SoracomCredentials(withStorageIdentifier: nil, namespace: SoracomCredentials.storageNamespaceForProductionCredentials)
-        }
-        set {
-            let creds = newValue ?? SoracomCredentials()
-            // FIXME: implement delete() in Keychain, the above is stupid
-            creds.writeToSecurePersistentStorage(namespace:SoracomCredentials.storageNamespaceForProductionCredentials, replaceDefault: true)
-        }
-    }
-    
-    
-    /// Reads/writes the default credentials object in the production namespace. The getter returns a blank credentials object if no credentials are stored. In the context of these tests and the SDK demo apps, the sandbox credentials are used for all interactions with the Soracom API (via the API Sandbox), with the exception of creating the sandbox user (that step requires production SAM user credentials
-    
-    public static var sandboxCredentials: SoracomCredentials {
-        get {
-            return SoracomCredentials(withStorageIdentifier: nil, namespace: SoracomCredentials.storageNamespaceForSandboxCredentials)
-        }
-        set {
-            let creds = newValue ?? SoracomCredentials()
-            // FIXME: implement delete() in Keychain, the above is stupid
-            creds.writeToSecurePersistentStorage(namespace:SoracomCredentials.storageNamespaceForSandboxCredentials, replaceDefault: true)
-        }
-    }
-    
-    // FIXME: change above 2 to methods, not computed properties, because otherwise there is no way to handle keychain read/write errors
-    
         
     /// The canonical initializer, allows setting any/all properties.
     
@@ -132,6 +103,8 @@ public struct SoracomCredentials: Equatable {
     ///
     /// The `namespace` parameter can typically be omitted.
     
+// FIXME: get rid of 'replaceDefault'
+    
     func writeToSecurePersistentStorage(identifier: String? = nil, namespace: NSUUID? = nil, replaceDefault : Bool = false) -> Bool {
                 
         let base       = identifier ?? type.defaultStorageIdentifier()
@@ -147,6 +120,13 @@ public struct SoracomCredentials: Equatable {
         
         return result
     }
+    
+    
+    //    public static func deleteFromPersistentStorage(identifier: String? = nil, namespace: NSUUID? = nil) {
+    //        
+    //        let base       = identifier ?? type.defaultStorageIdentifier()
+    //        let identifier = SoracomCredentials.buildNamespacedIdentifier(base, namespace: namespace)
+    //    }
 
     
     /// Serialize the receiver to a dictionary. (You can use `init(withDictionary:)` to deserialize.)
@@ -185,6 +165,7 @@ public struct SoracomCredentials: Equatable {
 
     
     /// Returns true if all of the receiver's string properties are the empty string.
+    
     var blank: Bool {
         let other = SoracomCredentials(type: self.type)
         return self == other
@@ -196,35 +177,20 @@ public struct SoracomCredentials: Equatable {
     static let defaultStorageIdentifier = "SoracomCredentials.Default"
     
     
-    /// The default storage namespace is a UUID that uniquely identifies a type of storage within the scope of a client application. An app that only stores credentials for one purpose will not normally need to change the default, or use multiple namespaces.
+    /// The default storage namespace is a UUID that uniquely identifies a type of storage within the scope of a client application. An app might use different namespaces because it offers a "test mode" that performs work in the API Sandbox instead of using a real production account. Another reason might be to read/write credentials from/to a separate namespace when running automated tests.
     ///
     /// When writing credentials to secure persistent storage, unique storage keys are created like this:
     ///
-    /// *credential-type*.*app-identifier*.*namespace*
+    /// *app-identifier*.*namespace*.*credential-identifier*
     ///
-    /// In simple cases, all of these things can be inferred automatically and need not be specified. The credential type is determined by the `.type` value, the app identifier is based on the `bundleIdentifier` provided by NSBundle, and the default namespace is used.
+    /// Typically, all of these things can be inferred automatically and need not be specified.
     ///
-    /// In a more complex case, such as an app that manages multiple Soracom accounts, the credentials pertaining to each account could be maintained separately by using a unique namespace for each account.
+    /// In a more complex case, such as an app that interacts with multiple Soracom accounts, the credentials pertaining to each account could be maintained separately by using a unique namespace for each account.
 
     static var defaultStorageNamespace: NSUUID = NSUUID(UUIDString: "00000000-0000-0000-0000-DEFDEFDEFDEF")!
 
     
-    /// This credentials storage namespace is used when tests need **actual production** credentials. For example, some tests need credentials for a real Soracom SAM user, in order to create an account in the API sandbox. Writing any other credentials to this namespace should be avoided.
-    
-    static let storageNamespaceForProductionCredentials = NSUUID(UUIDString: "454BA030-3DBC-4D09-BFC3-35CE9C7BDFFF")!
-    
-    
-    /// This credentials storage namespace is used when tests need working API Sandbox credentials. Most tests that make network requests to exercise API functions need these credentials. Writing any other credentials to this namespace should be avoided. **NOTE**: The UUID used for this namespace is intentially the same as the demo app uses, so that the demo app can be used to create a user in the API Sandbox that will then be used to run the tests which require a sandbox user.
-    
-    static let storageNamespaceForSandboxCredentials = NSUUID(UUIDString: "DEAE490F-0A00-49CD-B2AF-401215E15122")!
-    
-    
-    /// /// This credentials storage namespace is used when tests need to read/write credentials as part of their test work. This namespace should be used when the credentials are only needed during the execution of a single test. Various test cases may write to this namespace, so no assumptions should be made about what it contains.
-    
-    static let storageNamespaceForJunkCredentials = NSUUID(UUIDString: "FE083FA9-79CB-4D61-9E12-9BD609C9743B")!
-
-    
-    /// The bundle ID is used (along with namespaces) to make storage keys unique on a per-app basis (because different apps may make use of this SDK).
+    /// The bundle ID is used to make storage keys unique on a per-app basis (because different apps may make use of this SDK).
     
     static var bundleId: String {
         return NSBundle.mainBundle().bundleIdentifier ?? "missing-bundle-id"
@@ -238,7 +204,7 @@ public struct SoracomCredentials: Equatable {
         let appIdentifier   = appIdentifier ?? SoracomCredentials.bundleId
         let namespaceString = (namespace ?? defaultStorageNamespace).UUIDString
 
-        return "\(identifier).\(appIdentifier).\(namespaceString)"
+        return "\(appIdentifier).\(namespaceString).\(identifier)"
     }
     
 }

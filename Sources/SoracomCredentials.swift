@@ -18,7 +18,6 @@ public struct SoracomCredentials: Equatable {
     
     // FIXME: add this to stash the expire time of credentials (for KeyAndToken case):    var expirationDate
     
-    
         
     /// The canonical initializer, allows setting any/all properties.
     
@@ -135,11 +134,15 @@ public struct SoracomCredentials: Equatable {
     }
     
     
-    //    public static func deleteFromPersistentStorage(identifier: String? = nil, namespace: NSUUID? = nil) {
-    //        
-    //        let base       = identifier ?? type.defaultStorageIdentifier()
-    //        let identifier = SoracomCredentials.buildNamespacedIdentifier(base, namespace: namespace)
-    //    }
+    /// Delete the credential stored under `identifier` in `namespace`. If `namespace` is `nil`, the default namespace is used. Returns `true` on success, `false` otherwise (including if no such stored credential exists).
+    
+    public static func delete(identifier identifier: String, namespace: NSUUID? = nil) -> Bool {
+        
+        let identifier = SoracomCredentials.buildNamespacedIdentifier(identifier, namespace: namespace)
+        let result     = Keychain.delete(identifier)
+        
+        return result
+    }
 
     
     /// Serialize the receiver to a dictionary. (You can use `init(withDictionary:)` to deserialize.)
@@ -154,7 +157,7 @@ public struct SoracomCredentials: Equatable {
             kAuthKeyID     : authKeyID,
             kAuthKeySecret : authKeySecret,
             kAPIKey        : apiKey,
-            kToken         : token   ,
+            kToken         : token,
             
             kAccountCredentialsStorageFormatVersion: "3"
         ]
@@ -239,7 +242,7 @@ public func ==(lhs: SoracomCredentials, rhs: SoracomCredentials) -> Bool
 }
 
 
-// MARK: - SoracomCredentialType                        
+// MARK: - SoracomCredentialType
 
 /// Defines the different types of authentication (see the [API Documentation](https://dev.soracom.io/jp/docs/api/#!/Auth/auth) for details).
 

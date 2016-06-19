@@ -64,6 +64,14 @@ class SoracomCredentialsTests: BaseTestCase {
     }
     
     
+    func test_delete() {
+        one.writeToSecurePersistentStorage("foo bar")
+        XCTAssertNotNil( SoracomCredentials(withStorageIdentifier: "foo bar") )
+        XCTAssertTrue( SoracomCredentials.delete(identifier: "foo bar") )
+        XCTAssert( SoracomCredentials(withStorageIdentifier: "foo bar").blank ) // init always returns something
+    }
+    
+    
     func test_serialization_roundtrip() {
         
         let encoded = one.dictionaryRepresentation()

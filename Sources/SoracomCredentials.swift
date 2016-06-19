@@ -123,7 +123,7 @@ public struct SoracomCredentials: Equatable {
     ///
     /// The `namespace` parameter can typically be omitted.
         
-    func writeToSecurePersistentStorage(identifier: String? = nil, namespace: NSUUID? = nil) -> Bool {
+    func save(identifier: String? = nil, namespace: NSUUID? = nil) -> Bool {
                 
         let base       = identifier ?? SoracomCredentials.defaultStorageIdentifier
         let identifier = SoracomCredentials.buildNamespacedIdentifier(base, namespace: namespace)

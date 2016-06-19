@@ -16,9 +16,7 @@ public struct SoracomCredentials: Equatable {
     var apiKey         = ""
     var token          = ""
     
-    // FIXME: add this to stash the expire time of credentials (for KeyAndToken case):    var expirationDate
     
-        
     /// The canonical initializer, allows setting any/all properties.
     
     init(type: SoracomCredentialType = .RootAccount, emailAddress: String = "", operatorID: String = "", username: String = "", password: String = "", authKeyID: String = "", authKeySecret: String = "", apiKey: String = "", token: String = "") {
@@ -115,8 +113,12 @@ public struct SoracomCredentials: Equatable {
         }
     }
     
-    // FIXME: SoracomCredentials(withStorageIdentifier: nil) is how you look up the default credentials but that it not at all intuitive
     
+    /// Convenience method to return the default saved credentials. Returns a blank credentials struct if nothing is stored under the default identifier. If a non-nil value for `namespace` is not provided, the default namespace is used.
+    
+    public static func defaultSavedCredentials(namespace namespace: NSUUID? = nil) -> SoracomCredentials {
+        return self.init(withStorageIdentifier: nil, namespace: namespace)
+    }
     
     
     /// Write the credentials to secure persistent storage (system keychain). If `identifier` is `nil`, then the default storage identifier is used. Any credentials that were previously stored with the same `identifier` are overwritten. This means that you can choose not to provide an identifier if you only need to store a single set of credentials per storage namespace (and a simple app might use only the default storage namespace).

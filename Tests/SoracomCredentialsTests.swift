@@ -37,7 +37,7 @@ class SoracomCredentialsTests: BaseTestCase {
     func test_store_in_keychain_original() {
         
         one.save()
-        two = SoracomCredentials(withStorageIdentifier: nil)
+        two = SoracomCredentials.defaultSavedCredentials()
         
         XCTAssert(two == one)
     }
@@ -58,7 +58,7 @@ class SoracomCredentialsTests: BaseTestCase {
             let stored = c.save()
             XCTAssertTrue(stored)
             
-            let defaultCredentials = SoracomCredentials(withStorageIdentifier: nil)
+            let defaultCredentials = SoracomCredentials.defaultSavedCredentials()
             XCTAssert(defaultCredentials == c)
         }
     }
@@ -133,11 +133,11 @@ class SoracomCredentialsTests: BaseTestCase {
         XCTAssertNotNil(namespaceFromDefaultStr)
         
         one.save()
-        var read = SoracomCredentials(withStorageIdentifier: nil)
+        var read = SoracomCredentials.defaultSavedCredentials()
         XCTAssert(read == one)
 
         two.save()
-        read = SoracomCredentials(withStorageIdentifier: nil)
+        read = SoracomCredentials.defaultSavedCredentials()
         XCTAssert(read == two)
         
         let namespace1 = NSUUID()
@@ -145,16 +145,16 @@ class SoracomCredentialsTests: BaseTestCase {
         
         one.save(namespace: namespace1)
         
-        read = SoracomCredentials(withStorageIdentifier: nil)
+        read = SoracomCredentials.defaultSavedCredentials()
         XCTAssert(read == two) // should still be two, because we wrote one with a different namespcce
         
-        read = SoracomCredentials(withStorageIdentifier: nil, namespace: namespace1)
+        read = SoracomCredentials.defaultSavedCredentials(namespace: namespace1)
         XCTAssert(read == one)
 
-        read = SoracomCredentials(withStorageIdentifier: nil, namespace: namespace2)
+        read = SoracomCredentials.defaultSavedCredentials(namespace: namespace2)
         XCTAssert(read != two) // should be blank instance; we haven't written yet
         two.save(namespace: namespace2)
-        read = SoracomCredentials(withStorageIdentifier: nil, namespace: namespace2)
+        read = SoracomCredentials(withStorageIdentifier: nil, namespace: namespace2) // equiv to above
         XCTAssert(read == two)
         
         // Now for good measure, let's assert writing to namespace2 didn't fubar namespace1

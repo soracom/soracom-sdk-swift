@@ -1,5 +1,6 @@
 // Request+SubscriberAPI.swift Created by mason on 2016-03-20. Copyright © 2016 Soracom, Inc. All rights reserved.
 
+
 extension Request {
     
     /// List registered subcribers (SIMs). ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Subscriber/listSubscribers))
@@ -15,39 +16,8 @@ extension Request {
                               responseHandler: ResponseHandler?    = nil
     ) -> Request {
         
-        var query: [String:String] = [:]
-        
-        if let name = tagName, value = tagValue, mode = tagValueMatchMode {
-            
-            query["tag_name"]             = name
-            query["tag_value"]            = value
-            query["tag_value_match_mode"] = mode.rawValue
-        }
-        
-        if let statusFilter = statusFilter {
-            if statusFilter.count > 0 {
-                let strings = statusFilter.map {e in e.rawValue}
-                query["status_filter"] = strings.joinWithSeparator("|")
-            }
-        }
-        
-        if let speedClassFilter = speedClassFilter {
-            if speedClassFilter.count > 0 {
-                let strings = speedClassFilter.map {e in e.rawValue}
-                query["speed_class_filter"] = strings.joinWithSeparator("|")
-            }
-        }
-        
-        if let limit = limit {
-            query["limit"] = String(limit)
-        }
-        
-        
-        if let lastEvaluatedKey = lastEvaluatedKey {
-            query["last_evaluated_key"] = lastEvaluatedKey
-        }
-        
-        // FIXME: It is probably worth making a generic query object if we need to do the above kind of work in more than 2-3 places. 
+
+        let query  = makeQueryDictionary(tagName: tagName, tagValue: tagValue, tagValueMatchMode: tagValueMatchMode, statusFilter: statusFilter, speedClassFilter: speedClassFilter, limit: limit, lastEvaluatedKey: lastEvaluatedKey)
         
         let req    = self.init("/subscribers", responseHandler: responseHandler)
         req.query  = query

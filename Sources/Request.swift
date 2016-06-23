@@ -194,9 +194,15 @@ public class Request {
         
         if let query = query {
             var queryItems: [NSURLQueryItem] = []
-            for (k,v) in query {
-                let qi = NSURLQueryItem(name: k, value: v)
-                queryItems.append(qi)
+            
+            let keys = query.keys.sort()
+              // preserve stable order to help test cases
+            
+            for k in keys {
+                if let v = query[k] {
+                    let qi = NSURLQueryItem(name: k, value: v)
+                    queryItems.append(qi)
+                }
             }
             urlComponents.queryItems = queryItems
         }
@@ -206,6 +212,55 @@ public class Request {
         } else {
             fatalError("failed to build URL")
         }        
+    }
+    
+    
+    /// Returns a dictionary that can be used as a Request's query, which will then be converted to a HTTP query string per the Soracom API conventions.
+    
+    public class func makeQueryDictionary(tagName
+                                    tagName: String?             = nil,
+                                   tagValue: String?             = nil,
+                          tagValueMatchMode: TagValueMatchMode?  = nil,
+                               statusFilter: [SubscriberStatus]? = nil,
+                           speedClassFilter: [SpeedClass]?       = nil,
+                                      limit: Int?                = nil,
+                           lastEvaluatedKey: String?             = nil
+    
+    ) -> [String:String] {
+        
+        var query: [String:String] = [:]
+        
+        if let name = tagName, value = tagValue, mode = tagValueMatchMode {
+            
+            query["tag_name"]             = name
+            query["tag_value"]            = value
+            query["tag_value_match_mode"] = mode.rawValue
+        }
+        
+        if let statusFilter = statusFilter {
+            if statusFilter.count > 0 {
+                let strings = statusFilter.map {e in e.rawValue}
+                query["status_filter"] = strings.joinWithSeparator("|")
+            }
+        }
+        
+        if let speedClassFilter = speedClassFilter {
+            if speedClassFilter.count > 0 {
+                let strings = speedClassFilter.map {e in e.rawValue}
+                query["speed_class_filter"] = strings.joinWithSeparator("|")
+            }
+        }
+        
+        if let limit = limit {
+            query["limit"] = String(limit)
+        }
+        
+        
+        if let lastEvaluatedKey = lastEvaluatedKey {
+            query["last_evaluated_key"] = lastEvaluatedKey
+        }
+        
+        return query
     }
     
     

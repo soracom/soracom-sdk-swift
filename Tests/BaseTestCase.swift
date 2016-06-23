@@ -74,6 +74,8 @@ class BaseTestCase: XCTestCase {
             
             if let creds = Client.sharedInstance.synchronousUpdateToken(Client.sharedInstance.credentialsForSandboxUser) {
             
+                Client.sharedInstance.saveCredentials(creds, user: .APISandboxUser)
+                
                 print("--- ")
                 print("--- ✅ Sandbox user \(creds.emailAddress) can authenticate, and will be used to run tests.")
                 print("--- ")

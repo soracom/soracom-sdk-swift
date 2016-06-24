@@ -29,6 +29,9 @@
 		93408AEE1CBB4FA90084DC18 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AED1CBB4FA90084DC18 /* Payload.swift */; };
 		93408AF41CBB4FD80084DC18 /* PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */; };
 		93408AF91CBB4FDF0084DC18 /* APIStructuresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AE91CBB4E8D0084DC18 /* APIStructuresTests.swift */; };
+		9343D7DE1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7DD1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift */; };
+		9343D7DF1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7DD1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift */; };
+		9343D7E11D1CBDAF003DDC2F /* NSDate+SoracomAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7E01D1CBDAF003DDC2F /* NSDate+SoracomAPITests.swift */; };
 		9346E1EA1D128DFC006B0D01 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D693A1CB9B183002F9D99 /* APIError.swift */; };
 		9346E1EB1D128DFC006B0D01 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285301CD09AAF00B17B73 /* APIOperation.swift */; };
 		9346E1EC1D128DFC006B0D01 /* APIStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AEB1CBB4E900084DC18 /* APIStructures.swift */; };
@@ -103,6 +106,8 @@
 		93408AEB1CBB4E900084DC18 /* APIStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStructures.swift; sourceTree = "<group>"; };
 		93408AED1CBB4FA90084DC18 /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
 		93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadTests.swift; sourceTree = "<group>"; };
+		9343D7DD1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+SoracomAPI.swift"; sourceTree = "<group>"; };
+		9343D7E01D1CBDAF003DDC2F /* NSDate+SoracomAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+SoracomAPITests.swift"; sourceTree = "<group>"; };
 		935285301CD09AAF00B17B73 /* APIOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
 		935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestResponseFormatter.swift; sourceTree = "<group>"; };
 		935285391CD09ABC00B17B73 /* APIOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOperationTests.swift; sourceTree = "<group>"; };
@@ -164,6 +169,7 @@
 				939BF3A31D124A6C0069B3EF /* Client.swift */,
 				939BF3A81D1280F20069B3EF /* Constants.swift */,
 				932D69401CB9BA46002F9D99 /* Keychain.swift */,
+				9343D7DD1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift */,
 				93408AED1CBB4FA90084DC18 /* Payload.swift */,
 				932D694A1CBBA02E002F9D99 /* Request.swift */,
 				93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */,
@@ -191,6 +197,7 @@
 				936D93881CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift */,
 				930DD8741CDE0E38000EB36A /* BaseTestCaseTests.swift */,
 				932D69431CB9BA50002F9D99 /* KeychainTests.swift */,
+				9343D7E01D1CBDAF003DDC2F /* NSDate+SoracomAPITests.swift */,
 				93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */,
 				936D93951CC0E3D5005D24DA /* RegisterSIMTests.swift */,
 				93CFB6811CBDCE920054F8B6 /* Request+AuthTests.swift */,
@@ -351,6 +358,7 @@
 				93F3DED21D15515400C60E33 /* TextStyle.swift in Sources */,
 				932D694D1CBBA02E002F9D99 /* Response.swift in Sources */,
 				93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */,
+				9343D7DE1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift in Sources */,
 				93408AEE1CBB4FA90084DC18 /* Payload.swift in Sources */,
 				939BF3A61D124A6C0069B3EF /* RequestQueue.swift in Sources */,
 				932D69491CB9C016002F9D99 /* SoracomCredentials.swift in Sources */,
@@ -382,6 +390,7 @@
 				932D695A1CBC5842002F9D99 /* Request+SubscriberTests.swift in Sources */,
 				9346E1FB1D128DFC006B0D01 /* SoracomCredentials.swift in Sources */,
 				9346E1FD1D128E1D006B0D01 /* AppDelegate+DebugConveniences.swift in Sources */,
+				9343D7E11D1CBDAF003DDC2F /* NSDate+SoracomAPITests.swift in Sources */,
 				9346E1FA1D128DFC006B0D01 /* Response.swift in Sources */,
 				936D93891CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift in Sources */,
 				9346E1F01D128DFC006B0D01 /* Payload.swift in Sources */,
@@ -398,6 +407,7 @@
 				935285491CD09AC500B17B73 /* APIOperationTests.swift in Sources */,
 				9346E1F81D128DFC006B0D01 /* RequestQueue.swift in Sources */,
 				9346E1EE1D128DFC006B0D01 /* Constants.swift in Sources */,
+				9343D7DF1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift in Sources */,
 				932D695F1CBC59C5002F9D99 /* RequestTests.swift in Sources */,
 				932D69541CBC551C002F9D99 /* ResponseTests.swift in Sources */,
 				932D69581CBC55F2002F9D99 /* BaseTestCase.swift in Sources */,

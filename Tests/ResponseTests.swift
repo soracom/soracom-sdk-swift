@@ -16,42 +16,6 @@ class ResponseTests: XCTestCase {
     }
     
     
-    func test_expected_keys_are_missing_error() {
-
-        request.expectedResponseKeys = ["email", "couponCode", "userName"]
-        
-        let goodPayload: Payload = [
-            PayloadKey.email      : "foo@bar.baz",
-            PayloadKey.couponCode : "12345",
-            PayloadKey.userName   : "asshat"
-        ]
-        
-        let badPayload: Payload = [
-            PayloadKey.email        : "foo@bar.baz",
-            PayloadKey.description  : "12345",
-            PayloadKey.billItemName : "It's Miller® Time™!"
-        ]
-        
-        let goodData = goodPayload.toJSONData()
-        let badData  = badPayload.toJSONData()
-
-        let good = Response(request: request, underlyingURLResponse: goodResponse, data: goodData)
-        let bad  = Response(request: request, underlyingURLResponse: goodResponse, data: badData)
-        
-        XCTAssert(good.error == nil)
-        
-        XCTAssert(bad.error != nil)
-        
-        if let msg = bad.error?.message {
-            XCTAssert(msg.containsString("userName"))
-            XCTAssert(msg.containsString("couponCode"))
-            // because the message should list the missing keys
-        } else {
-            XCTFail("bad.error should have had a message")
-        }
-    }
-    
-    
     func test_unexpected_HTTP_status_error() {
 
         let result1 = Response(request: request, underlyingURLResponse: badResponse)

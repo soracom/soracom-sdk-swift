@@ -29,8 +29,10 @@ class APIStructuresTests: BaseTestCase {
         
         let actual = stats.toPayload()
         
-        let d1 = actual.toDictionary()
-        let d2 = expected.toDictionary()
+        guard let d1 = actual.toDictionary(), d2 = expected.toDictionary() else {
+            XCTFail()
+            return
+        }
         
         XCTAssertEqual(d1 as NSDictionary, d2 as NSDictionary)
     }

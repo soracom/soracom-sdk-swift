@@ -176,6 +176,12 @@ public class Request {
         self.responseHandler = responseHandler
     }
     
+    // Mason 2016-06-30: started to implement this, but then I thought maybe actually the request should always run (and get error from server). Not sure yet.
+    //    convenience init(clientSideError: APIError, responseHandler: ResponseHandler? = nil) {
+    //        self.init("", responseHandler: responseHandler)
+    //        self.response = Response(error: clientSideError)
+    //    }
+    
     
     /// Returns the complete URL, based on endpointHost, API version, path, and query.
     
@@ -284,12 +290,8 @@ public class Request {
             
             let httpResponse = httpResponse as? NSHTTPURLResponse
             
-            var response = Response(request: self, underlyingURLResponse: httpResponse, data: data)
+            let response = Response(request: self, underlyingURLResponse: httpResponse, data: data, underlyingError: error)
         
-            if let error = error {
-                response.error = APIError(underlyingError: error)
-            }
-            
             for (handler) in self.dynamicType.didRunHandlers {
                 handler(response)
             }

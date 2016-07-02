@@ -80,7 +80,10 @@ class PayloadTests: XCTestCase {
             .type           : "yes"
         ]
         
-        let actual = p.toDictionary()
+        guard let actual = p.toDictionary() else {
+            XCTFail()
+            return
+        }
         
         let expected: [String:AnyObject] = [
             "email"          : "foo@bar.com",
@@ -98,7 +101,10 @@ class PayloadTests: XCTestCase {
             PayloadKey.unixtime : "💩"
         ]
         
-        let actual = payload.toDictionary()
+        guard let actual = payload.toDictionary() else {
+            XCTFail()
+            return
+        }
         
         let expected: [String: AnyObject] = [
             "name"     : ["cvc" : "fee fie foe fum", "authKey": 666],
@@ -124,16 +130,16 @@ class PayloadTests: XCTestCase {
             .dataTrafficStatsMap : daughter
         ]
         
-        let encoded = mama.toDictionary()
-        let decoded =  Payload.fromDictionary(encoded)
-        
-        if let decoded = decoded {
-            let recoded = decoded.toDictionary()
-            XCTAssertEqual(encoded as NSDictionary, recoded as NSDictionary)
-        
-        } else {
-            XCTFail("expectations failed")
+        guard let encoded = mama.toDictionary() else {
+            XCTFail()
+            return
         }
+
+        guard let decoded = Payload.fromDictionary(encoded), recoded = decoded.toDictionary() else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(encoded as NSDictionary, recoded as NSDictionary)
     }
 
     
@@ -154,8 +160,10 @@ class PayloadTests: XCTestCase {
         let actual       =  Payload.fromDictionary(d)
         
         if let actual = actual {
-            let actualDict   = actual.toDictionary()
-            let expectedDict = expected.toDictionary()
+            guard let actualDict = actual.toDictionary(), expectedDict = expected.toDictionary() else {
+                XCTFail()
+                return
+            }
             
             XCTAssertEqual(actualDict as NSDictionary, expectedDict as NSDictionary)
             
@@ -165,7 +173,7 @@ class PayloadTests: XCTestCase {
     }
     
     
-    // Mason 2016-06-09: commented out this test below, because today I changed the behavior of fromDictionary(). It no longer throws. However,leaving this here for now because we might change this behavior again... 
+    // Mason 2016-06-09: commented out this test below, because today I changed the behavior of fromDictionary(). It no longer throws. However, leaving this here for now because we might change this behavior again... 
     //    func test_fromDictionary_bogus() {
     //        var gotError = false
     //        do {
@@ -201,5 +209,61 @@ class PayloadTests: XCTestCase {
         XCTAssert(one != three)
         XCTAssert(three == three)
     }
+    
+    
+    func test_array_support_1() {
+        let obj1    = AirStatsForSpeedClass(uploadBytes: 1, uploadPackets: 1, downloadBytes: 1, downloadPackets: 1)
+        let obj2    = AirStatsForSpeedClass(uploadBytes: 2, uploadPackets: 2, downloadBytes: 2, downloadPackets: 2)
+        let payload = Payload(list: [obj1, obj2])
+        
+        guard let actual = payload.toJSON() else {
+            XCTFail("no JSON generated")
+            return
+        }
+        
+        let expected = "[\n  {\n    \"downloadPacketSizeTotal\" : 1,\n    \"uploadByteSizeTotal\" : 1,\n    \"downloadByteSizeTotal\" : 1,\n    \"uploadPacketSizeTotal\" : 1\n  },\n  {\n    \"downloadPacketSizeTotal\" : 2,\n    \"uploadByteSizeTotal\" : 2,\n    \"downloadByteSizeTotal\" : 2,\n    \"uploadPacketSizeTotal\" : 2\n  }\n]"
+        
+        XCTAssertEqual(expected, actual)
+    }
+    
+    
+    func test_array_conversion_simple() {
+        
+        let source: [Any]          = [1, "a", ["foo": "bar"], ["baz"]]
+        let expected: [AnyObject]  = [1, "a", ["foo": "bar"], ["baz"]]
+        
+        let p1 = Payload(list: source)
+        
+        guard let actual = p1.toArray() else {
+            XCTFail()
+            return
+        }
+        
+        XCTAssertEqual(expected as NSArray, actual as NSArray)
+    }
+    
+    
+    func test_subscriber_conversion() {
+        
+        let source: Payload = [
+            .ipAddress  : "0.1.2.3",
+            .speedClass : SpeedClass.s1_fast.rawValue,
+            .imsi       : "470010171566423"
+        ] // just because aotw this is easiest way to create a Subscriber
+        
+        let sub = Subscriber(source)
+        
+        let payload = Payload(list: [sub, sub])
+        
+        guard let actual = payload.toArray() else {
+            XCTFail()
+            return
+        }
+        
+        let expected: [AnyObject] = [["ipAddress": "0.1.2.3", "speedClass": "s1.fast", "imsi": "470010171566423"],["ipAddress": "0.1.2.3", "speedClass": "s1.fast", "imsi": "470010171566423"]]
+        
+        XCTAssertEqual(expected as NSArray, actual as NSArray)
+    }
+    
     
 }

@@ -17,22 +17,23 @@ public struct Response {
     
     /// The normal way that Response objects are instantiated (by Request). Outside of testing, it would be unusual to need to manually init a Response.
     
-    init(request: Request, underlyingURLResponse: NSHTTPURLResponse?, data: NSData? = nil) {
+    init(request: Request, underlyingURLResponse: NSHTTPURLResponse?, data: NSData? = nil, underlyingError: NSError? = nil ) {
         
         self.request               = request
         self.underlyingURLResponse = underlyingURLResponse
         self.data                  = data
         
-        error = getErrorIfHTTPStatusIsUnexpected() ?? getErrorIfExpectedKeysAreMissing()
-          // Mason 2016-03-12: This is bad design; it checks before necessary and it impairs testability. FIXME: Make APIError a computed property or something.
+        if let err = underlyingError {
+            _error = APIError(underlyingError: err)
+        }
     }
     
     
     /// Init a Response with an error. This is for when a response object is required, but an error occurs on the client side before an actual HTTP response can be obtained.
     
     init(error: APIError) {
-        self.request = Request("error") // slightly hacky, but I don't want to make path optional right now
-        self.error   = error
+        self.request = Request("error") // slightly hacky, but I don't want to make path optional right now FIXME do it bro
+        self._error   = error
     }
     
     
@@ -61,48 +62,6 @@ public struct Response {
     }
     
     
-    /// Parses `self.data` as JSON, and returns it in native dictionary format. Returns nil if JSON parsing fails, or JSON → dictionary || JSON → array deserialization fails.
-    
-    var dictionary: [String:AnyObject]? {
-        
-        // FIXME: This should not be Response's job. Response should only go so far as storing data and maybe decoding UTF-8 text. Any parsing beyond that should be Payload's job. So this whole method should be moved.
-        
-        guard let data = data else {
-            return nil
-        }
-        
-        guard data.length > 0 else {
-            return nil
-        }
-        
-        var result: [String:AnyObject]? = nil
-        
-        do {
-            let obj = try NSJSONSerialization.JSONObjectWithData(data, options: [])
-            
-            if let dict = obj as? [String:AnyObject] {
-                result = dict
-            
-            } else if let a = obj as? [[String:AnyObject]] {
-                result = ["rootObject": a]
-            
-            } else {
-                throw PayloadDecodeError.NotYetImplemented
-            }
-        } catch {
-            print ("JSON deserialization of received data failed: \(error)")
-            
-            // Mason 2016-03-21: Note: sometimes, the server returns error message as HTML (with HTTP status 500)
-            // e.g.:
-            // Data (as UTF-8): 【RangeError: Invalid time value<br> &nbsp;at Date.toISOString (native)<br> &nbsp;at isoFormat... (continues)
-            //
-            // FIXME: We should capture that and use it.
-        }
-        
-        return result
-    }
-    
-    
     /// The actual HTTP status returned by the underlying HTTP request. May be nil, e.g. if error happened before HTTP response was received.
     
     var HTTPStatus: Int? {
@@ -110,9 +69,19 @@ public struct Response {
     }
     
     
-    /// After receipt and successful decoding of the response from the API server, if the response included a JSON payload, it can be accessed via this property (as a Payload instance).
+    /// Creates and returns a Payload object from the HTTP response from the API server, if it included a JSON payload that could be successfully parsed.
     
     var payload: Payload? {
+        
+        var result: Payload? = nil
+        
+        do {
+            result = try Payload(data: data)
+        } catch {
+            result = nil
+        }
+        return result
+        
         
         // Mason 2016-04-12: I was going to make this somewhat efficient (not parse the dictionary every time), but making this a "mutating get"
         // caused all sorts of hassle (any func in this struct using payload had to also be marked mutating, etc...) and I think it is not worth it.
@@ -125,56 +94,62 @@ public struct Response {
         //                return _payload
         //            }
 
-        guard let dict = dictionary else {
-            return nil
-        }
-        
-        return Payload.fromDictionary(dict)        
     }
     
     
-    /// If an error occurs, it will be stored in this property. Usually, an error will be returned by the API server, but other errors are possible. E.g., a client-side error accessing the network. And `error` value of `nil` indicates success.
+    /// An `error` value of `nil` indicates success. A non-nil value indicates an error has occured. Usually, an error will be returned by the API server, but other errors are possible. E.g., a client-side error accessing the network.
     
-    var error: APIError?
-    
-    
-    /// Internal func to compare the actual `HTTPStatus` with the `expectedHTTPStatus`, and construct and return an appropriate `APIError` if they don't match. Returns nil if `HTTPStatus == expectedHTTPStatus`.
-    
-    func getErrorIfHTTPStatusIsUnexpected() -> APIError? {
+    var error: APIError? {
         
-        guard HTTPStatus != request.expectedHTTPStatus else {
-            return nil
+        guard _error == nil else {
+            return _error
         }
         
-        // The API reported an error. Let's see if we can parse this as a regular API error response:
-        
-        if let error = APIError(payload: payload) {
-            return error
-        } else {
-            // Hmm. The server didn't return the [code:, message:] err result that we understand, so make a generic error instead:
-            return APIError(code: "CLI0666", message: "got HTTP status \(HTTPStatus), but expected \(request.expectedHTTPStatus)")
+        guard HTTPStatus == request.expectedHTTPStatus else {
+            
+            // The API reported an error. Let's see if we can parse this as a regular API error response, since that
+            // will presumably yield a more informative error message. If not, just create a generic error here.
             // FIXME: See if we can add real err codes for client-side errs, that don't potentially conflict with API-side err codes.
+            
+            return APIError(payload: payload) ??
+                   APIError(code: "CLI0666", message: "got HTTP status \(HTTPStatus), but expected \(request.expectedHTTPStatus)")
         }
-    }
-    
-    /// Internal func to check for missing keys and return an appropriate APIError if required keys are missing. Returns nil if no keys are missing. FIXME: Should be Payload's job, but that's not in yet.
-    
-    func getErrorIfExpectedKeysAreMissing() -> APIError? {
         
-        var missingKeys: [String] = []
-        let dict = dictionary
-        
-        for key in request.expectedResponseKeys {
-            if dict?[key] == nil {
-                missingKeys.append(key)
-            }
-        }
-        if missingKeys.count > 0 {
-            return APIError(code:"CLI0667", message: "failed to parse response: missing data for \(missingKeys.joinWithSeparator(", "))" )
-        } else {
+        guard let data = data else {
+            // If there's no data, there is no payload, so getting here means no error.
             return nil
         }
+        
+        do {
+            let _ = try Payload(data: data)
+        } catch {
+            return APIError(code: "CLI0666", message: "could not decode response payload")
+        }
+        
+        return nil
     }
+    private var _error: APIError? = nil // can be set at init time, when client-side err occurs before networking
+    
+    
+//    /// Internal func to check for missing keys and return an appropriate APIError if required keys are missing. Returns nil if no keys are missing. FIXME: Should be Payload's job, but that's not in yet.
+//    
+//    func getErrorIfExpectedKeysAreMissing() -> APIError? {
+//        
+//        var missingKeys: [String] = []
+//        let dict = dictionary
+//        
+//        for key in request.expectedResponseKeys {
+//            if dict?[key] == nil {
+//                missingKeys.append(key)
+//            }
+//        }
+//        if missingKeys.count > 0 {
+//            return APIError(code:"CLI0667", message: "failed to parse response: missing data for \(missingKeys.joinWithSeparator(", "))" )
+//        } else {
+//            return nil
+//        }
+//    }
+    // FIXME: the above is a busted-ass approach, but leaving a fossil here until I implement something cool (e.g., an optional validation closure that Request can specify, that will then be called on the resulting payload at response-processing time?)
     
 }
 
@@ -187,6 +162,4 @@ extension Response: CustomStringConvertible {
         let f = RequestResponseFormatter()
         return f.formatResponse(self)
     }
-
 }
-

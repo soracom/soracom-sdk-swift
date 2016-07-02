@@ -171,7 +171,124 @@ public struct PaymentMethodInfoWebPay {
 }
 
 
-public struct Subscriber {
+/// Description forthcoming.
+
+public struct Group {
+    
+    // Mason 2016-06-30: So far what I have seen, the use cases for this structure only involve receiving it,
+    // and not sending it. When we modify groups, we do so by sending a subset of information (tags or config).
+    
+    // Mason 2016-06-30: There is some unresolved tension still between [String:String] and more structured
+    // equivalents, like TagList and ConfigurationParameterList. As it stands now, Payload contains the more
+    // structured data, but it's still being defined where the boundary is. For now I am implementing this
+    // structure using just [String:String] because that seems like it would be substantially more convenient
+    // for SDK end users...
+    
+    var configuration: [ConfigurationParametersNamespace: Dictionary<String,String>]?
+    var createdTime: Int64?
+    var groupId: String
+    var lastModifiedTime: Int64?
+    var operatorId: String?
+    var tags: [String:String]?
+    
+    init(_ payload: Payload) {
+        
+        if let config = payload[.configuration] as? [String: Dictionary<String,String>]  {
+            
+            var newConfig: [ConfigurationParametersNamespace: Dictionary<String,String>] = [:]
+            
+            // Data looks like this:
+            // ["namespace": ["key": "value", "key": "value", ...], "namespace": ["key": "value", "key": "value", ...], ...]
+
+            for (namespaceName, configParams) in config {
+                
+                guard let namespace = ConfigurationParametersNamespace(rawValue: namespaceName) else {
+                    print("WARNING: skipping unknown group configuration namespace: \(namespaceName)")
+                    continue
+                }
+                newConfig[namespace] = configParams
+            }
+            self.configuration = newConfig
+        }
+        
+        if let n = payload[.createdTime] as? NSNumber {
+            createdTime = n.longLongValue
+        }
+        groupId = payload[.groupId] as? String ?? "error"
+        
+        if let n = payload[.lastModifiedTime] as? NSNumber {
+            lastModifiedTime = n.longLongValue
+        }
+
+        operatorId = payload[.operatorId] as? String
+        tags       = payload[.tags]       as? [String:String]
+    }
+}
+
+public typealias GroupList = [Group]
+
+
+public struct Tag: PayloadConvertible {
+    var tagName: String
+    var tagValue: String
+
+    func toPayload() -> Payload {
+        return [
+            .tagName  : tagName,
+            .tagValue : tagValue,
+        ]
+    }
+    
+    
+    init(tagName: String, tagValue: String) {
+        self.tagName  = tagName
+        self.tagValue = tagValue
+    }
+    
+    
+    init?(payload: Payload) {
+        
+        guard let name = payload[.tagName] as? String, value = payload[.tagValue] as? String else {
+            return nil
+        }
+        tagName  = name
+        tagValue = value
+    }
+}
+
+public typealias TagList = [Tag]
+
+
+public struct ConfigurationParameter: PayloadConvertible {
+    public var key: String
+    public var value: String
+    
+    func toPayload() -> Payload {
+        return [
+            .key   : key,
+            .value : value,
+        ]
+    }
+    
+    init(key: String, value: String) {
+        self.key   = key
+        self.value = value
+    }
+    
+    init?(payload: Payload) {
+        
+        guard let k = payload[.key] as? String, v = payload[.value] as? String else {
+            return nil
+        }
+        key   = k
+        value = v
+    }
+}
+
+public typealias ConfigurationParameterList = [ConfigurationParameter]
+
+
+public struct Subscriber: PayloadConvertible {
     
     var ipAddress: String?
     var speedClass: String?
@@ -182,6 +299,16 @@ public struct Subscriber {
         speedClass = payload[.speedClass] as? String
         imsi       = payload[.imsi]       as? String
     }
+    
+    func toPayload() -> Payload {
+        return [
+            .ipAddress  : ipAddress ?? "",
+            .speedClass : speedClass ?? "",
+            .imsi       : imsi ?? "",
+        ]
+        // FIXME: actually we should not set values to ""; they should simply not be present
+    }
+
     
     // FIXME: to be real we need to support all of this:
     
@@ -220,6 +347,8 @@ public struct Subscriber {
     //    }
 }
 
+public typealias SubscriberList = [Subscriber]
+
 
 public enum SpeedClass: String {
     case s1_fast     = "s1.fast"
@@ -237,5 +366,13 @@ public enum SubscriberStatus: String {
 public enum TagValueMatchMode: String {
     // Mason 2016-06-08: FIXME: I am making some guesses about how this works and what the legal values are; confirm.
     case exact, prefix
+}
+
+
+/// These namespaces are used to get/set configurations (lists of keys and values) pertaining to different Soracom services. (FIXME: Mason 2016-06-30: I don't really know how this works yet, just reading the API docs at this point.)
+
+public enum ConfigurationParametersNamespace: String {
+    case SoracomAir
+    case SoracomBeam
 }
 

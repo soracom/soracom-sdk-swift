@@ -59,7 +59,7 @@ extension Request {
     }
     
     
-    /// Issue a one-time operator password reset token (sent via email_. [API docs](https://dev.soracom.io/jp/docs/api/#!/Auth/issuePasswordResetToken)
+    /// Issue a one-time operator password reset token (sent via email). [API docs](https://dev.soracom.io/jp/docs/api/#!/Auth/issuePasswordResetToken)
     
     public class func issuePasswordResetToken(email: String, responseHandler: ResponseHandler? = nil) -> Request {
         

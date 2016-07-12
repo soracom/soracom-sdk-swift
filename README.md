@@ -2,9 +2,21 @@
 
 An SDK for the Soracom API in Swift.
 
-Current status (2016-06-16): This SDK is a work in progress, still in the design stage. (It currently only implements a small portion of the API, and won't be very useful until that work is complete.)
+Current status (2016-07-13): This SDK is a work in progress, and is still in the design stage. (It currently only implements a small portion of the API.)
 
-### Target audience
+## Contents
+
+- [Target audience](#target-audience)
+- [Demo apps](#demo-apps)
+- [The basics](#the-basics)
+- [Processing a response](#processing-a-response)
+- [Using operation queues](#using-operation-queues)
+- [Synchronous requests](#synchronous-requests)
+- [Code examples](#code-examples)
+- [Running the automated tests](#running-the-automated-tests)
+- [For more information](#for-more-information)
+
+## Target audience
 This SDK is intended for programmers who want to interact with the [Soracom API](https://dev.soracom.io/jp/docs/api_guide/) from Swift code.
 
 The initial goal is to fully support current versions of iOS and macOS (including "OS X" 10.11). The only requirement for developing against those platforms is a [Soracom account](https://console.soracom.io/#/signup) and [Xcode](https://developer.apple.com/xcode/) 7.3.1 or later.
@@ -13,7 +25,7 @@ A future goal, once Swift 3 is released, is to to build as [a Swift 3 package](h
 
 
 
-### Demo apps
+## Demo apps
 The Mac demo app lets you interactively play with some of the API features, and is probably the easiest way to get started. It prints out a color-coded text representation every request and response, to illustrate how the API works:
 
 ![demo app](Whatever/Documentation/demo-app.png)
@@ -27,13 +39,15 @@ There is also an iOS demo app. Unlike the Mac app, it doesn't really have any fu
 ![demo app](Whatever/Documentation/ios-demo-app.png)
 
 
-# The basics
+## The basics
 The SDK is designed around two objects: `Request` and `Response`.
 
 A `Request` instance encapsulates all the details of (and executes) an HTTP request, while the corresponding `Response` object contains the result after execution.
 
+The SDK is fundamentally asynchronous, doing its network communications in the background. However, there are built-in conveniences for using an operation queue to perform requests sequentially, and also for making API requests synchronously, if needed.
 
-### Creating a request
+
+## Creating a request
 
 Request objects are normally created by using one of the convenience constructor class methods.
 
@@ -64,7 +78,7 @@ req.run()
 ```
 
 
-### Processing a response
+## Processing a response
 
 The type of the `responseHandler` instance property is `ResponseHandler`, which is defined like this:
 
@@ -179,7 +193,7 @@ Authenticated successfully. 😁
 
 This introduces the `Payload` object. Both `Request` and `Response` use the `Payload` class to represent the data payload that is sent in the HTTP message body.
 
-The `Payload` class is in many ways similar to a Swift dictionary. It conforms to the `DictionaryLiteralConvertible` protocol, so it can be initialized like a Swift dictionary:
+The `Payload` class is in many ways similar to a Swift dictionary (although it can also represent an array). It conforms to the `DictionaryLiteralConvertible` protocol, so it can be initialized like a Swift dictionary:
 
 ```swift
 let p: Payload = [
@@ -195,17 +209,16 @@ let token = p[.token] // → nil
 let bogus = p[.bogus] // this line results in compile-time error
 ```
 
-Payload works like a Swift dictionary of type `[PayloadKey: AnyObject]` . The keys must be values defined by the `PayloadKey` enum. This allows Xcode to flag most mistyped keys as a compile-time error:
-
-
-![screenshot: Xcode flags invalid keys](Whatever/Documentation/xcode-flags-invalid-payload-key.png)
-
 When your code creates a request object, the Request class typically builds a payload object automatically. So it is probably more common that your code will want to read data from the payload of a response object. In general, this works just like a dictionary:
 
 ```swift
 let ipAddress = payload[.ipAddress],
 let type      = payload[.type]
 ```
+
+Payload works like a Swift dictionary of type `[PayloadKey: AnyObject]` . The keys must be values defined by the `PayloadKey` enum. This allows Xcode to flag most mistyped keys as a compile-time error:
+
+![screenshot: Xcode flags invalid keys](Whatever/Documentation/xcode-flags-invalid-payload-key.png)
 
 A common idiom in response handlers is to use `if let` to simultaneously check for the existence of a payload in the response, and for a set of required values that should be in the payload:
 
@@ -220,7 +233,7 @@ if  let payload   = response.payload,
 }
 ```
 
-### Using operation queues
+## Using operation queues
 
 As illustrated a above, the basic procedure for using this SDK to make requests to the API server is:
 
@@ -295,7 +308,7 @@ queue.addOperation(verifyOperation)
 
 Complete examples of a multi-step sequences of requests that make use of both types of APIOperation can be found in [Client.swift](Sources/Client.swift)
 
-### Synchronous requests
+## Synchronous requests
 
 The `Request` class also supports making synchronous requests:
 
@@ -322,11 +335,25 @@ This is not usually recommended, though; it is not as performant as doing things
 
 Still, because synchronous code is simpler and easier to write and to read, this mode might be a good match for some use cases, such as a command-line tool that just wants to do some operations in sequence and doesn't need to be as fast as possible, and doesn't manage a GUI that needs the main thread to run an event loop.
 
-### More examples
+## Code examples
 
 The `Client` class powers the SDK's demo apps, and it implements various multi-step API transactions. It contains examples of using various different kinds of requests, and operation queues.
 
-#### For more information
+## Running the automated tests
+
+The SDK includes an array of automated tests, most of which are run against the API Sandbox.
+
+The automated tests are run via the usual Xcode **Test** command, with one caveat: many tests require valid credentials for a SAM user associated with a real Soracom account.
+
+Credentials must be saved on each Mac or iOS device that will run the tests (including iOS Simulator devices). If no credentials are available, Xcode will show a failure something like this:
+
+![screenshot: some tests will fail without credentials ](Whatever/Documentation/no-credentials.png)
+
+As mentioned in the comment above, credentials can be saved from within the Xcode debugger. To do so, set a breakpoint in the `doInitialHousekeeping()` method of the `Client` class, and follow the instructions in the comments.
+
+Once credentials have been saved, all tests should pass.
+
+## For more information
 The Swift SDK source code itself is extensively documented, which means the standard Xcode conveniences work, such as auto-complete with documentation hints:
 
 ![screenshot: Xcode autocomplete](Whatever/Documentation/xcode-autocomplete.png)

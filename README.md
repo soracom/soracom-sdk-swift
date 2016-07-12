@@ -9,6 +9,7 @@ Current status (2016-07-13): This SDK is a work in progress, and is still in the
 - [Target audience](#target-audience)
 - [Demo apps](#demo-apps)
 - [The basics](#the-basics)
+- [Creating a request](#creating-a-request)
 - [Processing a response](#processing-a-response)
 - [Using operation queues](#using-operation-queues)
 - [Synchronous requests](#synchronous-requests)

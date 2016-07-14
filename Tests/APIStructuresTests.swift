@@ -38,29 +38,35 @@ class APIStructuresTests: BaseTestCase {
     }
     
  
-    func test_credentials_JSON_seriliazation() {
+    func test_credential_roundtrip_JSON_serialization() {
         
-        let foo = Credential()
-        let bar = foo.toPayload()
-        let baz = bar.toJSON()
+        var foo = Credential()
+        foo.createDateTime   = 666
+        foo.credentials      = Credentials(accessKeyId: "access key bro", secretAccessKey: "secret bro")
+        foo.credentialsId    = "credentials ID bro"
+        foo.description      = "description bro"
+        foo.lastUsedDateTime = 666
+        foo.type             = "type bro"
+        foo.updateDateTime   = 666
         
-        do {
-            // This unwieldy junk is pretty terrible, but the round-trip synchronization that would make this kind 
-            // of test better and prettier isn't yet implemented for PayloadConvertible.
-            
-            if let data = baz?.dataUsingEncoding(NSUTF8StringEncoding) {
-                let decoded = try NSJSONSerialization.JSONObjectWithData(data, options: [])
-                
-                XCTAssertNotNil(decoded)
-                XCTAssertNotNil(decoded["credentialsId"])
-                XCTAssertNotNil(decoded["type"])
-                
-            } else {
-                throw NSError(domain: "yuck", code: 666, userInfo: nil)
-            }
-        } catch {
-            XCTFail("test got unexpected error \(error)")
+        guard let encoded = foo.toPayload().toJSON()?.dataUsingEncoding(NSUTF8StringEncoding) else {
+            XCTFail()
+            return
         }
+        
+        guard let payload = try? Payload(data: encoded),  decoded = Credential(payload: payload) else {
+            XCTFail()
+            return
+        }
+        
+        XCTAssert(decoded.createDateTime == 666)
+        XCTAssert(decoded.credentials?.accessKeyId == "access key bro")
+        XCTAssert(decoded.credentials?.secretAccessKey == "secret bro")
+        XCTAssert(decoded.description == "description bro")
+        XCTAssert(decoded.lastUsedDateTime == 666)
+        XCTAssert(decoded.type == "type bro")
+        XCTAssert(decoded.updateDateTime == 666)
+
     }
     
     

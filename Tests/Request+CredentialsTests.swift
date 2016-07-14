@@ -4,67 +4,101 @@ import XCTest
 
 class RequestCredentialsTests: BaseTestCase {
     
-    func test_listCredentials() {
+    override func setUp() {
+        
+        super.setUp()
+        
+        self.continueAfterFailure = false
         
         guard !Client.sharedInstance.credentialsForSandboxUser.blank else {
-            // API Sandbox user can be created automatically as needed, but only if production SAM user credentials have been stored.
-            // For the SDK demo apps, you can use the GUI to save these credentials; otherwise, you can do it in the debugger. See Client.doInitialHousekeeping() for details
+            // API Sandbox user can be created automatically as needed, but only
+            // if production SAM user credentials have been stored.
+            // For the SDK demo apps, you can use the GUI to save these credentials;
+            // otherwise, you can do it in the debugger.
+            //
+            // See Client.doInitialHousekeeping() for details
             
-            XCTFail("Cannot run \(#function) because no credentials are available. See test method comments for details.")
-
+            XCTFail("Cannot run \(self) because no credentials are available. See test method comments for details.")
+            
             return
         }
-    
-        beginAsyncSection()
-        
-        Request.listCredentials().run { (response) in
-            print(response)
-            
-            print(response.payload)
-            
-            // Mason 2016-03-23: I get some kind of pathological behavior here... it takes 30+ sec, then this error result:
-            //
-            //            Response {
-            //                HTTP status:  500
-            //                In response to: GET https://api-sandbox.soracom.io/v1/credentials
-            //                HTTP headers: {
-            //                    Content-Type: text/plain; charset=utf-8
-            //                    Content-Length: 46
-            //                    Connection: keep-alive
-            //                    Date: Wed, 23 Mar 2016 05:11:43 GMT
-            //                }
-            //                Data (as UTF-8): 【{"code":"AGW0005", "message":"Internal error"}】
-            //            }
-            
-            // Mason 2016-04-15: UPDATE: now I get the error below, even though in debugger it looks like token is being sent correctly.
-            // {"code":"AUM0001","message":"Token is required in the request header"}
-            
-            // DEFERRING due to WTF noted above: XCTAssert(result.error == nil)
-            self.endAsyncSection()
-        }
-        waitForAsyncSection()
     }
     
     
-    func test_createCredential() {
-        beginAsyncSection()
+    /// Multi step CRUD test.
+    
+    func test_CRUD_credentials() {
         
-        var cred = Credential()
-        cred.credentialsId = "foobar"
-        Request.createCredential(cred).run { (response) in
-            
-            print(response)
-            print("did it blend?")
-            
-            // DEFERRING due to WTF noted below: XCTAssert(result.error == nil)
-            // Mason 2016-03-23: this also gets {"code":"AGW0005", "message":"Internal error"} every time. Deferring...
-            // Mason 2016-04-15: UPDATE: now I get the error below, even though in debugger it looks like token is being sent correctly.
-            // {"code":"AUM0001","message":"Token is required in the request header"}
-
-            self.endAsyncSection()
+        let junk    = NSUUID().UUIDString
+        let creds   = Credentials(accessKeyId: "foo", secretAccessKey: "bar")
+        var options = CredentialOptions(type: "aws-credentials", description: "test_CRUD_credentials", credentials: creds)
+        
+        // CREATE:
+        let createRequest  = Request.createCredential(id: junk, options: options)
+        let createResponse = createRequest.wait()
+        
+        XCTAssertNil(createResponse.error)
+        
+        let created = Credential(payload: createResponse.payload)
+        
+        XCTAssertNotNil(created)
+        XCTAssertNotNil(created?.credentials)
+        XCTAssertEqual("test_CRUD_credentials", created?.description)
+        XCTAssertEqual("foo", created?.credentials?.accessKeyId)
+        XCTAssertEqual(junk, created?.credentialsId)
+        
+        XCTAssertNotNil(findCredential(junk))
+        
+        options.description = "updated description"
+        
+        // UPDATE:
+        let updateRequest  = Request.updateCredential(id: junk, options: options)
+        let updateResponse = updateRequest.wait()
+        
+        XCTAssertNil(updateResponse.error)
+        
+        let updated = findCredential(junk)
+        XCTAssertEqual("updated description", updated?.description)
+        
+        // DELETE:
+        let deleteRequest  = Request.deleteCredential(id: junk)
+        let deleteResponse = deleteRequest.wait()
+        
+        XCTAssertNil(deleteResponse.error)
+        XCTAssertNil(findCredential(junk))
+    }
+    
+    
+    func listCredentials() -> CredentialList? {
+        
+        let listRequest  = Request.listCredentials()
+        let listResponse = listRequest.wait()
+        
+        guard let credList = listResponse.payload?.toCredentialList() else {
+            XCTFail()
+            return nil
         }
-        waitForAsyncSection()
         
+        return credList
+    }
+    
+    
+    func findCredential(id: String) -> Credential? {
+        
+        guard let list = listCredentials() else {
+            XCTFail()
+            return nil
+        }
+        
+        var found: Credential? = nil
+        
+        for cred in list {
+            if cred.credentialsId == id {
+                found = cred
+                break
+            }
+        }
+        return found
     }
 
 }

@@ -37,32 +37,138 @@ public struct AuthResponse {
 }
 
 
-/// FIXME: Mason 2016-03-23: What is this and what is it for? Generic credentials for cloud providers?
+/// This structure contains the raw credential values pertaining to a foreign service like AWS.
 
-public struct Credential: PayloadConvertible {
-    var createDateTime: Int        = 0
-    var credentials: NSDictionary  = NSDictionary()
-    var credentialsId : String     = "credentials ID"
-    var description: String        = "description of credentials"
-    var lastUsedDateTime: Int      = 0
-    var type: String               = "aws-credentials"
-    var updateDateTime: Int        = 0
+public struct Credentials: PayloadConvertible {
+    
+    var accessKeyId: String     = ""
+    var secretAccessKey: String? = nil
     
     func toPayload() -> Payload {
 
         let result: Payload = [
-            .createDateTime   : createDateTime,
-            .credentials      : credentials,
-            .credentialsId    : credentialsId,
-            .description      : description,
-            .lastUsedDateTime : lastUsedDateTime,
-            .type             : type,
-            .updateDateTime   : updateDateTime
+            .accessKeyId     : accessKeyId,
+        ]
+        
+        if let k = secretAccessKey {
+            result[.secretAccessKey] = k
+        }
+        
+        return result
+    }
+}
+
+
+/// This structure contains the values used to create or update a Credentials object.
+
+public struct CredentialOptions: PayloadConvertible {
+    
+    var type: String
+    var description: String
+    var credentials: Credentials = Credentials()
+    
+    func toPayload() -> Payload {
+        
+        let result: Payload = [
+            .type        : type,
+            .description : description,
+            .credentials : credentials.toPayload()
         ]
         return result
     }
-
 }
+
+
+/// This structure is the full credential object that is returned by the API server upon a successful `listCredentials()` or `createCredential()` request. 
+///
+/// **NOTE:** `Credential` objects returned by the API server contain a `Credential` structure, but that structure may not (always does not?) include the `secretAccessKey` value.
+
+public struct Credential: PayloadConvertible {
+    
+    var createDateTime   : Int64?        = nil
+    var credentials      : Credentials?  = nil
+    var credentialsId    : String?       = nil
+    var description      : String?       = nil
+    var lastUsedDateTime : Int64?        = nil
+    var type             : String?       = nil
+    var updateDateTime   : Int64?        = nil
+    
+    init() {
+        
+    }
+    
+    
+    init?(payload: Payload?) {
+        
+        guard let payload = payload else {
+            return nil
+        }
+        
+        if let created = payload[.createDateTime] as? NSNumber {
+            createDateTime = created.longLongValue
+        }
+        
+        if let credentialsDict = payload[.credentials] as? [String : AnyObject],
+               subload         = Payload.fromDictionary(credentialsDict),
+               accessKeyId     = subload[.accessKeyId] as? String
+        {
+            let secret = subload[.secretAccessKey] as? String // this normally won't be present
+            credentials = Credentials(accessKeyId: accessKeyId, secretAccessKey: secret)
+        }
+        
+        credentialsId = payload[.credentialsId] as? String
+        description   = payload[.description]   as? String
+        
+        if let lastUsed = payload[.lastUsedDateTime] as? NSNumber {
+            lastUsedDateTime = lastUsed.longLongValue
+        }
+        
+        type = payload[.type] as? String
+        
+        if let updated = payload[.updateDateTime] as? NSNumber {
+            updateDateTime = updated.longLongValue
+        }
+    }
+    
+    func toPayload() -> Payload {
+        
+        // FIXME: this serialization code is pathologically verbose and redundant...
+
+        let result: Payload = [:]
+        
+        if let createDateTime = createDateTime {
+            result[.createDateTime] = NSNumber(longLong: createDateTime)
+        }
+        
+        if let credentials = credentials {
+            result[.credentials] = credentials.toPayload()
+        }
+        
+        if let credentialsId = credentialsId {
+            result[.credentialsId] = credentialsId
+        }
+        
+        if let description = description {
+            result[.description] = description
+        }
+        
+        if let lastUsedDateTime = lastUsedDateTime {
+            result[.lastUsedDateTime] = NSNumber(longLong: lastUsedDateTime)
+        }
+        
+        if let type = type {
+            result[.type] = type
+        }
+        
+        if let updateDateTime = updateDateTime {
+            result[.updateDateTime] = NSNumber(longLong: updateDateTime)
+        }
+        
+        return result
+    }
+}
+
+public typealias CredentialList = [Credential]
 
 
 // A struct that contains a BeamStats struct, and a timestamp, for use with Request.insertBeamStats()

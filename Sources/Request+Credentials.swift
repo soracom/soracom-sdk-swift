@@ -2,30 +2,9 @@
 
 import Foundation
 
-// NOTE: GIVING UP ON THIS FOR NOW (Mason 2016-03-23)
-// I was doing the API in the order it is presented in the API Guide, but I am seeing errors from this section of the API,
-// which look like this:
-//
-//            Response {
-//                HTTP status:  500
-//                In response to: GET https://api-sandbox.soracom.io/v1/credentials
-//                HTTP headers: {
-//                    Content-Type: text/plain; charset=utf-8
-//                    Content-Length: 46
-//                    Connection: keep-alive
-//                    Date: Wed, 23 Mar 2016 05:11:43 GMT
-//                }
-//                Data (as UTF-8): 【{"code":"AGW0005", "message":"Internal error"}】
-//            }
-//
-// I am not sure if I am Doing It Wrong, or if credentials is not something that works in the sandbox, or what, but anyway
-// it is not very germane to the March 2016 demo and progress report to Soracom, so I am deferring this.
-
-
 extension Request {
     
-    
-    /// FIXME: description forthcoming [API docs](https://dev.soracom.io/jp/docs/api/#!/Credential/listCredentials)
+    /// Returns the list of stored credentials. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/listCredentials)
     
     public class func listCredentials(responseHandler: ResponseHandler? = nil) -> Request {
         
@@ -34,20 +13,51 @@ extension Request {
         return req
     }
     
+
+    /// Deletes a credential. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/deleteCredential)
     
-    /// FIXME: description forthcoming [API docs](https://dev.soracom.io/jp/docs/api/#!/Credential/createCredential)
-    
-    public class func createCredential(credentials: Credential, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func deleteCredential(id id: String, responseHandler: ResponseHandler? = nil) -> Request {
         
-        let safeComponent = credentials.credentialsId.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+        let safeComponent = id.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
         
         let req = self.init("/credentials/" + (safeComponent ?? ""), responseHandler: responseHandler)
-        // FIXME: blank component will cause error, but we should fail better here
+          // FIXME: blank component will cause error, but we should fail better here
         
-        req.expectedHTTPStatus = 201
-        
-        req.payload = credentials.toPayload()
-        
+        req.expectedHTTPStatus = 204
+        req.method             = .DELETE
         return req
     }
+    
+    
+    /// Creates a new credential. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/createCredential)
+    
+    public class func createCredential(id id: String, options: CredentialOptions, responseHandler: ResponseHandler? = nil) -> Request {
+        
+        let safeComponent = id.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+        
+        let req = self.init("/credentials/" + (safeComponent ?? ""), responseHandler: responseHandler)
+          // FIXME: blank component will cause error, but we should fail better here
+        
+        req.expectedHTTPStatus = 201
+        req.method             = .POST
+        req.payload            = options.toPayload()
+        return req
+    }
+    
+    
+    /// Updates a credential. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/updateCredential)
+    
+    public class func updateCredential(id id: String, options: CredentialOptions, responseHandler: ResponseHandler? = nil) -> Request {
+        
+        let safeComponent = id.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+        
+        let req = self.init("/credentials/" + (safeComponent ?? ""), responseHandler: responseHandler)
+          // FIXME: blank component will cause error, but we should fail better here
+        
+        req.expectedHTTPStatus = 200
+        req.method             = .PUT
+        req.payload            = options.toPayload()
+        return req
+    }
+    
 }

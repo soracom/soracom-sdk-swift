@@ -221,7 +221,7 @@ final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Equatable
             
             } else {
                 
-                print("FIXME: figure out to do when this happens: coerceValueToBasicType() returned nil")
+                print("FIXME: figure out to do when this happens: coerceValueToBasicType() returned nil for \(oldKey) / \(oldValue)")
             }
         }
         
@@ -376,6 +376,32 @@ final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Equatable
     }
     
     
+    func toCredentialList() -> CredentialList? {
+        
+        guard let root = toArray() else {
+            return nil
+        }
+        
+        var result: CredentialList = []
+        
+        for d in (root as NSArray) {
+            if let dict = d as? [String: AnyObject], subload = Payload.fromDictionary(dict) {
+                if let c = Credential(payload: subload) {
+                    result.append(c)
+                }
+            }
+        }
+        
+        return result
+    }
+    
+    // FIXME FIXME FIXME! The above code is completely stupid. Objects conforming to PayloadConvertible should
+    // have a generic mechanism to decode a list (array) of instances, in addition to a single instance, from
+    // a payload. I think this should be doable from a protocol extension. Also, they should have a generic
+    // mechanism to deserialize from a dictionary, so it is not necessary to do "subload = Payload.fromDictionary()"
+    // at every single call site. This needs some fairly major cleanup. (mason 2016-07-14)
+    
+    
     // MARK: - Private:
     
     /// The root object type is determined based on the data used to init the payload.
@@ -464,6 +490,7 @@ func ==(lhs: Payload, rhs: Payload) -> Bool
 
 public enum PayloadKey: String {
     
+    case accessKeyId
     case amount
     case apiKey
     case apn
@@ -528,6 +555,7 @@ public enum PayloadKey: String {
     case s1_minimum               // string key is "s1.minimum"
     case s1_slow                  // string key is "s1.slow"
     case s1_standard              // string key is "s1.standard"
+    case secretAccessKey
     case serialNumber
     case sessionStatus
     case speedClass

@@ -150,7 +150,7 @@ class RequestGroupTests: BaseTestCase {
         
         XCTAssertNil(response.error)
         
-        guard let subscriberList = response.payload?.toSubscriberList() else {
+        guard let subscriberList = Subscriber.listFrom(response.payload) else {
             XCTFail("did not get subscriber list")
             return
         }
@@ -180,7 +180,10 @@ class RequestGroupTests: BaseTestCase {
             return nil
         }
         
-        let group = Group(payload)
+        guard let group = Group.from(payload) else {
+            XCTFail("expected group")
+            return nil
+        }
         
         let groupId = group.groupId
         
@@ -216,7 +219,7 @@ class RequestGroupTests: BaseTestCase {
             return nil
         }
         
-        guard let groups = payload.toGroupList() else {
+        guard let groups = Group.listFrom(payload) else {
             XCTFail("could not decode payload received from listGroups")
             return nil
         }
@@ -245,7 +248,7 @@ class RequestGroupTests: BaseTestCase {
         guard let payload = response.payload else {
             return nil
         }
-        return Group(payload)
+        return Group.from(payload)
     }
 
 }

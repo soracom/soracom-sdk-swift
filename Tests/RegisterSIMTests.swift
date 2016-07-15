@@ -140,7 +140,7 @@ class RegisterSIMTests: BaseTestCase {
         
             XCTAssert(response.error == nil)
             
-            if let payload = response.payload, list = payload.toSubscriberList() {
+            if let payload = response.payload, list = Subscriber.listFrom(payload) {
                 result.appendContentsOf(list)
             } else {
                 XCTFail("could not get subscriber list")
@@ -171,7 +171,7 @@ class RegisterSIMTests: BaseTestCase {
             
             XCTAssert(response.error == nil)
             
-            if let payload = response.payload, subscriber = payload.toSubscriber() {
+            if let subscriber = Subscriber.from(response.payload) {
                 
                 XCTAssert(subscriber.imsi == imsi)
                 XCTAssert(subscriber.speedClass == SpeedClass.s1_fast.rawValue)

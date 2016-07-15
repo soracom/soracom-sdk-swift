@@ -16,6 +16,7 @@ Current status (2016-07-13): This SDK is a work in progress, and is still in the
 - [Code examples](#code-examples)
 - [Running the automated tests](#running-the-automated-tests)
 - [For more information](#for-more-information)
+- [License](#license)
 
 ## Target audience
 This SDK is intended for programmers who want to interact with the [Soracom API](https://dev.soracom.io/jp/docs/api_guide/) from Swift code.
@@ -366,6 +367,8 @@ The Swift SDK source code itself is extensively documented, which means the stan
 The [Soracom API Guide](https://dev.soracom.io/jp/docs/api_guide/) is the canonical reference for the API itself (currently only available in Japanese).
 
 
+## License
 
+This project is licensed under the MIT license. See the file `Whatever/LICENSE` for details.
 
 以上

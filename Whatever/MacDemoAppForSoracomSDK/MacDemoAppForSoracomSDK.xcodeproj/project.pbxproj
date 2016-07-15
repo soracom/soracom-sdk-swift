@@ -73,6 +73,21 @@
 		93CFB6831CBDCE920054F8B6 /* Request+AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFB6811CBDCE920054F8B6 /* Request+AuthTests.swift */; };
 		93F3DED21D15515400C60E33 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3DED11D15515400C60E33 /* TextStyle.swift */; };
 		93F3DED31D15515400C60E33 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3DED11D15515400C60E33 /* TextStyle.swift */; };
+		93F50B361D38895800F57659 /* PayloadConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B351D38895800F57659 /* PayloadConvertible.swift */; };
+		93F50B371D38895800F57659 /* PayloadConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B351D38895800F57659 /* PayloadConvertible.swift */; };
+		93F50B391D38B67E00F57659 /* PayloadKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B381D38B67E00F57659 /* PayloadKey.swift */; };
+		93F50B3A1D38B67E00F57659 /* PayloadKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B381D38B67E00F57659 /* PayloadKey.swift */; };
+		93F50B3C1D38B72400F57659 /* CredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B3B1D38B72400F57659 /* CredentialTests.swift */; };
+		93F50B3F1D38BDCF00F57659 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B3E1D38BDCF00F57659 /* Credential.swift */; };
+		93F50B401D38BDCF00F57659 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B3E1D38BDCF00F57659 /* Credential.swift */; };
+		93F50B421D38D1FB00F57659 /* BeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B411D38D1FB00F57659 /* BeamStats.swift */; };
+		93F50B431D38D1FB00F57659 /* BeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B411D38D1FB00F57659 /* BeamStats.swift */; };
+		93F50B451D38D22E00F57659 /* BeamStatsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B441D38D22E00F57659 /* BeamStatsTest.swift */; };
+		93F50B471D38D63000F57659 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B461D38D63000F57659 /* Group.swift */; };
+		93F50B481D38D63000F57659 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B461D38D63000F57659 /* Group.swift */; };
+		93F50B4A1D38D6E300F57659 /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B491D38D6E300F57659 /* Subscriber.swift */; };
+		93F50B4B1D38D6E300F57659 /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B491D38D6E300F57659 /* Subscriber.swift */; };
+		93F50B4D1D38D70900F57659 /* SubscriberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B4C1D38D70900F57659 /* SubscriberTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +149,15 @@
 		93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Auth.swift"; sourceTree = "<group>"; };
 		93CFB6811CBDCE920054F8B6 /* Request+AuthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+AuthTests.swift"; sourceTree = "<group>"; };
 		93F3DED11D15515400C60E33 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
+		93F50B351D38895800F57659 /* PayloadConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadConvertible.swift; sourceTree = "<group>"; };
+		93F50B381D38B67E00F57659 /* PayloadKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadKey.swift; sourceTree = "<group>"; };
+		93F50B3B1D38B72400F57659 /* CredentialTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialTests.swift; sourceTree = "<group>"; };
+		93F50B3E1D38BDCF00F57659 /* Credential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
+		93F50B411D38D1FB00F57659 /* BeamStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeamStats.swift; sourceTree = "<group>"; };
+		93F50B441D38D22E00F57659 /* BeamStatsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeamStatsTest.swift; sourceTree = "<group>"; };
+		93F50B461D38D63000F57659 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		93F50B491D38D6E300F57659 /* Subscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscriber.swift; sourceTree = "<group>"; };
+		93F50B4C1D38D70900F57659 /* SubscriberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriberTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,11 +195,16 @@
 				932D693A1CB9B183002F9D99 /* APIError.swift */,
 				935285301CD09AAF00B17B73 /* APIOperation.swift */,
 				93408AEB1CBB4E900084DC18 /* APIStructures.swift */,
+				93F50B411D38D1FB00F57659 /* BeamStats.swift */,
 				939BF3A31D124A6C0069B3EF /* Client.swift */,
 				939BF3A81D1280F20069B3EF /* Constants.swift */,
+				93F50B3E1D38BDCF00F57659 /* Credential.swift */,
+				93F50B461D38D63000F57659 /* Group.swift */,
 				932D69401CB9BA46002F9D99 /* Keychain.swift */,
 				9343D7DD1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift */,
 				93408AED1CBB4FA90084DC18 /* Payload.swift */,
+				93F50B351D38895800F57659 /* PayloadConvertible.swift */,
+				93F50B381D38B67E00F57659 /* PayloadKey.swift */,
 				932D694A1CBBA02E002F9D99 /* Request.swift */,
 				93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */,
 				936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */,
@@ -188,6 +217,7 @@
 				935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */,
 				932D694B1CBBA02E002F9D99 /* Response.swift */,
 				932D69451CB9C002002F9D99 /* SoracomCredentials.swift */,
+				93F50B491D38D6E300F57659 /* Subscriber.swift */,
 				93F3DED11D15515400C60E33 /* TextStyle.swift */,
 			);
 			path = Sources;
@@ -202,6 +232,8 @@
 				932D69571CBC55F2002F9D99 /* BaseTestCase.swift */,
 				936D93881CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift */,
 				930DD8741CDE0E38000EB36A /* BaseTestCaseTests.swift */,
+				93F50B441D38D22E00F57659 /* BeamStatsTest.swift */,
+				93F50B3B1D38B72400F57659 /* CredentialTests.swift */,
 				932D69431CB9BA50002F9D99 /* KeychainTests.swift */,
 				9343D7E01D1CBDAF003DDC2F /* NSDate+SoracomAPITests.swift */,
 				93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */,
@@ -214,6 +246,7 @@
 				932D69501CBC5480002F9D99 /* RequestTests.swift */,
 				932D69531CBC551C002F9D99 /* ResponseTests.swift */,
 				932D69471CB9C00A002F9D99 /* SoracomCredentialsTests.swift */,
+				93F50B4C1D38D70900F57659 /* SubscriberTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -361,14 +394,19 @@
 			files = (
 				9320887C1CBF59CB00384EC7 /* Request+Operator.swift in Sources */,
 				935285331CD09AAF00B17B73 /* APIOperation.swift in Sources */,
+				93F50B3F1D38BDCF00F57659 /* Credential.swift in Sources */,
 				932088791CBF3D5400384EC7 /* Request+Sandbox.swift in Sources */,
+				93F50B421D38D1FB00F57659 /* BeamStats.swift in Sources */,
 				93F3DED21D15515400C60E33 /* TextStyle.swift in Sources */,
 				932D694D1CBBA02E002F9D99 /* Response.swift in Sources */,
+				93F50B471D38D63000F57659 /* Group.swift in Sources */,
 				93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */,
 				9343D7DE1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift in Sources */,
 				93408AEE1CBB4FA90084DC18 /* Payload.swift in Sources */,
+				93F50B4A1D38D6E300F57659 /* Subscriber.swift in Sources */,
 				939BF3A61D124A6C0069B3EF /* RequestQueue.swift in Sources */,
 				932D69491CB9C016002F9D99 /* SoracomCredentials.swift in Sources */,
+				93F50B361D38895800F57659 /* PayloadConvertible.swift in Sources */,
 				932D693D1CB9B18E002F9D99 /* APIError.swift in Sources */,
 				932A5B811CE71FA1007D0B5C /* AppDelegate+DebugConveniences.swift in Sources */,
 				935285351CD09AAF00B17B73 /* RequestResponseFormatter.swift in Sources */,
@@ -376,6 +414,7 @@
 				936D93931CC0DE14005D24DA /* Request+Payment.swift in Sources */,
 				932D694C1CBBA02E002F9D99 /* Request.swift in Sources */,
 				932D69411CB9BA46002F9D99 /* Keychain.swift in Sources */,
+				93F50B391D38B67E00F57659 /* PayloadKey.swift in Sources */,
 				939BF3A91D1280F20069B3EF /* Constants.swift in Sources */,
 				93408AEC1CBB4E900084DC18 /* APIStructures.swift in Sources */,
 				936D938B1CC0A3A5005D24DA /* Request+Credentials.swift in Sources */,
@@ -392,16 +431,20 @@
 				9346E1F21D128DFC006B0D01 /* Request+Auth.swift in Sources */,
 				9346E1F71D128DFC006B0D01 /* Request+Subscriber.swift in Sources */,
 				9346E1F61D128DFC006B0D01 /* Request+Sandbox.swift in Sources */,
+				93F50B481D38D63000F57659 /* Group.swift in Sources */,
 				93408AF41CBB4FD80084DC18 /* PayloadTests.swift in Sources */,
+				93F50B371D38895800F57659 /* PayloadConvertible.swift in Sources */,
 				9346E1F11D128DFC006B0D01 /* Request.swift in Sources */,
 				9346E1F91D128DFC006B0D01 /* RequestResponseFormatter.swift in Sources */,
 				932D695A1CBC5842002F9D99 /* Request+SubscriberTests.swift in Sources */,
 				9346E1FB1D128DFC006B0D01 /* SoracomCredentials.swift in Sources */,
 				9346E1FD1D128E1D006B0D01 /* AppDelegate+DebugConveniences.swift in Sources */,
+				93F50B3C1D38B72400F57659 /* CredentialTests.swift in Sources */,
 				9343D7E11D1CBDAF003DDC2F /* NSDate+SoracomAPITests.swift in Sources */,
 				9346E1FA1D128DFC006B0D01 /* Response.swift in Sources */,
 				936D93891CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift in Sources */,
 				9343D7D91D1BC132003DDC2F /* Request+Group.swift in Sources */,
+				93F50B451D38D22E00F57659 /* BeamStatsTest.swift in Sources */,
 				9346E1F01D128DFC006B0D01 /* Payload.swift in Sources */,
 				9346E1EA1D128DFC006B0D01 /* APIError.swift in Sources */,
 				9346E1EC1D128DFC006B0D01 /* APIStructures.swift in Sources */,
@@ -411,25 +454,30 @@
 				9346E1F41D128DFC006B0D01 /* Request+Operator.swift in Sources */,
 				93408AF91CBB4FDF0084DC18 /* APIStructuresTests.swift in Sources */,
 				9346E1FC1D128E1D006B0D01 /* AppDelegate.swift in Sources */,
+				93F50B431D38D1FB00F57659 /* BeamStats.swift in Sources */,
 				936D938E1CC0A55C005D24DA /* Request+CredentialsTests.swift in Sources */,
 				932D693F1CB9B191002F9D99 /* APIErrorTests.swift in Sources */,
 				935285491CD09AC500B17B73 /* APIOperationTests.swift in Sources */,
 				9346E1F81D128DFC006B0D01 /* RequestQueue.swift in Sources */,
+				93F50B4D1D38D70900F57659 /* SubscriberTests.swift in Sources */,
 				9346E1EE1D128DFC006B0D01 /* Constants.swift in Sources */,
 				9343D7DF1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift in Sources */,
 				932D695F1CBC59C5002F9D99 /* RequestTests.swift in Sources */,
+				93F50B4B1D38D6E300F57659 /* Subscriber.swift in Sources */,
 				932D69541CBC551C002F9D99 /* ResponseTests.swift in Sources */,
 				932D69581CBC55F2002F9D99 /* BaseTestCase.swift in Sources */,
 				936D93971CC0E3D5005D24DA /* RegisterSIMTests.swift in Sources */,
 				932D695C1CBC58A5002F9D99 /* Request+SandboxTests.swift in Sources */,
 				9346E1F51D128DFC006B0D01 /* Request+Payment.swift in Sources */,
 				9343D7DB1D1BD2F5003DDC2F /* Request+GroupTests.swift in Sources */,
+				93F50B401D38BDCF00F57659 /* Credential.swift in Sources */,
 				930DD8761CDE0E3E000EB36A /* BaseTestCaseTests.swift in Sources */,
 				9346E1EB1D128DFC006B0D01 /* APIOperation.swift in Sources */,
 				9346E1ED1D128DFC006B0D01 /* Client.swift in Sources */,
 				9346E1F31D128DFC006B0D01 /* Request+Credentials.swift in Sources */,
 				932D69481CB9C00A002F9D99 /* SoracomCredentialsTests.swift in Sources */,
 				93F3DED31D15515400C60E33 /* TextStyle.swift in Sources */,
+				93F50B3A1D38B67E00F57659 /* PayloadKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

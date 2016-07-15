@@ -40,6 +40,8 @@ class APIStructuresTests: BaseTestCase {
  
     func test_credential_roundtrip_JSON_serialization() {
         
+        // This test predates our serialization testing convenience methods.
+        
         var foo = Credential()
         foo.createDateTime   = 666
         foo.credentials      = Credentials(accessKeyId: "access key bro", secretAccessKey: "secret bro")
@@ -54,7 +56,7 @@ class APIStructuresTests: BaseTestCase {
             return
         }
         
-        guard let payload = try? Payload(data: encoded),  decoded = Credential(payload: payload) else {
+        guard let payload = try? Payload(data: encoded),  decoded = Credential.from(payload) else {
             XCTFail()
             return
         }
@@ -66,7 +68,6 @@ class APIStructuresTests: BaseTestCase {
         XCTAssert(decoded.lastUsedDateTime == 666)
         XCTAssert(decoded.type == "type bro")
         XCTAssert(decoded.updateDateTime == 666)
-
     }
     
     

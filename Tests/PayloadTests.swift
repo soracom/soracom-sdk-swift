@@ -6,7 +6,7 @@ class PayloadTests: XCTestCase {
     
 
     func test_basic_set_and_get() {
-        let d = Payload()
+        let d:Payload = [:]
 
         XCTAssert(d[.email] == nil)
         
@@ -251,7 +251,7 @@ class PayloadTests: XCTestCase {
             .imsi       : "470010171566423"
         ] // just because aotw this is easiest way to create a Subscriber
         
-        let sub = Subscriber(source)
+        let sub = Subscriber.from(source)
         
         let payload = Payload(list: [sub, sub])
         

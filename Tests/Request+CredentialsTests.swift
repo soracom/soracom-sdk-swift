@@ -39,7 +39,7 @@ class RequestCredentialsTests: BaseTestCase {
         
         XCTAssertNil(createResponse.error)
         
-        let created = Credential(payload: createResponse.payload)
+        let created = Credential.from(createResponse.payload)
         
         XCTAssertNotNil(created)
         XCTAssertNotNil(created?.credentials)
@@ -74,7 +74,7 @@ class RequestCredentialsTests: BaseTestCase {
         let listRequest  = Request.listCredentials()
         let listResponse = listRequest.wait()
         
-        guard let credList = listResponse.payload?.toCredentialList() else {
+        guard let credList = Credential.listFrom(listResponse.payload) else {
             XCTFail()
             return nil
         }

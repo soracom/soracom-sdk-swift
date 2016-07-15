@@ -28,7 +28,13 @@ import Foundation
 /// (That second form is also fine, perhaps even preferred, but Xcode (7.3 as of this writing) isn't quite smart enough
 /// to autocomplete the key name when you do it that way.)
 
-final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Equatable {
+public final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Equatable {
+    
+    public static func from(payload: Payload?) -> Payload? {
+        // FIXME: this is just a hack for conformance to PayloadConvertible. FIXME: It really shold be making a copy.
+        return payload
+    }
+
     
     /// Init a Payload from data (which should be UTF-8 encoded JSON).
     
@@ -64,12 +70,12 @@ final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Equatable
             
             throw PayloadDecodeError.UnsupportedJSONRootObjectType
         }
-
     }
+    
     
     /// Init a Payload via a dictionary literal (common when creating payloads to send).
     
-    init(dictionaryLiteral elements: (PayloadKey, AnyObject)...) {
+    public init(dictionaryLiteral elements: (PayloadKey, AnyObject)...) {
         
         rootObjectType = .NativeDictionary
         
@@ -79,6 +85,8 @@ final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Equatable
     }
 
 
+    /// Init with a root object that is a native array.
+    
     init(list: [Any]) {
         
         rootObjectType = .NativeArray
@@ -169,7 +177,10 @@ final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Equatable
     
     func coerceValueToBasicType(oldValue: Any) -> AnyObject? {
         
-        if let newValue = oldValue as? PayloadConvertible {
+        if let newValue = oldValue as? Subscriber {
+            return newValue.toPayload().toDictionary()
+        }
+        else if let newValue = oldValue as? PayloadConvertible {
             // A match here means that the object is one of our custom objects, e.g. an AirStats struct, that
             // knows how to serialize itself in Payload form. So we let it do that, and then recursively
             // convert the nested Payload to a dictionary:
@@ -319,89 +330,6 @@ final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Equatable
     }
     
     
-    /// Mark: Translating foreign data to native types
-    
-    /// If the receiver's root object is an array of JSON-encoded subscriber objects, this decodes the list, and returns an array of Subscriber structs. The list may be an empty array if no subscribers have been registered. Returns nil if the data seems bogus.
-    
-    func toSubscriberList() -> SubscriberList? {
-        
-        guard let tmp = toArray() else {
-            return nil;
-        }
-        
-        let a = tmp as NSArray
-                
-        var result: [Subscriber] = []
-        
-        for d in a {
-            
-            if let dict = d as? [String: AnyObject], subload = Payload.fromDictionary(dict)
-            {
-                result.append(Subscriber(subload))
-            }
-        }
-        
-        return result
-    }
-    
-    
-    /// Returns a list of Group objects, decoded from the receiver's root object.
-    
-    func toGroupList() -> GroupList? {
-        
-        guard let tmp = toArray() else {
-            return nil;
-        }
-        
-        let a = tmp as NSArray
-        
-        var result: [Group] = []
-        
-        for d in a {
-            
-            if let dict = d as? [String: AnyObject], subload = Payload.fromDictionary(dict)
-            {
-                result.append(Group(subload))
-            }
-        }
-        
-        return result
-    }
-    
-    
-    /// If the receiver's root object is a JSON object representing a subcriber, this decodes the object, and a Subscriber struct. Returns nil otherwise.
-    
-    func toSubscriber() -> Subscriber? {
-        return Subscriber(self)
-    }
-    
-    
-    func toCredentialList() -> CredentialList? {
-        
-        guard let root = toArray() else {
-            return nil
-        }
-        
-        var result: CredentialList = []
-        
-        for d in (root as NSArray) {
-            if let dict = d as? [String: AnyObject], subload = Payload.fromDictionary(dict) {
-                if let c = Credential(payload: subload) {
-                    result.append(c)
-                }
-            }
-        }
-        
-        return result
-    }
-    
-    // FIXME FIXME FIXME! The above code is completely stupid. Objects conforming to PayloadConvertible should
-    // have a generic mechanism to decode a list (array) of instances, in addition to a single instance, from
-    // a payload. I think this should be doable from a protocol extension. Also, they should have a generic
-    // mechanism to deserialize from a dictionary, so it is not necessary to do "subload = Payload.fromDictionary()"
-    // at every single call site. This needs some fairly major cleanup. (mason 2016-07-14)
-    
-    
     // MARK: - Private:
     
     /// The root object type is determined based on the data used to init the payload.
@@ -423,7 +351,7 @@ final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Equatable
 ///
 /// The `NativeXXX` types may contain Swift objects and SDK objects, as long as those are types that Payload knows how to encode as JSON-safe values. These root object types are used for Payloads originating on the client side, to be sent with an API request. Payload knows how to convert these to JSON for sending over the wire.
 ///
-/// The 'ForeignXXX' variants only contain simple values, as result from decoding JSON data into native Swift objects. These types are used when decoding responses received from the API server. Because the data formats are not self-describing, Payload cannot deserialize this data into higher-level API objects without being told what type of object is wanted (e.g. by using a method like `toSubscriber()` or `toSubscriberList()`).
+/// The 'ForeignXXX' variants only contain simple values, as result from decoding JSON data into native Swift objects. These types are used when decoding responses received from the API server. Because the data formats are not self-describing, Payload cannot deserialize this data into higher-level API objects; instead that has to be delegated to the model object classes themselves. (Which means that you need to know what kind of object(s) you are trying to decode.)
 ///
 /// (**NOTE:** So far, array and dicttionary are the only two fundamental types I have encountered in the HTTP message body, but I have not yet examined the entire API. As far as the design of Payload goes, it should be able to support any valid JSON root object type (a topic on which various RFCs and implementations have [different opinions](http://stackoverflow.com/questions/3833299/can-an-array-be-top-level-json-text/3833312#3833312)...). However, I am not going to actually implement support for any other types until we neeed them. )
 
@@ -441,7 +369,7 @@ private enum PayloadRootObjectType {
 /// 
 /// This used to just be implemented by converting the Payload instances to NSDictionary, and then asking NSDictionary if they are equal, but once we added support for non-dictionary payloads, it got more complicated `(T_T)`.
 
-func ==(lhs: Payload, rhs: Payload) -> Bool
+public func ==(lhs: Payload, rhs: Payload) -> Bool
 {
     guard lhs.rootObjectType == rhs.rootObjectType else {
         return false
@@ -479,130 +407,6 @@ func ==(lhs: Payload, rhs: Payload) -> Bool
 }
 
 
-// MARK: - PayloadKey enum
-
-/// The PayloadKey enum contains every valid key that is used in JSON objects sent to or received from the API server.
-/// Its purpose is to make it a compile-time error if there is a typo in a key name.
-///
-/// The main use case is creating Payload objects:
-///
-///     let foo = [.amount: 1000, .description: "whatever"]
-
-public enum PayloadKey: String {
-    
-    case accessKeyId
-    case amount
-    case apiKey
-    case apn
-    case authKey
-    case authKeyId
-    case balance
-    case beamStatsMap
-    case billItemName
-    case code
-    case configuration
-    case couponCode
-    case createdAt
-    case createDateTime
-    case createdTime
-    case credentials
-    case credentialsId
-    case cvc
-    case dataTrafficStatsMap
-    case description
-    case dnsServers
-    case downloadByteSizeTotal
-    case downloadPacketSizeTotal
-    case email
-    case expiredAt
-    case expireMonth
-    case expireYear
-    case expiryAction
-    case expiryTime
-    case expiryYearMonth
-    case groupId
-    case imei
-    case imsi
-    case inHttp
-    case inMqtt
-    case inTcp
-    case inUdp
-    case ipAddress
-    case key
-    case lastModifiedAt
-    case lastModifiedTime
-    case lastUsedDateTime
-    case lastUpdatedAt
-    case location
-    case message
-    case moduleType
-    case msisdn
-    case name
-    case number
-    case online
-    case operatorId
-    case outHttp
-    case outHttps
-    case outMqtt
-    case outMqtts
-    case outTcp
-    case outTcps
-    case outUdp
-    case password
-    case plan
-    case registrationSecret
-    case s1_fast                  // string key is "s1.fast"
-    case s1_minimum               // string key is "s1.minimum"
-    case s1_slow                  // string key is "s1.slow"
-    case s1_standard              // string key is "s1.standard"
-    case secretAccessKey
-    case serialNumber
-    case sessionStatus
-    case speedClass
-    case status
-    case tags
-    case tagName
-    case tagValue
-    case terminationEnabled
-    case token
-    case tokenTimeoutSeconds
-    case type
-    case ueIpAddress
-    case unixtime
-    case updateDateTime
-    case uploadByteSizeTotal
-    case uploadPacketSizeTotal
-    case userName
-    case value
-    
-    
-    /// Convert the API key to the string representation used in the JSON-encoded request to the API server. **Usually** this is just the `rawValue` of the enum case, but some API keys have special characters that cannot be part of Swift enum case names, so those special cases are handled here.
-    
-    var stringValue: String {
-        switch self {
-        case .s1_fast:
-            return "s1.fast"
-        case .s1_slow:
-            return "s1.slow"
-        case .s1_minimum:
-            return "s1.minimum"
-        case .s1_standard:
-            return "s1.standard"
-        default:
-            return self.rawValue
-        }
-    }
-
-}
-
-
-// MARK: - PayloadConvertible protocol
-
-/// Types like Subscriber or AirStats need to implement PayloadConvertible, so that they can provide a Payload representation of themselves that can then be translated to a basic representation that the JSON encoder can deal with it.
-
-protocol PayloadConvertible {
-    func toPayload() -> Payload
-}
 
 
 // MARK: - Error types

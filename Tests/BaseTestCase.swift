@@ -97,6 +97,48 @@ class BaseTestCase: XCTestCase {
     }
     
     
+    // MARK: - Round-trip serialization testing conveniences
+    
+    /// Encode`payload` as JSON, then initializes a new Payload instance with that JSON data. Asserts the newly-decoded payload emits identical JSON, failing otherwise. Returns the new decoded Payloas instance. (This is a convenience for writing tests for model object serialization.)
+    
+    func roundTripSerializeDeserialize(payload: Payload) -> Payload? {
+        
+        let data = payload.toJSONData()
+        
+        guard let decodedPayload = try? Payload(data: data) else {
+            XCTFail()
+            return nil
+        }
+        
+        XCTAssertEqual(data, decodedPayload?.toJSONData())
+        
+        return decodedPayload
+    }
+    
+    
+    /// Encodes `obj` as a Payload, converts that to JSON data, creates a new Payload by decoding that JSON data, instantiates a new object from that new payload, and returns it. (This is a convenience for writing tests for model object serialization.)
+    
+    func roundTripSerializeDeserialize(obj: PayloadConvertible) -> PayloadConvertible? {
+        
+        let payload = obj.toPayload()
+        let data    = payload.toJSONData()
+        
+        guard let decodedPayload = try? Payload(data: data) else {
+            XCTFail()
+            return nil
+        }
+        
+        guard let decodedObject = obj.dynamicType.from(decodedPayload) else {
+            XCTFail()
+            return nil
+        }
+        
+        XCTAssertEqual(decodedObject.toPayload().toJSONData(), data)
+        
+        return decodedObject
+    }
+    
+    
     // MARK: - Asychronous testing conveniences
     // These are intended to make our normal async test pattern slightly more convenient.
     

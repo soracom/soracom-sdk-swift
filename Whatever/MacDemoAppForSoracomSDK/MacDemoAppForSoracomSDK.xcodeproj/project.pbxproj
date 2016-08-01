@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9304B1121D4B328B0077CBDB /* IssueDebuggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9304B1111D4B328B0077CBDB /* IssueDebuggingTests.swift */; };
 		930DD8761CDE0E3E000EB36A /* BaseTestCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930DD8741CDE0E38000EB36A /* BaseTestCaseTests.swift */; };
 		931C38FD1CD0A4CD00FDF6B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931C38FC1CD0A4CD00FDF6B4 /* Assets.xcassets */; };
 		932088791CBF3D5400384EC7 /* Request+Sandbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932088781CBF3D5400384EC7 /* Request+Sandbox.swift */; };
@@ -101,6 +102,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9304B1111D4B328B0077CBDB /* IssueDebuggingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDebuggingTests.swift; sourceTree = "<group>"; };
 		930DD8721CDDDFAA000EB36A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		930DD8741CDE0E38000EB36A /* BaseTestCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCaseTests.swift; sourceTree = "<group>"; };
 		931C38FC1CD0A4CD00FDF6B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				932D69531CBC551C002F9D99 /* ResponseTests.swift */,
 				932D69471CB9C00A002F9D99 /* SoracomCredentialsTests.swift */,
 				93F50B4C1D38D70900F57659 /* SubscriberTests.swift */,
+				9304B1111D4B328B0077CBDB /* IssueDebuggingTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				930DD8761CDE0E3E000EB36A /* BaseTestCaseTests.swift in Sources */,
 				9346E1EB1D128DFC006B0D01 /* APIOperation.swift in Sources */,
 				9346E1ED1D128DFC006B0D01 /* Client.swift in Sources */,
+				9304B1121D4B328B0077CBDB /* IssueDebuggingTests.swift in Sources */,
 				9346E1F31D128DFC006B0D01 /* Request+Credentials.swift in Sources */,
 				932D69481CB9C00A002F9D99 /* SoracomCredentialsTests.swift in Sources */,
 				93F3DED31D15515400C60E33 /* TextStyle.swift in Sources */,

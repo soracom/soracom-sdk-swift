@@ -147,12 +147,11 @@ class BaseTestCase: XCTestCase {
     private var asyncSectionExpectation: [String: XCTestExpectation] = [:]
     
     
-    /// Creates a test expectation, the same as XCTestCase's `expectationWithDescription()` does. The difference is that it stores the expectation, so keeping the expectation object around in a variable in the test case isn't required. Normally, you end the async section (i.e., fulfill the expectation) by calling `self.endAsyncSection()` from within the async block. However, this method does return the expectation, so that you can capture it and fulfill it the normal XCTestCase way, if you for some reason want to avoid capturing self in the async block.
+    /// Creates a test expectation, the same as XCTestCase's `expectationWithDescription()` does. The difference is that it stores the expectation, so keeping the expectation object around in a variable in the test case isn't required. Normally, you end the async section (i.e., fulfill the expectation) by calling `self.endAsyncSection()` from within the async block. **Note:** This method used to return the expectation, so that you could capture it and fulfill it the normal XCTestCase way, if you for some reason want to avoid capturing self in the async block. But, ignoring return values became more annoying in Swift 3, so this was changed. Now it just stashes the newly-created expectation in `self.asyncSectionExpectation`, so if you really need it (not normally true) you have to get it from there.
     
-    func beginAsyncSection(_ description: String = #function) -> XCTestExpectation {
+    func beginAsyncSection(_ description: String = #function) {
         let expectation = self.expectation(description: description)
         asyncSectionExpectation["\(description)"] = expectation
-        return expectation
     }
     
     

@@ -49,7 +49,7 @@ public class KeychainTests: XCTestCase {
         // Can't think of any reason to do this in real life, but I wrote this test just to make sure it didn't crash or anything.
         // Mason 2016-04-10: Well, one reason might be that you haven't implemented a delete method, bro... :-P
         
-        Keychain.write(key1, data: Data())
+        _ = Keychain.write(key1, data: Data())
         let readData = Keychain.read(key1)
         XCTAssertEqual(readData, Data())
     }

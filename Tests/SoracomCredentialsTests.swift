@@ -36,7 +36,7 @@ class SoracomCredentialsTests: BaseTestCase {
     
     func test_store_in_keychain_original() {
         
-        one.save()
+        _ = one.save()
         two = SoracomCredentials.defaultSavedCredentials()
         
         XCTAssert(two == one)
@@ -65,7 +65,7 @@ class SoracomCredentialsTests: BaseTestCase {
     
     
     func test_delete() {
-        one.save("foo bar")
+        _ = one.save("foo bar")
         XCTAssertNotNil( SoracomCredentials(withStorageIdentifier: "foo bar") )
         XCTAssertTrue( SoracomCredentials.delete(identifier: "foo bar") )
         XCTAssert( SoracomCredentials(withStorageIdentifier: "foo bar").blank ) // init always returns something
@@ -132,18 +132,18 @@ class SoracomCredentialsTests: BaseTestCase {
         let namespaceFromDefaultStr = UUID(uuidString: "00000000-0000-0000-0000-DEFDEFDEFDEF")
         XCTAssertNotNil(namespaceFromDefaultStr)
         
-        one.save()
+        _ = one.save()
         var read = SoracomCredentials.defaultSavedCredentials()
         XCTAssert(read == one)
 
-        two.save()
+        _ = two.save()
         read = SoracomCredentials.defaultSavedCredentials()
         XCTAssert(read == two)
         
         let namespace1 = UUID()
         let namespace2 = UUID()
         
-        one.save(namespace: namespace1)
+        _ = one.save(namespace: namespace1)
         
         read = SoracomCredentials.defaultSavedCredentials()
         XCTAssert(read == two) // should still be two, because we wrote one with a different namespcce
@@ -153,7 +153,7 @@ class SoracomCredentialsTests: BaseTestCase {
 
         read = SoracomCredentials.defaultSavedCredentials(namespace: namespace2)
         XCTAssert(read != two) // should be blank instance; we haven't written yet
-        two.save(namespace: namespace2)
+        _ = two.save(namespace: namespace2)
         read = SoracomCredentials(withStorageIdentifier: nil, namespace: namespace2) // equiv to above
         XCTAssert(read == two)
         

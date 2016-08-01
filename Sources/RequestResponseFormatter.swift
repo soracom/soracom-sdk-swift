@@ -33,7 +33,7 @@ public class RequestResponseFormatter {
     
     /// Return the key and value, redacting if necessary.
     
-    func format(key: String, value: String, redact: Bool = shouldRedact) -> (key: String, value: String) {
+    func format(_ key: String, value: String, redact: Bool = shouldRedact) -> (key: String, value: String) {
         
         let sensitiveKeys = ["token", "authKey", "password", "X-Soracom-Token", "X-Soracom-API-Key"]
 
@@ -43,7 +43,7 @@ public class RequestResponseFormatter {
     
     /// Format a Request instance in human-readable form.
     
-    public func formatRequest(request: Request) -> String {
+    public func formatRequest(_ request: Request) -> String {
         
         let typeName = request.dynamicType
         
@@ -81,7 +81,7 @@ public class RequestResponseFormatter {
     
     /// Format a Response instance in human-readable form.
     
-    public func formatResponse(response: Response) -> String {
+    public func formatResponse(_ response: Response) -> String {
         let typeName = response.dynamicType
         
         var result = ""
@@ -120,7 +120,7 @@ public class RequestResponseFormatter {
     
     /// A brutal kludge to prettify JSON, specific to the way Request and Response `description` strings are formatted.
     
-    public func prettifyJSON(text: String?) -> String {
+    public func prettifyJSON(_ text: String?) -> String {
         
         guard let text = text else {
             return "{}"
@@ -132,9 +132,9 @@ public class RequestResponseFormatter {
         
         var result = text
         do {
-            if let data = text.dataUsingEncoding(NSUTF8StringEncoding) {
+            if let data = text.data(using: String.Encoding.utf8) {
                 
-                let obj = try NSJSONSerialization.JSONObjectWithData(data, options: [])
+                let obj = try JSONSerialization.jsonObject(with: data, options: [])
                 
                 var redacted = obj as? [String:AnyObject]
                 
@@ -146,12 +146,12 @@ public class RequestResponseFormatter {
                         }
                     }
                 }
-                let newData = try NSJSONSerialization.dataWithJSONObject(redacted ?? obj, options: [.PrettyPrinted])
+                let newData = try JSONSerialization.data(withJSONObject: redacted ?? obj, options: [.prettyPrinted])
                 
-                if let pretty = String(data: newData, encoding: NSUTF8StringEncoding) {
-                    let lines = pretty.componentsSeparatedByString("\n")
+                if let pretty = String(data: newData, encoding: String.Encoding.utf8) {
+                    let lines = pretty.components(separatedBy: "\n")
                     let linesToIndent = lines[0..<(lines.count - 1)]
-                    let indented = linesToIndent.joinWithSeparator("\n    ")
+                    let indented = linesToIndent.joined(separator: "\n    ")
                     result = indented + "\n  \(lines.last ?? "🆖")"
                 }
             }

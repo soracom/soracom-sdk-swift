@@ -26,7 +26,7 @@ class APIOperationTests: BaseTestCase {
         beginAsyncSection()
         
         let op = APIOperation(request)
-        let queue = NSOperationQueue()
+        let queue = OperationQueue()
         queue.addOperation(op)
         
         waitForAsyncSection()
@@ -84,7 +84,7 @@ class APIOperationTests: BaseTestCase {
         }
 
         let opThatRunsFirst = APIOperation(bogusAuthRequest)
-        let queue = NSOperationQueue()
+        let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 1
         queue.addOperations([opThatRunsFirst, opThatDependsOnPredecessor], waitUntilFinished: false)
         

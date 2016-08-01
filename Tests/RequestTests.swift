@@ -146,8 +146,8 @@ class RequestTests: BaseTestCase {
         
         beginAsyncSection()
         
-        let expectation1 = expectationWithDescription("uno")
-        let expectation2 = expectationWithDescription("dos")
+        let expectation1 = expectation(description: "uno")
+        let expectation2 = expectation(description: "dos")
 
         var values: [String] = []
         

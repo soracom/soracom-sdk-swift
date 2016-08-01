@@ -6,7 +6,7 @@ extension Request {
     
     /// Returns the list of stored credentials. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/listCredentials)
     
-    public class func listCredentials(responseHandler: ResponseHandler? = nil) -> Request {
+    public class func listCredentials(_ responseHandler: ResponseHandler? = nil) -> Request {
         
         let req = self.init("/credentials", responseHandler: responseHandler)
         req.method = .GET
@@ -16,9 +16,9 @@ extension Request {
 
     /// Deletes a credential. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/deleteCredential)
     
-    public class func deleteCredential(id id: String, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func deleteCredential(id: String, responseHandler: ResponseHandler? = nil) -> Request {
         
-        let safeComponent = id.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+        let safeComponent = id.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
         let req = self.init("/credentials/" + (safeComponent ?? ""), responseHandler: responseHandler)
           // FIXME: blank component will cause error, but we should fail better here
@@ -31,9 +31,9 @@ extension Request {
     
     /// Creates a new credential. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/createCredential)
     
-    public class func createCredential(id id: String, options: CredentialOptions, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func createCredential(id: String, options: CredentialOptions, responseHandler: ResponseHandler? = nil) -> Request {
         
-        let safeComponent = id.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+        let safeComponent = id.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
         let req = self.init("/credentials/" + (safeComponent ?? ""), responseHandler: responseHandler)
           // FIXME: blank component will cause error, but we should fail better here
@@ -47,9 +47,9 @@ extension Request {
     
     /// Updates a credential. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/updateCredential)
     
-    public class func updateCredential(id id: String, options: CredentialOptions, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func updateCredential(id: String, options: CredentialOptions, responseHandler: ResponseHandler? = nil) -> Request {
         
-        let safeComponent = id.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+        let safeComponent = id.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
         let req = self.init("/credentials/" + (safeComponent ?? ""), responseHandler: responseHandler)
           // FIXME: blank component will cause error, but we should fail better here

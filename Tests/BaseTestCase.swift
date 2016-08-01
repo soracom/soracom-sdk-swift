@@ -2,25 +2,13 @@
 
 import XCTest
 
-var oneTimeTestSetupToken: dispatch_once_t  = 0
+var oneTimeTestSetupToken: Int  = 0
 
 /// A base class that implements some common conveniences/hacks for the project's tests. e.g. making async tests require less boilerplate.
 
 class BaseTestCase: XCTestCase {
 
-    /// We override `setUp()` to:
-    ///
-    /// - set the default credentials storage namespace to `BaseTestCase.storageNamespaceForSandboxCredentials`. This lets the tests fetch and use a unique set of credentials. Tests that **write** credentials as part of their testing should do a similar thing, so they do not clobber the credentials used by other tests.
-    /// 
-    /// - run some one-time setup code that tries to log in to the API sandbox using those credentials, to fetch an expiring API Key and API Token, which is needed for most tests that exercise the API.
-    
-    override func setUp() {
-        
-        super.setUp()
-        
-        SoracomCredentials.defaultStorageNamespace = Client.sharedInstance.storageNamespaceForSandboxCredentials
-        
-        dispatch_once(&oneTimeTestSetupToken) {
+    private static var __once: () = {
             
             print("------------------------------")
             print("--- BaseTestCase will now attempt to set up the testing environment for this test run.")
@@ -93,7 +81,21 @@ class BaseTestCase: XCTestCase {
             }
             
             print("------------------------------")
-        }
+        }()
+
+    /// We override `setUp()` to:
+    ///
+    /// - set the default credentials storage namespace to `BaseTestCase.storageNamespaceForSandboxCredentials`. This lets the tests fetch and use a unique set of credentials. Tests that **write** credentials as part of their testing should do a similar thing, so they do not clobber the credentials used by other tests.
+    /// 
+    /// - run some one-time setup code that tries to log in to the API sandbox using those credentials, to fetch an expiring API Key and API Token, which is needed for most tests that exercise the API.
+    
+    override func setUp() {
+        
+        super.setUp()
+        
+        SoracomCredentials.defaultStorageNamespace = Client.sharedInstance.storageNamespaceForSandboxCredentials
+        
+        _ = BaseTestCase.__once
     }
     
     
@@ -101,7 +103,7 @@ class BaseTestCase: XCTestCase {
     
     /// Encode`payload` as JSON, then initializes a new Payload instance with that JSON data. Asserts the newly-decoded payload emits identical JSON, failing otherwise. Returns the new decoded Payloas instance. (This is a convenience for writing tests for model object serialization.)
     
-    func roundTripSerializeDeserialize(payload: Payload) -> Payload? {
+    func roundTripSerializeDeserialize(_ payload: Payload) -> Payload? {
         
         let data = payload.toJSONData()
         
@@ -118,7 +120,7 @@ class BaseTestCase: XCTestCase {
     
     /// Encodes `obj` as a Payload, converts that to JSON data, creates a new Payload by decoding that JSON data, instantiates a new object from that new payload, and returns it. (This is a convenience for writing tests for model object serialization.)
     
-    func roundTripSerializeDeserialize(obj: PayloadConvertible) -> PayloadConvertible? {
+    func roundTripSerializeDeserialize(_ obj: PayloadConvertible) -> PayloadConvertible? {
         
         let payload = obj.toPayload()
         let data    = payload.toJSONData()
@@ -147,14 +149,14 @@ class BaseTestCase: XCTestCase {
     
     /// Creates a test expectation, the same as XCTestCase's `expectationWithDescription()` does. The difference is that it stores the expectation, so keeping the expectation object around in a variable in the test case isn't required. Normally, you end the async section (i.e., fulfill the expectation) by calling `self.endAsyncSection()` from within the async block. However, this method does return the expectation, so that you can capture it and fulfill it the normal XCTestCase way, if you for some reason want to avoid capturing self in the async block.
     
-    func beginAsyncSection(description: String = #function) -> XCTestExpectation {
-        let expectation = expectationWithDescription(description)
+    func beginAsyncSection(_ description: String = #function) -> XCTestExpectation {
+        let expectation = self.expectation(description: description)
         asyncSectionExpectation["\(description)"] = expectation
         return expectation
     }
     
     
-    func endAsyncSection(description: String = #function) {
+    func endAsyncSection(_ description: String = #function) {
         guard let ex = asyncSectionExpectation["\(description)"] else {
             fatalError("Ooops! Your async tests seem fubared.")
         }
@@ -162,8 +164,8 @@ class BaseTestCase: XCTestCase {
     }
     
     
-    func waitForAsyncSection(description: String = #function, timeout: NSTimeInterval = 60.0) {
-        waitForExpectationsWithTimeout(timeout) { error in
+    func waitForAsyncSection(_ description: String = #function, timeout: TimeInterval = 60.0) {
+        waitForExpectations(timeout: timeout) { error in
             if let error = error {
                 print( "waitForExpectationsWithTimeout got error: \(error.localizedDescription)")
             }

@@ -48,7 +48,7 @@ import Foundation
 /// Request handlers call back to the main thread, you cannot start an APIOperation on
 /// the main thread (it will deadlock). They must be started in a background thread.
 
-public class APIOperation: NSOperation {
+public class APIOperation: Operation {
     
     
     /// Init with a Request instance that should run when the operation executes. This is the simple non-deferred case, where the values needed to construct the Request are known up front, and can simply be passed in as parameters.
@@ -79,7 +79,7 @@ public class APIOperation: NSOperation {
 
     override public func main() {
         
-        guard !self.cancelled else {
+        guard !self.isCancelled else {
             return
         }
         
@@ -93,12 +93,12 @@ public class APIOperation: NSOperation {
                 originalHandler(response)
             }
             
-            dispatch_semaphore_signal(self.semaphore);
+            self.semaphore.signal();
         }
         
         req.run(extendedHandler)
         
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        semaphore.wait(timeout: DispatchTime.distantFuture);
     }
     
     
@@ -118,6 +118,6 @@ public class APIOperation: NSOperation {
     
     /// Private internal semaphore that lets us suspend this operation's subthread and wait for the signal that the response handler has been executed (in a separate, arbitrary thread controlled by the OS).
     
-    private let semaphore = dispatch_semaphore_create(0);
+    private let semaphore = DispatchSemaphore(value: 0);
 
 }

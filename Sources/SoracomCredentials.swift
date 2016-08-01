@@ -55,7 +55,7 @@ public struct SoracomCredentials: Equatable {
     
     /// Support initializing from obsolete formats from previous versions of this SDK.
     
-    mutating func checkForObsoleteFormat(dictionary: Dictionary<String, String>) {
+    mutating func checkForObsoleteFormat(_ dictionary: Dictionary<String, String>) {
         let format = dictionary[kAccountCredentialsStorageFormatVersion] ?? "0"
         
         guard let version = Int(format) else {
@@ -75,12 +75,12 @@ public struct SoracomCredentials: Equatable {
     
     /// Initialize from data in JSON format (e.g., that produced by `toJSON()`).
     
-    init(jsonData: NSData) {
+    init(jsonData: Data) {
         
         var dict: [String: String]? = nil
         
         do {
-            let decoded = try NSJSONSerialization.JSONObjectWithData(jsonData, options: [])
+            let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
             if let decoded = decoded as? [String:String] {
                 dict = decoded
             }
@@ -101,7 +101,7 @@ public struct SoracomCredentials: Equatable {
     ///
     /// The `namespace` parameter can typically be omitted.
     
-    init(withStorageIdentifier identifier: String?, namespace: NSUUID? = nil) {
+    init(withStorageIdentifier identifier: String?, namespace: UUID? = nil) {
         
         let base       = identifier ?? SoracomCredentials.defaultStorageIdentifier
         let identifier = SoracomCredentials.buildNamespacedIdentifier( base, namespace: namespace )
@@ -116,7 +116,7 @@ public struct SoracomCredentials: Equatable {
     
     /// Convenience method to return the default saved credentials. Returns a blank credentials struct if nothing is stored under the default identifier. If a non-nil value for `namespace` is not provided, the default namespace is used.
     
-    public static func defaultSavedCredentials(namespace namespace: NSUUID? = nil) -> SoracomCredentials {
+    public static func defaultSavedCredentials(namespace: UUID? = nil) -> SoracomCredentials {
         return self.init(withStorageIdentifier: nil, namespace: namespace)
     }
     
@@ -125,7 +125,7 @@ public struct SoracomCredentials: Equatable {
     ///
     /// The `namespace` parameter can typically be omitted.
         
-    func save(identifier: String? = nil, namespace: NSUUID? = nil) -> Bool {
+    func save(_ identifier: String? = nil, namespace: UUID? = nil) -> Bool {
                 
         let base       = identifier ?? SoracomCredentials.defaultStorageIdentifier
         let identifier = SoracomCredentials.buildNamespacedIdentifier(base, namespace: namespace)
@@ -138,7 +138,7 @@ public struct SoracomCredentials: Equatable {
     
     /// Delete the credential stored under `identifier` in `namespace`. If `namespace` is `nil`, the default namespace is used. Returns `true` on success, `false` otherwise (including if no such stored credential exists).
     
-    public static func delete(identifier identifier: String, namespace: NSUUID? = nil) -> Bool {
+    public static func delete(identifier: String, namespace: UUID? = nil) -> Bool {
         
         let identifier = SoracomCredentials.buildNamespacedIdentifier(identifier, namespace: namespace)
         let result     = Keychain.delete(identifier)
@@ -170,11 +170,11 @@ public struct SoracomCredentials: Equatable {
     
     /// Returns an NSData instance, which contains the receiver's contents as JSON.
     
-    func toJSONData() -> NSData {
+    func toJSONData() -> Data {
         
         do {
             let dict = dictionaryRepresentation()
-            let jsonData = try NSJSONSerialization.dataWithJSONObject(dict, options: .PrettyPrinted)
+            let jsonData = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
             return jsonData
         } catch {
             fatalError("should be impossible: JSON serialization of credentials failed: \(error)")
@@ -205,22 +205,22 @@ public struct SoracomCredentials: Equatable {
     ///
     /// In a more complex case, such as an app that interacts with multiple Soracom accounts, the credentials pertaining to each account could be maintained separately by using a unique namespace for each account.
 
-    static var defaultStorageNamespace: NSUUID = NSUUID(UUIDString: "00000000-0000-0000-0000-DEFDEFDEFDEF")!
+    static var defaultStorageNamespace: UUID = UUID(uuidString: "00000000-0000-0000-0000-DEFDEFDEFDEF")!
 
     
     /// The bundle ID is used to make storage keys unique on a per-app basis (because different apps may make use of this SDK).
     
     static var bundleId: String {
-        return NSBundle.mainBundle().bundleIdentifier ?? "missing-bundle-id"
+        return Bundle.main.bundleIdentifier ?? "missing-bundle-id"
     }
 
     
     /// Get a fully-qualified storage identifier based on `identifier`. If `namespace` and `appIdentifier` are not supplied, the default storage namespace and app `bundleIdentifier` are used, which suffices for most purposes.
     
-    static func buildNamespacedIdentifier(identifier: String, namespace: NSUUID? = nil, appIdentifier: String? = nil) ->  String {
+    static func buildNamespacedIdentifier(_ identifier: String, namespace: UUID? = nil, appIdentifier: String? = nil) ->  String {
         
         let appIdentifier   = appIdentifier ?? SoracomCredentials.bundleId
-        let namespaceString = (namespace ?? defaultStorageNamespace).UUIDString
+        let namespaceString = (namespace ?? defaultStorageNamespace).uuidString
 
         return "\(appIdentifier).\(namespaceString).\(identifier)"
     }

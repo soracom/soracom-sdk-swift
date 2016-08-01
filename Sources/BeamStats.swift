@@ -53,7 +53,7 @@ public struct BeamStats: PayloadConvertible {
         ]
     }
     
-    public static func from(payload: Payload?) -> BeamStats? {
+    public static func from(_ payload: Payload?) -> BeamStats? {
         
         guard let payload = payload else {
             return nil

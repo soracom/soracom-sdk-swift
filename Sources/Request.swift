@@ -157,7 +157,7 @@ public class Request {
     /// For human convenience, this returns the Request's underlying NSURLRequest's `HTTPBody` data, interpreted as a UTF-8 string.
     
     var HTTPBodyText: String? {
-        if let data = URLRequest?.HTTPBody, text = String(data:data, encoding: NSUTF8StringEncoding) {
+        if let data = URLRequest?.httpBody, text = String(data:data, encoding: String.Encoding.utf8) {
             return text
         }
         return nil
@@ -185,9 +185,9 @@ public class Request {
     
     /// Returns the complete URL, based on endpointHost, API version, path, and query.
     
-    func buildURL() -> NSURL {
+    func buildURL() -> URL {
         
-        let urlComponents    = NSURLComponents()
+        var urlComponents    = URLComponents()
         urlComponents.scheme = "https";
         urlComponents.host   = endpointHost
         
@@ -199,21 +199,21 @@ public class Request {
         urlComponents.path = fullPath
         
         if let query = query {
-            var queryItems: [NSURLQueryItem] = []
+            var queryItems: [URLQueryItem] = []
             
-            let keys = query.keys.sort()
+            let keys = query.keys.sorted()
               // preserve stable order to help test cases
             
             for k in keys {
                 if let v = query[k] {
-                    let qi = NSURLQueryItem(name: k, value: v)
+                    let qi = URLQueryItem(name: k, value: v)
                     queryItems.append(qi)
                 }
             }
             urlComponents.queryItems = queryItems
         }
 
-        if let result = urlComponents.URL {
+        if let result = urlComponents.url {
             return result
         } else {
             fatalError("failed to build URL")
@@ -223,8 +223,7 @@ public class Request {
     
     /// Returns a dictionary that can be used as a Request's query, which will then be converted to a HTTP query string per the Soracom API conventions.
     
-    public class func makeQueryDictionary(tagName
-                                    tagName: String?             = nil,
+    public class func makeQueryDictionary(tagName: String?             = nil,
                                    tagValue: String?             = nil,
                           tagValueMatchMode: TagValueMatchMode?  = nil,
                                statusFilter: [SubscriberStatus]? = nil,
@@ -246,14 +245,14 @@ public class Request {
         if let statusFilter = statusFilter {
             if statusFilter.count > 0 {
                 let strings = statusFilter.map {e in e.rawValue}
-                query["status_filter"] = strings.joinWithSeparator("|")
+                query["status_filter"] = strings.joined(separator: "|")
             }
         }
         
         if let speedClassFilter = speedClassFilter {
             if speedClassFilter.count > 0 {
                 let strings = speedClassFilter.map {e in e.rawValue}
-                query["speed_class_filter"] = strings.joinWithSeparator("|")
+                query["speed_class_filter"] = strings.joined(separator: "|")
             }
         }
         
@@ -274,7 +273,7 @@ public class Request {
     ///
     /// (You can opt out of handling the response on the main thread by setting the receiver's `handleResponseInMainThread` property to false.)
     
-    func run(responseHandler: ResponseHandler? = nil) {
+    func run(_ responseHandler: ResponseHandler? = nil) {
         
         let urlRequest  = buildURLRequest()
         self.URLRequest = urlRequest
@@ -285,10 +284,10 @@ public class Request {
             handler(self)
         }
 
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(urlRequest) { data, httpResponse, error -> Void in
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlRequest) { data, httpResponse, error -> Void in
             
-            let httpResponse = httpResponse as? NSHTTPURLResponse
+            let httpResponse = httpResponse as? HTTPURLResponse
             
             let response = Response(request: self, underlyingURLResponse: httpResponse, data: data, underlyingError: error)
         
@@ -299,7 +298,7 @@ public class Request {
             if let responseHandler = responseHandler ?? self.responseHandler {
                 
                 if self.handleResponseInMainThread {
-                    dispatch_sync(dispatch_get_main_queue()) {
+                    DispatchQueue.main.sync {
                         responseHandler(response)
                     }
                 } else {
@@ -316,17 +315,17 @@ public class Request {
     func wait() -> Response {
         
         var result: Response? = nil
-        let waitSemaphore     = dispatch_semaphore_create(0);
+        let waitSemaphore     = DispatchSemaphore(value: 0);
         
         handleResponseInMainThread = false
         
         self.run { (response) in
             
             result  = response
-            dispatch_semaphore_signal(waitSemaphore);
+            waitSemaphore.signal();
         }
         
-        dispatch_semaphore_wait(waitSemaphore, DISPATCH_TIME_FOREVER);
+        waitSemaphore.wait(timeout: DispatchTime.distantFuture);
         
         guard let response = result else {
             let err = APIError(code: "CLI0666", message: "client-side error: synchronous execution failed")
@@ -339,7 +338,7 @@ public class Request {
 
     /// Registers a handler, which is then executed when every request is run. Intended as a convenience for logging, experimentation, and debugging. The handler will be executed just before the Request makes its HTTP request. Handlers are executed **in an arbitrary thread** in the order they are registered.
     
-    public static func beforeRun(handler: RequestWillRunHandler) {
+    public static func beforeRun(_ handler: RequestWillRunHandler) {
         willRunHandlers.append(handler)
     }
     
@@ -348,7 +347,7 @@ public class Request {
     
     /// Registers a handler, which is then executed after every request is run. Intended as a convenience for logging, experimentation, and debugging. The handler will be executed just after the HTTP response has been received (or an error occurs), and immediately before the `responseHandler` executes. Handlers are executed **in an arbitrary thread** in the order they are registered.
 
-    public static func afterRun(handler: RequestDidRunHandler) {
+    public static func afterRun(_ handler: RequestDidRunHandler) {
         didRunHandlers.append(handler)
     }
     
@@ -361,13 +360,13 @@ public class Request {
         
         let URL = buildURL()
         
-        let request = NSMutableURLRequest(URL: URL)
+        let request = NSMutableURLRequest(url: URL)
         
-        request.HTTPMethod = self.method.rawValue
+        request.httpMethod = self.method.rawValue
         
         if let payload = payload
         {
-            request.HTTPBody = payload.toJSONData()
+            request.httpBody = payload.toJSONData() as Data
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         
@@ -400,7 +399,7 @@ public class Request {
     
     private static var nextRequestId: Int64  {
         var result: Int64 = -1
-        dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes.qosDefault).sync {
             result = lastRequestId
             lastRequestId += 1
         }

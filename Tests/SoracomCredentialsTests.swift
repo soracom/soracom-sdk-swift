@@ -129,7 +129,7 @@ class SoracomCredentialsTests: BaseTestCase {
     func test_namespaces() {
         // Mason 2016-04-13: doing the namespace feature test-first.
         
-        let namespaceFromDefaultStr = NSUUID(UUIDString: "00000000-0000-0000-0000-DEFDEFDEFDEF")
+        let namespaceFromDefaultStr = UUID(uuidString: "00000000-0000-0000-0000-DEFDEFDEFDEF")
         XCTAssertNotNil(namespaceFromDefaultStr)
         
         one.save()
@@ -140,8 +140,8 @@ class SoracomCredentialsTests: BaseTestCase {
         read = SoracomCredentials.defaultSavedCredentials()
         XCTAssert(read == two)
         
-        let namespace1 = NSUUID()
-        let namespace2 = NSUUID()
+        let namespace1 = UUID()
+        let namespace2 = UUID()
         
         one.save(namespace: namespace1)
         
@@ -181,16 +181,16 @@ class SoracomCredentialsTests: BaseTestCase {
     
     func test_buildNamespacedIdentifier() {
         
-        guard let bundleId = NSBundle.mainBundle().bundleIdentifier else {
+        guard let bundleId = Bundle.main.bundleIdentifier else {
             XCTFail("this test can't work if bundleId is nil")
             return
         }
         
         let identifier = SoracomCredentials.buildNamespacedIdentifier("foobarbaz")
         
-        XCTAssertEqual(identifier, "\(bundleId).\(SoracomCredentials.defaultStorageNamespace.UUIDString).foobarbaz")
+        XCTAssertEqual(identifier, "\(bundleId).\(SoracomCredentials.defaultStorageNamespace.uuidString).foobarbaz")
         
-        guard let uuid = NSUUID(UUIDString: "A57DC53C-BC86-4306-AFE4-D9F6D663FC69") else {
+        guard let uuid = UUID(uuidString: "A57DC53C-BC86-4306-AFE4-D9F6D663FC69") else {
             XCTFail("wtf")
             return
         }

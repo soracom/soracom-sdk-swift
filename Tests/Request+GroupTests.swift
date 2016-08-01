@@ -168,7 +168,7 @@ class RequestGroupTests: BaseTestCase {
     
     /// Create a Group instance (synchronously) with our standard test properties, do some sanity checks on the response from the API server, and return the group instance (or nil if any error occurred).
     
-    func createGroup(name: String = "group 1") -> Group? {
+    func createGroup(_ name: String = "group 1") -> Group? {
         
         let createRequest  = Request.createGroup(name, tags: ["foo": "bar"])
         let createResponse = createRequest.wait()
@@ -229,7 +229,7 @@ class RequestGroupTests: BaseTestCase {
     
     /// Delete group by ID (synchronously), and return `true` for success, `false` otherwise.
     
-    func deleteGroup(groupId: String) -> Bool {
+    func deleteGroup(_ groupId: String) -> Bool {
         let deleteRequest  = Request.deleteGroup(groupId)
         let deleteResponse = deleteRequest.wait()
         
@@ -241,7 +241,7 @@ class RequestGroupTests: BaseTestCase {
     
     /// Get group by ID (synchronously), and return it.
     
-    func getGroup(groupId: String) -> Group? {
+    func getGroup(_ groupId: String) -> Group? {
         
         let response = Request.getGroup(groupId).wait()
         

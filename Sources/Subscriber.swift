@@ -17,7 +17,7 @@ public struct Subscriber: PayloadConvertible {
         // FIXME: actually we should not set values to ""; they should simply not be present
     }
     
-    public static func from(payload: Payload?) -> Subscriber? {
+    public static func from(_ payload: Payload?) -> Subscriber? {
         
         guard let payload = payload else {
             return nil

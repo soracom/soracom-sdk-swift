@@ -90,7 +90,7 @@ class RegisterSIMTests: BaseTestCase {
     
     /// Register the dummy SIM.
     
-    func registerSubscriber(imsi: String, registrationSecret: String) {
+    func registerSubscriber(_ imsi: String, registrationSecret: String) {
         
         beginAsyncSection()
         
@@ -112,7 +112,7 @@ class RegisterSIMTests: BaseTestCase {
     
     /// Update the speed class.
     
-    func updateSpeedClass(imsi: String, speedClass: SpeedClass) {
+    func updateSpeedClass(_ imsi: String, speedClass: SpeedClass) {
 
         beginAsyncSection()
         
@@ -141,7 +141,7 @@ class RegisterSIMTests: BaseTestCase {
             XCTAssert(response.error == nil)
             
             if let payload = response.payload, list = Subscriber.listFrom(payload) {
-                result.appendContentsOf(list)
+                result.append(contentsOf: list)
             } else {
                 XCTFail("could not get subscriber list")
             }
@@ -156,7 +156,7 @@ class RegisterSIMTests: BaseTestCase {
     
     /// Get the record for the single subscriber referenced by `imsi`.
     
-    func getSubscriber(imsi: String?) {
+    func getSubscriber(_ imsi: String?) {
         
         guard let imsi = imsi else {
             XCTFail("test expectation failure: didn't get IMSI")

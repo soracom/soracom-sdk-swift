@@ -22,7 +22,7 @@ public struct Group: PayloadConvertible {
     var operatorId: String? = nil
     var tags: [String:String]? = nil
     
-    public static func from(payload: Payload?) -> Group? {
+    public static func from(_ payload: Payload?) -> Group? {
         
         guard let payload = payload else {
             return nil
@@ -49,12 +49,12 @@ public struct Group: PayloadConvertible {
         }
         
         if let n = payload[.createdTime] as? NSNumber {
-            result.createdTime = n.longLongValue
+            result.createdTime = n.int64Value
         }
         result.groupId = payload[.groupId] as? String ?? "error"
         
         if let n = payload[.lastModifiedTime] as? NSNumber {
-            result.lastModifiedTime = n.longLongValue
+            result.lastModifiedTime = n.int64Value
         }
         
         result.operatorId = payload[.operatorId] as? String

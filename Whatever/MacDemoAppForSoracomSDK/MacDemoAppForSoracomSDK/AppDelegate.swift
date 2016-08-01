@@ -24,7 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     /// Initial housekeeping
     
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         
         apiClient.logger = { (str: String, attrs: TextStyle) in
             self.log(str, attrs: attrs)
@@ -39,14 +39,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // request and response made. This is easy to do using beforeRun() and afterRun():
         
         Request.beforeRun { (request) in
-            dispatch_async(dispatch_get_main_queue()) {
-                self.log("\(request)", attrs: .Blue)
+            DispatchQueue.main.async {
+                self.log("\(request)", attrs: .blue)
             }
         }
         
         Request.afterRun { (response) in
-            dispatch_async(dispatch_get_main_queue()) {
-                let attrs: TextStyle = response.error != nil ? .Red : .Green
+            DispatchQueue.main.async {
+                let attrs: TextStyle = response.error != nil ? .red : .green
                 self.log("\(response)", attrs: attrs)
             }
         }
@@ -69,15 +69,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     /// NSControl delegate — used to notice when the user edits credentials, and save them.
     
-    override func controlTextDidChange(obj: NSNotification) {
+    override func controlTextDidChange(_ obj: Notification) {
         
         if let control = obj.object as? NSTextField {
             
             if control == authKeyIDField || control == authKeySecretField  {
             
                 let sel = #selector(AppDelegate.saveCredentials)
-                NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: sel, object: nil)
-                self.performSelector(sel, withObject: nil, afterDelay: 0.3, inModes: [NSRunLoopCommonModes])
+                NSObject.cancelPreviousPerformRequests(withTarget: self, selector: sel, object: nil)
+                self.perform(sel, with: nil, afterDelay: 0.3, inModes: [RunLoopMode.commonModes])
             }
         }
     }
@@ -116,8 +116,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     /// Utility func.
     
-    func copyStringToPasteboard(str: String) {
-        let pasteBoard = NSPasteboard.generalPasteboard()
+    func copyStringToPasteboard(_ str: String) {
+        let pasteBoard = NSPasteboard.general()
         pasteBoard.clearContents()
         pasteBoard.writeObjects([str])
     }
@@ -125,12 +125,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     /// Log the text in the main window, color-coded for clarity.
     
-    func log(str: String, attrs: TextStyle = .Normal) {
+    func log(_ str: String, attrs: TextStyle = .normal) {
         
-        func appendOutput(text: String, attrs: [String:AnyObject]) {
+        func appendOutput(_ text: String, attrs: [String:AnyObject]) {
             // We should at some point move this to extension of NSTextView
-            let attrStr = NSAttributedString(string: text, attributes: attrs)
-            outputTextView.textStorage!.appendAttributedString(attrStr)
+            let attrStr = AttributedString(string: text, attributes: attrs)
+            outputTextView.textStorage!.append(attrStr)
             outputTextView.scrollRangeToVisible(NSRange(location: outputTextView.textStorage!.length, length: 0))
         }
         var padded = str
@@ -148,22 +148,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     // MARK: - UI actions
     
-    @IBAction func clearLog(sender: AnyObject) {
-        let cleared = NSAttributedString(string: "", attributes: [NSFontAttributeName: NSFont.userFixedPitchFontOfSize(10.0)!])
+    @IBAction func clearLog(_ sender: AnyObject) {
+        let cleared = AttributedString(string: "", attributes: [NSFontAttributeName: NSFont.userFixedPitchFont(ofSize: 10.0)!])
         outputTextView.textStorage?.setAttributedString(cleared)
     }
     
-    @IBAction func copyAuthKeyID(sender: AnyObject) {
+    @IBAction func copyAuthKeyID(_ sender: AnyObject) {
         copyStringToPasteboard(Client.sharedInstance.credentialsForProductionSAMUser.authKeyID)
     }
     
     
-    @IBAction func copyAuthKeySecret(sender: AnyObject) {
+    @IBAction func copyAuthKeySecret(_ sender: AnyObject) {
         copyStringToPasteboard(Client.sharedInstance.credentialsForProductionSAMUser.authKeySecret)
     }
     
     
-    @IBAction func createSandboxUser(sender: AnyObject) {
+    @IBAction func createSandboxUser(_ sender: AnyObject) {
         
         let emailAddress = sandboxUserEmailField.stringValue
         let password     = sandboxUserPasswordField.stringValue
@@ -172,12 +172,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
 
-    @IBAction func authWithSandboxUserCredentials(sender: AnyObject) {
+    @IBAction func authWithSandboxUserCredentials(_ sender: AnyObject) {
         apiClient.authenticateSandboxUserAndUpdateStoredCredentials()
     }
     
     
-    @IBAction func deleteSandboxUserCredentials(sender: AnyObject) {
+    @IBAction func deleteSandboxUserCredentials(_ sender: AnyObject) {
         
         log("🚀 Will try to delete the stored credentials for the API Sandbox user...")
         
@@ -200,17 +200,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     
-    @IBAction func createSandboxSIMs(sender: AnyObject) {
+    @IBAction func createSandboxSIMs(_ sender: AnyObject) {
         apiClient.createSandboxSIM()
     }
     
     
-    @IBAction func listSandboxSIMs(sender: AnyObject) {
+    @IBAction func listSandboxSIMs(_ sender: AnyObject) {
         apiClient.listSandboxSIMs()
     }
     
     
-    @IBAction func updateRedactionOption(sender: NSButton) {
+    @IBAction func updateRedactionOption(_ sender: NSButton) {
         let newValue = sender.state == NSOnState
         RequestResponseFormatter.shouldRedact = newValue
         log("Redaction set to \(newValue ? "ON" : "OFF").")

@@ -13,7 +13,7 @@ import Foundation
 
 public enum TextStyle {
 
-    case Normal, Red, Blue, Green
+    case normal, red, blue, green
 
 
 #if os(OSX)
@@ -21,14 +21,14 @@ public enum TextStyle {
     
     var attributes: [String:AnyObject] {
         switch self {
-        case Red:
-            return [NSFontAttributeName: NSFont.userFixedPitchFontOfSize(10.0)!, NSForegroundColorAttributeName: NSColor.redColor()]
-        case Green:
-            return [NSFontAttributeName: NSFont.userFixedPitchFontOfSize(10.0)!, NSForegroundColorAttributeName: NSColor(red:0.0, green: 0.6, blue: 0.0, alpha: 1.0)]
-        case Blue:
-            return [NSFontAttributeName: NSFont.userFixedPitchFontOfSize(10.0)!, NSForegroundColorAttributeName: NSColor.blueColor()]
+        case red:
+            return [NSFontAttributeName: NSFont.userFixedPitchFont(ofSize: 10.0)!, NSForegroundColorAttributeName: NSColor.red()]
+        case green:
+            return [NSFontAttributeName: NSFont.userFixedPitchFont(ofSize: 10.0)!, NSForegroundColorAttributeName: NSColor(red:0.0, green: 0.6, blue: 0.0, alpha: 1.0)]
+        case blue:
+            return [NSFontAttributeName: NSFont.userFixedPitchFont(ofSize: 10.0)!, NSForegroundColorAttributeName: NSColor.blue()]
         default:
-            return [NSFontAttributeName: NSFont.userFixedPitchFontOfSize(10.0)!]
+            return [NSFontAttributeName: NSFont.userFixedPitchFont(ofSize: 10.0)!]
         }
     }
     

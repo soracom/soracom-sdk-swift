@@ -51,7 +51,7 @@ class APIStructuresTests: BaseTestCase {
         foo.type             = "type bro"
         foo.updateDateTime   = 666
         
-        guard let encoded = foo.toPayload().toJSON()?.dataUsingEncoding(NSUTF8StringEncoding) else {
+        guard let encoded = foo.toPayload().toJSON()?.data(using: String.Encoding.utf8) else {
             XCTFail()
             return
         }

@@ -10,11 +10,11 @@ class BaseTestCaseTests: BaseTestCase {
         
         beginAsyncSection()
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes.qosDefault).async {
             x += "bar"
-            NSThread.sleepForTimeInterval(0.001)
+            Thread.sleep(forTimeInterval: 0.001)
             x += "baz"
-            NSThread.sleepForTimeInterval(0.001)
+            Thread.sleep(forTimeInterval: 0.001)
             x += "😬"
             
             self.endAsyncSection()

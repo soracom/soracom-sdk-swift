@@ -5,8 +5,7 @@ extension Request {
     
     /// List registered subcribers (SIMs). ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Subscriber/listSubscribers))
     
-    public class func listSubscribers(tagName
-                                      tagName: String?             = nil,
+    public class func listSubscribers(tagName: String?             = nil,
                                      tagValue: String?             = nil,
                             tagValueMatchMode: TagValueMatchMode?  = nil,
                                  statusFilter: [SubscriberStatus]? = nil,
@@ -28,7 +27,7 @@ extension Request {
     
     /// Register a subscriber (a SIM). ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Subscriber/registerSubscriber))
     
-    public class func registerSubscriber(imsi: String, registrationSecret: String, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func registerSubscriber(_ imsi: String, registrationSecret: String, responseHandler: ResponseHandler? = nil) -> Request {
         
         let req = self.init("/subscribers/\(imsi)/register", responseHandler: responseHandler)
         
@@ -46,7 +45,7 @@ extension Request {
     
     /// Get the properties of a single subscriber (a SIM). ([API Documentation](https://dev.soracom.io/jp/docs/api/#!/Subscriber/getSubscriber))
     
-    public class func getSubscriber(imsi: String,responseHandler: ResponseHandler? = nil) -> Request {
+    public class func getSubscriber(_ imsi: String,responseHandler: ResponseHandler? = nil) -> Request {
 
         let req = self.init("/subscribers/\(imsi)", responseHandler: responseHandler)
         req.method = .GET
@@ -56,7 +55,7 @@ extension Request {
     
     /// Update speed class of a subscriber (a SIM). ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Subscriber/updateSpeedClass))
     
-    public class func updateSpeedClass(imsi: String, speedClass: SpeedClass, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func updateSpeedClass(_ imsi: String, speedClass: SpeedClass, responseHandler: ResponseHandler? = nil) -> Request {
 
         let req = self.init("/subscribers/\(imsi)/update_speed_class", responseHandler: responseHandler)
         

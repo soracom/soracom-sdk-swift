@@ -28,7 +28,7 @@ class PayloadTests: XCTestCase {
             .credentials      : "bar",
             .credentialsId    : "baz",
             .description      : "ass",
-            .lastUsedDateTime : NSNumber(longLong: 7),
+            .lastUsedDateTime : NSNumber(value: 7),
             .type             : "hat",
             .updateDateTime   : 1,
         ]
@@ -49,7 +49,7 @@ class PayloadTests: XCTestCase {
             .credentials      : "bar",
             .credentialsId    : "baz",
             .description      : "ass",
-            .lastUsedDateTime : NSNumber(longLong: 7),
+            .lastUsedDateTime : NSNumber(value: 7),
             .type             : "hat",
             .updateDateTime   : 1,
             ]
@@ -76,7 +76,7 @@ class PayloadTests: XCTestCase {
     func test_toDictionary() {
         let p: Payload = [
             .email          : "foo@bar.com",
-            .updateDateTime : NSNumber(longLong: 5),
+            .updateDateTime : NSNumber(value: 5),
             .type           : "yes"
         ]
         
@@ -87,7 +87,7 @@ class PayloadTests: XCTestCase {
         
         let expected: [String:AnyObject] = [
             "email"          : "foo@bar.com",
-            "updateDateTime" : NSNumber(longLong: 5),
+            "updateDateTime" : NSNumber(value: 5),
             "type"           : "yes"
         ]
         XCTAssertEqual(actual as NSDictionary, expected as NSDictionary)
@@ -147,13 +147,13 @@ class PayloadTests: XCTestCase {
     func test_fromDictionary() {
         let d = [
             "email"          : "foo@bar.com",
-            "updateDateTime" : NSNumber(longLong: 5),
+            "updateDateTime" : NSNumber(value: 5),
             "type"           : "yes"
         ]
 
         let expected: Payload = [
             .email          : "foo@bar.com",
-            .updateDateTime : NSNumber(longLong: 5),
+            .updateDateTime : NSNumber(value: 5),
             .type           : "yes"
         ]
         
@@ -189,19 +189,19 @@ class PayloadTests: XCTestCase {
     func test_equatable() {
         let one: Payload = [
             .email          : "foo@bar.com",
-            .updateDateTime : NSNumber(longLong: 5),
+            .updateDateTime : NSNumber(value: 5),
             .type           : "yes"
         ]
         
         let two: Payload = [
             .email          : "foo@bar.com",
-            .updateDateTime : NSNumber(longLong: 5),
+            .updateDateTime : NSNumber(value: 5),
             .type           : "yes"
         ]
         
         let three: Payload = [
             .email          : "foo@bar.com",
-            .updateDateTime : NSNumber(longLong: 5),
+            .updateDateTime : NSNumber(value: 5),
             .type           : "♬ one of these kids is doing his own thing..."
         ]
         

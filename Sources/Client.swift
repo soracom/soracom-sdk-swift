@@ -149,12 +149,12 @@ public class Client {
         authReq.run { (response) in
             
             if let payload = response.payload,
-                apiKey  = payload[.apiKey] as? String,
-                token   = payload[.token] as? String
+                let apiKey = payload[.apiKey] as? String,
+                let token  = payload[.token] as? String
             {
                 credentials.apiKey = apiKey
                 credentials.token  = token
-                credentials.save()
+                _ = credentials.save()
                 
                 self.sandboxUserAuthenticationStatus = "🆗 Authenticated as: \(credentials.emailAddress)"
                 self.helpMessage = ""
@@ -202,7 +202,7 @@ public class Client {
             
             } else {
                 
-                if let payload = response.payload, token = payload[.token] as? String {
+                if let payload = response.payload, let token = payload[.token] as? String {
 
                     self.log("Authenticated successfully. 😁")
 
@@ -230,7 +230,7 @@ public class Client {
         
         let req = Request.createSandboxSubscriber() { (response) in
             
-            if let payload = response.payload, imsi = payload[.imsi] as? String, secret = payload[.registrationSecret] as? String{
+            if let payload = response.payload, let imsi = payload[.imsi] as? String, let secret = payload[.registrationSecret] as? String{
                 
                 let registerRequest = Request.registerSubscriber(imsi, registrationSecret: secret)
                 self.queue.addOperation(APIOperation(registerRequest))
@@ -337,7 +337,7 @@ public class Client {
                 if let token = response.payload?[.token] as? String {
                     
                     let tokenCredentials = SoracomCredentials(token: token)
-                    tokenCredentials.save(sandboxUserTokenIdentifier)
+                    _ = tokenCredentials.save(sandboxUserTokenIdentifier)
                     
                     self.log("The token for the sandbox user has been saved for use in the next step.")
                     self.log("No errors occurred, so the next operation in the queue will be run.")
@@ -623,7 +623,7 @@ public class Client {
     /// Store the credentials in secure persistent storage (i.e., system keychain), as the default credentials in the namespace appropriate for `user`.
     
     public func saveCredentials(_ credentials: SoracomCredentials, user: User) {
-        credentials.save(namespace: storageNamespaceForUser(user))
+        _ = credentials.save(namespace: storageNamespaceForUser(user))
           // the SDK demo apps are simple 
     }
     

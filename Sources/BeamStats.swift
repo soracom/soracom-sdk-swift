@@ -60,16 +60,16 @@ public struct BeamStats: PayloadConvertible {
         }
         
         guard let inHttp   = payload[.inHttp]   as? Int,
-                  inMqtt   = payload[.inMqtt]   as? Int,
-                  inTcp    = payload[.inTcp]    as? Int,
-                  inUdp    = payload[.inUdp]    as? Int,
-                  outHttp  = payload[.outHttp]  as? Int,
-                  outHttps = payload[.outHttps] as? Int,
-                  outMqtt  = payload[.outMqtt]  as? Int,
-                  outMqtts = payload[.outMqtts] as? Int,
-                  outTcp   = payload[.outTcp]   as? Int,
-                  outTcps  = payload[.outTcps]  as? Int,
-                  outUdp   = payload[.outUdp]   as? Int
+              let inMqtt   = payload[.inMqtt]   as? Int,
+              let inTcp    = payload[.inTcp]    as? Int,
+              let inUdp    = payload[.inUdp]    as? Int,
+              let outHttp  = payload[.outHttp]  as? Int,
+              let outHttps = payload[.outHttps] as? Int,
+              let outMqtt  = payload[.outMqtt]  as? Int,
+              let outMqtts = payload[.outMqtts] as? Int,
+              let outTcp   = payload[.outTcp]   as? Int,
+              let outTcps  = payload[.outTcps]  as? Int,
+              let outUdp   = payload[.outUdp]   as? Int
         else {
             return nil
         }

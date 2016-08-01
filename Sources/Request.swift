@@ -157,7 +157,7 @@ public class Request {
     /// For human convenience, this returns the Request's underlying NSURLRequest's `HTTPBody` data, interpreted as a UTF-8 string.
     
     var HTTPBodyText: String? {
-        if let data = URLRequest?.httpBody, text = String(data:data, encoding: String.Encoding.utf8) {
+        if let data = URLRequest?.httpBody, let text = String(data:data, encoding: String.Encoding.utf8) {
             return text
         }
         return nil
@@ -235,7 +235,7 @@ public class Request {
         
         var query: [String:String] = [:]
         
-        if let name = tagName, value = tagValue, mode = tagValueMatchMode {
+        if let name = tagName, let value = tagValue, let mode = tagValueMatchMode {
             
             query["tag_name"]             = name
             query["tag_value"]            = value
@@ -325,7 +325,7 @@ public class Request {
             waitSemaphore.signal();
         }
         
-        waitSemaphore.wait(timeout: DispatchTime.distantFuture);
+        _ = waitSemaphore.wait(timeout: DispatchTime.distantFuture);
         
         guard let response = result else {
             let err = APIError(code: "CLI0666", message: "client-side error: synchronous execution failed")

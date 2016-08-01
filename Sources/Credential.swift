@@ -31,8 +31,8 @@ public struct Credential: PayloadConvertible {
         }
         
         if let credentialsDict = payload[.credentials] as? [String : AnyObject],
-            subload         = Payload.fromDictionary(credentialsDict),
-            accessKeyId     = subload[.accessKeyId] as? String
+           let subload         = Payload.fromDictionary(credentialsDict),
+           let accessKeyId     = subload[.accessKeyId] as? String
         {
             let secret = subload[.secretAccessKey] as? String // this normally won't be present
             result.credentials = Credentials(accessKeyId: accessKeyId, secretAccessKey: secret)

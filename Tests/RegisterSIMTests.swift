@@ -42,7 +42,7 @@ class RegisterSIMTests: BaseTestCase {
     
     func createSandboxSubscriber() -> (IMSI: String, registrationSecret: String) {
         
-        beginAsyncSection()
+        _ = beginAsyncSection()
         
         var IMSI = "BOGUS"
         var registrationSecret = "BOGUS"
@@ -92,7 +92,7 @@ class RegisterSIMTests: BaseTestCase {
     
     func registerSubscriber(_ imsi: String, registrationSecret: String) {
         
-        beginAsyncSection()
+        _ = beginAsyncSection()
         
         let req = Request.registerSubscriber(imsi, registrationSecret: registrationSecret)
         req.run { (response) in
@@ -114,7 +114,7 @@ class RegisterSIMTests: BaseTestCase {
     
     func updateSpeedClass(_ imsi: String, speedClass: SpeedClass) {
 
-        beginAsyncSection()
+        _ = beginAsyncSection()
         
         let req = Request.updateSpeedClass(imsi, speedClass: speedClass)
         
@@ -130,7 +130,7 @@ class RegisterSIMTests: BaseTestCase {
     
     func listSubscribers() -> [Subscriber] {
         
-        beginAsyncSection()
+        _ = beginAsyncSection()
         
         let req = Request.listSubscribers(speedClassFilter: [.s1_fast], limit: 999);
         
@@ -140,7 +140,7 @@ class RegisterSIMTests: BaseTestCase {
         
             XCTAssert(response.error == nil)
             
-            if let payload = response.payload, list = Subscriber.listFrom(payload) {
+            if let payload = response.payload, let list = Subscriber.listFrom(payload) {
                 result.append(contentsOf: list)
             } else {
                 XCTFail("could not get subscriber list")
@@ -163,7 +163,7 @@ class RegisterSIMTests: BaseTestCase {
             return
         }
         
-        beginAsyncSection()
+        _ = beginAsyncSection()
         
         let req = Request.getSubscriber(imsi)
         

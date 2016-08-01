@@ -135,7 +135,7 @@ class PayloadTests: XCTestCase {
             return
         }
 
-        guard let decoded = Payload.fromDictionary(encoded), recoded = decoded.toDictionary() else {
+        guard let decoded = Payload.fromDictionary(encoded), let recoded = decoded.toDictionary() else {
             XCTFail()
             return
         }
@@ -160,7 +160,7 @@ class PayloadTests: XCTestCase {
         let actual       =  Payload.fromDictionary(d)
         
         if let actual = actual {
-            guard let actualDict = actual.toDictionary(), expectedDict = expected.toDictionary() else {
+            guard let actualDict = actual.toDictionary(), let expectedDict = expected.toDictionary() else {
                 XCTFail()
                 return
             }

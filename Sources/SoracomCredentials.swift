@@ -36,7 +36,7 @@ public struct SoracomCredentials: Equatable {
     
     init(withDictionary dictionary: Dictionary<String, String>) {
         
-        if let typeName = dictionary[kType], validType = SoracomCredentialType(rawValue: typeName) {
+        if let typeName = dictionary[kType], let validType = SoracomCredentialType(rawValue: typeName) {
             self.type = validType
         }
         

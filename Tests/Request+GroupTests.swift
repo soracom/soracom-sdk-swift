@@ -54,7 +54,7 @@ class RequestGroupTests: BaseTestCase {
         var group1 = createGroup()
         var group2 = createGroup()
         
-        guard let groupId1 = group1?.groupId, groupId2 = group2?.groupId else {
+        guard let groupId1 = group1?.groupId, let groupId2 = group2?.groupId else {
             XCTFail("failed to create groups")
             return
         }
@@ -68,7 +68,7 @@ class RequestGroupTests: BaseTestCase {
         group1 = getGroup(groupId1)
         group2 = getGroup(groupId2)
         
-        guard let tags1 = group1?.tags, tags2 = group2?.tags else {
+        guard let tags1 = group1?.tags, let tags2 = group2?.tags else {
             XCTFail("expected to get tags for both groups")
             return
         }
@@ -106,7 +106,7 @@ class RequestGroupTests: BaseTestCase {
             ConfigurationParameter(key: "toast", value: "jam"),
         ]
         
-        Request.putConfigurationParameters(groupId, namespace: .SoracomAir, parameters: params).wait()
+        _ = Request.putConfigurationParameters(groupId, namespace: .SoracomAir, parameters: params).wait()
         
         let result = getGroup(groupId)
         

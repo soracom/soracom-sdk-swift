@@ -54,7 +54,7 @@ extension PayloadConvertible {
         var result: [Self] = []
         
         for d in (root as NSArray) {
-            if let dict = d as? [String: AnyObject], subload = Payload.fromDictionary(dict) {
+            if let dict = d as? [String: AnyObject], let subload = Payload.fromDictionary(dict) {
                 if let c = Self.from(subload) {
                     result.append(c)
                 }

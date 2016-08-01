@@ -98,7 +98,7 @@ public class APIOperation: Operation {
         
         req.run(extendedHandler)
         
-        semaphore.wait(timeout: DispatchTime.distantFuture);
+        _ = semaphore.wait(timeout: DispatchTime.distantFuture);
     }
     
     

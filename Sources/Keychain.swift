@@ -80,7 +80,7 @@ public class Keychain {
     /// Convenience method to read a UTF-8 string.
     
     public static func readString(_ key: String) -> String? {
-        if let data = read(key), stringValue = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
+        if let data = read(key), let stringValue = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
             return stringValue as String
         } else {
             return nil

@@ -9,7 +9,7 @@ extension Date {
     init(soracomTimestamp: Int64) {
         
         let timeIntervalSince1970 = Double(soracomTimestamp) / 1000.0
-        (self as NSDate).init(timeIntervalSince1970: timeIntervalSince1970)
+        self = Date.init(timeIntervalSince1970: timeIntervalSince1970)
     }
     
     var soracomTimestampValue: Int64 {

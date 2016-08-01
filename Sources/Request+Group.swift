@@ -108,7 +108,7 @@ extension Request {
     
     public class func deleteConfigurationParameter(_ groupId: String, namespace: ConfigurationParametersNamespace, parameterName: String, responseHandler: ResponseHandler? = nil) -> Request {
         
-        let encodedName = parameterName.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed())
+        let encodedName = parameterName.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)
         
         // Mason 2016-06-30: FIXME: We don't currently have a way to make a request fail with an error before it is run. I think we probably should, but it is beyond the scope of what I am currently working on. I want to think about it more. Subclass that overrides run(), wait() and any other future methods that execute the request? Or extend Request itself to have some kind pre-execute error property that run(), wait() etc respect? Or other? Deferring by marking FIXME here because we really don't want to be careless with parameters that control data getting deleted. For now, though, this kludge:
         

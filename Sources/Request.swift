@@ -285,7 +285,7 @@ public class Request {
         }
 
         let session = URLSession.shared
-        let task = session.dataTask(with: urlRequest) { data, httpResponse, error -> Void in
+        let task = session.dataTask(with: (urlRequest as URLRequest)) { data, httpResponse, error -> Void in
             
             let httpResponse = httpResponse as? HTTPURLResponse
             

@@ -598,7 +598,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -612,7 +612,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = "";
 			};
 			name = Release;
 		};
@@ -625,7 +625,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacDemoAppForSoracomSDK.app/Contents/MacOS/MacDemoAppForSoracomSDK";
 			};
 			name = Debug;
@@ -640,7 +640,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacDemoAppForSoracomSDK.app/Contents/MacOS/MacDemoAppForSoracomSDK";
 			};
 			name = Release;

@@ -21,12 +21,12 @@ public enum TextStyle {
     
     var attributes: [String:AnyObject] {
         switch self {
-        case red:
-            return [NSFontAttributeName: NSFont.userFixedPitchFont(ofSize: 10.0)!, NSForegroundColorAttributeName: NSColor.red()]
-        case green:
+        case .red:
+            return [NSFontAttributeName: NSFont.userFixedPitchFont(ofSize: 10.0)!, NSForegroundColorAttributeName: NSColor.red]
+        case .green:
             return [NSFontAttributeName: NSFont.userFixedPitchFont(ofSize: 10.0)!, NSForegroundColorAttributeName: NSColor(red:0.0, green: 0.6, blue: 0.0, alpha: 1.0)]
-        case blue:
-            return [NSFontAttributeName: NSFont.userFixedPitchFont(ofSize: 10.0)!, NSForegroundColorAttributeName: NSColor.blue()]
+        case .blue:
+            return [NSFontAttributeName: NSFont.userFixedPitchFont(ofSize: 10.0)!, NSForegroundColorAttributeName: NSColor.blue]
         default:
             return [NSFontAttributeName: NSFont.userFixedPitchFont(ofSize: 10.0)!]
         }

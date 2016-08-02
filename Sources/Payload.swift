@@ -28,7 +28,7 @@ import Foundation
 /// (That second form is also fine, perhaps even preferred, but Xcode (7.3 as of this writing) isn't quite smart enough
 /// to autocomplete the key name when you do it that way.)
 
-public final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Equatable {
+public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, Equatable {
     
     public static func from(_ payload: Payload?) -> Payload? {
         // FIXME: this is just a hack for conformance to PayloadConvertible. FIXME: It really shold be making a copy.

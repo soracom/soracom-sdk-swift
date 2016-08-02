@@ -195,7 +195,7 @@ Authenticated successfully. 😁
 
 This introduces the `Payload` object. Both `Request` and `Response` use the `Payload` class to represent the data payload that is sent in the HTTP message body.
 
-The `Payload` class is in many ways similar to a Swift dictionary (although it can also represent an array). It conforms to the `DictionaryLiteralConvertible` protocol, so it can be initialized like a Swift dictionary:
+The `Payload` class is in many ways similar to a Swift dictionary (although it can also represent an array). It conforms to the `ExpressibleByDictionaryLiteral` protocol, so it can be initialized like a Swift dictionary:
 
 ```swift
 let p: Payload = [

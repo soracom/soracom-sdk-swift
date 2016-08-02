@@ -399,7 +399,8 @@ public class Request {
     
     private static var nextRequestId: Int64  {
         var result: Int64 = -1
-        DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes.qosDefault).sync {
+        
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).sync {
             result = lastRequestId
             lastRequestId += 1
         }

@@ -129,7 +129,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         func appendOutput(_ text: String, attrs: [String:AnyObject]) {
             // We should at some point move this to extension of NSTextView
-            let attrStr = AttributedString(string: text, attributes: attrs)
+            let attrStr = NSAttributedString(string: text, attributes: attrs)
             outputTextView.textStorage!.append(attrStr)
             outputTextView.scrollRangeToVisible(NSRange(location: outputTextView.textStorage!.length, length: 0))
         }
@@ -149,7 +149,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - UI actions
     
     @IBAction func clearLog(_ sender: AnyObject) {
-        let cleared = AttributedString(string: "", attributes: [NSFontAttributeName: NSFont.userFixedPitchFont(ofSize: 10.0)!])
+        let cleared = NSAttributedString(string: "", attributes: [NSFontAttributeName: NSFont.userFixedPitchFont(ofSize: 10.0)!])
         outputTextView.textStorage?.setAttributedString(cleared)
     }
     

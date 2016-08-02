@@ -10,7 +10,7 @@ class BaseTestCaseTests: BaseTestCase {
         
         beginAsyncSection()
         
-        DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes.qosDefault).async {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             x += "bar"
             Thread.sleep(forTimeInterval: 0.001)
             x += "baz"

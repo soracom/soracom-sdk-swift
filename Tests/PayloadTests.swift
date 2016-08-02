@@ -223,7 +223,10 @@ class PayloadTests: XCTestCase {
         
         let expected = "[\n  {\n    \"downloadByteSizeTotal\" : 1,\n    \"downloadPacketSizeTotal\" : 1,\n    \"uploadByteSizeTotal\" : 1,\n    \"uploadPacketSizeTotal\" : 1\n  },\n  {\n    \"downloadByteSizeTotal\" : 2,\n    \"downloadPacketSizeTotal\" : 2,\n    \"uploadByteSizeTotal\" : 2,\n    \"uploadPacketSizeTotal\" : 2\n  }\n]"
         
-        XCTAssertEqual(expected, actual)
+        // XCTAssertEqual(expected, actual) // ← so fragile! works but breaks with every OS update... so I wrote isEquivalentJSON() instead:
+        
+        let isEquivalent = isEquivalentJSON(actual, expected)
+        XCTAssertTrue(isEquivalent)
     }
     
     

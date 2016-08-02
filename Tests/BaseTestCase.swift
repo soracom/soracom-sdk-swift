@@ -171,4 +171,25 @@ class BaseTestCase: XCTestCase {
         }
     }
     
+    
+    // MARK: - General utility functions
+    
+    
+    /// Decodes JSON using Foundation, then returns `true` if the resulting Foundation objects claim to be equal (via `isEqual()`). Intended only for use with actual valid JSON strings that `JSONSerialziation` can decode; if any failure occurs decoding JSON, this method not only returns `false`, but also calls `XCTFail()`.
+    
+    func isEquivalentJSON(_ lhs: String, _ rhs: String) -> Bool {
+        
+        guard let lData = lhs.data(using: .utf8),
+            let rData = rhs.data(using: .utf8),
+            let obj1  = try? JSONSerialization.jsonObject(with: lData, options: []),
+            let obj2  = try? JSONSerialization.jsonObject(with: rData, options: [])
+            else {
+                XCTFail("isEquivalentJSON() only works with two valid JSON strings; will now call XCTFail() and return false. ")
+                return false
+        }
+        
+        return obj1.isEqual(obj2);
+    }
+    
+
 }

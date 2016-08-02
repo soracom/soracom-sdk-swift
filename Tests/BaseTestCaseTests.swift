@@ -24,4 +24,12 @@ class BaseTestCaseTests: BaseTestCase {
         XCTAssert(x == "foobarbaz😬")
     }
     
+    
+    func test_isEquivalentJSON() {
+        let yep  = isEquivalentJSON("{\"a\":[], \"b\": {}}", "{\"b\":    {}, \"a\":    []}")
+        let nope = isEquivalentJSON("{\"a\":[]}", "{\"a\": {}}")
+        XCTAssertTrue(yep)
+        XCTAssertFalse(nope)
+    }
+    
 }

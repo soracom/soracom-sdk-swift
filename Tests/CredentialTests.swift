@@ -23,9 +23,11 @@ class CredentialTests: BaseTestCase {
         let c  = Credential(description: "consummate credential")
         
         let outgoing = Payload(list: [a,b,c])
-        let incoming = roundTripSerializeDeserialize(outgoing)
         
-        guard let list = Credential.listFrom(incoming) else {
+        
+        guard let incoming = roundTripSerializeDeserialize(outgoing),
+              let list = Credential.listFrom(incoming.toPayload())
+        else {
             XCTFail()
             return
         }

@@ -101,9 +101,9 @@ class BaseTestCase: XCTestCase {
     
     // MARK: - Round-trip serialization testing conveniences
     
-    /// Encode`payload` as JSON, then initializes a new Payload instance with that JSON data. Asserts the newly-decoded payload emits identical JSON, failing otherwise. Returns the new decoded Payloas instance. (This is a convenience for writing tests for model object serialization.)
+    /// Encode`payload` as JSON, then initializes a new Payload instance with that JSON data. Asserts the newly-decoded payload emits identical JSON, failing otherwise. Returns the new decoded Payload instance. (This is a convenience for writing tests for model object serialization.)
     
-    func roundTripSerializeDeserialize(_ payload: Payload) -> Payload? {
+    func roundTripSerializeDeserialize(_ payload: Payload, caller: StaticString = #function) -> Payload? {
         
         let data = payload.toJSONData()
         
@@ -112,6 +112,7 @@ class BaseTestCase: XCTestCase {
             return nil
         }
         
+        // Mason 2016-08-02: If testing for binary identicality ever becomes an issue causing spurious failures, convert to isEquivalentJSON() like below.
         XCTAssertEqual(data, decodedPayload?.toJSONData())
         
         return decodedPayload
@@ -124,7 +125,7 @@ class BaseTestCase: XCTestCase {
         
         let payload = obj.toPayload()
         let data    = payload.toJSONData()
-        
+
         guard let decodedPayload = try? Payload(data: data) else {
             XCTFail()
             return nil
@@ -135,7 +136,22 @@ class BaseTestCase: XCTestCase {
             return nil
         }
         
-        XCTAssertEqual(decodedObject.toPayload().toJSONData(), data)
+        // XCTAssertEqual(decodedObject.toPayload().toJSONData(), data)
+        //
+        // I no longer do this becuase key order is not deterministic, or at least I
+        // don't know what determines that order, and this caused spurious failures.
+        // Instead:
+        
+        let data2 = decodedObject.toPayload().toJSONData()
+        
+        guard let json  = String(data: data, encoding: .utf8),
+              let json2 = String(data: data2, encoding: .utf8)
+        else {
+            XCTFail()
+            return nil
+        }
+        
+        XCTAssertTrue(isEquivalentJSON(json, json2))
         
         return decodedObject
     }

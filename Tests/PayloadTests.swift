@@ -2,7 +2,7 @@
 
 import XCTest
 
-class PayloadTests: XCTestCase {
+class PayloadTests: BaseTestCase {
     
 
     func test_basic_set_and_get() {

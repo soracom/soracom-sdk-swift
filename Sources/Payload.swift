@@ -411,12 +411,12 @@ public func ==(lhs: Payload, rhs: Payload) -> Bool
 
 // MARK: - Error types
 
-enum PayloadDecodeError: ErrorProtocol {
+enum PayloadDecodeError: Error {
     case unsupportedJSONRootObjectType
     case invalidTextEncodingError // data not UTF-8
     case expectedDataNotPresent
 }
 
-enum PayloadEncodeError: ErrorProtocol {
+enum PayloadEncodeError: Error {
     case jsonConversionFailed
 }

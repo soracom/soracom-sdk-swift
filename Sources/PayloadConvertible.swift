@@ -8,7 +8,7 @@ import Foundation
 
 protocol PayloadConvertible {
     
-    static func from(payload: Payload?) -> Self?
+    static func from(_ payload: Payload?) -> Self?
     
     func toPayload() -> Payload
 
@@ -38,14 +38,14 @@ extension PayloadConvertible {
     ///
     /// This obviously isn't useful for objects that really do need to deserialize an instance from a payload; it's just here to satisfy the protocol conformance requirement for those objects that don't need to. 
     
-    static func from(payload: Payload?) -> Self? {
+    static func from(_ payload: Payload?) -> Self? {
         fatalError("protocol version called bro!") // for now, to help me catch errors
     }
 
     
     /// Returns an array of instances decoded from `payload` (assuming that `payload` actually encodes an array of the right record type). Returns nil if the root object of `payload` is `nil` or not an array.
     
-    static func listFrom(payload: Payload?) -> [Self]? {
+    static func listFrom(_ payload: Payload?) -> [Self]? {
         
         guard let root = payload?.toArray() else {
             return nil
@@ -54,7 +54,7 @@ extension PayloadConvertible {
         var result: [Self] = []
         
         for d in (root as NSArray) {
-            if let dict = d as? [String: AnyObject], subload = Payload.fromDictionary(dict) {
+            if let dict = d as? [String: AnyObject], let subload = Payload.fromDictionary(dict) {
                 if let c = Self.from(subload) {
                     result.append(c)
                 }

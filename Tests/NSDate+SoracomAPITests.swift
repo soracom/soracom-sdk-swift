@@ -8,7 +8,7 @@ class NSDateSoracomAPITests: XCTestCase {
 
     func test_conversions() {
         
-        let bday = NSDate(soracomTimestamp: birthday)
+        let bday = Date(soracomTimestamp: birthday)
         
         let expected = "1974-09-05 00:00:00 +0000"
         let actual   = bday.description

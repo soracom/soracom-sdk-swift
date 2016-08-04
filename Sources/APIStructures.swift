@@ -68,7 +68,7 @@ public struct AirStats: PayloadConvertible {
     
     func toPayload() -> Payload {
         
-        let result: Payload = [.unixtime: NSNumber(longLong: unixtime)]
+        let result: Payload = [.unixtime: NSNumber(value: unixtime)]
         
         let dataTrafficStatsMap: Payload = [:]
         
@@ -108,9 +108,9 @@ public struct Tag: PayloadConvertible {
     }
     
     
-    public static func from(payload: Payload?) -> Tag? {
+    public static func from(_ payload: Payload?) -> Tag? {
         
-        guard let payload = payload, name = payload[.tagName] as? String, value = payload[.tagValue] as? String else {
+        guard let payload = payload, let name = payload[.tagName] as? String, let value = payload[.tagValue] as? String else {
             return nil
         }
         return Tag(tagName: name, tagValue: value)
@@ -138,7 +138,7 @@ public struct ConfigurationParameter: PayloadConvertible {
     
     init?(payload: Payload?) {
         
-        guard let payload = payload, k = payload[.key] as? String, v = payload[.value] as? String else {
+        guard let payload = payload, let k = payload[.key] as? String, let v = payload[.value] as? String else {
             return nil
         }
         key   = k

@@ -6,7 +6,7 @@ extension Request {
     
     /// Register a new operator. In the sandbox environment, this is one of the first steps that needs to be done. ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Operator/createOperator))
     
-    public class func createOperator(email: String, password: String, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func createOperator(_ email: String, password: String, responseHandler: ResponseHandler? = nil) -> Request {
         
         let req = self.init("/operators", responseHandler: responseHandler)
         
@@ -42,7 +42,7 @@ extension Request {
     
     /// Verify an operator. ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Operator/verifyOperator))
     
-    public class func verifyOperator(token token: String, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func verifyOperator(token: String, responseHandler: ResponseHandler? = nil) -> Request {
         
         let req = self.init("/operators/verify", responseHandler: responseHandler)
         

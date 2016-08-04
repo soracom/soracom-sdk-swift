@@ -29,7 +29,7 @@ public class Client {
     
     /// Logs `str` using the `logger` logging implementation if set, otherwise using the default implementation (equivalent to `print()`).
     
-    func log(str: String, attrs: TextStyle = .Normal) {
+    func log(_ str: String, attrs: TextStyle = .normal) {
         
         guard let logger = logger else {
             print(str)
@@ -51,7 +51,7 @@ public class Client {
     
     /// Cancel all queued operations and log a message to that effect.
     
-    func cancelAllOperations(errorObj: Any? = nil) {
+    func cancelAllOperations(_ errorObj: Any? = nil) {
         self.queue.cancelAllOperations()
         log("Because there was an error, all queued operations have been canceled.")
         log("The error was: \(errorObj ?? "unknown error")")
@@ -105,7 +105,7 @@ public class Client {
     
     /// Attempts to authenticate using `credentials`. Upon success, this returns a copy or `credentials` with the updated API key and token returned by the server.
     
-    func synchronousUpdateToken(credentials: SoracomCredentials?) -> SoracomCredentials? {
+    func synchronousUpdateToken(_ credentials: SoracomCredentials?) -> SoracomCredentials? {
         
         guard let credentials = credentials else {
             return nil
@@ -128,14 +128,14 @@ public class Client {
     }
 
     
-    public func authenticateAsSandboxUser(recreateOnFailure: Bool = false) {
+    public func authenticateAsSandboxUser(_ recreateOnFailure: Bool = false) {
         
         var credentials = credentialsForSandboxUser
-        let nc = NSNotificationCenter.defaultCenter()
+        let nc = NotificationCenter.default
         
         guard !credentials.blank else {
             sandboxUserAuthenticationStatus = "⚠️ There is no API Sandbox user. To create one, enter your credentials in Settings."
-            nc.postNotificationName(Notifications.SandboxUserAuthenticationDidUpdate, object: nil)
+            nc.post(name: Notification.Name(rawValue: Notifications.SandboxUserAuthenticationDidUpdate), object: nil)
             
             if recreateOnFailure {
                 self.createSandboxUser()
@@ -149,12 +149,12 @@ public class Client {
         authReq.run { (response) in
             
             if let payload = response.payload,
-                apiKey  = payload[.apiKey] as? String,
-                token   = payload[.token] as? String
+                let apiKey = payload[.apiKey] as? String,
+                let token  = payload[.token] as? String
             {
                 credentials.apiKey = apiKey
                 credentials.token  = token
-                credentials.save()
+                _ = credentials.save()
                 
                 self.sandboxUserAuthenticationStatus = "🆗 Authenticated as: \(credentials.emailAddress)"
                 self.helpMessage = ""
@@ -172,7 +172,7 @@ public class Client {
                 }
             }
             
-            nc.postNotificationName(Notifications.SandboxUserAuthenticationDidUpdate, object: nil)
+            nc.post(name: Notification.Name(rawValue: Notifications.SandboxUserAuthenticationDidUpdate), object: nil)
         }
     }
     
@@ -202,7 +202,7 @@ public class Client {
             
             } else {
                 
-                if let payload = response.payload, token = payload[.token] as? String {
+                if let payload = response.payload, let token = payload[.token] as? String {
 
                     self.log("Authenticated successfully. 😁")
 
@@ -230,7 +230,7 @@ public class Client {
         
         let req = Request.createSandboxSubscriber() { (response) in
             
-            if let payload = response.payload, imsi = payload[.imsi] as? String, secret = payload[.registrationSecret] as? String{
+            if let payload = response.payload, let imsi = payload[.imsi] as? String, let secret = payload[.registrationSecret] as? String{
                 
                 let registerRequest = Request.registerSubscriber(imsi, registrationSecret: secret)
                 self.queue.addOperation(APIOperation(registerRequest))
@@ -248,7 +248,7 @@ public class Client {
     
     /// List all sandbox SIMs
     func listSandboxSIMs() {
-        log("🚀 Will try to list all SIMs (aka 'subscribers') that are regsitered in the API Sandbox...")
+        log("🚀 Will try to list all SIMs (aka 'subscribers') that are registered in the API Sandbox...")
         
         let req = Request.listSubscribers()
         let op  = APIOperation(req)
@@ -260,7 +260,7 @@ public class Client {
     
     /// Queues a series of asynchronous operations to create a new user in the API sandbox. This is a multi-step process. Using the operation queue, we can run the different steps sequentially, waiting on each before running the next. Returns nothing, because the operations queued by this function will be executed at a later time.
     
-    func createSandboxUser(productionCredentials: SoracomCredentials? = nil, email: String? = nil, password: String? = nil) {
+    func createSandboxUser(_ productionCredentials: SoracomCredentials? = nil, email: String? = nil, password: String? = nil) {
         
         // FIXME: make read/write credentials overridable somehow
         // FIXME: then, add a unit test for this, which tests this method without affecting stored credentials used elsewhere
@@ -284,14 +284,14 @@ public class Client {
             return
         }
 
-        func makeValid(orig: String?, _ sub: String) -> String {
+        func makeValid(_ orig: String?, _ sub: String) -> String {
             guard let orig = orig else {
                 return sub
             }
             return orig == "" ? sub : orig
         }
         
-        let uuid     = NSUUID().UUIDString
+        let uuid     = UUID().uuidString
         let email    = makeValid(email, "\(uuid)@example.com")
         let password = makeValid(password, "\(uuid)aBc0157$")
     
@@ -337,7 +337,7 @@ public class Client {
                 if let token = response.payload?[.token] as? String {
                     
                     let tokenCredentials = SoracomCredentials(token: token)
-                    tokenCredentials.save(sandboxUserTokenIdentifier)
+                    _ = tokenCredentials.save(sandboxUserTokenIdentifier)
                     
                     self.log("The token for the sandbox user has been saved for use in the next step.")
                     self.log("No errors occurred, so the next operation in the queue will be run.")
@@ -385,7 +385,7 @@ public class Client {
                     
                     // And, tell the user:
                     
-                    self.log("No errors occurred. The sandbox user was created in the API Sandbox successfully, and the sandbox user's credentials were stored under the special namespace \(self.storageNamespaceForSandboxCredentials.UUIDString):")
+                    self.log("No errors occurred. The sandbox user was created in the API Sandbox successfully, and the sandbox user's credentials were stored under the special namespace \(self.storageNamespaceForSandboxCredentials.uuidString):")
                     self.log("  Email Address: \(email)")
                     self.log("  Password:      \(password)")
                 }
@@ -435,11 +435,11 @@ public class Client {
     
     /// Create a user in the API Sandbox, returning the new user's credentials if successful, otherwise nil.
     
-    func synchronousCreateSandboxUser(productionCredentials: SoracomCredentials, email: String? = nil, password: String? = nil) -> SoracomCredentials? {
+    func synchronousCreateSandboxUser(_ productionCredentials: SoracomCredentials, email: String? = nil, password: String? = nil) -> SoracomCredentials? {
         
         print("CREATE SANDBOX USER")
         
-        let uuid     = NSUUID().UUIDString
+        let uuid     = UUID().uuidString
         let email    = email    ?? "\(uuid)@example.com"
         let password = password ?? "\(uuid)aBc0157$"
         
@@ -583,17 +583,17 @@ public class Client {
     
     /// This credentials storage namespace is used when **actual production** credentials are needed. Note that this is sometimes true of the automated tests; some tests need credentials for a real Soracom SAM user, in order to create an account in the API sandbox. (Note: this namespace is just defined for convenience, so that the demo apps and automated tests can use the same namespaces.)
     
-    public let storageNamespaceForProductionCredentials = NSUUID(UUIDString: "454BA030-3DBC-4D09-BFC3-35CE9C7BDFFF")!
+    public let storageNamespaceForProductionCredentials = UUID(uuidString: "454BA030-3DBC-4D09-BFC3-35CE9C7BDFFF")!
     
     
     /// This credentials storage namespace is intended for API Sandbox credentials. Most tests that make network requests to exercise API functions need these credentials. Writing any other credentials to this namespace should be avoided.
     
-    public let storageNamespaceForSandboxCredentials = NSUUID(UUIDString: "DEAE490F-0A00-49CD-B2AF-401215E15122")!
+    public let storageNamespaceForSandboxCredentials = UUID(uuidString: "DEAE490F-0A00-49CD-B2AF-401215E15122")!
     
     
     /// This credentials storage namespace is used when tests need to read/write credentials as part of their test work. This namespace should be used when the credentials are only needed during the execution of a single test. Various test cases may write to this namespace, so no assumptions should be made about what it contains.
     
-    public let storageNamespaceForJunkCredentials = NSUUID(UUIDString: "FE083FA9-79CB-4D61-9E12-9BD609C9743B")!
+    public let storageNamespaceForJunkCredentials = UUID(uuidString: "FE083FA9-79CB-4D61-9E12-9BD609C9743B")!
     
     
     /// Returns the credentials for the API Sandbox user. (May be blank.)
@@ -614,7 +614,7 @@ public class Client {
     
     /// Returns the stored credentials corresponding to `user` (or a blank SoracomCredentials struct if none are stored).
     
-    public func credentialsForUser(user: User) -> SoracomCredentials {
+    public func credentialsForUser(_ user: User) -> SoracomCredentials {
         
         return SoracomCredentials(withStorageIdentifier: nil, namespace: storageNamespaceForUser(user))
     }
@@ -622,8 +622,8 @@ public class Client {
     
     /// Store the credentials in secure persistent storage (i.e., system keychain), as the default credentials in the namespace appropriate for `user`.
     
-    public func saveCredentials(credentials: SoracomCredentials, user: User) {
-        credentials.save(namespace: storageNamespaceForUser(user))
+    public func saveCredentials(_ credentials: SoracomCredentials, user: User) {
+        _ = credentials.save(namespace: storageNamespaceForUser(user))
           // the SDK demo apps are simple 
     }
     
@@ -635,7 +635,7 @@ public class Client {
     
     /// Returns the storage namespace for the given user. (This implementation is for the SDK demo apps, which have simple requirements; all the possible user types are known in advance.)
     
-    public func storageNamespaceForUser(user: User) -> NSUUID {
+    public func storageNamespaceForUser(_ user: User) -> UUID {
         
         switch user {
         

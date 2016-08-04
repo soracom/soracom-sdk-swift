@@ -2,25 +2,13 @@
 
 import XCTest
 
-var oneTimeTestSetupToken: dispatch_once_t  = 0
+var oneTimeTestSetupToken: Int  = 0
 
 /// A base class that implements some common conveniences/hacks for the project's tests. e.g. making async tests require less boilerplate.
 
 class BaseTestCase: XCTestCase {
 
-    /// We override `setUp()` to:
-    ///
-    /// - set the default credentials storage namespace to `BaseTestCase.storageNamespaceForSandboxCredentials`. This lets the tests fetch and use a unique set of credentials. Tests that **write** credentials as part of their testing should do a similar thing, so they do not clobber the credentials used by other tests.
-    /// 
-    /// - run some one-time setup code that tries to log in to the API sandbox using those credentials, to fetch an expiring API Key and API Token, which is needed for most tests that exercise the API.
-    
-    override func setUp() {
-        
-        super.setUp()
-        
-        SoracomCredentials.defaultStorageNamespace = Client.sharedInstance.storageNamespaceForSandboxCredentials
-        
-        dispatch_once(&oneTimeTestSetupToken) {
+    private static var __once: () = {
             
             print("------------------------------")
             print("--- BaseTestCase will now attempt to set up the testing environment for this test run.")
@@ -93,15 +81,29 @@ class BaseTestCase: XCTestCase {
             }
             
             print("------------------------------")
-        }
+        }()
+
+    /// We override `setUp()` to:
+    ///
+    /// - set the default credentials storage namespace to `BaseTestCase.storageNamespaceForSandboxCredentials`. This lets the tests fetch and use a unique set of credentials. Tests that **write** credentials as part of their testing should do a similar thing, so they do not clobber the credentials used by other tests.
+    /// 
+    /// - run some one-time setup code that tries to log in to the API sandbox using those credentials, to fetch an expiring API Key and API Token, which is needed for most tests that exercise the API.
+    
+    override func setUp() {
+        
+        super.setUp()
+        
+        SoracomCredentials.defaultStorageNamespace = Client.sharedInstance.storageNamespaceForSandboxCredentials
+        
+        _ = BaseTestCase.__once
     }
     
     
     // MARK: - Round-trip serialization testing conveniences
     
-    /// Encode`payload` as JSON, then initializes a new Payload instance with that JSON data. Asserts the newly-decoded payload emits identical JSON, failing otherwise. Returns the new decoded Payloas instance. (This is a convenience for writing tests for model object serialization.)
+    /// Encode`payload` as JSON, then initializes a new Payload instance with that JSON data. Asserts the newly-decoded payload emits identical JSON, failing otherwise. Returns the new decoded Payload instance. (This is a convenience for writing tests for model object serialization.)
     
-    func roundTripSerializeDeserialize(payload: Payload) -> Payload? {
+    func roundTripSerializeDeserialize(_ payload: Payload, caller: StaticString = #function) -> Payload? {
         
         let data = payload.toJSONData()
         
@@ -110,6 +112,7 @@ class BaseTestCase: XCTestCase {
             return nil
         }
         
+        // Mason 2016-08-02: If testing for binary identicality ever becomes an issue causing spurious failures, convert to isEquivalentJSON() like below.
         XCTAssertEqual(data, decodedPayload?.toJSONData())
         
         return decodedPayload
@@ -118,11 +121,11 @@ class BaseTestCase: XCTestCase {
     
     /// Encodes `obj` as a Payload, converts that to JSON data, creates a new Payload by decoding that JSON data, instantiates a new object from that new payload, and returns it. (This is a convenience for writing tests for model object serialization.)
     
-    func roundTripSerializeDeserialize(obj: PayloadConvertible) -> PayloadConvertible? {
+    func roundTripSerializeDeserialize(_ obj: PayloadConvertible) -> PayloadConvertible? {
         
         let payload = obj.toPayload()
         let data    = payload.toJSONData()
-        
+
         guard let decodedPayload = try? Payload(data: data) else {
             XCTFail()
             return nil
@@ -133,7 +136,22 @@ class BaseTestCase: XCTestCase {
             return nil
         }
         
-        XCTAssertEqual(decodedObject.toPayload().toJSONData(), data)
+        // XCTAssertEqual(decodedObject.toPayload().toJSONData(), data)
+        //
+        // I no longer do this becuase key order is not deterministic, or at least I
+        // don't know what determines that order, and this caused spurious failures.
+        // Instead:
+        
+        let data2 = decodedObject.toPayload().toJSONData()
+        
+        guard let json  = String(data: data, encoding: .utf8),
+              let json2 = String(data: data2, encoding: .utf8)
+        else {
+            XCTFail()
+            return nil
+        }
+        
+        XCTAssertTrue(isEquivalentJSON(json, json2))
         
         return decodedObject
     }
@@ -145,16 +163,15 @@ class BaseTestCase: XCTestCase {
     private var asyncSectionExpectation: [String: XCTestExpectation] = [:]
     
     
-    /// Creates a test expectation, the same as XCTestCase's `expectationWithDescription()` does. The difference is that it stores the expectation, so keeping the expectation object around in a variable in the test case isn't required. Normally, you end the async section (i.e., fulfill the expectation) by calling `self.endAsyncSection()` from within the async block. However, this method does return the expectation, so that you can capture it and fulfill it the normal XCTestCase way, if you for some reason want to avoid capturing self in the async block.
+    /// Creates a test expectation, the same as XCTestCase's `expectationWithDescription()` does. The difference is that it stores the expectation, so keeping the expectation object around in a variable in the test case isn't required. Normally, you end the async section (i.e., fulfill the expectation) by calling `self.endAsyncSection()` from within the async block. **Note:** This method used to return the expectation, so that you could capture it and fulfill it the normal XCTestCase way, if you for some reason want to avoid capturing self in the async block. But, ignoring return values became more annoying in Swift 3, so this was changed. Now it just stashes the newly-created expectation in `self.asyncSectionExpectation`, so if you really need it (not normally true) you have to get it from there.
     
-    func beginAsyncSection(description: String = #function) -> XCTestExpectation {
-        let expectation = expectationWithDescription(description)
+    func beginAsyncSection(_ description: String = #function) {
+        let expectation = self.expectation(description: description)
         asyncSectionExpectation["\(description)"] = expectation
-        return expectation
     }
     
     
-    func endAsyncSection(description: String = #function) {
+    func endAsyncSection(_ description: String = #function) {
         guard let ex = asyncSectionExpectation["\(description)"] else {
             fatalError("Ooops! Your async tests seem fubared.")
         }
@@ -162,12 +179,33 @@ class BaseTestCase: XCTestCase {
     }
     
     
-    func waitForAsyncSection(description: String = #function, timeout: NSTimeInterval = 60.0) {
-        waitForExpectationsWithTimeout(timeout) { error in
+    func waitForAsyncSection(_ description: String = #function, timeout: TimeInterval = 60.0) {
+        waitForExpectations(timeout: timeout) { error in
             if let error = error {
                 print( "waitForExpectationsWithTimeout got error: \(error.localizedDescription)")
             }
         }
     }
     
+    
+    // MARK: - General utility functions
+    
+    
+    /// Decodes JSON using Foundation, then returns `true` if the resulting Foundation objects claim to be equal (via `isEqual()`). Intended only for use with actual valid JSON strings that `JSONSerialziation` can decode; if any failure occurs decoding JSON, this method not only returns `false`, but also calls `XCTFail()`.
+    
+    func isEquivalentJSON(_ lhs: String, _ rhs: String) -> Bool {
+        
+        guard let lData = lhs.data(using: .utf8),
+            let rData = rhs.data(using: .utf8),
+            let obj1  = try? JSONSerialization.jsonObject(with: lData, options: []),
+            let obj2  = try? JSONSerialization.jsonObject(with: rData, options: [])
+            else {
+                XCTFail("isEquivalentJSON() only works with two valid JSON strings; will now call XCTFail() and return false. ")
+                return false
+        }
+        
+        return obj1.isEqual(obj2);
+    }
+    
+
 }

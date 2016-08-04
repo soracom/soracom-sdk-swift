@@ -10,11 +10,11 @@ class BaseTestCaseTests: BaseTestCase {
         
         beginAsyncSection()
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             x += "bar"
-            NSThread.sleepForTimeInterval(0.001)
+            Thread.sleep(forTimeInterval: 0.001)
             x += "baz"
-            NSThread.sleepForTimeInterval(0.001)
+            Thread.sleep(forTimeInterval: 0.001)
             x += "😬"
             
             self.endAsyncSection()
@@ -22,6 +22,14 @@ class BaseTestCaseTests: BaseTestCase {
         waitForAsyncSection()
         
         XCTAssert(x == "foobarbaz😬")
+    }
+    
+    
+    func test_isEquivalentJSON() {
+        let yep  = isEquivalentJSON("{\"a\":[], \"b\": {}}", "{\"b\":    {}, \"a\":    []}")
+        let nope = isEquivalentJSON("{\"a\":[]}", "{\"a\": {}}")
+        XCTAssertTrue(yep)
+        XCTAssertFalse(nope)
     }
     
 }

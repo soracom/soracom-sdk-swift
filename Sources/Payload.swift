@@ -28,9 +28,9 @@ import Foundation
 /// (That second form is also fine, perhaps even preferred, but Xcode (7.3 as of this writing) isn't quite smart enough
 /// to autocomplete the key name when you do it that way.)
 
-public final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Equatable {
+public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, Equatable {
     
-    public static func from(payload: Payload?) -> Payload? {
+    public static func from(_ payload: Payload?) -> Payload? {
         // FIXME: this is just a hack for conformance to PayloadConvertible. FIXME: It really shold be making a copy.
         return payload
     }
@@ -38,37 +38,37 @@ public final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Eq
     
     /// Init a Payload from data (which should be UTF-8 encoded JSON).
     
-    init?(data: NSData?) throws {
+    init?(data: Data?) throws {
         
         guard let data = data else {
             return nil // not an error — nil data means payload should also be nil (means nonexistent)
         }
         
-        guard String(data: data, encoding: NSUTF8StringEncoding) != nil else {
-            throw PayloadDecodeError.InvalidTextEncodingError
+        guard String(data: data, encoding: String.Encoding.utf8) != nil else {
+            throw PayloadDecodeError.invalidTextEncodingError
         }
         
-        guard data != NSData() else {
+        guard data != Data() else {
             // Mason 2016-07-01: is this an appropriate way to handle this? What are the rules governing whether we get nil or and empty NSData instance?
-            rootObjectType = .ForeignDictionary
+            rootObjectType = .foreignDictionary
             return
         }
         
-        let obj = try NSJSONSerialization.JSONObjectWithData(data, options: [])
+        let obj = try JSONSerialization.jsonObject(with: data, options: [])
         
         if let dict = obj as? [String:AnyObject] {
             
-            rootObjectType = .ForeignDictionary
+            rootObjectType = .foreignDictionary
             self.parseRootObject(dict)
             
         } else if let array = obj as? [AnyObject] {
             
-            rootObjectType = .ForeignArray
+            rootObjectType = .foreignArray
             self.parseRootObject(array)
             
         } else {
             
-            throw PayloadDecodeError.UnsupportedJSONRootObjectType
+            throw PayloadDecodeError.unsupportedJSONRootObjectType
         }
     }
     
@@ -77,7 +77,7 @@ public final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Eq
     
     public init(dictionaryLiteral elements: (PayloadKey, AnyObject)...) {
         
-        rootObjectType = .NativeDictionary
+        rootObjectType = .nativeDictionary
         
         for (k,v) in elements {
             self[k] = v
@@ -89,7 +89,7 @@ public final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Eq
     
     init(list: [Any]) {
         
-        rootObjectType = .NativeArray
+        rootObjectType = .nativeArray
         
         self.rootArray = list
     }
@@ -109,7 +109,7 @@ public final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Eq
 
         self.init(list: [])
         
-        rootObjectType = .NativeArray
+        rootObjectType = .nativeArray
         for cp in configurationParameterList {
             self.rootArray.append(cp)
         }
@@ -141,7 +141,7 @@ public final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Eq
     
     // MARK: - Decoding
     
-    func parseRootObject(dictionary: [String:AnyObject]) {
+    func parseRootObject(_ dictionary: [String:AnyObject]) {
         
         for (k,v) in dictionary {
             
@@ -158,7 +158,7 @@ public final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Eq
     }
     
     
-    func parseRootObject(foreignArray: [AnyObject]) {
+    func parseRootObject(_ foreignArray: [AnyObject]) {
         
         // Mason 2016-07-01: cannot just do this:
         //     array = foreignArray
@@ -175,7 +175,7 @@ public final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Eq
     
     /// Returns a 'basic' object representation of `value` suitable for encoding as JSON. (A 'basic' value here means something NSJSONSerialization can handle.) This includes converting native objects like Subscriber or BeamStats to generic dictionaries, etc.
     
-    func coerceValueToBasicType(oldValue: Any) -> AnyObject? {
+    func coerceValueToBasicType(_ oldValue: Any) -> AnyObject? {
         
         if let newValue = oldValue as? Subscriber {
             return newValue.toPayload().toDictionary()
@@ -215,7 +215,7 @@ public final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Eq
         
         // FIXME: think about renaming this. toForeignDictionary()?
         
-        guard rootObjectType == .ForeignDictionary || rootObjectType == .NativeDictionary else {
+        guard rootObjectType == .foreignDictionary || rootObjectType == .nativeDictionary else {
             return nil
         }
         
@@ -244,7 +244,7 @@ public final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Eq
 
     func toArray() -> [AnyObject]? {
         
-        guard rootObjectType == .ForeignArray || rootObjectType == .NativeArray else {
+        guard rootObjectType == .foreignArray || rootObjectType == .nativeArray else {
             return nil
         }
         
@@ -267,7 +267,7 @@ public final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Eq
     
     /// Initialize and return a new Payload instance from `src`. 
     
-    static func fromDictionary(src: [String: AnyObject]) -> Payload? {
+    static func fromDictionary(_ src: [String: AnyObject]) -> Payload? {
         
         let result = self.init()
         
@@ -287,43 +287,43 @@ public final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Eq
     /// Returns its contents as a JSON UTF-8 string.
     
     func toJSON() -> String? {
-        let result = String(data: toJSONData(), encoding: NSUTF8StringEncoding)
+        let result = String(data: toJSONData(), encoding: String.Encoding.utf8)
         return result
     }
     
     
     /// Returns an NSData instance, which contains the receiver's contents as JSON (as UTF-8 string). The main purpose of this is for encoding a payload to send to the API server with a request, but it's also useful for tests.
     
-    func toJSONData() -> NSData {
+    func toJSONData() -> Data {
         
         do {
             var obj: AnyObject?
             
             switch rootObjectType {
                 
-                case .NativeDictionary:
+                case .nativeDictionary:
                     obj = toDictionary()
                 
-                case .ForeignDictionary:
+                case .foreignDictionary:
                     obj = toDictionary()
                 
-                case .NativeArray:
+                case .nativeArray:
                     obj = toArray()
                 
-                case .ForeignArray:
+                case .foreignArray:
                     obj = toArray()
             }
             
             guard let rootObj = obj else {
-                throw PayloadEncodeError.JSONConversionFailed
+                throw PayloadEncodeError.jsonConversionFailed
             }
             
-            let jsonData = try NSJSONSerialization.dataWithJSONObject(rootObj, options: .PrettyPrinted)
+            let jsonData = try JSONSerialization.data(withJSONObject: rootObj, options: .prettyPrinted)
             return jsonData
             
         } catch {
             print("JSON encode error: \(error)")
-            return NSData()
+            return Data()
             
             // FIXME: still thinking about how to properly handle this kind of error. Seems like it should be a fatal error.
         }
@@ -356,10 +356,10 @@ public final class Payload: DictionaryLiteralConvertible, PayloadConvertible, Eq
 /// (**NOTE:** So far, array and dicttionary are the only two fundamental types I have encountered in the HTTP message body, but I have not yet examined the entire API. As far as the design of Payload goes, it should be able to support any valid JSON root object type (a topic on which various RFCs and implementations have [different opinions](http://stackoverflow.com/questions/3833299/can-an-array-be-top-level-json-text/3833312#3833312)...). However, I am not going to actually implement support for any other types until we neeed them. )
 
 private enum PayloadRootObjectType {
-    case NativeDictionary
-    case ForeignDictionary
-    case NativeArray
-    case ForeignArray
+    case nativeDictionary
+    case foreignDictionary
+    case nativeArray
+    case foreignArray
 }
 
 
@@ -377,7 +377,7 @@ public func ==(lhs: Payload, rhs: Payload) -> Bool
     
     let type = lhs.rootObjectType
     
-    if type == .NativeDictionary ||  type == .ForeignDictionary {
+    if type == .nativeDictionary ||  type == .foreignDictionary {
         
         let leftDict  = lhs.toDictionary()
         let rightDict = rhs.toDictionary()
@@ -389,7 +389,7 @@ public func ==(lhs: Payload, rhs: Payload) -> Bool
         } else {
             return (leftDict! as NSDictionary) == (rightDict! as NSDictionary)
         }
-    } else if type == .NativeArray || type == .ForeignArray {
+    } else if type == .nativeArray || type == .foreignArray {
         
         let leftArray  = lhs.toArray()
         let rightArray = rhs.toArray()
@@ -411,12 +411,12 @@ public func ==(lhs: Payload, rhs: Payload) -> Bool
 
 // MARK: - Error types
 
-enum PayloadDecodeError: ErrorType {
-    case UnsupportedJSONRootObjectType
-    case InvalidTextEncodingError // data not UTF-8
-    case ExpectedDataNotPresent
+enum PayloadDecodeError: Error {
+    case unsupportedJSONRootObjectType
+    case invalidTextEncodingError // data not UTF-8
+    case expectedDataNotPresent
 }
 
-enum PayloadEncodeError: ErrorType {
-    case JSONConversionFailed
+enum PayloadEncodeError: Error {
+    case jsonConversionFailed
 }

@@ -42,7 +42,7 @@ class RegisterSIMTests: BaseTestCase {
     
     func createSandboxSubscriber() -> (IMSI: String, registrationSecret: String) {
         
-        beginAsyncSection()
+        _ = beginAsyncSection()
         
         var IMSI = "BOGUS"
         var registrationSecret = "BOGUS"
@@ -90,9 +90,9 @@ class RegisterSIMTests: BaseTestCase {
     
     /// Register the dummy SIM.
     
-    func registerSubscriber(imsi: String, registrationSecret: String) {
+    func registerSubscriber(_ imsi: String, registrationSecret: String) {
         
-        beginAsyncSection()
+        _ = beginAsyncSection()
         
         let req = Request.registerSubscriber(imsi, registrationSecret: registrationSecret)
         req.run { (response) in
@@ -112,9 +112,9 @@ class RegisterSIMTests: BaseTestCase {
     
     /// Update the speed class.
     
-    func updateSpeedClass(imsi: String, speedClass: SpeedClass) {
+    func updateSpeedClass(_ imsi: String, speedClass: SpeedClass) {
 
-        beginAsyncSection()
+        _ = beginAsyncSection()
         
         let req = Request.updateSpeedClass(imsi, speedClass: speedClass)
         
@@ -130,7 +130,7 @@ class RegisterSIMTests: BaseTestCase {
     
     func listSubscribers() -> [Subscriber] {
         
-        beginAsyncSection()
+        _ = beginAsyncSection()
         
         let req = Request.listSubscribers(speedClassFilter: [.s1_fast], limit: 999);
         
@@ -140,8 +140,8 @@ class RegisterSIMTests: BaseTestCase {
         
             XCTAssert(response.error == nil)
             
-            if let payload = response.payload, list = Subscriber.listFrom(payload) {
-                result.appendContentsOf(list)
+            if let payload = response.payload, let list = Subscriber.listFrom(payload) {
+                result.append(contentsOf: list)
             } else {
                 XCTFail("could not get subscriber list")
             }
@@ -156,14 +156,14 @@ class RegisterSIMTests: BaseTestCase {
     
     /// Get the record for the single subscriber referenced by `imsi`.
     
-    func getSubscriber(imsi: String?) {
+    func getSubscriber(_ imsi: String?) {
         
         guard let imsi = imsi else {
             XCTFail("test expectation failure: didn't get IMSI")
             return
         }
         
-        beginAsyncSection()
+        _ = beginAsyncSection()
         
         let req = Request.getSubscriber(imsi)
         

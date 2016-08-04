@@ -2,7 +2,7 @@
 
 import XCTest
 
-class PayloadTests: XCTestCase {
+class PayloadTests: BaseTestCase {
     
 
     func test_basic_set_and_get() {
@@ -28,7 +28,7 @@ class PayloadTests: XCTestCase {
             .credentials      : "bar",
             .credentialsId    : "baz",
             .description      : "ass",
-            .lastUsedDateTime : NSNumber(longLong: 7),
+            .lastUsedDateTime : NSNumber(value: 7),
             .type             : "hat",
             .updateDateTime   : 1,
         ]
@@ -49,7 +49,7 @@ class PayloadTests: XCTestCase {
             .credentials      : "bar",
             .credentialsId    : "baz",
             .description      : "ass",
-            .lastUsedDateTime : NSNumber(longLong: 7),
+            .lastUsedDateTime : NSNumber(value: 7),
             .type             : "hat",
             .updateDateTime   : 1,
             ]
@@ -76,7 +76,7 @@ class PayloadTests: XCTestCase {
     func test_toDictionary() {
         let p: Payload = [
             .email          : "foo@bar.com",
-            .updateDateTime : NSNumber(longLong: 5),
+            .updateDateTime : NSNumber(value: 5),
             .type           : "yes"
         ]
         
@@ -87,7 +87,7 @@ class PayloadTests: XCTestCase {
         
         let expected: [String:AnyObject] = [
             "email"          : "foo@bar.com",
-            "updateDateTime" : NSNumber(longLong: 5),
+            "updateDateTime" : NSNumber(value: 5),
             "type"           : "yes"
         ]
         XCTAssertEqual(actual as NSDictionary, expected as NSDictionary)
@@ -135,7 +135,7 @@ class PayloadTests: XCTestCase {
             return
         }
 
-        guard let decoded = Payload.fromDictionary(encoded), recoded = decoded.toDictionary() else {
+        guard let decoded = Payload.fromDictionary(encoded), let recoded = decoded.toDictionary() else {
             XCTFail()
             return
         }
@@ -147,20 +147,20 @@ class PayloadTests: XCTestCase {
     func test_fromDictionary() {
         let d = [
             "email"          : "foo@bar.com",
-            "updateDateTime" : NSNumber(longLong: 5),
+            "updateDateTime" : NSNumber(value: 5),
             "type"           : "yes"
         ]
 
         let expected: Payload = [
             .email          : "foo@bar.com",
-            .updateDateTime : NSNumber(longLong: 5),
+            .updateDateTime : NSNumber(value: 5),
             .type           : "yes"
         ]
         
         let actual       =  Payload.fromDictionary(d)
         
         if let actual = actual {
-            guard let actualDict = actual.toDictionary(), expectedDict = expected.toDictionary() else {
+            guard let actualDict = actual.toDictionary(), let expectedDict = expected.toDictionary() else {
                 XCTFail()
                 return
             }
@@ -189,19 +189,19 @@ class PayloadTests: XCTestCase {
     func test_equatable() {
         let one: Payload = [
             .email          : "foo@bar.com",
-            .updateDateTime : NSNumber(longLong: 5),
+            .updateDateTime : NSNumber(value: 5),
             .type           : "yes"
         ]
         
         let two: Payload = [
             .email          : "foo@bar.com",
-            .updateDateTime : NSNumber(longLong: 5),
+            .updateDateTime : NSNumber(value: 5),
             .type           : "yes"
         ]
         
         let three: Payload = [
             .email          : "foo@bar.com",
-            .updateDateTime : NSNumber(longLong: 5),
+            .updateDateTime : NSNumber(value: 5),
             .type           : "♬ one of these kids is doing his own thing..."
         ]
         
@@ -223,7 +223,10 @@ class PayloadTests: XCTestCase {
         
         let expected = "[\n  {\n    \"downloadByteSizeTotal\" : 1,\n    \"downloadPacketSizeTotal\" : 1,\n    \"uploadByteSizeTotal\" : 1,\n    \"uploadPacketSizeTotal\" : 1\n  },\n  {\n    \"downloadByteSizeTotal\" : 2,\n    \"downloadPacketSizeTotal\" : 2,\n    \"uploadByteSizeTotal\" : 2,\n    \"uploadPacketSizeTotal\" : 2\n  }\n]"
         
-        XCTAssertEqual(expected, actual)
+        // XCTAssertEqual(expected, actual) // ← so fragile! works but breaks with every OS update... so I wrote isEquivalentJSON() instead:
+        
+        let isEquivalent = isEquivalentJSON(actual, expected)
+        XCTAssertTrue(isEquivalent)
     }
     
     

@@ -17,7 +17,7 @@ public struct Response {
     
     /// The normal way that Response objects are instantiated (by Request). Outside of testing, it would be unusual to need to manually init a Response.
     
-    init(request: Request, underlyingURLResponse: NSHTTPURLResponse?, data: NSData? = nil, underlyingError: NSError? = nil ) {
+    init(request: Request, underlyingURLResponse: HTTPURLResponse?, data: Data? = nil, underlyingError: NSError? = nil ) {
         
         self.request               = request
         self.underlyingURLResponse = underlyingURLResponse
@@ -44,12 +44,12 @@ public struct Response {
     
     /// The underlying system response object (which exposes some details like HTTP headers, HTTP version, etc). This object should always be present upon success, but may be nil when some kind of error has occurred (or in automated testing scenarios).
     
-    var underlyingURLResponse: NSHTTPURLResponse?
+    var underlyingURLResponse: HTTPURLResponse?
     
     
     /// The raw data received with the response (if any).
     
-    var data: NSData?
+    var data: Data?
     
     
     /// Returns `self.data` as a UTF-8 string.
@@ -58,7 +58,7 @@ public struct Response {
         guard let data = data else {
             return nil
         }
-        return String(data: data, encoding: NSUTF8StringEncoding)
+        return String(data: data, encoding: String.Encoding.utf8)
     }
     
     

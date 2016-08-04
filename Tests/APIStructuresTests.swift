@@ -29,7 +29,7 @@ class APIStructuresTests: BaseTestCase {
         
         let actual = stats.toPayload()
         
-        guard let d1 = actual.toDictionary(), d2 = expected.toDictionary() else {
+        guard let d1 = actual.toDictionary(), let d2 = expected.toDictionary() else {
             XCTFail()
             return
         }
@@ -51,12 +51,12 @@ class APIStructuresTests: BaseTestCase {
         foo.type             = "type bro"
         foo.updateDateTime   = 666
         
-        guard let encoded = foo.toPayload().toJSON()?.dataUsingEncoding(NSUTF8StringEncoding) else {
+        guard let encoded = foo.toPayload().toJSON()?.data(using: String.Encoding.utf8) else {
             XCTFail()
             return
         }
         
-        guard let payload = try? Payload(data: encoded),  decoded = Credential.from(payload) else {
+        guard let payload = try? Payload(data: encoded),  let decoded = Credential.from(payload) else {
             XCTFail()
             return
         }

@@ -21,7 +21,7 @@ class RequestTests: BaseTestCase {
         let instanceCredentials = SoracomCredentials(type: .KeyAndToken, emailAddress: "instance@foo.bar", apiKey: "instance", token: "instance")
         let globalCredentials   = SoracomCredentials(type: .KeyAndToken, emailAddress: "global@foo.bar", apiKey: "global", token: "global")
         
-        defaultCredentials.save()
+        _ = defaultCredentials.save()
         
         // An instance-level override should override how credentials are looked up for that instance only...
         let instanceRequest     = Request("/foo")
@@ -99,7 +99,7 @@ class RequestTests: BaseTestCase {
         // Assert that setting credentials as if they were a regular property works.
         
         let defaultCredentials = SoracomCredentials(type: .KeyAndToken, emailAddress: "default@foo.bar")
-        defaultCredentials.save()
+        _ = defaultCredentials.save()
 
         let req = Request("fake")
         
@@ -146,8 +146,8 @@ class RequestTests: BaseTestCase {
         
         beginAsyncSection()
         
-        let expectation1 = expectationWithDescription("uno")
-        let expectation2 = expectationWithDescription("dos")
+        let expectation1 = expectation(description: "uno")
+        let expectation2 = expectation(description: "dos")
 
         var values: [String] = []
         

@@ -29,7 +29,7 @@ class RequestCredentialsTests: BaseTestCase {
     
     func test_CRUD_credentials() {
         
-        let junk    = NSUUID().UUIDString
+        let junk    = UUID().uuidString
         let creds   = Credentials(accessKeyId: "foo", secretAccessKey: "bar")
         var options = CredentialOptions(type: "aws-credentials", description: "test_CRUD_credentials", credentials: creds)
         
@@ -83,7 +83,7 @@ class RequestCredentialsTests: BaseTestCase {
     }
     
     
-    func findCredential(id: String) -> Credential? {
+    func findCredential(_ id: String) -> Credential? {
         
         guard let list = listCredentials() else {
             XCTFail()

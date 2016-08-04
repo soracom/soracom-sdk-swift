@@ -6,13 +6,13 @@ class ResponseTests: XCTestCase {
     
     var request: Request = Request("/foo")
     
-    var dummyURL: NSURL { return request.buildURL() }
+    var dummyURL: URL { return request.buildURL() as URL }
     
-    var badResponse: NSHTTPURLResponse? {
-        return NSHTTPURLResponse(URL: dummyURL, statusCode: 500, HTTPVersion: "1.1", headerFields: nil)
+    var badResponse: HTTPURLResponse? {
+        return HTTPURLResponse(url: dummyURL, statusCode: 500, httpVersion: "1.1", headerFields: nil)
     }
-    var goodResponse: NSHTTPURLResponse? {
-        return NSHTTPURLResponse(URL: dummyURL, statusCode: 200, HTTPVersion: "1.1", headerFields: nil)
+    var goodResponse: HTTPURLResponse? {
+        return HTTPURLResponse(url: dummyURL, statusCode: 200, httpVersion: "1.1", headerFields: nil)
     }
     
     

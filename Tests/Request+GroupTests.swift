@@ -54,7 +54,7 @@ class RequestGroupTests: BaseTestCase {
         var group1 = createGroup()
         var group2 = createGroup()
         
-        guard let groupId1 = group1?.groupId, groupId2 = group2?.groupId else {
+        guard let groupId1 = group1?.groupId, let groupId2 = group2?.groupId else {
             XCTFail("failed to create groups")
             return
         }
@@ -68,7 +68,7 @@ class RequestGroupTests: BaseTestCase {
         group1 = getGroup(groupId1)
         group2 = getGroup(groupId2)
         
-        guard let tags1 = group1?.tags, tags2 = group2?.tags else {
+        guard let tags1 = group1?.tags, let tags2 = group2?.tags else {
             XCTFail("expected to get tags for both groups")
             return
         }
@@ -106,7 +106,7 @@ class RequestGroupTests: BaseTestCase {
             ConfigurationParameter(key: "toast", value: "jam"),
         ]
         
-        Request.putConfigurationParameters(groupId, namespace: .SoracomAir, parameters: params).wait()
+        _ = Request.putConfigurationParameters(groupId, namespace: .SoracomAir, parameters: params).wait()
         
         let result = getGroup(groupId)
         
@@ -168,7 +168,7 @@ class RequestGroupTests: BaseTestCase {
     
     /// Create a Group instance (synchronously) with our standard test properties, do some sanity checks on the response from the API server, and return the group instance (or nil if any error occurred).
     
-    func createGroup(name: String = "group 1") -> Group? {
+    func createGroup(_ name: String = "group 1") -> Group? {
         
         let createRequest  = Request.createGroup(name, tags: ["foo": "bar"])
         let createResponse = createRequest.wait()
@@ -229,7 +229,7 @@ class RequestGroupTests: BaseTestCase {
     
     /// Delete group by ID (synchronously), and return `true` for success, `false` otherwise.
     
-    func deleteGroup(groupId: String) -> Bool {
+    func deleteGroup(_ groupId: String) -> Bool {
         let deleteRequest  = Request.deleteGroup(groupId)
         let deleteResponse = deleteRequest.wait()
         
@@ -241,7 +241,7 @@ class RequestGroupTests: BaseTestCase {
     
     /// Get group by ID (synchronously), and return it.
     
-    func getGroup(groupId: String) -> Group? {
+    func getGroup(_ groupId: String) -> Group? {
         
         let response = Request.getGroup(groupId).wait()
         

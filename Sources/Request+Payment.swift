@@ -4,7 +4,7 @@ extension Request {
 
     /// Register credit card information. ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Payment/registerWebPayPaymentMethod))
     
-    public class func registerWebPayPaymentMethod(info: PaymentMethodInfoWebPay, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func registerWebPayPaymentMethod(_ info: PaymentMethodInfoWebPay, responseHandler: ResponseHandler? = nil) -> Request {
         let req = self.init("/payment_methods/webpay", responseHandler: responseHandler)
         req.payload = [
             .cvc         : info.cvc,

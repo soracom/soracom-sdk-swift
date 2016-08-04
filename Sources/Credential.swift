@@ -18,7 +18,7 @@ public struct Credential: PayloadConvertible {
     
     
     
-    static func from(payload: Payload?) -> Credential? {
+    static func from(_ payload: Payload?) -> Credential? {
         
         guard let payload = payload else {
             return nil
@@ -27,12 +27,12 @@ public struct Credential: PayloadConvertible {
         var result = Credential()
         
         if let created = payload[.createDateTime] as? NSNumber {
-            result.createDateTime = created.longLongValue
+            result.createDateTime = created.int64Value
         }
         
         if let credentialsDict = payload[.credentials] as? [String : AnyObject],
-            subload         = Payload.fromDictionary(credentialsDict),
-            accessKeyId     = subload[.accessKeyId] as? String
+           let subload         = Payload.fromDictionary(credentialsDict),
+           let accessKeyId     = subload[.accessKeyId] as? String
         {
             let secret = subload[.secretAccessKey] as? String // this normally won't be present
             result.credentials = Credentials(accessKeyId: accessKeyId, secretAccessKey: secret)
@@ -42,13 +42,13 @@ public struct Credential: PayloadConvertible {
         result.description   = payload[.description]   as? String
         
         if let lastUsed = payload[.lastUsedDateTime] as? NSNumber {
-            result.lastUsedDateTime = lastUsed.longLongValue
+            result.lastUsedDateTime = lastUsed.int64Value
         }
         
         result.type = payload[.type] as? String
         
         if let updated = payload[.updateDateTime] as? NSNumber {
-            result.updateDateTime = updated.longLongValue
+            result.updateDateTime = updated.int64Value
         }
         return result
     }
@@ -60,7 +60,7 @@ public struct Credential: PayloadConvertible {
         let result: Payload = [:]
         
         if let createDateTime = createDateTime {
-            result[.createDateTime] = NSNumber(longLong: createDateTime)
+            result[.createDateTime] = NSNumber(value: createDateTime)
         }
         
         if let credentials = credentials {
@@ -76,7 +76,7 @@ public struct Credential: PayloadConvertible {
         }
         
         if let lastUsedDateTime = lastUsedDateTime {
-            result[.lastUsedDateTime] = NSNumber(longLong: lastUsedDateTime)
+            result[.lastUsedDateTime] = NSNumber(value: lastUsedDateTime)
         }
         
         if let type = type {
@@ -84,7 +84,7 @@ public struct Credential: PayloadConvertible {
         }
         
         if let updateDateTime = updateDateTime {
-            result[.updateDateTime] = NSNumber(longLong: updateDateTime)
+            result[.updateDateTime] = NSNumber(value: updateDateTime)
         }
         
         return result
@@ -125,7 +125,7 @@ public struct Credentials: PayloadConvertible {
         return result
     }
     
-    public static func from(payload: Payload?) -> Credentials? {
+    public static func from(_ payload: Payload?) -> Credentials? {
         
         guard let payload = payload else {
             return nil

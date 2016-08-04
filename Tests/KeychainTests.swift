@@ -5,7 +5,7 @@ import XCTest
 public class KeychainTests: XCTestCase {
     
     static var bundleId: String {
-        return NSBundle.mainBundle().bundleIdentifier ?? "missing-bundle-id"
+        return Bundle.main.bundleIdentifier ?? "missing-bundle-id"
     }
     
     let key1 = "\(KeychainTests.bundleId).foo.bar.baz.test.key.for.KeychainTests"
@@ -13,8 +13,8 @@ public class KeychainTests: XCTestCase {
     
     
     func test_basic() {
-        let data1 = NSUUID().UUIDString.dataUsingEncoding(NSUTF8StringEncoding)!
-        let data2 = NSUUID().UUIDString.dataUsingEncoding(NSUTF8StringEncoding)!
+        let data1 = UUID().uuidString.data(using: String.Encoding.utf8)!
+        let data2 = UUID().uuidString.data(using: String.Encoding.utf8)!
         XCTAssertNotEqual(data1, data2) // just a sanity check, of course this is always true
         
         var wroteOK = Keychain.write(key1, data: data1)
@@ -25,7 +25,7 @@ public class KeychainTests: XCTestCase {
         XCTAssertTrue(wroteOK)
         XCTAssertEqual(Keychain.read(key2), data2)
         
-        XCTAssertNil(Keychain.read(NSUUID().UUIDString))
+        XCTAssertNil(Keychain.read(UUID().uuidString))
         
         XCTAssertTrue( Keychain.delete(key1) )
         XCTAssertNil( Keychain.read(key1) )
@@ -49,9 +49,9 @@ public class KeychainTests: XCTestCase {
         // Can't think of any reason to do this in real life, but I wrote this test just to make sure it didn't crash or anything.
         // Mason 2016-04-10: Well, one reason might be that you haven't implemented a delete method, bro... :-P
         
-        Keychain.write(key1, data: NSData())
+        _ = Keychain.write(key1, data: Data())
         let readData = Keychain.read(key1)
-        XCTAssertEqual(readData, NSData())
+        XCTAssertEqual(readData, Data())
     }
     
     

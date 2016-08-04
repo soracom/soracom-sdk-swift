@@ -14,7 +14,7 @@ extension BaseTestCase {
     ///     }
     ///     waitForAsyncSection()
 
-    func withNewIMSI(handler: (imsi: String) -> ()) {
+    func withNewIMSI(_ handler: (imsi: String) -> ()) {
         Request.createSandboxSubscriber().run { (response) in
             XCTAssert(response.error == nil)
             if let imsi = response.payload?[.imsi] as? String {

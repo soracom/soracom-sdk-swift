@@ -7,7 +7,7 @@ class RequestSandboxTests: BaseTestCase {
     
     func test_getSignupToken_bad_credentials() {
     
-        let uniqueEmail = "\(NSUUID().UUIDString)@fivespeed.com"
+        let uniqueEmail = "\(UUID().uuidString)@fivespeed.com"
         let badRequest  = Request.getSignupToken(email: uniqueEmail, authKeyId: "this-is-wrong", authKey: "this-is-also-wrong")
         
         beginAsyncSection()
@@ -18,7 +18,7 @@ class RequestSandboxTests: BaseTestCase {
             XCTAssertNotNil(response.error)
             
             let code = response.error?.code ?? "no code"
-            XCTAssert(code.containsString("SBX"))
+            XCTAssert(code.contains("SBX"))
               // Just assert it is some kind of sandbox error.
             
             self.endAsyncSection()
@@ -44,7 +44,7 @@ class RequestSandboxTests: BaseTestCase {
         
         self.continueAfterFailure = false
         
-        let uniqueEmail    = "\(NSUUID().UUIDString)@fivespeed.com"
+        let uniqueEmail    = "\(UUID().uuidString)@fivespeed.com"
         let uniquePassword = "(NSUUID().UUIDString)a$d5555"
         
         
@@ -111,7 +111,7 @@ class RequestSandboxTests: BaseTestCase {
             
             let fast  = AirStatsForSpeedClass(uploadBytes: 0, uploadPackets: 0, downloadBytes: 0, downloadPackets: 0)
             
-            let nowInterval = NSDate().timeIntervalSince1970
+            let nowInterval = Date().timeIntervalSince1970
             let nowInt   = Int64(nowInterval)
             let now = nowInt * 1000
             // Mason 2016-03-23: Building for iOS, get this: exc_bad_instruction (code=exc_i386_invop subcode=0x0)

@@ -25,9 +25,10 @@ class SubscriberTests: BaseTestCase {
         let c  = Subscriber(ipAddress: "3.3.3.3", speedClass: "s1.fast", imsi: "8675309")
         
         let outgoing = Payload(list: [a,b,c])
-        let incoming = roundTripSerializeDeserialize(outgoing)
         
-        guard let list = Subscriber.listFrom(incoming) else {
+        guard let incoming = roundTripSerializeDeserialize(outgoing),
+              let list = Subscriber.listFrom(incoming.toPayload())
+        else {
             XCTFail()
             return
         }
@@ -40,6 +41,9 @@ class SubscriberTests: BaseTestCase {
         XCTAssertEqual(list[0].ipAddress, "1.1.1.1")
         XCTAssertEqual(list[1].ipAddress, "2.2.2.2")
         XCTAssertEqual(list[2].ipAddress, "3.3.3.3")
+        
+        print("wtf")
+        
     }
     
 }

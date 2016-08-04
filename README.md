@@ -2,7 +2,7 @@
 
 An SDK for the Soracom API in Swift.
 
-Current status (2016-07-13): This SDK is a work in progress, and is still in the design stage. (It currently only implements a small portion of the API.)
+Current status (2016-08-04): This SDK is a work in progress, and is still in the design stage. It currently only implements a portion of the API, as an example; complete API support is coming Real Soon Now&trade;. 
 
 ## Contents
 
@@ -21,9 +21,9 @@ Current status (2016-07-13): This SDK is a work in progress, and is still in the
 ## Target audience
 This SDK is intended for programmers who want to interact with the [Soracom API](https://dev.soracom.io/jp/docs/api_guide/) from Swift code.
 
-The initial goal is to fully support current versions of iOS and macOS (including "OS X" 10.11). The only requirement for developing against those platforms is a [Soracom account](https://console.soracom.io/#/signup) and [Xcode](https://developer.apple.com/xcode/) 7.3.1 or later.
+The (revised) goal is to support iOS 10 and macOS 10.12, initially.  Using this SDK for development requires a [Soracom account](https://console.soracom.io/#/signup) and [Xcode 8](https://developer.apple.com/xcode/).
 
-A future goal, once Swift 3 is released, is to to build as [a Swift 3 package](https://swift.org/package-manager/#conceptual-overview), and to fully support Linux (and, hopefully, [other significant platforms?](http://thenextweb.com/dd/2016/04/07/google-facebook-uber-swift/)).
+A future goal, after Swift 3 has been released, is to to build as [a Swift 3 package](https://swift.org/package-manager/#conceptual-overview), and to fully support Linux (and, hopefully, [other significant platforms?](http://thenextweb.com/dd/2016/04/07/google-facebook-uber-swift/)).
 
 
 

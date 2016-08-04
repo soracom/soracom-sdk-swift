@@ -248,7 +248,7 @@ public class Client {
     
     /// List all sandbox SIMs
     func listSandboxSIMs() {
-        log("🚀 Will try to list all SIMs (aka 'subscribers') that are regsitered in the API Sandbox...")
+        log("🚀 Will try to list all SIMs (aka 'subscribers') that are registered in the API Sandbox...")
         
         let req = Request.listSubscribers()
         let op  = APIOperation(req)

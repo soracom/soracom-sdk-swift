@@ -15,28 +15,57 @@ class Swaggerer {
     
     
     var workingDirectory: String {
-        return options[kWorkingDirectory] ?? FileManager().currentDirectoryPath
+        
+        return path(identifier: kWorkingDirectory) {
+            FileManager().currentDirectoryPath
+        }
     }
     
     
     var inputFile: String {
-        return options[kInputFile] ?? "/Users/mason/Code/ios-client/Dependencies/soracom-sdk-swift/Whatever/CodeGeneratorForSoracomSDKSwift/soracom-api.en.json" // hehe
+        
+        return path(identifier: kInputFile) {
+            "/Users/mason/Code/ios-client/Dependencies/soracom-sdk-swift/Whatever/CodeGeneratorForSoracomSDKSwift/soracom-api.en.json" // hehe
+        }
     }
     
     
     var intermediateDirectory: String {
-        return options[kWorkingDirectory] ?? (NSTemporaryDirectory() as NSString).appendingPathComponent("swaggerer-\(UUID().uuidString)")
+        
+        return path(identifier: kWorkingDirectory) {
+            (NSTemporaryDirectory() as NSString).appendingPathComponent("swaggerer-\(UUID().uuidString)")
+        }
     }
     
     
     var outputDirectory: String {
-        return options[kOutputDirectory] ?? (workingDirectory as NSString).appendingPathComponent("generated-source-code")
+        
+        return path(identifier: kOutputDirectory) {
+            (self.workingDirectory as NSString).appendingPathComponent("generated-source-code")
+        }
     }
     
     
     var swaggererVersion: String {
         return "0.0d1"
     }
+    
+    
+    func path(identifier: String, builder: ()->String) -> String {
+        
+        if let existing = options[identifier] {
+            return existing
+        } else if let existing = defaultDirectories[identifier] {
+            return existing
+        } else {
+            let built = builder()
+            defaultDirectories[identifier] = built
+            return built
+        }
+    }
+    
+    
+    private var defaultDirectories: [String:String] = [:]
     
     
     func run() {

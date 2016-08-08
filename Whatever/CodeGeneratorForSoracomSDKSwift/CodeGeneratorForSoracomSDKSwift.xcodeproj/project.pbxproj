@@ -28,6 +28,9 @@
 /* Begin PBXFileReference section */
 		934B493D1D543EFE00E70A83 /* ArgParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArgParser.swift; sourceTree = "<group>"; };
 		934B493F1D544C1200E70A83 /* TaskWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskWrapper.swift; sourceTree = "<group>"; };
+		93A86C6F1D57FF8800512B43 /* swagger-templates-for-soracom-sdk-swift */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "swagger-templates-for-soracom-sdk-swift"; sourceTree = SOURCE_ROOT; };
+		93A86C701D57FF8800512B43 /* swagger-templates-original */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "swagger-templates-original"; sourceTree = SOURCE_ROOT; };
+		93A86C711D58033200512B43 /* swagger-output-default-example */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "swagger-output-default-example"; sourceTree = "<group>"; };
 		93EE4BEE1D541F30001BF98B /* CodeGeneratorForSoracomSDKSwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodeGeneratorForSoracomSDKSwift; sourceTree = BUILT_PRODUCTS_DIR; };
 		93EE4BF11D541F30001BF98B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		93EE4BF81D541F71001BF98B /* README-CodeGeneratorForSoracomSDKSwift.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "README-CodeGeneratorForSoracomSDKSwift.md"; sourceTree = "<group>"; };
@@ -50,6 +53,9 @@
 			children = (
 				93EE4BF81D541F71001BF98B /* README-CodeGeneratorForSoracomSDKSwift.md */,
 				93EE4BF01D541F30001BF98B /* CodeGeneratorForSoracomSDKSwift */,
+				93A86C711D58033200512B43 /* swagger-output-default-example */,
+				93A86C6F1D57FF8800512B43 /* swagger-templates-for-soracom-sdk-swift */,
+				93A86C701D57FF8800512B43 /* swagger-templates-original */,
 				93EE4BEF1D541F30001BF98B /* Products */,
 			);
 			sourceTree = "<group>";

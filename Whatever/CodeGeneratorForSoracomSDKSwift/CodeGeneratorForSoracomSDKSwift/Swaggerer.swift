@@ -32,7 +32,7 @@ class Swaggerer {
     
     var intermediateDirectory: String {
         
-        return path(identifier: kWorkingDirectory) {
+        return path(identifier: kIntermediateDirectory) {
             (NSTemporaryDirectory() as NSString).appendingPathComponent("swaggerer-\(UUID().uuidString)")
         }
     }

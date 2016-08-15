@@ -155,7 +155,7 @@ class Swaggerer {
         // FIXME: We need to iterate through the list, and copy only what we want to outputDirectory.
         // I am not yet sure what we want (that's waiting on the custom code templates), so for now
         // I just take the path of least resistance and copy none of it. That means the output dir is
-        // currently always empty. :-.
+        // currently always empty. :-. UPDATE: I am gonna copy a few things for ease of debugging.
         /*
          >>> • .gitignore
          >>> • Cartfile
@@ -292,10 +292,38 @@ class Swaggerer {
          >>> • SwaggerClient.podspec
          */
         
+        let wanted = [
+            "SwaggerClient/Classes/Swaggers/Models.swift",
+            "SwaggerClient/Classes/Swaggers/Models/Subscriber.swift"
+        ]
+        var copied: [String] = []
+        
+        let fm = FileManager.default
+        
+        try? fm.createDirectory(atPath: outputDirectory, withIntermediateDirectories: true, attributes: nil)
+
         for subpath in e {
             
-            print("• \(subpath)")
+            guard let subpath = subpath as? String else {
+                fatalError("whut the")
+            }
+            
+            if wanted.contains(subpath) {
+                let srcPath  = (intermediateDirectory as NSString).appendingPathComponent(subpath)
+                let destPath = (outputDirectory as NSString).appendingPathComponent((subpath as NSString).lastPathComponent)
+                do {
+                    try fm.copyItem(atPath: srcPath, toPath: destPath)
+                } catch {
+                    print("ERROR: can't copy \(srcPath) to \(destPath)")
+                    return false
+                }
+                copied.append(subpath)
+            }
+            
         }
+        
+        let t = TaskWrapper("/usr/bin/open", arguments: [outputDirectory])
+        t.launch()
         
         return true
     }

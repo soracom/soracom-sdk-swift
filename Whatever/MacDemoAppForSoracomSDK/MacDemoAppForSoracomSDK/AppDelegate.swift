@@ -119,7 +119,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func copyStringToPasteboard(_ str: String) {
         let pasteBoard = NSPasteboard.general()
         pasteBoard.clearContents()
-        pasteBoard.writeObjects([str])
+        pasteBoard.writeObjects([str as NSPasteboardWriting])
     }
     
     

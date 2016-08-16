@@ -202,6 +202,9 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
         else if oldValue is NSNull {
             // do nothing in this case, I guess?
         }
+        else if let newValue = oldValue as? Int64 {
+            return NSNumber(value: newValue) // Mason 2016-08-16: Still cannot use Int64 here, even with swiftlang-800.0.43.6. NSJSONSerialization will raise if you pass it Int64.
+        }
         else {
             fatalError("work in progress bro (FIXME)")
         }
@@ -287,14 +290,17 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     /// Returns its contents as a JSON UTF-8 string.
     
     func toJSON() -> String? {
-        let result = String(data: toJSONData(), encoding: String.Encoding.utf8)
+        guard let d = toJSONData() else {
+            return nil
+        }
+        let result = String(data: d, encoding: String.Encoding.utf8)
         return result
     }
     
     
-    /// Returns an NSData instance, which contains the receiver's contents as JSON (as UTF-8 string). The main purpose of this is for encoding a payload to send to the API server with a request, but it's also useful for tests.
+    /// Returns an NSData instance, which contains the receiver's contents as JSON (as UTF-8 string). Returns `nil` if encoding fails. The main purpose of this is for encoding a payload to send to the API server with a request, but it's also useful for tests.
     
-    func toJSONData() -> Data {
+    func toJSONData() -> Data? {
         
         do {
             var obj: Any?
@@ -323,9 +329,7 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
             
         } catch {
             print("JSON encode error: \(error)")
-            return Data()
-            
-            // FIXME: still thinking about how to properly handle this kind of error. Seems like it should be a fatal error.
+            return nil 
         }
     }
     

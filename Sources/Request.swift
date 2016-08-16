@@ -366,7 +366,7 @@ public class Request {
         
         if let payload = payload
         {
-            request.httpBody = payload.toJSONData() as Data
+            request.httpBody =  payload.toJSONData() ?? Data() // FIXME: set error and fail if payload can't make JSON data
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         

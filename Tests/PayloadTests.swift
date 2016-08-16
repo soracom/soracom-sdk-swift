@@ -174,6 +174,45 @@ class PayloadTests: BaseTestCase {
         }
     }
     
+    func test_encodeInt64() {
+        
+        // This was added to test swiftlang-800.0.43.6 ; comments implied maybe they had made Int64 auto-bridge
+        // to NSNumber like Int does. However this was not the case. So, even though we added support for Int64
+        // to Payload, that applies only when constructing them locally... there is no way to get an Int64 out 
+        // of a Payload received over the network other than getting it `as? NSNumber` and then asking for its
+        // int64Value...
+        
+        let regularInt = 666
+        let bigInt: Int64 = 500_000_000_000_001
+        
+        let p: Payload = [
+            .amount: regularInt,
+            .unixtime: bigInt
+        ]
+        
+        guard let encoded = p.toJSONData() else {
+            XCTFail("could not JSON-encode Payload containing Int64")
+            return
+        }
+        
+        XCTAssert(encoded.count > 0)
+        
+//        let decoded = Payload(data: encoded)
+        
+        
+        guard let p2 = roundTripSerializeDeserialize(p)?.toPayload() else {
+            XCTFail()
+            return
+        }
+        guard let amount = p2[.amount] as? NSNumber, let unixtime = p2[.unixtime] as? NSNumber else {
+            XCTFail()
+            return
+        }
+        XCTAssert(amount.intValue == regularInt)
+        XCTAssert(unixtime.int64Value == bigInt)
+        
+    }
+    
     
     // Mason 2016-06-09: commented out this test below, because today I changed the behavior of fromDictionary(). It no longer throws. However, leaving this here for now because we might change this behavior again... 
     //    func test_fromDictionary_bogus() {

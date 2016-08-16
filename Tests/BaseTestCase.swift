@@ -105,7 +105,10 @@ class BaseTestCase: XCTestCase {
     
     func roundTripSerializeDeserialize(_ payload: Payload, caller: StaticString = #function) -> Payload? {
         
-        let data = payload.toJSONData()
+        guard let data = payload.toJSONData() else {
+            XCTFail()
+            return nil
+        }
         
         guard let decodedPayload = try? Payload(data: data) else {
             XCTFail()
@@ -119,12 +122,16 @@ class BaseTestCase: XCTestCase {
     }
     
     
-    /// Encodes `obj` as a Payload, converts that to JSON data, creates a new Payload by decoding that JSON data, instantiates a new object from that new payload, and returns it. (This is a convenience for writing tests for model object serialization.)
+    /// Encodes `obj` as a Payload, converts that to JSON data, creates a new Payload by decoding that JSON data, instantiates a new object from that new payload, and returns it. (This is a convenience for writing tests for model object serialization.) Explicitly doesn't allow comparison of `Payload` objects which fail to encode (i.e. where `toJSONData()` returns `nil`).
     
     func roundTripSerializeDeserialize(_ obj: PayloadConvertible) -> PayloadConvertible? {
         
         let payload = obj.toPayload()
-        let data    = payload.toJSONData()
+        
+        guard let data = payload.toJSONData() else {
+            XCTFail()
+            return nil
+        }
 
         guard let decodedPayload = try? Payload(data: data) else {
             XCTFail()
@@ -138,11 +145,14 @@ class BaseTestCase: XCTestCase {
         
         // XCTAssertEqual(decodedObject.toPayload().toJSONData(), data)
         //
-        // I no longer do this becuase key order is not deterministic, or at least I
+        // I no longer do this because key order is not deterministic, or at least I
         // don't know what determines that order, and this caused spurious failures.
         // Instead:
         
-        let data2 = decodedObject.toPayload().toJSONData()
+        guard let data2 = decodedObject.toPayload().toJSONData() else {
+            XCTFail()
+            return nil
+        }
         
         guard let json  = String(data: data, encoding: .utf8),
               let json2 = String(data: data2, encoding: .utf8)

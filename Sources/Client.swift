@@ -19,7 +19,7 @@ public class Client {
     
     /// This type allows you to define your own logging implementation to replace the default (which just does print() and ignores text attributes).
     
-    public typealias Logger = ((str: String, attrs: TextStyle) -> ())
+    public typealias Logger = ((_ str: String, _ attrs: TextStyle) -> ())
     
     
     /// The logging implementation that will be used. If nil, the default implementation will be used (equivalent to `print()`).
@@ -35,7 +35,7 @@ public class Client {
             print(str)
             return
         }
-        logger(str: str, attrs: attrs)
+        logger(str, attrs)
     }
     
     

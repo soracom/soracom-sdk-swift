@@ -131,7 +131,7 @@ class BaseTestCase: XCTestCase {
             return nil
         }
         
-        guard let decodedObject = obj.dynamicType.from(decodedPayload) else {
+        guard let decodedObject = type(of: obj).from(decodedPayload) else {
             XCTFail()
             return nil
         }
@@ -204,7 +204,7 @@ class BaseTestCase: XCTestCase {
                 return false
         }
         
-        return obj1.isEqual(obj2);
+        return (obj1 as AnyObject).isEqual(obj2);
     }
     
 

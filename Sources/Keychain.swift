@@ -15,7 +15,7 @@ public class Keychain {
             return nil; // because actually querying with empty string key returns something weird
         }
         
-        let query = [
+        let query: [String:Any] = [
             kSecClass as String       : kSecClassGenericPassword,
             kSecAttrAccount as String : key,
             kSecReturnData as String  : kCFBooleanTrue,
@@ -23,7 +23,7 @@ public class Keychain {
         ]
         
         var dataTypeRef: AnyObject?
-        let status = withUnsafeMutablePointer(&dataTypeRef) { SecItemCopyMatching(query, UnsafeMutablePointer($0)) }
+        let status = withUnsafeMutablePointer(to: &dataTypeRef) { SecItemCopyMatching(query as CFDictionary, UnsafeMutablePointer($0)) }
         
         if status == errSecSuccess {
             if let data = dataTypeRef as! Data? {
@@ -37,7 +37,7 @@ public class Keychain {
     /// Store `data` to the Keychain, under `key`, **overwriting** any existing value. Returns true on success, false on error. This is the primitive write method.
     
     public static func write(_ key: String, data: Data) -> Bool {
-        let query = [
+        let query: [String:Any] = [
             kSecClass as String       : kSecClassGenericPassword as String,
             kSecAttrAccount as String : key,
             kSecValueData as String   : data
@@ -66,7 +66,7 @@ public class Keychain {
     /// Delete the blob of data stored under `key`, if any.
     
     public static func delete(_ key: String) -> Bool {
-        let query = [
+        let query: [String:Any] = [
             kSecClass as String       : kSecClassGenericPassword,
             kSecAttrAccount as String : key
         ]

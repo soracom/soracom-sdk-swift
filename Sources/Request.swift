@@ -67,7 +67,7 @@ public class Request {
     
     var endpointHost: String {
         get {
-            return _endpointHost ?? self.dynamicType.sandboxEndpointHost
+            return _endpointHost ?? type(of: self).sandboxEndpointHost
         }
         set {
             _endpointHost = newValue
@@ -280,7 +280,7 @@ public class Request {
 
         // FIXME: check for 'no credentials' and error appropriately
         
-        for (handler) in self.dynamicType.willRunHandlers {
+        for (handler) in type(of: self).willRunHandlers {
             handler(self)
         }
 
@@ -289,9 +289,9 @@ public class Request {
             
             let httpResponse = httpResponse as? HTTPURLResponse
             
-            let response = Response(request: self, underlyingURLResponse: httpResponse, data: data, underlyingError: error)
+            let response = Response(request: self, underlyingURLResponse: httpResponse, data: data, underlyingError: error as NSError?)
         
-            for (handler) in self.dynamicType.didRunHandlers {
+            for (handler) in type(of: self).didRunHandlers {
                 handler(response)
             }
             

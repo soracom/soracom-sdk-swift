@@ -20,7 +20,7 @@ public class RequestResponseFormatter {
             if let instanceValue = _shouldRedact {
                 return instanceValue
             } else {
-                return self.dynamicType.shouldRedact
+                return type(of: self).shouldRedact
             }
         }
         
@@ -45,7 +45,7 @@ public class RequestResponseFormatter {
     
     public func formatRequest(_ request: Request) -> String {
         
-        let typeName = request.dynamicType
+        let typeName = type(of: request)
         
         var result = ""
         
@@ -82,7 +82,7 @@ public class RequestResponseFormatter {
     /// Format a Response instance in human-readable form.
     
     public func formatResponse(_ response: Response) -> String {
-        let typeName = response.dynamicType
+        let typeName = type(of: response)
         
         var result = ""
         
@@ -136,7 +136,7 @@ public class RequestResponseFormatter {
                 
                 let obj = try JSONSerialization.jsonObject(with: data, options: [])
                 
-                var redacted = obj as? [String:AnyObject]
+                var redacted = obj as? [String:Any]
                 
                 if redacted != nil && shouldRedact {
                     let sensitiveKeys = ["token", "authKey", "password"]

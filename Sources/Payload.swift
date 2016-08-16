@@ -75,7 +75,7 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     /// Init a Payload via a dictionary literal (common when creating payloads to send).
     
-    public init(dictionaryLiteral elements: (PayloadKey, AnyObject)...) {
+    public init(dictionaryLiteral elements: (PayloadKey, Any)...) {
         
         rootObjectType = .nativeDictionary
         
@@ -127,7 +127,7 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     /// Convenience subscript accessor. 
     
-    subscript(key: PayloadKey) -> AnyObject? {
+    subscript(key: PayloadKey) -> Any? {
         
         get {
             return rootDictionary[key]
@@ -175,7 +175,7 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     /// Returns a 'basic' object representation of `value` suitable for encoding as JSON. (A 'basic' value here means something NSJSONSerialization can handle.) This includes converting native objects like Subscriber or BeamStats to generic dictionaries, etc.
     
-    func coerceValueToBasicType(_ oldValue: Any) -> AnyObject? {
+    func coerceValueToBasicType(_ oldValue: Any) -> Any? {
         
         if let newValue = oldValue as? Subscriber {
             return newValue.toPayload().toDictionary()
@@ -211,7 +211,7 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     // Returns a 'basic' dictionary representation of the receiver, suitable for encoding as JSON, or `nil` if the receiver's `rootObjectType` is not a dictionary type. (A 'basic' value here means something NSJSONSerialization can handle.) This process converts objects conforming to `PayloadConvertible` to dictionaries containing 'basic' keys and values, using `coerceValueToBasicType()`.
     
-    func toDictionary() -> [String:AnyObject]? {
+    func toDictionary() -> [String:Any]? {
         
         // FIXME: think about renaming this. toForeignDictionary()?
         
@@ -219,7 +219,7 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
             return nil
         }
         
-        var result: [String:AnyObject] = [:]
+        var result: [String:Any] = [:]
 
         for (oldKey, oldValue) in rootDictionary {
             
@@ -242,13 +242,13 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     /// Returns a 'basic' array representation of the receiver, suitable for encoding as JSON, or `nil` if the receiver's `rootObjectType` is not an array type. (A 'basic' value here means something NSJSONSerialization can handle.) This process converts objects conforming to `PayloadConvertible` to dictionaries containing 'basic' keys and values, using `coerceValueToBasicType()`.
 
-    func toArray() -> [AnyObject]? {
+    func toArray() -> [Any]? {
         
         guard rootObjectType == .foreignArray || rootObjectType == .nativeArray else {
             return nil
         }
         
-        var result: [AnyObject] = []
+        var result: [Any] = []
         
         for oldValue in rootArray {
             
@@ -267,7 +267,7 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     /// Initialize and return a new Payload instance from `src`. 
     
-    static func fromDictionary(_ src: [String: AnyObject]) -> Payload? {
+    static func fromDictionary(_ src: [String: Any]) -> Payload? {
         
         let result = self.init()
         
@@ -297,7 +297,7 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     func toJSONData() -> Data {
         
         do {
-            var obj: AnyObject?
+            var obj: Any?
             
             switch rootObjectType {
                 
@@ -334,15 +334,15 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     /// The root object type is determined based on the data used to init the payload.
     
-    private var rootObjectType: PayloadRootObjectType
+    fileprivate var rootObjectType: PayloadRootObjectType
 
     /// The underlying private storage (when `rootObjectType` is `.NativeDictionary` or `.ForeignDictionary`).
     
-    private var rootDictionary: [PayloadKey:AnyObject] = [:]
+    fileprivate var rootDictionary: [PayloadKey:Any] = [:]
     
     /// The underlying private storage (when `rootObjectType` is `.NativeArray` or `.ForeignArray`).
     
-    private var rootArray: [Any] = []
+    fileprivate var rootArray: [Any] = []
     
 }
 

@@ -38,7 +38,7 @@ extension Request {
     
     /// Create a sandbox subscriber (a fake SIM for testing). ([Sandbox API docs](https://dev.soracom.io/jp/docs/api_sandbox/#!/Subscriber/createSandboxSubscriber))
     
-    public class func createSandboxSubscriber(_ responseHandler: ResponseHandler? = nil) -> Request {
+    public class func createSandboxSubscriber(responseHandler: ResponseHandler? = nil) -> Request {
         
         let req = self.init("/sandbox/subscribers/create", responseHandler: responseHandler)
         req.shouldSendAPIKeyAndTokenInHTTPHeaders = false

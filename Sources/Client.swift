@@ -5,7 +5,7 @@ import Foundation
 
 /// The Client is a higher-level object that demonstrates how to use the SDK building blocks like `Request` and `Response` to perform multi-step operations via the Soracom API. It is not necessary to use the Client class, but it may be useful as a starting point for your own applications. (It is the core of the demo apps on both macOS and iOS, s
 
-public class Client {
+open class Client {
     
     /// Returns a single shared Client instance.
 
@@ -40,12 +40,12 @@ public class Client {
     
     
     /// Global status message used by iOS demo app.
-    public var sandboxUserAuthenticationStatus = "😑 Idle. Tap Start to begin."
+    open var sandboxUserAuthenticationStatus = "😑 Idle. Tap Start to begin."
     
     
     /// Global help message used by iOS demo app.
     
-    public var helpMessage = ""
+    open var helpMessage = ""
 
     
     
@@ -128,7 +128,7 @@ public class Client {
     }
 
     
-    public func authenticateAsSandboxUser(_ recreateOnFailure: Bool = false) {
+    open func authenticateAsSandboxUser(_ recreateOnFailure: Bool = false) {
         
         var credentials = credentialsForSandboxUser
         let nc = NotificationCenter.default

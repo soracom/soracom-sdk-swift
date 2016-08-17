@@ -6,7 +6,7 @@ extension Request {
 
     /// Returns a list of groups. [API docs](https://dev.soracom.io/en/docs/api/#!/Group/listGroups)
     
-    public class func listGroups(tagName: String?             = nil,
+    public class func listGroups(_ tagName: String?             = nil,
                                 tagValue: String?             = nil,
                        tagValueMatchMode: TagValueMatchMode?  = nil,
                                    limit: Int?                = nil,

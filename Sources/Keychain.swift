@@ -29,6 +29,10 @@ open class Keychain {
             if let data = dataTypeRef as! Data? {
                 return data
             }
+        } else if status == errSecItemNotFound {
+            // don't log this by default, even if logging is on; it's an expected condition in many circumstances
+        } else {
+            errorLogger(status, "read item \(key)")
         }
         return nil
     }
@@ -47,21 +51,40 @@ open class Keychain {
         if deleteResult != noErr && deleteResult != errSecItemNotFound {
             // not found is a normal occurence
             
-            print("delete keychain item failed: \(deleteResult)")
+            errorLogger(deleteResult, "delete/overwrite item \(key)")
+
             #if os(OSX)
-                print(SecCopyErrorMessageString(deleteResult, nil))
+                let errMessage = SecCopyErrorMessageString(deleteResult, nil)
+                errorLogger(deleteResult, "error description: \(errMessage)")
+                
                 // Mason 2016-04-18: I am seeing -25244 "Invalid attempt to change the owner of this item" during unit tests.
                 // Some debuggery reveals that this is because the SDK unit tests are being run by multiple different
                 // apps, but the tests use the same keychain keys. This is not something this simple Keychain wrapper supports.
                 // I fixed this in the tests by uniquing the keys per-app, but am leaving this note for posterity.
             #endif
-            // Mason 2016-08-17: After Swift 3 / Xcode 8 upgrade, now getting -34018 in iOS Simulator... :-(
-            // more info: http://stackoverflow.com/questions/22082996/testing-the-keychain-osstatus-error-34018
-            // FIXME: need to solve this but I am punting for now...
+            
+            if deleteResult == -34018 {
+                
+                if NSClassFromString("XCTest") != nil {
+                    let gameOverMan = [
+                        "💀 SOMEBODY SET US UP THE XCODE BOMB.",
+                        "💀 Sadly, this sucks. Xcode has an issue.",
+                        "💀 This may help: https://forums.developer.apple.com/thread/4743.",
+                        "💀 (find for 'Mason' in that thread). TL;DR: enable Keychain Sharing",
+                        "💀 entitlement for your main app, even if you don't need it.",
+                        "💀 Please file a bug with Apple if this happens on your machine...",
+                    ].joined(separator: "\n")
+                    
+                    fatalError(gameOverMan)
+                }
+            }
         }
         
         let status: OSStatus = SecItemAdd(query as CFDictionary, nil)
-        
+
+        if status != noErr && status != errSecItemNotFound {
+            errorLogger(status, "add item \(key)")
+        }
         return status == noErr
     }
     
@@ -76,6 +99,10 @@ open class Keychain {
         
         let status: OSStatus = SecItemDelete(query as CFDictionary)
         
+        if status != noErr && status != errSecItemNotFound {
+            errorLogger(status, "delete item \(key)")
+        }
+
         return status == noErr
     }
     
@@ -101,6 +128,24 @@ open class Keychain {
         }
     }
     
+
+    /// Because Keychain in OS X and iOS has had some gnarly-ass bugs over the years, and still might, log errors. This default logger just uses print() but you can replace it with your own logger if you want.
+    
+    static var errorLogger: KeychainErrorLogger = {
+        
+        (_ errCode: OSStatus, _ whenTryingTo: String ) in
+        
+        var errCodeDescription = ""
+        #if os(OSX)
+            print(SecCopyErrorMessageString(deleteResult, nil))
+        #endif
+
+    
+        print("KEYCHAIN ERROR: An error occurred when trying to \(whenTryingTo): \(errCode)")
+        // Mason 2016-08-17: I don't know of a reliable way to go from errCode to the corresponding symbol name on iOS.
+    }
+    
+    public typealias KeychainErrorLogger = ((_ errCode: OSStatus, _ whenTryingTo: String ) -> Void)
 }
 
 // Thanks, Obama: https://gist.github.com/jackreichert/414623731241c95f0e20

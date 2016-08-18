@@ -1,7 +1,7 @@
-// Map.swift Created by mason on 2016-08-18.   Copyright © 2016 Soracom, Inc. All rights reserved.
+// Map.swift Created by mason on 2016-08-18. Copyright © 2016 Soracom, Inc. All rights reserved.
 
 import Foundation
 
-class <# WHUTWHUT #> {
-    
-}
+public typealias Map = [String:String]
+
+// Mason 2016-08-18: this is a temporary workaround to get Swagger at least building something. FIXME later...

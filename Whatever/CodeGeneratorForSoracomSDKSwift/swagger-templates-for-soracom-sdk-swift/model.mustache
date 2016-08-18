@@ -26,7 +26,7 @@ public class {{classname}}: PayloadConvertible {
 {{/isEnum}}
 {{/vars}}
 
-    public init({{#vars}}{{^-first}}, {{/-first}}
+    public required init({{#vars}}{{^-first}}, {{/-first}}
         {{name}}: {{#isEnum}}/* FIXME enum wtf */{{datatypeWithEnum}}{{/isEnum}}{{^isEnum}}{{datatype}}?{{/isEnum}} = nil{{/vars}}
     ) {
         {{#vars}}self.{{name}} = {{name}}
@@ -50,11 +50,14 @@ public class {{classname}}: PayloadConvertible {
         return payload;
     }
 
-    public static func from(_ payload: Payload?) -> {{classname}}? {
+    public static func from(_ payload: Payload?) -> Self? {
         guard let payload = payload else {
             return nil
         }
-        var result = {{classname}}()
+
+        _ = payload // suppress compiler warnings when payload isn't used in generated code
+
+        var result = self.init()
 
 {{#vars}}
 {{#isEnum}}
@@ -64,6 +67,7 @@ public class {{classname}}: PayloadConvertible {
         result.{{name}} = payload.decode{{datatype}}[.{{name}}]
 {{/isEnum}}
 {{/vars}}
+        return result
     }
 
 }{{/model}}

@@ -32,6 +32,7 @@ public enum PayloadKey: String {
     case dnsServers
     case downloadByteSizeTotal
     case downloadPacketSizeTotal
+    case errorMessage
     case email
     case expiredAt
     case expireMonth
@@ -39,7 +40,11 @@ public enum PayloadKey: String {
     case expiryAction
     case expiryTime
     case expiryYearMonth
+    case gatewayPrivateIpAddress
+    case gatewayPublicIpAddress
     case groupId
+    case httpStatus
+    case iccid
     case imei
     case imsi
     case inHttp
@@ -47,6 +52,7 @@ public enum PayloadKey: String {
     case inTcp
     case inUdp
     case ipAddress
+    case isOnline
     case key
     case lastModifiedAt
     case lastModifiedTime
@@ -93,6 +99,7 @@ public enum PayloadKey: String {
     case uploadPacketSizeTotal
     case userName
     case value
+    case vpgId
     
     
     /// Convert the API key to the string representation used in the JSON-encoded request to the API server. **Usually** this is just the `rawValue` of the enum case, but some API keys have special characters that cannot be part of Swift enum case names, so those special cases are handled here.

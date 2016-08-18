@@ -38,10 +38,13 @@ class Swaggerer {
     }
     
     
+    /// The final output directory. **WARNING**: Any existing directory will be moved to the trash.
+    
     var outputDirectory: String {
         
         return path(identifier: kOutputDirectory) {
-            (self.workingDirectory as NSString).appendingPathComponent("generated-source-code")
+            // (self.workingDirectory as NSString).appendingPathComponent("generated-source-code")
+            "/Users/mason/Code/ios-client/Dependencies/soracom-sdk-swift/Sources/auto-generated" // FIXME: TEMPORARY, obviously...
         }
     }
     
@@ -321,7 +324,7 @@ class Swaggerer {
             
             } else if subpath.hasPrefix("SwaggerClient/Classes/Swaggers/Models") && subpath != "SwaggerClient/Classes/Swaggers/Models" {
                 // We will copy every model that swagger generates, but we need to prepend _ to each filename.
-                destPath = (outputDirectory as NSString).appendingPathComponent("_" + (subpath as NSString).lastPathComponent)
+                destPath = (outputDirectory as NSString).appendingPathComponent( /* "_" + */ (subpath as NSString).lastPathComponent)
                 shouldCopy = true
             }
             

@@ -5,7 +5,7 @@ import Foundation
 {{#description}}
 
 /** {{description}} */{{/description}}
-public class _{{classname}}: PayloadConvertible {
+public class {{classname}}: PayloadConvertible {
 
 {{#vars}}
 {{#isEnum}}
@@ -50,11 +50,11 @@ public class _{{classname}}: PayloadConvertible {
         return payload;
     }
 
-    public static func from(_ payload: Payload?) -> _{{classname}}? {
+    public static func from(_ payload: Payload?) -> {{classname}}? {
         guard let payload = payload else {
             return nil
         }
-        var result = _{{classname}}()
+        var result = {{classname}}()
 
 {{#vars}}
 {{#isEnum}}

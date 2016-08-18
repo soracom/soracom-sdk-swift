@@ -268,7 +268,46 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     }
     
     
-    /// Initialize and return a new Payload instance from `src`. 
+    // Like `somePayload[.key] except that it will attempt to coerce EXPERIMENTAL BRO
+    
+    
+    public func getBool(_ key: PayloadKey) -> Bool? {
+        return self[key] as? Bool
+    }
+    
+    public func getString(_ key: PayloadKey) -> String? {
+        return self[key] as? String
+    }
+    
+    public func getStringArray(_ key: PayloadKey) -> [String]? {
+        return self[key] as? [String]
+    }
+    
+    public func getInt64(_ key: PayloadKey) -> Int64? {
+        return self[key] as? Int64
+    }
+    
+    public func getInt(_ key: PayloadKey) -> Int64? {
+        return self[key] as? Int64
+    }
+    
+    public func getMap(_ key: PayloadKey) -> Map? {
+        return self[key] as? Map
+    }
+    
+    public func getSessionStatus(_ key: PayloadKey) -> SessionStatus? {
+        
+        if let dict = self[key] as? [String:Any], let childPayload = Payload.fromDictionary(dict) {
+            return SessionStatus.from(childPayload)
+        } else if let nativeObject = self[key] as? SessionStatus {
+            return nativeObject
+        } else {
+            return nil
+        }
+    }
+    
+
+    /// Initialize and return a new Payload instance from `src`.
     
     static func fromDictionary(_ src: [String: Any]) -> Payload? {
         

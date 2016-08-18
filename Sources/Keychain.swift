@@ -137,7 +137,7 @@ open class Keychain {
         
         var errCodeDescription = ""
         #if os(OSX)
-            print(SecCopyErrorMessageString(deleteResult, nil))
+            print(SecCopyErrorMessageString(errCode, nil))
         #endif
 
     

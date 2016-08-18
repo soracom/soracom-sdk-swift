@@ -40,12 +40,7 @@ public class {{classname}}: PayloadConvertible {
         let payload: Payload = [:]
 
 {{#vars}}
-{{#isEnum}}
-        // {{name}}: FIXME-ENUM-CASE
-{{/isEnum}}
-{{^isEnum}}
         payload[.{{name}}] = {{name}}
-{{/isEnum}}
 {{/vars}}
 
         return payload;
@@ -62,7 +57,7 @@ public class {{classname}}: PayloadConvertible {
 
 {{#vars}}
 {{#isEnum}}
-        // {{name}}: FIXME-ENUM-CASE
+        result.{{name}} = payload.get{{datatypeWithEnum}}(.{{name}})
 {{/isEnum}}
 {{^isEnum}}
 {{#isContainer}}

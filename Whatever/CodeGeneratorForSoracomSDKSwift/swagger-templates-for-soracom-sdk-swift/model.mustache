@@ -34,16 +34,17 @@ public class {{classname}}: PayloadConvertible {
     }
 
     // MARK: PayloadConvertible
+
     public func toPayload() -> Payload {
 
-    let payload: Payload = [:]
+        let payload: Payload = [:]
 
 {{#vars}}
 {{#isEnum}}
         // {{name}}: FIXME-ENUM-CASE
 {{/isEnum}}
 {{^isEnum}}
-        payload[.{{name}}] = payload.encode{{datatype}}({{name}})
+        payload[.{{name}}] = {{name}}
 {{/isEnum}}
 {{/vars}}
 
@@ -57,14 +58,19 @@ public class {{classname}}: PayloadConvertible {
 
         _ = payload // suppress compiler warnings when payload isn't used in generated code
 
-        var result = self.init()
+        let result = self.init()
 
 {{#vars}}
 {{#isEnum}}
         // {{name}}: FIXME-ENUM-CASE
 {{/isEnum}}
 {{^isEnum}}
-        result.{{name}} = payload.decode{{datatype}}[.{{name}}]
+{{#isContainer}}
+        result.{{name}} = payload.___SWAGGERER_POSTPROCESS_FIXME_{{datatype}}___(.{{name}})
+{{/isContainer}}
+{{^isContainer}}
+        result.{{name}} = payload.get{{datatype}}(.{{name}})
+{{/isContainer}}
 {{/isEnum}}
 {{/vars}}
         return result
@@ -73,4 +79,4 @@ public class {{classname}}: PayloadConvertible {
 }{{/model}}
 {{/models}}
 
-//public typealias {{classname}}List = [{{classname}}]
+public typealias {{classname}}List = [{{classname}}]

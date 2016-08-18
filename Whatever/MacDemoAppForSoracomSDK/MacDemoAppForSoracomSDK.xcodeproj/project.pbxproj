@@ -40,7 +40,6 @@
 		93704B761D659717005413D2 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A31D124A6C0069B3EF /* Client.swift */; };
 		93704B771D659717005413D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A81D1280F20069B3EF /* Constants.swift */; };
 		93704B781D659717005413D2 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B3E1D38BDCF00F57659 /* Credential.swift */; };
-		93704B791D659717005413D2 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B461D38D63000F57659 /* Group.swift */; };
 		93704B7A1D659717005413D2 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69401CB9BA46002F9D99 /* Keychain.swift */; };
 		93704B7B1D659717005413D2 /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7DD1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift */; };
 		93704B7C1D659717005413D2 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AED1CBB4FA90084DC18 /* Payload.swift */; };
@@ -67,7 +66,6 @@
 		93704B911D659717005413D2 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A31D124A6C0069B3EF /* Client.swift */; };
 		93704B921D659717005413D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A81D1280F20069B3EF /* Constants.swift */; };
 		93704B931D659717005413D2 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B3E1D38BDCF00F57659 /* Credential.swift */; };
-		93704B941D659717005413D2 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B461D38D63000F57659 /* Group.swift */; };
 		93704B951D659717005413D2 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69401CB9BA46002F9D99 /* Keychain.swift */; };
 		93704B961D659717005413D2 /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7DD1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift */; };
 		93704B971D659717005413D2 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AED1CBB4FA90084DC18 /* Payload.swift */; };
@@ -89,6 +87,8 @@
 		93704BA71D659717005413D2 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3DED11D15515400C60E33 /* TextStyle.swift */; };
 		93704BAB1D65AEC5005413D2 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704BAA1D65AEC5005413D2 /* Map.swift */; };
 		93704BAC1D65AEC5005413D2 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704BAA1D65AEC5005413D2 /* Map.swift */; };
+		93704BB11D65FE63005413D2 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A6D1D657908005413D2 /* Group.swift */; };
+		93704BB21D65FE63005413D2 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A6D1D657908005413D2 /* Group.swift */; };
 		93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */; };
 		93BDF91A1CB8FD1A0058C5BC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BDF9181CB8FD1A0058C5BC /* MainMenu.xib */; };
 		93CFB6831CBDCE920054F8B6 /* Request+AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFB6811CBDCE920054F8B6 /* Request+AuthTests.swift */; };
@@ -263,7 +263,7 @@
 		93F50B3E1D38BDCF00F57659 /* Credential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		93F50B411D38D1FB00F57659 /* BeamStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeamStats.swift; sourceTree = "<group>"; };
 		93F50B441D38D22E00F57659 /* BeamStatsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeamStatsTest.swift; sourceTree = "<group>"; };
-		93F50B461D38D63000F57659 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		93F50B461D38D63000F57659 /* GroupOFF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupOFF.swift; sourceTree = "<group>"; };
 		93F50B491D38D6E300F57659 /* Subscriber+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Subscriber+Extras.swift"; sourceTree = "<group>"; };
 		93F50B4C1D38D70900F57659 /* SubscriberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriberTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -308,7 +308,7 @@
 				939BF3A31D124A6C0069B3EF /* Client.swift */,
 				939BF3A81D1280F20069B3EF /* Constants.swift */,
 				93F50B3E1D38BDCF00F57659 /* Credential.swift */,
-				93F50B461D38D63000F57659 /* Group.swift */,
+				93F50B461D38D63000F57659 /* GroupOFF.swift */,
 				932D69401CB9BA46002F9D99 /* Keychain.swift */,
 				9343D7DD1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift */,
 				93408AED1CBB4FA90084DC18 /* Payload.swift */,
@@ -623,12 +623,12 @@
 				93704B821D659717005413D2 /* Request+Group.swift in Sources */,
 				93704B701D6596F9005413D2 /* SessionStatus.swift in Sources */,
 				93704B7F1D659717005413D2 /* Request.swift in Sources */,
-				93704B791D659717005413D2 /* Group.swift in Sources */,
 				93704B831D659717005413D2 /* Request+Operator.swift in Sources */,
 				93704B871D659717005413D2 /* RequestQueue.swift in Sources */,
 				93704B811D659717005413D2 /* Request+Credentials.swift in Sources */,
 				93704B741D659717005413D2 /* APIStructures.swift in Sources */,
 				93704B8C1D659717005413D2 /* TextStyle.swift in Sources */,
+				93704BB21D65FE63005413D2 /* Group.swift in Sources */,
 				93704B721D659717005413D2 /* APIError.swift in Sources */,
 				93704B781D659717005413D2 /* Credential.swift in Sources */,
 				93704B841D659717005413D2 /* Request+Payment.swift in Sources */,
@@ -649,7 +649,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				93408AF41CBB4FD80084DC18 /* PayloadTests.swift in Sources */,
-				93704B941D659717005413D2 /* Group.swift in Sources */,
 				93704B981D659717005413D2 /* PayloadConvertible.swift in Sources */,
 				93704B961D659717005413D2 /* NSDate+SoracomAPI.swift in Sources */,
 				932D695A1CBC5842002F9D99 /* Request+SubscriberTests.swift in Sources */,
@@ -658,6 +657,7 @@
 				93704BA51D659717005413D2 /* SoracomCredentials.swift in Sources */,
 				93704B901D659717005413D2 /* BeamStats.swift in Sources */,
 				93704B9F1D659717005413D2 /* Request+Payment.swift in Sources */,
+				93704BB11D65FE63005413D2 /* Group.swift in Sources */,
 				93F50B3C1D38B72400F57659 /* CredentialTests.swift in Sources */,
 				93704B8F1D659717005413D2 /* APIStructures.swift in Sources */,
 				93704B921D659717005413D2 /* Constants.swift in Sources */,

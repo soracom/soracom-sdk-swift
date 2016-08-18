@@ -31,7 +31,7 @@ public class CreateVirtualPrivateGatewayRequest: PayloadConvertible {
 
         let payload: Payload = [:]
 
-        // primaryServiceName: FIXME-ENUM-CASE
+        payload[.primaryServiceName] = primaryServiceName
         payload[.useInternetGateway] = useInternetGateway
         payload[.deviceSubnetCidrRange] = deviceSubnetCidrRange
 
@@ -47,7 +47,8 @@ public class CreateVirtualPrivateGatewayRequest: PayloadConvertible {
 
         let result = self.init()
 
-        // primaryServiceName: FIXME-ENUM-CASE
+        // primaryServiceName: WHUT FIXME-ENUM-CASE PrimaryServiceName
+        result.primaryServiceName = payload.getPrimaryServiceName(.primaryServiceName)
         result.useInternetGateway = payload.getBool(.useInternetGateway)
         result.deviceSubnetCidrRange = payload.getString(.deviceSubnetCidrRange)
         return result

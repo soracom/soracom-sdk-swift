@@ -33,7 +33,7 @@ public class RuleConfig: PayloadConvertible {
         let payload: Payload = [:]
 
         payload[.properties] = properties
-        // _type: FIXME-ENUM-CASE
+        payload[._type] = _type
 
         return payload;
     }
@@ -48,7 +48,8 @@ public class RuleConfig: PayloadConvertible {
         let result = self.init()
 
         result.properties = payload.getRuleConfigProperty(.properties)
-        // _type: FIXME-ENUM-CASE
+        // _type: WHUT FIXME-ENUM-CASE _type
+        result._type = payload.get_type(._type)
         return result
     }
 

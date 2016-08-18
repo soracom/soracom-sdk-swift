@@ -114,13 +114,13 @@ public class ActionConfigProperty: PayloadConvertible {
 
         let payload: Payload = [:]
 
-        // executionDateTimeConst: FIXME-ENUM-CASE
+        payload[.executionDateTimeConst] = executionDateTimeConst
         payload[.to] = to
         payload[.title] = title
         payload[.message] = message
-        // speedClass: FIXME-ENUM-CASE
+        payload[.speedClass] = speedClass
         payload[.url] = url
-        // httpMethod: FIXME-ENUM-CASE
+        payload[.httpMethod] = httpMethod
         payload[.contentType] = contentType
         payload[.headers] = headers
         payload[.body] = body
@@ -146,13 +146,16 @@ public class ActionConfigProperty: PayloadConvertible {
 
         let result = self.init()
 
-        // executionDateTimeConst: FIXME-ENUM-CASE
+        // executionDateTimeConst: WHUT FIXME-ENUM-CASE ExecutionDateTimeConst
+        result.executionDateTimeConst = payload.getExecutionDateTimeConst(.executionDateTimeConst)
         result.to = payload.getString(.to)
         result.title = payload.getString(.title)
         result.message = payload.getString(.message)
-        // speedClass: FIXME-ENUM-CASE
+        // speedClass: WHUT FIXME-ENUM-CASE SpeedClass
+        result.speedClass = payload.getSpeedClass(.speedClass)
         result.url = payload.getString(.url)
-        // httpMethod: FIXME-ENUM-CASE
+        // httpMethod: WHUT FIXME-ENUM-CASE HttpMethod
+        result.httpMethod = payload.getHttpMethod(.httpMethod)
         result.contentType = payload.getString(.contentType)
         result.headers = payload.getAnyObject(.headers)
         result.body = payload.getString(.body)

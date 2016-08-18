@@ -33,7 +33,7 @@ public class CreateAndUpdateCredentialsModel: PayloadConvertible {
 
         payload[.credentials] = credentials
         payload[.description] = description
-        // _type: FIXME-ENUM-CASE
+        payload[._type] = _type
 
         return payload;
     }
@@ -49,7 +49,8 @@ public class CreateAndUpdateCredentialsModel: PayloadConvertible {
 
         result.credentials = payload.getAnyObject(.credentials)
         result.description = payload.getString(.description)
-        // _type: FIXME-ENUM-CASE
+        // _type: WHUT FIXME-ENUM-CASE _type
+        result._type = payload.get_type(._type)
         return result
     }
 

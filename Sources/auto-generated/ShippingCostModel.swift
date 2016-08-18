@@ -49,7 +49,7 @@ public class ShippingCostModel: PayloadConvertible {
 
         let payload: Payload = [:]
 
-        // shippingArea: FIXME-ENUM-CASE
+        payload[.shippingArea] = shippingArea
         payload[.shippingAreaName] = shippingAreaName
         payload[.shippingCost] = shippingCost
         payload[.size] = size
@@ -66,7 +66,8 @@ public class ShippingCostModel: PayloadConvertible {
 
         let result = self.init()
 
-        // shippingArea: FIXME-ENUM-CASE
+        // shippingArea: WHUT FIXME-ENUM-CASE ShippingArea
+        result.shippingArea = payload.getShippingArea(.shippingArea)
         result.shippingAreaName = payload.getString(.shippingAreaName)
         result.shippingCost = payload.getDouble(.shippingCost)
         result.size = payload.getInt64(.size)

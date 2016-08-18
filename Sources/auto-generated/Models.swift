@@ -622,7 +622,7 @@ extension Payload {
         instance.groupId = source.decodeString(.groupId)
         instance.lastModifiedTime = source.decodeInt64(.lastModifiedTime)
         instance.operatorId = source.decodeString(.operatorId)
-        instance.tags = source.decodeTag(.tags)
+        instance.tags = source.decodeMap(.tags)
         return instance
     }
 

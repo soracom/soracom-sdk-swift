@@ -63,8 +63,8 @@ public class GetPaymentTransactionResult: PayloadConvertible {
         payload[.amount] = amount
         payload[.description] = description
         payload[.message] = message
-        // messageCode: FIXME-ENUM-CASE
-        // status: FIXME-ENUM-CASE
+        payload[.messageCode] = messageCode
+        payload[.status] = status
 
         return payload;
     }
@@ -81,8 +81,10 @@ public class GetPaymentTransactionResult: PayloadConvertible {
         result.amount = payload.getPaymentAmount(.amount)
         result.description = payload.getPaymentDescription(.description)
         result.message = payload.getString(.message)
-        // messageCode: FIXME-ENUM-CASE
-        // status: FIXME-ENUM-CASE
+        // messageCode: WHUT FIXME-ENUM-CASE MessageCode
+        result.messageCode = payload.getMessageCode(.messageCode)
+        // status: WHUT FIXME-ENUM-CASE Status
+        result.status = payload.getStatus(.status)
         return result
     }
 

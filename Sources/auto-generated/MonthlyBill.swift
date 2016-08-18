@@ -43,7 +43,7 @@ public class MonthlyBill: PayloadConvertible {
         let payload: Payload = [:]
 
         payload[.amount] = amount
-        // paymentStatus: FIXME-ENUM-CASE
+        payload[.paymentStatus] = paymentStatus
         payload[.paymentTransactionId] = paymentTransactionId
         payload[.yearMonth] = yearMonth
 
@@ -60,7 +60,8 @@ public class MonthlyBill: PayloadConvertible {
         let result = self.init()
 
         result.amount = payload.getInt64(.amount)
-        // paymentStatus: FIXME-ENUM-CASE
+        // paymentStatus: WHUT FIXME-ENUM-CASE PaymentStatus
+        result.paymentStatus = payload.getPaymentStatus(.paymentStatus)
         result.paymentTransactionId = payload.getString(.paymentTransactionId)
         result.yearMonth = payload.getString(.yearMonth)
         return result

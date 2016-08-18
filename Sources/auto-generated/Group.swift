@@ -10,7 +10,7 @@ public class Group: PayloadConvertible {
     public var groupId: String?
     public var lastModifiedTime: Int64?
     public var operatorId: String?
-    public var tags: Tag?
+    public var tags: Map?
 
     public required init(
         configuration: Map? = nil, 
@@ -18,7 +18,7 @@ public class Group: PayloadConvertible {
         groupId: String? = nil, 
         lastModifiedTime: Int64? = nil, 
         operatorId: String? = nil, 
-        tags: Tag? = nil
+        tags: Map? = nil
     ) {
         self.configuration = configuration
         self.createdTime = createdTime
@@ -59,7 +59,7 @@ public class Group: PayloadConvertible {
         result.groupId = payload.getString(.groupId)
         result.lastModifiedTime = payload.getInt64(.lastModifiedTime)
         result.operatorId = payload.getString(.operatorId)
-        result.tags = payload.getTag(.tags)
+        result.tags = payload.getMap(.tags)
         return result
     }
 

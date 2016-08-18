@@ -53,7 +53,7 @@ public class CreateEventHandlerRequest: PayloadConvertible {
         payload[.description] = description
         payload[.name] = name
         payload[.ruleConfig] = ruleConfig
-        // status: FIXME-ENUM-CASE
+        payload[.status] = status
         payload[.targetGroupId] = targetGroupId
         payload[.targetImsi] = targetImsi
         payload[.targetOperatorId] = targetOperatorId
@@ -75,7 +75,8 @@ public class CreateEventHandlerRequest: PayloadConvertible {
         result.description = payload.getString(.description)
         result.name = payload.getString(.name)
         result.ruleConfig = payload.getRuleConfig(.ruleConfig)
-        // status: FIXME-ENUM-CASE
+        // status: WHUT FIXME-ENUM-CASE Status
+        result.status = payload.getStatus(.status)
         result.targetGroupId = payload.getString(.targetGroupId)
         result.targetImsi = payload.getString(.targetImsi)
         result.targetOperatorId = payload.getString(.targetOperatorId)

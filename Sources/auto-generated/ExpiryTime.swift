@@ -31,7 +31,7 @@ public class ExpiryTime: PayloadConvertible {
         let payload: Payload = [:]
 
         payload[.expiryTime] = expiryTime
-        // expiryAction: FIXME-ENUM-CASE
+        payload[.expiryAction] = expiryAction
 
         return payload;
     }
@@ -46,7 +46,8 @@ public class ExpiryTime: PayloadConvertible {
         let result = self.init()
 
         result.expiryTime = payload.getInt64(.expiryTime)
-        // expiryAction: FIXME-ENUM-CASE
+        // expiryAction: WHUT FIXME-ENUM-CASE ExpiryAction
+        result.expiryAction = payload.getExpiryAction(.expiryAction)
         return result
     }
 

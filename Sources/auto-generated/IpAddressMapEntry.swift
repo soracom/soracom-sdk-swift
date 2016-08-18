@@ -35,7 +35,7 @@ public class IpAddressMapEntry: PayloadConvertible {
 
         payload[.key] = key
         payload[.ipAddress] = ipAddress
-        // _type: FIXME-ENUM-CASE
+        payload[._type] = _type
 
         return payload;
     }
@@ -51,7 +51,8 @@ public class IpAddressMapEntry: PayloadConvertible {
 
         result.key = payload.getString(.key)
         result.ipAddress = payload.getString(.ipAddress)
-        // _type: FIXME-ENUM-CASE
+        // _type: WHUT FIXME-ENUM-CASE _type
+        result._type = payload.get_type(._type)
         return result
     }
 

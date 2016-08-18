@@ -60,7 +60,7 @@ public class ProductModel: PayloadConvertible {
         payload[.productCode] = productCode
         payload[.productInfoURL] = productInfoURL
         payload[.productName] = productName
-        // productType: FIXME-ENUM-CASE
+        payload[.productType] = productType
         payload[.properties] = properties
 
         return payload;
@@ -81,7 +81,8 @@ public class ProductModel: PayloadConvertible {
         result.productCode = payload.getString(.productCode)
         result.productInfoURL = payload.getString(.productInfoURL)
         result.productName = payload.getString(.productName)
-        // productType: FIXME-ENUM-CASE
+        // productType: WHUT FIXME-ENUM-CASE ProductType
+        result.productType = payload.getProductType(.productType)
         result.properties = payload.___SWAGGERER_POSTPROCESS_FIXME_[String:String]___(.properties)
         return result
     }

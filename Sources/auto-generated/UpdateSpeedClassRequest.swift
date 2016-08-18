@@ -27,7 +27,7 @@ public class UpdateSpeedClassRequest: PayloadConvertible {
 
         let payload: Payload = [:]
 
-        // speedClass: FIXME-ENUM-CASE
+        payload[.speedClass] = speedClass
 
         return payload;
     }
@@ -41,7 +41,8 @@ public class UpdateSpeedClassRequest: PayloadConvertible {
 
         let result = self.init()
 
-        // speedClass: FIXME-ENUM-CASE
+        // speedClass: WHUT FIXME-ENUM-CASE SpeedClass
+        result.speedClass = payload.getSpeedClass(.speedClass)
         return result
     }
 

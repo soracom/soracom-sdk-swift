@@ -59,7 +59,7 @@ public class VirtualPrivateGateway: PayloadConvertible {
 
         payload[.operatorId] = operatorId
         payload[.id] = id
-        // primaryServiceName: FIXME-ENUM-CASE
+        payload[.primaryServiceName] = primaryServiceName
         payload[._type] = _type
         payload[.status] = status
         payload[.useInternetGateway] = useInternetGateway
@@ -83,7 +83,8 @@ public class VirtualPrivateGateway: PayloadConvertible {
 
         result.operatorId = payload.getString(.operatorId)
         result.id = payload.getString(.id)
-        // primaryServiceName: FIXME-ENUM-CASE
+        // primaryServiceName: WHUT FIXME-ENUM-CASE PrimaryServiceName
+        result.primaryServiceName = payload.getPrimaryServiceName(.primaryServiceName)
         result._type = payload.getInt64(._type)
         result.status = payload.getString(.status)
         result.useInternetGateway = payload.getBool(.useInternetGateway)

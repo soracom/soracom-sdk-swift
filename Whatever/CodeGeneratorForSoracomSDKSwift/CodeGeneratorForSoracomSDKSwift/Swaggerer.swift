@@ -365,8 +365,8 @@ class Swaggerer {
 
         
         
-        let t = TaskWrapper("/usr/bin/open", arguments: [outputDirectory])
-        t.launch()
+//        let t = TaskWrapper("/usr/bin/open", arguments: [outputDirectory])
+//        t.launch()
         
         return true
     }

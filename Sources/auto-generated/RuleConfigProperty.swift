@@ -55,9 +55,9 @@ public class RuleConfigProperty: PayloadConvertible {
         let payload: Payload = [:]
 
         payload[.limitTotalTrafficMegaByte] = limitTotalTrafficMegaByte
-        // inactiveTimeoutDateConst: FIXME-ENUM-CASE
-        // targetStatus: FIXME-ENUM-CASE
-        // targetSpeedClass: FIXME-ENUM-CASE
+        payload[.inactiveTimeoutDateConst] = inactiveTimeoutDateConst
+        payload[.targetStatus] = targetStatus
+        payload[.targetSpeedClass] = targetSpeedClass
 
         return payload;
     }
@@ -72,9 +72,12 @@ public class RuleConfigProperty: PayloadConvertible {
         let result = self.init()
 
         result.limitTotalTrafficMegaByte = payload.getInt64(.limitTotalTrafficMegaByte)
-        // inactiveTimeoutDateConst: FIXME-ENUM-CASE
-        // targetStatus: FIXME-ENUM-CASE
-        // targetSpeedClass: FIXME-ENUM-CASE
+        // inactiveTimeoutDateConst: WHUT FIXME-ENUM-CASE InactiveTimeoutDateConst
+        result.inactiveTimeoutDateConst = payload.getInactiveTimeoutDateConst(.inactiveTimeoutDateConst)
+        // targetStatus: WHUT FIXME-ENUM-CASE TargetStatus
+        result.targetStatus = payload.getTargetStatus(.targetStatus)
+        // targetSpeedClass: WHUT FIXME-ENUM-CASE TargetSpeedClass
+        result.targetSpeedClass = payload.getTargetSpeedClass(.targetSpeedClass)
         return result
     }
 

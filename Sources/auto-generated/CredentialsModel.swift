@@ -48,7 +48,7 @@ public class CredentialsModel: PayloadConvertible {
         payload[.credentialsId] = credentialsId
         payload[.description] = description
         payload[.lastUsedDateTime] = lastUsedDateTime
-        // _type: FIXME-ENUM-CASE
+        payload[._type] = _type
         payload[.updateDateTime] = updateDateTime
 
         return payload;
@@ -68,7 +68,8 @@ public class CredentialsModel: PayloadConvertible {
         result.credentialsId = payload.getString(.credentialsId)
         result.description = payload.getString(.description)
         result.lastUsedDateTime = payload.getInt64(.lastUsedDateTime)
-        // _type: FIXME-ENUM-CASE
+        // _type: WHUT FIXME-ENUM-CASE _type
+        result._type = payload.get_type(._type)
         result.updateDateTime = payload.getInt64(.updateDateTime)
         return result
     }

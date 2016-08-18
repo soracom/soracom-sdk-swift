@@ -59,10 +59,10 @@ public class GetPaymentMethodResult: PayloadConvertible {
 
         let payload: Payload = [:]
 
-        // errorCode: FIXME-ENUM-CASE
+        payload[.errorCode] = errorCode
         payload[.errorMessage] = errorMessage
         payload[.properties] = properties
-        // providerType: FIXME-ENUM-CASE
+        payload[.providerType] = providerType
         payload[.updateDate] = updateDate
 
         return payload;
@@ -77,10 +77,12 @@ public class GetPaymentMethodResult: PayloadConvertible {
 
         let result = self.init()
 
-        // errorCode: FIXME-ENUM-CASE
+        // errorCode: WHUT FIXME-ENUM-CASE ErrorCode
+        result.errorCode = payload.getErrorCode(.errorCode)
         result.errorMessage = payload.getString(.errorMessage)
         result.properties = payload.getString(.properties)
-        // providerType: FIXME-ENUM-CASE
+        // providerType: WHUT FIXME-ENUM-CASE ProviderType
+        result.providerType = payload.getProviderType(.providerType)
         result.updateDate = payload.getString(.updateDate)
         return result
     }

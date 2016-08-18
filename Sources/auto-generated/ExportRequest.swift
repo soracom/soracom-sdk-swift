@@ -33,7 +33,7 @@ public class ExportRequest: PayloadConvertible {
         let payload: Payload = [:]
 
         payload[.from] = from
-        // period: FIXME-ENUM-CASE
+        payload[.period] = period
         payload[.to] = to
 
         return payload;
@@ -49,7 +49,8 @@ public class ExportRequest: PayloadConvertible {
         let result = self.init()
 
         result.from = payload.getInt64(.from)
-        // period: FIXME-ENUM-CASE
+        // period: WHUT FIXME-ENUM-CASE Period
+        result.period = payload.getPeriod(.period)
         result.to = payload.getInt64(.to)
         return result
     }

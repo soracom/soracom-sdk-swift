@@ -76,7 +76,7 @@ public class GetOrderResponse: PayloadConvertible {
         payload[.orderDateTime] = orderDateTime
         payload[.orderId] = orderId
         payload[.orderItemList] = orderItemList
-        // orderStatus: FIXME-ENUM-CASE
+        payload[.orderStatus] = orderStatus
         payload[.shippingAddress] = shippingAddress
         payload[.shippingAddressId] = shippingAddressId
         payload[.shippingCost] = shippingCost
@@ -100,7 +100,8 @@ public class GetOrderResponse: PayloadConvertible {
         result.orderDateTime = payload.getString(.orderDateTime)
         result.orderId = payload.getString(.orderId)
         result.orderItemList = payload.___SWAGGERER_POSTPROCESS_FIXME_[EstimatedOrderItemModel]___(.orderItemList)
-        // orderStatus: FIXME-ENUM-CASE
+        // orderStatus: WHUT FIXME-ENUM-CASE OrderStatus
+        result.orderStatus = payload.getOrderStatus(.orderStatus)
         result.shippingAddress = payload.getShippingAddressModel(.shippingAddress)
         result.shippingAddressId = payload.getString(.shippingAddressId)
         result.shippingCost = payload.getDouble(.shippingCost)

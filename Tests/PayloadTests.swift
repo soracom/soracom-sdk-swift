@@ -290,7 +290,6 @@ class PayloadTests: BaseTestCase {
     func test_subscriber_conversion() {
         
         let source: Payload = [
-            .ipAddress  : "0.1.2.3",
             .speedClass : SpeedClass.s1_fast.rawValue,
             .imsi       : "470010171566423"
         ] // just because aotw this is easiest way to create a Subscriber
@@ -304,7 +303,7 @@ class PayloadTests: BaseTestCase {
             return
         }
         
-        let expected: [Any] = [["ipAddress": "0.1.2.3", "speedClass": "s1.fast", "imsi": "470010171566423"],["ipAddress": "0.1.2.3", "speedClass": "s1.fast", "imsi": "470010171566423"]]
+        let expected: [Any] = [["speedClass": "s1.fast", "imsi": "470010171566423"],["speedClass": "s1.fast", "imsi": "470010171566423"]]
         
         XCTAssertEqual(expected as NSArray, actual as NSArray)
     }

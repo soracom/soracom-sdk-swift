@@ -284,11 +284,23 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     }
     
     public func getInt64(_ key: PayloadKey) -> Int64? {
-        return self[key] as? Int64
+        if let result = self[key] as? Int64 {
+            return result
+        } else if let result = self[key] as? NSNumber {
+            return result.int64Value
+        } else {
+            return nil
+        }
     }
     
     public func getInt(_ key: PayloadKey) -> Int64? {
-        return self[key] as? Int64
+        if let result = self[key] as? Int64 {
+            return result
+        } else if let result = self[key] as? NSNumber {
+            return result.int64Value
+        } else {
+            return nil
+        }
     }
     
     public func getMap(_ key: PayloadKey) -> Map? {

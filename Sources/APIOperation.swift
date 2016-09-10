@@ -64,7 +64,7 @@ open class APIOperation: Operation {
 
     /// The requestBuilder variant inits an operation that defers the creation of its Request object, e.g. because the values needed to contruct the request aren't yet known. In this case, instead of a Request object, a RequestBuilder closure is passed, which will not be executed until the receiver is dequeued. This allows queuing operations which depend on data retrieved by previous operations, before any of the operations have actually executed.
     
-    public init(_ requestBuilder: RequestBuilder) {
+    public init(_ requestBuilder: @escaping RequestBuilder) {
         
         self.requestBuilder = requestBuilder
         super.init()

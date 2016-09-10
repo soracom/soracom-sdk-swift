@@ -9,6 +9,104 @@
 
 public enum PayloadKey: String {
     
+    case transferImsi
+    case messageCode
+    case status
+    case virtualInterfaces
+    case vpcPeeringConnections
+    case rootOperatorId
+    case createDate
+    case lastEvaluatedTime
+    case url
+    case from
+    case handlerId
+    case transferredImsi
+    case orderDateTime
+    case shippingAddress
+    case shippingLabelNumber
+    case updateDate
+    case shippingArea
+    case transferDestinationOperatorEmail
+    case transferDestinationOperatorId
+    case paymentTransactionId
+    case yearMonth
+    case totalAmount
+    case taxAmount
+    case limitTotalTrafficMegaByte
+    case event
+    case time
+    case dns1
+    case dns0
+    case currentPassword
+    case newPassword
+    case roleId
+    case shippingAreaName
+    case shippingCost
+    case size
+    case product
+    case orderId
+    case to
+    case title
+    case contentType
+    case headers
+    case body
+    case endpoint
+    case functionName
+    case accessKey
+    case parameter1
+    case parameter2
+    case parameter3
+    case parameter4
+    case parameter5
+    case productAmount
+    case quantity
+    case billList
+    case orderedSubscriberList
+    case orderList
+    case roleList
+    case hasPassword
+    case authKeyList
+    case couponList
+    case productList
+    case shippingCostList
+    case orderItemList
+    case shippingAddressId
+    case actionConfigList
+    case ruleConfig
+    case targetGroupId
+    case targetImsi
+    case targetOperatorId
+    case targetTag
+    case fields
+    case addressLine1
+    case addressLine2
+    case building
+    case city
+    case companyName
+    case department
+    case fullName
+    case phoneNumber
+    case state
+    case zipCode
+    case outerIpAddress
+    case innerIpAddress
+    case ownedByCustomer
+    case id
+    case peerOwnerId
+    case destinationCidrBlock
+    case peerVpcId
+    case date
+    case permission
+    case deviceSubnetCidrRange
+    case useInternetGateway
+    case primaryServiceName
+    case maxQuantity
+    case price
+    case productCode
+    case productInfoURL
+    case productName
+    case productType
+    case properties
     case accessKeyId
     case amount
     case apiKey
@@ -20,6 +118,7 @@ public enum PayloadKey: String {
     case billItemName
     case code
     case configuration
+    case count
     case couponCode
     case createdAt
     case createDateTime
@@ -84,7 +183,6 @@ public enum PayloadKey: String {
     case serialNumber
     case sessionStatus
     case speedClass
-    case status
     case tags
     case tagName
     case tagValue

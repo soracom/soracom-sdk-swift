@@ -26,6 +26,8 @@
 		9346E1FC1D128E1D006B0D01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */; };
 		9346E1FD1D128E1D006B0D01 /* AppDelegate+DebugConveniences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5B801CE71FA1007D0B5C /* AppDelegate+DebugConveniences.swift */; };
 		935285491CD09AC500B17B73 /* APIOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285391CD09ABC00B17B73 /* APIOperationTests.swift */; };
+		936428231D8473CE00DCCD32 /* TagSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936428221D8473CE00DCCD32 /* TagSet.swift */; };
+		936428241D8473CE00DCCD32 /* TagSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936428221D8473CE00DCCD32 /* TagSet.swift */; };
 		936D93891CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D93881CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift */; };
 		936D938E1CC0A55C005D24DA /* Request+CredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938D1CC0A55C005D24DA /* Request+CredentialsTests.swift */; };
 		936D93971CC0E3D5005D24DA /* RegisterSIMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D93951CC0E3D5005D24DA /* RegisterSIMTests.swift */; };
@@ -92,6 +94,194 @@
 		93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */; };
 		93BDF91A1CB8FD1A0058C5BC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BDF9181CB8FD1A0058C5BC /* MainMenu.xib */; };
 		93CFB6831CBDCE920054F8B6 /* Request+AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFB6811CBDCE920054F8B6 /* Request+AuthTests.swift */; };
+		93E078691D8454FE003D5526 /* ActionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A3C1D657908005413D2 /* ActionConfig.swift */; };
+		93E0786A1D8454FE003D5526 /* ActionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A3C1D657908005413D2 /* ActionConfig.swift */; };
+		93E0786B1D8457C0003D5526 /* ActionConfigProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A3D1D657908005413D2 /* ActionConfigProperty.swift */; };
+		93E0786C1D8457C0003D5526 /* AirStatsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A3E1D657908005413D2 /* AirStatsResponse.swift */; };
+		93E0786D1D8457C0003D5526 /* APICallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A3F1D657908005413D2 /* APICallError.swift */; };
+		93E0786E1D8457C0003D5526 /* APICallErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A401D657908005413D2 /* APICallErrorMessage.swift */; };
+		93E0786F1D8457C0003D5526 /* APIKeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A411D657908005413D2 /* APIKeyResponse.swift */; };
+		93E078701D8457C0003D5526 /* AttachRoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A421D657908005413D2 /* AttachRoleRequest.swift */; };
+		93E078711D8457C0003D5526 /* AuthKeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A431D657908005413D2 /* AuthKeyResponse.swift */; };
+		93E078721D8457C0003D5526 /* AuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A441D657908005413D2 /* AuthRequest.swift */; };
+		93E078731D8457C0003D5526 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A451D657908005413D2 /* AuthResponse.swift */; };
+		93E078741D8457C0003D5526 /* BeamStatsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A461D657908005413D2 /* BeamStatsResponse.swift */; };
+		93E078751D8457C0003D5526 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A471D657908005413D2 /* Config.swift */; };
+		93E078761D8457C0003D5526 /* CouponResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A481D657908005413D2 /* CouponResponse.swift */; };
+		93E078771D8457C0003D5526 /* CreateAndUpdateCredentialsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A491D657908005413D2 /* CreateAndUpdateCredentialsModel.swift */; };
+		93E078781D8457C0003D5526 /* CreateEstimatedOrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A4A1D657908005413D2 /* CreateEstimatedOrderRequest.swift */; };
+		93E078791D8457C0003D5526 /* CreateEventHandlerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A4B1D657908005413D2 /* CreateEventHandlerRequest.swift */; };
+		93E0787A1D8457C0003D5526 /* CreateGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A4C1D657908005413D2 /* CreateGroupRequest.swift */; };
+		93E0787B1D8457C0003D5526 /* CreateOrUpdateRoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A4D1D657908005413D2 /* CreateOrUpdateRoleRequest.swift */; };
+		93E0787C1D8457C0003D5526 /* CreateRoleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A4E1D657908005413D2 /* CreateRoleResponse.swift */; };
+		93E0787D1D8457C0003D5526 /* CreateUserPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A4F1D657908005413D2 /* CreateUserPasswordRequest.swift */; };
+		93E0787E1D8457C0003D5526 /* CreateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A501D657908005413D2 /* CreateUserRequest.swift */; };
+		93E0787F1D8457C0003D5526 /* CreateVirtualPrivateGatewayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A511D657908005413D2 /* CreateVirtualPrivateGatewayRequest.swift */; };
+		93E078801D8457C0003D5526 /* CreateVpcPeeringConnectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A521D657908005413D2 /* CreateVpcPeeringConnectionRequest.swift */; };
+		93E078811D8457C0003D5526 /* CredentialsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A531D657908005413D2 /* CredentialsModel.swift */; };
+		93E078821D8457C0003D5526 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A541D657908005413D2 /* CreditCard.swift */; };
+		93E078831D8457C0003D5526 /* DailyBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A551D657908005413D2 /* DailyBill.swift */; };
+		93E078841D8457C0003D5526 /* DailyBillResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A561D657908005413D2 /* DailyBillResponse.swift */; };
+		93E078851D8457C0003D5526 /* DataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A571D657908005413D2 /* DataTrafficStats.swift */; };
+		93E078871D8457C0003D5526 /* EstimatedOrderItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A591D657908005413D2 /* EstimatedOrderItemModel.swift */; };
+		93E078881D8457C0003D5526 /* EstimatedOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A5A1D657908005413D2 /* EstimatedOrderModel.swift */; };
+		93E078891D8457C0003D5526 /* EventHandlerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A5B1D657908005413D2 /* EventHandlerModel.swift */; };
+		93E0788A1D8457C0003D5526 /* ExpiryTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A5C1D657908005413D2 /* ExpiryTime.swift */; };
+		93E0788B1D8457C0003D5526 /* ExportRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A5D1D657908005413D2 /* ExportRequest.swift */; };
+		93E0788C1D8457C0003D5526 /* FileOutputResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A5E1D657908005413D2 /* FileOutputResult.swift */; };
+		93E0788D1D8457C0003D5526 /* GatePeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A5F1D657908005413D2 /* GatePeer.swift */; };
+		93E0788E1D8457C0003D5526 /* GenerateOperatorsAuthKeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A601D657908005413D2 /* GenerateOperatorsAuthKeyResponse.swift */; };
+		93E0788F1D8457C0003D5526 /* GenerateTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A611D657908005413D2 /* GenerateTokenRequest.swift */; };
+		93E078901D8457C0003D5526 /* GenerateTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A621D657908005413D2 /* GenerateTokenResponse.swift */; };
+		93E078911D8457C0003D5526 /* GenerateUserAuthKeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A631D657908005413D2 /* GenerateUserAuthKeyResponse.swift */; };
+		93E078921D8457C0003D5526 /* GetBillingHistoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A641D657908005413D2 /* GetBillingHistoryResponse.swift */; };
+		93E078931D8457C0003D5526 /* GetLatestBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A651D657908005413D2 /* GetLatestBill.swift */; };
+		93E078941D8457C0003D5526 /* GetOperatorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A661D657908005413D2 /* GetOperatorResponse.swift */; };
+		93E078951D8457C0003D5526 /* GetOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A671D657908005413D2 /* GetOrderResponse.swift */; };
+		93E078961D8457C0003D5526 /* GetPaymentMethodResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A681D657908005413D2 /* GetPaymentMethodResult.swift */; };
+		93E078971D8457C0003D5526 /* GetPaymentTransactionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A691D657908005413D2 /* GetPaymentTransactionResult.swift */; };
+		93E078981D8457C0003D5526 /* GetShippingAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A6A1D657908005413D2 /* GetShippingAddressResponse.swift */; };
+		93E078991D8457C0003D5526 /* GetUserPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A6B1D657908005413D2 /* GetUserPasswordResponse.swift */; };
+		93E0789A1D8457C0003D5526 /* GetUserPermissionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A6C1D657908005413D2 /* GetUserPermissionResponse.swift */; };
+		93E0789B1D8457C0003D5526 /* GroupConfigurationUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A6E1D657908005413D2 /* GroupConfigurationUpdateRequest.swift */; };
+		93E0789C1D8457C0003D5526 /* IpAddressMapEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A6F1D657908005413D2 /* IpAddressMapEntry.swift */; };
+		93E0789D1D8457C0003D5526 /* IssueEmailChangeTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A701D657908005413D2 /* IssueEmailChangeTokenRequest.swift */; };
+		93E0789E1D8457C0003D5526 /* IssuePasswordResetTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A711D657908005413D2 /* IssuePasswordResetTokenRequest.swift */; };
+		93E0789F1D8457C0003D5526 /* IssueSubscriberTransferTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A721D657908005413D2 /* IssueSubscriberTransferTokenRequest.swift */; };
+		93E078A01D8457C0003D5526 /* IssueSubscriberTransferTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A731D657908005413D2 /* IssueSubscriberTransferTokenResponse.swift */; };
+		93E078A11D8457C0003D5526 /* ListCouponResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A741D657908005413D2 /* ListCouponResponse.swift */; };
+		93E078A21D8457C0003D5526 /* ListOrderedSubscriberResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A751D657908005413D2 /* ListOrderedSubscriberResponse.swift */; };
+		93E078A31D8457C0003D5526 /* ListOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A761D657908005413D2 /* ListOrderResponse.swift */; };
+		93E078A41D8457C0003D5526 /* ListProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A771D657908005413D2 /* ListProductResponse.swift */; };
+		93E078A51D8457C0003D5526 /* ListRolesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A781D657908005413D2 /* ListRolesResponse.swift */; };
+		93E078A61D8457C0003D5526 /* ListShippingAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A791D657908005413D2 /* ListShippingAddressResponse.swift */; };
+		93E078A71D8457C0003D5526 /* ListSubOperatorsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A7A1D657908005413D2 /* ListSubOperatorsResponse.swift */; };
+		93E078A81D8457C0003D5526 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A7E1D657908005413D2 /* Models.swift */; };
+		93E078A91D8457C0003D5526 /* MonthlyBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A7F1D657908005413D2 /* MonthlyBill.swift */; };
+		93E078AA1D8457C0003D5526 /* OrderedSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A801D657908005413D2 /* OrderedSubscriber.swift */; };
+		93E078AB1D8457C0003D5526 /* OrderItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A811D657908005413D2 /* OrderItemModel.swift */; };
+		93E078AC1D8457C0003D5526 /* PaymentAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A821D657908005413D2 /* PaymentAmount.swift */; };
+		93E078AD1D8457C0003D5526 /* PaymentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A831D657908005413D2 /* PaymentDescription.swift */; };
+		93E078AE1D8457C0003D5526 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A841D657908005413D2 /* ProductModel.swift */; };
+		93E078AF1D8457C0003D5526 /* PutIpAddressMapEntryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A851D657908005413D2 /* PutIpAddressMapEntryRequest.swift */; };
+		93E078B01D8457C0003D5526 /* RegisterGatePeerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A861D657908005413D2 /* RegisterGatePeerRequest.swift */; };
+		93E078B11D8457C0003D5526 /* RegisterOperatorsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A871D657908005413D2 /* RegisterOperatorsRequest.swift */; };
+		93E078B21D8457C0003D5526 /* RegisterSubscribersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A881D657908005413D2 /* RegisterSubscribersRequest.swift */; };
+		93E078B31D8457C0003D5526 /* RoleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A891D657908005413D2 /* RoleResponse.swift */; };
+		93E078B41D8457C0003D5526 /* RuleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A8A1D657908005413D2 /* RuleConfig.swift */; };
+		93E078B51D8457C0003D5526 /* RuleConfigProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A8B1D657908005413D2 /* RuleConfigProperty.swift */; };
+		93E078B61D8457C0003D5526 /* SessionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A8C1D657908005413D2 /* SessionEvent.swift */; };
+		93E078B71D8457C0003D5526 /* SetUserPermissionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A8E1D657908005413D2 /* SetUserPermissionRequest.swift */; };
+		93E078B81D8457C0003D5526 /* ShippingAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A8F1D657908005413D2 /* ShippingAddressModel.swift */; };
+		93E078B91D8457C0003D5526 /* ShippingCostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A901D657908005413D2 /* ShippingCostModel.swift */; };
+		93E078BA1D8457C0003D5526 /* SoracomBeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A911D657908005413D2 /* SoracomBeamStats.swift */; };
+		93E078BB1D8457C0003D5526 /* SupportTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A931D657908005413D2 /* SupportTokenResponse.swift */; };
+		93E078BD1D8457C0003D5526 /* TagUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A951D657908005413D2 /* TagUpdateRequest.swift */; };
+		93E078BE1D8457C0003D5526 /* UpdateEventHandlerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A961D657908005413D2 /* UpdateEventHandlerRequest.swift */; };
+		93E078BF1D8457C0003D5526 /* UpdatePasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A971D657908005413D2 /* UpdatePasswordRequest.swift */; };
+		93E078C01D8457C0003D5526 /* UpdateSpeedClassRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A981D657908005413D2 /* UpdateSpeedClassRequest.swift */; };
+		93E078C11D8457C0003D5526 /* UpdateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A991D657908005413D2 /* UpdateUserRequest.swift */; };
+		93E078C21D8457C0003D5526 /* UserDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A9A1D657908005413D2 /* UserDetailResponse.swift */; };
+		93E078C31D8457C0003D5526 /* VerifyEmailChangeTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A9B1D657908005413D2 /* VerifyEmailChangeTokenRequest.swift */; };
+		93E078C41D8457C0003D5526 /* VerifyOperatorsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A9C1D657908005413D2 /* VerifyOperatorsRequest.swift */; };
+		93E078C51D8457C0003D5526 /* VerifyPasswordResetTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A9D1D657908005413D2 /* VerifyPasswordResetTokenRequest.swift */; };
+		93E078C61D8457C0003D5526 /* VerifySubscriberTransferTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A9E1D657908005413D2 /* VerifySubscriberTransferTokenRequest.swift */; };
+		93E078C71D8457C0003D5526 /* VerifySubscriberTransferTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A9F1D657908005413D2 /* VerifySubscriberTransferTokenResponse.swift */; };
+		93E078C81D8457C0003D5526 /* VirtualPrivateGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704AA01D657908005413D2 /* VirtualPrivateGateway.swift */; };
+		93E078C91D8457C0003D5526 /* VpcPeeringConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704AA11D657908005413D2 /* VpcPeeringConnection.swift */; };
+		93E078CA1D8457C1003D5526 /* ActionConfigProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A3D1D657908005413D2 /* ActionConfigProperty.swift */; };
+		93E078CB1D8457C1003D5526 /* AirStatsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A3E1D657908005413D2 /* AirStatsResponse.swift */; };
+		93E078CC1D8457C1003D5526 /* APICallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A3F1D657908005413D2 /* APICallError.swift */; };
+		93E078CD1D8457C1003D5526 /* APICallErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A401D657908005413D2 /* APICallErrorMessage.swift */; };
+		93E078CE1D8457C1003D5526 /* APIKeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A411D657908005413D2 /* APIKeyResponse.swift */; };
+		93E078CF1D8457C1003D5526 /* AttachRoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A421D657908005413D2 /* AttachRoleRequest.swift */; };
+		93E078D01D8457C1003D5526 /* AuthKeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A431D657908005413D2 /* AuthKeyResponse.swift */; };
+		93E078D11D8457C1003D5526 /* AuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A441D657908005413D2 /* AuthRequest.swift */; };
+		93E078D21D8457C1003D5526 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A451D657908005413D2 /* AuthResponse.swift */; };
+		93E078D31D8457C1003D5526 /* BeamStatsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A461D657908005413D2 /* BeamStatsResponse.swift */; };
+		93E078D41D8457C1003D5526 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A471D657908005413D2 /* Config.swift */; };
+		93E078D51D8457C1003D5526 /* CouponResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A481D657908005413D2 /* CouponResponse.swift */; };
+		93E078D61D8457C1003D5526 /* CreateAndUpdateCredentialsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A491D657908005413D2 /* CreateAndUpdateCredentialsModel.swift */; };
+		93E078D71D8457C1003D5526 /* CreateEstimatedOrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A4A1D657908005413D2 /* CreateEstimatedOrderRequest.swift */; };
+		93E078D81D8457C1003D5526 /* CreateEventHandlerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A4B1D657908005413D2 /* CreateEventHandlerRequest.swift */; };
+		93E078D91D8457C1003D5526 /* CreateGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A4C1D657908005413D2 /* CreateGroupRequest.swift */; };
+		93E078DA1D8457C1003D5526 /* CreateOrUpdateRoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A4D1D657908005413D2 /* CreateOrUpdateRoleRequest.swift */; };
+		93E078DB1D8457C1003D5526 /* CreateRoleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A4E1D657908005413D2 /* CreateRoleResponse.swift */; };
+		93E078DC1D8457C1003D5526 /* CreateUserPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A4F1D657908005413D2 /* CreateUserPasswordRequest.swift */; };
+		93E078DD1D8457C1003D5526 /* CreateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A501D657908005413D2 /* CreateUserRequest.swift */; };
+		93E078DE1D8457C1003D5526 /* CreateVirtualPrivateGatewayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A511D657908005413D2 /* CreateVirtualPrivateGatewayRequest.swift */; };
+		93E078DF1D8457C1003D5526 /* CreateVpcPeeringConnectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A521D657908005413D2 /* CreateVpcPeeringConnectionRequest.swift */; };
+		93E078E01D8457C1003D5526 /* CredentialsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A531D657908005413D2 /* CredentialsModel.swift */; };
+		93E078E11D8457C1003D5526 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A541D657908005413D2 /* CreditCard.swift */; };
+		93E078E21D8457C1003D5526 /* DailyBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A551D657908005413D2 /* DailyBill.swift */; };
+		93E078E31D8457C1003D5526 /* DailyBillResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A561D657908005413D2 /* DailyBillResponse.swift */; };
+		93E078E41D8457C1003D5526 /* DataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A571D657908005413D2 /* DataTrafficStats.swift */; };
+		93E078E61D8457C1003D5526 /* EstimatedOrderItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A591D657908005413D2 /* EstimatedOrderItemModel.swift */; };
+		93E078E71D8457C1003D5526 /* EstimatedOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A5A1D657908005413D2 /* EstimatedOrderModel.swift */; };
+		93E078E81D8457C1003D5526 /* EventHandlerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A5B1D657908005413D2 /* EventHandlerModel.swift */; };
+		93E078E91D8457C1003D5526 /* ExpiryTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A5C1D657908005413D2 /* ExpiryTime.swift */; };
+		93E078EA1D8457C1003D5526 /* ExportRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A5D1D657908005413D2 /* ExportRequest.swift */; };
+		93E078EB1D8457C1003D5526 /* FileOutputResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A5E1D657908005413D2 /* FileOutputResult.swift */; };
+		93E078EC1D8457C1003D5526 /* GatePeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A5F1D657908005413D2 /* GatePeer.swift */; };
+		93E078ED1D8457C1003D5526 /* GenerateOperatorsAuthKeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A601D657908005413D2 /* GenerateOperatorsAuthKeyResponse.swift */; };
+		93E078EE1D8457C1003D5526 /* GenerateTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A611D657908005413D2 /* GenerateTokenRequest.swift */; };
+		93E078EF1D8457C1003D5526 /* GenerateTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A621D657908005413D2 /* GenerateTokenResponse.swift */; };
+		93E078F01D8457C1003D5526 /* GenerateUserAuthKeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A631D657908005413D2 /* GenerateUserAuthKeyResponse.swift */; };
+		93E078F11D8457C1003D5526 /* GetBillingHistoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A641D657908005413D2 /* GetBillingHistoryResponse.swift */; };
+		93E078F21D8457C1003D5526 /* GetLatestBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A651D657908005413D2 /* GetLatestBill.swift */; };
+		93E078F31D8457C1003D5526 /* GetOperatorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A661D657908005413D2 /* GetOperatorResponse.swift */; };
+		93E078F41D8457C1003D5526 /* GetOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A671D657908005413D2 /* GetOrderResponse.swift */; };
+		93E078F51D8457C1003D5526 /* GetPaymentMethodResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A681D657908005413D2 /* GetPaymentMethodResult.swift */; };
+		93E078F61D8457C1003D5526 /* GetPaymentTransactionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A691D657908005413D2 /* GetPaymentTransactionResult.swift */; };
+		93E078F71D8457C1003D5526 /* GetShippingAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A6A1D657908005413D2 /* GetShippingAddressResponse.swift */; };
+		93E078F81D8457C1003D5526 /* GetUserPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A6B1D657908005413D2 /* GetUserPasswordResponse.swift */; };
+		93E078F91D8457C1003D5526 /* GetUserPermissionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A6C1D657908005413D2 /* GetUserPermissionResponse.swift */; };
+		93E078FA1D8457C1003D5526 /* GroupConfigurationUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A6E1D657908005413D2 /* GroupConfigurationUpdateRequest.swift */; };
+		93E078FB1D8457C1003D5526 /* IpAddressMapEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A6F1D657908005413D2 /* IpAddressMapEntry.swift */; };
+		93E078FC1D8457C1003D5526 /* IssueEmailChangeTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A701D657908005413D2 /* IssueEmailChangeTokenRequest.swift */; };
+		93E078FD1D8457C1003D5526 /* IssuePasswordResetTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A711D657908005413D2 /* IssuePasswordResetTokenRequest.swift */; };
+		93E078FE1D8457C1003D5526 /* IssueSubscriberTransferTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A721D657908005413D2 /* IssueSubscriberTransferTokenRequest.swift */; };
+		93E078FF1D8457C1003D5526 /* IssueSubscriberTransferTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A731D657908005413D2 /* IssueSubscriberTransferTokenResponse.swift */; };
+		93E079001D8457C1003D5526 /* ListCouponResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A741D657908005413D2 /* ListCouponResponse.swift */; };
+		93E079011D8457C1003D5526 /* ListOrderedSubscriberResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A751D657908005413D2 /* ListOrderedSubscriberResponse.swift */; };
+		93E079021D8457C1003D5526 /* ListOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A761D657908005413D2 /* ListOrderResponse.swift */; };
+		93E079031D8457C1003D5526 /* ListProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A771D657908005413D2 /* ListProductResponse.swift */; };
+		93E079041D8457C1003D5526 /* ListRolesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A781D657908005413D2 /* ListRolesResponse.swift */; };
+		93E079051D8457C1003D5526 /* ListShippingAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A791D657908005413D2 /* ListShippingAddressResponse.swift */; };
+		93E079061D8457C1003D5526 /* ListSubOperatorsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A7A1D657908005413D2 /* ListSubOperatorsResponse.swift */; };
+		93E079071D8457C1003D5526 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A7E1D657908005413D2 /* Models.swift */; };
+		93E079081D8457C1003D5526 /* MonthlyBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A7F1D657908005413D2 /* MonthlyBill.swift */; };
+		93E079091D8457C1003D5526 /* OrderedSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A801D657908005413D2 /* OrderedSubscriber.swift */; };
+		93E0790A1D8457C1003D5526 /* OrderItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A811D657908005413D2 /* OrderItemModel.swift */; };
+		93E0790B1D8457C1003D5526 /* PaymentAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A821D657908005413D2 /* PaymentAmount.swift */; };
+		93E0790C1D8457C1003D5526 /* PaymentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A831D657908005413D2 /* PaymentDescription.swift */; };
+		93E0790D1D8457C1003D5526 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A841D657908005413D2 /* ProductModel.swift */; };
+		93E0790E1D8457C1003D5526 /* PutIpAddressMapEntryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A851D657908005413D2 /* PutIpAddressMapEntryRequest.swift */; };
+		93E0790F1D8457C1003D5526 /* RegisterGatePeerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A861D657908005413D2 /* RegisterGatePeerRequest.swift */; };
+		93E079101D8457C1003D5526 /* RegisterOperatorsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A871D657908005413D2 /* RegisterOperatorsRequest.swift */; };
+		93E079111D8457C1003D5526 /* RegisterSubscribersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A881D657908005413D2 /* RegisterSubscribersRequest.swift */; };
+		93E079121D8457C1003D5526 /* RoleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A891D657908005413D2 /* RoleResponse.swift */; };
+		93E079131D8457C1003D5526 /* RuleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A8A1D657908005413D2 /* RuleConfig.swift */; };
+		93E079141D8457C1003D5526 /* RuleConfigProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A8B1D657908005413D2 /* RuleConfigProperty.swift */; };
+		93E079151D8457C1003D5526 /* SessionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A8C1D657908005413D2 /* SessionEvent.swift */; };
+		93E079161D8457C1003D5526 /* SetUserPermissionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A8E1D657908005413D2 /* SetUserPermissionRequest.swift */; };
+		93E079171D8457C1003D5526 /* ShippingAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A8F1D657908005413D2 /* ShippingAddressModel.swift */; };
+		93E079181D8457C1003D5526 /* ShippingCostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A901D657908005413D2 /* ShippingCostModel.swift */; };
+		93E079191D8457C1003D5526 /* SoracomBeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A911D657908005413D2 /* SoracomBeamStats.swift */; };
+		93E0791A1D8457C1003D5526 /* SupportTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A931D657908005413D2 /* SupportTokenResponse.swift */; };
+		93E0791C1D8457C1003D5526 /* TagUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A951D657908005413D2 /* TagUpdateRequest.swift */; };
+		93E0791D1D8457C1003D5526 /* UpdateEventHandlerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A961D657908005413D2 /* UpdateEventHandlerRequest.swift */; };
+		93E0791E1D8457C1003D5526 /* UpdatePasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A971D657908005413D2 /* UpdatePasswordRequest.swift */; };
+		93E0791F1D8457C1003D5526 /* UpdateSpeedClassRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A981D657908005413D2 /* UpdateSpeedClassRequest.swift */; };
+		93E079201D8457C1003D5526 /* UpdateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A991D657908005413D2 /* UpdateUserRequest.swift */; };
+		93E079211D8457C1003D5526 /* UserDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A9A1D657908005413D2 /* UserDetailResponse.swift */; };
+		93E079221D8457C1003D5526 /* VerifyEmailChangeTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A9B1D657908005413D2 /* VerifyEmailChangeTokenRequest.swift */; };
+		93E079231D8457C1003D5526 /* VerifyOperatorsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A9C1D657908005413D2 /* VerifyOperatorsRequest.swift */; };
+		93E079241D8457C1003D5526 /* VerifyPasswordResetTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A9D1D657908005413D2 /* VerifyPasswordResetTokenRequest.swift */; };
+		93E079251D8457C1003D5526 /* VerifySubscriberTransferTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A9E1D657908005413D2 /* VerifySubscriberTransferTokenRequest.swift */; };
+		93E079261D8457C1003D5526 /* VerifySubscriberTransferTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704A9F1D657908005413D2 /* VerifySubscriberTransferTokenResponse.swift */; };
+		93E079271D8457C1003D5526 /* VirtualPrivateGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704AA01D657908005413D2 /* VirtualPrivateGateway.swift */; };
+		93E079281D8457C1003D5526 /* VpcPeeringConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93704AA11D657908005413D2 /* VpcPeeringConnection.swift */; };
 		93F50B3C1D38B72400F57659 /* CredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B3B1D38B72400F57659 /* CredentialTests.swift */; };
 		93F50B451D38D22E00F57659 /* BeamStatsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B441D38D22E00F57659 /* BeamStatsTest.swift */; };
 		93F50B4D1D38D70900F57659 /* SubscriberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B4C1D38D70900F57659 /* SubscriberTests.swift */; };
@@ -139,6 +329,7 @@
 		935285301CD09AAF00B17B73 /* APIOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
 		935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestResponseFormatter.swift; sourceTree = "<group>"; };
 		935285391CD09ABC00B17B73 /* APIOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOperationTests.swift; sourceTree = "<group>"; };
+		936428221D8473CE00DCCD32 /* TagSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagSet.swift; sourceTree = "<group>"; };
 		936D93881CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseTestCase+withNewIMSI.swift"; sourceTree = "<group>"; };
 		936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Credentials.swift"; sourceTree = "<group>"; };
 		936D938D1CC0A55C005D24DA /* Request+CredentialsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+CredentialsTests.swift"; sourceTree = "<group>"; };
@@ -173,7 +364,6 @@
 		93704A551D657908005413D2 /* DailyBill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyBill.swift; sourceTree = "<group>"; };
 		93704A561D657908005413D2 /* DailyBillResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyBillResponse.swift; sourceTree = "<group>"; };
 		93704A571D657908005413D2 /* DataTrafficStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTrafficStats.swift; sourceTree = "<group>"; };
-		93704A581D657908005413D2 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		93704A591D657908005413D2 /* EstimatedOrderItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstimatedOrderItemModel.swift; sourceTree = "<group>"; };
 		93704A5A1D657908005413D2 /* EstimatedOrderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstimatedOrderModel.swift; sourceTree = "<group>"; };
 		93704A5B1D657908005413D2 /* EventHandlerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventHandlerModel.swift; sourceTree = "<group>"; };
@@ -230,7 +420,6 @@
 		93704A911D657908005413D2 /* SoracomBeamStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoracomBeamStats.swift; sourceTree = "<group>"; };
 		93704A921D657908005413D2 /* Subscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscriber.swift; sourceTree = "<group>"; };
 		93704A931D657908005413D2 /* SupportTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportTokenResponse.swift; sourceTree = "<group>"; };
-		93704A941D657908005413D2 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		93704A951D657908005413D2 /* TagUpdateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagUpdateRequest.swift; sourceTree = "<group>"; };
 		93704A961D657908005413D2 /* UpdateEventHandlerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateEventHandlerRequest.swift; sourceTree = "<group>"; };
 		93704A971D657908005413D2 /* UpdatePasswordRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePasswordRequest.swift; sourceTree = "<group>"; };
@@ -365,6 +554,7 @@
 		93704A3B1D657908005413D2 /* auto-generated */ = {
 			isa = PBXGroup;
 			children = (
+				936428221D8473CE00DCCD32 /* TagSet.swift */,
 				93704A3C1D657908005413D2 /* ActionConfig.swift */,
 				93704A3D1D657908005413D2 /* ActionConfigProperty.swift */,
 				93704A3E1D657908005413D2 /* AirStatsResponse.swift */,
@@ -393,7 +583,6 @@
 				93704A551D657908005413D2 /* DailyBill.swift */,
 				93704A561D657908005413D2 /* DailyBillResponse.swift */,
 				93704A571D657908005413D2 /* DataTrafficStats.swift */,
-				93704A581D657908005413D2 /* Error.swift */,
 				93704A591D657908005413D2 /* EstimatedOrderItemModel.swift */,
 				93704A5A1D657908005413D2 /* EstimatedOrderModel.swift */,
 				93704A5B1D657908005413D2 /* EventHandlerModel.swift */,
@@ -450,7 +639,6 @@
 				93704A911D657908005413D2 /* SoracomBeamStats.swift */,
 				93704A921D657908005413D2 /* Subscriber.swift */,
 				93704A931D657908005413D2 /* SupportTokenResponse.swift */,
-				93704A941D657908005413D2 /* Tag.swift */,
 				93704A951D657908005413D2 /* TagUpdateRequest.swift */,
 				93704A961D657908005413D2 /* UpdateEventHandlerRequest.swift */,
 				93704A971D657908005413D2 /* UpdatePasswordRequest.swift */,
@@ -609,38 +797,133 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93E078C01D8457C0003D5526 /* UpdateSpeedClassRequest.swift in Sources */,
+				93E0787F1D8457C0003D5526 /* CreateVirtualPrivateGatewayRequest.swift in Sources */,
 				93704B7B1D659717005413D2 /* NSDate+SoracomAPI.swift in Sources */,
+				93E078831D8457C0003D5526 /* DailyBill.swift in Sources */,
+				93E078761D8457C0003D5526 /* CouponResponse.swift in Sources */,
+				93E078AE1D8457C0003D5526 /* ProductModel.swift in Sources */,
+				93E0789A1D8457C0003D5526 /* GetUserPermissionResponse.swift in Sources */,
 				93704B861D659717005413D2 /* Request+Subscriber.swift in Sources */,
+				93E078691D8454FE003D5526 /* ActionConfig.swift in Sources */,
+				93E078B81D8457C0003D5526 /* ShippingAddressModel.swift in Sources */,
+				93E0788D1D8457C0003D5526 /* GatePeer.swift in Sources */,
 				93704BAB1D65AEC5005413D2 /* Map.swift in Sources */,
+				93E0787B1D8457C0003D5526 /* CreateOrUpdateRoleRequest.swift in Sources */,
+				93E078C11D8457C0003D5526 /* UpdateUserRequest.swift in Sources */,
+				93E078731D8457C0003D5526 /* AuthResponse.swift in Sources */,
+				93E078B01D8457C0003D5526 /* RegisterGatePeerRequest.swift in Sources */,
+				93E078B41D8457C0003D5526 /* RuleConfig.swift in Sources */,
 				93704B6E1D6596F3005413D2 /* Subscriber.swift in Sources */,
+				93E078AF1D8457C0003D5526 /* PutIpAddressMapEntryRequest.swift in Sources */,
+				93E078941D8457C0003D5526 /* GetOperatorResponse.swift in Sources */,
+				93E078B61D8457C0003D5526 /* SessionEvent.swift in Sources */,
+				93E078791D8457C0003D5526 /* CreateEventHandlerRequest.swift in Sources */,
+				93E0787E1D8457C0003D5526 /* CreateUserRequest.swift in Sources */,
+				93E078AA1D8457C0003D5526 /* OrderedSubscriber.swift in Sources */,
+				93E0788A1D8457C0003D5526 /* ExpiryTime.swift in Sources */,
+				93E078AB1D8457C0003D5526 /* OrderItemModel.swift in Sources */,
+				93E078801D8457C0003D5526 /* CreateVpcPeeringConnectionRequest.swift in Sources */,
 				93704B7E1D659717005413D2 /* PayloadKey.swift in Sources */,
+				93E078BE1D8457C0003D5526 /* UpdateEventHandlerRequest.swift in Sources */,
+				93E0789D1D8457C0003D5526 /* IssueEmailChangeTokenRequest.swift in Sources */,
 				93704B8B1D659717005413D2 /* Subscriber+Extras.swift in Sources */,
 				93704B8A1D659717005413D2 /* SoracomCredentials.swift in Sources */,
+				93E078781D8457C0003D5526 /* CreateEstimatedOrderRequest.swift in Sources */,
 				93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */,
+				93E078B21D8457C0003D5526 /* RegisterSubscribersRequest.swift in Sources */,
 				93704B7C1D659717005413D2 /* Payload.swift in Sources */,
+				93E078711D8457C0003D5526 /* AuthKeyResponse.swift in Sources */,
+				93E078981D8457C0003D5526 /* GetShippingAddressResponse.swift in Sources */,
 				93704B801D659717005413D2 /* Request+Auth.swift in Sources */,
+				93E078991D8457C0003D5526 /* GetUserPasswordResponse.swift in Sources */,
+				93E078C81D8457C0003D5526 /* VirtualPrivateGateway.swift in Sources */,
+				93E078B71D8457C0003D5526 /* SetUserPermissionRequest.swift in Sources */,
+				93E0786C1D8457C0003D5526 /* AirStatsResponse.swift in Sources */,
+				93E078971D8457C0003D5526 /* GetPaymentTransactionResult.swift in Sources */,
+				93E078821D8457C0003D5526 /* CreditCard.swift in Sources */,
 				93704B7A1D659717005413D2 /* Keychain.swift in Sources */,
+				93E078901D8457C0003D5526 /* GenerateTokenResponse.swift in Sources */,
 				93704B821D659717005413D2 /* Request+Group.swift in Sources */,
+				93E078A81D8457C0003D5526 /* Models.swift in Sources */,
+				93E0789B1D8457C0003D5526 /* GroupConfigurationUpdateRequest.swift in Sources */,
+				93E078AC1D8457C0003D5526 /* PaymentAmount.swift in Sources */,
+				93E078A41D8457C0003D5526 /* ListProductResponse.swift in Sources */,
 				93704B701D6596F9005413D2 /* SessionStatus.swift in Sources */,
+				93E0787A1D8457C0003D5526 /* CreateGroupRequest.swift in Sources */,
+				93E0789E1D8457C0003D5526 /* IssuePasswordResetTokenRequest.swift in Sources */,
 				93704B7F1D659717005413D2 /* Request.swift in Sources */,
+				93E078951D8457C0003D5526 /* GetOrderResponse.swift in Sources */,
 				93704B831D659717005413D2 /* Request+Operator.swift in Sources */,
+				93E078BB1D8457C0003D5526 /* SupportTokenResponse.swift in Sources */,
+				93E078851D8457C0003D5526 /* DataTrafficStats.swift in Sources */,
+				93E078C41D8457C0003D5526 /* VerifyOperatorsRequest.swift in Sources */,
+				93E078A11D8457C0003D5526 /* ListCouponResponse.swift in Sources */,
+				93E0786F1D8457C0003D5526 /* APIKeyResponse.swift in Sources */,
 				93704B871D659717005413D2 /* RequestQueue.swift in Sources */,
+				93E078C31D8457C0003D5526 /* VerifyEmailChangeTokenRequest.swift in Sources */,
+				93E0788F1D8457C0003D5526 /* GenerateTokenRequest.swift in Sources */,
+				93E078931D8457C0003D5526 /* GetLatestBill.swift in Sources */,
+				93E078B31D8457C0003D5526 /* RoleResponse.swift in Sources */,
+				93E078A31D8457C0003D5526 /* ListOrderResponse.swift in Sources */,
+				93E078C21D8457C0003D5526 /* UserDetailResponse.swift in Sources */,
+				93E078BF1D8457C0003D5526 /* UpdatePasswordRequest.swift in Sources */,
+				93E078741D8457C0003D5526 /* BeamStatsResponse.swift in Sources */,
 				93704B811D659717005413D2 /* Request+Credentials.swift in Sources */,
+				93E078891D8457C0003D5526 /* EventHandlerModel.swift in Sources */,
 				93704B741D659717005413D2 /* APIStructures.swift in Sources */,
+				93E0787D1D8457C0003D5526 /* CreateUserPasswordRequest.swift in Sources */,
+				93E078A71D8457C0003D5526 /* ListSubOperatorsResponse.swift in Sources */,
+				93E078841D8457C0003D5526 /* DailyBillResponse.swift in Sources */,
+				93E078A91D8457C0003D5526 /* MonthlyBill.swift in Sources */,
+				93E078C71D8457C0003D5526 /* VerifySubscriberTransferTokenResponse.swift in Sources */,
+				93E078721D8457C0003D5526 /* AuthRequest.swift in Sources */,
 				93704B8C1D659717005413D2 /* TextStyle.swift in Sources */,
+				93E078B51D8457C0003D5526 /* RuleConfigProperty.swift in Sources */,
 				93704BB21D65FE63005413D2 /* Group.swift in Sources */,
 				93704B721D659717005413D2 /* APIError.swift in Sources */,
+				93E0789C1D8457C0003D5526 /* IpAddressMapEntry.swift in Sources */,
+				93E078961D8457C0003D5526 /* GetPaymentMethodResult.swift in Sources */,
 				93704B781D659717005413D2 /* Credential.swift in Sources */,
+				93E078911D8457C0003D5526 /* GenerateUserAuthKeyResponse.swift in Sources */,
+				93E0788B1D8457C0003D5526 /* ExportRequest.swift in Sources */,
 				93704B841D659717005413D2 /* Request+Payment.swift in Sources */,
 				93704B7D1D659717005413D2 /* PayloadConvertible.swift in Sources */,
+				93E078AD1D8457C0003D5526 /* PaymentDescription.swift in Sources */,
+				93E0788C1D8457C0003D5526 /* FileOutputResult.swift in Sources */,
+				93E078B11D8457C0003D5526 /* RegisterOperatorsRequest.swift in Sources */,
 				93704B891D659717005413D2 /* Response.swift in Sources */,
+				93E078BD1D8457C0003D5526 /* TagUpdateRequest.swift in Sources */,
+				93E078871D8457C0003D5526 /* EstimatedOrderItemModel.swift in Sources */,
+				93E0786B1D8457C0003D5526 /* ActionConfigProperty.swift in Sources */,
 				93704B771D659717005413D2 /* Constants.swift in Sources */,
+				93E078A21D8457C0003D5526 /* ListOrderedSubscriberResponse.swift in Sources */,
+				93E078771D8457C0003D5526 /* CreateAndUpdateCredentialsModel.swift in Sources */,
+				93E078A51D8457C0003D5526 /* ListRolesResponse.swift in Sources */,
+				93E078A61D8457C0003D5526 /* ListShippingAddressResponse.swift in Sources */,
+				93E078B91D8457C0003D5526 /* ShippingCostModel.swift in Sources */,
+				93E078A01D8457C0003D5526 /* IssueSubscriberTransferTokenResponse.swift in Sources */,
+				936428231D8473CE00DCCD32 /* TagSet.swift in Sources */,
 				93704B851D659717005413D2 /* Request+Sandbox.swift in Sources */,
+				93E078C61D8457C0003D5526 /* VerifySubscriberTransferTokenRequest.swift in Sources */,
 				93704B731D659717005413D2 /* APIOperation.swift in Sources */,
 				93704B751D659717005413D2 /* BeamStats.swift in Sources */,
+				93E078C51D8457C0003D5526 /* VerifyPasswordResetTokenRequest.swift in Sources */,
+				93E078751D8457C0003D5526 /* Config.swift in Sources */,
+				93E078BA1D8457C0003D5526 /* SoracomBeamStats.swift in Sources */,
+				93E078811D8457C0003D5526 /* CredentialsModel.swift in Sources */,
+				93E078921D8457C0003D5526 /* GetBillingHistoryResponse.swift in Sources */,
+				93E0788E1D8457C0003D5526 /* GenerateOperatorsAuthKeyResponse.swift in Sources */,
 				93704B881D659717005413D2 /* RequestResponseFormatter.swift in Sources */,
+				93E0786E1D8457C0003D5526 /* APICallErrorMessage.swift in Sources */,
+				93E078C91D8457C0003D5526 /* VpcPeeringConnection.swift in Sources */,
+				93E078881D8457C0003D5526 /* EstimatedOrderModel.swift in Sources */,
+				93E0786D1D8457C0003D5526 /* APICallError.swift in Sources */,
 				932A5B811CE71FA1007D0B5C /* AppDelegate+DebugConveniences.swift in Sources */,
+				93E078701D8457C0003D5526 /* AttachRoleRequest.swift in Sources */,
 				93704B761D659717005413D2 /* Client.swift in Sources */,
+				93E0789F1D8457C0003D5526 /* IssueSubscriberTransferTokenRequest.swift in Sources */,
+				93E0787C1D8457C0003D5526 /* CreateRoleResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,60 +931,155 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93E079111D8457C1003D5526 /* RegisterSubscribersRequest.swift in Sources */,
+				93E078E21D8457C1003D5526 /* DailyBill.swift in Sources */,
+				93E0791A1D8457C1003D5526 /* SupportTokenResponse.swift in Sources */,
+				93E079181D8457C1003D5526 /* ShippingCostModel.swift in Sources */,
+				93E078EA1D8457C1003D5526 /* ExportRequest.swift in Sources */,
+				93E078DF1D8457C1003D5526 /* CreateVpcPeeringConnectionRequest.swift in Sources */,
 				93408AF41CBB4FD80084DC18 /* PayloadTests.swift in Sources */,
 				93704B981D659717005413D2 /* PayloadConvertible.swift in Sources */,
+				93E0791F1D8457C1003D5526 /* UpdateSpeedClassRequest.swift in Sources */,
 				93704B961D659717005413D2 /* NSDate+SoracomAPI.swift in Sources */,
+				93E079031D8457C1003D5526 /* ListProductResponse.swift in Sources */,
+				93E078F51D8457C1003D5526 /* GetPaymentMethodResult.swift in Sources */,
 				932D695A1CBC5842002F9D99 /* Request+SubscriberTests.swift in Sources */,
+				93E079271D8457C1003D5526 /* VirtualPrivateGateway.swift in Sources */,
 				93704B711D6596F9005413D2 /* SessionStatus.swift in Sources */,
+				93E078DA1D8457C1003D5526 /* CreateOrUpdateRoleRequest.swift in Sources */,
+				93E078FF1D8457C1003D5526 /* IssueSubscriberTransferTokenResponse.swift in Sources */,
+				93E078FD1D8457C1003D5526 /* IssuePasswordResetTokenRequest.swift in Sources */,
+				93E079161D8457C1003D5526 /* SetUserPermissionRequest.swift in Sources */,
 				9346E1FD1D128E1D006B0D01 /* AppDelegate+DebugConveniences.swift in Sources */,
+				93E079201D8457C1003D5526 /* UpdateUserRequest.swift in Sources */,
+				93E078CB1D8457C1003D5526 /* AirStatsResponse.swift in Sources */,
 				93704BA51D659717005413D2 /* SoracomCredentials.swift in Sources */,
 				93704B901D659717005413D2 /* BeamStats.swift in Sources */,
+				93E079191D8457C1003D5526 /* SoracomBeamStats.swift in Sources */,
 				93704B9F1D659717005413D2 /* Request+Payment.swift in Sources */,
 				93704BB11D65FE63005413D2 /* Group.swift in Sources */,
+				93E078FA1D8457C1003D5526 /* GroupConfigurationUpdateRequest.swift in Sources */,
+				93E079001D8457C1003D5526 /* ListCouponResponse.swift in Sources */,
 				93F50B3C1D38B72400F57659 /* CredentialTests.swift in Sources */,
+				93E078D11D8457C1003D5526 /* AuthRequest.swift in Sources */,
+				93E078D31D8457C1003D5526 /* BeamStatsResponse.swift in Sources */,
+				93E079051D8457C1003D5526 /* ListShippingAddressResponse.swift in Sources */,
 				93704B8F1D659717005413D2 /* APIStructures.swift in Sources */,
+				93E079211D8457C1003D5526 /* UserDetailResponse.swift in Sources */,
+				93E079251D8457C1003D5526 /* VerifySubscriberTransferTokenRequest.swift in Sources */,
+				93E078D21D8457C1003D5526 /* AuthResponse.swift in Sources */,
+				93E0791D1D8457C1003D5526 /* UpdateEventHandlerRequest.swift in Sources */,
 				93704B921D659717005413D2 /* Constants.swift in Sources */,
+				93E0786A1D8454FE003D5526 /* ActionConfig.swift in Sources */,
+				93E0790F1D8457C1003D5526 /* RegisterGatePeerRequest.swift in Sources */,
 				9343D7E11D1CBDAF003DDC2F /* NSDate+SoracomAPITests.swift in Sources */,
 				936D93891CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift in Sources */,
+				93E078F91D8457C1003D5526 /* GetUserPermissionResponse.swift in Sources */,
+				93E078D91D8457C1003D5526 /* CreateGroupRequest.swift in Sources */,
 				93F50B451D38D22E00F57659 /* BeamStatsTest.swift in Sources */,
 				93704BAC1D65AEC5005413D2 /* Map.swift in Sources */,
+				93E078F61D8457C1003D5526 /* GetPaymentTransactionResult.swift in Sources */,
 				93704BA01D659717005413D2 /* Request+Sandbox.swift in Sources */,
+				93E078CD1D8457C1003D5526 /* APICallErrorMessage.swift in Sources */,
+				93E078DD1D8457C1003D5526 /* CreateUserRequest.swift in Sources */,
+				93E079281D8457C1003D5526 /* VpcPeeringConnection.swift in Sources */,
 				93704B8E1D659717005413D2 /* APIOperation.swift in Sources */,
+				93E079041D8457C1003D5526 /* ListRolesResponse.swift in Sources */,
+				93E078D01D8457C1003D5526 /* AuthKeyResponse.swift in Sources */,
 				93704B8D1D659717005413D2 /* APIError.swift in Sources */,
 				93704BA71D659717005413D2 /* TextStyle.swift in Sources */,
+				93E078D71D8457C1003D5526 /* CreateEstimatedOrderRequest.swift in Sources */,
+				93E078CA1D8457C1003D5526 /* ActionConfigProperty.swift in Sources */,
 				93CFB6831CBDCE920054F8B6 /* Request+AuthTests.swift in Sources */,
+				93E078EE1D8457C1003D5526 /* GenerateTokenRequest.swift in Sources */,
+				93E078F71D8457C1003D5526 /* GetShippingAddressResponse.swift in Sources */,
 				93704BA31D659717005413D2 /* RequestResponseFormatter.swift in Sources */,
+				93E079241D8457C1003D5526 /* VerifyPasswordResetTokenRequest.swift in Sources */,
+				93E079231D8457C1003D5526 /* VerifyOperatorsRequest.swift in Sources */,
 				93704B9A1D659717005413D2 /* Request.swift in Sources */,
+				93E078FC1D8457C1003D5526 /* IssueEmailChangeTokenRequest.swift in Sources */,
 				932D69441CB9BA50002F9D99 /* KeychainTests.swift in Sources */,
+				93E078F41D8457C1003D5526 /* GetOrderResponse.swift in Sources */,
 				93408AF91CBB4FDF0084DC18 /* APIStructuresTests.swift in Sources */,
 				93704B931D659717005413D2 /* Credential.swift in Sources */,
 				93704BA41D659717005413D2 /* Response.swift in Sources */,
+				93E078E11D8457C1003D5526 /* CreditCard.swift in Sources */,
 				9346E1FC1D128E1D006B0D01 /* AppDelegate.swift in Sources */,
+				93E078E31D8457C1003D5526 /* DailyBillResponse.swift in Sources */,
+				93E078E01D8457C1003D5526 /* CredentialsModel.swift in Sources */,
 				936D938E1CC0A55C005D24DA /* Request+CredentialsTests.swift in Sources */,
+				93E079151D8457C1003D5526 /* SessionEvent.swift in Sources */,
 				932D693F1CB9B191002F9D99 /* APIErrorTests.swift in Sources */,
+				93E078F11D8457C1003D5526 /* GetBillingHistoryResponse.swift in Sources */,
 				93704B9D1D659717005413D2 /* Request+Group.swift in Sources */,
+				93E078CF1D8457C1003D5526 /* AttachRoleRequest.swift in Sources */,
 				935285491CD09AC500B17B73 /* APIOperationTests.swift in Sources */,
+				93E0791C1D8457C1003D5526 /* TagUpdateRequest.swift in Sources */,
 				93704BA11D659717005413D2 /* Request+Subscriber.swift in Sources */,
+				93E078D51D8457C1003D5526 /* CouponResponse.swift in Sources */,
+				93E078E41D8457C1003D5526 /* DataTrafficStats.swift in Sources */,
 				93704BA61D659717005413D2 /* Subscriber+Extras.swift in Sources */,
+				93E078F81D8457C1003D5526 /* GetUserPasswordResponse.swift in Sources */,
 				93F50B4D1D38D70900F57659 /* SubscriberTests.swift in Sources */,
+				93E079011D8457C1003D5526 /* ListOrderedSubscriberResponse.swift in Sources */,
 				932D695F1CBC59C5002F9D99 /* RequestTests.swift in Sources */,
+				93E079121D8457C1003D5526 /* RoleResponse.swift in Sources */,
 				932D69541CBC551C002F9D99 /* ResponseTests.swift in Sources */,
+				93E079131D8457C1003D5526 /* RuleConfig.swift in Sources */,
 				93704B991D659717005413D2 /* PayloadKey.swift in Sources */,
+				93E078E91D8457C1003D5526 /* ExpiryTime.swift in Sources */,
+				93E0790E1D8457C1003D5526 /* PutIpAddressMapEntryRequest.swift in Sources */,
 				93704B971D659717005413D2 /* Payload.swift in Sources */,
 				932D69581CBC55F2002F9D99 /* BaseTestCase.swift in Sources */,
+				93E079061D8457C1003D5526 /* ListSubOperatorsResponse.swift in Sources */,
+				93E079171D8457C1003D5526 /* ShippingAddressModel.swift in Sources */,
 				93704B9B1D659717005413D2 /* Request+Auth.swift in Sources */,
+				93E078EB1D8457C1003D5526 /* FileOutputResult.swift in Sources */,
+				93E078EF1D8457C1003D5526 /* GenerateTokenResponse.swift in Sources */,
+				93E079261D8457C1003D5526 /* VerifySubscriberTransferTokenResponse.swift in Sources */,
+				936428241D8473CE00DCCD32 /* TagSet.swift in Sources */,
+				93E078E81D8457C1003D5526 /* EventHandlerModel.swift in Sources */,
 				93704B9E1D659717005413D2 /* Request+Operator.swift in Sources */,
+				93E078F01D8457C1003D5526 /* GenerateUserAuthKeyResponse.swift in Sources */,
 				936D93971CC0E3D5005D24DA /* RegisterSIMTests.swift in Sources */,
+				93E078E71D8457C1003D5526 /* EstimatedOrderModel.swift in Sources */,
+				93E079081D8457C1003D5526 /* MonthlyBill.swift in Sources */,
+				93E0790D1D8457C1003D5526 /* ProductModel.swift in Sources */,
+				93E0790A1D8457C1003D5526 /* OrderItemModel.swift in Sources */,
 				932D695C1CBC58A5002F9D99 /* Request+SandboxTests.swift in Sources */,
 				93704B9C1D659717005413D2 /* Request+Credentials.swift in Sources */,
+				93E078EC1D8457C1003D5526 /* GatePeer.swift in Sources */,
+				93E079091D8457C1003D5526 /* OrderedSubscriber.swift in Sources */,
+				93E078DB1D8457C1003D5526 /* CreateRoleResponse.swift in Sources */,
+				93E078E61D8457C1003D5526 /* EstimatedOrderItemModel.swift in Sources */,
+				93E079221D8457C1003D5526 /* VerifyEmailChangeTokenRequest.swift in Sources */,
+				93E078D81D8457C1003D5526 /* CreateEventHandlerRequest.swift in Sources */,
 				9343D7DB1D1BD2F5003DDC2F /* Request+GroupTests.swift in Sources */,
+				93E079141D8457C1003D5526 /* RuleConfigProperty.swift in Sources */,
+				93E078D61D8457C1003D5526 /* CreateAndUpdateCredentialsModel.swift in Sources */,
 				930DD8761CDE0E3E000EB36A /* BaseTestCaseTests.swift in Sources */,
 				93704B911D659717005413D2 /* Client.swift in Sources */,
+				93E079101D8457C1003D5526 /* RegisterOperatorsRequest.swift in Sources */,
+				93E078F31D8457C1003D5526 /* GetOperatorResponse.swift in Sources */,
+				93E0791E1D8457C1003D5526 /* UpdatePasswordRequest.swift in Sources */,
 				93704BA21D659717005413D2 /* RequestQueue.swift in Sources */,
+				93E078D41D8457C1003D5526 /* Config.swift in Sources */,
 				93704B6F1D6596F4005413D2 /* Subscriber.swift in Sources */,
 				9304B1121D4B328B0077CBDB /* IssueDebuggingTests.swift in Sources */,
+				93E079071D8457C1003D5526 /* Models.swift in Sources */,
+				93E0790C1D8457C1003D5526 /* PaymentDescription.swift in Sources */,
+				93E078FB1D8457C1003D5526 /* IpAddressMapEntry.swift in Sources */,
+				93E078ED1D8457C1003D5526 /* GenerateOperatorsAuthKeyResponse.swift in Sources */,
+				93E078FE1D8457C1003D5526 /* IssueSubscriberTransferTokenRequest.swift in Sources */,
 				932D69481CB9C00A002F9D99 /* SoracomCredentialsTests.swift in Sources */,
+				93E079021D8457C1003D5526 /* ListOrderResponse.swift in Sources */,
+				93E078CE1D8457C1003D5526 /* APIKeyResponse.swift in Sources */,
+				93E0790B1D8457C1003D5526 /* PaymentAmount.swift in Sources */,
+				93E078DE1D8457C1003D5526 /* CreateVirtualPrivateGatewayRequest.swift in Sources */,
+				93E078DC1D8457C1003D5526 /* CreateUserPasswordRequest.swift in Sources */,
 				93704B951D659717005413D2 /* Keychain.swift in Sources */,
+				93E078F21D8457C1003D5526 /* GetLatestBill.swift in Sources */,
+				93E078CC1D8457C1003D5526 /* APICallError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

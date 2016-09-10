@@ -271,19 +271,19 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     // Like `somePayload[.key] except that it will attempt to coerce EXPERIMENTAL BRO
     
     
-    public func getBool(_ key: PayloadKey) -> Bool? {
+    public func decodeBool(_ key: PayloadKey) -> Bool? {
         return self[key] as? Bool
     }
     
-    public func getString(_ key: PayloadKey) -> String? {
+    public func decodeString(_ key: PayloadKey) -> String? {
         return self[key] as? String
     }
     
-    public func getStringArray(_ key: PayloadKey) -> [String]? {
+    public func decodeStringArray(_ key: PayloadKey) -> [String]? {
         return self[key] as? [String]
     }
     
-    public func getInt64(_ key: PayloadKey) -> Int64? {
+    public func decodeInt64(_ key: PayloadKey) -> Int64? {
         if let result = self[key] as? Int64 {
             return result
         } else if let result = self[key] as? NSNumber {
@@ -293,7 +293,7 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
         }
     }
     
-    public func getInt(_ key: PayloadKey) -> Int64? {
+    public func decodeInt(_ key: PayloadKey) -> Int64? {
         if let result = self[key] as? Int64 {
             return result
         } else if let result = self[key] as? NSNumber {
@@ -303,25 +303,48 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
         }
     }
     
-    public func getMap(_ key: PayloadKey) -> Map? {
+    public func decodeDouble(_ key: PayloadKey) -> Double? {
+        
+        if let result = self[key] as? NSNumber {
+            return result.doubleValue
+        } else {
+            return nil
+        }
+
+    }
+    
+    public func decodeMap(_ key: PayloadKey) -> Map? {
         return self[key] as? Map
     }
     
-    public func getSessionStatus(_ key: PayloadKey) -> SessionStatus? {
-        
-        if let dict = self[key] as? [String:Any], let childPayload = Payload.fromDictionary(dict) {
-            return SessionStatus.from(childPayload)
-        } else if let nativeObject = self[key] as? SessionStatus {
-            return nativeObject
-        } else {
-            return nil
-        }
+    public func decodeArray(_ key: PayloadKey) -> [Any]? {
+        return self[key] as? [Any]
     }
     
+    public func decodeDictionary(_ key: PayloadKey) -> [String:Any]? {
+        return self[key] as? [String: Any]
+    }
+    
+    
+//    public func decodeSessionStatus(_ key: PayloadKey) -> SessionStatus? {
+//        
+//        if let dict = self[key] as? [String:Any], let childPayload = Payload.fromDictionary(dict) {
+//            return SessionStatus.from(childPayload)
+//        } else if let nativeObject = self[key] as? SessionStatus {
+//            return nativeObject
+//        } else {
+//            return nil
+//        }
+//    }
+        
 
     /// Initialize and return a new Payload instance from `src`.
     
-    static func fromDictionary(_ src: [String: Any]) -> Payload? {
+    static func fromDictionary(_ src: [String: Any]?) -> Payload? {
+        
+        guard let src = src else {
+            return nil
+        }
         
         let result = self.init()
         

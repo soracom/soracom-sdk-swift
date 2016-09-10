@@ -5,11 +5,17 @@ extension Payload {
 
 {{#models}}{{#model}}
     {{#unwrapRequired}}SKIP because unwrapRequired{{/unwrapRequired}}
-    func decode{{classname}}(key: PayloadKey) {
+    func decode{{classname}}(_ key: PayloadKey) -> {{classname}}? {
 
-        let source = Payload.fromDictionary(self[key])
+        guard let dict = self[key] as? [String:Any] else {
+            return nil
+        }
+        guard let source = Payload.fromDictionary(dict) else {
+            return nil
+        }
 
-        let instance = {{classname}}(){{#vars}}{{#isEnum}} // FIXME: What do I do with isEnum? {{^-first}}, {{/-first}}baseName: {{baseName}} name: {{name}} classname: {{classname}} datatypeWithEnum: {{datatypeWithEnum}} baseName: {{baseName}}{{/isEnum}}{{^isEnum}}
+        let instance = {{classname}}(){{#vars}}{{#isEnum}} // FIXME: What do I do with isEnum? {{^-first}}, {{/-first}}baseName: {{baseName}} name: {{name}} classname: {{classname}} datatypeWithEnum: {{datatypeWithEnum}}
+        instance.{{name}} = source.decode{{datatypeWithEnum}}(.{{name}}){{/isEnum}}{{^isEnum}}
         instance.{{name}} = source.decode{{{baseType}}}(.{{name}}){{/isEnum}}{{/vars}}
         return instance
     }

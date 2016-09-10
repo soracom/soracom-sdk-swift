@@ -149,7 +149,11 @@ public struct ConfigurationParameter: PayloadConvertible {
 public typealias ConfigurationParameterList = [ConfigurationParameter]
 
 
+/// A swagger-codegen type.
+public typealias MapStringString = [String:String]
 
+/// A swagger-codegen type.
+public typealias MapStringDataTrafficStats = [String:DataTrafficStats]
 
 public enum TagValueMatchMode: String {
     // Mason 2016-06-08: FIXME: I am making some guesses about how this works and what the legal values are; confirm.

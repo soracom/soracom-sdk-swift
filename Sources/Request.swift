@@ -338,7 +338,7 @@ open class Request {
 
     /// Registers a handler, which is then executed when every request is run. Intended as a convenience for logging, experimentation, and debugging. The handler will be executed just before the Request makes its HTTP request. Handlers are executed **in an arbitrary thread** in the order they are registered.
     
-    open static func beforeRun(_ handler: RequestWillRunHandler) {
+    open static func beforeRun(_ handler: @escaping RequestWillRunHandler) {
         willRunHandlers.append(handler)
     }
     
@@ -347,7 +347,7 @@ open class Request {
     
     /// Registers a handler, which is then executed after every request is run. Intended as a convenience for logging, experimentation, and debugging. The handler will be executed just after the HTTP response has been received (or an error occurs), and immediately before the `responseHandler` executes. Handlers are executed **in an arbitrary thread** in the order they are registered.
 
-    open static func afterRun(_ handler: RequestDidRunHandler) {
+    open static func afterRun(_ handler: @escaping RequestDidRunHandler) {
         didRunHandlers.append(handler)
     }
     

@@ -27,7 +27,7 @@ public class {{classname}}: PayloadConvertible {
 {{/vars}}
 
     public required init({{#vars}}{{^-first}}, {{/-first}}
-        {{name}}: {{#isEnum}}/* FIXME enum wtf */{{datatypeWithEnum}}{{/isEnum}}{{^isEnum}}{{datatype}}?{{/isEnum}} = nil{{/vars}}
+        {{name}}: {{#isEnum}}{{datatypeWithEnum}}?{{/isEnum}}{{^isEnum}}{{datatype}}?{{/isEnum}} = nil{{/vars}}
     ) {
         {{#vars}}self.{{name}} = {{name}}
         {{/vars}}
@@ -57,14 +57,14 @@ public class {{classname}}: PayloadConvertible {
 
 {{#vars}}
 {{#isEnum}}
-        result.{{name}} = payload.get{{datatypeWithEnum}}(.{{name}})
+        result.{{name}} = payload.decode{{datatypeWithEnum}}(.{{name}})
 {{/isEnum}}
 {{^isEnum}}
 {{#isContainer}}
         result.{{name}} = payload.___SWAGGERER_POSTPROCESS_FIXME_{{datatype}}___(.{{name}})
 {{/isContainer}}
 {{^isContainer}}
-        result.{{name}} = payload.get{{datatype}}(.{{name}})
+        result.{{name}} = payload.decode{{datatype}}(.{{name}})
 {{/isContainer}}
 {{/isEnum}}
 {{/vars}}

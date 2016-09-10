@@ -10,7 +10,7 @@ This tool:
 
 This tool is for working on the SDK project itself (soracom-sdk-swift); it is not necessary to use this tool just to use the SDK.
 
-To use this tool, you must have swagger-codegen installed (`brew install swagger-codegen`).
+To use this tool, you must have swagger-codegen installed (`brew install swagger-codegen`). And you need macOS 10.12+ and Xcode 8+.
 
 
 以上

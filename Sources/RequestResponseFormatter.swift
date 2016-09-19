@@ -5,22 +5,22 @@ import Foundation
 
 /// Simple object that can render Request and Response instances in human-readable format, suitable for logging and debugging.
 
-public class RequestResponseFormatter {
+open class RequestResponseFormatter {
     
     /// A type propery that serves as a global value that controls whether sensitive information like passwords and keys are redacted in `description` (which may be used by logging functions). By default this is `true` but apps that want to print or log Request and Response instances without masking sensitive information may set this to `false`.
     
-    public static var shouldRedact = true
+    open static var shouldRedact = true
     
     
     /// The instance value of `shouldRedact` has precedence. If not set, then the value of the `shouldRedact` type property will be used.
     
-    public var shouldRedact: Bool {
+    open var shouldRedact: Bool {
         
         get {
             if let instanceValue = _shouldRedact {
                 return instanceValue
             } else {
-                return self.dynamicType.shouldRedact
+                return type(of: self).shouldRedact
             }
         }
         
@@ -28,7 +28,7 @@ public class RequestResponseFormatter {
             _shouldRedact = newValue
         }
     }
-    private var _shouldRedact: Bool? = nil
+    fileprivate var _shouldRedact: Bool? = nil
     
     
     /// Return the key and value, redacting if necessary.
@@ -43,9 +43,9 @@ public class RequestResponseFormatter {
     
     /// Format a Request instance in human-readable form.
     
-    public func formatRequest(_ request: Request) -> String {
+    open func formatRequest(_ request: Request) -> String {
         
-        let typeName = request.dynamicType
+        let typeName = type(of: request)
         
         var result = ""
         
@@ -81,8 +81,8 @@ public class RequestResponseFormatter {
     
     /// Format a Response instance in human-readable form.
     
-    public func formatResponse(_ response: Response) -> String {
-        let typeName = response.dynamicType
+    open func formatResponse(_ response: Response) -> String {
+        let typeName = type(of: response)
         
         var result = ""
         
@@ -120,7 +120,7 @@ public class RequestResponseFormatter {
     
     /// A brutal kludge to prettify JSON, specific to the way Request and Response `description` strings are formatted.
     
-    public func prettifyJSON(_ text: String?) -> String {
+    open func prettifyJSON(_ text: String?) -> String {
         
         guard let text = text else {
             return "{}"
@@ -136,7 +136,7 @@ public class RequestResponseFormatter {
                 
                 let obj = try JSONSerialization.jsonObject(with: data, options: [])
                 
-                var redacted = obj as? [String:AnyObject]
+                var redacted = obj as? [String:Any]
                 
                 if redacted != nil && shouldRedact {
                     let sensitiveKeys = ["token", "authKey", "password"]

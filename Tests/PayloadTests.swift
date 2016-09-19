@@ -85,7 +85,7 @@ class PayloadTests: BaseTestCase {
             return
         }
         
-        let expected: [String:AnyObject] = [
+        let expected: [String:Any] = [
             "email"          : "foo@bar.com",
             "updateDateTime" : NSNumber(value: 5),
             "type"           : "yes"
@@ -106,7 +106,7 @@ class PayloadTests: BaseTestCase {
             return
         }
         
-        let expected: [String: AnyObject] = [
+        let expected: [String: Any] = [
             "name"     : ["cvc" : "fee fie foe fum", "authKey": 666],
             "unixtime" : "💩"
         ]
@@ -145,15 +145,17 @@ class PayloadTests: BaseTestCase {
     
     
     func test_fromDictionary() {
-        let d = [
+        let d: [String:Any] = [
             "email"          : "foo@bar.com",
             "updateDateTime" : NSNumber(value: 5),
             "type"           : "yes"
         ]
 
+        //let five: Int64 = 5 // can we do this as of swiftlang-800.0.43.6 ?? (Yes, woo hoo! But it breaks the isEqual test so don't do it here...)
+        
         let expected: Payload = [
             .email          : "foo@bar.com",
-            .updateDateTime : NSNumber(value: 5),
+            .updateDateTime : 5,
             .type           : "yes"
         ]
         
@@ -170,6 +172,45 @@ class PayloadTests: BaseTestCase {
         } else {
             XCTFail("bogus condition")
         }
+    }
+    
+    func test_encodeInt64() {
+        
+        // This was added to test swiftlang-800.0.43.6 ; comments implied maybe they had made Int64 auto-bridge
+        // to NSNumber like Int does. However this was not the case. So, even though we added support for Int64
+        // to Payload, that applies only when constructing them locally... there is no way to get an Int64 out 
+        // of a Payload received over the network other than getting it `as? NSNumber` and then asking for its
+        // int64Value...
+        
+        let regularInt = 666
+        let bigInt: Int64 = 500_000_000_000_001
+        
+        let p: Payload = [
+            .amount: regularInt,
+            .unixtime: bigInt
+        ]
+        
+        guard let encoded = p.toJSONData() else {
+            XCTFail("could not JSON-encode Payload containing Int64")
+            return
+        }
+        
+        XCTAssert(encoded.count > 0)
+        
+//        let decoded = Payload(data: encoded)
+        
+        
+        guard let p2 = roundTripSerializeDeserialize(p)?.toPayload() else {
+            XCTFail()
+            return
+        }
+        guard let amount = p2[.amount] as? NSNumber, let unixtime = p2[.unixtime] as? NSNumber else {
+            XCTFail()
+            return
+        }
+        XCTAssert(amount.intValue == regularInt)
+        XCTAssert(unixtime.int64Value == bigInt)
+        
     }
     
     
@@ -232,8 +273,8 @@ class PayloadTests: BaseTestCase {
     
     func test_array_conversion_simple() {
         
-        let source: [Any]          = [1, "a", ["foo": "bar"], ["baz"]]
-        let expected: [AnyObject]  = [1, "a", ["foo": "bar"], ["baz"]]
+        let source: [Any]    = [1, "a", ["foo": "bar"], ["baz"]]
+        let expected: [Any]  = [1, "a", ["foo": "bar"], ["baz"]]
         
         let p1 = Payload(list: source)
         
@@ -249,7 +290,6 @@ class PayloadTests: BaseTestCase {
     func test_subscriber_conversion() {
         
         let source: Payload = [
-            .ipAddress  : "0.1.2.3",
             .speedClass : SpeedClass.s1_fast.rawValue,
             .imsi       : "470010171566423"
         ] // just because aotw this is easiest way to create a Subscriber
@@ -263,7 +303,7 @@ class PayloadTests: BaseTestCase {
             return
         }
         
-        let expected: [AnyObject] = [["ipAddress": "0.1.2.3", "speedClass": "s1.fast", "imsi": "470010171566423"],["ipAddress": "0.1.2.3", "speedClass": "s1.fast", "imsi": "470010171566423"]]
+        let expected: [Any] = [["ipAddress": "", "speedClass": "s1.fast", "imsi": "470010171566423"],["ipAddress": "", "speedClass": "s1.fast", "imsi": "470010171566423"]]
         
         XCTAssertEqual(expected as NSArray, actual as NSArray)
     }

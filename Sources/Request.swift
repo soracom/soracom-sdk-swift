@@ -46,7 +46,7 @@ import Foundation
 /// results of previous requests. In such cases, it can be convenient to use APIOperation to sequentially 
 /// execute requests from an NSOperationQueue.
 
-public class Request {
+open class Request {
     
     /// The host name of the production Soracom API server endpoint.
     
@@ -67,14 +67,14 @@ public class Request {
     
     var endpointHost: String {
         get {
-            return _endpointHost ?? self.dynamicType.sandboxEndpointHost
+            return _endpointHost ?? type(of: self).sandboxEndpointHost
         }
         set {
             _endpointHost = newValue
         }
     }
     
-    private var _endpointHost: String? = nil
+    fileprivate var _endpointHost: String? = nil
     
     
     /// The credentials object that is used to authorize the API request.
@@ -223,7 +223,7 @@ public class Request {
     
     /// Returns a dictionary that can be used as a Request's query, which will then be converted to a HTTP query string per the Soracom API conventions.
     
-    public class func makeQueryDictionary(tagName: String?             = nil,
+    open class func makeQueryDictionary(tagName: String?             = nil,
                                    tagValue: String?             = nil,
                           tagValueMatchMode: TagValueMatchMode?  = nil,
                                statusFilter: [SubscriberStatus]? = nil,
@@ -280,7 +280,7 @@ public class Request {
 
         // FIXME: check for 'no credentials' and error appropriately
         
-        for (handler) in self.dynamicType.willRunHandlers {
+        for (handler) in type(of: self).willRunHandlers {
             handler(self)
         }
 
@@ -289,9 +289,9 @@ public class Request {
             
             let httpResponse = httpResponse as? HTTPURLResponse
             
-            let response = Response(request: self, underlyingURLResponse: httpResponse, data: data, underlyingError: error)
+            let response = Response(request: self, underlyingURLResponse: httpResponse, data: data, underlyingError: error as NSError?)
         
-            for (handler) in self.dynamicType.didRunHandlers {
+            for (handler) in type(of: self).didRunHandlers {
                 handler(response)
             }
             
@@ -338,20 +338,20 @@ public class Request {
 
     /// Registers a handler, which is then executed when every request is run. Intended as a convenience for logging, experimentation, and debugging. The handler will be executed just before the Request makes its HTTP request. Handlers are executed **in an arbitrary thread** in the order they are registered.
     
-    public static func beforeRun(_ handler: RequestWillRunHandler) {
+    open static func beforeRun(_ handler: @escaping RequestWillRunHandler) {
         willRunHandlers.append(handler)
     }
     
-    private static var willRunHandlers: [RequestWillRunHandler] = []
+    fileprivate static var willRunHandlers: [RequestWillRunHandler] = []
 
     
     /// Registers a handler, which is then executed after every request is run. Intended as a convenience for logging, experimentation, and debugging. The handler will be executed just after the HTTP response has been received (or an error occurs), and immediately before the `responseHandler` executes. Handlers are executed **in an arbitrary thread** in the order they are registered.
 
-    public static func afterRun(_ handler: RequestDidRunHandler) {
+    open static func afterRun(_ handler: @escaping RequestDidRunHandler) {
         didRunHandlers.append(handler)
     }
     
-    private static var didRunHandlers: [RequestDidRunHandler] = []
+    fileprivate static var didRunHandlers: [RequestDidRunHandler] = []
     
     
     /// Builds the receiver's underlying NSURLRequest object, which is used when `run()` is invoked. This just builds it and returns the result; it doesn't modify the receiver's `URLRequest` property.
@@ -366,7 +366,7 @@ public class Request {
         
         if let payload = payload
         {
-            request.httpBody = payload.toJSONData() as Data
+            request.httpBody =  payload.toJSONData() ?? Data() // FIXME: set error and fail if payload can't make JSON data
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         
@@ -387,17 +387,17 @@ public class Request {
     
     /// Set this type property to provide your own routine to look up the credentials (API Key and API Token that are sent in HTTP headers) for **all** Request instances. This will replace the default lookup behavior, and will be used by all subsequently-run Request instances, unless you those instances have their instance-level `credentialsFinder` property set.
     
-    public static var credentialsFinder: CredentialsFinder? = nil
+    open static var credentialsFinder: CredentialsFinder? = nil
 
     
     /// Returns the unique integer ID of the request.
     
-    public let requestId = Request.nextRequestId
+    open let requestId = Request.nextRequestId
     
     
     /// Reserves and returns the next available unique integer ID.
     
-    private static var nextRequestId: Int64  {
+    fileprivate static var nextRequestId: Int64  {
         var result: Int64 = -1
         
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).sync {
@@ -406,7 +406,7 @@ public class Request {
         }
         return result
     }
-    private static var lastRequestId: Int64 = 1
+    fileprivate static var lastRequestId: Int64 = 1
     
     
 }

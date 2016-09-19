@@ -75,7 +75,7 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     /// Init a Payload via a dictionary literal (common when creating payloads to send).
     
-    public init(dictionaryLiteral elements: (PayloadKey, AnyObject)...) {
+    public init(dictionaryLiteral elements: (PayloadKey, Any)...) {
         
         rootObjectType = .nativeDictionary
         
@@ -127,7 +127,7 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     /// Convenience subscript accessor. 
     
-    subscript(key: PayloadKey) -> AnyObject? {
+    subscript(key: PayloadKey) -> Any? {
         
         get {
             return rootDictionary[key]
@@ -175,7 +175,7 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     /// Returns a 'basic' object representation of `value` suitable for encoding as JSON. (A 'basic' value here means something NSJSONSerialization can handle.) This includes converting native objects like Subscriber or BeamStats to generic dictionaries, etc.
     
-    func coerceValueToBasicType(_ oldValue: Any) -> AnyObject? {
+    func coerceValueToBasicType(_ oldValue: Any) -> Any? {
         
         if let newValue = oldValue as? Subscriber {
             return newValue.toPayload().toDictionary()
@@ -202,6 +202,9 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
         else if oldValue is NSNull {
             // do nothing in this case, I guess?
         }
+        else if let newValue = oldValue as? Int64 {
+            return NSNumber(value: newValue) // Mason 2016-08-16: Still cannot use Int64 here, even with swiftlang-800.0.43.6. NSJSONSerialization will raise if you pass it Int64.
+        }
         else {
             fatalError("work in progress bro (FIXME)")
         }
@@ -211,7 +214,7 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     // Returns a 'basic' dictionary representation of the receiver, suitable for encoding as JSON, or `nil` if the receiver's `rootObjectType` is not a dictionary type. (A 'basic' value here means something NSJSONSerialization can handle.) This process converts objects conforming to `PayloadConvertible` to dictionaries containing 'basic' keys and values, using `coerceValueToBasicType()`.
     
-    func toDictionary() -> [String:AnyObject]? {
+    func toDictionary() -> [String:Any]? {
         
         // FIXME: think about renaming this. toForeignDictionary()?
         
@@ -219,7 +222,7 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
             return nil
         }
         
-        var result: [String:AnyObject] = [:]
+        var result: [String:Any] = [:]
 
         for (oldKey, oldValue) in rootDictionary {
             
@@ -242,13 +245,13 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     /// Returns a 'basic' array representation of the receiver, suitable for encoding as JSON, or `nil` if the receiver's `rootObjectType` is not an array type. (A 'basic' value here means something NSJSONSerialization can handle.) This process converts objects conforming to `PayloadConvertible` to dictionaries containing 'basic' keys and values, using `coerceValueToBasicType()`.
 
-    func toArray() -> [AnyObject]? {
+    func toArray() -> [Any]? {
         
         guard rootObjectType == .foreignArray || rootObjectType == .nativeArray else {
             return nil
         }
         
-        var result: [AnyObject] = []
+        var result: [Any] = []
         
         for oldValue in rootArray {
             
@@ -265,9 +268,79 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     }
     
     
-    /// Initialize and return a new Payload instance from `src`. 
+    // Like `somePayload[.key] except that it will attempt to coerce EXPERIMENTAL BRO
     
-    static func fromDictionary(_ src: [String: AnyObject]) -> Payload? {
+    
+    public func decodeBool(_ key: PayloadKey) -> Bool? {
+        return self[key] as? Bool
+    }
+    
+    public func decodeString(_ key: PayloadKey) -> String? {
+        return self[key] as? String
+    }
+    
+    public func decodeStringArray(_ key: PayloadKey) -> [String]? {
+        return self[key] as? [String]
+    }
+    
+    public func decodeInt64(_ key: PayloadKey) -> Int64? {
+        if let result = self[key] as? Int64 {
+            return result
+        } else if let result = self[key] as? NSNumber {
+            return result.int64Value
+        } else {
+            return nil
+        }
+    }
+    
+    public func decodeInt(_ key: PayloadKey) -> Int64? {
+        if let result = self[key] as? Int64 {
+            return result
+        } else if let result = self[key] as? NSNumber {
+            return result.int64Value
+        } else {
+            return nil
+        }
+    }
+    
+    public func decodeDouble(_ key: PayloadKey) -> Double? {
+        
+        if let result = self[key] as? NSNumber {
+            return result.doubleValue
+        } else {
+            return nil
+        }
+
+    }
+    
+    public func decodeArray(_ key: PayloadKey) -> [Any]? {
+        return self[key] as? [Any]
+    }
+    
+    public func decodeDictionary(_ key: PayloadKey) -> [String:Any]? {
+        return self[key] as? [String: Any]
+    }
+    
+    
+//    public func decodeSessionStatus(_ key: PayloadKey) -> SessionStatus? {
+//        
+//        if let dict = self[key] as? [String:Any], let childPayload = Payload.fromDictionary(dict) {
+//            return SessionStatus.from(childPayload)
+//        } else if let nativeObject = self[key] as? SessionStatus {
+//            return nativeObject
+//        } else {
+//            return nil
+//        }
+//    }
+        
+
+    /// Initialize and return a new Payload instance from `src`.
+    
+    static func fromDictionary(_ src: [String: Any]?) -> Payload? {
+        
+        guard let src = src else {
+            return nil
+        }
         
         let result = self.init()
         
@@ -287,17 +360,20 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     /// Returns its contents as a JSON UTF-8 string.
     
     func toJSON() -> String? {
-        let result = String(data: toJSONData(), encoding: String.Encoding.utf8)
+        guard let d = toJSONData() else {
+            return nil
+        }
+        let result = String(data: d, encoding: String.Encoding.utf8)
         return result
     }
     
     
-    /// Returns an NSData instance, which contains the receiver's contents as JSON (as UTF-8 string). The main purpose of this is for encoding a payload to send to the API server with a request, but it's also useful for tests.
+    /// Returns an NSData instance, which contains the receiver's contents as JSON (as UTF-8 string). Returns `nil` if encoding fails. The main purpose of this is for encoding a payload to send to the API server with a request, but it's also useful for tests.
     
-    func toJSONData() -> Data {
+    func toJSONData() -> Data? {
         
         do {
-            var obj: AnyObject?
+            var obj: Any?
             
             switch rootObjectType {
                 
@@ -323,9 +399,7 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
             
         } catch {
             print("JSON encode error: \(error)")
-            return Data()
-            
-            // FIXME: still thinking about how to properly handle this kind of error. Seems like it should be a fatal error.
+            return nil 
         }
     }
     
@@ -334,15 +408,15 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     /// The root object type is determined based on the data used to init the payload.
     
-    private var rootObjectType: PayloadRootObjectType
+    fileprivate var rootObjectType: PayloadRootObjectType
 
     /// The underlying private storage (when `rootObjectType` is `.NativeDictionary` or `.ForeignDictionary`).
     
-    private var rootDictionary: [PayloadKey:AnyObject] = [:]
+    fileprivate var rootDictionary: [PayloadKey:Any] = [:]
     
     /// The underlying private storage (when `rootObjectType` is `.NativeArray` or `.ForeignArray`).
     
-    private var rootArray: [Any] = []
+    fileprivate var rootArray: [Any] = []
     
 }
 

@@ -2,7 +2,7 @@
 
 import XCTest
 
-public class KeychainTests: XCTestCase {
+open class KeychainTests: XCTestCase {
     
     static var bundleId: String {
         return Bundle.main.bundleIdentifier ?? "missing-bundle-id"

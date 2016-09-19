@@ -128,7 +128,7 @@ public struct Response {
         
         return nil
     }
-    private var _error: APIError? = nil // can be set at init time, when client-side err occurs before networking
+    fileprivate var _error: APIError? = nil // can be set at init time, when client-side err occurs before networking
     
     
 //    /// Internal func to check for missing keys and return an appropriate APIError if required keys are missing. Returns nil if no keys are missing. FIXME: Should be Payload's job, but that's not in yet.

@@ -17,7 +17,7 @@ public struct Group: PayloadConvertible {
     
     var configuration: [ConfigurationParametersNamespace: Dictionary<String,String>]? = nil
     var createdTime: Int64? = nil
-    var groupId: String = ""
+    var groupId: String? = ""
     var lastModifiedTime: Int64? = nil
     var operatorId: String? = nil
     var tags: [String:String]? = nil

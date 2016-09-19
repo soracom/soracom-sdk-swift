@@ -48,7 +48,7 @@ import Foundation
 /// Request handlers call back to the main thread, you cannot start an APIOperation on
 /// the main thread (it will deadlock). They must be started in a background thread.
 
-public class APIOperation: Operation {
+open class APIOperation: Operation {
     
     
     /// Init with a Request instance that should run when the operation executes. This is the simple non-deferred case, where the values needed to construct the Request are known up front, and can simply be passed in as parameters.
@@ -64,7 +64,7 @@ public class APIOperation: Operation {
 
     /// The requestBuilder variant inits an operation that defers the creation of its Request object, e.g. because the values needed to contruct the request aren't yet known. In this case, instead of a Request object, a RequestBuilder closure is passed, which will not be executed until the receiver is dequeued. This allows queuing operations which depend on data retrieved by previous operations, before any of the operations have actually executed.
     
-    public init(_ requestBuilder: RequestBuilder) {
+    public init(_ requestBuilder: @escaping RequestBuilder) {
         
         self.requestBuilder = requestBuilder
         super.init()
@@ -77,7 +77,7 @@ public class APIOperation: Operation {
     /// - wait for the response to (or error result for) the request
     /// - finish
 
-    override public func main() {
+    override open func main() {
         
         guard !self.isCancelled else {
             return

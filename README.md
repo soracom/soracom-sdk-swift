@@ -2,7 +2,7 @@
 
 An SDK for the Soracom API in Swift.
 
-Current status (2016-08-04): This SDK is a work in progress, and is still in the design stage. It currently only implements a portion of the API, as an example; complete API support is coming Real Soon Now&trade;. 
+Current status (2016-09-19): This SDK is a work in progress, and is still in the design stage. It currently only implements a portion of the API, as an example; complete API support is coming Real Soon Now&trade;. 
 
 ## Contents
 
@@ -23,7 +23,7 @@ This SDK is intended for programmers who want to interact with the [Soracom API]
 
 The (revised) goal is to support iOS 10 and macOS 10.12, initially.  Using this SDK for development requires a [Soracom account](https://console.soracom.io/#/signup) and [Xcode 8](https://developer.apple.com/xcode/).
 
-A future goal, after Swift 3 has been released, is to to build as [a Swift 3 package](https://swift.org/package-manager/#conceptual-overview), and to fully support Linux (and, hopefully, [other significant platforms?](http://thenextweb.com/dd/2016/04/07/google-facebook-uber-swift/)).
+A near-term goal, now that Swift 3 has been released, is to to build as [a Swift 3 package](https://swift.org/package-manager/#conceptual-overview), and to fully support Linux (and, hopefully, [other significant platforms?](http://thenextweb.com/dd/2016/04/07/google-facebook-uber-swift/)).
 
 
 

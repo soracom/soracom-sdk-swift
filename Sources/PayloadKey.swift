@@ -77,6 +77,7 @@ public enum PayloadKey: String {
     case iccid
     case id
     case imei
+    case imeiLock
     case imsi
     case inHttp
     case inMqtt

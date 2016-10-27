@@ -64,4 +64,30 @@ extension Request {
         return req
     }
     
+    
+    public class func setImeiLock(imsi: String, imei: String? = nil, responseHandler: ResponseHandler? = nil) -> Request {
+        
+        let req = self.init("/subscribers/\(imsi)/set_imei_lock", responseHandler: responseHandler)
+        
+        req.method = .POST
+        
+        if let imei = imei {
+            req.payload = [.imei: imei]
+        }
+        req.expectedHTTPStatus = 200
+        return req
+    }
+    
+    public class func unsetImeiLock(imsi: String, responseHandler: ResponseHandler? = nil) -> Request {
+        
+        let req = self.init("/subscribers/\(imsi)/unset_imei_lock", responseHandler: responseHandler)
+        
+        req.method = .POST
+        req.expectedHTTPStatus = 200
+        return req
+    }
+    
+    
+
+    
 }

@@ -59,6 +59,7 @@
 		935285331CD09AAF00B17B73 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285301CD09AAF00B17B73 /* APIOperation.swift */; };
 		935285351CD09AAF00B17B73 /* RequestResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */; };
 		935285491CD09AC500B17B73 /* APIOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285391CD09ABC00B17B73 /* APIOperationTests.swift */; };
+		9366F5141D966ADD000EC892 /* DevelopmentEnvironmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9366F5131D966ADD000EC892 /* DevelopmentEnvironmentTests.swift */; };
 		936D93891CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D93881CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift */; };
 		936D938B1CC0A3A5005D24DA /* Request+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */; };
 		936D938E1CC0A55C005D24DA /* Request+CredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938D1CC0A55C005D24DA /* Request+CredentialsTests.swift */; };
@@ -133,6 +134,7 @@
 		935285301CD09AAF00B17B73 /* APIOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
 		935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestResponseFormatter.swift; sourceTree = "<group>"; };
 		935285391CD09ABC00B17B73 /* APIOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOperationTests.swift; sourceTree = "<group>"; };
+		9366F5131D966ADD000EC892 /* DevelopmentEnvironmentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevelopmentEnvironmentTests.swift; sourceTree = "<group>"; };
 		936D93881CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseTestCase+withNewIMSI.swift"; sourceTree = "<group>"; };
 		936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Credentials.swift"; sourceTree = "<group>"; };
 		936D938D1CC0A55C005D24DA /* Request+CredentialsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+CredentialsTests.swift"; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				932D69471CB9C00A002F9D99 /* SoracomCredentialsTests.swift */,
 				93F50B4C1D38D70900F57659 /* SubscriberTests.swift */,
 				9304B1111D4B328B0077CBDB /* IssueDebuggingTests.swift */,
+				9366F5131D966ADD000EC892 /* DevelopmentEnvironmentTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				936D93971CC0E3D5005D24DA /* RegisterSIMTests.swift in Sources */,
 				932D695C1CBC58A5002F9D99 /* Request+SandboxTests.swift in Sources */,
 				9346E1F51D128DFC006B0D01 /* Request+Payment.swift in Sources */,
+				9366F5141D966ADD000EC892 /* DevelopmentEnvironmentTests.swift in Sources */,
 				9343D7DB1D1BD2F5003DDC2F /* Request+GroupTests.swift in Sources */,
 				93F50B401D38BDCF00F57659 /* Credential.swift in Sources */,
 				930DD8761CDE0E3E000EB36A /* BaseTestCaseTests.swift in Sources */,

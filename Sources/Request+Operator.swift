@@ -6,17 +6,21 @@ extension Request {
     
     /// Register a new operator. In the sandbox environment, this is one of the first steps that needs to be done. ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Operator/createOperator))
     
-    public class func createOperator(_ email: String, password: String, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func createOperator(_ email: String, password: String, coverageTypes: [String:String]? = nil, responseHandler: ResponseHandler? = nil) -> Request {
         
         let req = self.init("/operators", responseHandler: responseHandler)
         
-        req.payload = [
+        let payload: Payload = [
             .email    : email,
             .password : password,
         ]
         
-        req.shouldSendAPIKeyAndTokenInHTTPHeaders = false
+        if let coverageTypes = coverageTypes {
+            payload[.coverageTypes] = coverageTypes
+        }
         
+        req.payload = payload
+        req.shouldSendAPIKeyAndTokenInHTTPHeaders = false
         req.expectedHTTPStatus = 201
         
         return req
@@ -50,5 +54,19 @@ extension Request {
         req.payload = [.token: token]
         return req
     }
+    
+    
+    /// Add (agree to terms and sign up for) another coverage type to existing operator.
+    
+    public class func addCoverageType(_ coverageType: CoverageType, operatorId: String, responseHandler: ResponseHandler? = nil) -> Request {
+        
+        let req = self.init("/operators/\(operatorId)/coverage_type/\(coverageType.rawValue)/signup", responseHandler: responseHandler)
+        
+        req.shouldSendAPIKeyAndTokenInHTTPHeaders = true
+        // no req.payload
+        return req
+    }
+
+    
 
 }

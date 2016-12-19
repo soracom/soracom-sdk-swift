@@ -34,6 +34,7 @@ public enum PayloadKey: String {
     case count
     case couponCode
     case couponList
+    case coverageTypes
     case createdAt
     case createDate
     case createDateTime

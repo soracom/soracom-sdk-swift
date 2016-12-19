@@ -7,7 +7,15 @@ import XCTest
 /// against local, under-development versions of the Soracom API. If you don't have a file
 /// at ~/.soracom-sdk-swift/DevelopmentEnvironmentTests.json specifying an endpointHost and
 /// login details for your local version of the API backend, this won't be useful (and won't
-/// do anything.
+/// do anything).
+///
+/// SAMPLE FILE CONTENTS:
+///
+///    {
+///        "endpointHost" : "api-sandbox.soracom.io",
+///        "emailAddress" : "soracom+testbnkysuuuaw@soracom.jp@soracom.jp",
+///        "password"     : "SoracomTest1001"
+///    }
 
 class DevelopmentEnvironmentTests: XCTestCase {
 
@@ -61,7 +69,9 @@ class DevelopmentEnvironmentTests: XCTestCase {
         let authRequest = Request.auth(credentials)
         authRequest.endpointHost = endpointHost
         
-        guard let authResponse = AuthResponse(authRequest.wait().payload) else {
+        let response = authRequest.wait()
+        
+        guard let authResponse = AuthResponse(response.payload) else {
             XCTFail("Hmm. Test precondition failed: unable to authenticate to get API key")
             return nil
         }
@@ -83,6 +93,37 @@ class DevelopmentEnvironmentTests: XCTestCase {
         _ = credentials
         
         // BODY OF TEST HERE...
+    }
+    
+    
+    func test_newApiFutzing() {
+        
+        guard let endpointHost = endpointHost,
+            let credentials  = apiKeyCredentials
+            else {
+                return
+        }
+        
+        _ = endpointHost
+        _ = credentials
+        
+        // BODY OF TEST HERE...
+        
+        let listReq = Request.listSubscribers()
+        listReq.endpointHost = endpointHost;
+        listReq.credentials = credentials;
+        let listRes = listReq.wait()
+        
+        print(listRes)
+        
+        let req1 = Request.addCoverageType(.global, operatorId: "OP0026966374")
+        
+        req1.endpointHost = endpointHost
+        req1.credentials = credentials
+        
+        let res1 = req1.wait()
+        
+        print(res1)
     }
 
     

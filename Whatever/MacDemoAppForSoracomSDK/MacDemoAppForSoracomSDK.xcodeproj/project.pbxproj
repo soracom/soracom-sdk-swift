@@ -238,6 +238,8 @@
 				930DD8741CDE0E38000EB36A /* BaseTestCaseTests.swift */,
 				93F50B441D38D22E00F57659 /* BeamStatsTest.swift */,
 				93F50B3B1D38B72400F57659 /* CredentialTests.swift */,
+				9366F5131D966ADD000EC892 /* DevelopmentEnvironmentTests.swift */,
+				9304B1111D4B328B0077CBDB /* IssueDebuggingTests.swift */,
 				932D69431CB9BA50002F9D99 /* KeychainTests.swift */,
 				9343D7E01D1CBDAF003DDC2F /* NSDate+SoracomAPITests.swift */,
 				93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */,
@@ -251,8 +253,6 @@
 				932D69531CBC551C002F9D99 /* ResponseTests.swift */,
 				932D69471CB9C00A002F9D99 /* SoracomCredentialsTests.swift */,
 				93F50B4C1D38D70900F57659 /* SubscriberTests.swift */,
-				9304B1111D4B328B0077CBDB /* IssueDebuggingTests.swift */,
-				9366F5131D966ADD000EC892 /* DevelopmentEnvironmentTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";

@@ -2,7 +2,9 @@
 
 An SDK for the Soracom API in Swift.
 
-Current status (2016-09-19): This SDK is a work in progress, and is still in the design stage. It currently only implements a portion of the API, as an example; complete API support is coming Real Soon Now&trade;. 
+Current status: This SDK is a work in progress, and is still in the design stage. It currently only implements a portion of the API, as an example; complete API support is coming Real Soon Now&trade;.
+
+**UPDATE 2017-02-10:** The work to additionally target Linux has begun, and the project will henceforth require Swift 3.1 (which is still unreleased, as of this writing). That's what is happening right now with this project; this README will eventually be updated, but for now everything below this line pertains to the previous version of this SDK (for macOS and iOS only), circa September 2016.
 
 ## Contents
 

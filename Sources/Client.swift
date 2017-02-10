@@ -135,7 +135,7 @@ open class Client {
         
         guard !credentials.blank else {
             sandboxUserAuthenticationStatus = "⚠️ There is no API Sandbox user. To create one, enter your credentials in Settings."
-            nc.post(name: Notification.Name(rawValue: Notifications.SandboxUserAuthenticationDidUpdate), object: nil)
+            nc.post(name: Notifications.SandboxUserAuthenticationDidUpdate, object: nil)
             
             if recreateOnFailure {
                 self.createSandboxUser()
@@ -172,7 +172,7 @@ open class Client {
                 }
             }
             
-            nc.post(name: Notification.Name(rawValue: Notifications.SandboxUserAuthenticationDidUpdate), object: nil)
+            nc.post(name: Notifications.SandboxUserAuthenticationDidUpdate, object: nil)
         }
     }
     

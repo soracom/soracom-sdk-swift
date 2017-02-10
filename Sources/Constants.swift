@@ -4,6 +4,6 @@ import Foundation
 
 public struct Notifications {
 
-    static let SandboxUserAuthenticationDidUpdate  = "SandboxUserAuthenticationDidUpdateNotification"
+    static let SandboxUserAuthenticationDidUpdate  = Notification.Name("SandboxUserAuthenticationDidUpdateNotification")
     
 }

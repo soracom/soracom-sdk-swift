@@ -20,8 +20,8 @@ class IssueDebuggingTests: BaseTestCase {
         
         print(req)
         print(res)
-        print(subscribers)
-        print("subscribers count is \(subscribers?.count)")
+        print(subscribers ?? "subscribers == nil")
+        print("subscribers count is \(String(describing: subscribers?.count))")
         
         print("w00t?")
     }

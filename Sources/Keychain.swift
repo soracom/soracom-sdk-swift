@@ -55,7 +55,7 @@ open class Keychain {
 
             #if os(OSX)
                 let errMessage = SecCopyErrorMessageString(deleteResult, nil)
-                errorLogger(deleteResult, "error description: \(errMessage)")
+                errorLogger(deleteResult, "error description: \(String(describing: errMessage))")
                 
                 // Mason 2016-04-18: I am seeing -25244 "Invalid attempt to change the owner of this item" during unit tests.
                 // Some debuggery reveals that this is because the SDK unit tests are being run by multiple different

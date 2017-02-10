@@ -74,6 +74,15 @@ class PayloadTests: BaseTestCase {
         
         let wooHooNowIn2017ThisWorks = x[.lastUsedDateTime] as? Int64  // → 7
         XCTAssert(wooHooNowIn2017ThisWorks == 7)
+        
+        // Mason 2017-02-10 (one hour later, haha): I think it doesn't really matter anyway, because:
+        //    Swift Dev. 3.1 (Feb 7, 2017)
+        //    Platform: Linux (x86_64)
+        //    /swift-execution/Sources/main.swift:9:22: warning: cast from 'NSNumber' to unrelated type 'Int64' always fails
+        //    let hoberstank = bar as? Int64
+        //    ~~~ ^   ~~~~~
+        //
+        // ...so probably that relies on automagic bridging and will only work on objc-ish platforms(?)
     }
     
     

@@ -187,7 +187,7 @@
 			children = (
 				930DD8721CDDDFAA000EB36A /* README.md */,
 				932D69391CB9B183002F9D99 /* Sources */,
-				932D693B1CB9B183002F9D99 /* Tests */,
+				93F83C741E4DA50C000B7565 /* Tests */,
 			);
 			name = "soracom-sdk-swift";
 			path = ../..;
@@ -254,7 +254,8 @@
 				932D69471CB9C00A002F9D99 /* SoracomCredentialsTests.swift */,
 				93F50B4C1D38D70900F57659 /* SubscriberTests.swift */,
 			);
-			path = Tests;
+			name = Tests;
+			path = SoracomSDKSwiftTests;
 			sourceTree = "<group>";
 		};
 		93BDF9081CB8FD1A0058C5BC = {
@@ -294,6 +295,14 @@
 				93BDF9261CB8FD1A0058C5BC /* Info.plist */,
 			);
 			path = MacDemoAppForSoracomSDKTests;
+			sourceTree = "<group>";
+		};
+		93F83C741E4DA50C000B7565 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				932D693B1CB9B183002F9D99 /* Tests */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

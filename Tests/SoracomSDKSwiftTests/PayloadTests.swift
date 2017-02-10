@@ -60,16 +60,20 @@ class PayloadTests: BaseTestCase {
         let aDouble = x[.lastUsedDateTime] as? Double // → 7
         let aBool   = x[.lastUsedDateTime] as? Bool   // → ?
         
-        let tooBad  = x[.lastUsedDateTime] as? Int64  // → nil
-
         XCTAssert(anInt == 7)
         XCTAssert(aUInt == 7)
         XCTAssert(aFloat == 7)
         XCTAssert(aDouble == 7.0)
         XCTAssert(aBool == true)
         
-        XCTAssert(tooBad == nil)
-          // This is unfortnuate since I want all numbers to be 64-bit integers for this use case... but c'est la vie
+        // Mason 2017-02-10: This old test below started failing on Swift 3.1, because NSNumber can now apparently give you an Int64 just as easily as an Int. Which is great, if true, but I haven't found anywhere this change is documented yet...
+        //
+        //        let tooBad  = x[.lastUsedDateTime] as? Int64  // → nil
+        //        XCTAssert(tooBad == nil)
+        //          // This is unfortnuate since I want all numbers to be 64-bit integers for this use case... but c'est la vie
+        
+        let wooHooNowIn2017ThisWorks = x[.lastUsedDateTime] as? Int64  // → 7
+        XCTAssert(wooHooNowIn2017ThisWorks == 7)
     }
     
     
@@ -294,7 +298,10 @@ class PayloadTests: BaseTestCase {
             .imsi       : "470010171566423"
         ] // just because aotw this is easiest way to create a Subscriber
         
-        let sub = Subscriber.from(source)
+        guard let sub = Subscriber.from(source) else {
+            XCTFail()
+            return
+        }
         
         let payload = Payload(list: [sub, sub])
         

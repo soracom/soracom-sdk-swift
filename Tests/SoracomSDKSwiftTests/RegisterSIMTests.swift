@@ -51,7 +51,7 @@ class RegisterSIMTests: BaseTestCase {
         req.run { (response) in
             
             print(response)
-            print(response.payload)
+            print(response.payload ?? "(response.payload == nil)")
             
             // Payload looks like:
             // [
@@ -98,7 +98,7 @@ class RegisterSIMTests: BaseTestCase {
         req.run { (response) in
             
             print(response)
-            print(response.payload)
+            print(response.payload ?? "(response.payload == nil)")
             
             XCTAssert(response.error == nil)
             

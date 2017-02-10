@@ -14,12 +14,12 @@ class SettingsViewController: UITableViewController {
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("\(self): prepareForSegue: \(segue)")
     }
     
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         print("\(self): viewWillDisappear: \(animated)")
         saveSAMUserCredentials()
     }

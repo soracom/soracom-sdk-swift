@@ -70,7 +70,7 @@ class APIOperationTests: BaseTestCase {
                     XCTAssert(email == COM0008)
                     XCTAssert(password == COM0008)
                 } else {
-                    XCTFail("Operation's request should have used value from previous requedt for email and password. (Instead: \(payload)")
+                    XCTFail("Operation's request should have used value from previous requedt for email and password. (Instead: \(String(describing: payload))")
                 }
                 self.endAsyncSection()
             }

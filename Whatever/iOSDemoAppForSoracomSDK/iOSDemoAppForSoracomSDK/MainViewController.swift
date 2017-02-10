@@ -10,9 +10,9 @@ class MainViewController: UIViewController {
         
         self.title = "SORACOM SDK Demo"
         
-        let nc = NSNotificationCenter.defaultCenter()
+        let nc = NotificationCenter.default
         
-        nc.addObserverForName(Notifications.SandboxUserAuthenticationDidUpdate, object: nil, queue: nil) { (notif) in
+        nc.addObserver(forName: Notifications.SandboxUserAuthenticationDidUpdate, object: nil, queue: nil) { (notif) in
             
             self.authStatusField.text  = Client.sharedInstance.sandboxUserAuthenticationStatus
             self.helpMessageField.text = Client.sharedInstance.helpMessage
@@ -24,12 +24,12 @@ class MainViewController: UIViewController {
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("\(self): prepareForSegue: \(segue)")
     }
 
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         print("\(self): viewWillDisappear: \(animated)")
     }
  

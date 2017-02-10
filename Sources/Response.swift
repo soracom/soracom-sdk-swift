@@ -112,7 +112,7 @@ public struct Response {
             // FIXME: See if we can add real err codes for client-side errs, that don't potentially conflict with API-side err codes.
             
             return APIError(payload: payload) ??
-                   APIError(code: "CLI0666", message: "got HTTP status \(HTTPStatus), but expected \(request.expectedHTTPStatus)")
+                   APIError(code: "CLI0666", message: "got HTTP status \(String(describing: HTTPStatus)), but expected \(request.expectedHTTPStatus)")
         }
         
         guard let data = data else {
@@ -128,7 +128,7 @@ public struct Response {
         
         return nil
     }
-    fileprivate var _error: APIError? = nil // can be set at init time, when client-side err occurs before networking
+    private var _error: APIError? = nil // can be set at init time, when client-side err occurs before networking
     
     
 //    /// Internal func to check for missing keys and return an appropriate APIError if required keys are missing. Returns nil if no keys are missing. FIXME: Should be Payload's job, but that's not in yet.

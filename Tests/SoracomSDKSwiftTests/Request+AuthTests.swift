@@ -70,8 +70,8 @@ class RequestAuthTests: BaseTestCase {
             XCTAssert(code == "AUM0004" || code == "AUM0015")
             XCTAssertNotNil(message)
             
-            print("\(response.error)")
-            print(response.text)
+            print("\(String(describing: response.error))")
+            print(response.text ?? "(response.text == nil)")
             
             self.endAsyncSection()
         }

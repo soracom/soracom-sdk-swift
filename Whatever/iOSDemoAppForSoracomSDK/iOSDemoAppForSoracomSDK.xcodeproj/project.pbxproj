@@ -230,7 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				932A5BB61CE81592007D0B5C /* Sources */,
-				932A5BE41CE8159E007D0B5C /* Tests */,
+				93842CAF1E4D81A200CF4D75 /* Tests */,
 			);
 			name = "soracom-sdk-swift";
 			path = ../..;
@@ -270,7 +270,7 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		932A5BE41CE8159E007D0B5C /* Tests */ = {
+		932A5BE41CE8159E007D0B5C /* SoracomSDKSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
 				932A5BE51CE8159E007D0B5C /* APIErrorTests.swift */,
@@ -294,6 +294,14 @@
 				932A5BF31CE8159E007D0B5C /* ResponseTests.swift */,
 				932A5BF41CE8159E007D0B5C /* SoracomCredentialsTests.swift */,
 				93F50B601D38DAD400F57659 /* SubscriberTests.swift */,
+			);
+			path = SoracomSDKSwiftTests;
+			sourceTree = "<group>";
+		};
+		93842CAF1E4D81A200CF4D75 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				932A5BE41CE8159E007D0B5C /* SoracomSDKSwiftTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -344,16 +352,16 @@
 			attributes = {
 				LastSwiftMigration = 0730;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Soracom, Inc.";
 				TargetAttributes = {
 					932A5B8B1CE80CE4007D0B5C = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 					};
 					932A5B9F1CE80CE4007D0B5C = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						TestTargetID = 932A5B8B1CE80CE4007D0B5C;
 					};
 				};
@@ -538,8 +546,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -584,8 +594,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -618,7 +630,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.iOSDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -632,7 +644,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.iOSDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -644,7 +656,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.iOSDemoAppForSoracomSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSDemoAppForSoracomSDK.app/iOSDemoAppForSoracomSDK";
 			};
 			name = Debug;
@@ -658,7 +670,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.iOSDemoAppForSoracomSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSDemoAppForSoracomSDK.app/iOSDemoAppForSoracomSDK";
 			};
 			name = Release;

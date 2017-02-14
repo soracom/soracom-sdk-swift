@@ -458,10 +458,11 @@ public func ==(lhs: Payload, rhs: Payload) -> Bool
         
         if leftDict == nil && rightDict == nil {
             return true
-        } else if leftDict == nil || rightDict == nil {
-            return false
         } else {
-            return (leftDict! as NSDictionary) == (rightDict! as NSDictionary)
+            guard let ld = leftDict, let rd = rightDict else {
+                return false
+            }
+            return NSDictionary(dictionary: ld) == NSDictionary(dictionary: rd)
         }
     } else if type == .nativeArray || type == .foreignArray {
         
@@ -470,10 +471,11 @@ public func ==(lhs: Payload, rhs: Payload) -> Bool
         
         if leftArray == nil && rightArray == nil {
             return true
-        } else if leftArray == nil || rightArray == nil {
-            return false
         } else {
-            return (leftArray! as NSArray) == (rightArray! as NSArray)
+            guard let la = leftArray, let ra = rightArray else {
+                return false
+            }
+            return NSArray(array: la) == NSArray(array: ra)
         }
     } else {
         fatalError("\(#function): 'whatThe")

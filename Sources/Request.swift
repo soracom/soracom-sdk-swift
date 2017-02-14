@@ -1,7 +1,7 @@
 // Request.swift Created by mason on 2016-03-11. Copyright © 2016 Soracom, Inc. All rights reserved.
 
 import Foundation
-
+import Dispatch
 
 /// The Request class defines and executes a single request to the Soracom API server. Typically, the API request is normally constructed via one of the convenience constructor methods, which takes an appropriate set of zero or more arguments. 
 ///

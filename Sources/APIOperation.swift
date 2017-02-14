@@ -1,7 +1,7 @@
 // APIOperation.swift Created by mason on 2016-04-23. Copyright © 2016 masonmark.com. All rights reserved.
 
 import Foundation
-
+import Dispatch
 
 /// The APIOperation class makes it easy to use Request instances with NSOperationQueue. 
 ///

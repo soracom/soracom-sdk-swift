@@ -146,7 +146,7 @@ open class Request {
     
     /// This property provides access to the request's underlying NSURLRequest object, which is created when `run()` is invoked. It is normally `nil` until then.
     
-    var URLRequest: NSMutableURLRequest?
+    var URLRequest: URLRequest?
     
 
     /// The HTTP status expected to be returned by the underlying HTTP request on success. (FIXME: this should be array; some request types have multiple possible success values.)
@@ -289,8 +289,12 @@ open class Request {
             
             let httpResponse = httpResponse as? HTTPURLResponse
             
-            let response = Response(request: self, underlyingURLResponse: httpResponse, data: data, underlyingError: error as NSError?)
-        
+            #if !os(Linux)
+                let response = Response(request: self, underlyingURLResponse: httpResponse, data: data, underlyingError: error as NSError?)
+            #else
+                let response = Response(request: self, underlyingURLResponse: httpResponse, data: data, underlyingError: nil)
+            #endif
+
             for (handler) in type(of: self).didRunHandlers {
                 handler(response)
             }
@@ -356,11 +360,15 @@ open class Request {
     
     /// Builds the receiver's underlying NSURLRequest object, which is used when `run()` is invoked. This just builds it and returns the result; it doesn't modify the receiver's `URLRequest` property.
     
-    func buildURLRequest() -> NSMutableURLRequest {
+    func buildURLRequest() -> URLRequest {
         
         let URL = buildURL()
         
-        let request = NSMutableURLRequest(url: URL)
+        #if os(Linux)
+            var request = Foundation.URLRequest(url: URL)
+        #else
+            let request = NSMutableURLRequest(url: URL)
+        #endif
         
         request.httpMethod = self.method.rawValue
         
@@ -376,7 +384,8 @@ open class Request {
             request.setValue(creds.token, forHTTPHeaderField: "X-Soracom-Token")
         }
         
-        return request
+        return request as URLRequest // as? always succeeds on macOS, but always fails on Linux... ;-/
+        
     }
     
     

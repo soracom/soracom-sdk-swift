@@ -1,0 +1,12 @@
+{
+  "autoPin": true,
+  "pins": [
+    {
+      "package": "SoracomSDKSwift",
+      "reason": null,
+      "repositoryURL": "/mnt/hgfs/Code/SORACOM/soracom-sdk-swift",
+      "version": "0.0.2"
+    }
+  ],
+  "version": 1
+}

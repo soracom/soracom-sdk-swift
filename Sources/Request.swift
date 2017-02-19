@@ -273,7 +273,7 @@ open class Request {
     ///
     /// (You can opt out of handling the response on the main thread by setting the receiver's `handleResponseInMainThread` property to false.)
     
-    func run(_ responseHandler: ResponseHandler? = nil) {
+    public func run(_ responseHandler: ResponseHandler? = nil) {
         
         let urlRequest  = buildURLRequest()
         self.URLRequest = urlRequest
@@ -316,7 +316,7 @@ open class Request {
     
     /// Run request synchronously, blocking the calling thread until the Response is available. This isn't the most performant way to make a request, and it is [discouraged for various good reasons](https://forums.developer.apple.com/thread/11519), but in some circumstances it may be appropriate and convenient.
     
-    func wait() -> Response {
+    public func wait() -> Response {
         
         var result: Response? = nil
         let waitSemaphore     = DispatchSemaphore(value: 0);

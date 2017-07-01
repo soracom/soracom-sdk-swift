@@ -16,6 +16,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var outputTextView: NSTextView!
       // Mason 2016-03-13: NOTE: For historical reasons, NSTextView is marked as NS_AUTOMATED_REFCOUNT_WEAK_UNAVAILABLE, so weak ref will cause crash. (In this app, we don't really care, though.)
     
+    let kFontSizeKey      = "font-size-for-transcript"
+    var fontSize: CGFloat = 10.0
     
     /// A reference to the singleton Client instance, which implements most of the API-related behavior of this demo app.
     
@@ -64,6 +66,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         Client.sharedInstance.doInitialHousekeeping()
           // This will allow us to use Xcode to securely input credentials that can be used by the tests.
+        
+        let preferredFontSize = UserDefaults.standard.float(forKey: kFontSizeKey);
+        if (preferredFontSize > 1.0) {
+            fontSize = CGFloat(preferredFontSize)
+        }
+        
+        log("🤘 SORACOM API Swift SDK demo app is ready.")
     }
     
     
@@ -140,16 +149,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if str.characters.last != "\n" {
             padded = padded + "\n"
         }
+        var updatedAttrs = attrs.attributes
+        updatedAttrs[NSFontAttributeName] = defaultFont(size: fontSize);
+        appendOutput(padded, attrs: updatedAttrs)
         
-        appendOutput(padded, attrs: attrs.attributes) // pad it in the app output
-        print(str)
+        print(str)  // pad it in the app output only
     }
     
     
     // MARK: - UI actions
     
     @IBAction func clearLog(_ sender: AnyObject) {
-        let cleared = NSAttributedString(string: "", attributes: [NSFontAttributeName: NSFont.userFixedPitchFont(ofSize: 10.0)!])
+        let cleared = NSAttributedString(string: "", attributes: [NSFontAttributeName: NSFont.userFixedPitchFont(ofSize: fontSize)!])
         outputTextView.textStorage?.setAttributedString(cleared)
     }
     
@@ -214,6 +225,45 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let newValue = sender.state == NSOnState
         RequestResponseFormatter.shouldRedact = newValue
         log("Redaction set to \(newValue ? "ON" : "OFF").")
+    }
+    
+    
+    @IBAction func increaseFontSize(_ sender: AnyObject) {
+        adjustFontSizeBy(1.0)
+    }
+    
+    
+    @IBAction func decreaseFontSize(_ sender: AnyObject) {
+        adjustFontSizeBy(-1.0)
+    }
+    
+    
+    func adjustFontSizeBy(_ adjustment: CGFloat) {
+        
+        let newFontSize = fontSize + adjustment
+        
+        guard (newFontSize > 4.0 && newFontSize < 145.0) else {
+            // a real app would properly validate/disable the menu items, but...
+            NSBeep();
+            return;
+        }
+        fontSize = newFontSize
+        UserDefaults.standard.set(Float(fontSize), forKey: kFontSizeKey)
+        
+        let newFont = defaultFont(size: fontSize);
+        let length  = outputTextView.attributedString().length
+        let range   = NSMakeRange(0, length);
+        
+        outputTextView.setFont(newFont, range: range);
+    }
+    
+    
+    func defaultFont(size: CGFloat) -> NSFont {
+        
+        guard let result = NSFont.userFixedPitchFont(ofSize: fontSize) else {
+            return NSFont.systemFont(ofSize: fontSize)
+        }
+        return result;
     }
     
 }

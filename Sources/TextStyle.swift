@@ -30,6 +30,9 @@ public enum TextStyle {
         default:
             return [NSFontAttributeName: NSFont.userFixedPitchFont(ofSize: 10.0)!]
         }
+        // FIXME: It doesn't really make sense to have this level of styling info outside of the demo apps.
+        // Probably these labels should be more conceptual (.info/.success/.failure or something, and the
+        // visual styles should not be defined here.
     }
     
 #else

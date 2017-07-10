@@ -14,8 +14,13 @@ let package = Package(
         ),
         .testTarget(
             name: "SoracomSDKSwiftTests",
-            dependencies: [],
+            dependencies: ["SoracomSDKSwift"],
             path: "Tests"
+        ),
+        .target(
+            name: "LinuxDemoAppForSoracomSDK",
+            dependencies: ["SoracomSDKSwift"],
+            path: "Whatever/LinuxDemoAppForSoracomSDK"
         )
     ]
 )

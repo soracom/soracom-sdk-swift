@@ -2,6 +2,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 class APIStructuresTests: BaseTestCase {
     
     func test_AirStats_serialization() {
@@ -34,7 +38,9 @@ class APIStructuresTests: BaseTestCase {
             return
         }
         
-        XCTAssertEqual(d1 as NSDictionary, d2 as NSDictionary)
+        // XCTAssertEqual(d1 as NSDictionary, d2 as NSDictionary)
+    let eq = areEqual(d1, d2)
+        XCTAssert(eq)
     }
     
  

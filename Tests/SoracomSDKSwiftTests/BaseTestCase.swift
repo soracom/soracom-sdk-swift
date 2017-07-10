@@ -2,6 +2,12 @@
 
 import XCTest
 
+#if os(Linux)
+    import Dispatch
+    @testable import SoracomSDKSwift
+#endif
+
+
 var oneTimeTestSetupToken: Int  = 0
 
 /// A base class that implements some common conveniences/hacks for the project's tests. e.g. making async tests require less boilerplate.

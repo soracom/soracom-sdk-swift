@@ -2,6 +2,9 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
 
 /// These are not really tests of this SDK, they are test cases that use this SDK to help debug issues in various other projects that use the Soracom API. (But using this SDK for that purpose may result in improvements or bug fixes to it as well.)
 

@@ -2,6 +2,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 class CredentialTests: BaseTestCase {
     
     func test_serialize() {

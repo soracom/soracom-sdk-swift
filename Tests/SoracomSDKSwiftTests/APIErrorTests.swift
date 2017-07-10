@@ -2,6 +2,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 class APIErrorTests: BaseTestCase {
     
     func test_APIError_existence() {

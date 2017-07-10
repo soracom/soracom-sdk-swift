@@ -2,6 +2,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 open class KeychainTests: XCTestCase {
     
     static var bundleId: String {

@@ -2,6 +2,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 class APIOperationTests: BaseTestCase {
     
     var bogusCreds: SoracomCredentials {

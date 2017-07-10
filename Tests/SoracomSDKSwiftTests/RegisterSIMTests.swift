@@ -2,6 +2,9 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
 
 class RegisterSIMTests: BaseTestCase {
 

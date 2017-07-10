@@ -2,6 +2,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 class ResponseTests: XCTestCase {
     
     var request: Request = Request("/foo")

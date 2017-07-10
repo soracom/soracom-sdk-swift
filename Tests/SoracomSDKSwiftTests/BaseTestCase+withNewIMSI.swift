@@ -2,6 +2,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 extension BaseTestCase {
     
     /// Convenience method to get a new IMSI from the API sandbox, before running your actual tests. You still need to set up expectations in your main test method body. Example:

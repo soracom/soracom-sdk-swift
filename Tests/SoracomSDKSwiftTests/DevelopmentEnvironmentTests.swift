@@ -3,6 +3,11 @@
 import Foundation
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
+
 /// This test case is usually a no-op and not that interesting. It is for testing this SDK
 /// against local, under-development versions of the Soracom API. If you don't have a file
 /// at ~/.soracom-sdk-swift/DevelopmentEnvironmentTests.json specifying an endpointHost and

@@ -2,6 +2,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 class RequestGroupTests: BaseTestCase {
     
     func test_CRUD_groups() {

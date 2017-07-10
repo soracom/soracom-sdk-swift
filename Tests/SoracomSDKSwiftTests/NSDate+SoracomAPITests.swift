@@ -2,6 +2,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 class NSDateSoracomAPITests: XCTestCase {
     
     let birthday: Int64 = 147571200000 // ♬ happy birthday to me...

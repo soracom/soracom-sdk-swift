@@ -8,3 +8,4 @@ let package = Package(
       // nope!
     ]
 )
+package.exclude = ["Whatever"]

@@ -2,7 +2,17 @@
 
 import XCTest
 
+#if os(Linux)
+    import Dispatch
+    @testable import SoracomSDKSwift
+#endif
+
 class BaseTestCaseTests: BaseTestCase {
+    
+    func areEqual(lhs: [String:Any], rhs: [String:Any]) -> Bool {
+        return false;
+    }
+    
     
     func test_asyncTestConveniences() {
         
@@ -32,4 +42,14 @@ class BaseTestCaseTests: BaseTestCase {
         XCTAssertFalse(nope)
     }
     
+}
+
+extension BaseTestCaseTests {
+    
+    static var allTests : [(String, (BaseTestCaseTests) -> () throws -> Void)] {
+        return [
+            ("test_asyncTestConveniences", test_asyncTestConveniences),
+            ("test_isEquivalentJSON", test_isEquivalentJSON),
+        ]
+    }
 }

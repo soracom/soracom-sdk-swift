@@ -9,11 +9,6 @@ import XCTest
 
 class BaseTestCaseTests: BaseTestCase {
     
-    func areEqual(lhs: [String:Any], rhs: [String:Any]) -> Bool {
-        return false;
-    }
-    
-    
     func test_asyncTestConveniences() {
         
         var x = "foo"

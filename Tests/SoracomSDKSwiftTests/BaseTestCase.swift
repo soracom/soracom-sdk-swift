@@ -223,5 +223,8 @@ class BaseTestCase: XCTestCase {
         return (obj1 as AnyObject).isEqual(obj2);
     }
     
-
+    func areEqual(_ lhs: [String:Any], _ rhs: [String:Any]) -> Bool {
+        return false; // punt on this until we re-do JSON cross-platform
+    }
+    
 }

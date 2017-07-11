@@ -26,7 +26,6 @@
 		932D695A1CBC5842002F9D99 /* Request+SubscriberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69591CBC5842002F9D99 /* Request+SubscriberTests.swift */; };
 		932D695C1CBC58A5002F9D99 /* Request+SandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D695B1CBC58A5002F9D99 /* Request+SandboxTests.swift */; };
 		932D695F1CBC59C5002F9D99 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69501CBC5480002F9D99 /* RequestTests.swift */; };
-		933D8DBA1F0788A400C2DBB1 /* LinuxMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933D8DB81F07883400C2DBB1 /* LinuxMain.swift */; };
 		93408AEC1CBB4E900084DC18 /* APIStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AEB1CBB4E900084DC18 /* APIStructures.swift */; };
 		93408AEE1CBB4FA90084DC18 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AED1CBB4FA90084DC18 /* Payload.swift */; };
 		93408AF41CBB4FD80084DC18 /* PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */; };
@@ -67,7 +66,6 @@
 		936D93901CC0A8CA005D24DA /* Request+Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938F1CC0A8CA005D24DA /* Request+Subscriber.swift */; };
 		936D93931CC0DE14005D24DA /* Request+Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D93921CC0DE14005D24DA /* Request+Payment.swift */; };
 		936D93971CC0E3D5005D24DA /* RegisterSIMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D93951CC0E3D5005D24DA /* RegisterSIMTests.swift */; };
-		938C66C11F137E8B00100F7D /* LinuxMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938C66C01F137E8B00100F7D /* LinuxMain.swift */; };
 		939BF3A51D124A6C0069B3EF /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A31D124A6C0069B3EF /* Client.swift */; };
 		939BF3A61D124A6C0069B3EF /* RequestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A41D124A6C0069B3EF /* RequestQueue.swift */; };
 		939BF3A91D1280F20069B3EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A81D1280F20069B3EF /* Constants.swift */; };
@@ -125,7 +123,6 @@
 		932D69571CBC55F2002F9D99 /* BaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
 		932D69591CBC5842002F9D99 /* Request+SubscriberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+SubscriberTests.swift"; sourceTree = "<group>"; };
 		932D695B1CBC58A5002F9D99 /* Request+SandboxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+SandboxTests.swift"; sourceTree = "<group>"; };
-		933D8DB81F07883400C2DBB1 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxMain.swift; sourceTree = "<group>"; };
 		93408AE91CBB4E8D0084DC18 /* APIStructuresTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStructuresTests.swift; sourceTree = "<group>"; };
 		93408AEB1CBB4E900084DC18 /* APIStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStructures.swift; sourceTree = "<group>"; };
 		93408AED1CBB4FA90084DC18 /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
@@ -145,7 +142,6 @@
 		936D93921CC0DE14005D24DA /* Request+Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Payment.swift"; sourceTree = "<group>"; };
 		936D93951CC0E3D5005D24DA /* RegisterSIMTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterSIMTests.swift; sourceTree = "<group>"; };
 		938C66BF1F136D2000100F7D /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		938C66C01F137E8B00100F7D /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxMain.swift; sourceTree = "<group>"; };
 		939BF3A31D124A6C0069B3EF /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		939BF3A41D124A6C0069B3EF /* RequestQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestQueue.swift; sourceTree = "<group>"; };
 		939BF3A81D1280F20069B3EF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -194,7 +190,6 @@
 				930DD8721CDDDFAA000EB36A /* README.md */,
 				932D69391CB9B183002F9D99 /* Sources */,
 				93F83C741E4DA50C000B7565 /* Tests */,
-				938C66C01F137E8B00100F7D /* LinuxMain.swift */,
 			);
 			name = "soracom-sdk-swift";
 			path = ../..;
@@ -308,7 +303,6 @@
 			isa = PBXGroup;
 			children = (
 				932D693B1CB9B183002F9D99 /* Tests */,
-				933D8DB81F07883400C2DBB1 /* LinuxMain.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -358,16 +352,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Soracom, Inc.";
 				TargetAttributes = {
 					93BDF9101CB8FD1A0058C5BC = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 					};
 					93BDF91F1CB8FD1A0058C5BC = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 						TestTargetID = 93BDF9101CB8FD1A0058C5BC;
 					};
 				};
@@ -430,7 +424,6 @@
 				939BF3A61D124A6C0069B3EF /* RequestQueue.swift in Sources */,
 				932D69491CB9C016002F9D99 /* SoracomCredentials.swift in Sources */,
 				93F50B361D38895800F57659 /* PayloadConvertible.swift in Sources */,
-				938C66C11F137E8B00100F7D /* LinuxMain.swift in Sources */,
 				932D693D1CB9B18E002F9D99 /* APIError.swift in Sources */,
 				932A5B811CE71FA1007D0B5C /* AppDelegate+DebugConveniences.swift in Sources */,
 				935285351CD09AAF00B17B73 /* RequestResponseFormatter.swift in Sources */,
@@ -494,7 +487,6 @@
 				932D695C1CBC58A5002F9D99 /* Request+SandboxTests.swift in Sources */,
 				9346E1F51D128DFC006B0D01 /* Request+Payment.swift in Sources */,
 				9366F5141D966ADD000EC892 /* DevelopmentEnvironmentTests.swift in Sources */,
-				933D8DBA1F0788A400C2DBB1 /* LinuxMain.swift in Sources */,
 				9343D7DB1D1BD2F5003DDC2F /* Request+GroupTests.swift in Sources */,
 				93F50B401D38BDCF00F57659 /* Credential.swift in Sources */,
 				930DD8761CDE0E3E000EB36A /* BaseTestCaseTests.swift in Sources */,
@@ -539,14 +531,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -569,11 +567,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -587,14 +586,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -611,9 +616,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -627,7 +633,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -641,7 +648,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -654,7 +662,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacDemoAppForSoracomSDK.app/Contents/MacOS/MacDemoAppForSoracomSDK";
 			};
 			name = Debug;
@@ -669,7 +678,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacDemoAppForSoracomSDK.app/Contents/MacOS/MacDemoAppForSoracomSDK";
 			};
 			name = Release;

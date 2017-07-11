@@ -62,13 +62,13 @@ class PayloadTests: BaseTestCase {
         let aUInt   = x[.lastUsedDateTime] as? UInt   // → 7
         let aFloat  = x[.lastUsedDateTime] as? Float  // → 7
         let aDouble = x[.lastUsedDateTime] as? Double // → 7
-        let aBool   = x[.lastUsedDateTime] as? Bool   // → ?
+        let aBool   = x[.lastUsedDateTime] as? Bool   // → nil (as of Swift 4)
         
         XCTAssert(anInt == 7)
         XCTAssert(aUInt == 7)
         XCTAssert(aFloat == 7)
         XCTAssert(aDouble == 7.0)
-        XCTAssert(aBool == true)
+        XCTAssertNil(aBool)
         
         // Mason 2017-02-10: This old test below started failing on Swift 3.1, because NSNumber can now apparently give you an Int64 just as easily as an Int. Which is great, if true, but I haven't found anywhere this change is documented yet...
         //

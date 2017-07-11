@@ -5,7 +5,8 @@
     @testable import SoracomSDKSwiftTests
     
     XCTMain([
-        testCase(SoracomCredentialsTests.allTests)
+        testCase(SoracomCredentialsTests.allTests),
+        testCase(KeychainTests.allTests)
     ])
     
 #endif

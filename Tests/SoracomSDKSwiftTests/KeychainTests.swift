@@ -69,3 +69,18 @@ open class KeychainTests: XCTestCase {
     }
     
 }
+
+#if os(Linux)
+    extension KeychainTests {
+        static var allTests : [(String, (KeychainTests) -> () throws -> Void)] {
+            return [
+                ("test_basic", test_basic),
+                ("test_empty_string_lookup", test_empty_string_lookup),
+                ("test_write_empty_data", test_write_empty_data),
+                ("test_readString_and_writeString", test_readString_and_writeString),
+            ]
+        }
+    }
+#endif 
+
+

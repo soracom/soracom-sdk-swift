@@ -8,16 +8,42 @@ import Foundation
     open class Keychain {
         
         open static func read(_ key: String) -> Data? {
-            return nil
+            do {
+                let url = self.urlToStorage().appendingPathComponent(key)
+                let data = try Data(contentsOf: url)
+                return data
+            } catch {
+                return nil
+            }
         }
         
         open static func write(_ key: String, data: Data) -> Bool {
-            return false
+            
+            do {
+                let url = self.urlToStorage().appendingPathComponent(key)
+                try data.write(to: url)
+                return true
+            } catch {
+                return false
+            }
         }
         
         open static func delete(_ key: String) -> Bool {
-            return false
+            
+            let fm  = FileManager.default
+            let url = self.urlToStorage().appendingPathComponent(key)
+            
+            guard fm.fileExists(atPath: url.path) else {
+                return false
+            }
+            do {
+                try fm.removeItem(at: url)
+                return true
+            } catch {
+                return false
+            }
         }
+        
     }
     
     public typealias OSStatus = Int32
@@ -177,4 +203,18 @@ extension Keychain {
     }
     
     public typealias KeychainErrorLogger = ((_ errCode: OSStatus, _ whenTryingTo: String ) -> Void)
+    
+    open static func urlToStorage() -> URL {
+        
+        let fm  = FileManager.default
+        let url = fm.homeDirectoryForCurrentUser.appendingPathComponent(".soracom-sdk-swift")
+        
+        do {
+            try fm.createDirectory(at: url, withIntermediateDirectories: true)
+        } catch {
+            fatalError("Keychain: fatal error: cannot create directory: \(url)")
+        }
+        return url
+    }
+
 }

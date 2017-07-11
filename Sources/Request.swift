@@ -283,9 +283,13 @@ open class Request {
         for (handler) in type(of: self).willRunHandlers {
             handler(self)
         }
-
-        let sessionConfig = URLSessionConfiguration()
-        let session = URLSession(configuration: sessionConfig)
+        
+        #if os(Linux)
+            let sessionConfig = URLSessionConfiguration()
+            let session = URLSession(configuration: sessionConfig)
+        #else
+            let session = URLSession.shared
+        #endif
         let task = session.dataTask(with: (urlRequest as URLRequest)) { data, httpResponse, error -> Void in
             
             let httpResponse = httpResponse as? HTTPURLResponse

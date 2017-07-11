@@ -2,10 +2,10 @@
 #if os(Linux)
     
     import XCTest
-    @testable import SoracomSDKSWiftTests
+    @testable import SoracomSDKSwiftTests
     
-XCTMain([
-    BaseTestCase.allTests
+    XCTMain([
+        testCase(SoracomCredentialsTests.allTests)
     ])
     
 #endif

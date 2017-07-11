@@ -243,3 +243,23 @@ class SoracomCredentialsTests: BaseTestCase {
     }
 
 }
+
+#if os(Linux)
+    extension SoracomCredentialsTests {
+        static var allTests : [(String, (SoracomCredentialsTests) -> () throws -> Void)] {
+            return [
+                ("test_serialization_via_swift4_codable", test_serialization_via_swift4_codable),
+                ("test_store_in_keychain_original", test_store_in_keychain_original),
+                ("test_save", test_save),
+                ("test_delete", test_delete),
+                ("test_serialization_roundtrip", test_serialization_roundtrip),
+                ("test_deserialization", test_deserialization),
+                ("test_equality_function", test_equality_function),
+                ("test_namespaces", test_namespaces),
+                ("test_blank", test_blank),
+                ("test_buildNamespacedIdentifier", test_buildNamespacedIdentifier),
+            ]
+        }
+    }
+#endif 
+

@@ -3,8 +3,16 @@
 import XCTest
 
 #if os(Linux)
-    @testable import SoracomSDKSwift
-#endif
+    //@testable import SoracomSDKSwift
+    // FIXME: Payload is the biggest Linux obstacle; needs to be converted 
+    class PayloadTests: BaseTestCase {
+        
+        func test_Linux() {
+            XCTFail("Linux is not yet supported T_T");
+        }
+    }
+    
+#else
 
 class PayloadTests: BaseTestCase {
     
@@ -328,5 +336,7 @@ class PayloadTests: BaseTestCase {
         XCTAssertEqual(expected as NSArray, actual as NSArray)
     }
     
-    
 }
+
+#endif
+

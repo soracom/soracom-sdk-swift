@@ -204,8 +204,11 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
         }
         else if let newValue = oldValue as? Int64 {
             return NSNumber(value: newValue) // Mason 2016-08-16: Still cannot use Int64 here, even with swiftlang-800.0.43.6. NSJSONSerialization will raise if you pass it Int64.
-        }
-        else {
+        
+        } else if let newValue = oldValue as? Int {
+            return newValue
+            
+        } else {
             print("oldValue is \(oldValue) and type \(String(describing: type(of: oldValue)))")
             fatalError("work in progress bro (FIXME) \(oldValue)")
         }

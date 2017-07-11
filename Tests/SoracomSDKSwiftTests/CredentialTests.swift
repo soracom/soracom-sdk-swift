@@ -40,5 +40,5 @@ class CredentialTests: BaseTestCase {
         XCTAssertEqual(list[1].description, "bodacious credential")
         XCTAssertEqual(list[2].description, "consummate credential")
     }
-    
+        
 }

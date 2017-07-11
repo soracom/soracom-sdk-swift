@@ -37,6 +37,42 @@ class SoracomCredentialsTests: BaseTestCase {
         "token"         : "token value",
     ]
     
+    func test_serialization_via_swift4_codable() {
+        
+        let encoder = JSONEncoder()
+        guard let encoded = try? encoder.encode(one) else {
+            XCTFail(); 
+            return;
+        }
+        print(encoded.utf8String ?? "OOPS")
+        
+        let decoder = JSONDecoder()
+        
+        guard let decoded = try? decoder.decode(SoracomCredentials.self, from: encoded) else {
+            XCTFail(); 
+            return;
+        }
+        print(decoded)
+        
+        guard let reencoded = try? encoder.encode(decoded) else {
+            XCTFail(); 
+            return;
+        }
+        print(reencoded)
+        
+        let baz = SoracomCredentials(jsonData: reencoded)
+        XCTAssert(baz.type == .RootAccount)
+        XCTAssert(baz.emailAddress == "one")
+        XCTAssert(baz.operatorID == "one")
+        XCTAssert(baz.username == "one")
+        XCTAssert(baz.password == "one")
+        XCTAssert(baz.authKeyID == "one")
+        XCTAssert(baz.authKeySecret == "one")
+        XCTAssert(baz.apiKey == "one")
+        XCTAssert(baz.token == "one")
+    }
+
+    
     
     func test_store_in_keychain_original() {
         

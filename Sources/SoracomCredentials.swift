@@ -4,7 +4,7 @@ import Foundation
 
 /// Simple object to represent a set of Soracom credentials (either a Soracom root acccount, SAM user, AuthKey id/secret pair, or API Key / API Token pair). The first three types of credentials are used for authentication, while the last type is typically passed in HTTP headers to authorize individual API operations. `SoracomCredentials` can represent any/all of them, however, and can read/write to/from secure persistent storage (e.g., the system keychain on iOS and OSX).
 
-public struct SoracomCredentials: Equatable {
+public struct SoracomCredentials: Equatable, Codable {
     
     var type           = SoracomCredentialType.RootAccount
     var emailAddress   = ""
@@ -77,23 +77,19 @@ public struct SoracomCredentials: Equatable {
     
     init(jsonData: Data) {
         
-        var dict: [String: String]? = nil
-        
-        do {
-            let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
-            if let decoded = decoded as? [String:String] {
-                dict = decoded
-            }
-        } catch {
+        let decoder = JSONDecoder()
+
+        guard let dict = try? decoder.decode([String:String].self, from: jsonData) else {
+
             print("Note: SoracomCredentials init(jsonData:) failed.")
-            // Could happen, e.g. if user edited data in Keychain
-        }
-        
-        if let dict = dict {
-            self.init(withDictionary: dict)
-        } else {
+              // Could happen, e.g. if user edited data in Keychain
+            
             self.init()
+              // This initializer isn't failable, for historical reasons
+            
+            return
         }
+        self.init(withDictionary: dict)
     }
     
     
@@ -248,7 +244,7 @@ public func ==(lhs: SoracomCredentials, rhs: SoracomCredentials) -> Bool
 
 /// Defines the different types of authentication (see the [API Documentation](https://dev.soracom.io/jp/docs/api/#!/Auth/auth) for details).
 
-enum SoracomCredentialType: String {
+enum SoracomCredentialType: String, Codable {
     
     case RootAccount
     case SAM

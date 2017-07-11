@@ -284,7 +284,8 @@ open class Request {
             handler(self)
         }
 
-        let session = URLSession.shared
+        let sessionConfig = URLSessionConfiguration()
+        let session = URLSession(configuration: sessionConfig)
         let task = session.dataTask(with: (urlRequest as URLRequest)) { data, httpResponse, error -> Void in
             
             let httpResponse = httpResponse as? HTTPURLResponse

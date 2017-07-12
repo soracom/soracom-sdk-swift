@@ -288,7 +288,7 @@ open class Request {
             let sessionConfig = URLSessionConfiguration()
             let session = URLSession(configuration: sessionConfig)
         #else
-            let session = URLSession.shared
+            let session = URLSession.shared // ← NSUnimplemented() on Linux aotw 2017-07-12
         #endif
         let task = session.dataTask(with: (urlRequest as URLRequest)) { data, httpResponse, error -> Void in
             

@@ -6,20 +6,20 @@ import Foundation
 
 public struct SoracomCredentials: Equatable, Codable {
     
-    var type           = SoracomCredentialType.RootAccount
-    var emailAddress   = ""
-    var operatorID     = ""
-    var username       = ""
-    var password       = ""
-    var authKeyID      = ""
-    var authKeySecret  = ""
-    var apiKey         = ""
-    var token          = ""
+    public var type           = SoracomCredentialType.RootAccount
+    public var emailAddress   = ""
+    public var operatorID     = ""
+    public var username       = ""
+    public var password       = ""
+    public var authKeyID      = ""
+    public var authKeySecret  = ""
+    public var apiKey         = ""
+    public var token          = ""
     
     
     /// The canonical initializer, allows setting any/all properties.
     
-    init(type: SoracomCredentialType = .RootAccount, emailAddress: String = "", operatorID: String = "", username: String = "", password: String = "", authKeyID: String = "", authKeySecret: String = "", apiKey: String = "", token: String = "") {
+    public init(type: SoracomCredentialType = .RootAccount, emailAddress: String = "", operatorID: String = "", username: String = "", password: String = "", authKeyID: String = "", authKeySecret: String = "", apiKey: String = "", token: String = "") {
         self.type          = type
         self.emailAddress  = emailAddress
         self.operatorID    = operatorID
@@ -34,7 +34,7 @@ public struct SoracomCredentials: Equatable, Codable {
     
     /// Initialize a new credentials struct from a dictionary, which is (presumably) a dictionary generated with `dictionaryRepresentation()`.
     
-    init(withDictionary dictionary: Dictionary<String, String>) {
+    public init(withDictionary dictionary: Dictionary<String, String>) {
         
         if let typeName = dictionary[kType], let validType = SoracomCredentialType(rawValue: typeName) {
             self.type = validType
@@ -75,7 +75,7 @@ public struct SoracomCredentials: Equatable, Codable {
     
     /// Initialize from data in JSON format (e.g., that produced by `toJSON()`).
     
-    init(jsonData: Data) {
+    public init(jsonData: Data) {
         
         let decoder = JSONDecoder()
 
@@ -97,7 +97,7 @@ public struct SoracomCredentials: Equatable, Codable {
     ///
     /// The `namespace` parameter can typically be omitted.
     
-    init(withStorageIdentifier identifier: String?, namespace: UUID? = nil) {
+    public init(withStorageIdentifier identifier: String?, namespace: UUID? = nil) {
         
         let base       = identifier ?? SoracomCredentials.defaultStorageIdentifier
         let identifier = SoracomCredentials.buildNamespacedIdentifier( base, namespace: namespace )
@@ -121,7 +121,7 @@ public struct SoracomCredentials: Equatable, Codable {
     ///
     /// The `namespace` parameter can typically be omitted.
         
-    func save(_ identifier: String? = nil, namespace: UUID? = nil) -> Bool {
+    public func save(_ identifier: String? = nil, namespace: UUID? = nil) -> Bool {
                 
         let base       = identifier ?? SoracomCredentials.defaultStorageIdentifier
         let identifier = SoracomCredentials.buildNamespacedIdentifier(base, namespace: namespace)
@@ -180,7 +180,7 @@ public struct SoracomCredentials: Equatable, Codable {
     
     /// Returns true if all of the receiver's string properties are the empty string.
     
-    var blank: Bool {
+    public var blank: Bool {
         let other = SoracomCredentials(type: self.type)
         return self == other
     }
@@ -244,7 +244,7 @@ public func ==(lhs: SoracomCredentials, rhs: SoracomCredentials) -> Bool
 
 /// Defines the different types of authentication (see the [API Documentation](https://dev.soracom.io/jp/docs/api/#!/Auth/auth) for details).
 
-enum SoracomCredentialType: String, Codable {
+public enum SoracomCredentialType: String, Codable {
     
     case RootAccount
     case SAM

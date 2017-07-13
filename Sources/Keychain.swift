@@ -2,11 +2,23 @@
 
 import Foundation
 
-
 #if os(Linux)
+    // The Security framework is not available on Linux.
+    public typealias OSStatus = Int32
+#else
+    import Security
+#endif
+
+
+/// Simplest possible wrapper for keychain read/write. (Be aware that this **overwrites** any existing value for key when it writes, by design). On macOS and iOS, this uses the OS-provided secure storage facility to store data blobs.
+///
+/// LINUX NOTE: On Linux, this is a very(!) primitive data store that does NOT actually provide any security. It reads/writes blobs to a folder, in plaintext. So the Linux version is currently a "keychain" in the sense of a keychain with a bunch of labeled keys, left lying on a desk in plain sight. In the future, we will at least support reading credentials from environment variables on Linux. See:  [issue 5](https://github.com/soracom/soracom-sdk-swift/issues/5)
+
+
+open class Keychain {
+
+    #if os(Linux)
     
-    open class Keychain {
-        
         open static func read(_ key: String) -> Data? {
             do {
                 let url = self.urlToStorage().appendingPathComponent(key)
@@ -16,6 +28,7 @@ import Foundation
                 return nil
             }
         }
+    
         
         open static func write(_ key: String, data: Data) -> Bool {
             
@@ -28,6 +41,7 @@ import Foundation
             }
         }
         
+    
         open static func delete(_ key: String) -> Bool {
             
             let fm  = FileManager.default
@@ -43,20 +57,9 @@ import Foundation
                 return false
             }
         }
-        
-    }
     
-    public typealias OSStatus = Int32
-    
-    
-#elseif os(macOS) || os(iOS)
-    
-    import Security
-    
-    
-    /// Simplest possible wrapper for keychain read/write. (Be aware that this **overwrites** any existing value for key when it writes, by design).
-    
-    open class Keychain {
+    #elseif os(macOS) || os(iOS)
+
         
         /// Find and return a blob of data previously stored under `key` using this class's `write()` method. Returns nil if not found. This is the primitive read method.
         
@@ -155,12 +158,11 @@ import Foundation
             
             return status == noErr
         }
-    }
     
-    // Thanks, Obama: https://gist.github.com/jackreichert/414623731241c95f0e20
+        // Thanks, Obama: https://gist.github.com/jackreichert/414623731241c95f0e20
     
-#endif
-
+    #endif
+}
 
 extension Keychain {
     
@@ -199,7 +201,7 @@ extension Keychain {
         
         
         print("KEYCHAIN ERROR: An error occurred when trying to \(whenTryingTo): \(errCode)")
-        // Mason 2016-08-17: I don't know of a reliable way to go from errCode to the corresponding symbol name on iOS.
+          // Mason 2016-08-17: I don't know of a reliable way to go from errCode to the corresponding symbol name on iOS.
     }
     
     public typealias KeychainErrorLogger = ((_ errCode: OSStatus, _ whenTryingTo: String ) -> Void)

@@ -68,6 +68,16 @@ open class KeychainTests: XCTestCase {
         XCTAssert( Keychain.readString(key1) == string2 )
     }
     
+    func test_replace_logger() {
+        var output = ""
+        Keychain.errorLogger = { (_ errCode: OSStatus, _ whenTryingTo: String ) in
+            output += String(errCode) + whenTryingTo
+        }
+        Keychain.errorLogger(1, "foo")
+        Keychain.errorLogger(2, "hoge")
+        XCTAssertEqual(output, "1foo2hoge")
+    }
+    
 }
 
 #if os(Linux)
@@ -78,6 +88,7 @@ open class KeychainTests: XCTestCase {
                 ("test_empty_string_lookup", test_empty_string_lookup),
                 ("test_write_empty_data", test_write_empty_data),
                 ("test_readString_and_writeString", test_readString_and_writeString),
+                ("test_replace_logger", test_replace_logger),
             ]
         }
     }

@@ -19,6 +19,7 @@ class BaseTestCase: XCTestCase {
             print("------------------------------")
             print("--- BaseTestCase will now attempt to set up the testing environment for this test run.")
             print("--- ✅ Set the app-wide default storage namespace to BaseTestCase.storageNamespaceForSandboxCredentials.")
+        Client.sharedInstance.doInitialHousekeeping()
 
             var shouldCreateNewSandboxUser = false
             let existingSandboxCredentials = Client.sharedInstance.credentialsForSandboxUser

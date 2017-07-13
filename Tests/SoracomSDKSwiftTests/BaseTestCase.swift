@@ -116,12 +116,12 @@ class BaseTestCase: XCTestCase {
     func roundTripSerializeDeserialize(_ payload: Payload, caller: StaticString = #function) -> Payload? {
         
         guard let data = payload.toJSONData() else {
-            XCTFail()
+            XCTFail("roundTripSerializeDeserialize: failed to encode: \(payload)")
             return nil
         }
         
         guard let decodedPayload = try? Payload(data: data) else {
-            XCTFail()
+            XCTFail("roundTripSerializeDeserialize: failed to decode: \(data.utf8String ?? "no JSON!")")
             return nil
         }
         
@@ -209,27 +209,94 @@ class BaseTestCase: XCTestCase {
     
     
     // MARK: - General utility functions
-    
-    
-    /// Decodes JSON using Foundation, then returns `true` if the resulting Foundation objects claim to be equal (via `isEqual()`). Intended only for use with actual valid JSON strings that `JSONSerialziation` can decode; if any failure occurs decoding JSON, this method not only returns `false`, but also calls `XCTFail()`.
+        
+    /// Compares JSON strings, ignoring key order, whitespace, etc. Returns true if the decoded objects are identical, otherwise false. Supports booleans, integers, strings, arrays, and objects. (Arrays and objects may only contain these five types.)
     
     func isEquivalentJSON(_ lhs: String, _ rhs: String) -> Bool {
-        #if os(Linux)
-            XCTFail("Linux support coming Real Soon Now™");
-            return false;
-        #else
-            guard let lData = lhs.data(using: .utf8),
-                let rData = rhs.data(using: .utf8),
-                let obj1  = try? JSONSerialization.jsonObject(with: lData, options: []),
-                let obj2  = try? JSONSerialization.jsonObject(with: rData, options: [])
-                else {
-                    XCTFail("isEquivalentJSON() only works with two valid JSON strings; will now call XCTFail() and return false. ")
-                    return false
-            }
-            
-            return (obj1 as AnyObject).isEqual(obj2);
-        #endif
+        
+        guard let lData = lhs.data(using: .utf8),
+              let rData = rhs.data(using: .utf8),
+              let obj1  = try? JSONSerialization.jsonObject(with: lData, options: []),
+              let obj2  = try? JSONSerialization.jsonObject(with: rData, options: [])
+        else {
+                XCTFail("isEquivalentJSON() only works with two valid JSON strings; will now call XCTFail() and return false. ")
+                return false
+        }
+        return isEquivalentJSONValue(obj1, obj2)
     }
+    
+    
+    /// I'm a bit drunk... 🍻
+    
+    func isEquivalentJSONValue(_ lhs: Any?, _ rhs: Any?) -> Bool {
+        
+        if lhs == nil || rhs == nil {
+            XCTFail("WTF error for equivBro values: \(String(describing: lhs)) and \(String(describing: rhs))")
+            return false;
+        }        
+        if let _ = lhs as? NSNull, let _ = rhs as? NSNull {
+        
+            return true
+            // Hmm (T_T) this is a pretty weird one! Took some debuggery to figure out...
+            // Depending on the whitespace in the file and the phase of the moon, when parsing 
+            // something like "{foo: null}", JSONSerialization would return different things for 
+            // the "null" value. The above check is the only way I was able to reliable compare them.
+            //
+            //    (lldb) po lv
+            //    <null>
+            //    (lldb) po rv
+            //        ▿ Optional<Any>
+            //    (lldb) po type(of: lv)
+            //    NSNull
+            //    (lldb) po type(of: rv)
+            //    Swift.Optional<Any>
+                        
+        } else if let ld = lhs as? [String:Any], let rd = rhs as? [String:Any] {
+            
+            for (k,lv) in ld {
+                let rv = rd[k]
+                if !isEquivalentJSONValue(lv, rv) {
+                    return false
+                }
+            }
+            for (k,rv) in rd {
+                let lv = ld[k]
+                if !isEquivalentJSONValue(rv, lv) {
+                    return false
+                }
+            }
+            return true
+            
+        } else if let la = lhs as? [Any], let ra = rhs as? [Any] {
+            
+            if la.count != ra.count {
+                return false
+            }
+            for (le, re) in zip(la, ra) {
+                if !isEquivalentJSONValue(le, re) {
+                    return false
+                }
+            }
+            return true
+            
+        } else if let ls = lhs as? String, let rs = rhs as? String {
+            
+            return ls == rs
+            
+        } else if let li = lhs as? Int, let ri = rhs as? Int {
+            
+            return li == ri
+            
+        } else if let lb = lhs as? Bool, let rb = rhs as? Bool {
+            
+            return lb == rb
+            
+        } else {
+            
+            return false;
+        }
+    }
+
     
     func areEqual(_ lhs: [String:Any], _ rhs: [String:Any]) -> Bool {
         return false; // punt on this until we re-do JSON cross-platform

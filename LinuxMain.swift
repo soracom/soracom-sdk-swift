@@ -6,6 +6,7 @@
     
     XCTMain([
         testCase(APIErrorTests.allTests),
+        testCase(BaseTestCaseTests.allTests),
         testCase(KeychainTests.allTests),
         testCase(SoracomCredentialsTests.allTests),
     ])

@@ -27,3 +27,15 @@ class APIErrorTests: BaseTestCase {
     }
     
 }
+
+#if os(Linux)
+    extension APIErrorTests {
+        static var allTests : [(String, (APIErrorTests) -> () throws -> Void)] {
+            return [
+                ("test_APIError_existence", test_APIError_existence),
+                ("test_APIError_init_with_payload", test_APIError_init_with_payload),
+            ]
+        }
+    }
+#endif 
+

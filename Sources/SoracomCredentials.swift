@@ -2,7 +2,7 @@
 
 import Foundation
 
-/// Simple object to represent a set of Soracom credentials (either a Soracom root acccount, SAM user, AuthKey id/secret pair, or API Key / API Token pair). The first three types of credentials are used for authentication, while the last type is typically passed in HTTP headers to authorize individual API operations. `SoracomCredentials` can represent any/all of them, however, and can read/write to/from secure persistent storage (e.g., the system keychain on iOS and OSX).
+/// Simple object to represent a set of Soracom credentials (either a Soracom root acccount, SAM user, AuthKey id/secret pair, or API Key / API Token pair). The first three types of credentials are used for authentication, while the last type is typically passed in HTTP headers to authorize individual API operations. `SoracomCredentials` can represent any/all of them, however, and can read/write to/from persistent storage (e.g., the system keychain on iOS and OSX).
 
 public struct SoracomCredentials: Equatable, Codable {
     
@@ -192,33 +192,19 @@ public struct SoracomCredentials: Equatable, Codable {
     
     
     /// The default storage namespace is a UUID that uniquely identifies a type of storage within the scope of a client application. An app might use different namespaces because it offers a "test mode" that performs work in the API Sandbox instead of using a real production account. Another reason might be to read/write credentials from/to a separate namespace when running automated tests.
-    ///
-    /// When writing credentials to secure persistent storage, unique storage keys are created like this:
-    ///
-    /// *app-identifier*.*namespace*.*credential-identifier*
-    ///
-    /// Typically, all of these things can be inferred automatically and need not be specified.
-    ///
-    /// In a more complex case, such as an app that interacts with multiple Soracom accounts, the credentials pertaining to each account could be maintained separately by using a unique namespace for each account.
+
+    /// In a more complex case, such as an app that interacts with multiple Soracom accounts, the credentials pertaining to each account could be maintained separately by using a unique namespace for each account.    
 
     static var defaultStorageNamespace: UUID = UUID(uuidString: "00000000-0000-0000-0000-DEFDEFDEFDEF")!
 
     
-    /// The bundle ID is used to make storage keys unique on a per-app basis (because different apps may make use of this SDK).
+    /// Get a fully-qualified storage identifier based on `identifier`. If `namespace` is not supplied, the default storage namespace is used, which suffices for most purposes.
     
-    static var bundleId: String {
-        return Bundle.main.bundleIdentifier ?? "missing-bundle-id"
-    }
-
-    
-    /// Get a fully-qualified storage identifier based on `identifier`. If `namespace` and `appIdentifier` are not supplied, the default storage namespace and app `bundleIdentifier` are used, which suffices for most purposes.
-    
-    static func buildNamespacedIdentifier(_ identifier: String, namespace: UUID? = nil, appIdentifier: String? = nil) ->  String {
+    static func buildNamespacedIdentifier(_ identifier: String, namespace: UUID? = nil) ->  String {
         
-        let appIdentifier   = appIdentifier ?? SoracomCredentials.bundleId
         let namespaceString = (namespace ?? defaultStorageNamespace).uuidString
 
-        return "\(appIdentifier).\(namespaceString).\(identifier)"
+        return "\(namespaceString).\(identifier)"
     }
     
 }

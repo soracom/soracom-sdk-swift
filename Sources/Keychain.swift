@@ -19,9 +19,14 @@ open class Keychain {
 
     #if os(Linux)
     
+    /// Find and return a blob of data previously stored under `key` using this class's `write()` method. Returns nil if not found. This is the primitive read method. Note that keys should be globally unique to avoid clashing with other apps that might use this Keychain implementation.
+
         open static func read(_ key: String) -> Data? {
+    
+            let uniqueKey = makeUnique(key);
+
             do {
-                let url = self.urlToStorage().appendingPathComponent(key)
+                let url = self.urlToStorage().appendingPathComponent(uniqueKey)
                 let data = try Data(contentsOf: url)
                 return data
             } catch {
@@ -29,23 +34,31 @@ open class Keychain {
             }
         }
     
-        
+    
+        /// Store `data` to the persistent store, under `key`, **overwriting** any existing value. Returns true on success, false on error. This is the primitive write method.
+
         open static func write(_ key: String, data: Data) -> Bool {
             
+            let uniqueKey = makeUnique(key);
+
             do {
-                let url = self.urlToStorage().appendingPathComponent(key)
+                let url = self.urlToStorage().appendingPathComponent(uniqueKey)
                 try data.write(to: url)
                 return true
             } catch {
                 return false
             }
         }
-        
     
+        
+        /// Delete the blob of data stored under `key`, if any.
+
         open static func delete(_ key: String) -> Bool {
             
+            let uniqueKey = makeUnique(key);
+
             let fm  = FileManager.default
-            let url = self.urlToStorage().appendingPathComponent(key)
+            let url = self.urlToStorage().appendingPathComponent(uniqueKey)
             
             guard fm.fileExists(atPath: url.path) else {
                 return false
@@ -59,18 +72,20 @@ open class Keychain {
         }
     
     #elseif os(macOS) || os(iOS)
-
         
         /// Find and return a blob of data previously stored under `key` using this class's `write()` method. Returns nil if not found. This is the primitive read method.
         
         open static func read(_ key: String) -> Data? {
-            guard key != "" else {
+            
+            let uniqueKey = makeUnique(key);
+
+            guard uniqueKey != "" else {
                 return nil; // because actually querying with empty string key returns something weird
             }
             
             let query: [String:Any] = [
                 kSecClass as String       : kSecClassGenericPassword,
-                kSecAttrAccount as String : key,
+                kSecAttrAccount as String : uniqueKey,
                 kSecReturnData as String  : kCFBooleanTrue,
                 kSecMatchLimit as String  : kSecMatchLimitOne
             ]
@@ -85,18 +100,21 @@ open class Keychain {
             } else if status == errSecItemNotFound {
                 // don't log this by default, even if logging is on; it's an expected condition in many circumstances
             } else {
-                errorLogger(status, "read item \(key)")
+                errorLogger(status, "read item \(uniqueKey)")
             }
             return nil
         }
         
         
-        /// Store `data` to the Keychain, under `key`, **overwriting** any existing value. Returns true on success, false on error. This is the primitive write method.
+        /// Store `data` to the persistent store, under `key`, **overwriting** any existing value. Returns true on success, false on error. This is the primitive write method.
         
         open static func write(_ key: String, data: Data) -> Bool {
+            
+            let uniqueKey = makeUnique(key);
+
             let query: [String:Any] = [
                 kSecClass as String       : kSecClassGenericPassword as String,
-                kSecAttrAccount as String : key,
+                kSecAttrAccount as String : uniqueKey,
                 kSecValueData as String   : data
             ]
             
@@ -104,7 +122,7 @@ open class Keychain {
             if deleteResult != noErr && deleteResult != errSecItemNotFound {
                 // not found is a normal occurence
                 
-                errorLogger(deleteResult, "delete/overwrite item \(key)")
+                errorLogger(deleteResult, "delete/overwrite item \(uniqueKey)")
                 
                 #if os(OSX)
                     let errMessage = SecCopyErrorMessageString(deleteResult, nil)
@@ -136,7 +154,7 @@ open class Keychain {
             let status: OSStatus = SecItemAdd(query as CFDictionary, nil)
             
             if status != noErr && status != errSecItemNotFound {
-                errorLogger(status, "add item \(key)")
+                errorLogger(status, "add item \(uniqueKey)")
             }
             return status == noErr
         }
@@ -145,15 +163,18 @@ open class Keychain {
         /// Delete the blob of data stored under `key`, if any.
         
         open static func delete(_ key: String) -> Bool {
+            
+            let uniqueKey = makeUnique(key);
+            
             let query: [String:Any] = [
                 kSecClass as String       : kSecClassGenericPassword,
-                kSecAttrAccount as String : key
+                kSecAttrAccount as String : uniqueKey
             ]
             
             let status: OSStatus = SecItemDelete(query as CFDictionary)
             
             if status != noErr && status != errSecItemNotFound {
-                errorLogger(status, "delete item \(key)")
+                errorLogger(status, "delete item \(uniqueKey)")
             }
             
             return status == noErr
@@ -163,6 +184,7 @@ open class Keychain {
     
     #endif
 }
+
 
 extension Keychain {
     
@@ -218,5 +240,26 @@ extension Keychain {
         }
         return url
     }
+    
+    
+    open static func makeUnique(_ key: String) -> String {
+        return storageIdentifier + "." + key;
+    }
+
+    
+    /// Because the actual underlying persistent store may be shared between apps, each app should have its own globally unique storage identifier. Typically, this should be set once, during app launch (but this can be skipped if you already have a unique bundle ID). The keys under which data is stored will have this identifier prepended to them, to ensure keys are globally unique. That way they keys passed to the read(), write(), and delete() methods need only be unique within the app.
+    
+    public static var storageIdentifier: String {
+        
+        get {
+            return _storageIdentifier 
+                ?? Bundle.main.bundleIdentifier
+                ?? "missing-storage-identifier"
+        }
+        set {
+            _storageIdentifier = newValue
+        }
+    }
+    internal static var _storageIdentifier: String? = nil
 
 }

@@ -221,14 +221,9 @@ class SoracomCredentialsTests: BaseTestCase {
     
     func test_buildNamespacedIdentifier() {
         
-        guard let bundleId = Bundle.main.bundleIdentifier else {
-            XCTFail("this test can't work if bundleId is nil")
-            return
-        }
-        
         let identifier = SoracomCredentials.buildNamespacedIdentifier("foobarbaz")
         
-        XCTAssertEqual(identifier, "\(bundleId).\(SoracomCredentials.defaultStorageNamespace.uuidString).foobarbaz")
+        XCTAssertEqual(identifier, "\(SoracomCredentials.defaultStorageNamespace.uuidString).foobarbaz")
         
         guard let uuid = UUID(uuidString: "A57DC53C-BC86-4306-AFE4-D9F6D663FC69") else {
             XCTFail("wtf")
@@ -239,7 +234,7 @@ class SoracomCredentialsTests: BaseTestCase {
 
         let identifier2 = SoracomCredentials.buildNamespacedIdentifier("foobarbaz")
 
-        XCTAssertEqual(identifier2, "\(bundleId).A57DC53C-BC86-4306-AFE4-D9F6D663FC69.foobarbaz")
+        XCTAssertEqual(identifier2, "A57DC53C-BC86-4306-AFE4-D9F6D663FC69.foobarbaz")
     }
 
 }
@@ -257,7 +252,7 @@ class SoracomCredentialsTests: BaseTestCase {
 //                ("test_equality_function", test_equality_function),
 //                ("test_namespaces", test_namespaces),
 //                ("test_blank", test_blank),
-//                ("test_buildNamespacedIdentifier", test_buildNamespacedIdentifier),
+                ("test_buildNamespacedIdentifier", test_buildNamespacedIdentifier),
             ]
         }
     }

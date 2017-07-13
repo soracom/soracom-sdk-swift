@@ -15,80 +15,84 @@ var oneTimeTestSetupToken: Int  = 0
 class BaseTestCase: XCTestCase {
 
     private static var __once: () = {
-            
-            print("------------------------------")
-            print("--- BaseTestCase will now attempt to set up the testing environment for this test run.")
-            print("--- ✅ Set the app-wide default storage namespace to BaseTestCase.storageNamespaceForSandboxCredentials.")
+        
         Client.sharedInstance.doInitialHousekeeping()
+          // This is done here to allow setting up credentials for tests to use to run tests against
+          // the API Sandbox. See the implmentation for details. You can enter credentials using lldb.
 
-            var shouldCreateNewSandboxUser = false
-            let existingSandboxCredentials = Client.sharedInstance.credentialsForSandboxUser
+        
+        print("------------------------------")
+        print("--- BaseTestCase will now attempt to set up the testing environment for this test run.")
+        print("--- ✅ Set the app-wide default storage namespace to BaseTestCase.storageNamespaceForSandboxCredentials.")
+
+        var shouldCreateNewSandboxUser = false
+        let existingSandboxCredentials = Client.sharedInstance.credentialsForSandboxUser
+        
+        if existingSandboxCredentials.blank {
             
-            if existingSandboxCredentials.blank {
-                
+            shouldCreateNewSandboxUser = true
+        
+        } else {
+            
+            let authRequest  = Request.auth(existingSandboxCredentials)
+            let authResponse = authRequest.wait()
+            
+            // If we get an error here, it might be AUM0002 "Invalid username/password supplied."
+            // This can be expected to happen frequently, because API Sandbox credentials
+            // periodically expire (weekly?).
+            //
+            // Therefore we should try to make a new sandbox user and auth with it here. If THAT
+            // fails, then something else is wrong and we can't fix it here.
+            
+            if authResponse.error?.code == "AUM0002" {
                 shouldCreateNewSandboxUser = true
-            
-            } else {
-                
-                let authRequest  = Request.auth(existingSandboxCredentials)
-                let authResponse = authRequest.wait()
-                
-                // If we get an error here, it might be AUM0002 "Invalid username/password supplied."
-                // This can be expected to happen frequently, because API Sandbox credentials
-                // periodically expire (weekly?).
-                //
-                // Therefore we should try to make a new sandbox user and auth with it here. If THAT
-                // fails, then something else is wrong and we can't fix it here.
-                
-                if authResponse.error?.code == "AUM0002" {
-                    shouldCreateNewSandboxUser = true
-                }
             }
+        }
+        
+        if shouldCreateNewSandboxUser {
             
-            if shouldCreateNewSandboxUser {
+            let existingProductionCredentials = Client.sharedInstance.credentialsForProductionSAMUser
+            
+            if !existingProductionCredentials.blank {
                 
-                let existingProductionCredentials = Client.sharedInstance.credentialsForProductionSAMUser
-                
-                if !existingProductionCredentials.blank {
+                if let newSandboxCredentials = Client.sharedInstance.synchronousCreateSandboxUser(existingProductionCredentials) {
                     
-                    if let newSandboxCredentials = Client.sharedInstance.synchronousCreateSandboxUser(existingProductionCredentials) {
-                        
-                        //SoracomCredentials.sandboxCredentials = newSandboxCredentials
-                        Client.sharedInstance.saveCredentials(newSandboxCredentials, user: .APISandboxUser)
-                        
-                    } else {
-                        print("--- ")
-                        print("--- ⚠️ Unable to automatically create an API sandbox user. This probably means")
-                        print("--- that the stored production SAM user credentials are not valid. This problem")
-                        print("--- cannot be fixed automatically. Try using the demo app to save new credentials.")
-                    }
+                    //SoracomCredentials.sandboxCredentials = newSandboxCredentials
+                    Client.sharedInstance.saveCredentials(newSandboxCredentials, user: .APISandboxUser)
+                    
+                } else {
+                    print("--- ")
+                    print("--- ⚠️ Unable to automatically create an API sandbox user. This probably means")
+                    print("--- that the stored production SAM user credentials are not valid. This problem")
+                    print("--- cannot be fixed automatically. Try using the demo app to save new credentials.")
                 }
             }
+        }
+        
+        // Many tests need a valid API key/token, and those expire, so we should update even if we have credentials:
+        
+        if let creds = Client.sharedInstance.synchronousUpdateToken(Client.sharedInstance.credentialsForSandboxUser) {
+        
+            Client.sharedInstance.saveCredentials(creds, user: .APISandboxUser)
             
-            // Many tests need a valid API key/token, and those expire, so we should update even if we have credentials:
-            
-            if let creds = Client.sharedInstance.synchronousUpdateToken(Client.sharedInstance.credentialsForSandboxUser) {
-            
-                Client.sharedInstance.saveCredentials(creds, user: .APISandboxUser)
-                
-                print("--- ")
-                print("--- ✅ Sandbox user \(creds.emailAddress) can authenticate, and will be used to run tests.")
-                print("--- ")
+            print("--- ")
+            print("--- ✅ Sandbox user \(creds.emailAddress) can authenticate, and will be used to run tests.")
+            print("--- ")
 
-            } else {
-            
-                print("--- ")
-                print("--- ⚠️ There are no stored API sandbox credentials. This is OK, but it means")
-                print("--- many tests will not run.")
-                print("--- ")
-                print("--- Note that one easy way to store API sandbox credentials is to run the demo app ")
-                print("--- and use the GUI to create a sandbox user. The credentials for that sandbox user ")
-                print("--- will be stored securely, and used for the tests that need a sandbox user to run. ")
-                print("--- ")
-            }
-            
-            print("------------------------------")
-        }()
+        } else {
+        
+            print("--- ")
+            print("--- ⚠️ There are no stored API sandbox credentials. This is OK, but it means")
+            print("--- many tests will not run.")
+            print("--- ")
+            print("--- Note that one easy way to store API sandbox credentials is to run the demo app ")
+            print("--- and use the GUI to create a sandbox user. The credentials for that sandbox user ")
+            print("--- will be stored securely, and used for the tests that need a sandbox user to run. ")
+            print("--- ")
+        }
+        
+        print("------------------------------")
+    }()
 
     /// We override `setUp()` to:
     ///
@@ -101,7 +105,6 @@ class BaseTestCase: XCTestCase {
         super.setUp()
         
         SoracomCredentials.defaultStorageNamespace = Client.sharedInstance.storageNamespaceForSandboxCredentials
-        
         _ = BaseTestCase.__once
     }
     

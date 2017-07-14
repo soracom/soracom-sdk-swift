@@ -8,14 +8,13 @@ import Foundation
 
 public struct Credential: PayloadConvertible {
     
-    var createDateTime   : Int64?
+    var createDateTime   : Int?
     var credentials      : Credentials?
     var credentialsId    : String?
     var description      : String?
-    var lastUsedDateTime : Int64?
+    var lastUsedDateTime : Int?
     var type             : String?
-    var updateDateTime   : Int64?
-    
+    var updateDateTime   : Int?
     
     
     static func from(_ payload: Payload?) -> Credential? {
@@ -26,11 +25,9 @@ public struct Credential: PayloadConvertible {
         
         var result = Credential()
         
-        if let created = payload[.createDateTime] as? NSNumber {
-            result.createDateTime = created.int64Value
-        }
-        
-        if let credentialsDict = payload[.credentials] as? [String : AnyObject],
+        result.createDateTime = payload[.createDateTime] as? Int
+
+        if let credentialsDict = payload[.credentials] as? [String : Any],
            let subload         = Payload.fromDictionary(credentialsDict),
            let accessKeyId     = subload[.accessKeyId] as? String
         {
@@ -41,15 +38,12 @@ public struct Credential: PayloadConvertible {
         result.credentialsId = payload[.credentialsId] as? String
         result.description   = payload[.description]   as? String
         
-        if let lastUsed = payload[.lastUsedDateTime] as? NSNumber {
-            result.lastUsedDateTime = lastUsed.int64Value
-        }
+        result.lastUsedDateTime = payload[.lastUsedDateTime] as? Int
         
         result.type = payload[.type] as? String
         
-        if let updated = payload[.updateDateTime] as? NSNumber {
-            result.updateDateTime = updated.int64Value
-        }
+        result.updateDateTime = payload[.updateDateTime] as? Int
+        
         return result
     }
     

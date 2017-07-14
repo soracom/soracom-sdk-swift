@@ -41,10 +41,17 @@ class APIStructuresTests: BaseTestCase {
         print(d1);
         print(d2);
         
-        // XCTAssertEqual(d1 as NSDictionary, d2 as NSDictionary)
-        // let eq = areEqual(d1, d2)
-        // XCTAssert(eq)
-        // FIXME: Deferring fixing this broken test until JSON done for Linux too
+        guard let actualJSON   = actual.toJSON(),
+              let expectedJSON = expected.toJSON()
+        else {
+            XCTFail("didnt get JSON from payloads")
+            return
+        }
+        
+        XCTAssert(isEquivalentJSON(actualJSON, expectedJSON))
+        
+        XCTAssertEqual(NSDictionary(dictionary: d1), NSDictionary(dictionary: d2))
+            // Hey, this now also works on Linux! (Mason 2017-07-14)
     }
     
  
@@ -98,7 +105,21 @@ class APIStructuresTests: BaseTestCase {
         let a = AuthResponse(good)
         
         XCTAssertNotNil(a)
-        
     }
     
 }
+
+
+#if os(Linux)
+    extension APIStructuresTests {
+        static var allTests : [(String, (APIStructuresTests) -> () throws -> Void)] {
+            return [
+                ("test_AirStats_serialization", test_AirStats_serialization),
+                ("test_credential_roundtrip_JSON_serialization", test_credential_roundtrip_JSON_serialization),
+                ("test_AuthResponse_init", test_AuthResponse_init),
+            ]
+        }
+    }
+#endif 
+
+

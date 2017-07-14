@@ -7,6 +7,7 @@
     XCTMain([
         testCase(APIErrorTests.allTests),
         testCase(APIOperationTests.allTests),
+        testCase(APIStructuresTests.allTests),
         testCase(BaseTestCaseTests.allTests),
         testCase(KeychainTests.allTests),
         testCase(PayloadTests.allTests),

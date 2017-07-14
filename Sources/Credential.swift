@@ -6,7 +6,7 @@ import Foundation
 ///
 /// **NOTE:** `Credential` objects returned by the API server contain a `Credential` structure, but that structure may not (always does not?) include the `secretAccessKey` value.
 
-public struct Credential: PayloadConvertible {
+public struct Credential: PayloadConvertible, Codable {
     
     var createDateTime   : Int?
     var credentials      : Credentials?
@@ -15,74 +15,6 @@ public struct Credential: PayloadConvertible {
     var lastUsedDateTime : Int?
     var type             : String?
     var updateDateTime   : Int?
-    
-    
-    static func from(_ payload: Payload?) -> Credential? {
-        
-        guard let payload = payload else {
-            return nil
-        }
-        
-        var result = Credential()
-        
-        result.createDateTime = payload[.createDateTime] as? Int
-
-        if let credentialsDict = payload[.credentials] as? [String : Any],
-           let subload         = Payload.fromDictionary(credentialsDict),
-           let accessKeyId     = subload[.accessKeyId] as? String
-        {
-            let secret = subload[.secretAccessKey] as? String // this normally won't be present
-            result.credentials = Credentials(accessKeyId: accessKeyId, secretAccessKey: secret)
-        }
-        
-        result.credentialsId = payload[.credentialsId] as? String
-        result.description   = payload[.description]   as? String
-        
-        result.lastUsedDateTime = payload[.lastUsedDateTime] as? Int
-        
-        result.type = payload[.type] as? String
-        
-        result.updateDateTime = payload[.updateDateTime] as? Int
-        
-        return result
-    }
-    
-    func toPayload() -> Payload {
-        
-        // FIXME: this serialization code is pathologically verbose and redundant...
-        
-        let result: Payload = [:]
-        
-        if let createDateTime = createDateTime {
-            result[.createDateTime] = NSNumber(value: createDateTime)
-        }
-        
-        if let credentials = credentials {
-            result[.credentials] = credentials.toPayload()
-        }
-        
-        if let credentialsId = credentialsId {
-            result[.credentialsId] = credentialsId
-        }
-        
-        if let description = description {
-            result[.description] = description
-        }
-        
-        if let lastUsedDateTime = lastUsedDateTime {
-            result[.lastUsedDateTime] = NSNumber(value: lastUsedDateTime)
-        }
-        
-        if let type = type {
-            result[.type] = type
-        }
-        
-        if let updateDateTime = updateDateTime {
-            result[.updateDateTime] = NSNumber(value: updateDateTime)
-        }
-        
-        return result
-    }
 }
 
 
@@ -96,12 +28,46 @@ extension Credential {
 }
 
 
-public typealias CredentialList = [Credential]
+//public struct CredentialList : Codable, PayloadConvertible {
+//    
+//    var credentials: [Credential] = []
+//}
+// Mason 2017-07-14: I think this style above can be useful, but only if the API returns
+// something like {credentials: [{},{},...]}. Because in that kind of case, it makes using
+// Codable's default behavior easy. But, for cases where the API returns an arry as the root
+// object, then an implementation like this actually makes us fight against Codable's defaults
+// and I think we are better off just using [Credential] type (that is, Swifts "array of 
+// Credential" type).
 
+
+
+/// This structure contains the values used to create or update a Credentials object.
+
+public struct CredentialOptions: PayloadConvertible {
+    
+    static func from(_ payload: Payload?) -> CredentialOptions? {
+        fatalError("Mason 2017-07-14 TEMPORARY FIX FOR BUILD (reorganizing protocols) FIXME")
+    }
+    
+    
+    var type: String
+    var description: String
+    var credentials: Credentials = Credentials()
+    
+    func toPayload() -> Payload {
+        
+        let result: Payload = [
+            .type        : type,
+            .description : description,
+            .credentials : credentials.toPayload()
+        ]
+        return result
+    }
+}
 
 /// This structure contains the raw credential values pertaining to a foreign service like AWS.
 
-public struct Credentials: PayloadConvertible {
+public struct Credentials: PayloadConvertible, Codable {
     
     var accessKeyId: String     = ""
     var secretAccessKey: String? = nil
@@ -134,21 +100,3 @@ public struct Credentials: PayloadConvertible {
 }
 
 
-/// This structure contains the values used to create or update a Credentials object.
-
-public struct CredentialOptions: PayloadConvertible {
-    
-    var type: String
-    var description: String
-    var credentials: Credentials = Credentials()
-    
-    func toPayload() -> Payload {
-        
-        let result: Payload = [
-            .type        : type,
-            .description : description,
-            .credentials : credentials.toPayload()
-        ]
-        return result
-    }
-}

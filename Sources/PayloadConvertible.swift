@@ -38,14 +38,18 @@ extension PayloadConvertible {
     ///
     /// This obviously isn't useful for objects that really do need to deserialize an instance from a payload; it's just here to satisfy the protocol conformance requirement for those objects that don't need to. 
     
-    static func from(_ payload: Payload?) -> Self? {
-        fatalError("protocol version called bro!") // for now, to help me catch errors
-    }
+//    static func from(_ payload: Payload?) -> Self? {
+//        fatalError("protocol version called bro!") // for now, to help me catch errors
+//    }
+    
+    
 
     
     /// Returns an array of instances decoded from `payload` (assuming that `payload` actually encodes an array of the right record type). Returns nil if the root object of `payload` is `nil` or not an array.
     
     static func listFrom(_ payload: Payload?) -> [Self]? {
+        
+        // FIXME: MASON 2017-07-14: DELETE THIS IN FAVOR OF Codable WAY
         
         guard let root = payload?.toArray() else {
             return nil
@@ -67,3 +71,5 @@ extension PayloadConvertible {
     // FIXME  should have a generic mechanism to deserialize from a dictionary, so it is not necessary to do "subload = Payload.fromDictionary()" at every single call site. (mason 2016-07-14)
 
 }
+
+

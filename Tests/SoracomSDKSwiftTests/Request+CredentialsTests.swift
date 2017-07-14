@@ -73,12 +73,12 @@ class RequestCredentialsTests: BaseTestCase {
     }
     
     
-    func listCredentials() -> CredentialList? {
+    func listCredentials() -> [Credential]? {
         
         let listRequest  = Request.listCredentials()
         let listResponse = listRequest.wait()
         
-        guard let credList = Credential.listFrom(listResponse.payload) else {
+        guard let credList = Credential.listFrom_v2(listResponse.payload) else {
             XCTFail()
             return nil
         }

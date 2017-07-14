@@ -41,6 +41,11 @@ public struct AuthResponse {
 /// Description forthcoming.
 
 public struct AirStatsForSpeedClass: PayloadConvertible {
+    
+    static func from(_ payload: Payload?) -> AirStatsForSpeedClass? {
+        fatalError("Mason 2017-07-14 TEMPORARY FIX FOR BUILD (reorganizing protocols) FIXME")
+    }
+    
     var uploadBytes: Int     = 0
     var uploadPackets: Int   = 0
     var downloadBytes: Int   = 0
@@ -62,6 +67,11 @@ public struct AirStatsForSpeedClass: PayloadConvertible {
 /// Description forthcoming.
 
 public struct AirStats: PayloadConvertible {
+    
+    static func from(_ payload: Payload?) -> AirStats? {
+        fatalError("Mason 2017-07-14 TEMPORARY FIX FOR BUILD (reorganizing protocols) FIXME")
+    }
+    
     var traffic: [PayloadKey: AirStatsForSpeedClass]
     var unixtime: Int64
     // FIXME: is this just derived from unixtime, or....: var date: NSDate
@@ -121,6 +131,11 @@ public typealias TagList = [Tag]
 
 
 public struct ConfigurationParameter: PayloadConvertible {
+    
+    static func from(_ payload: Payload?) -> ConfigurationParameter? {
+        fatalError("Mason 2017-07-14 TEMPORARY FIX FOR BUILD (reorganizing protocols) FIXME")
+    }
+    
     public var key: String
     public var value: String
     

@@ -6,6 +6,11 @@ import Foundation
 
 public struct BeamStatsInsertion: PayloadConvertible {
     
+    static func from(_ payload: Payload?) -> BeamStatsInsertion? {
+        fatalError("Mason 2017-07-14 TEMPORARY FIX FOR BUILD (reorganizing protocols) FIXME")
+    }
+    
+    
     var beamStats: BeamStats
     var unixtime: Int
     

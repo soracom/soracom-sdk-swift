@@ -49,6 +49,8 @@
 		93683B961F1723D000775159 /* SoracomCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* SoracomCredentials.swift */; };
 		93683B971F1723D000775159 /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* Subscriber.swift */; };
 		93683B981F1723D000775159 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* TextStyle.swift */; };
+		93683B9A1F18C2AE00775159 /* Codable+SoracomSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93683B991F18C2AE00775159 /* Codable+SoracomSDK.swift */; };
+		93683B9B1F18C2AE00775159 /* Codable+SoracomSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93683B991F18C2AE00775159 /* Codable+SoracomSDK.swift */; };
 		OBJ_100 /* Request+CredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* Request+CredentialsTests.swift */; };
 		OBJ_101 /* Request+GroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Request+GroupTests.swift */; };
 		OBJ_102 /* Request+SandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* Request+SandboxTests.swift */; };
@@ -132,6 +134,7 @@
 /* Begin PBXFileReference section */
 		93683B7B1F1611FD00775159 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		93683B7C1F17237A00775159 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxMain.swift; sourceTree = "<group>"; };
+		93683B991F18C2AE00775159 /* Codable+SoracomSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+SoracomSDK.swift"; sourceTree = "<group>"; };
 		OBJ_10 /* APIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
 		OBJ_11 /* APIStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStructures.swift; sourceTree = "<group>"; };
 		OBJ_12 /* BeamStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamStats.swift; sourceTree = "<group>"; };
@@ -314,6 +317,7 @@
 				OBJ_11 /* APIStructures.swift */,
 				OBJ_12 /* BeamStats.swift */,
 				OBJ_13 /* Client.swift */,
+				93683B991F18C2AE00775159 /* Codable+SoracomSDK.swift */,
 				OBJ_14 /* Constants.swift */,
 				OBJ_15 /* Credential.swift */,
 				OBJ_16 /* Data+SoracomSDK.swift */,
@@ -323,6 +327,7 @@
 				OBJ_20 /* Payload.swift */,
 				OBJ_21 /* PayloadConvertible.swift */,
 				OBJ_22 /* PayloadKey.swift */,
+				OBJ_30 /* Request.swift */,
 				OBJ_23 /* Request+Auth.swift */,
 				OBJ_24 /* Request+Credentials.swift */,
 				OBJ_25 /* Request+Group.swift */,
@@ -330,7 +335,6 @@
 				OBJ_27 /* Request+Payment.swift */,
 				OBJ_28 /* Request+Sandbox.swift */,
 				OBJ_29 /* Request+Subscriber.swift */,
-				OBJ_30 /* Request.swift */,
 				OBJ_31 /* RequestQueue.swift */,
 				OBJ_32 /* RequestResponseFormatter.swift */,
 				OBJ_33 /* Response.swift */,
@@ -428,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				93683B9B1F18C2AE00775159 /* Codable+SoracomSDK.swift in Sources */,
 				OBJ_115 /* APIError.swift in Sources */,
 				OBJ_116 /* APIOperation.swift in Sources */,
 				OBJ_117 /* APIStructures.swift in Sources */,
@@ -489,6 +494,7 @@
 				OBJ_89 /* BaseTestCase.swift in Sources */,
 				93683B7D1F1723D000775159 /* APIError.swift in Sources */,
 				OBJ_90 /* BaseTestCaseTests.swift in Sources */,
+				93683B9A1F18C2AE00775159 /* Codable+SoracomSDK.swift in Sources */,
 				OBJ_91 /* BeamStatsTest.swift in Sources */,
 				OBJ_92 /* CredentialTests.swift in Sources */,
 				OBJ_93 /* DevelopmentEnvironmentTests.swift in Sources */,

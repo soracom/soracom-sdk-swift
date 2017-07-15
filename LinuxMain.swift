@@ -10,6 +10,7 @@
         testCase(APIStructuresTests.allTests),
         testCase(CredentialTests.allTests),
         testCase(BaseTestCaseTests.allTests),
+        testCase(BeamStatsTests.allTests),
         testCase(KeychainTests.allTests),
         testCase(PayloadTests.allTests),
         testCase(SoracomCredentialsTests.allTests),

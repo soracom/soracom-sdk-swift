@@ -31,3 +31,14 @@ class BeamStatsTests: BaseTestCase {
     }
 
 }
+
+#if os(Linux)
+    extension BeamStatsTests {
+        static var allTests : [(String, (BeamStatsTests) -> () throws -> Void)] {
+            return [
+                ("test_serialization", test_serialization),
+            ]
+        }
+    }
+#endif 
+

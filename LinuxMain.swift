@@ -17,7 +17,7 @@
         testCase(NSDateSoracomAPITests.allTests),
         testCase(PayloadTests.allTests),
         testCase(RegisterSIMTests.allTests),
-        // testCase(XXXXXXXXXXXXX.allTests),
+        testCase(RequestAuthTests.allTests),
         // testCase(XXXXXXXXXXXXX.allTests),
         // testCase(XXXXXXXXXXXXX.allTests),
         // testCase(XXXXXXXXXXXXX.allTests),

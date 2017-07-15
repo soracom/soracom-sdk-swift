@@ -109,3 +109,17 @@ class RequestAuthTests: BaseTestCase {
     }
     
 }
+
+
+#if os(Linux)
+    extension RequestAuthTests {
+        static var allTests : [(String, (RequestAuthTests) -> () throws -> Void)] {
+            return [
+                ("test_auth_with_root_account", test_auth_with_root_account),
+                ("test_issue_password_reset_token", test_issue_password_reset_token),
+                ("test_example_for_documentation", test_example_for_documentation),
+            ]
+        }
+    }
+#endif 
+

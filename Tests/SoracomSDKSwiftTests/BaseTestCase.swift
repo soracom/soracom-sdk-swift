@@ -16,6 +16,15 @@ class BaseTestCase: XCTestCase {
 
     private static var __once: () = {
         
+        //        Request.beforeRun { (request) in
+        //            print(request)
+        //        }
+        //        Request.afterRun { (response) in
+        //            print(response)
+        //        }
+        //
+        // (UNCOMMMENT ABOVE TO DEBUG ALL REQUESTS AND RESPONSES WHILE TESTS RUN)
+        
         Client.sharedInstance.doInitialHousekeeping()
           // This is done here to allow setting up credentials for tests to use to run tests against
           // the API Sandbox. See the implmentation for details. You can enter credentials using lldb.

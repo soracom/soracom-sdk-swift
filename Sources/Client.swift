@@ -9,7 +9,7 @@ open class Client {
     
     /// Returns a single shared Client instance.
 
-    static let sharedInstance = Client()
+    public static let sharedInstance = Client()
 
     
     /// The queue that the Client will use for scheduling API operations. Uses the global shared RequestQueue by default, but you can set this if desired.

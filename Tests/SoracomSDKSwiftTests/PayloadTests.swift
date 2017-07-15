@@ -339,6 +339,9 @@ class PayloadTests: BaseTestCase {
     
     func test_subscriber_conversion() {
         
+        // FIXME: this test is pretty bogus and based on old Payload stuff... Codable+SoracomSDK has
+        // the new stuff. We should rewrite this test once the Codable conversion is done.
+        
         let source: Payload = [
             .speedClass : SpeedClass.s1_fast.rawValue,
             .imsi       : "470010171566423"
@@ -356,7 +359,7 @@ class PayloadTests: BaseTestCase {
             return
         }
         
-        let expected: [[String:String]] = [["ipAddress": "", "speedClass": "s1.fast", "imsi": "470010171566423"],["ipAddress": "", "speedClass": "s1.fast", "imsi": "470010171566423"]]
+        let expected: [[String:String]] = [["speedClass": "s1.fast", "imsi": "470010171566423"],["speedClass": "s1.fast", "imsi": "470010171566423"]]
         
         XCTAssertEqual(expected[0], actual[0])
         XCTAssertEqual(expected[1], actual[1])

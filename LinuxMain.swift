@@ -13,10 +13,17 @@
         testCase(CredentialTests.allTests),
         testCase(DevelopmentEnvironmentTests.allTests),
         testCase(IssueDebuggingTests.allTests),
-
         testCase(KeychainTests.allTests),
         testCase(NSDateSoracomAPITests.allTests),
         testCase(PayloadTests.allTests),
+        testCase(RegisterSIMTests.allTests),
+        // testCase(XXXXXXXXXXXXX.allTests),
+        // testCase(XXXXXXXXXXXXX.allTests),
+        // testCase(XXXXXXXXXXXXX.allTests),
+        // testCase(XXXXXXXXXXXXX.allTests),
+        // testCase(XXXXXXXXXXXXX.allTests),
+        // testCase(XXXXXXXXXXXXX.allTests),
+
         testCase(SoracomCredentialsTests.allTests),
     ])
     

@@ -143,7 +143,7 @@ class RegisterSIMTests: BaseTestCase {
         
             XCTAssert(response.error == nil)
             
-            if let payload = response.payload, let list = Subscriber.listFrom(payload) {
+            if let payload = response.payload, let list = Subscriber.listFrom_v2(payload) {
                 result.append(contentsOf: list)
             } else {
                 XCTFail("could not get subscriber list")
@@ -190,3 +190,15 @@ class RegisterSIMTests: BaseTestCase {
         waitForAsyncSection()
     }
 }
+
+
+#if os(Linux)
+    extension RegisterSIMTests {
+        static var allTests : [(String, (RegisterSIMTests) -> () throws -> Void)] {
+            return [
+                ("testSimulatedSIMRegistrationCompleteProcess", testSimulatedSIMRegistrationCompleteProcess),
+            ]
+        }
+    }
+#endif 
+

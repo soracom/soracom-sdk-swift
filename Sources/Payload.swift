@@ -194,6 +194,9 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
             
         } else if let newValue = oldValue as? Int {
             return newValue
+        }
+        else if let newValue = oldValue as? Bool {
+            return newValue
         } 
         else if let newValue = oldValue as? String {
             return newValue

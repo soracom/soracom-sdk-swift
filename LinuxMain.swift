@@ -8,9 +8,10 @@
         testCase(APIErrorTests.allTests),
         testCase(APIOperationTests.allTests),
         testCase(APIStructuresTests.allTests),
-        testCase(CredentialTests.allTests),
         testCase(BaseTestCaseTests.allTests),
         testCase(BeamStatsTests.allTests),
+        testCase(CredentialTests.allTests),
+        testCase(DevelopmentEnvironmentTests.allTests),
         testCase(IssueDebuggingTests.allTests),
 
         testCase(KeychainTests.allTests),

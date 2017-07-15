@@ -29,3 +29,14 @@ class IssueDebuggingTests: BaseTestCase {
         print("w00t?")
     }
 }
+
+#if os(Linux)
+    extension IssueDebuggingTests {
+        static var allTests : [(String, (IssueDebuggingTests) -> () throws -> Void)] {
+            return [
+                ("test_bro", test_bro),
+            ]
+        }
+    }
+#endif 
+

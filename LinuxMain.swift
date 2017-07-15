@@ -15,6 +15,7 @@
         testCase(IssueDebuggingTests.allTests),
 
         testCase(KeychainTests.allTests),
+        testCase(NSDateSoracomAPITests.allTests),
         testCase(PayloadTests.allTests),
         testCase(SoracomCredentialsTests.allTests),
     ])

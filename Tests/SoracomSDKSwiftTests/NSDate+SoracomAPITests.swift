@@ -23,3 +23,14 @@ class NSDateSoracomAPITests: XCTestCase {
         XCTAssert(timestamp == birthday)
     }
 }
+
+#if os(Linux)
+    extension NSDateSoracomAPITests {
+        static var allTests : [(String, (NSDateSoracomAPITests) -> () throws -> Void)] {
+            return [
+                ("test_conversions", test_conversions),
+            ]
+        }
+    }
+#endif 
+

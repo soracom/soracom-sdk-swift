@@ -7,7 +7,7 @@ import Foundation
 public struct BeamStatsInsertion: PayloadConvertible, Codable {
     
     var beamStats: BeamStats
-    var unixtime: Int
+    var unixtime:  Int
 }
 
 
@@ -15,16 +15,16 @@ public struct BeamStatsInsertion: PayloadConvertible, Codable {
 
 public struct BeamStats: PayloadConvertible, Codable {
         
-    var inHttp: Int
-    var inMqtt: Int
-    var inTcp: Int
-    var inUdp: Int
-    var outHttp: Int
+    var inHttp:   Int
+    var inMqtt:   Int
+    var inTcp:    Int
+    var inUdp:    Int
+    var outHttp:  Int
     var outHttps: Int
-    var outMqtt: Int
+    var outMqtt:  Int
     var outMqtts: Int
-    var outTcp: Int
-    var outTcps: Int
-    var outUdp: Int
+    var outTcp:   Int
+    var outTcps:  Int
+    var outUdp:   Int
     
 }

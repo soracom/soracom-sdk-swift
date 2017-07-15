@@ -130,6 +130,18 @@ class DevelopmentEnvironmentTests: XCTestCase {
         
         print(res1)
     }
-
     
 }
+
+#if os(Linux)
+    extension DevelopmentEnvironmentTests {
+        static var allTests : [(String, (DevelopmentEnvironmentTests) -> () throws -> Void)] {
+            return [
+                ("test_flipImeiLock", test_flipImeiLock),
+                ("test_newApiFutzing", test_newApiFutzing),
+            ]
+        }
+    }
+#endif 
+
+

@@ -11,6 +11,8 @@
         testCase(CredentialTests.allTests),
         testCase(BaseTestCaseTests.allTests),
         testCase(BeamStatsTests.allTests),
+        testCase(IssueDebuggingTests.allTests),
+
         testCase(KeychainTests.allTests),
         testCase(PayloadTests.allTests),
         testCase(SoracomCredentialsTests.allTests),

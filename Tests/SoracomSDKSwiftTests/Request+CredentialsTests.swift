@@ -106,3 +106,14 @@ class RequestCredentialsTests: BaseTestCase {
     }
 
 }
+
+#if os(Linux)
+    extension RequestCredentialsTests {
+        static var allTests : [(String, (RequestCredentialsTests) -> () throws -> Void)] {
+            return [
+                ("test_CRUD_credentials", test_CRUD_credentials),
+            ]
+        }
+    }
+#endif
+

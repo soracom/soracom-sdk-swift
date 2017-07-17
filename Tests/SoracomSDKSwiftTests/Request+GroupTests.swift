@@ -27,7 +27,7 @@ class RequestGroupTests: BaseTestCase {
         let found   = groups.filter {$0.groupId == groupId}
         
         guard found.count > 0 else {
-            XCTFail("did not get any groups matching expected groupId")
+            XCTFail("did not get any groups matching expected groupId \(groupId)")
             return
         }
         
@@ -244,7 +244,7 @@ class RequestGroupTests: BaseTestCase {
             return nil
         }
         
-        guard let groups = Group.listFrom(payload) else {
+        guard let groups = Group.listFrom_v2(payload) else {
             XCTFail("could not decode payload received from listGroups")
             return nil
         }
@@ -277,3 +277,16 @@ class RequestGroupTests: BaseTestCase {
     }
 
 }
+
+#if os(Linux)
+    extension RequestGroupTests {
+        static var allTests : [(String, (RequestGroupTests) -> () throws -> Void)] {
+            return [
+                ("test_CRUD_groups", test_CRUD_groups),
+                ("test_putGroupTags", test_putGroupTags),
+                ("test_listSubscribersInGroup", test_listSubscribersInGroup),
+            ]
+        }
+    }
+#endif
+

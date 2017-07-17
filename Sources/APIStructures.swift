@@ -130,39 +130,13 @@ public struct Tag: PayloadConvertible {
 public typealias TagList = [Tag]
 
 
-public struct ConfigurationParameter: PayloadConvertible {
-    
-    static func from(_ payload: Payload?) -> ConfigurationParameter? {
-        fatalError("Mason 2017-07-14 TEMPORARY FIX FOR BUILD (reorganizing protocols) FIXME")
-    }
+public struct ConfigurationParameter: PayloadConvertible, Codable {
     
     public var key: String
     public var value: String
-    
-    func toPayload() -> Payload {
-        return [
-            .key   : key,
-            .value : value,
-        ]
-    }
-    
-    init(key: String, value: String) {
-        self.key   = key
-        self.value = value
-    }
-    
-    init?(payload: Payload?) {
-        
-        guard let payload = payload, let k = payload[.key] as? String, let v = payload[.value] as? String else {
-            return nil
-        }
-        key   = k
-        value = v
-    }
 }
 
 public typealias ConfigurationParameterList = [ConfigurationParameter]
-
 
 
 

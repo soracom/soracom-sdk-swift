@@ -195,3 +195,21 @@ class RequestSandboxTests: BaseTestCase {
     }
 
 }
+
+#if os(Linux)
+    extension RequestSandboxTests {
+        static var allTests : [(String, (RequestSandboxTests) -> () throws -> Void)] {
+            return [
+                ("test_getSignupToken_bad_credentials", test_getSignupToken_bad_credentials),
+                ("test_createOperator_then_getSignupToken", test_createOperator_then_getSignupToken),
+                ("test_deleteSandboxOperator_error", test_deleteSandboxOperator_error),
+                ("test_insertAirStats", test_insertAirStats),
+                ("test_createSandboxSubscriber", test_createSandboxSubscriber),
+                ("test_insertBeamStats", test_insertBeamStats),
+                ("test_createSandboxCoupon", test_createSandboxCoupon),
+            ]
+        }
+    }
+#endif
+
+

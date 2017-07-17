@@ -19,8 +19,6 @@
         testCase(RegisterSIMTests.allTests),
         testCase(RequestAuthTests.allTests),
         testCase(RequestCredentialsTests.allTests),
-        // testCase(XXXXXXXXXXXXX.allTests),
-        // testCase(XXXXXXXXXXXXX.allTests),
         testCase(RequestGroupTests.allTests),
         testCase(RequestSandboxTests.allTests),
         // testCase(XXXXXXXXXXXXX.allTests),

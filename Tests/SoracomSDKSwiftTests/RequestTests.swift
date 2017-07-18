@@ -214,3 +214,20 @@ class RequestTests: BaseTestCase {
     }
     
 }
+
+#if os(Linux)
+    extension RequestTests {
+        static var allTests : [(String, (RequestTests) -> () throws -> Void)] {
+            return [
+                ("test_lookup_credentials_for_HTTP_headers", test_lookup_credentials_for_HTTP_headers),
+                ("test_buildURL_and_endpointHost", test_buildURL_and_endpointHost),
+                ("test_error_on_real_world_404", test_error_on_real_world_404),
+                ("test_set_credentials", test_set_credentials),
+                ("test_attached_behaviors", test_attached_behaviors),
+                ("test_response_handler_precedence", test_response_handler_precedence),
+                ("test_wait", test_wait),
+            ]
+        }
+    }
+#endif
+

@@ -22,7 +22,7 @@
         testCase(RequestGroupTests.allTests),
         testCase(RequestSandboxTests.allTests),
         testCase(RequestSubscriberTests.allTests),
-        // testCase(XXXXXXXXXXXXX.allTests),
+        testCase(RequestTests.allTests),
         // testCase(XXXXXXXXXXXXX.allTests),
         // testCase(XXXXXXXXXXXXX.allTests),
 

@@ -32,7 +32,7 @@ class RequestAuthTests: BaseTestCase {
             
             if let payload = response.payload {
                 
-                let authResponse = AuthResponse(payload)
+                let authResponse = AuthResponse.from(payload)
                 
                 XCTAssertNotNil(authResponse)
                 XCTAssertNotNil(authResponse?.operatorId)

@@ -1,33 +1,6 @@
 // APIStructures.swift Created by mason on 2016-03-13. Copyright © 2016 Soracom, Inc. All rights reserved.
 
-// FIXME: organize this stuff better....
-
 import Foundation
-
-
-public struct AuthResponse {
-    
-    var apiKey: String?     = nil
-    var operatorId: String? = nil
-    var token: String?      = nil
-    var userName: String?   = nil
-    
-    init?(_ payload: Payload?) {
-        
-        guard let payload = payload else {
-            return nil
-        }
-        
-        apiKey     = payload[.apiKey] as? String
-        operatorId = payload[.operatorId] as? String
-        token      = payload[.token] as? String
-        userName   = payload[.userName] as? String
-        
-        guard apiKey != nil && token != nil else {
-            return nil
-        }
-    }
-}
 
 
 /// Description forthcoming.
@@ -138,7 +111,7 @@ public enum TagValueMatchMode: String {
 }
 
 
-/// These namespaces are used to get/set configurations (lists of keys and values) pertaining to different Soracom services. (FIXME: Mason 2016-06-30: I don't really know how this works yet, just reading the API docs at this point.)
+/// These namespaces are used to get/set configurations (lists of keys and values) pertaining to different Soracom services.
 
 public enum ConfigurationParametersNamespace: String {
     case SoracomAir

@@ -53,6 +53,9 @@
 		93683B9B1F18C2AE00775159 /* Codable+SoracomSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93683B991F18C2AE00775159 /* Codable+SoracomSDK.swift */; };
 		93AF42811F1DCCCB00A3BEE3 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF42801F1DCCCB00A3BEE3 /* HTTPMethod.swift */; };
 		93AF42821F1DCCCB00A3BEE3 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF42801F1DCCCB00A3BEE3 /* HTTPMethod.swift */; };
+		93AF42841F1DCEF200A3BEE3 /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF42831F1DCEF200A3BEE3 /* SerializationTests.swift */; };
+		93AF42861F1DD4F000A3BEE3 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF42851F1DD4F000A3BEE3 /* AuthResponse.swift */; };
+		93AF42871F1DD50100A3BEE3 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF42851F1DD4F000A3BEE3 /* AuthResponse.swift */; };
 		OBJ_100 /* Request+CredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* Request+CredentialsTests.swift */; };
 		OBJ_101 /* Request+GroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Request+GroupTests.swift */; };
 		OBJ_102 /* Request+SandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* Request+SandboxTests.swift */; };
@@ -138,6 +141,7 @@
 		93683B991F18C2AE00775159 /* Codable+SoracomSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+SoracomSDK.swift"; sourceTree = "<group>"; };
 		93AF42801F1DCCCB00A3BEE3 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		93AF42831F1DCEF200A3BEE3 /* SerializationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationTests.swift; sourceTree = "<group>"; };
+		93AF42851F1DD4F000A3BEE3 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		OBJ_10 /* APIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
 		OBJ_11 /* APIStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStructures.swift; sourceTree = "<group>"; };
 		OBJ_12 /* BeamStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamStats.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 				OBJ_62 /* ResponseTests.swift */,
 				OBJ_63 /* SoracomCredentialsTests.swift */,
 				OBJ_64 /* SubscriberTests.swift */,
+				93AF42831F1DCEF200A3BEE3 /* SerializationTests.swift */,
 			);
 			path = SoracomSDKSwiftTests;
 			sourceTree = "<group>";
@@ -437,6 +442,7 @@
 				93683B9B1F18C2AE00775159 /* Codable+SoracomSDK.swift in Sources */,
 				OBJ_115 /* APIError.swift in Sources */,
 				OBJ_116 /* APIOperation.swift in Sources */,
+				93AF42861F1DD4F000A3BEE3 /* AuthResponse.swift in Sources */,
 				OBJ_117 /* APIStructures.swift in Sources */,
 				OBJ_118 /* BeamStats.swift in Sources */,
 				OBJ_119 /* Client.swift in Sources */,
@@ -512,12 +518,14 @@
 				93683B871F1723D000775159 /* NSDate+SoracomAPI.swift in Sources */,
 				93683B911F1723D000775159 /* Request+Subscriber.swift in Sources */,
 				93683B851F1723D000775159 /* Group.swift in Sources */,
+				93AF42841F1DCEF200A3BEE3 /* SerializationTests.swift in Sources */,
 				OBJ_99 /* Request+AuthTests.swift in Sources */,
 				93683B7E1F1723D000775159 /* APIOperation.swift in Sources */,
 				OBJ_100 /* Request+CredentialsTests.swift in Sources */,
 				93AF42811F1DCCCB00A3BEE3 /* HTTPMethod.swift in Sources */,
 				OBJ_101 /* Request+GroupTests.swift in Sources */,
 				93683B831F1723D000775159 /* Credential.swift in Sources */,
+				93AF42871F1DD50100A3BEE3 /* AuthResponse.swift in Sources */,
 				OBJ_102 /* Request+SandboxTests.swift in Sources */,
 				93683B8D1F1723D000775159 /* Request+Group.swift in Sources */,
 				93683B811F1723D000775159 /* Client.swift in Sources */,

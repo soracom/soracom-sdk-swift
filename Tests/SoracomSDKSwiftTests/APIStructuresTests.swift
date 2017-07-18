@@ -100,9 +100,11 @@ class APIStructuresTests: BaseTestCase {
             .operatorId : "OP666",
         ]
         
-        XCTAssertNil( AuthResponse(bad) )
+        let bogus = AuthResponse.from(bad)
         
-        let a = AuthResponse(good)
+        XCTAssertNil( bogus )
+        
+        let a = AuthResponse.from(good)
         
         XCTAssertNotNil(a)
     }

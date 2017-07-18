@@ -68,10 +68,11 @@ extension Array where Element: Encodable & PayloadConvertible {
         }
     }
 }
+
+
 /**
  Extends Decodable to be able to decode single instances and lists, from either a Payload instance, or a Data instance (containing JSON data). This helps us start to use the Codable protocols gradually, while not yet having to move away from Payload. 
- */
-
+*/
 extension Decodable {
     
     static func from(_ payload: Payload?) -> Self? {

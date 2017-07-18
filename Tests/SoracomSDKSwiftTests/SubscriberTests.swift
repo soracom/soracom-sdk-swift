@@ -32,7 +32,7 @@ class SubscriberTests: BaseTestCase {
         let outgoing = Payload(list: [a,b,c])
         
         guard let incoming = roundTripSerializeDeserialize(outgoing),
-              let list = Subscriber.listFrom(incoming.toPayload())
+              let list = Subscriber.listFrom_v2(incoming.toPayload())
         else {
             XCTFail()
             return
@@ -46,9 +46,17 @@ class SubscriberTests: BaseTestCase {
         XCTAssertEqual(list[0].imsi, "8675309")
         XCTAssertEqual(list[1].imsi, "8675310")
         XCTAssertEqual(list[2].imsi, "8675311")
-        
-        print("wtf")
-        
     }
     
 }
+
+#if os(Linux)
+    extension SubscriberTests {
+        static var allTests : [(String, (SubscriberTests) -> () throws -> Void)] {
+            return [
+                ("test_serialize_list", test_serialize_list),
+                ("test_serialize_list", test_serialize_list),
+            ]
+        }
+    }
+#endif

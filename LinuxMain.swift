@@ -23,7 +23,7 @@
         testCase(RequestSandboxTests.allTests),
         testCase(RequestSubscriberTests.allTests),
         testCase(RequestTests.allTests),
-        // testCase(XXXXXXXXXXXXX.allTests),
+        testCase(ResponseTests.allTests),
         // testCase(XXXXXXXXXXXXX.allTests),
 
         testCase(SoracomCredentialsTests.allTests),

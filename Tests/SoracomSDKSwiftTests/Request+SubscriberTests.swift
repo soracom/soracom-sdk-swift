@@ -33,6 +33,8 @@ class RequestSubscriberTests: BaseTestCase {
         
         r.run { (response) in
             XCTAssertNil(response.error)
+            let list = Subscriber.listFrom_v2(response.payload)
+            XCTAssertNotNil(list)
             self.endAsyncSection()
         }
         
@@ -40,3 +42,14 @@ class RequestSubscriberTests: BaseTestCase {
     }
     
 }
+
+#if os(Linux)
+    extension RequestSubscriberTests {
+        static var allTests : [(String, (RequestSubscriberTests) -> () throws -> Void)] {
+            return [
+                ("test_listSubscribers_URL_generation", test_listSubscribers_URL_generation),
+                ("test_listSubscribers", test_listSubscribers),
+            ]
+        }
+    }
+#endif

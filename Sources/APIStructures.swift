@@ -7,7 +7,10 @@ import Foundation
 /// This enum defines the HTTP methods actually used by this SDK.
 
 enum HTTPMethod: String {
-    case DELETE, GET, POST, PUT
+    case delete = "DELETE"
+    case get    = "GET"
+    case post   = "POST"
+    case put    = "PUT"
 }
 
 

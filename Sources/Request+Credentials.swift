@@ -9,7 +9,7 @@ extension Request {
     public class func listCredentials(_ responseHandler: ResponseHandler? = nil) -> Request {
         
         let req = self.init("/credentials", responseHandler: responseHandler)
-        req.method = .GET
+        req.method = .get
         return req
     }
     
@@ -24,7 +24,7 @@ extension Request {
           // FIXME: blank component will cause error, but we should fail better here
         
         req.expectedHTTPStatus = 204
-        req.method             = .DELETE
+        req.method             = .delete
         return req
     }
     
@@ -39,7 +39,7 @@ extension Request {
           // FIXME: blank component will cause error, but we should fail better here
         
         req.expectedHTTPStatus = 201
-        req.method             = .POST
+        req.method             = .post
         req.payload            = options.toPayload()
         return req
     }
@@ -55,7 +55,7 @@ extension Request {
           // FIXME: blank component will cause error, but we should fail better here
         
         req.expectedHTTPStatus = 200
-        req.method             = .PUT
+        req.method             = .put
         req.payload            = options.toPayload()
         return req
     }

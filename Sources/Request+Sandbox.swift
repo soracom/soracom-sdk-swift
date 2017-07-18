@@ -31,7 +31,7 @@ extension Request {
         
         let req = self.init("/sandbox/operators/" + operatorId, responseHandler: responseHandler)
         req.expectedHTTPStatus = 200
-        req.method             = .DELETE
+        req.method             = .delete
         return req
     }
  
@@ -56,7 +56,7 @@ extension Request {
         let req = self.init("/sandbox/stats/air/subscribers/" + imsi, responseHandler: responseHandler)
         
         req.expectedHTTPStatus = 200
-        req.method = .POST
+        req.method = .post
 
         req.payload = stats.toPayload()
 

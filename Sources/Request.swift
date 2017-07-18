@@ -111,7 +111,7 @@ open class Request {
     
     /// The HTTP method used to make the request. 
     
-    var method = HTTPMethod.POST
+    var method = HTTPMethod.post
     
     
     /// Controls whether the key and token are sent in HTTP headers. (It is not normally necessary to explicitly set this property.)

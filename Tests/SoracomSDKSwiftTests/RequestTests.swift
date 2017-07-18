@@ -83,7 +83,7 @@ class RequestTests: BaseTestCase {
         let foo              = Request("/you-aint-no-valid-url-bruv")
         foo.apiVersionString = ""
         foo.endpointHost     = "www.soracom.jp"
-        foo.method           = .GET
+        foo.method           = .get
         
         beginAsyncSection()
         

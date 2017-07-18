@@ -1,4 +1,4 @@
-// APIOperation.swift Created by mason on 2016-04-23. Copyright © 2016 masonmark.com. All rights reserved.
+// APIOperation.swift Created by mason on 2016-04-23. Copyright © 2016 Soracom, Inc.. All rights reserved.
 
 import Foundation
 import Dispatch

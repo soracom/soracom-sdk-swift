@@ -1,4 +1,4 @@
-// APIOperationTests.swift Created by mason on 2016-04-25. Copyright © 2016 masonmark.com. All rights reserved.
+// APIOperationTests.swift Created by mason on 2016-04-25. Copyright © 2016 Soracom, Inc.. All rights reserved.
 
 import XCTest
 

@@ -1,4 +1,4 @@
-// Keychain.swift Created by mason on 2016-02-21. Copyright © 2016 masonmark.com. All rights reserved.
+// Keychain.swift Created by mason on 2016-02-21. Copyright © 2016 Soracom, Inc.. All rights reserved.
 
 import Foundation
 

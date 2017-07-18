@@ -373,6 +373,7 @@ class PayloadTests: BaseTestCase {
         static var allTests : [(String, (PayloadTests) -> () throws -> Void)] {
             return [
                 ("test_basic_set_and_get", test_basic_set_and_get),
+                ("test_toDictionary", test_toDictionary),
                 ("test_set_up_with_dictionary_literal", test_set_up_with_dictionary_literal),
                 ("test_toDictionary_extended_with_nested_payload", test_toDictionary_extended_with_nested_payload),
                 ("test_more_extended_nested_toDictionary", test_more_extended_nested_toDictionary),

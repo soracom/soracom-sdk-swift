@@ -102,6 +102,7 @@ open class KeychainTests: XCTestCase {
                 ("test_write_empty_data", test_write_empty_data),
                 ("test_readString_and_writeString", test_readString_and_writeString),
                 ("test_replace_logger", test_replace_logger),
+                ("test_storage_identifier", test_storage_identifier),
             ]
         }
     }

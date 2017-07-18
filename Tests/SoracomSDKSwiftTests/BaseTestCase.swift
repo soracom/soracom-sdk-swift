@@ -307,8 +307,25 @@ class BaseTestCase: XCTestCase {
     }
 
     
-    func areEqual(_ lhs: [String:Any], _ rhs: [String:Any]) -> Bool {
-        return false; // punt on this until we re-do JSON cross-platform
+    /// Convenience method to get a new IMSI from the API sandbox, before running your actual tests. You still need to set up expectations in your main test method body. Example:
+    ///
+    ///     let expectation = beginAsyncSection()
+    ///
+    ///     withNewIMSI { (imsi) in
+    ///         // do your test here
+    ///         self.endAsyncSection()
+    ///     }
+    ///     waitForAsyncSection()
+    
+    func withNewIMSI(_ handler: @escaping (_ imsi: String) -> ()) {
+        Request.createSandboxSubscriber().run { (response) in
+            XCTAssert(response.error == nil)
+            if let imsi = response.payload?[.imsi] as? String {
+                handler(imsi)
+            } else {
+                XCTFail("withNewIMSI() could not get new IMSI")
+            }
+        }
     }
     
 }

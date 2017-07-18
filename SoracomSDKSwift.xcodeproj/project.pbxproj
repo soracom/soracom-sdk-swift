@@ -93,7 +93,6 @@
 		OBJ_85 /* APIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* APIErrorTests.swift */; };
 		OBJ_86 /* APIOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* APIOperationTests.swift */; };
 		OBJ_87 /* APIStructuresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* APIStructuresTests.swift */; };
-		OBJ_88 /* BaseTestCase+withNewIMSI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* BaseTestCase+withNewIMSI.swift */; };
 		OBJ_89 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* BaseTestCase.swift */; };
 		OBJ_90 /* BaseTestCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* BaseTestCaseTests.swift */; };
 		OBJ_91 /* BeamStatsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* BeamStatsTest.swift */; };
@@ -166,7 +165,6 @@
 		OBJ_42 /* APIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorTests.swift; sourceTree = "<group>"; };
 		OBJ_43 /* APIOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperationTests.swift; sourceTree = "<group>"; };
 		OBJ_44 /* APIStructuresTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStructuresTests.swift; sourceTree = "<group>"; };
-		OBJ_45 /* BaseTestCase+withNewIMSI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseTestCase+withNewIMSI.swift"; sourceTree = "<group>"; };
 		OBJ_46 /* BaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
 		OBJ_47 /* BaseTestCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTestCaseTests.swift; sourceTree = "<group>"; };
 		OBJ_48 /* BeamStatsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamStatsTest.swift; sourceTree = "<group>"; };
@@ -252,7 +250,6 @@
 				OBJ_42 /* APIErrorTests.swift */,
 				OBJ_43 /* APIOperationTests.swift */,
 				OBJ_44 /* APIStructuresTests.swift */,
-				OBJ_45 /* BaseTestCase+withNewIMSI.swift */,
 				OBJ_46 /* BaseTestCase.swift */,
 				OBJ_47 /* BaseTestCaseTests.swift */,
 				OBJ_48 /* BeamStatsTest.swift */,
@@ -276,7 +273,7 @@
 			path = SoracomSDKSwiftTests;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				93683B7C1F17237A00775159 /* LinuxMain.swift */,
@@ -287,7 +284,6 @@
 				OBJ_65 /* Whatever */,
 				OBJ_66 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_66 /* Products */ = {
@@ -414,7 +410,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_66 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -488,7 +484,6 @@
 				93683B861F1723D000775159 /* Keychain.swift in Sources */,
 				93683B821F1723D000775159 /* Constants.swift in Sources */,
 				93683B8F1F1723D000775159 /* Request+Payment.swift in Sources */,
-				OBJ_88 /* BaseTestCase+withNewIMSI.swift in Sources */,
 				93683B8E1F1723D000775159 /* Request+Operator.swift in Sources */,
 				93683B881F1723D000775159 /* Payload.swift in Sources */,
 				OBJ_89 /* BaseTestCase.swift in Sources */,

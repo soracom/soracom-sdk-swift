@@ -4,17 +4,6 @@
 
 import Foundation
 
-/// This enum defines the HTTP methods actually used by this SDK.
-
-enum HTTPMethod: String {
-    case delete = "DELETE"
-    case get    = "GET"
-    case post   = "POST"
-    case put    = "PUT"
-}
-
-
-/// This is the object included in the response returned by the API auth() call. [API docs](https://dev.soracom.io/jp/docs/api/#!/Auth/auth)
 
 public struct AuthResponse {
     

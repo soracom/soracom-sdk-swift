@@ -10,7 +10,7 @@ class APIStructuresTests: BaseTestCase {
     
     func test_AirStats_serialization() {
         
-        let fast  = AirStatsForSpeedClass(uploadBytes: 5, uploadPackets: 55, downloadBytes: 555, downloadPackets: 5555)
+        let fast  = DataTrafficStats(uploadBytes: 5, uploadPackets: 55, downloadBytes: 555, downloadPackets: 5555)
                 let stats = AirStats(traffic: [.s1_fast: fast], unixtime: 8675309)
         
         let subsub: Payload = [

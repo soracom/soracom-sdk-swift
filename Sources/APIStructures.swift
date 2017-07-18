@@ -5,9 +5,10 @@ import Foundation
 
 /// Description forthcoming.
 
-public struct AirStatsForSpeedClass: PayloadConvertible {
+public struct DataTrafficStats: PayloadConvertible {
+    // rename to DataTrafficStats?
     
-    static func from(_ payload: Payload?) -> AirStatsForSpeedClass? {
+    static func from(_ payload: Payload?) -> DataTrafficStats? {
         fatalError("Mason 2017-07-14 TEMPORARY FIX FOR BUILD (reorganizing protocols) FIXME")
     }
     
@@ -37,7 +38,7 @@ public struct AirStats: PayloadConvertible {
         fatalError("Mason 2017-07-14 TEMPORARY FIX FOR BUILD (reorganizing protocols) FIXME")
     }
     
-    var traffic: [PayloadKey: AirStatsForSpeedClass]
+    var traffic: [PayloadKey: DataTrafficStats]
     var unixtime: Int64
     // FIXME: is this just derived from unixtime, or....: var date: NSDate
     

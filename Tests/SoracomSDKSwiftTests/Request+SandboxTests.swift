@@ -113,7 +113,7 @@ class RequestSandboxTests: BaseTestCase {
 
         withNewIMSI { (imsi) in
             
-            let fast  = AirStatsForSpeedClass(uploadBytes: 0, uploadPackets: 0, downloadBytes: 0, downloadPackets: 0)
+            let fast  = DataTrafficStats(uploadBytes: 0, uploadPackets: 0, downloadBytes: 0, downloadPackets: 0)
             
             let nowInterval = Date().timeIntervalSince1970
             let nowInt   = Int64(nowInterval)

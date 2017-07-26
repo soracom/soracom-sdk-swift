@@ -32,7 +32,7 @@ class SubscriberTests: BaseTestCase {
         let outgoing = Payload(list: [a,b,c])
         
         guard let incoming = roundTripSerializeDeserialize(outgoing),
-              let list = Subscriber.listFrom_v2(incoming.toPayload())
+              let list = Subscriber.listFrom(incoming.toPayload())
         else {
             XCTFail()
             return

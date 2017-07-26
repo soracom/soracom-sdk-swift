@@ -59,38 +59,34 @@ class CredentialTests: BaseTestCase {
     
     func test_serialize_list() {
         
-        #if os(Linux)
-            return // FIXME: delete this test once conversion to Codable is done 
-        #else
+        // This is an old test from before Swift 4 and codable.
+        // It does the same job as test_codable_serialization_of_array_via_data below.
         
-            let a = Credential(description: "awesome credential")
-            let b = Credential(description: "bodacious credential")
-            let c = Credential(description: "consummate credential")
-            
-            let outgoing = Payload(list: [a,b,c])
-            
-            
-            guard let incoming = roundTripSerializeDeserialize(outgoing),
-                  let list = Credential.listFrom_v2(incoming.toPayload())
-            else {
-                XCTFail()
-                return
-            }
-            
-            print(list)
-            
-            guard list.count == 3 else {
-                XCTFail("list decode failed")
-                // MASON 2017-07-14: THIS TEST FAILS ON LINUX. HOWEVER, THE NEW listFrom_v2() VERSION
-                // WORKS ON macOS/iOS/Linux. I AM GOING TO MOVE TO THAT. THEN WE DELETE THIS TEST. FIXME
-                return
-            }
-            
-            XCTAssertEqual(list[0].description, "awesome credential")
-            XCTAssertEqual(list[1].description, "bodacious credential")
-            XCTAssertEqual(list[2].description, "consummate credential")
-        #endif
+        let a = Credential(description: "awesome credential")
+        let b = Credential(description: "bodacious credential")
+        let c = Credential(description: "consummate credential")
+        
+        let outgoing = Payload(list: [a,b,c])
+        
+        guard let incoming = roundTripSerializeDeserialize(outgoing),
+              let list = Credential.listFrom(incoming.toPayload())
+        else {
+            XCTFail()
+            return
+        }
+        
+        print(list)
+        
+        guard list.count == 3 else {
+            XCTFail("list decode failed")
+            return
+        }
+        
+        XCTAssertEqual(list[0].description, "awesome credential")
+        XCTAssertEqual(list[1].description, "bodacious credential")
+        XCTAssertEqual(list[2].description, "consummate credential")
     }
+    
     
     func test_codable_serialization_of_array_via_data() {
         
@@ -144,7 +140,7 @@ class CredentialTests: BaseTestCase {
         
         let encoded = list.toPayload()
         
-        guard let decoded = Credential.listFrom_v2(encoded) else {
+        guard let decoded = Credential.listFrom(encoded) else {
             XCTFail("failed to decode Credential list from Payload")
             return;
         }
@@ -201,6 +197,7 @@ class CredentialTests: BaseTestCase {
         XCTAssertEqual(decoded.type, "Fahrvergnügen-Credentials-Type")
         XCTAssertEqual(decoded.lastUsedDateTime, 1667)
     }
+    
     
     func test_junk() {
     

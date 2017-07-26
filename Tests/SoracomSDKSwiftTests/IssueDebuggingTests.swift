@@ -19,7 +19,7 @@ class IssueDebuggingTests: BaseTestCase {
         req.query = Request.makeQueryDictionary(statusFilter: [.inactive])
         let res = req.wait();
         
-        let subscribers = Subscriber.listFrom_v2(res.payload)
+        let subscribers = Subscriber.listFrom(res.payload)
         
         print(req)
         print(res)

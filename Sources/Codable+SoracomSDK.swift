@@ -101,7 +101,7 @@ extension Decodable {
     }
     
     
-    static func listFrom_v2(_ payload: Payload?) -> [Self]? {
+    static func listFrom(_ payload: Payload?) -> [Self]? {
         
         // MASON 2017-07-14: THIS WILL REPLACE listFrom(), once we prove it works and update all other objects.
         // They can't co-exist, though, so it will be messy until that is done.

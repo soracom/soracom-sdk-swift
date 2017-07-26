@@ -78,7 +78,7 @@ class RequestCredentialsTests: BaseTestCase {
         let listRequest  = Request.listCredentials()
         let listResponse = listRequest.wait()
         
-        guard let credList = Credential.listFrom_v2(listResponse.payload) else {
+        guard let credList = Credential.listFrom(listResponse.payload) else {
             XCTFail()
             return nil
         }

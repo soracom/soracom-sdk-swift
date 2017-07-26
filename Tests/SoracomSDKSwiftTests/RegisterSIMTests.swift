@@ -143,7 +143,7 @@ class RegisterSIMTests: BaseTestCase {
         
             XCTAssert(response.error == nil)
             
-            if let payload = response.payload, let list = Subscriber.listFrom_v2(payload) {
+            if let payload = response.payload, let list = Subscriber.listFrom(payload) {
                 result.append(contentsOf: list)
             } else {
                 XCTFail("could not get subscriber list")

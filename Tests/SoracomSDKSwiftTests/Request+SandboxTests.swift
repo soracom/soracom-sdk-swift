@@ -113,18 +113,21 @@ class RequestSandboxTests: BaseTestCase {
 
         withNewIMSI { (imsi) in
             
-            let fast  = DataTrafficStats(uploadBytes: 0, uploadPackets: 0, downloadBytes: 0, downloadPackets: 0)
+            let trafficStats = DataTrafficStats(downloadByteSizeTotal: 0, downloadPacketSizeTotal: 0, uploadByteSizeTotal: 0, uploadPacketSizeTotal: 0)
             
             let nowInterval = Date().timeIntervalSince1970
-            let nowInt   = Int64(nowInterval)
+            let nowInt   = Int(nowInterval)
             let now = nowInt * 1000
             // Mason 2016-03-23: Building for iOS, get this: exc_bad_instruction (code=exc_i386_invop subcode=0x0)
             // Because type was just Int. Oopsie! Forgot there are still 32-bit platforms? :-/
+            // UPDATE 2017-07-26: We decided in the end not to support 32-bit platforms.
             
-            let stats = AirStats(traffic: [.s1_fast: fast, .s1_slow: fast, .s1_minimum: fast, .s1_standard: fast], unixtime: now)
+            let map = DataTrafficStatsMap(s1_fast: trafficStats, s1_minimum: trafficStats, s1_slow: trafficStats, s1_standard: trafficStats)
+
+            let airStats = AirStats(dataTrafficStatsMap: map, unixtime: now)
             
-            Request.insertAirStats(imsi, stats: stats).run() { (response) in
-                XCTAssert(response.error == nil)
+            Request.insertAirStats(imsi, stats: airStats).run() { (response) in
+                XCTAssertNil(response.error)
                 self.endAsyncSection()
             }
         }

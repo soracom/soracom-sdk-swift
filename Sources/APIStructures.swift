@@ -5,57 +5,37 @@ import Foundation
 
 /// Description forthcoming.
 
-public struct DataTrafficStats: PayloadConvertible {
-    // rename to DataTrafficStats?
-    
-    static func from(_ payload: Payload?) -> DataTrafficStats? {
-        fatalError("Mason 2017-07-14 TEMPORARY FIX FOR BUILD (reorganizing protocols) FIXME")
-    }
-    
-    var uploadBytes: Int     = 0
-    var uploadPackets: Int   = 0
-    var downloadBytes: Int   = 0
-    var downloadPackets: Int = 0
-    
-    // FIXME: ask Soracom guys what the relationship is between packets and bytes. This is just same data expressed in sane and insane forms?
+public struct DataTrafficStats: PayloadConvertible, Codable {
 
-    public func toPayload() -> Payload {
-        return [
-            .uploadByteSizeTotal     : uploadBytes,
-            .uploadPacketSizeTotal   : uploadPackets,
-            .downloadByteSizeTotal   : downloadBytes,
-            .downloadPacketSizeTotal : downloadPackets
-        ]
+    var downloadByteSizeTotal: Int   = 0
+    var downloadPacketSizeTotal: Int = 0
+    var uploadByteSizeTotal: Int     = 0
+    var uploadPacketSizeTotal: Int   = 0    
+}
+
+
+public struct DataTrafficStatsMap: PayloadConvertible, Codable {
+    
+    var s1_fast: DataTrafficStats? = nil
+    var s1_minimum: DataTrafficStats? = nil 
+    var s1_slow: DataTrafficStats? = nil
+    var s1_standard: DataTrafficStats? = nil 
+    
+    enum CodingKeys: String, CodingKey {
+        case s1_fast     = "s1.fast"
+        case s1_minimum  = "s1.minimum"
+        case s1_slow     = "s1.slow"
+        case s1_standard = "s1.standard"
     }
 }
 
 
 /// Description forthcoming.
 
-public struct AirStats: PayloadConvertible {
+public struct AirStats: PayloadConvertible, Codable {
     
-    static func from(_ payload: Payload?) -> AirStats? {
-        fatalError("Mason 2017-07-14 TEMPORARY FIX FOR BUILD (reorganizing protocols) FIXME")
-    }
-    
-    var traffic: [PayloadKey: DataTrafficStats]
-    var unixtime: Int64
-    // FIXME: is this just derived from unixtime, or....: var date: NSDate
-    
-    func toPayload() -> Payload {
-        
-        let result: Payload = [.unixtime: NSNumber(value: unixtime)]
-        
-        let dataTrafficStatsMap: Payload = [:]
-        
-        for (k, v) in traffic {
-            dataTrafficStatsMap[k] = v.toPayload()
-        }
-        
-        result[.dataTrafficStatsMap] = dataTrafficStatsMap
-        return result
-    }
-
+    var dataTrafficStatsMap: DataTrafficStatsMap
+    var unixtime: Int    
 }
 
 

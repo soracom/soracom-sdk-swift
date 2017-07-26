@@ -300,8 +300,9 @@ class PayloadTests: BaseTestCase {
     
     
     func test_array_support_1() {
-        let obj1    = DataTrafficStats(uploadBytes: 1, uploadPackets: 1, downloadBytes: 1, downloadPackets: 1)
-        let obj2    = DataTrafficStats(uploadBytes: 2, uploadPackets: 2, downloadBytes: 2, downloadPackets: 2)
+        let obj1 = DataTrafficStats(downloadByteSizeTotal: 1, downloadPacketSizeTotal: 1, uploadByteSizeTotal: 1, uploadPacketSizeTotal: 1)
+        let obj2 = DataTrafficStats(downloadByteSizeTotal: 2, downloadPacketSizeTotal: 2, uploadByteSizeTotal: 2, uploadPacketSizeTotal: 2)
+        
         let payload = Payload(list: [obj1, obj2])
         
         guard let actual = payload.toJSON() else {

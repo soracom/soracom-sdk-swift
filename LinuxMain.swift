@@ -25,6 +25,7 @@
         testCase(RequestSubscriberTests.allTests),
         testCase(RequestTests.allTests),
         testCase(ResponseTests.allTests),
+        testCase(SerializationTests.allTests),
         testCase(SubscriberTests.allTests),
         testCase(SoracomCredentialsTests.allTests),
     ])

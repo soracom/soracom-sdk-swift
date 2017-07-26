@@ -219,7 +219,7 @@ class BaseTestCase: XCTestCase {
     
     // MARK: - General utility functions
         
-    /// Compares JSON strings, ignoring key order, whitespace, etc. Returns true if the decoded objects are identical, otherwise false. Supports booleans, integers, strings, arrays, and objects. (Arrays and objects may only contain these five types.)
+    /// Compares JSON strings, ignoring key order, whitespace, etc. Returns true if the decoded objects are logically equivalent, otherwise false. Supports booleans, integers, strings, arrays, and objects. (Arrays and objects may only contain these five types.)
     
     func isEquivalentJSON(_ lhs: String, _ rhs: String) -> Bool {
         

@@ -234,6 +234,13 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     func toDictionary() -> [String:Any]? {
         
+        // In the Bad Old Days of 2016, we had to create a dictionary of "basic" objects before trying
+        // to encode JSON; otherwise NSJSONSerialization wouldn't help us. So there was a pre-encode
+        // step that this toDictionary() method did. Now, though, we have Codable and this is not
+        // really necessary; it's just a fossil left over from an earlier era. Unlike a real fossil,
+        // though, there is nothing interesting or valuable about this and it should be deleted at some
+        // point.
+        
         // FIXME: think about renaming this. toForeignDictionary()?
         
         guard rootObjectType == .foreignDictionary || rootObjectType == .nativeDictionary else {

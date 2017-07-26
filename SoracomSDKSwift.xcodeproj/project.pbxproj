@@ -23,7 +23,6 @@
 /* Begin PBXBuildFile section */
 		93683B7D1F1723D000775159 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* APIError.swift */; };
 		93683B7E1F1723D000775159 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* APIOperation.swift */; };
-		93683B7F1F1723D000775159 /* APIStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* APIStructures.swift */; };
 		93683B801F1723D000775159 /* BeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BeamStats.swift */; };
 		93683B811F1723D000775159 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Client.swift */; };
 		93683B821F1723D000775159 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Constants.swift */; };
@@ -66,6 +65,8 @@
 		93DC957D1F28857600C6D9F5 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC957B1F28857600C6D9F5 /* Tag.swift */; };
 		93DC957F1F2885E000C6D9F5 /* ConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC957E1F2885E000C6D9F5 /* ConfigurationParameter.swift */; };
 		93DC95801F2885E000C6D9F5 /* ConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC957E1F2885E000C6D9F5 /* ConfigurationParameter.swift */; };
+		93DC95821F28867700C6D9F5 /* CoverageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC95811F28867700C6D9F5 /* CoverageType.swift */; };
+		93DC95831F28867700C6D9F5 /* CoverageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC95811F28867700C6D9F5 /* CoverageType.swift */; };
 		OBJ_100 /* Request+CredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* Request+CredentialsTests.swift */; };
 		OBJ_101 /* Request+GroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Request+GroupTests.swift */; };
 		OBJ_102 /* Request+SandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* Request+SandboxTests.swift */; };
@@ -77,7 +78,6 @@
 		OBJ_109 /* SoracomSDKSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SoracomSDKSwift::SoracomSDKSwift::Product" /* SoracomSDKSwift.framework */; };
 		OBJ_115 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* APIError.swift */; };
 		OBJ_116 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* APIOperation.swift */; };
-		OBJ_117 /* APIStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* APIStructures.swift */; };
 		OBJ_118 /* BeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BeamStats.swift */; };
 		OBJ_119 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Client.swift */; };
 		OBJ_120 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Constants.swift */; };
@@ -157,8 +157,8 @@
 		93DC95781F28837C00C6D9F5 /* PaymentMethodInfoWebPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodInfoWebPay.swift; sourceTree = "<group>"; };
 		93DC957B1F28857600C6D9F5 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		93DC957E1F2885E000C6D9F5 /* ConfigurationParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationParameter.swift; sourceTree = "<group>"; };
+		93DC95811F28867700C6D9F5 /* CoverageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoverageType.swift; path = Sources/CoverageType.swift; sourceTree = "<group>"; };
 		OBJ_10 /* APIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
-		OBJ_11 /* APIStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStructures.swift; sourceTree = "<group>"; };
 		OBJ_12 /* BeamStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamStats.swift; sourceTree = "<group>"; };
 		OBJ_13 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		OBJ_14 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -300,6 +300,7 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
+				93DC95811F28867700C6D9F5 /* CoverageType.swift */,
 				93683B7C1F17237A00775159 /* LinuxMain.swift */,
 				93683B7B1F1611FD00775159 /* README.md */,
 				OBJ_6 /* Package.swift */,
@@ -335,7 +336,6 @@
 				93DC95751F2881E700C6D9F5 /* AirStats.swift */,
 				OBJ_9 /* APIError.swift */,
 				OBJ_10 /* APIOperation.swift */,
-				OBJ_11 /* APIStructures.swift */,
 				93AF42851F1DD4F000A3BEE3 /* AuthResponse.swift */,
 				OBJ_12 /* BeamStats.swift */,
 				OBJ_13 /* Client.swift */,
@@ -464,7 +464,6 @@
 				OBJ_116 /* APIOperation.swift in Sources */,
 				93DC95771F2881E700C6D9F5 /* AirStats.swift in Sources */,
 				93AF42861F1DD4F000A3BEE3 /* AuthResponse.swift in Sources */,
-				OBJ_117 /* APIStructures.swift in Sources */,
 				OBJ_118 /* BeamStats.swift in Sources */,
 				OBJ_119 /* Client.swift in Sources */,
 				OBJ_120 /* Constants.swift in Sources */,
@@ -479,6 +478,7 @@
 				OBJ_127 /* PayloadConvertible.swift in Sources */,
 				93DC957D1F28857600C6D9F5 /* Tag.swift in Sources */,
 				OBJ_128 /* PayloadKey.swift in Sources */,
+				93DC95831F28867700C6D9F5 /* CoverageType.swift in Sources */,
 				OBJ_129 /* Request+Auth.swift in Sources */,
 				OBJ_130 /* Request+Credentials.swift in Sources */,
 				OBJ_131 /* Request+Group.swift in Sources */,
@@ -510,7 +510,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				93683B7F1F1723D000775159 /* APIStructures.swift in Sources */,
 				OBJ_85 /* APIErrorTests.swift in Sources */,
 				OBJ_86 /* APIOperationTests.swift in Sources */,
 				OBJ_87 /* APIStructuresTests.swift in Sources */,
@@ -545,6 +544,7 @@
 				93683B871F1723D000775159 /* NSDate+SoracomAPI.swift in Sources */,
 				93683B911F1723D000775159 /* Request+Subscriber.swift in Sources */,
 				93683B851F1723D000775159 /* Group.swift in Sources */,
+				93DC95821F28867700C6D9F5 /* CoverageType.swift in Sources */,
 				93AF42841F1DCEF200A3BEE3 /* SerializationTests.swift in Sources */,
 				93DC95731F2880FF00C6D9F5 /* DataTrafficStats.swift in Sources */,
 				OBJ_99 /* Request+AuthTests.swift in Sources */,

@@ -5,26 +5,10 @@ import Foundation
 
 
 
-public struct Tag: PayloadConvertible {
+public struct Tag: PayloadConvertible, Codable {
     
     var tagName: String
     var tagValue: String
-
-    func toPayload() -> Payload {
-        return [
-            .tagName  : tagName,
-            .tagValue : tagValue,
-        ]
-    }
-    
-    
-    public static func from(_ payload: Payload?) -> Tag? {
-        
-        guard let payload = payload, let name = payload[.tagName] as? String, let value = payload[.tagValue] as? String else {
-            return nil
-        }
-        return Tag(tagName: name, tagValue: value)
-    }
 }
 
 public typealias TagList = [Tag]

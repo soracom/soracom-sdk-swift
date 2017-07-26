@@ -62,6 +62,7 @@ class SerializationTests: BaseTestCase {
     
     
     func test_serialize_DataTrafficStats() {
+        
         let uno = DataTrafficStats(downloadByteSizeTotal: 1, downloadPacketSizeTotal: 2, uploadByteSizeTotal: 3, uploadPacketSizeTotal: 4)
         let dos = DataTrafficStats(downloadByteSizeTotal: 1, downloadPacketSizeTotal: 2, uploadByteSizeTotal: 3, uploadPacketSizeTotal: 4)
         
@@ -83,6 +84,24 @@ class SerializationTests: BaseTestCase {
         
         XCTAssertEqual(un.downloadPacketSizeTotal, 2);
         XCTAssertEqual(deux.uploadPacketSizeTotal, 4);
+    }
+    
+    
+    func test_seralize_Tag() {
+        
+        let uno = Tag(tagName: "foo", tagValue: "bar")
+        let dos = Tag(tagName: "baz", tagValue: "ホゲ")
+
+        guard let eins = roundTripSerializeDeserialize(uno) as? Tag,
+              let zwei = roundTripSerializeDeserialize(dos) as? Tag
+        else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(eins.tagName,  "foo");
+        XCTAssertEqual(eins.tagValue, "bar");
+        XCTAssertEqual(zwei.tagName,  "baz");
+        XCTAssertEqual(zwei.tagValue, "ホゲ");
     }
     
     // Mason 2017-07-26: The below was intended to demonstrate a bug in JSONEncoder. I did
@@ -186,6 +205,7 @@ class SerializationTests: BaseTestCase {
                 ("test_serialize_AuthResponse", test_serialize_AuthResponse),
                 ("test_serialize_AirStats", test_serialize_AirStats),
                 ("test_serialize_DataTrafficStats", test_serialize_DataTrafficStats),
+                ("test_seralize_Tag", test_seralize_Tag),
             ]
         }
     }

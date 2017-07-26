@@ -64,6 +64,8 @@
 		93DC957A1F28837C00C6D9F5 /* PaymentMethodInfoWebPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC95781F28837C00C6D9F5 /* PaymentMethodInfoWebPay.swift */; };
 		93DC957C1F28857600C6D9F5 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC957B1F28857600C6D9F5 /* Tag.swift */; };
 		93DC957D1F28857600C6D9F5 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC957B1F28857600C6D9F5 /* Tag.swift */; };
+		93DC957F1F2885E000C6D9F5 /* ConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC957E1F2885E000C6D9F5 /* ConfigurationParameter.swift */; };
+		93DC95801F2885E000C6D9F5 /* ConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC957E1F2885E000C6D9F5 /* ConfigurationParameter.swift */; };
 		OBJ_100 /* Request+CredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* Request+CredentialsTests.swift */; };
 		OBJ_101 /* Request+GroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Request+GroupTests.swift */; };
 		OBJ_102 /* Request+SandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* Request+SandboxTests.swift */; };
@@ -154,6 +156,7 @@
 		93DC95751F2881E700C6D9F5 /* AirStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirStats.swift; sourceTree = "<group>"; };
 		93DC95781F28837C00C6D9F5 /* PaymentMethodInfoWebPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodInfoWebPay.swift; sourceTree = "<group>"; };
 		93DC957B1F28857600C6D9F5 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		93DC957E1F2885E000C6D9F5 /* ConfigurationParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationParameter.swift; sourceTree = "<group>"; };
 		OBJ_10 /* APIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
 		OBJ_11 /* APIStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStructures.swift; sourceTree = "<group>"; };
 		OBJ_12 /* BeamStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamStats.swift; sourceTree = "<group>"; };
@@ -337,6 +340,7 @@
 				OBJ_12 /* BeamStats.swift */,
 				OBJ_13 /* Client.swift */,
 				93683B991F18C2AE00775159 /* Codable+SoracomSDK.swift */,
+				93DC957E1F2885E000C6D9F5 /* ConfigurationParameter.swift */,
 				OBJ_14 /* Constants.swift */,
 				OBJ_15 /* Credential.swift */,
 				OBJ_16 /* Data+SoracomSDK.swift */,
@@ -348,6 +352,7 @@
 				OBJ_20 /* Payload.swift */,
 				OBJ_21 /* PayloadConvertible.swift */,
 				OBJ_22 /* PayloadKey.swift */,
+				93DC95781F28837C00C6D9F5 /* PaymentMethodInfoWebPay.swift */,
 				OBJ_30 /* Request.swift */,
 				OBJ_23 /* Request+Auth.swift */,
 				OBJ_24 /* Request+Credentials.swift */,
@@ -361,9 +366,8 @@
 				OBJ_33 /* Response.swift */,
 				OBJ_34 /* SoracomCredentials.swift */,
 				OBJ_35 /* Subscriber.swift */,
-				OBJ_36 /* TextStyle.swift */,
-				93DC95781F28837C00C6D9F5 /* PaymentMethodInfoWebPay.swift */,
 				93DC957B1F28857600C6D9F5 /* Tag.swift */,
+				OBJ_36 /* TextStyle.swift */,
 			);
 			name = SoracomSDKSwift;
 			path = Sources;
@@ -467,6 +471,7 @@
 				OBJ_121 /* Credential.swift in Sources */,
 				93AF42821F1DCCCB00A3BEE3 /* HTTPMethod.swift in Sources */,
 				OBJ_122 /* Data+SoracomSDK.swift in Sources */,
+				93DC95801F2885E000C6D9F5 /* ConfigurationParameter.swift in Sources */,
 				OBJ_123 /* Group.swift in Sources */,
 				OBJ_124 /* Keychain.swift in Sources */,
 				OBJ_125 /* NSDate+SoracomAPI.swift in Sources */,
@@ -511,6 +516,7 @@
 				OBJ_87 /* APIStructuresTests.swift in Sources */,
 				93683B801F1723D000775159 /* BeamStats.swift in Sources */,
 				93683B8B1F1723D000775159 /* Request+Auth.swift in Sources */,
+				93DC957F1F2885E000C6D9F5 /* ConfigurationParameter.swift in Sources */,
 				93683B961F1723D000775159 /* SoracomCredentials.swift in Sources */,
 				93683B901F1723D000775159 /* Request+Sandbox.swift in Sources */,
 				93683B921F1723D000775159 /* Request.swift in Sources */,

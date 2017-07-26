@@ -2,13 +2,6 @@
 
 import Foundation
 
-public struct ConfigurationParameter: PayloadConvertible, Codable {
-    
-    public var key: String
-    public var value: String
-}
-
-public typealias ConfigurationParameterList = [ConfigurationParameter]
 
 
 
@@ -18,12 +11,6 @@ public enum TagValueMatchMode: String {
 }
 
 
-/// These namespaces are used to get/set configurations (lists of keys and values) pertaining to different Soracom services.
-
-public enum ConfigurationParametersNamespace: String {
-    case SoracomAir
-    case SoracomBeam
-}
 
 
 /// Defines all valid coverage types

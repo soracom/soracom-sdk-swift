@@ -5,11 +5,6 @@ import Foundation
 
 
 
-public enum TagValueMatchMode: String {
-    // Mason 2016-06-08: FIXME: I am making some guesses about how this works and what the legal values are; confirm.
-    case exact, prefix
-}
-
 
 
 

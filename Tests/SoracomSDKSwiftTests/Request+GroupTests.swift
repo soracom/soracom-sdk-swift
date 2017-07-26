@@ -172,7 +172,7 @@ class RequestGroupTests: BaseTestCase {
         
         XCTAssertNil(response.error)
         
-        guard let subscriberList = Subscriber.listFrom(response.payload) else {
+        guard let subscriberList = Subscriber.listFrom_v2(response.payload) else {
             XCTFail("did not get subscriber list")
             return
         }

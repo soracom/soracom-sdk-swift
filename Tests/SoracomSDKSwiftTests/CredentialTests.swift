@@ -71,7 +71,7 @@ class CredentialTests: BaseTestCase {
             
             
             guard let incoming = roundTripSerializeDeserialize(outgoing),
-                  let list = Credential.listFrom(incoming.toPayload())
+                  let list = Credential.listFrom_v2(incoming.toPayload())
             else {
                 XCTFail()
                 return

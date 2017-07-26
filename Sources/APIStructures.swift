@@ -2,18 +2,6 @@
 
 import Foundation
 
-
-
-
-public struct Tag: PayloadConvertible, Codable {
-    
-    var tagName: String
-    var tagValue: String
-}
-
-public typealias TagList = [Tag]
-
-
 public struct ConfigurationParameter: PayloadConvertible, Codable {
     
     public var key: String

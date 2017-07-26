@@ -251,7 +251,7 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
 
         for (oldKey, oldValue) in rootDictionary {
             
-            let newKey   = oldKey.stringValue
+            let newKey   = oldKey.rawValue
             let newValue = coerceValueToBasicType(oldValue)
             
             if newValue != nil {

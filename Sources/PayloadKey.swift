@@ -204,27 +204,4 @@ public enum PayloadKey: String, Codable {
     case vpgId
     case yearMonth
     case zipCode
-
-
-    /// Convert the API key to the string representation used in the JSON-encoded request to the API server. **Usually** this is just the `rawValue` of the enum case, but some API keys have special characters that cannot be part of Swift enum case names, so those special cases are handled here.
-
-    var stringValue: String {
-        
-        // FIXME: delete this! We can just assign raw values
-        // in the enum's case definitions where needed.
-        
-        switch self {
-        case .s1_fast:
-            return "s1.fast"
-        case .s1_slow:
-            return "s1.slow"
-        case .s1_minimum:
-            return "s1.minimum"
-        case .s1_standard:
-            return "s1.standard"
-        default:
-            return self.rawValue
-        }
-    }
-
 }

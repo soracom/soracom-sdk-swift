@@ -40,63 +40,21 @@ extension Credential {
 // Credential" type).
 
 
-
 /// This structure contains the values used to create or update a Credentials object.
 
-public struct CredentialOptions: PayloadConvertible {
-    
-    static func from(_ payload: Payload?) -> CredentialOptions? {
-        fatalError("Mason 2017-07-14 TEMPORARY FIX FOR BUILD (reorganizing protocols) FIXME")
-    }
-    
+public struct CredentialOptions: PayloadConvertible, Codable {
     
     var type: String
     var description: String
-    var credentials: Credentials = Credentials()
-    
-    func toPayload() -> Payload {
-        
-        let result: Payload = [
-            .type        : type,
-            .description : description,
-            .credentials : credentials.toPayload()
-        ]
-        return result
-    }
+    var credentials: Credentials = Credentials()    
 }
 
 /// This structure contains the raw credential values pertaining to a foreign service like AWS.
 
 public struct Credentials: PayloadConvertible, Codable {
     
-    var accessKeyId: String     = ""
-    var secretAccessKey: String? = nil
-    
-    func toPayload() -> Payload {
-        
-        let result: Payload = [
-            .accessKeyId     : accessKeyId,
-            ]
-        
-        if let k = secretAccessKey {
-            result[.secretAccessKey] = k
-        }
-        
-        return result
-    }
-    
-    public static func from(_ payload: Payload?) -> Credentials? {
-        
-        guard let payload = payload else {
-            return nil
-        }
-        
-        var result             = Credentials()
-        result.accessKeyId     = payload[.accessKeyId]     as? String ?? ""
-        result.secretAccessKey = payload[.secretAccessKey] as? String
-        
-        return result
-    }
+    var accessKeyId: String      = ""
+    var secretAccessKey: String? = nil    
 }
 
 

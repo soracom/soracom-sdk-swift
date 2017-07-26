@@ -290,9 +290,9 @@
 				OBJ_60 /* Request+SubscriberTests.swift */,
 				OBJ_61 /* RequestTests.swift */,
 				OBJ_62 /* ResponseTests.swift */,
+				93AF42831F1DCEF200A3BEE3 /* SerializationTests.swift */,
 				OBJ_63 /* SoracomCredentialsTests.swift */,
 				OBJ_64 /* SubscriberTests.swift */,
-				93AF42831F1DCEF200A3BEE3 /* SerializationTests.swift */,
 			);
 			path = SoracomSDKSwiftTests;
 			sourceTree = "<group>";

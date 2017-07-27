@@ -207,25 +207,12 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
         else if let newValue = oldValue as? [Any] {
             return newValue
         }
-        else if let newValue = oldValue as? NSNumber {
-            // FIXME: get rid of this, it's pre-Linux legacy junk
-            return newValue
-        }
-        else if let newValue = oldValue as? NSDictionary {
-            // FIXME: get rid of this, it's pre-Linux legacy junk
-            return newValue
-        }
-        else if let newValue = oldValue as? NSArray {
-            // FIXME: get rid of this, it's pre-Linux legacy junk
-            return  newValue
-        }
         else if oldValue is NSNull {
             return oldValue
         }
         else {
             print("oldValue is \(oldValue) and type \(String(describing: type(of: oldValue)))")
-            fatalError("work in progress bro (FIXME) \(oldValue)")
-            // return oldValue
+            fatalError("Encode error: cannot encode: \(oldValue)")
         }
     }
     

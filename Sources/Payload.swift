@@ -2,8 +2,9 @@
 
 import Foundation
 
+
 /**
- The `Payload` class represents the data payload contained by a Request or a Response. It has two purposes:
+ The `Payload` class represents the data payload (HTTP message body) contained by a Request or a Response. It has two purposes:
  
  - to hold a collection of values that will be sent to the API server with a request, or
  
@@ -11,11 +12,49 @@ import Foundation
  
  In most cases, client code won't need to construct payloads directly. For outgoing requests, the various convenience methods defined by `Request` create the payload under normal circumtances. And when a received from the API server, a payload is created automatically, and is available to you via the `Response` instance.
  
- Due to the original limitations of JSON in cross-platform Swift `Payload` had to be able to do conversion between native Swift objects and the various objects defined by this SDK, and basic JSON-friendly representations of those objects.
+ Due to the original limitations of JSON in cross-platform Swift, `Payload` had to be able to do conversion between native Swift objects and the various objects defined by this SDK, and basic JSON-friendly representations of those objects.
  
  Now that Swift 4 is here, though, there's a much better JSON story. So Payload's role will likely be reduced. As of right now, though, it's still the intermediate data representation between API JSON data structures, and native objects in this SDK. 
 */
 public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, Equatable {
+
+    /*
+     Thoughts on Payload
+     2017-07-27
+     
+     I want to spend a couple minutes thinking out loud about Payload's reduced role in a Swift 4 / Codable world. 
+
+     Payload is created, in the real world, in the following ways:
+
+     1. Requests create them literally: 
+     
+         req.payload = [.foo: "bar"]
+     
+     This is useful; it's as easy (actually, easier) as just writing JSON directly, and it has the slight advantage that keys are checked. We don't want to have to pedantically create a Swift structure for every single possible bit of JSON that the API sends/receives. So Payload gives us this convenient representation of raw JSON, in that sense. (As of 2017-07-27 we do the former, but I think we should switch to the latter.)
+     
+     2. Requests create them from model object structures, like Credential:
+     
+         req.payload = Payload(configurationParameterList: parameters)
+         // parameters is type [ConfigurationParameter]
+     
+     All model object structures conform to PayloadCovertible, and it seems like the new Codable JSON stuff in Swift 4 can satisfy all of our needs for encoding those.
+
+     3. Responses create them from JSON data received from API server:
+     
+         result = try Payload(data: data)
+     
+     We have to decode whatever we get, and then inspect it and see if we can pull out the kinds of values we want, or an error, etc. This implies using JSONSerialization to decode the structure, which is always a JSON object (dictionary) or an array. 
+     
+     Unlike with encode, where JSONSerialization has lots of sharp corners and situations where it can't encode values (especially on Linux), I think it can *decode* any JSON response the API gives us, on macOS, Linux, and iOS. (I'll write some tests to prove that today, using some real API responses.)
+     
+     So the upshot of this thinking is: we still need Payload to standardize the interface for encoding/decoding objects, and to orchestrate our JSON serialization in the 3 scenarios above. But we don't need it to do as much, now that Swift 4 is (almost) here. 
+     
+     Specifically, I think we don't need:
+     
+     - dictionary/array intermediate representations; to/from JSON should be enough
+     
+     */
+    
     
     public static func from(_ payload: Payload?) -> Payload? {
         // FIXME: this is just a hack for conformance to PayloadConvertible. FIXME: It really should be making a copy.
@@ -44,7 +83,9 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
         let obj = try JSONSerialization.jsonObject(with: data, options: [])
           // Because this is a big unknown blob of JSON, we don't know what we
           // are getting. JSONSerialization does seem to work well for this use
-          // case. Soracom API requests/responses are all either objects or arrays. 
+          // case. Soracom API requests/responses are all either objects or arrays.
+        
+        sourceData = data
         
         if let dict = obj as? [String:Any] {
             
@@ -86,6 +127,8 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     convenience init(tagList: TagList) {
         
+        // FIXME delete this in favor of more generic init with [PayloadConvertible] 
+        
         var a: [Any] = []
         for t in tagList {
             a.append(t)
@@ -95,6 +138,8 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     
     convenience init(configurationParameterList: ConfigurationParameterList) {
+
+        // FIXME delete this in favor of more generic init with [PayloadConvertible] 
 
         self.init(list: [])
         
@@ -172,10 +217,13 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     func coerceValueToBasicType(_ oldValue: Any) -> Any? {
         
-        if let newValue = oldValue as? Subscriber {
-            return newValue.toPayload().toDictionary()
+        if let codableValue = oldValue as? Codable {
+            print("YESSSSSSS: \(codableValue)")
+        } else {
+            print("NOOOOOOO: \(oldValue)")
         }
-        else if let newValue = oldValue as? PayloadConvertible {
+        
+        if let newValue = oldValue as? PayloadConvertible {
             // A match here means that the object is one of our custom objects, e.g. an AirStats struct, that
             // knows how to serialize itself in Payload form. So we let it do that, and then recursively
             // convert the nested Payload to a dictionary:
@@ -353,6 +401,11 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     
     // MARK: - Private:
+    
+    
+    /// A Payload initialized from foreign data keeps a reference to that data.
+    
+    private var sourceData: Data? = nil
     
     /// The root object type is determined based on the data used to init the payload.
     

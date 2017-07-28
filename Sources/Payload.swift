@@ -1,6 +1,42 @@
+// ペイロード.swift Created by mason on 2017-07-27. 
+
+import Foundation
+
+// ペイロード is a temporary name, this will eventually be Payload and the existing Payload will be gone.
+protocol ペイロード {
+    //    init?(data: Data?) throws
+    subscript(key: PayloadKey) -> Any? {get}
+    func toJSONData() -> Data? // FIXME later: should throw
+    func toJSON() -> String?
+    var sourceData: Data? {get set}
+    
+} 
+
+extension ペイロード {
+    
+}
+
+
+protocol Mutableペイロード: ペイロード {
+    //    init(dictionaryLiteral elements: (PayloadKey, Any)...)
+    //    init(array: [Any])
+    subscript(key: PayloadKey) -> Any? {get set}
+}
+
+
+
+
+// REWRITE OF PAYLOAD IN PROGRESS
+// The above protocols will be the new payload. Concrete classes ResponsePayload and RequestPayload
+// are the new implementation.
+//
+// The old implementation below will be mostly going away.
+
 // Payload.swift Created by mason on 2016-03-26. Copyright © 2016 Soracom, Inc. All rights reserved.
 
 import Foundation
+
+
 
 
 /**
@@ -217,11 +253,11 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     
     func coerceValueToBasicType(_ oldValue: Any) -> Any? {
         
-        if let codableValue = oldValue as? Codable {
-            print("YESSSSSSS: \(codableValue)")
-        } else {
-            print("NOOOOOOO: \(oldValue)")
-        }
+//        if let codableValue = oldValue as? Codable {
+//            print("YESSSSSSS: \(codableValue)")
+//        } else {
+//            print("NOOOOOOO: \(oldValue)")
+//        }
         
         if let newValue = oldValue as? PayloadConvertible {
             // A match here means that the object is one of our custom objects, e.g. an AirStats struct, that
@@ -403,7 +439,7 @@ public final class Payload: ExpressibleByDictionaryLiteral, PayloadConvertible, 
     // MARK: - Private:
     
     
-    /// A Payload initialized from foreign data keeps a reference to that data.
+    /// A Payload initialized from data keeps a reference to that data.
     
     private var sourceData: Data? = nil
     
@@ -492,8 +528,9 @@ enum PayloadDecodeError: Error {
     case expectedDataNotPresent
 }
 
-
 enum PayloadEncodeError: Error {
+    case invalidKey
+    case invalidValueType(type: Any)
     case jsonConversionFailed
 }
 

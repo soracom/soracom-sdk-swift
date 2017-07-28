@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		931421371F2AD5F8002E5BBE /* KeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931421361F2AD5F8002E5BBE /* KeyedEncodingContainer+Payload.swift */; };
+		931421381F2AD5F8002E5BBE /* KeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931421361F2AD5F8002E5BBE /* KeyedEncodingContainer+Payload.swift */; };
 		93683B7D1F1723D000775159 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* APIError.swift */; };
 		93683B7E1F1723D000775159 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* APIOperation.swift */; };
 		93683B801F1723D000775159 /* BeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BeamStats.swift */; };
@@ -50,6 +52,11 @@
 		93683B981F1723D000775159 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* TextStyle.swift */; };
 		93683B9A1F18C2AE00775159 /* Codable+SoracomSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93683B991F18C2AE00775159 /* Codable+SoracomSDK.swift */; };
 		93683B9B1F18C2AE00775159 /* Codable+SoracomSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93683B991F18C2AE00775159 /* Codable+SoracomSDK.swift */; };
+		936DEAEF1F2AFF7A004FD2FE /* KeyedEncodingContainer+PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DEAEE1F2AFF7A004FD2FE /* KeyedEncodingContainer+PayloadTests.swift */; };
+		936DEAF11F2B08F2004FD2FE /* ResponsePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DEAF01F2B08F2004FD2FE /* ResponsePayload.swift */; };
+		936DEAF21F2B08F2004FD2FE /* ResponsePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DEAF01F2B08F2004FD2FE /* ResponsePayload.swift */; };
+		936DEAF41F2B091A004FD2FE /* RequestPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DEAF31F2B091A004FD2FE /* RequestPayload.swift */; };
+		936DEAF51F2B091A004FD2FE /* RequestPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DEAF31F2B091A004FD2FE /* RequestPayload.swift */; };
 		93AF42811F1DCCCB00A3BEE3 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF42801F1DCCCB00A3BEE3 /* HTTPMethod.swift */; };
 		93AF42821F1DCCCB00A3BEE3 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF42801F1DCCCB00A3BEE3 /* HTTPMethod.swift */; };
 		93AF42841F1DCEF200A3BEE3 /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF42831F1DCEF200A3BEE3 /* SerializationTests.swift */; };
@@ -146,9 +153,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		931421361F2AD5F8002E5BBE /* KeyedEncodingContainer+Payload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyedEncodingContainer+Payload.swift"; sourceTree = "<group>"; };
 		93683B7B1F1611FD00775159 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		93683B7C1F17237A00775159 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxMain.swift; sourceTree = "<group>"; };
 		93683B991F18C2AE00775159 /* Codable+SoracomSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+SoracomSDK.swift"; sourceTree = "<group>"; };
+		936DEAEE1F2AFF7A004FD2FE /* KeyedEncodingContainer+PayloadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyedEncodingContainer+PayloadTests.swift"; sourceTree = "<group>"; };
+		936DEAF01F2B08F2004FD2FE /* ResponsePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsePayload.swift; sourceTree = "<group>"; };
+		936DEAF31F2B091A004FD2FE /* RequestPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPayload.swift; sourceTree = "<group>"; };
 		93AF42801F1DCCCB00A3BEE3 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		93AF42831F1DCEF200A3BEE3 /* SerializationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationTests.swift; sourceTree = "<group>"; };
 		93AF42851F1DD4F000A3BEE3 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
@@ -293,6 +304,7 @@
 				93AF42831F1DCEF200A3BEE3 /* SerializationTests.swift */,
 				OBJ_63 /* SoracomCredentialsTests.swift */,
 				OBJ_64 /* SubscriberTests.swift */,
+				936DEAEE1F2AFF7A004FD2FE /* KeyedEncodingContainer+PayloadTests.swift */,
 			);
 			path = SoracomSDKSwiftTests;
 			sourceTree = "<group>";
@@ -348,6 +360,7 @@
 				OBJ_17 /* Group.swift */,
 				93AF42801F1DCCCB00A3BEE3 /* HTTPMethod.swift */,
 				OBJ_18 /* Keychain.swift */,
+				931421361F2AD5F8002E5BBE /* KeyedEncodingContainer+Payload.swift */,
 				OBJ_19 /* NSDate+SoracomAPI.swift */,
 				OBJ_20 /* Payload.swift */,
 				OBJ_21 /* PayloadConvertible.swift */,
@@ -359,6 +372,8 @@
 				OBJ_25 /* Request+Group.swift */,
 				OBJ_26 /* Request+Operator.swift */,
 				OBJ_27 /* Request+Payment.swift */,
+				936DEAF31F2B091A004FD2FE /* RequestPayload.swift */,
+				936DEAF01F2B08F2004FD2FE /* ResponsePayload.swift */,
 				OBJ_28 /* Request+Sandbox.swift */,
 				OBJ_29 /* Request+Subscriber.swift */,
 				OBJ_31 /* RequestQueue.swift */,
@@ -459,7 +474,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				931421381F2AD5F8002E5BBE /* KeyedEncodingContainer+Payload.swift in Sources */,
 				93683B9B1F18C2AE00775159 /* Codable+SoracomSDK.swift in Sources */,
+				936DEAF21F2B08F2004FD2FE /* ResponsePayload.swift in Sources */,
 				OBJ_115 /* APIError.swift in Sources */,
 				OBJ_116 /* APIOperation.swift in Sources */,
 				93DC95771F2881E700C6D9F5 /* AirStats.swift in Sources */,
@@ -490,6 +507,7 @@
 				93DC95741F2880FF00C6D9F5 /* DataTrafficStats.swift in Sources */,
 				OBJ_137 /* RequestQueue.swift in Sources */,
 				OBJ_138 /* RequestResponseFormatter.swift in Sources */,
+				936DEAF51F2B091A004FD2FE /* RequestPayload.swift in Sources */,
 				OBJ_139 /* Response.swift in Sources */,
 				OBJ_140 /* SoracomCredentials.swift in Sources */,
 				OBJ_141 /* Subscriber.swift in Sources */,
@@ -534,6 +552,7 @@
 				OBJ_93 /* DevelopmentEnvironmentTests.swift in Sources */,
 				93683B981F1723D000775159 /* TextStyle.swift in Sources */,
 				OBJ_94 /* IssueDebuggingTests.swift in Sources */,
+				936DEAEF1F2AFF7A004FD2FE /* KeyedEncodingContainer+PayloadTests.swift in Sources */,
 				93683B931F1723D000775159 /* RequestQueue.swift in Sources */,
 				93683B841F1723D000775159 /* Data+SoracomSDK.swift in Sources */,
 				OBJ_95 /* KeychainTests.swift in Sources */,
@@ -542,6 +561,7 @@
 				93683B8A1F1723D000775159 /* PayloadKey.swift in Sources */,
 				OBJ_98 /* RegisterSIMTests.swift in Sources */,
 				93683B871F1723D000775159 /* NSDate+SoracomAPI.swift in Sources */,
+				936DEAF41F2B091A004FD2FE /* RequestPayload.swift in Sources */,
 				93683B911F1723D000775159 /* Request+Subscriber.swift in Sources */,
 				93683B851F1723D000775159 /* Group.swift in Sources */,
 				93DC95821F28867700C6D9F5 /* CoverageType.swift in Sources */,
@@ -558,11 +578,13 @@
 				93683B8D1F1723D000775159 /* Request+Group.swift in Sources */,
 				93DC95791F28837C00C6D9F5 /* PaymentMethodInfoWebPay.swift in Sources */,
 				93683B811F1723D000775159 /* Client.swift in Sources */,
+				931421371F2AD5F8002E5BBE /* KeyedEncodingContainer+Payload.swift in Sources */,
 				OBJ_103 /* Request+SubscriberTests.swift in Sources */,
 				93683B951F1723D000775159 /* Response.swift in Sources */,
 				93683B941F1723D000775159 /* RequestResponseFormatter.swift in Sources */,
 				OBJ_104 /* RequestTests.swift in Sources */,
 				OBJ_105 /* ResponseTests.swift in Sources */,
+				936DEAF11F2B08F2004FD2FE /* ResponsePayload.swift in Sources */,
 				OBJ_106 /* SoracomCredentialsTests.swift in Sources */,
 				93683B891F1723D000775159 /* PayloadConvertible.swift in Sources */,
 				93683B971F1723D000775159 /* Subscriber.swift in Sources */,

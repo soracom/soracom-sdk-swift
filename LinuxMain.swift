@@ -15,6 +15,7 @@
         testCase(DevelopmentEnvironmentTests.allTests),
         testCase(IssueDebuggingTests.allTests),
         testCase(KeychainTests.allTests),
+        testCase(KeyedEncodingContainerPayloadTests.allTests),
         testCase(NSDateSoracomAPITests.allTests),
         testCase(PayloadTests.allTests),
         testCase(RegisterSIMTests.allTests),

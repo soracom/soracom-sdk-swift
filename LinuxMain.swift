@@ -25,6 +25,7 @@
         testCase(RequestSandboxTests.allTests),
         testCase(RequestSubscriberTests.allTests),
         testCase(RequestTests.allTests),
+        testCase(ResponsePayloadTests.allTests),
         testCase(ResponseTests.allTests),
         testCase(SerializationTests.allTests),
         testCase(SubscriberTests.allTests),

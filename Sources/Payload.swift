@@ -3,6 +3,11 @@
 import Foundation
 
 // ペイロード is a temporary name, this will eventually be Payload and the existing Payload will be gone.
+
+// LIST OF THINGS TO FIX AFTER REWRITE IS IN PLACE AND WORKING:
+// - instead of SomeModelObject.listFrom(payload), make it SomeModelObject(payload:) 
+//   (the original reason we didn't do that, to preserve automatic memberwise initializers, no longer applies)s
+
 protocol ペイロード {
     //    init?(data: Data?) throws
     subscript(key: PayloadKey) -> Any? {get}

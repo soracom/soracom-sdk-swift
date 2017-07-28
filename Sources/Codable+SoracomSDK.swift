@@ -116,6 +116,18 @@ extension Decodable {
     }
     
     
+    static func listFrom(_ payload: ペイロード?) -> [Self]? {
+                
+        guard let payload = payload else {
+            return nil
+        }
+        guard let jsonData = payload.toJSONData() else {
+            return nil
+        }
+        return listFrom(jsonData)
+    }
+    
+    
     static func listFrom(_ jsonData: Data) -> [Self]? {
         
         let decoder = JSONDecoder()

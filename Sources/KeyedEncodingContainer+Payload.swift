@@ -1,4 +1,6 @@
-// KeyedEncodingContainer+Payload.swift Created by mason on 2017-07-28. 
+// KeyedEncodingContainer+Payload.swift Created by mason on 2017-07-28.
+
+import Foundation
 
 /**
  An extension to KeyedEncodingContainer specific to Payload, which implements:
@@ -8,6 +10,7 @@
  - throwing when asked to encode types that Payload doesn't support
  - checking that all keys used in JSON output are valid (as defined by PayloadKey)
  
+ FIXME: I think we may need to change that last bullet point; instead we should probably use a PayloadCoadingKeys that can dynamically create a string key based on JSON data. Because although all tests currently pass with this design, I think eventually this code will also be used to encode user-defined data, also, in which case dynamic coding keys will be necessary. (Will need to be fixed in UnkeyedEncodingContainer extension as well.)
 */
 extension KeyedEncodingContainer {
     
@@ -24,13 +27,56 @@ extension KeyedEncodingContainer {
             
             try encode(value, forKey: key)
             
+        } else if let value = value as? Int64 {
+            
+            try encode(value, forKey: key)
+            
         } else if let value = value as? Bool {
+            
+            try encode(value, forKey: key)
+            
+        } else if let _ = value as? NSNull {
+            
+            try encodeNil(forKey: key)
+            
+        } else if let value = value as? [String:String] {
             
             try encode(value, forKey: key)
             
         } else if let value = value as? [String:Any] {
             
             try encode(value, forKey: key)
+            
+        } else if let value = value as? PayloadConvertible {
+
+            if let dictValue = value.toPayload().toDictionary() {
+                
+                try encode(dictValue, forKey: key)
+
+            } else if let arrayValue = value.toPayload().toArray() {
+                
+                try encode(arrayValue, forKey: key)
+
+            } else {
+                let bogusType = type(of: value)
+                print("payloadEncode() is failing on unencodable PayloadConvertible: \(String(describing: value)) >> \(String(describing: bogusType))")
+                throw PayloadEncodeError.invalidValueType(type: bogusType)
+            }
+            
+        } else if let value = value as? Payload {
+            
+            if let dictValue = value.toDictionary() {
+                
+                try encode(dictValue, forKey: key)
+                
+            } else if let arrayValue = value.toArray() {
+                
+                try encode(arrayValue, forKey: key)
+                
+            } else {
+                print("payloadEncode() is failing on unencodable Payload: \(String(describing: value)))")
+                throw PayloadEncodeError.jsonConversionFailed
+            }
             
         } else if let value = value as? [PayloadKey:Any] {
             
@@ -43,6 +89,7 @@ extension KeyedEncodingContainer {
         } else {
             
             let bogusType = type(of: value)
+            print("payloadEncode() is failing on: \(String(describing: value)) >> \(String(describing: bogusType))")
             throw PayloadEncodeError.invalidValueType(type: bogusType)
         }
     }
@@ -79,54 +126,4 @@ extension KeyedEncodingContainer {
             try child.payloadEncode(v)
         }
     }
-}
-
-extension UnkeyedEncodingContainer {
-    
-    /**
-     This method is an entry point to the Payload's custom encoding, which validates both keys and value types, and does recursive encoding of nested structures.
-     */
-    mutating func payloadEncode(_ value: Any) throws {
-        
-        if let value = value as? String {
-            
-            try encode(value)
-            
-        } else if let value = value as? Int {
-            
-            try encode(value)
-            
-        } else if let value = value as? Bool {
-            
-            try encode(value)
-            
-        } else if let value = value as? [String:Any] {
-            
-            try encode(value)
-            
-        } else if let value = value as? [PayloadKey:Any] {
-            
-            try encode(value)
-            
-        } else if let value = value as? [Any] {
-            
-            try encode(value)
-            
-        } else {
-            
-            let bogusType = type(of: value)
-            throw PayloadEncodeError.invalidValueType(type: bogusType)
-        }
-    }
-
-    
-    mutating func encode(_ value: [Any]) throws {
-        
-        var child = nestedUnkeyedContainer()
-        
-        for (v) in value {
-            try child.payloadEncode(v)
-        }
-    }
-
 }

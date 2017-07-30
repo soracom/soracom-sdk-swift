@@ -7,7 +7,7 @@
 ///
 ///     let foo = [.amount: 1000, .description: "whatever"]
 
-public enum PayloadKey: String, Codable {
+public enum PayloadKey: String, Codable, CodingKey {
 
     case accessKey
     case accessKeyId
@@ -21,6 +21,7 @@ public enum PayloadKey: String, Codable {
     case authKeyId
     case authKeyList
     case balance
+    case beamStats
     case beamStatsMap
     case billItemName
     case billList

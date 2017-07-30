@@ -243,67 +243,7 @@ class BaseTestCase: XCTestCase {
             XCTFail("WTF error for equivBro values: \(String(describing: lhs)) and \(String(describing: rhs))")
             return false;
         }        
-        if let _ = lhs as? NSNull, let _ = rhs as? NSNull {
-        
-            return true
-            // Hmm (T_T) this is a pretty weird one! Took some debuggery to figure out...
-            // Depending on the whitespace in the file and the phase of the moon, when parsing 
-            // something like "{foo: null}", JSONSerialization would return different things for 
-            // the "null" value. The above check is the only way I was able to reliable compare them.
-            //
-            //    (lldb) po lv
-            //    <null>
-            //    (lldb) po rv
-            //        ▿ Optional<Any>
-            //    (lldb) po type(of: lv)
-            //    NSNull
-            //    (lldb) po type(of: rv)
-            //    Swift.Optional<Any>
-                        
-        } else if let ld = lhs as? [String:Any], let rd = rhs as? [String:Any] {
-            
-            for (k,lv) in ld {
-                let rv = rd[k]
-                if !isEquivalentJSONValue(lv, rv) {
-                    return false
-                }
-            }
-            for (k,rv) in rd {
-                let lv = ld[k]
-                if !isEquivalentJSONValue(rv, lv) {
-                    return false
-                }
-            }
-            return true
-            
-        } else if let la = lhs as? [Any], let ra = rhs as? [Any] {
-            
-            if la.count != ra.count {
-                return false
-            }
-            for (le, re) in zip(la, ra) {
-                if !isEquivalentJSONValue(le, re) {
-                    return false
-                }
-            }
-            return true
-            
-        } else if let ls = lhs as? String, let rs = rhs as? String {
-            
-            return ls == rs
-            
-        } else if let li = lhs as? Int, let ri = rhs as? Int {
-            
-            return li == ri
-            
-        } else if let lb = lhs as? Bool, let rb = rhs as? Bool {
-            
-            return lb == rb
-            
-        } else {
-            
-            return false;
-        }
+        return JSONComparison.areEquivalentJSONValues(lhs, rhs)
     }
 
     

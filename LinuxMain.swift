@@ -14,6 +14,7 @@
         testCase(CredentialTests.allTests),
         testCase(DevelopmentEnvironmentTests.allTests),
         testCase(IssueDebuggingTests.allTests),
+        testCase(JSONComparisonTests.allTests),
         testCase(KeychainTests.allTests),
         testCase(KeyedEncodingContainerPayloadTests.allTests),
         testCase(NSDateSoracomAPITests.allTests),

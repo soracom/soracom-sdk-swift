@@ -23,6 +23,8 @@
 /* Begin PBXBuildFile section */
 		931421371F2AD5F8002E5BBE /* KeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931421361F2AD5F8002E5BBE /* KeyedEncodingContainer+Payload.swift */; };
 		931421381F2AD5F8002E5BBE /* KeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931421361F2AD5F8002E5BBE /* KeyedEncodingContainer+Payload.swift */; };
+		932F74931F2C2F9B0031E770 /* JSONComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932F74921F2C2F9B0031E770 /* JSONComparison.swift */; };
+		932F74941F2C2F9B0031E770 /* JSONComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932F74921F2C2F9B0031E770 /* JSONComparison.swift */; };
 		93683B7D1F1723D000775159 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* APIError.swift */; };
 		93683B7E1F1723D000775159 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* APIOperation.swift */; };
 		93683B801F1723D000775159 /* BeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BeamStats.swift */; };
@@ -59,6 +61,8 @@
 		936DEAF51F2B091A004FD2FE /* RequestPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DEAF31F2B091A004FD2FE /* RequestPayload.swift */; };
 		936DEAF71F2B101E004FD2FE /* ResponsePayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DEAF61F2B101E004FD2FE /* ResponsePayloadTests.swift */; };
 		936DEAFA1F2B12A4004FD2FE /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DEAF91F2B12A4004FD2FE /* Fixtures.swift */; };
+		93770A771F2DA06500CBC9E3 /* JSONComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93770A761F2DA06500CBC9E3 /* JSONComparisonTests.swift */; };
+		93770A781F2DA06500CBC9E3 /* JSONComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93770A761F2DA06500CBC9E3 /* JSONComparisonTests.swift */; };
 		93AF42811F1DCCCB00A3BEE3 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF42801F1DCCCB00A3BEE3 /* HTTPMethod.swift */; };
 		93AF42821F1DCCCB00A3BEE3 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF42801F1DCCCB00A3BEE3 /* HTTPMethod.swift */; };
 		93AF42841F1DCEF200A3BEE3 /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF42831F1DCEF200A3BEE3 /* SerializationTests.swift */; };
@@ -156,6 +160,7 @@
 
 /* Begin PBXFileReference section */
 		931421361F2AD5F8002E5BBE /* KeyedEncodingContainer+Payload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyedEncodingContainer+Payload.swift"; sourceTree = "<group>"; };
+		932F74921F2C2F9B0031E770 /* JSONComparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONComparison.swift; sourceTree = "<group>"; };
 		93683B7B1F1611FD00775159 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		93683B7C1F17237A00775159 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxMain.swift; sourceTree = "<group>"; };
 		93683B991F18C2AE00775159 /* Codable+SoracomSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+SoracomSDK.swift"; sourceTree = "<group>"; };
@@ -164,6 +169,7 @@
 		936DEAF31F2B091A004FD2FE /* RequestPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPayload.swift; sourceTree = "<group>"; };
 		936DEAF61F2B101E004FD2FE /* ResponsePayloadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsePayloadTests.swift; sourceTree = "<group>"; };
 		936DEAF91F2B12A4004FD2FE /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
+		93770A761F2DA06500CBC9E3 /* JSONComparisonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONComparisonTests.swift; sourceTree = "<group>"; };
 		93AF42801F1DCCCB00A3BEE3 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		93AF42831F1DCEF200A3BEE3 /* SerializationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationTests.swift; sourceTree = "<group>"; };
 		93AF42851F1DD4F000A3BEE3 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
@@ -311,6 +317,7 @@
 				93AF42831F1DCEF200A3BEE3 /* SerializationTests.swift */,
 				OBJ_63 /* SoracomCredentialsTests.swift */,
 				OBJ_64 /* SubscriberTests.swift */,
+				93770A761F2DA06500CBC9E3 /* JSONComparisonTests.swift */,
 			);
 			path = SoracomSDKSwiftTests;
 			sourceTree = "<group>";
@@ -389,6 +396,7 @@
 				OBJ_35 /* Subscriber.swift */,
 				93DC957B1F28857600C6D9F5 /* Tag.swift */,
 				OBJ_36 /* TextStyle.swift */,
+				932F74921F2C2F9B0031E770 /* JSONComparison.swift */,
 			);
 			name = SoracomSDKSwift;
 			path = Sources;
@@ -483,6 +491,7 @@
 				931421381F2AD5F8002E5BBE /* KeyedEncodingContainer+Payload.swift in Sources */,
 				93683B9B1F18C2AE00775159 /* Codable+SoracomSDK.swift in Sources */,
 				936DEAF21F2B08F2004FD2FE /* ResponsePayload.swift in Sources */,
+				93770A781F2DA06500CBC9E3 /* JSONComparisonTests.swift in Sources */,
 				OBJ_115 /* APIError.swift in Sources */,
 				OBJ_116 /* APIOperation.swift in Sources */,
 				93DC95771F2881E700C6D9F5 /* AirStats.swift in Sources */,
@@ -508,6 +517,7 @@
 				OBJ_132 /* Request+Operator.swift in Sources */,
 				OBJ_133 /* Request+Payment.swift in Sources */,
 				OBJ_134 /* Request+Sandbox.swift in Sources */,
+				932F74941F2C2F9B0031E770 /* JSONComparison.swift in Sources */,
 				OBJ_135 /* Request+Subscriber.swift in Sources */,
 				OBJ_136 /* Request.swift in Sources */,
 				93DC95741F2880FF00C6D9F5 /* DataTrafficStats.swift in Sources */,
@@ -568,7 +578,9 @@
 				93683B8A1F1723D000775159 /* PayloadKey.swift in Sources */,
 				OBJ_98 /* RegisterSIMTests.swift in Sources */,
 				93683B871F1723D000775159 /* NSDate+SoracomAPI.swift in Sources */,
+				932F74931F2C2F9B0031E770 /* JSONComparison.swift in Sources */,
 				936DEAF71F2B101E004FD2FE /* ResponsePayloadTests.swift in Sources */,
+				93770A771F2DA06500CBC9E3 /* JSONComparisonTests.swift in Sources */,
 				936DEAF41F2B091A004FD2FE /* RequestPayload.swift in Sources */,
 				93683B911F1723D000775159 /* Request+Subscriber.swift in Sources */,
 				93683B851F1723D000775159 /* Group.swift in Sources */,

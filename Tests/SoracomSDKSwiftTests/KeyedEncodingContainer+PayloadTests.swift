@@ -11,7 +11,7 @@ class KeyedEncodingContainerPayloadTests: BaseTestCase {
     
     func test_encode_arrays() {
         
-        let p: RequestPayload = [
+        let p: Payload = [
             .apn  : [1,2,3],
             .body : ["uno", "dos", "tres"],
             .code : [false, true, 1, 2, "F", "U"],
@@ -29,7 +29,7 @@ class KeyedEncodingContainerPayloadTests: BaseTestCase {
             let d = try e.encode(p)
             print(d.utf8String ?? "💩")
             
-            guard let decoded = try ResponsePayload(data: d) else {
+            guard let decoded = try Payload(data: d) else {
                 XCTFail("decode failed")
                 return
             }
@@ -81,7 +81,7 @@ class KeyedEncodingContainerPayloadTests: BaseTestCase {
     
     func test_throws_when_asked_to_encode_bogus_type() {
         
-        let p: RequestPayload = [.apiKey: self]
+        let p: Payload = [.apiKey: self]
         let e = JSONEncoder()
         
         do {
@@ -104,7 +104,7 @@ class KeyedEncodingContainerPayloadTests: BaseTestCase {
     
     
     func test_encode_dictionary_simple() {
-        let p: RequestPayload = [
+        let p: Payload = [
             .apiKey : "foo",
             .operatorId: [
                 "userName" : "yep",

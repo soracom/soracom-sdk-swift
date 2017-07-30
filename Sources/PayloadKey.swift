@@ -21,6 +21,7 @@ public enum PayloadKey: String, Codable, CodingKey {
     case authKeyId
     case authKeyList
     case balance
+    case beamStats
     case beamStatsMap
     case billItemName
     case billList

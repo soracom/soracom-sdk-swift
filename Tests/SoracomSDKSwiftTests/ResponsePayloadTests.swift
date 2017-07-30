@@ -14,7 +14,7 @@ class ResponsePayloadTests: BaseTestCase {
         let data = Fixtures.Data.subscribers
         
         do {
-            let payload = try ResponsePayload(data: data)
+            let payload = try Payload(data: data)
             
             guard let list: SubscriberList = Subscriber.listFrom(payload) else {
                 XCTFail("could not decode subscriber list")

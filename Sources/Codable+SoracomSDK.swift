@@ -103,21 +103,6 @@ extension Decodable {
     
     static func listFrom(_ payload: Payload?) -> [Self]? {
         
-        // MASON 2017-07-14: THIS WILL REPLACE listFrom(), once we prove it works and update all other objects.
-        // They can't co-exist, though, so it will be messy until that is done.
-        
-        guard let payload = payload else {
-            return nil
-        }
-        guard let jsonData = payload.toJSONData() else {
-            return nil
-        }
-        return listFrom(jsonData)
-    }
-    
-    
-    static func listFrom(_ payload: ペイロード?) -> [Self]? {
-                
         guard let payload = payload else {
             return nil
         }

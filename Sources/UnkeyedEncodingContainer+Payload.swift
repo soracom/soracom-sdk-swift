@@ -1,5 +1,7 @@
 // UnkeyedEncodingContainer+Payload.swift Created by mason on 2017-07-30.
 
+import Foundation
+
 /**
  An extension to KeyedEncodingContainer specific to Payload, which implements:
  

@@ -20,7 +20,7 @@ extension Request {
         
         let req    = self.init("/subscribers", responseHandler: responseHandler)
         req.query  = query
-        req.method = .GET
+        req.method = .get
         return req
     }
     
@@ -48,7 +48,7 @@ extension Request {
     public class func getSubscriber(_ imsi: String,responseHandler: ResponseHandler? = nil) -> Request {
 
         let req = self.init("/subscribers/\(imsi)", responseHandler: responseHandler)
-        req.method = .GET
+        req.method = .get
         return req
     }
     
@@ -69,7 +69,7 @@ extension Request {
         
         let req = self.init("/subscribers/\(imsi)/set_imei_lock", responseHandler: responseHandler)
         
-        req.method = .POST
+        req.method = .post
         
         if let imei = imei {
             req.payload = [.imei: imei]
@@ -82,7 +82,7 @@ extension Request {
         
         let req = self.init("/subscribers/\(imsi)/unset_imei_lock", responseHandler: responseHandler)
         
-        req.method = .POST
+        req.method = .post
         req.expectedHTTPStatus = 200
         return req
     }

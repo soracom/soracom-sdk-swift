@@ -2,6 +2,9 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
 
 class RegisterSIMTests: BaseTestCase {
 
@@ -187,3 +190,15 @@ class RegisterSIMTests: BaseTestCase {
         waitForAsyncSection()
     }
 }
+
+
+#if os(Linux)
+    extension RegisterSIMTests {
+        static var allTests : [(String, (RegisterSIMTests) -> () throws -> Void)] {
+            return [
+                ("testSimulatedSIMRegistrationCompleteProcess", testSimulatedSIMRegistrationCompleteProcess),
+            ]
+        }
+    }
+#endif 
+

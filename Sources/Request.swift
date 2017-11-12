@@ -1,7 +1,7 @@
 // Request.swift Created by mason on 2016-03-11. Copyright © 2016 Soracom, Inc. All rights reserved.
 
 import Foundation
-
+import Dispatch
 
 /// The Request class defines and executes a single request to the Soracom API server. Typically, the API request is normally constructed via one of the convenience constructor methods, which takes an appropriate set of zero or more arguments. 
 ///
@@ -111,7 +111,7 @@ open class Request {
     
     /// The HTTP method used to make the request. 
     
-    var method = HTTPMethod.POST
+    var method = HTTPMethod.post
     
     
     /// Controls whether the key and token are sent in HTTP headers. (It is not normally necessary to explicitly set this property.)
@@ -146,7 +146,7 @@ open class Request {
     
     /// This property provides access to the request's underlying NSURLRequest object, which is created when `run()` is invoked. It is normally `nil` until then.
     
-    var URLRequest: NSMutableURLRequest?
+    var URLRequest: URLRequest?
     
 
     /// The HTTP status expected to be returned by the underlying HTTP request on success. (FIXME: this should be array; some request types have multiple possible success values.)
@@ -192,7 +192,7 @@ open class Request {
         urlComponents.host   = endpointHost
         
         var fullPath = ""
-        if apiVersionString.characters.count > 0 {
+        if apiVersionString.count > 0 {
             fullPath += "/" + apiVersionString
         }
         fullPath += path
@@ -273,7 +273,7 @@ open class Request {
     ///
     /// (You can opt out of handling the response on the main thread by setting the receiver's `handleResponseInMainThread` property to false.)
     
-    func run(_ responseHandler: ResponseHandler? = nil) {
+    public func run(_ responseHandler: ResponseHandler? = nil) {
         
         let urlRequest  = buildURLRequest()
         self.URLRequest = urlRequest
@@ -283,14 +283,23 @@ open class Request {
         for (handler) in type(of: self).willRunHandlers {
             handler(self)
         }
-
-        let session = URLSession.shared
+        
+        #if os(Linux)
+            let sessionConfig = URLSessionConfiguration()
+            let session = URLSession(configuration: sessionConfig)
+        #else
+            let session = URLSession.shared // ← NSUnimplemented() on Linux aotw 2017-07-12
+        #endif
         let task = session.dataTask(with: (urlRequest as URLRequest)) { data, httpResponse, error -> Void in
             
             let httpResponse = httpResponse as? HTTPURLResponse
             
-            let response = Response(request: self, underlyingURLResponse: httpResponse, data: data, underlyingError: error as NSError?)
-        
+            #if !os(Linux)
+                let response = Response(request: self, underlyingURLResponse: httpResponse, data: data, underlyingError: error as NSError?)
+            #else
+                let response = Response(request: self, underlyingURLResponse: httpResponse, data: data, underlyingError: nil)
+            #endif
+
             for (handler) in type(of: self).didRunHandlers {
                 handler(response)
             }
@@ -312,7 +321,7 @@ open class Request {
     
     /// Run request synchronously, blocking the calling thread until the Response is available. This isn't the most performant way to make a request, and it is [discouraged for various good reasons](https://forums.developer.apple.com/thread/11519), but in some circumstances it may be appropriate and convenient.
     
-    func wait() -> Response {
+    public func wait() -> Response {
         
         var result: Response? = nil
         let waitSemaphore     = DispatchSemaphore(value: 0);
@@ -356,11 +365,15 @@ open class Request {
     
     /// Builds the receiver's underlying NSURLRequest object, which is used when `run()` is invoked. This just builds it and returns the result; it doesn't modify the receiver's `URLRequest` property.
     
-    func buildURLRequest() -> NSMutableURLRequest {
+    func buildURLRequest() -> URLRequest {
         
         let URL = buildURL()
         
-        let request = NSMutableURLRequest(url: URL)
+        #if os(Linux)
+            var request = Foundation.URLRequest(url: URL)
+        #else
+            let request = NSMutableURLRequest(url: URL)
+        #endif
         
         request.httpMethod = self.method.rawValue
         
@@ -376,7 +389,8 @@ open class Request {
             request.setValue(creds.token, forHTTPHeaderField: "X-Soracom-Token")
         }
         
-        return request
+        return request as URLRequest // as? always succeeds on macOS, but always fails on Linux... ;-/
+        
     }
     
     

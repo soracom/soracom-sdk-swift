@@ -2,24 +2,24 @@
 
 import Foundation
 
-/// Simple object to represent a set of Soracom credentials (either a Soracom root acccount, SAM user, AuthKey id/secret pair, or API Key / API Token pair). The first three types of credentials are used for authentication, while the last type is typically passed in HTTP headers to authorize individual API operations. `SoracomCredentials` can represent any/all of them, however, and can read/write to/from secure persistent storage (e.g., the system keychain on iOS and OSX).
+/// Simple object to represent a set of Soracom credentials (either a Soracom root acccount, SAM user, AuthKey id/secret pair, or API Key / API Token pair). The first three types of credentials are used for authentication, while the last type is typically passed in HTTP headers to authorize individual API operations. `SoracomCredentials` can represent any/all of them, however, and can read/write to/from persistent storage (e.g., the system keychain on iOS and OSX).
 
-public struct SoracomCredentials: Equatable {
+public struct SoracomCredentials: Equatable, Codable {
     
-    var type           = SoracomCredentialType.RootAccount
-    var emailAddress   = ""
-    var operatorID     = ""
-    var username       = ""
-    var password       = ""
-    var authKeyID      = ""
-    var authKeySecret  = ""
-    var apiKey         = ""
-    var token          = ""
+    public var type           = SoracomCredentialType.RootAccount
+    public var emailAddress   = ""
+    public var operatorID     = ""
+    public var username       = ""
+    public var password       = ""
+    public var authKeyID      = ""
+    public var authKeySecret  = ""
+    public var apiKey         = ""
+    public var token          = ""
     
     
     /// The canonical initializer, allows setting any/all properties.
     
-    init(type: SoracomCredentialType = .RootAccount, emailAddress: String = "", operatorID: String = "", username: String = "", password: String = "", authKeyID: String = "", authKeySecret: String = "", apiKey: String = "", token: String = "") {
+    public init(type: SoracomCredentialType = .RootAccount, emailAddress: String = "", operatorID: String = "", username: String = "", password: String = "", authKeyID: String = "", authKeySecret: String = "", apiKey: String = "", token: String = "") {
         self.type          = type
         self.emailAddress  = emailAddress
         self.operatorID    = operatorID
@@ -34,7 +34,7 @@ public struct SoracomCredentials: Equatable {
     
     /// Initialize a new credentials struct from a dictionary, which is (presumably) a dictionary generated with `dictionaryRepresentation()`.
     
-    init(withDictionary dictionary: Dictionary<String, String>) {
+    public init(withDictionary dictionary: Dictionary<String, String>) {
         
         if let typeName = dictionary[kType], let validType = SoracomCredentialType(rawValue: typeName) {
             self.type = validType
@@ -75,25 +75,21 @@ public struct SoracomCredentials: Equatable {
     
     /// Initialize from data in JSON format (e.g., that produced by `toJSON()`).
     
-    init(jsonData: Data) {
+    public init(jsonData: Data) {
         
-        var dict: [String: String]? = nil
-        
-        do {
-            let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
-            if let decoded = decoded as? [String:String] {
-                dict = decoded
-            }
-        } catch {
+        let decoder = JSONDecoder()
+
+        guard let dict = try? decoder.decode([String:String].self, from: jsonData) else {
+
             print("Note: SoracomCredentials init(jsonData:) failed.")
-            // Could happen, e.g. if user edited data in Keychain
-        }
-        
-        if let dict = dict {
-            self.init(withDictionary: dict)
-        } else {
+              // Could happen, e.g. if user edited data in Keychain
+            
             self.init()
+              // This initializer isn't failable, for historical reasons
+            
+            return
         }
+        self.init(withDictionary: dict)
     }
     
     
@@ -101,7 +97,7 @@ public struct SoracomCredentials: Equatable {
     ///
     /// The `namespace` parameter can typically be omitted.
     
-    init(withStorageIdentifier identifier: String?, namespace: UUID? = nil) {
+    public init(withStorageIdentifier identifier: String?, namespace: UUID? = nil) {
         
         let base       = identifier ?? SoracomCredentials.defaultStorageIdentifier
         let identifier = SoracomCredentials.buildNamespacedIdentifier( base, namespace: namespace )
@@ -125,7 +121,7 @@ public struct SoracomCredentials: Equatable {
     ///
     /// The `namespace` parameter can typically be omitted.
         
-    func save(_ identifier: String? = nil, namespace: UUID? = nil) -> Bool {
+    public func save(_ identifier: String? = nil, namespace: UUID? = nil) -> Bool {
                 
         let base       = identifier ?? SoracomCredentials.defaultStorageIdentifier
         let identifier = SoracomCredentials.buildNamespacedIdentifier(base, namespace: namespace)
@@ -184,7 +180,7 @@ public struct SoracomCredentials: Equatable {
     
     /// Returns true if all of the receiver's string properties are the empty string.
     
-    var blank: Bool {
+    public var blank: Bool {
         let other = SoracomCredentials(type: self.type)
         return self == other
     }
@@ -196,33 +192,19 @@ public struct SoracomCredentials: Equatable {
     
     
     /// The default storage namespace is a UUID that uniquely identifies a type of storage within the scope of a client application. An app might use different namespaces because it offers a "test mode" that performs work in the API Sandbox instead of using a real production account. Another reason might be to read/write credentials from/to a separate namespace when running automated tests.
-    ///
-    /// When writing credentials to secure persistent storage, unique storage keys are created like this:
-    ///
-    /// *app-identifier*.*namespace*.*credential-identifier*
-    ///
-    /// Typically, all of these things can be inferred automatically and need not be specified.
-    ///
-    /// In a more complex case, such as an app that interacts with multiple Soracom accounts, the credentials pertaining to each account could be maintained separately by using a unique namespace for each account.
+
+    /// In a more complex case, such as an app that interacts with multiple Soracom accounts, the credentials pertaining to each account could be maintained separately by using a unique namespace for each account.    
 
     static var defaultStorageNamespace: UUID = UUID(uuidString: "00000000-0000-0000-0000-DEFDEFDEFDEF")!
 
     
-    /// The bundle ID is used to make storage keys unique on a per-app basis (because different apps may make use of this SDK).
+    /// Get a fully-qualified storage identifier based on `identifier`. If `namespace` is not supplied, the default storage namespace is used, which suffices for most purposes.
     
-    static var bundleId: String {
-        return Bundle.main.bundleIdentifier ?? "missing-bundle-id"
-    }
-
-    
-    /// Get a fully-qualified storage identifier based on `identifier`. If `namespace` and `appIdentifier` are not supplied, the default storage namespace and app `bundleIdentifier` are used, which suffices for most purposes.
-    
-    static func buildNamespacedIdentifier(_ identifier: String, namespace: UUID? = nil, appIdentifier: String? = nil) ->  String {
+    static func buildNamespacedIdentifier(_ identifier: String, namespace: UUID? = nil) ->  String {
         
-        let appIdentifier   = appIdentifier ?? SoracomCredentials.bundleId
         let namespaceString = (namespace ?? defaultStorageNamespace).uuidString
 
-        return "\(appIdentifier).\(namespaceString).\(identifier)"
+        return "\(namespaceString).\(identifier)"
     }
     
 }
@@ -248,7 +230,7 @@ public func ==(lhs: SoracomCredentials, rhs: SoracomCredentials) -> Bool
 
 /// Defines the different types of authentication (see the [API Documentation](https://dev.soracom.io/jp/docs/api/#!/Auth/auth) for details).
 
-enum SoracomCredentialType: String {
+public enum SoracomCredentialType: String, Codable {
     
     case RootAccount
     case SAM

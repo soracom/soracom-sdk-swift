@@ -1,0 +1,7 @@
+#! /bin/sh
+
+# Temporary workaround for https://bugs.swift.org/browse/SR-3648
+# REPL does not work on Linux
+
+swift -I/swift/usr/lib/swift/clang/include/
+

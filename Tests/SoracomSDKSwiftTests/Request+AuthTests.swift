@@ -2,6 +2,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 class RequestAuthTests: BaseTestCase {
 
     /// Performs `auth` API operation, and verifies that a success response is returned that includes expected values. Requires actual API Sandbox credentials be stored in the Keychain.
@@ -28,7 +32,7 @@ class RequestAuthTests: BaseTestCase {
             
             if let payload = response.payload {
                 
-                let authResponse = AuthResponse(payload)
+                let authResponse = AuthResponse.from(payload)
                 
                 XCTAssertNotNil(authResponse)
                 XCTAssertNotNil(authResponse?.operatorId)
@@ -105,3 +109,17 @@ class RequestAuthTests: BaseTestCase {
     }
     
 }
+
+
+#if os(Linux)
+    extension RequestAuthTests {
+        static var allTests : [(String, (RequestAuthTests) -> () throws -> Void)] {
+            return [
+                ("test_auth_with_root_account", test_auth_with_root_account),
+                ("test_issue_password_reset_token", test_issue_password_reset_token),
+                ("test_example_for_documentation", test_example_for_documentation),
+            ]
+        }
+    }
+#endif 
+

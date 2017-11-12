@@ -1,15 +1,15 @@
-//  KeychainTests.swift Created by mason on 2016-02-21. Copyright © 2016 masonmark.com. All rights reserved.
+//  KeychainTests.swift Created by mason on 2016-02-21. Copyright © 2016 Soracom, Inc.. All rights reserved.
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 open class KeychainTests: XCTestCase {
     
-    static var bundleId: String {
-        return Bundle.main.bundleIdentifier ?? "missing-bundle-id"
-    }
-    
-    let key1 = "\(KeychainTests.bundleId).foo.bar.baz.test.key.for.KeychainTests"
-    let key2 = "\(KeychainTests.bundleId).the.freedom.of.birds.is.an.insult.to.me.KeychainTests"
+    let key1 = "foo.bar.baz.test.key.for.KeychainTests"
+    let key2 = "the.freedom.of.birds.is.an.insult.to.me.KeychainTests"
     
     
     func test_basic() {
@@ -64,4 +64,48 @@ open class KeychainTests: XCTestCase {
         XCTAssert( Keychain.readString(key1) == string2 )
     }
     
+    
+    func test_replace_logger() {
+        var output = ""
+        Keychain.errorLogger = { (_ errCode: OSStatus, _ whenTryingTo: String ) in
+            output += String(errCode) + whenTryingTo
+        }
+        Keychain.errorLogger(1, "foo")
+        Keychain.errorLogger(2, "hoge")
+        XCTAssertEqual(output, "1foo2hoge")
+    }
+    
+    
+    func test_storage_identifier() {
+        
+        let originalValue = Keychain._storageIdentifier;
+        Keychain._storageIdentifier = nil
+        
+        let isBundleId = Keychain.storageIdentifier == Bundle.main.bundleIdentifier
+        let isDefault  = Keychain.storageIdentifier == "missing-storage-identifier"
+        XCTAssert(isBundleId || isDefault)
+        
+        Keychain.storageIdentifier = "hoge"
+        XCTAssert(Keychain.storageIdentifier == "hoge")
+        
+        Keychain._storageIdentifier = originalValue
+    }
+    
 }
+
+#if os(Linux)
+    extension KeychainTests {
+        static var allTests : [(String, (KeychainTests) -> () throws -> Void)] {
+            return [
+                ("test_basic", test_basic),
+                ("test_empty_string_lookup", test_empty_string_lookup),
+                ("test_write_empty_data", test_write_empty_data),
+                ("test_readString_and_writeString", test_readString_and_writeString),
+                ("test_replace_logger", test_replace_logger),
+                ("test_storage_identifier", test_storage_identifier),
+            ]
+        }
+    }
+#endif 
+
+

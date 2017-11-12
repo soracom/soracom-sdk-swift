@@ -1,4 +1,4 @@
-// RequestResponseFormatter.swift Created by mason on 2016-04-26. Copyright © 2016 masonmark.com. All rights reserved.
+// RequestResponseFormatter.swift Created by mason on 2016-04-26. Copyright © 2016 Soracom, Inc.. All rights reserved.
 
 import Foundation
 

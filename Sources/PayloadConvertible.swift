@@ -17,7 +17,7 @@ protocol PayloadConvertible {
     // Mason 2016-07-15: This was my first idea, but in Swift 2/3 there is a limitation of
     // the 'memberwise init' automatic initializer, whereby if you implement *any* custom
     // initializer, you no longer get the automatic memberwise one. This is terrible for our
-    // use case here, because most of the Soraocm API structures are just dumb structs, but
+    // use case here, because most of the Soracom API structures are just dumb structs, but
     // some have a huge number of fields (e.g. Subscriber), which make the memberwise init
     // really convenient.
     //
@@ -28,42 +28,11 @@ protocol PayloadConvertible {
     // addressed soon:
     //
     //  https://lists.swift.org/pipermail/swift-evolution/Week-of-Mon-20160111/006469.html
-    
-}
-
-
-extension PayloadConvertible {
-    
-    /// A default implementation that does nothing and returns nil.
-    ///
-    /// This obviously isn't useful for objects that really do need to deserialize an instance from a payload; it's just here to satisfy the protocol conformance requirement for those objects that don't need to. 
-    
-    static func from(_ payload: Payload?) -> Self? {
-        fatalError("protocol version called bro!") // for now, to help me catch errors
-    }
-
-    
-    /// Returns an array of instances decoded from `payload` (assuming that `payload` actually encodes an array of the right record type). Returns nil if the root object of `payload` is `nil` or not an array.
-    
-    static func listFrom(_ payload: Payload?) -> [Self]? {
-        
-        guard let root = payload?.toArray() else {
-            return nil
-        }
-        
-        var result: [Self] = []
-        
-        for d in (root as NSArray) {
-            if let dict = d as? [String: AnyObject], let subload = Payload.fromDictionary(dict) {
-                if let c = Self.from(subload) {
-                    result.append(c)
-                }
-            }
-        }
-        
-        return result
-    }
-    
-    // FIXME  should have a generic mechanism to deserialize from a dictionary, so it is not necessary to do "subload = Payload.fromDictionary()" at every single call site. (mason 2016-07-14)
-
+    //
+    // UPDATE 2017-07-18: FIXME: Revisit this decision, because Swift 4's awesome new Codable
+    // adds a similar initializer via the Decodable protocol: init(from: Decoder)
+    //
+    // This has the same issues described above, but since we are definitely going to adopt
+    // Codable for most or all model objects, the objection is moot. However, Payload itself
+    // is due for refactoring/deletion, so I'm not worrying about this now.
 }

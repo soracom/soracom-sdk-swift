@@ -2,6 +2,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 class RequestCredentialsTests: BaseTestCase {
     
     override func setUp() {
@@ -69,7 +73,7 @@ class RequestCredentialsTests: BaseTestCase {
     }
     
     
-    func listCredentials() -> CredentialList? {
+    func listCredentials() -> [Credential]? {
         
         let listRequest  = Request.listCredentials()
         let listResponse = listRequest.wait()
@@ -102,3 +106,14 @@ class RequestCredentialsTests: BaseTestCase {
     }
 
 }
+
+#if os(Linux)
+    extension RequestCredentialsTests {
+        static var allTests : [(String, (RequestCredentialsTests) -> () throws -> Void)] {
+            return [
+                ("test_CRUD_credentials", test_CRUD_credentials),
+            ]
+        }
+    }
+#endif
+

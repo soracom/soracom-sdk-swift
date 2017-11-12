@@ -2,6 +2,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 class RequestSubscriberTests: BaseTestCase {
     
     // Mason 2016-06-09: There's not much actual testing here yet... see also RegisterSIMTests.
@@ -29,6 +33,8 @@ class RequestSubscriberTests: BaseTestCase {
         
         r.run { (response) in
             XCTAssertNil(response.error)
+            let list = Subscriber.listFrom(response.payload)
+            XCTAssertNotNil(list)
             self.endAsyncSection()
         }
         
@@ -36,3 +42,14 @@ class RequestSubscriberTests: BaseTestCase {
     }
     
 }
+
+#if os(Linux)
+    extension RequestSubscriberTests {
+        static var allTests : [(String, (RequestSubscriberTests) -> () throws -> Void)] {
+            return [
+                ("test_listSubscribers_URL_generation", test_listSubscribers_URL_generation),
+                ("test_listSubscribers", test_listSubscribers),
+            ]
+        }
+    }
+#endif

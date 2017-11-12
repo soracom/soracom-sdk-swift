@@ -563,7 +563,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="796" height="476"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="796" height="476"/>
+                                    <size key="minSize" width="798" height="476"/>
                                     <size key="maxSize" width="802" height="10000000"/>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <connections>

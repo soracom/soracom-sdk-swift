@@ -7,7 +7,7 @@
 ///
 ///     let foo = [.amount: 1000, .description: "whatever"]
 
-public enum PayloadKey: String {
+public enum PayloadKey: String, Codable, CodingKey {
 
     case accessKey
     case accessKeyId
@@ -21,6 +21,7 @@ public enum PayloadKey: String {
     case authKeyId
     case authKeyList
     case balance
+    case beamStats
     case beamStatsMap
     case billItemName
     case billList
@@ -52,7 +53,9 @@ public enum PayloadKey: String {
     case dns0
     case dns1
     case dnsServers
+    case downloadBytes
     case downloadByteSizeTotal
+    case downloadPackets
     case downloadPacketSizeTotal
     case email
     case endpoint
@@ -147,10 +150,10 @@ public enum PayloadKey: String {
     case roleList
     case rootOperatorId
     case ruleConfig
-    case s1_fast                  // string key is "s1.fast"
-    case s1_minimum               // string key is "s1.minimum"
-    case s1_slow                  // string key is "s1.slow"
-    case s1_standard              // string key is "s1.standard"
+    case s1_fast = "s1.fast"            // string key is "s1.fast"
+    case s1_minimum = "s1.minimum"      // string key is "s1.minimum"
+    case s1_slow = "s1.slow"            // string key is "s1.slow"
+    case s1_standard = "s1.standard"    // string key is "s1.standard"
     case secretAccessKey
     case serialNumber
     case sessionStatus
@@ -189,7 +192,9 @@ public enum PayloadKey: String {
     case unixtime
     case updateDate
     case updateDateTime
+    case uploadBytes
     case uploadByteSizeTotal
+    case uploadPackets
     case uploadPacketSizeTotal
     case url
     case useInternetGateway
@@ -200,23 +205,4 @@ public enum PayloadKey: String {
     case vpgId
     case yearMonth
     case zipCode
-
-
-    /// Convert the API key to the string representation used in the JSON-encoded request to the API server. **Usually** this is just the `rawValue` of the enum case, but some API keys have special characters that cannot be part of Swift enum case names, so those special cases are handled here.
-
-    var stringValue: String {
-        switch self {
-        case .s1_fast:
-            return "s1.fast"
-        case .s1_slow:
-            return "s1.slow"
-        case .s1_minimum:
-            return "s1.minimum"
-        case .s1_standard:
-            return "s1.standard"
-        default:
-            return self.rawValue
-        }
-    }
-
 }

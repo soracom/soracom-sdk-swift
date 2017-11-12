@@ -7,6 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		930181061FB84A23001EE660 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048471FB849CA006E1FD8 /* Fixtures.swift */; };
+		930181071FB84A23001EE660 /* JSONComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048451FB849CA006E1FD8 /* JSONComparisonTests.swift */; };
+		930181081FB84A23001EE660 /* KeyedEncodingContainer+PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048431FB849CA006E1FD8 /* KeyedEncodingContainer+PayloadTests.swift */; };
+		930181091FB84A23001EE660 /* ResponsePayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048441FB849CA006E1FD8 /* ResponsePayloadTests.swift */; };
+		9301810A1FB84A23001EE660 /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048461FB849CA006E1FD8 /* SerializationTests.swift */; };
+		930181171FB84B4D001EE660 /* AirStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482C1FB849BA006E1FD8 /* AirStats.swift */; };
+		930181181FB84B4D001EE660 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D693A1CB9B183002F9D99 /* APIError.swift */; };
+		930181191FB84B4D001EE660 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285301CD09AAF00B17B73 /* APIOperation.swift */; };
+		9301811A1FB84B4D001EE660 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048311FB849BB006E1FD8 /* AuthResponse.swift */; };
+		9301811B1FB84B4D001EE660 /* BeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B411D38D1FB00F57659 /* BeamStats.swift */; };
+		9301811C1FB84B4D001EE660 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A31D124A6C0069B3EF /* Client.swift */; };
+		9301811D1FB84B4D001EE660 /* Codable+SoracomSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482B1FB849BA006E1FD8 /* Codable+SoracomSDK.swift */; };
+		9301811E1FB84B4D001EE660 /* ConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048301FB849BB006E1FD8 /* ConfigurationParameter.swift */; };
+		9301811F1FB84B4D001EE660 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A81D1280F20069B3EF /* Constants.swift */; };
+		930181201FB84B4D001EE660 /* CoverageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482E1FB849BA006E1FD8 /* CoverageType.swift */; };
+		930181211FB84B4D001EE660 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B3E1D38BDCF00F57659 /* Credential.swift */; };
+		930181221FB84B4D001EE660 /* Data+SoracomSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D0E5701F149EDA000B3A7C /* Data+SoracomSDK.swift */; };
+		930181231FB84B4D001EE660 /* DataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482F1FB849BB006E1FD8 /* DataTrafficStats.swift */; };
+		930181241FB84B4D001EE660 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B461D38D63000F57659 /* Group.swift */; };
+		930181251FB84B4D001EE660 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048321FB849BB006E1FD8 /* HTTPMethod.swift */; };
+		930181261FB84B4D001EE660 /* JSONComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048351FB849BB006E1FD8 /* JSONComparison.swift */; };
+		930181271FB84B4D001EE660 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69401CB9BA46002F9D99 /* Keychain.swift */; };
+		930181281FB84B4D001EE660 /* KeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048361FB849BB006E1FD8 /* KeyedEncodingContainer+Payload.swift */; };
+		930181291FB84B4D001EE660 /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7DD1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift */; };
+		9301812A1FB84B4D001EE660 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AED1CBB4FA90084DC18 /* Payload.swift */; };
+		9301812B1FB84B4D001EE660 /* PayloadConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B351D38895800F57659 /* PayloadConvertible.swift */; };
+		9301812C1FB84B4D001EE660 /* PayloadKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B381D38B67E00F57659 /* PayloadKey.swift */; };
+		9301812D1FB84B4D001EE660 /* PaymentMethodInfoWebPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048331FB849BB006E1FD8 /* PaymentMethodInfoWebPay.swift */; };
+		9301812E1FB84B4D001EE660 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D694A1CBBA02E002F9D99 /* Request.swift */; };
+		9301812F1FB84B4D001EE660 /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */; };
+		930181301FB84B4D001EE660 /* Request+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */; };
+		930181311FB84B4D001EE660 /* Request+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7D71D1BC132003DDC2F /* Request+Group.swift */; };
+		930181321FB84B4D001EE660 /* Request+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320887B1CBF59CB00384EC7 /* Request+Operator.swift */; };
+		930181331FB84B4D001EE660 /* Request+Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D93921CC0DE14005D24DA /* Request+Payment.swift */; };
+		930181341FB84B4D001EE660 /* Request+Sandbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932088781CBF3D5400384EC7 /* Request+Sandbox.swift */; };
+		930181351FB84B4D001EE660 /* Request+Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938F1CC0A8CA005D24DA /* Request+Subscriber.swift */; };
+		930181361FB84B4D001EE660 /* RequestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A41D124A6C0069B3EF /* RequestQueue.swift */; };
+		930181371FB84B4D001EE660 /* RequestResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */; };
+		930181381FB84B4D001EE660 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D694B1CBBA02E002F9D99 /* Response.swift */; };
+		930181391FB84B4D001EE660 /* SoracomCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69451CB9C002002F9D99 /* SoracomCredentials.swift */; };
+		9301813A1FB84B4D001EE660 /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B491D38D6E300F57659 /* Subscriber.swift */; };
+		9301813B1FB84B4D001EE660 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482D1FB849BA006E1FD8 /* Tag.swift */; };
+		9301813C1FB84B4D001EE660 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3DED11D15515400C60E33 /* TextStyle.swift */; };
+		9301813D1FB84B4D001EE660 /* UnkeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048341FB849BB006E1FD8 /* UnkeyedEncodingContainer+Payload.swift */; };
 		9304B1121D4B328B0077CBDB /* IssueDebuggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9304B1111D4B328B0077CBDB /* IssueDebuggingTests.swift */; };
 		930DD8761CDE0E3E000EB36A /* BaseTestCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930DD8741CDE0E38000EB36A /* BaseTestCaseTests.swift */; };
 		931C38FD1CD0A4CD00FDF6B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931C38FC1CD0A4CD00FDF6B4 /* Assets.xcassets */; };
@@ -26,41 +70,31 @@
 		932D695A1CBC5842002F9D99 /* Request+SubscriberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69591CBC5842002F9D99 /* Request+SubscriberTests.swift */; };
 		932D695C1CBC58A5002F9D99 /* Request+SandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D695B1CBC58A5002F9D99 /* Request+SandboxTests.swift */; };
 		932D695F1CBC59C5002F9D99 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69501CBC5480002F9D99 /* RequestTests.swift */; };
-		93408AEC1CBB4E900084DC18 /* APIStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AEB1CBB4E900084DC18 /* APIStructures.swift */; };
+		933048371FB849BB006E1FD8 /* Codable+SoracomSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482B1FB849BA006E1FD8 /* Codable+SoracomSDK.swift */; };
+		933048381FB849BB006E1FD8 /* AirStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482C1FB849BA006E1FD8 /* AirStats.swift */; };
+		933048391FB849BB006E1FD8 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482D1FB849BA006E1FD8 /* Tag.swift */; };
+		9330483A1FB849BB006E1FD8 /* CoverageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482E1FB849BA006E1FD8 /* CoverageType.swift */; };
+		9330483B1FB849BB006E1FD8 /* DataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482F1FB849BB006E1FD8 /* DataTrafficStats.swift */; };
+		9330483C1FB849BB006E1FD8 /* ConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048301FB849BB006E1FD8 /* ConfigurationParameter.swift */; };
+		9330483D1FB849BB006E1FD8 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048311FB849BB006E1FD8 /* AuthResponse.swift */; };
+		9330483E1FB849BB006E1FD8 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048321FB849BB006E1FD8 /* HTTPMethod.swift */; };
+		9330483F1FB849BB006E1FD8 /* PaymentMethodInfoWebPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048331FB849BB006E1FD8 /* PaymentMethodInfoWebPay.swift */; };
+		933048401FB849BB006E1FD8 /* UnkeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048341FB849BB006E1FD8 /* UnkeyedEncodingContainer+Payload.swift */; };
+		933048411FB849BB006E1FD8 /* JSONComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048351FB849BB006E1FD8 /* JSONComparison.swift */; };
+		933048421FB849BB006E1FD8 /* KeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048361FB849BB006E1FD8 /* KeyedEncodingContainer+Payload.swift */; };
 		93408AEE1CBB4FA90084DC18 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AED1CBB4FA90084DC18 /* Payload.swift */; };
 		93408AF41CBB4FD80084DC18 /* PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */; };
 		93408AF91CBB4FDF0084DC18 /* APIStructuresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AE91CBB4E8D0084DC18 /* APIStructuresTests.swift */; };
 		9343D7D81D1BC132003DDC2F /* Request+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7D71D1BC132003DDC2F /* Request+Group.swift */; };
-		9343D7D91D1BC132003DDC2F /* Request+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7D71D1BC132003DDC2F /* Request+Group.swift */; };
 		9343D7DB1D1BD2F5003DDC2F /* Request+GroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7DA1D1BD2F5003DDC2F /* Request+GroupTests.swift */; };
 		9343D7DE1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7DD1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift */; };
-		9343D7DF1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7DD1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift */; };
 		9343D7E11D1CBDAF003DDC2F /* NSDate+SoracomAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7E01D1CBDAF003DDC2F /* NSDate+SoracomAPITests.swift */; };
-		9346E1EA1D128DFC006B0D01 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D693A1CB9B183002F9D99 /* APIError.swift */; };
-		9346E1EB1D128DFC006B0D01 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285301CD09AAF00B17B73 /* APIOperation.swift */; };
-		9346E1EC1D128DFC006B0D01 /* APIStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AEB1CBB4E900084DC18 /* APIStructures.swift */; };
-		9346E1ED1D128DFC006B0D01 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A31D124A6C0069B3EF /* Client.swift */; };
-		9346E1EE1D128DFC006B0D01 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A81D1280F20069B3EF /* Constants.swift */; };
-		9346E1EF1D128DFC006B0D01 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69401CB9BA46002F9D99 /* Keychain.swift */; };
-		9346E1F01D128DFC006B0D01 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AED1CBB4FA90084DC18 /* Payload.swift */; };
-		9346E1F11D128DFC006B0D01 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D694A1CBBA02E002F9D99 /* Request.swift */; };
-		9346E1F21D128DFC006B0D01 /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */; };
-		9346E1F31D128DFC006B0D01 /* Request+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */; };
-		9346E1F41D128DFC006B0D01 /* Request+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320887B1CBF59CB00384EC7 /* Request+Operator.swift */; };
-		9346E1F51D128DFC006B0D01 /* Request+Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D93921CC0DE14005D24DA /* Request+Payment.swift */; };
-		9346E1F61D128DFC006B0D01 /* Request+Sandbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932088781CBF3D5400384EC7 /* Request+Sandbox.swift */; };
-		9346E1F71D128DFC006B0D01 /* Request+Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938F1CC0A8CA005D24DA /* Request+Subscriber.swift */; };
-		9346E1F81D128DFC006B0D01 /* RequestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A41D124A6C0069B3EF /* RequestQueue.swift */; };
-		9346E1F91D128DFC006B0D01 /* RequestResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */; };
-		9346E1FA1D128DFC006B0D01 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D694B1CBBA02E002F9D99 /* Response.swift */; };
-		9346E1FB1D128DFC006B0D01 /* SoracomCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69451CB9C002002F9D99 /* SoracomCredentials.swift */; };
 		9346E1FC1D128E1D006B0D01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */; };
 		9346E1FD1D128E1D006B0D01 /* AppDelegate+DebugConveniences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5B801CE71FA1007D0B5C /* AppDelegate+DebugConveniences.swift */; };
 		935285331CD09AAF00B17B73 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285301CD09AAF00B17B73 /* APIOperation.swift */; };
 		935285351CD09AAF00B17B73 /* RequestResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */; };
 		935285491CD09AC500B17B73 /* APIOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285391CD09ABC00B17B73 /* APIOperationTests.swift */; };
 		9366F5141D966ADD000EC892 /* DevelopmentEnvironmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9366F5131D966ADD000EC892 /* DevelopmentEnvironmentTests.swift */; };
-		936D93891CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D93881CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift */; };
 		936D938B1CC0A3A5005D24DA /* Request+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */; };
 		936D938E1CC0A55C005D24DA /* Request+CredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938D1CC0A55C005D24DA /* Request+CredentialsTests.swift */; };
 		936D93901CC0A8CA005D24DA /* Request+Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938F1CC0A8CA005D24DA /* Request+Subscriber.swift */; };
@@ -73,22 +107,16 @@
 		93BDF91A1CB8FD1A0058C5BC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BDF9181CB8FD1A0058C5BC /* MainMenu.xib */; };
 		93CFB67F1CBDC5A20054F8B6 /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */; };
 		93CFB6831CBDCE920054F8B6 /* Request+AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFB6811CBDCE920054F8B6 /* Request+AuthTests.swift */; };
+		93D0E5711F149EDA000B3A7C /* Data+SoracomSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D0E5701F149EDA000B3A7C /* Data+SoracomSDK.swift */; };
 		93F3DED21D15515400C60E33 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3DED11D15515400C60E33 /* TextStyle.swift */; };
-		93F3DED31D15515400C60E33 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3DED11D15515400C60E33 /* TextStyle.swift */; };
 		93F50B361D38895800F57659 /* PayloadConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B351D38895800F57659 /* PayloadConvertible.swift */; };
-		93F50B371D38895800F57659 /* PayloadConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B351D38895800F57659 /* PayloadConvertible.swift */; };
 		93F50B391D38B67E00F57659 /* PayloadKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B381D38B67E00F57659 /* PayloadKey.swift */; };
-		93F50B3A1D38B67E00F57659 /* PayloadKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B381D38B67E00F57659 /* PayloadKey.swift */; };
 		93F50B3C1D38B72400F57659 /* CredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B3B1D38B72400F57659 /* CredentialTests.swift */; };
 		93F50B3F1D38BDCF00F57659 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B3E1D38BDCF00F57659 /* Credential.swift */; };
-		93F50B401D38BDCF00F57659 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B3E1D38BDCF00F57659 /* Credential.swift */; };
 		93F50B421D38D1FB00F57659 /* BeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B411D38D1FB00F57659 /* BeamStats.swift */; };
-		93F50B431D38D1FB00F57659 /* BeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B411D38D1FB00F57659 /* BeamStats.swift */; };
 		93F50B451D38D22E00F57659 /* BeamStatsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B441D38D22E00F57659 /* BeamStatsTest.swift */; };
 		93F50B471D38D63000F57659 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B461D38D63000F57659 /* Group.swift */; };
-		93F50B481D38D63000F57659 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B461D38D63000F57659 /* Group.swift */; };
 		93F50B4A1D38D6E300F57659 /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B491D38D6E300F57659 /* Subscriber.swift */; };
-		93F50B4B1D38D6E300F57659 /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B491D38D6E300F57659 /* Subscriber.swift */; };
 		93F50B4D1D38D70900F57659 /* SubscriberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B4C1D38D70900F57659 /* SubscriberTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -123,8 +151,25 @@
 		932D69571CBC55F2002F9D99 /* BaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
 		932D69591CBC5842002F9D99 /* Request+SubscriberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+SubscriberTests.swift"; sourceTree = "<group>"; };
 		932D695B1CBC58A5002F9D99 /* Request+SandboxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+SandboxTests.swift"; sourceTree = "<group>"; };
+		9330482B1FB849BA006E1FD8 /* Codable+SoracomSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Codable+SoracomSDK.swift"; sourceTree = "<group>"; };
+		9330482C1FB849BA006E1FD8 /* AirStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirStats.swift; sourceTree = "<group>"; };
+		9330482D1FB849BA006E1FD8 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		9330482E1FB849BA006E1FD8 /* CoverageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverageType.swift; sourceTree = "<group>"; };
+		9330482F1FB849BB006E1FD8 /* DataTrafficStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTrafficStats.swift; sourceTree = "<group>"; };
+		933048301FB849BB006E1FD8 /* ConfigurationParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationParameter.swift; sourceTree = "<group>"; };
+		933048311FB849BB006E1FD8 /* AuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		933048321FB849BB006E1FD8 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		933048331FB849BB006E1FD8 /* PaymentMethodInfoWebPay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodInfoWebPay.swift; sourceTree = "<group>"; };
+		933048341FB849BB006E1FD8 /* UnkeyedEncodingContainer+Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnkeyedEncodingContainer+Payload.swift"; sourceTree = "<group>"; };
+		933048351FB849BB006E1FD8 /* JSONComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONComparison.swift; sourceTree = "<group>"; };
+		933048361FB849BB006E1FD8 /* KeyedEncodingContainer+Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyedEncodingContainer+Payload.swift"; sourceTree = "<group>"; };
+		933048431FB849CA006E1FD8 /* KeyedEncodingContainer+PayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyedEncodingContainer+PayloadTests.swift"; sourceTree = "<group>"; };
+		933048441FB849CA006E1FD8 /* ResponsePayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponsePayloadTests.swift; sourceTree = "<group>"; };
+		933048451FB849CA006E1FD8 /* JSONComparisonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONComparisonTests.swift; sourceTree = "<group>"; };
+		933048461FB849CA006E1FD8 /* SerializationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationTests.swift; sourceTree = "<group>"; };
+		933048471FB849CA006E1FD8 /* Fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
+		9330484D1FB849E3006E1FD8 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LinuxMain.swift; path = ../LinuxMain.swift; sourceTree = "<group>"; };
 		93408AE91CBB4E8D0084DC18 /* APIStructuresTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStructuresTests.swift; sourceTree = "<group>"; };
-		93408AEB1CBB4E900084DC18 /* APIStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStructures.swift; sourceTree = "<group>"; };
 		93408AED1CBB4FA90084DC18 /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
 		93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadTests.swift; sourceTree = "<group>"; };
 		9343D7D71D1BC132003DDC2F /* Request+Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Group.swift"; sourceTree = "<group>"; };
@@ -135,12 +180,12 @@
 		935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestResponseFormatter.swift; sourceTree = "<group>"; };
 		935285391CD09ABC00B17B73 /* APIOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOperationTests.swift; sourceTree = "<group>"; };
 		9366F5131D966ADD000EC892 /* DevelopmentEnvironmentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevelopmentEnvironmentTests.swift; sourceTree = "<group>"; };
-		936D93881CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseTestCase+withNewIMSI.swift"; sourceTree = "<group>"; };
 		936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Credentials.swift"; sourceTree = "<group>"; };
 		936D938D1CC0A55C005D24DA /* Request+CredentialsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+CredentialsTests.swift"; sourceTree = "<group>"; };
 		936D938F1CC0A8CA005D24DA /* Request+Subscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Subscriber.swift"; sourceTree = "<group>"; };
 		936D93921CC0DE14005D24DA /* Request+Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Payment.swift"; sourceTree = "<group>"; };
 		936D93951CC0E3D5005D24DA /* RegisterSIMTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterSIMTests.swift; sourceTree = "<group>"; };
+		938C66BF1F136D2000100F7D /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		939BF3A31D124A6C0069B3EF /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		939BF3A41D124A6C0069B3EF /* RequestQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestQueue.swift; sourceTree = "<group>"; };
 		939BF3A81D1280F20069B3EF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -152,6 +197,7 @@
 		93BDF9261CB8FD1A0058C5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Auth.swift"; sourceTree = "<group>"; };
 		93CFB6811CBDCE920054F8B6 /* Request+AuthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+AuthTests.swift"; sourceTree = "<group>"; };
+		93D0E5701F149EDA000B3A7C /* Data+SoracomSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+SoracomSDK.swift"; sourceTree = "<group>"; };
 		93F3DED11D15515400C60E33 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		93F50B351D38895800F57659 /* PayloadConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadConvertible.swift; sourceTree = "<group>"; };
 		93F50B381D38B67E00F57659 /* PayloadKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadKey.swift; sourceTree = "<group>"; };
@@ -185,6 +231,7 @@
 		931C38F71CD0A43B00FDF6B4 /* soracom-sdk-swift */ = {
 			isa = PBXGroup;
 			children = (
+				938C66BF1F136D2000100F7D /* Package.swift */,
 				930DD8721CDDDFAA000EB36A /* README.md */,
 				932D69391CB9B183002F9D99 /* Sources */,
 				93F83C741E4DA50C000B7565 /* Tests */,
@@ -196,19 +243,29 @@
 		932D69391CB9B183002F9D99 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				9330482C1FB849BA006E1FD8 /* AirStats.swift */,
 				932D693A1CB9B183002F9D99 /* APIError.swift */,
 				935285301CD09AAF00B17B73 /* APIOperation.swift */,
-				93408AEB1CBB4E900084DC18 /* APIStructures.swift */,
+				933048311FB849BB006E1FD8 /* AuthResponse.swift */,
 				93F50B411D38D1FB00F57659 /* BeamStats.swift */,
 				939BF3A31D124A6C0069B3EF /* Client.swift */,
+				9330482B1FB849BA006E1FD8 /* Codable+SoracomSDK.swift */,
+				933048301FB849BB006E1FD8 /* ConfigurationParameter.swift */,
 				939BF3A81D1280F20069B3EF /* Constants.swift */,
+				9330482E1FB849BA006E1FD8 /* CoverageType.swift */,
 				93F50B3E1D38BDCF00F57659 /* Credential.swift */,
+				93D0E5701F149EDA000B3A7C /* Data+SoracomSDK.swift */,
+				9330482F1FB849BB006E1FD8 /* DataTrafficStats.swift */,
 				93F50B461D38D63000F57659 /* Group.swift */,
+				933048321FB849BB006E1FD8 /* HTTPMethod.swift */,
+				933048351FB849BB006E1FD8 /* JSONComparison.swift */,
 				932D69401CB9BA46002F9D99 /* Keychain.swift */,
+				933048361FB849BB006E1FD8 /* KeyedEncodingContainer+Payload.swift */,
 				9343D7DD1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift */,
 				93408AED1CBB4FA90084DC18 /* Payload.swift */,
 				93F50B351D38895800F57659 /* PayloadConvertible.swift */,
 				93F50B381D38B67E00F57659 /* PayloadKey.swift */,
+				933048331FB849BB006E1FD8 /* PaymentMethodInfoWebPay.swift */,
 				932D694A1CBBA02E002F9D99 /* Request.swift */,
 				93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */,
 				936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */,
@@ -222,7 +279,9 @@
 				932D694B1CBBA02E002F9D99 /* Response.swift */,
 				932D69451CB9C002002F9D99 /* SoracomCredentials.swift */,
 				93F50B491D38D6E300F57659 /* Subscriber.swift */,
+				9330482D1FB849BA006E1FD8 /* Tag.swift */,
 				93F3DED11D15515400C60E33 /* TextStyle.swift */,
+				933048341FB849BB006E1FD8 /* UnkeyedEncodingContainer+Payload.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -230,11 +289,15 @@
 		932D693B1CB9B183002F9D99 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				933048471FB849CA006E1FD8 /* Fixtures.swift */,
+				933048451FB849CA006E1FD8 /* JSONComparisonTests.swift */,
+				933048431FB849CA006E1FD8 /* KeyedEncodingContainer+PayloadTests.swift */,
+				933048441FB849CA006E1FD8 /* ResponsePayloadTests.swift */,
+				933048461FB849CA006E1FD8 /* SerializationTests.swift */,
 				932D693C1CB9B183002F9D99 /* APIErrorTests.swift */,
 				935285391CD09ABC00B17B73 /* APIOperationTests.swift */,
 				93408AE91CBB4E8D0084DC18 /* APIStructuresTests.swift */,
 				932D69571CBC55F2002F9D99 /* BaseTestCase.swift */,
-				936D93881CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift */,
 				930DD8741CDE0E38000EB36A /* BaseTestCaseTests.swift */,
 				93F50B441D38D22E00F57659 /* BeamStatsTest.swift */,
 				93F50B3B1D38B72400F57659 /* CredentialTests.swift */,
@@ -300,6 +363,7 @@
 		93F83C741E4DA50C000B7565 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				9330484D1FB849E3006E1FD8 /* LinuxMain.swift */,
 				932D693B1CB9B183002F9D99 /* Tests */,
 			);
 			path = Tests;
@@ -350,16 +414,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Soracom, Inc.";
 				TargetAttributes = {
 					93BDF9101CB8FD1A0058C5BC = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 					};
 					93BDF91F1CB8FD1A0058C5BC = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 						TestTargetID = 93BDF9101CB8FD1A0058C5BC;
 					};
 				};
@@ -407,34 +471,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933048391FB849BB006E1FD8 /* Tag.swift in Sources */,
 				9320887C1CBF59CB00384EC7 /* Request+Operator.swift in Sources */,
 				935285331CD09AAF00B17B73 /* APIOperation.swift in Sources */,
 				93F50B3F1D38BDCF00F57659 /* Credential.swift in Sources */,
 				932088791CBF3D5400384EC7 /* Request+Sandbox.swift in Sources */,
 				93F50B421D38D1FB00F57659 /* BeamStats.swift in Sources */,
 				93F3DED21D15515400C60E33 /* TextStyle.swift in Sources */,
+				9330483F1FB849BB006E1FD8 /* PaymentMethodInfoWebPay.swift in Sources */,
+				9330483E1FB849BB006E1FD8 /* HTTPMethod.swift in Sources */,
 				932D694D1CBBA02E002F9D99 /* Response.swift in Sources */,
+				9330483A1FB849BB006E1FD8 /* CoverageType.swift in Sources */,
 				93F50B471D38D63000F57659 /* Group.swift in Sources */,
 				93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */,
+				93D0E5711F149EDA000B3A7C /* Data+SoracomSDK.swift in Sources */,
 				9343D7DE1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift in Sources */,
 				93408AEE1CBB4FA90084DC18 /* Payload.swift in Sources */,
+				933048381FB849BB006E1FD8 /* AirStats.swift in Sources */,
 				93F50B4A1D38D6E300F57659 /* Subscriber.swift in Sources */,
 				939BF3A61D124A6C0069B3EF /* RequestQueue.swift in Sources */,
 				932D69491CB9C016002F9D99 /* SoracomCredentials.swift in Sources */,
+				9330483C1FB849BB006E1FD8 /* ConfigurationParameter.swift in Sources */,
 				93F50B361D38895800F57659 /* PayloadConvertible.swift in Sources */,
 				932D693D1CB9B18E002F9D99 /* APIError.swift in Sources */,
 				932A5B811CE71FA1007D0B5C /* AppDelegate+DebugConveniences.swift in Sources */,
+				933048421FB849BB006E1FD8 /* KeyedEncodingContainer+Payload.swift in Sources */,
+				9330483D1FB849BB006E1FD8 /* AuthResponse.swift in Sources */,
 				935285351CD09AAF00B17B73 /* RequestResponseFormatter.swift in Sources */,
 				936D93901CC0A8CA005D24DA /* Request+Subscriber.swift in Sources */,
 				936D93931CC0DE14005D24DA /* Request+Payment.swift in Sources */,
+				933048411FB849BB006E1FD8 /* JSONComparison.swift in Sources */,
 				932D694C1CBBA02E002F9D99 /* Request.swift in Sources */,
 				932D69411CB9BA46002F9D99 /* Keychain.swift in Sources */,
 				93F50B391D38B67E00F57659 /* PayloadKey.swift in Sources */,
 				939BF3A91D1280F20069B3EF /* Constants.swift in Sources */,
-				93408AEC1CBB4E900084DC18 /* APIStructures.swift in Sources */,
 				936D938B1CC0A3A5005D24DA /* Request+Credentials.swift in Sources */,
+				9330483B1FB849BB006E1FD8 /* DataTrafficStats.swift in Sources */,
 				9343D7D81D1BC132003DDC2F /* Request+Group.swift in Sources */,
 				939BF3A51D124A6C0069B3EF /* Client.swift in Sources */,
+				933048401FB849BB006E1FD8 /* UnkeyedEncodingContainer+Payload.swift in Sources */,
+				933048371FB849BB006E1FD8 /* Codable+SoracomSDK.swift in Sources */,
 				93CFB67F1CBDC5A20054F8B6 /* Request+Auth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,58 +519,74 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9346E1F21D128DFC006B0D01 /* Request+Auth.swift in Sources */,
-				9346E1F71D128DFC006B0D01 /* Request+Subscriber.swift in Sources */,
-				9346E1F61D128DFC006B0D01 /* Request+Sandbox.swift in Sources */,
-				93F50B481D38D63000F57659 /* Group.swift in Sources */,
 				93408AF41CBB4FD80084DC18 /* PayloadTests.swift in Sources */,
-				93F50B371D38895800F57659 /* PayloadConvertible.swift in Sources */,
-				9346E1F11D128DFC006B0D01 /* Request.swift in Sources */,
-				9346E1F91D128DFC006B0D01 /* RequestResponseFormatter.swift in Sources */,
+				9301813D1FB84B4D001EE660 /* UnkeyedEncodingContainer+Payload.swift in Sources */,
+				9301812A1FB84B4D001EE660 /* Payload.swift in Sources */,
+				9301812E1FB84B4D001EE660 /* Request.swift in Sources */,
+				9301811F1FB84B4D001EE660 /* Constants.swift in Sources */,
 				932D695A1CBC5842002F9D99 /* Request+SubscriberTests.swift in Sources */,
-				9346E1FB1D128DFC006B0D01 /* SoracomCredentials.swift in Sources */,
 				9346E1FD1D128E1D006B0D01 /* AppDelegate+DebugConveniences.swift in Sources */,
+				9301813B1FB84B4D001EE660 /* Tag.swift in Sources */,
+				930181241FB84B4D001EE660 /* Group.swift in Sources */,
+				930181311FB84B4D001EE660 /* Request+Group.swift in Sources */,
 				93F50B3C1D38B72400F57659 /* CredentialTests.swift in Sources */,
+				930181341FB84B4D001EE660 /* Request+Sandbox.swift in Sources */,
 				9343D7E11D1CBDAF003DDC2F /* NSDate+SoracomAPITests.swift in Sources */,
-				9346E1FA1D128DFC006B0D01 /* Response.swift in Sources */,
-				936D93891CC07FE7005D24DA /* BaseTestCase+withNewIMSI.swift in Sources */,
-				9343D7D91D1BC132003DDC2F /* Request+Group.swift in Sources */,
+				930181331FB84B4D001EE660 /* Request+Payment.swift in Sources */,
 				93F50B451D38D22E00F57659 /* BeamStatsTest.swift in Sources */,
-				9346E1F01D128DFC006B0D01 /* Payload.swift in Sources */,
-				9346E1EA1D128DFC006B0D01 /* APIError.swift in Sources */,
-				9346E1EC1D128DFC006B0D01 /* APIStructures.swift in Sources */,
-				9346E1EF1D128DFC006B0D01 /* Keychain.swift in Sources */,
+				930181381FB84B4D001EE660 /* Response.swift in Sources */,
+				930181171FB84B4D001EE660 /* AirStats.swift in Sources */,
+				930181361FB84B4D001EE660 /* RequestQueue.swift in Sources */,
 				93CFB6831CBDCE920054F8B6 /* Request+AuthTests.swift in Sources */,
+				9301812D1FB84B4D001EE660 /* PaymentMethodInfoWebPay.swift in Sources */,
+				930181221FB84B4D001EE660 /* Data+SoracomSDK.swift in Sources */,
+				930181271FB84B4D001EE660 /* Keychain.swift in Sources */,
+				9301813C1FB84B4D001EE660 /* TextStyle.swift in Sources */,
+				9301811C1FB84B4D001EE660 /* Client.swift in Sources */,
+				930181321FB84B4D001EE660 /* Request+Operator.swift in Sources */,
 				932D69441CB9BA50002F9D99 /* KeychainTests.swift in Sources */,
-				9346E1F41D128DFC006B0D01 /* Request+Operator.swift in Sources */,
+				930181071FB84A23001EE660 /* JSONComparisonTests.swift in Sources */,
+				930181181FB84B4D001EE660 /* APIError.swift in Sources */,
+				930181061FB84A23001EE660 /* Fixtures.swift in Sources */,
 				93408AF91CBB4FDF0084DC18 /* APIStructuresTests.swift in Sources */,
+				9301813A1FB84B4D001EE660 /* Subscriber.swift in Sources */,
 				9346E1FC1D128E1D006B0D01 /* AppDelegate.swift in Sources */,
-				93F50B431D38D1FB00F57659 /* BeamStats.swift in Sources */,
 				936D938E1CC0A55C005D24DA /* Request+CredentialsTests.swift in Sources */,
 				932D693F1CB9B191002F9D99 /* APIErrorTests.swift in Sources */,
 				935285491CD09AC500B17B73 /* APIOperationTests.swift in Sources */,
-				9346E1F81D128DFC006B0D01 /* RequestQueue.swift in Sources */,
 				93F50B4D1D38D70900F57659 /* SubscriberTests.swift in Sources */,
-				9346E1EE1D128DFC006B0D01 /* Constants.swift in Sources */,
-				9343D7DF1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift in Sources */,
 				932D695F1CBC59C5002F9D99 /* RequestTests.swift in Sources */,
-				93F50B4B1D38D6E300F57659 /* Subscriber.swift in Sources */,
+				930181351FB84B4D001EE660 /* Request+Subscriber.swift in Sources */,
+				9301811A1FB84B4D001EE660 /* AuthResponse.swift in Sources */,
+				930181211FB84B4D001EE660 /* Credential.swift in Sources */,
+				930181291FB84B4D001EE660 /* NSDate+SoracomAPI.swift in Sources */,
+				9301810A1FB84A23001EE660 /* SerializationTests.swift in Sources */,
+				9301811D1FB84B4D001EE660 /* Codable+SoracomSDK.swift in Sources */,
 				932D69541CBC551C002F9D99 /* ResponseTests.swift in Sources */,
+				930181261FB84B4D001EE660 /* JSONComparison.swift in Sources */,
 				932D69581CBC55F2002F9D99 /* BaseTestCase.swift in Sources */,
+				9301812F1FB84B4D001EE660 /* Request+Auth.swift in Sources */,
+				930181201FB84B4D001EE660 /* CoverageType.swift in Sources */,
+				930181231FB84B4D001EE660 /* DataTrafficStats.swift in Sources */,
+				930181091FB84A23001EE660 /* ResponsePayloadTests.swift in Sources */,
+				9301812C1FB84B4D001EE660 /* PayloadKey.swift in Sources */,
+				9301812B1FB84B4D001EE660 /* PayloadConvertible.swift in Sources */,
+				930181371FB84B4D001EE660 /* RequestResponseFormatter.swift in Sources */,
 				936D93971CC0E3D5005D24DA /* RegisterSIMTests.swift in Sources */,
+				930181281FB84B4D001EE660 /* KeyedEncodingContainer+Payload.swift in Sources */,
+				930181191FB84B4D001EE660 /* APIOperation.swift in Sources */,
+				9301811B1FB84B4D001EE660 /* BeamStats.swift in Sources */,
+				930181391FB84B4D001EE660 /* SoracomCredentials.swift in Sources */,
 				932D695C1CBC58A5002F9D99 /* Request+SandboxTests.swift in Sources */,
-				9346E1F51D128DFC006B0D01 /* Request+Payment.swift in Sources */,
+				930181251FB84B4D001EE660 /* HTTPMethod.swift in Sources */,
 				9366F5141D966ADD000EC892 /* DevelopmentEnvironmentTests.swift in Sources */,
 				9343D7DB1D1BD2F5003DDC2F /* Request+GroupTests.swift in Sources */,
-				93F50B401D38BDCF00F57659 /* Credential.swift in Sources */,
 				930DD8761CDE0E3E000EB36A /* BaseTestCaseTests.swift in Sources */,
-				9346E1EB1D128DFC006B0D01 /* APIOperation.swift in Sources */,
-				9346E1ED1D128DFC006B0D01 /* Client.swift in Sources */,
+				930181301FB84B4D001EE660 /* Request+Credentials.swift in Sources */,
+				930181081FB84A23001EE660 /* KeyedEncodingContainer+PayloadTests.swift in Sources */,
 				9304B1121D4B328B0077CBDB /* IssueDebuggingTests.swift in Sources */,
-				9346E1F31D128DFC006B0D01 /* Request+Credentials.swift in Sources */,
+				9301811E1FB84B4D001EE660 /* ConfigurationParameter.swift in Sources */,
 				932D69481CB9C00A002F9D99 /* SoracomCredentialsTests.swift in Sources */,
-				93F3DED31D15515400C60E33 /* TextStyle.swift in Sources */,
-				93F50B3A1D38B67E00F57659 /* PayloadKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,14 +621,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -559,11 +657,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -577,14 +676,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -601,9 +706,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -617,7 +723,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -631,7 +738,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -644,7 +752,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacDemoAppForSoracomSDK.app/Contents/MacOS/MacDemoAppForSoracomSDK";
 			};
 			name = Debug;
@@ -659,7 +768,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacDemoAppForSoracomSDK.app/Contents/MacOS/MacDemoAppForSoracomSDK";
 			};
 			name = Release;

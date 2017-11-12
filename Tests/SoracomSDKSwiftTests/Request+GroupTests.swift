@@ -2,6 +2,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 class RequestGroupTests: BaseTestCase {
     
     func test_CRUD_groups() {
@@ -23,7 +27,7 @@ class RequestGroupTests: BaseTestCase {
         let found   = groups.filter {$0.groupId == groupId}
         
         guard found.count > 0 else {
-            XCTFail("did not get any groups matching expected groupId")
+            XCTFail("did not get any groups matching expected groupId \(groupId)")
             return
         }
         
@@ -208,7 +212,7 @@ class RequestGroupTests: BaseTestCase {
             return nil
         }
         
-        XCTAssert(groupId.characters.count > 0, "groupId is empty")
+        XCTAssert(groupId.count > 0, "groupId is empty")
         
         guard let tags = group.tags else {
             XCTFail("no tags found")
@@ -273,3 +277,16 @@ class RequestGroupTests: BaseTestCase {
     }
 
 }
+
+#if os(Linux)
+    extension RequestGroupTests {
+        static var allTests : [(String, (RequestGroupTests) -> () throws -> Void)] {
+            return [
+                ("test_CRUD_groups", test_CRUD_groups),
+                ("test_putGroupTags", test_putGroupTags),
+                ("test_listSubscribersInGroup", test_listSubscribersInGroup),
+            ]
+        }
+    }
+#endif
+

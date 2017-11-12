@@ -1,6 +1,10 @@
-// APIOperationTests.swift Created by mason on 2016-04-25. Copyright © 2016 masonmark.com. All rights reserved.
+// APIOperationTests.swift Created by mason on 2016-04-25. Copyright © 2016 Soracom, Inc.. All rights reserved.
 
 import XCTest
+
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
 
 class APIOperationTests: BaseTestCase {
     
@@ -54,7 +58,7 @@ class APIOperationTests: BaseTestCase {
         let opThatDependsOnPredecessor = APIOperation() {
             
             let valFromFuture = values.last ?? "test bug"
-            XCTAssert(valFromFuture == COM0008)
+            XCTAssertEqual(valFromFuture, COM0008)
             
             let credentialsBasedOnPreviousOperation = SoracomCredentials(type: .RootAccount, emailAddress: valFromFuture, password: valFromFuture)
             
@@ -65,12 +69,12 @@ class APIOperationTests: BaseTestCase {
                 let payload = response.request.payload
                 
                 if let email    = payload?[.email] as? String,
-                    let password = payload?[.password] as? String
+                   let password = payload?[.password] as? String
                 {
-                    XCTAssert(email == COM0008)
-                    XCTAssert(password == COM0008)
+                    XCTAssertEqual(email, COM0008)
+                    XCTAssertEqual(password, COM0008)
                 } else {
-                    XCTFail("Operation's request should have used value from previous requedt for email and password. (Instead: \(String(describing: payload))")
+                    XCTFail("Operation's request should have used value from previous request for email and password. (Instead: \(String(describing: payload))")
                 }
                 self.endAsyncSection()
             }
@@ -94,3 +98,15 @@ class APIOperationTests: BaseTestCase {
     }
     
 }
+
+#if os(Linux)
+    extension APIOperationTests {
+        static var allTests : [(String, (APIOperationTests) -> () throws -> Void)] {
+            return [
+                ("test_basic", test_basic),
+                ("test_deferred_operation", test_deferred_operation),
+            ]
+        }
+    }
+#endif 
+

@@ -2,18 +2,25 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 class APIStructuresTests: BaseTestCase {
     
     func test_AirStats_serialization() {
         
-        let fast  = AirStatsForSpeedClass(uploadBytes: 5, uploadPackets: 55, downloadBytes: 555, downloadPackets: 5555)
-                let stats = AirStats(traffic: [.s1_fast: fast], unixtime: 8675309)
+        // This old test predates Swift 4 and JSON support, which is why it is kind of funky...
+        
+        let fast  = DataTrafficStats(downloadByteSizeTotal: 5, downloadPacketSizeTotal: 55, uploadByteSizeTotal: 555, uploadPacketSizeTotal: 5555)
+        let map   = DataTrafficStatsMap(s1_fast: fast, s1_minimum: nil, s1_slow: nil, s1_standard: nil)
+        let stats = AirStats(dataTrafficStatsMap: map, unixtime: 8675309)
         
         let subsub: Payload = [
-            .downloadByteSizeTotal: 555,
-            .downloadPacketSizeTotal: 5555,
-            .uploadByteSizeTotal: 5,
-            .uploadPacketSizeTotal: 55,
+            .downloadByteSizeTotal: 5,
+            .downloadPacketSizeTotal: 55,
+            .uploadByteSizeTotal: 555,
+            .uploadPacketSizeTotal: 5555,
         ]
         
         let sub: Payload = [
@@ -34,7 +41,21 @@ class APIStructuresTests: BaseTestCase {
             return
         }
         
-        XCTAssertEqual(d1 as NSDictionary, d2 as NSDictionary)
+        print(d1);
+        print(d2);
+        
+        guard let actualJSON   = actual.toJSON(),
+              let expectedJSON = expected.toJSON()
+        else {
+            XCTFail("didnt get JSON from payloads")
+            return
+        }
+        
+        let isEquivalent = isEquivalentJSON(actualJSON, expectedJSON)
+        XCTAssert(isEquivalent)
+        
+        XCTAssertEqual(NSDictionary(dictionary: d1), NSDictionary(dictionary: d2))
+            // Hey, this now also works on Linux! (Mason 2017-07-14)
     }
     
  
@@ -83,12 +104,28 @@ class APIStructuresTests: BaseTestCase {
             .operatorId : "OP666",
         ]
         
-        XCTAssertNil( AuthResponse(bad) )
+        let bogus = AuthResponse.from(bad)
         
-        let a = AuthResponse(good)
+        XCTAssertNil( bogus )
+        
+        let a = AuthResponse.from(good)
         
         XCTAssertNotNil(a)
-        
     }
     
 }
+
+
+#if os(Linux)
+    extension APIStructuresTests {
+        static var allTests : [(String, (APIStructuresTests) -> () throws -> Void)] {
+            return [
+                ("test_AirStats_serialization", test_AirStats_serialization),
+                ("test_credential_roundtrip_JSON_serialization", test_credential_roundtrip_JSON_serialization),
+                ("test_AuthResponse_init", test_AuthResponse_init),
+            ]
+        }
+    }
+#endif 
+
+

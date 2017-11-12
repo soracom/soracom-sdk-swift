@@ -2,6 +2,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 class SubscriberTests: BaseTestCase {
     
     func test_serialize() {
@@ -42,9 +46,17 @@ class SubscriberTests: BaseTestCase {
         XCTAssertEqual(list[0].imsi, "8675309")
         XCTAssertEqual(list[1].imsi, "8675310")
         XCTAssertEqual(list[2].imsi, "8675311")
-        
-        print("wtf")
-        
     }
     
 }
+
+#if os(Linux)
+    extension SubscriberTests {
+        static var allTests : [(String, (SubscriberTests) -> () throws -> Void)] {
+            return [
+                ("test_serialize_list", test_serialize_list),
+                ("test_serialize_list", test_serialize_list),
+            ]
+        }
+    }
+#endif

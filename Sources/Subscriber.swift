@@ -2,35 +2,11 @@
 
 import Foundation
 
-public struct Subscriber: PayloadConvertible {
+public struct Subscriber: PayloadConvertible, Codable {
     
     var ipAddress: String?
     var speedClass: String?
     var imsi: String?
-    
-    public func toPayload() -> Payload {
-        return [
-            .ipAddress  : ipAddress ?? "",
-            .speedClass : speedClass ?? "",
-            .imsi       : imsi ?? "",
-        ]
-        // FIXME: actually we should not set values to ""; they should simply not be present
-    }
-    
-    public static func from(_ payload: Payload?) -> Subscriber? {
-        
-        guard let payload = payload else {
-            return nil
-        }
-        var result = Subscriber()
-        
-        result.ipAddress  = payload[.ipAddress]  as? String
-        result.speedClass = payload[.speedClass] as? String
-        result.imsi       = payload[.imsi]       as? String
-        
-        return result
-    }
-    
     
     // FIXME: to be real we need to support all of this:
     

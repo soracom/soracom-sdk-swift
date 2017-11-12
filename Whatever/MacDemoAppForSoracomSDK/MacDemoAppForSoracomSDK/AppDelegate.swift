@@ -53,7 +53,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         
-        redactSwitch.state = RequestResponseFormatter.shouldRedact ? NSOnState : NSOffState
+        let on  = NSControl.StateValue.on
+        let off = NSControl.StateValue.off
+        redactSwitch.state = RequestResponseFormatter.shouldRedact ? on : off
         
         Request.credentialsFinder = { (request) in
             // This app is unusual since it does most things as a user in the API Sandbox, but sometimes
@@ -112,7 +114,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     
-    func saveCredentials() {
+    @objc func saveCredentials() {
         
         var credentials           = SoracomCredentials()
         credentials.type          = .AuthKey
@@ -126,7 +128,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /// Utility func.
     
     func copyStringToPasteboard(_ str: String) {
-        let pasteBoard = NSPasteboard.general()
+        let pasteBoard = NSPasteboard.general
         pasteBoard.clearContents()
         pasteBoard.writeObjects([str as NSPasteboardWriting])
     }
@@ -136,21 +138,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func log(_ str: String, attrs: TextStyle = .normal) {
         
-        func appendOutput(_ text: String, attrs: [String:AnyObject]) {
+        func appendOutput(_ text: String, attrs: [NSAttributedStringKey:AnyObject]) {
             // We should at some point move this to extension of NSTextView
             let attrStr = NSAttributedString(string: text, attributes: attrs)
             outputTextView.textStorage!.append(attrStr)
             outputTextView.scrollRangeToVisible(NSRange(location: outputTextView.textStorage!.length, length: 0))
         }
         var padded = str
-        if str.characters.first != "\n" {
+        if str.first != "\n" {
             padded = "\n" + padded
         }
-        if str.characters.last != "\n" {
+        if str.last != "\n" {
             padded = padded + "\n"
         }
         var updatedAttrs = attrs.attributes
-        updatedAttrs[NSFontAttributeName] = defaultFont(size: fontSize);
+        updatedAttrs[NSAttributedStringKey.font] = defaultFont(size: fontSize);
         appendOutput(padded, attrs: updatedAttrs)
         
         print(str)  // pad it in the app output only
@@ -160,7 +162,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - UI actions
     
     @IBAction func clearLog(_ sender: AnyObject) {
-        let cleared = NSAttributedString(string: "", attributes: [NSFontAttributeName: NSFont.userFixedPitchFont(ofSize: fontSize)!])
+        let cleared = NSAttributedString(string: "", attributes: [NSAttributedStringKey.font: NSFont.userFixedPitchFont(ofSize: fontSize)!])
         outputTextView.textStorage?.setAttributedString(cleared)
     }
     
@@ -222,7 +224,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     
     @IBAction func updateRedactionOption(_ sender: NSButton) {
-        let newValue = sender.state == NSOnState
+        let newValue = sender.state == NSControl.StateValue.on
         RequestResponseFormatter.shouldRedact = newValue
         log("Redaction set to \(newValue ? "ON" : "OFF").")
     }
@@ -244,7 +246,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         guard (newFontSize > 4.0 && newFontSize < 145.0) else {
             // a real app would properly validate/disable the menu items, but...
-            NSBeep();
+            __NSBeep();
             return;
         }
         fontSize = newFontSize

@@ -2,6 +2,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 class NSDateSoracomAPITests: XCTestCase {
     
     let birthday: Int64 = 147571200000 // ♬ happy birthday to me...
@@ -19,3 +23,14 @@ class NSDateSoracomAPITests: XCTestCase {
         XCTAssert(timestamp == birthday)
     }
 }
+
+#if os(Linux)
+    extension NSDateSoracomAPITests {
+        static var allTests : [(String, (NSDateSoracomAPITests) -> () throws -> Void)] {
+            return [
+                ("test_conversions", test_conversions),
+            ]
+        }
+    }
+#endif 
+

@@ -3,6 +3,11 @@
 import Foundation
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
+
 /// This test case is usually a no-op and not that interesting. It is for testing this SDK
 /// against local, under-development versions of the Soracom API. If you don't have a file
 /// at ~/.soracom-sdk-swift/DevelopmentEnvironmentTests.json specifying an endpointHost and
@@ -71,12 +76,12 @@ class DevelopmentEnvironmentTests: XCTestCase {
         
         let response = authRequest.wait()
         
-        guard let authResponse = AuthResponse(response.payload) else {
+        guard let authResponse = AuthResponse.from(response.payload) else {
             XCTFail("Hmm. Test precondition failed: unable to authenticate to get API key")
             return nil
         }
         
-        let apiKeyCredentials = SoracomCredentials(apiKey: authResponse.apiKey!, token: authResponse.token!);
+        let apiKeyCredentials = SoracomCredentials(apiKey: authResponse.apiKey, token: authResponse.token);
         return apiKeyCredentials
     }
     
@@ -125,6 +130,18 @@ class DevelopmentEnvironmentTests: XCTestCase {
         
         print(res1)
     }
-
     
 }
+
+#if os(Linux)
+    extension DevelopmentEnvironmentTests {
+        static var allTests : [(String, (DevelopmentEnvironmentTests) -> () throws -> Void)] {
+            return [
+                ("test_flipImeiLock", test_flipImeiLock),
+                ("test_newApiFutzing", test_newApiFutzing),
+            ]
+        }
+    }
+#endif 
+
+

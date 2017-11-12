@@ -3,6 +3,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 class RequestTests: BaseTestCase {
     
     /// Overridden to set the default credentials storage namespace to `storageNamespaceForJunkCredentials`, becuase these tests write credentials as part of their work.
@@ -79,7 +83,7 @@ class RequestTests: BaseTestCase {
         let foo              = Request("/you-aint-no-valid-url-bruv")
         foo.apiVersionString = ""
         foo.endpointHost     = "www.soracom.jp"
-        foo.method           = .GET
+        foo.method           = .get
         
         beginAsyncSection()
         
@@ -210,3 +214,20 @@ class RequestTests: BaseTestCase {
     }
     
 }
+
+#if os(Linux)
+    extension RequestTests {
+        static var allTests : [(String, (RequestTests) -> () throws -> Void)] {
+            return [
+                ("test_lookup_credentials_for_HTTP_headers", test_lookup_credentials_for_HTTP_headers),
+                ("test_buildURL_and_endpointHost", test_buildURL_and_endpointHost),
+                ("test_error_on_real_world_404", test_error_on_real_world_404),
+                ("test_set_credentials", test_set_credentials),
+                ("test_attached_behaviors", test_attached_behaviors),
+                ("test_response_handler_precedence", test_response_handler_precedence),
+                ("test_wait", test_wait),
+            ]
+        }
+    }
+#endif
+

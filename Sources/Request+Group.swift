@@ -18,7 +18,7 @@ extension Request {
 
         let req    = self.init("/groups", responseHandler: responseHandler)
         req.query  = query
-        req.method = .GET
+        req.method = .get
         return req
     }
     
@@ -30,7 +30,7 @@ extension Request {
     public class func createGroup(_ name: String? = nil, tags: [String:String]? = nil, responseHandler: ResponseHandler? = nil) -> Request {
         
         let req    = self.init("/groups", responseHandler: responseHandler)
-        req.method = .POST
+        req.method = .post
         
         var tags = tags ?? [:]
         
@@ -55,7 +55,7 @@ extension Request {
     public class func deleteGroup(_ groupId: String, responseHandler: ResponseHandler? = nil) -> Request {
 
         let req    = self.init("/groups/\(groupId)", responseHandler: responseHandler)
-        req.method = .DELETE
+        req.method = .delete
         req.expectedHTTPStatus = 204
         
         return req
@@ -67,7 +67,7 @@ extension Request {
     public class func getGroup(_ groupId: String, responseHandler: ResponseHandler? = nil) -> Request {
         
         let req    = self.init("/groups/\(groupId)", responseHandler: responseHandler)
-        req.method = .GET
+        req.method = .get
         req.expectedHTTPStatus = 200
         
         return req
@@ -81,7 +81,7 @@ extension Request {
         // FIXME: tests needed and API doc is wrong? (about the response payload)
         
         let req    = self.init("/groups/\(groupId)/subscribers", responseHandler: responseHandler)
-        req.method = .GET
+        req.method = .get
         req.expectedHTTPStatus = 200
         
         return req
@@ -93,7 +93,7 @@ extension Request {
     public class func putConfigurationParameters(_ groupId: String, namespace: ConfigurationParametersNamespace, parameters: ConfigurationParameterList, responseHandler: ResponseHandler? = nil) -> Request {
         
         let req    = self.init("/groups/\(groupId)/configuration/\(namespace.rawValue)", responseHandler: responseHandler)
-        req.method = .PUT
+        req.method = .put
         req.expectedHTTPStatus = 200
         
         req.payload = Payload(configurationParameterList: parameters)
@@ -116,7 +116,7 @@ extension Request {
         
         let path       = "/groups/\(groupId)/configuration/\(namespace.rawValue)/\(urlSegment)"
         let req        = self.init(path, responseHandler: responseHandler)
-        req.method     = .DELETE
+        req.method     = .delete
         req.expectedHTTPStatus = 204
 
         return req
@@ -128,7 +128,7 @@ extension Request {
     public class func putGroupTags(_ groupId: String, tags: [String:String], responseHandler: ResponseHandler? = nil) -> Request {
         
         let req    = self.init("/groups/\(groupId)/tags", responseHandler: responseHandler)
-        req.method = .PUT
+        req.method = .put
         req.expectedHTTPStatus = 200
         
         var tagList: TagList = []
@@ -149,7 +149,7 @@ extension Request {
     public class func deleteGroupTag(_ groupId: String, tagName: String, responseHandler: ResponseHandler? = nil) -> Request {
         
         let req    = self.init("/groups/\(groupId)/tags/\(tagName)", responseHandler: responseHandler)
-        req.method = .DELETE
+        req.method = .delete
         req.expectedHTTPStatus = 204
         
         return req

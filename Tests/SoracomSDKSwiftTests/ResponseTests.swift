@@ -2,6 +2,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 class ResponseTests: XCTestCase {
     
     var request: Request = Request("/foo")
@@ -26,3 +30,13 @@ class ResponseTests: XCTestCase {
     }
 
 }
+
+#if os(Linux)
+    extension ResponseTests {
+        static var allTests : [(String, (ResponseTests) -> () throws -> Void)] {
+            return [
+                ("test_unexpected_HTTP_status_error", test_unexpected_HTTP_status_error),
+            ]
+        }
+    }
+#endif

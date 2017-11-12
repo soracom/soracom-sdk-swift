@@ -2,6 +2,10 @@
 
 import XCTest
 
+#if os(Linux)
+    @testable import SoracomSDKSwift
+#endif
+
 class SoracomCredentialsTests: BaseTestCase {
     
     /// Overridden to set the default credentials storage namespace to `storageNamespaceForJunkCredentials`, because these tests exercise the actual credentials read/write API.
@@ -32,6 +36,42 @@ class SoracomCredentialsTests: BaseTestCase {
         "apiKey"        : "apiKey value",
         "token"         : "token value",
     ]
+    
+    func test_serialization_via_swift4_codable() {
+        
+        let encoder = JSONEncoder()
+        guard let encoded = try? encoder.encode(one) else {
+            XCTFail(); 
+            return;
+        }
+        print(encoded.utf8String ?? "OOPS")
+        
+        let decoder = JSONDecoder()
+        
+        guard let decoded = try? decoder.decode(SoracomCredentials.self, from: encoded) else {
+            XCTFail(); 
+            return;
+        }
+        print(decoded)
+        
+        guard let reencoded = try? encoder.encode(decoded) else {
+            XCTFail(); 
+            return;
+        }
+        print(reencoded)
+        
+        let baz = SoracomCredentials(jsonData: reencoded)
+        XCTAssert(baz.type == .RootAccount)
+        XCTAssert(baz.emailAddress == "one")
+        XCTAssert(baz.operatorID == "one")
+        XCTAssert(baz.username == "one")
+        XCTAssert(baz.password == "one")
+        XCTAssert(baz.authKeyID == "one")
+        XCTAssert(baz.authKeySecret == "one")
+        XCTAssert(baz.apiKey == "one")
+        XCTAssert(baz.token == "one")
+    }
+
     
     
     func test_store_in_keychain_original() {
@@ -181,14 +221,9 @@ class SoracomCredentialsTests: BaseTestCase {
     
     func test_buildNamespacedIdentifier() {
         
-        guard let bundleId = Bundle.main.bundleIdentifier else {
-            XCTFail("this test can't work if bundleId is nil")
-            return
-        }
-        
         let identifier = SoracomCredentials.buildNamespacedIdentifier("foobarbaz")
         
-        XCTAssertEqual(identifier, "\(bundleId).\(SoracomCredentials.defaultStorageNamespace.uuidString).foobarbaz")
+        XCTAssertEqual(identifier, "\(SoracomCredentials.defaultStorageNamespace.uuidString).foobarbaz")
         
         guard let uuid = UUID(uuidString: "A57DC53C-BC86-4306-AFE4-D9F6D663FC69") else {
             XCTFail("wtf")
@@ -199,7 +234,27 @@ class SoracomCredentialsTests: BaseTestCase {
 
         let identifier2 = SoracomCredentials.buildNamespacedIdentifier("foobarbaz")
 
-        XCTAssertEqual(identifier2, "\(bundleId).A57DC53C-BC86-4306-AFE4-D9F6D663FC69.foobarbaz")
+        XCTAssertEqual(identifier2, "A57DC53C-BC86-4306-AFE4-D9F6D663FC69.foobarbaz")
     }
 
 }
+
+#if os(Linux)
+    extension SoracomCredentialsTests {
+        static var allTests : [(String, (SoracomCredentialsTests) -> () throws -> Void)] {
+            return [
+                ("test_serialization_via_swift4_codable", test_serialization_via_swift4_codable),
+                ("test_store_in_keychain_original", test_store_in_keychain_original),
+                ("test_save", test_save),
+                ("test_delete", test_delete),
+                ("test_serialization_roundtrip", test_serialization_roundtrip),
+                ("test_deserialization", test_deserialization),
+                ("test_equality_function", test_equality_function),
+                ("test_namespaces", test_namespaces),
+                ("test_blank", test_blank),
+                ("test_buildNamespacedIdentifier", test_buildNamespacedIdentifier),
+            ]
+        }
+    }
+#endif 
+

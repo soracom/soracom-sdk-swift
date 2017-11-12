@@ -2,6 +2,11 @@
 
 import XCTest
 
+#if os(Linux)
+    import Dispatch
+    @testable import SoracomSDKSwift
+#endif
+
 class BaseTestCaseTests: BaseTestCase {
     
     func test_asyncTestConveniences() {
@@ -24,12 +29,13 @@ class BaseTestCaseTests: BaseTestCase {
         XCTAssert(x == "foobarbaz😬")
     }
     
+}
+
+extension BaseTestCaseTests {
     
-    func test_isEquivalentJSON() {
-        let yep  = isEquivalentJSON("{\"a\":[], \"b\": {}}", "{\"b\":    {}, \"a\":    []}")
-        let nope = isEquivalentJSON("{\"a\":[]}", "{\"a\": {}}")
-        XCTAssertTrue(yep)
-        XCTAssertFalse(nope)
+    static var allTests : [(String, (BaseTestCaseTests) -> () throws -> Void)] {
+        return [
+            ("test_asyncTestConveniences", test_asyncTestConveniences),
+        ]
     }
-    
 }

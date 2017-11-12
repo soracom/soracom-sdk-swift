@@ -192,7 +192,7 @@ open class Request {
         urlComponents.host   = endpointHost
         
         var fullPath = ""
-        if apiVersionString.characters.count > 0 {
+        if apiVersionString.count > 0 {
             fullPath += "/" + apiVersionString
         }
         fullPath += path

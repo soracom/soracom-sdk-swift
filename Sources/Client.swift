@@ -556,7 +556,7 @@ open class Client {
         // in the iOS keychain. Note: you may have to navigate into the Settings screen and back out
         // one time for the new credentials to be noticed.
         
-        if (authKeyId.characters.count > 2 && authKeySecret.characters.count > 2) {
+        if (authKeyId.count > 2 && authKeySecret.count > 2) {
             
             let productionCredentials = SoracomCredentials(type: .AuthKey, authKeyID: authKeyId, authKeySecret: authKeySecret)
             Client.sharedInstance.saveCredentials(productionCredentials, user: .ProductionSAMUser)

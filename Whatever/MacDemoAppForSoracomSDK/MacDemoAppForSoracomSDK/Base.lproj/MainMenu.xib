@@ -501,7 +501,7 @@
                                     <rect key="frame" x="124" y="12" width="622" height="42"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="BFv-l9-pOA">
                                         <font key="font" metaFont="smallSystem"/>
-                                        <string key="title">To create a dummy account on the API sandbox for testing, your need to user your real (production) Soracom account create a SAM user. That SAM user's credentials will be used to activate the dummy account. Everything else in this app will use the dummy credentials below.</string>
+                                        <string key="title">To create a dummy account on the API sandbox for testing, your need to use your real (production) Soracom account to create a real SAM user. That real SAM user's credentials will then be used to create the API Sandbox user account. Everything else in this demo app will use the API Sandbox user credentials below.</string>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>

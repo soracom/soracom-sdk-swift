@@ -212,7 +212,7 @@ class RequestGroupTests: BaseTestCase {
             return nil
         }
         
-        XCTAssert(groupId.characters.count > 0, "groupId is empty")
+        XCTAssert(groupId.count > 0, "groupId is empty")
         
         guard let tags = group.tags else {
             XCTFail("no tags found")

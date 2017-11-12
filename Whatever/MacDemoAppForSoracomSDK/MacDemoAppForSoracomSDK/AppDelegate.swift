@@ -53,8 +53,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         
-        let on  = NSControl.StateValue.onState
-        let off = NSControl.StateValue.offState
+        let on  = NSControl.StateValue.on
+        let off = NSControl.StateValue.off
         redactSwitch.state = RequestResponseFormatter.shouldRedact ? on : off
         
         Request.credentialsFinder = { (request) in
@@ -145,10 +145,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             outputTextView.scrollRangeToVisible(NSRange(location: outputTextView.textStorage!.length, length: 0))
         }
         var padded = str
-        if str.characters.first != "\n" {
+        if str.first != "\n" {
             padded = "\n" + padded
         }
-        if str.characters.last != "\n" {
+        if str.last != "\n" {
             padded = padded + "\n"
         }
         var updatedAttrs = attrs.attributes
@@ -224,7 +224,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     
     @IBAction func updateRedactionOption(_ sender: NSButton) {
-        let newValue = sender.state == NSControl.StateValue.onState
+        let newValue = sender.state == NSControl.StateValue.on
         RequestResponseFormatter.shouldRedact = newValue
         log("Redaction set to \(newValue ? "ON" : "OFF").")
     }

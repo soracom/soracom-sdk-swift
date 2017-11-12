@@ -144,7 +144,7 @@ class RequestSandboxTests: BaseTestCase {
             XCTAssert(response.error == nil)
             
             if let imsi = response.payload?[.imsi] as? String {
-                XCTAssert(imsi.characters.count > 10)
+                XCTAssert(imsi.count > 10)
             } else {
                 XCTFail("Could not get IMSI")
             }

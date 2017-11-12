@@ -19,6 +19,20 @@ open class Keychain {
 
     #if os(Linux)
     
+        open static func urlToStorage() -> URL {
+            
+            let fm  = FileManager.default
+            let url = fm.homeDirectoryForCurrentUser.appendingPathComponent(".soracom-sdk-swift")
+            
+            do {
+                try fm.createDirectory(at: url, withIntermediateDirectories: true)
+            } catch {
+                fatalError("Keychain: fatal error: cannot create directory: \(url)")
+            }
+            return url
+        }
+    
+    
     /// Find and return a blob of data previously stored under `key` using this class's `write()` method. Returns nil if not found. This is the primitive read method. Note that keys should be globally unique to avoid clashing with other apps that might use this Keychain implementation.
 
         open static func read(_ key: String) -> Data? {
@@ -221,26 +235,13 @@ extension Keychain {
             print(SecCopyErrorMessageString(errCode, nil) ?? "SecCopyErrorMessageString() couldn't return the error message.")
         #endif
         
-        
         print("KEYCHAIN ERROR: An error occurred when trying to \(whenTryingTo): \(errCode)")
           // Mason 2016-08-17: I don't know of a reliable way to go from errCode to the corresponding symbol name on iOS.
     }
     
+
     public typealias KeychainErrorLogger = ((_ errCode: OSStatus, _ whenTryingTo: String ) -> Void)
-    
-    open static func urlToStorage() -> URL {
         
-        let fm  = FileManager.default
-        let url = fm.homeDirectoryForCurrentUser.appendingPathComponent(".soracom-sdk-swift")
-        
-        do {
-            try fm.createDirectory(at: url, withIntermediateDirectories: true)
-        } catch {
-            fatalError("Keychain: fatal error: cannot create directory: \(url)")
-        }
-        return url
-    }
-    
     
     open static func makeUnique(_ key: String) -> String {
         return storageIdentifier + "." + key;

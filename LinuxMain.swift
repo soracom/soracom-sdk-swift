@@ -3,7 +3,7 @@
 #if os(Linux)
     
     import XCTest
-    @testable import SoracomSDKSwiftTests
+    @testable import SoracomAPITests
     
     XCTMain([
         testCase(APIErrorTests.allTests),

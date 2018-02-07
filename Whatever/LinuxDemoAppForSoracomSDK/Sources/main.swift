@@ -1,16 +1,16 @@
 
 print("Hello, world!")
 
-import SoracomSDKSwift
+import SoracomAPI
 
+let client = SoracomAPI.Client.sharedInstance
 
 func loadCredentials()  {
-    let client = SoracomSDKSwift.Client.sharedInstance
     
     let samCreds = client.credentialsForProductionSAMUser
     
     if samCreds.blank {
-        print(samCreds)
+        // print(samCreds)
         print("No credentials for production SAM user found. If you want to add them, enter '1':")
         if (readLine() == "1") {
             
@@ -49,7 +49,7 @@ Request.afterRun { (response) in
 
 loadCredentials()
 
-var creds = SoracomSDKSwift.SoracomCredentials.defaultSavedCredentials()
+var creds = client.credentialsForUser(.ProductionSAMUser)
 
 if creds.blank {
 
@@ -58,7 +58,7 @@ if creds.blank {
     print("To start, you'll have to manually edit the credentials stored in:")
     print("    ~/.soracom-sdk-swift/")
 
-    creds.type          = .RootAccount
+    creds.type          = .AuthKey
     creds.authKeyID     = "REPLACE THIS TEXT WITH YOUR SAM USER AUTH KEY ID"
     creds.authKeySecret = "REPLACE THIS TEXT WITH YOUR SAM USER AUTH KEY SECRET"
     
@@ -71,8 +71,21 @@ if creds.blank {
     print("Will use previously-stored credentials.")
 }
 
+let message = """
 
-let req = SoracomSDKSwift.Request.auth()
+FIXME: This program cannot actually log into the API Sandbox yet. All it
+can do is attempt to authenticate, and get rejected. A few more steps need
+to be implemented (namely, creating a user in the API Sandbox, and using
+that user's credentials to authenticate).
+
+Will now attempt to log in, and fail:
+
+"""
+
+print(message)
+
+let req = SoracomAPI.Request.auth(creds);
+
 let res = req.wait()
 
 print("Goodbye, world!")

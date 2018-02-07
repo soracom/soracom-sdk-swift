@@ -1,27 +1,29 @@
 // swift-tools-version:4.0
 
-// Mason 2016-04-10: We will eventually be a Swift Package Manager package (Swift 3), but as of right now, the intended use case is Xcode 7.3 and Swift 2.x.
-
 import PackageDescription
 
 let package = Package(
-    name: "SoracomSDKSwift",
+    name: "SoracomAPI",
     targets: [
         .target(
-            name: "SoracomSDKSwift",
+            name: "SoracomAPI",
             dependencies: [],
             path: "Sources"
         ),
         .testTarget(
-            name: "SoracomSDKSwiftTests",
-            dependencies: ["SoracomSDKSwift"],
+            name: "SoracomAPITests",
+            dependencies: ["SoracomAPI"],
             path: "Tests"
         ),
         .target(
             name: "LinuxDemoAppForSoracomSDK",
-            dependencies: ["SoracomSDKSwift"],
+            dependencies: ["SoracomAPI"],
             path: "Whatever/LinuxDemoAppForSoracomSDK"
         )
     ]
 )
 
+// Note: There are also two other demo apps: one for macOS, and one for iOS.
+// However, as of 2018-02-07, the Swift Package Manager does not yet support
+// building regular macOS apps, or iOS apps, so they aren't listed here.
+// They can be found in the ./Whatever directory.

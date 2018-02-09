@@ -10,42 +10,98 @@ import Foundation
 #endif
 
 
-/// Simplest possible wrapper for keychain read/write. (Be aware that this **overwrites** any existing value for key when it writes, by design). On macOS and iOS, this uses the OS-provided secure storage facility to store data blobs.
+/// Simplest possible wrapper for keychain read/write. (Be aware that this **overwrites** any existing value for a key when it writes, by design). On macOS and iOS, this uses the OS-provided secure storage facility to store data blobs.
 ///
 /// LINUX NOTE: On Linux, this is a very(!) primitive data store that does NOT actually provide any security. It reads/writes blobs to a folder, in plaintext. So the Linux version is currently a "keychain" in the sense of a keychain with a bunch of labeled keys, left lying on a desk in plain sight. In the future, we will at least support reading credentials from environment variables on Linux. See:  [issue 5](https://github.com/soracom/soracom-sdk-swift/issues/5)
 
 
 open class Keychain {
+    
+    // The "insecure plain text" read/write methods are for Linux, but they are available on all platforms.
+    
+    
+    /// Normally, `Keychain` will use secure persistent storage if available (macOS & iOS) and use insecure plaintext storage only when no secure mechanism is available (Linux). But, this property can be set to `true` to force Keychain to always use insecure storage — the main use case for =that being testing/debugging Linux code on non-Linux platforms.
+    
+    open static var useInsecurePlaintextStorageAlways = false
+    
+    
+    /// Returns a file URL pointing to ~/.soracom-sdk-swift, which is where plaintext data gets stored.
+    
+    open static func urlToInsecurePlaintextStorage() -> URL {
+        
+        let fm  = FileManager.default
+        let url = fm.homeDirectoryForCurrentUser.appendingPathComponent(".soracom-sdk-swift")
+        
+        do {
+            try fm.createDirectory(at: url, withIntermediateDirectories: true)
+        } catch {
+            fatalError("Keychain: fatal error: cannot create directory: \(url)")
+        }
+        return url
+    }
+    
+    
+    /// Find and return a blob of data previously stored under `key` using this class's `writeToInsecurePlaintextStorage()` method. Returns nil if not found. This is the primitive read method when `Keychain` is in "insecure plain text" mode (normally, this would only be on Linux, where secure storage isn't yet supported). Note that keys should be globally unique to avoid clashing with other apps that might use this Keychain implementation.
+    
+    open static func readFromInsecurePlaintextStorage(_ key: String) -> Data? {
+        
+        let uniqueKey = makeUnique(key);
+        
+        do {
+            let url = self.urlToInsecurePlaintextStorage().appendingPathComponent(uniqueKey)
+            let data = try Data(contentsOf: url)
+            return data
+        } catch {
+            return nil
+        }
+    }
+    
+    
+    /// Store `data` to the "insecure plain text" mode persistent store, under `key`, **overwriting** any existing value. Returns true on success, false on error. This is the primitive write method when `Keychain` is in "insecure plain text" mode (normally, this would only be on Linux, where secure storage isn't yet supported).
+    
+    open static func writeToInsecurePlaintextStorage(_ key: String, data: Data) -> Bool {
+        
+        let uniqueKey = makeUnique(key);
+        
+        do {
+            let url = self.urlToInsecurePlaintextStorage().appendingPathComponent(uniqueKey)
+            try data.write(to: url)
+            return true
+        } catch {
+            return false
+        }
+    }
+    
+    
+    /// Delete the blob of data stored under `key` in the "insecure plain text" mode persistent store, if any.
+    
+    open static func deleteFromInsecurePlaintextStorage(_ key: String) -> Bool {
+        
+        let uniqueKey = makeUnique(key);
+        
+        let fm  = FileManager.default
+        let url = self.urlToInsecurePlaintextStorage().appendingPathComponent(uniqueKey)
+        
+        guard fm.fileExists(atPath: url.path) else {
+            return false
+        }
+        do {
+            try fm.removeItem(at: url)
+            return true
+        } catch {
+            return false
+        }
+    }
+
 
     #if os(Linux)
-    
-        open static func urlToStorage() -> URL {
-            
-            let fm  = FileManager.default
-            let url = fm.homeDirectoryForCurrentUser.appendingPathComponent(".soracom-sdk-swift")
-            
-            do {
-                try fm.createDirectory(at: url, withIntermediateDirectories: true)
-            } catch {
-                fatalError("Keychain: fatal error: cannot create directory: \(url)")
-            }
-            return url
-        }
     
     
     /// Find and return a blob of data previously stored under `key` using this class's `write()` method. Returns nil if not found. This is the primitive read method. Note that keys should be globally unique to avoid clashing with other apps that might use this Keychain implementation.
 
         open static func read(_ key: String) -> Data? {
-    
-            let uniqueKey = makeUnique(key);
-
-            do {
-                let url = self.urlToStorage().appendingPathComponent(uniqueKey)
-                let data = try Data(contentsOf: url)
-                return data
-            } catch {
-                return nil
-            }
+            
+            return readFromInsecurePlaintextStorage(key)
         }
     
     
@@ -53,15 +109,7 @@ open class Keychain {
 
         open static func write(_ key: String, data: Data) -> Bool {
             
-            let uniqueKey = makeUnique(key);
-
-            do {
-                let url = self.urlToStorage().appendingPathComponent(uniqueKey)
-                try data.write(to: url)
-                return true
-            } catch {
-                return false
-            }
+            return writeToInsecurePlaintextStorage(key, data: data)
         }
     
         
@@ -69,20 +117,7 @@ open class Keychain {
 
         open static func delete(_ key: String) -> Bool {
             
-            let uniqueKey = makeUnique(key);
-
-            let fm  = FileManager.default
-            let url = self.urlToStorage().appendingPathComponent(uniqueKey)
-            
-            guard fm.fileExists(atPath: url.path) else {
-                return false
-            }
-            do {
-                try fm.removeItem(at: url)
-                return true
-            } catch {
-                return false
-            }
+            return deleteFromInsecurePlaintextStorage(key)
         }
     
     #elseif os(macOS) || os(iOS)
@@ -90,6 +125,11 @@ open class Keychain {
         /// Find and return a blob of data previously stored under `key` using this class's `write()` method. Returns nil if not found. This is the primitive read method.
         
         open static func read(_ key: String) -> Data? {
+            
+            if (useInsecurePlaintextStorageAlways) {
+                
+                return readFromInsecurePlaintextStorage(key)
+            }
             
             let uniqueKey = makeUnique(key);
 
@@ -124,6 +164,11 @@ open class Keychain {
         
         open static func write(_ key: String, data: Data) -> Bool {
             
+            if (useInsecurePlaintextStorageAlways) {
+                
+                return writeToInsecurePlaintextStorage(key, data: data)
+            }
+
             let uniqueKey = makeUnique(key);
 
             let query: [String:Any] = [
@@ -178,6 +223,11 @@ open class Keychain {
         
         open static func delete(_ key: String) -> Bool {
             
+            if (useInsecurePlaintextStorageAlways) {
+                
+                return deleteFromInsecurePlaintextStorage(key)
+            }
+
             let uniqueKey = makeUnique(key);
             
             let query: [String:Any] = [

@@ -5,7 +5,7 @@ import XCTest
 @testable import SoracomAPI
 
 open class KeychainTests: XCTestCase {
-    
+        
     let key1 = "foo.bar.baz.test.key.for.KeychainTests"
     let key2 = "the.freedom.of.birds.is.an.insult.to.me.KeychainTests"
     
@@ -90,6 +90,25 @@ open class KeychainTests: XCTestCase {
     }
     
 }
+
+
+open class KeychainInsecureModeTests: KeychainTests {
+    
+    // Inherits all the same test methods as KeychainTests, but enables insecure mode before each
+    
+    open override func setUp() {
+        super.setUp()
+        Keychain.useInsecurePlaintextStorageAlways = true
+    }
+    
+    
+    open override func tearDown() {
+        Keychain.useInsecurePlaintextStorageAlways = false;
+        super.tearDown()
+    }
+    
+}
+
 
 #if os(Linux)
     extension KeychainTests {

@@ -1,0 +1,8 @@
+/// SoracomAPI.xcconfig
+///
+/// A source for certain build settings external to the .xcodeproj file.
+///
+/// The Xcode project should either be made to depend on this file, or
+/// to otherwise have these settings:
+
+MACOSX_DEPLOYMENT_TARGET=10.13

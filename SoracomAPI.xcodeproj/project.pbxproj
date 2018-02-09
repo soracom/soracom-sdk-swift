@@ -118,6 +118,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		93C993EE202D598400A146E7 /* SoracomAPI.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SoracomAPI.xcconfig; sourceTree = "<group>"; };
 		OBJ_10 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		OBJ_12 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		OBJ_13 /* APIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
@@ -187,9 +188,9 @@
 		OBJ_78 /* SoracomCredentialsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoracomCredentialsTests.swift; sourceTree = "<group>"; };
 		OBJ_79 /* SubscriberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriberTests.swift; sourceTree = "<group>"; };
 		OBJ_80 /* Whatever */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Whatever; sourceTree = SOURCE_ROOT; };
-		"SoracomAPI::LinuxDemoAppForSoracomSDK::Product" /* LinuxDemoAppForSoracomSDK */ = {isa = PBXFileReference; lastKnownFileType = text; path = LinuxDemoAppForSoracomSDK; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SoracomAPI::LinuxDemoAppForSoracomSDK::Product" /* LinuxDemoAppForSoracomSDK */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = LinuxDemoAppForSoracomSDK; sourceTree = BUILT_PRODUCTS_DIR; };
 		"SoracomAPI::SoracomAPI::Product" /* SoracomAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SoracomAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"SoracomAPI::SoracomAPITests::Product" /* SoracomAPITests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoracomAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SoracomAPI::SoracomAPITests::Product" /* SoracomAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SoracomAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +270,7 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
+				93C993EE202D598400A146E7 /* SoracomAPI.xcconfig */,
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_51 /* Tests */,
@@ -637,6 +639,7 @@
 		};
 		OBJ_3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93C993EE202D598400A146E7 /* SoracomAPI.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -645,7 +648,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -659,6 +661,7 @@
 		};
 		OBJ_4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93C993EE202D598400A146E7 /* SoracomAPI.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -666,7 +669,6 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_OPTIMIZATION_LEVEL = s;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;

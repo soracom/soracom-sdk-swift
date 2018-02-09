@@ -4,6 +4,16 @@ import PackageDescription
 
 let package = Package(
     name: "SoracomAPI",
+    products: [
+        .library(
+            name: "SoracomAPI",
+            targets: ["SoracomAPI"]
+        ),
+        .executable(
+            name: "LinuxDemoAppForSoracomSDK",
+            targets: ["LinuxDemoAppForSoracomSDK"]
+        )
+    ],
     targets: [
         .target(
             name: "SoracomAPI",

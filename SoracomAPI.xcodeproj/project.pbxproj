@@ -188,7 +188,7 @@
 		OBJ_78 /* SoracomCredentialsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoracomCredentialsTests.swift; sourceTree = "<group>"; };
 		OBJ_79 /* SubscriberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriberTests.swift; sourceTree = "<group>"; };
 		OBJ_80 /* Whatever */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Whatever; sourceTree = SOURCE_ROOT; };
-		"SoracomAPI::LinuxDemoAppForSoracomSDK::Product" /* LinuxDemoAppForSoracomSDK */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = LinuxDemoAppForSoracomSDK; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SoracomAPI::LinuxDemoAppForSoracomSDK::Product" /* CommandLineDemoForSoracomSDK */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = CommandLineDemoForSoracomSDK; sourceTree = BUILT_PRODUCTS_DIR; };
 		"SoracomAPI::SoracomAPI::Product" /* SoracomAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SoracomAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"SoracomAPI::SoracomAPITests::Product" /* SoracomAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SoracomAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -343,7 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				"SoracomAPI::SoracomAPI::Product" /* SoracomAPI.framework */,
-				"SoracomAPI::LinuxDemoAppForSoracomSDK::Product" /* LinuxDemoAppForSoracomSDK */,
+				"SoracomAPI::LinuxDemoAppForSoracomSDK::Product" /* CommandLineDemoForSoracomSDK */,
 				"SoracomAPI::SoracomAPITests::Product" /* SoracomAPITests.xctest */,
 			);
 			name = Products;
@@ -360,9 +360,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		"SoracomAPI::LinuxDemoAppForSoracomSDK" /* LinuxDemoAppForSoracomSDK */ = {
+		"SoracomAPI::LinuxDemoAppForSoracomSDK" /* CommandLineDemoForSoracomSDK */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_86 /* Build configuration list for PBXNativeTarget "LinuxDemoAppForSoracomSDK" */;
+			buildConfigurationList = OBJ_86 /* Build configuration list for PBXNativeTarget "CommandLineDemoForSoracomSDK" */;
 			buildPhases = (
 				OBJ_89 /* Sources */,
 				OBJ_91 /* Frameworks */,
@@ -372,9 +372,9 @@
 			dependencies = (
 				OBJ_93 /* PBXTargetDependency */,
 			);
-			name = LinuxDemoAppForSoracomSDK;
+			name = CommandLineDemoForSoracomSDK;
 			productName = LinuxDemoAppForSoracomSDK;
-			productReference = "SoracomAPI::LinuxDemoAppForSoracomSDK::Product" /* LinuxDemoAppForSoracomSDK */;
+			productReference = "SoracomAPI::LinuxDemoAppForSoracomSDK::Product" /* CommandLineDemoForSoracomSDK */;
 			productType = "com.apple.product-type.tool";
 		};
 		"SoracomAPI::SoracomAPI" /* SoracomAPI */ = {
@@ -444,7 +444,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				"SoracomAPI::LinuxDemoAppForSoracomSDK" /* LinuxDemoAppForSoracomSDK */,
+				"SoracomAPI::LinuxDemoAppForSoracomSDK" /* CommandLineDemoForSoracomSDK */,
 				"SoracomAPI::SoracomAPI" /* SoracomAPI */,
 				"SoracomAPI::SwiftPMPackageDescription" /* SoracomAPIPackageDescription */,
 				"SoracomAPI::SoracomAPIPackageTests::ProductTarget" /* SoracomAPIPackageTests */,
@@ -687,14 +687,15 @@
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = SoracomAPI.xcodeproj/LinuxDemoAppForSoracomSDK_Info.plist;
+				INFOPLIST_FILE = SoracomAPI.xcodeproj/CommandLineDemoForSoracomSDK_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
 				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
 				SWIFT_VERSION = 4.0;
-				TARGET_NAME = LinuxDemoAppForSoracomSDK;
+				TARGET_NAME = CommandLineDemoForSoracomSDK;
 			};
 			name = Debug;
 		};
@@ -706,14 +707,15 @@
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = SoracomAPI.xcodeproj/LinuxDemoAppForSoracomSDK_Info.plist;
+				INFOPLIST_FILE = SoracomAPI.xcodeproj/CommandLineDemoForSoracomSDK_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
 				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
 				SWIFT_VERSION = 4.0;
-				TARGET_NAME = LinuxDemoAppForSoracomSDK;
+				TARGET_NAME = CommandLineDemoForSoracomSDK;
 			};
 			name = Release;
 		};
@@ -800,7 +802,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_86 /* Build configuration list for PBXNativeTarget "LinuxDemoAppForSoracomSDK" */ = {
+		OBJ_86 /* Build configuration list for PBXNativeTarget "CommandLineDemoForSoracomSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_87 /* Debug */,

@@ -29,8 +29,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "SoracomAPI::LinuxDemoAppForSoracomSDK"
-               BuildableName = "LinuxDemoAppForSoracomSDK"
-               BlueprintName = "LinuxDemoAppForSoracomSDK"
+               BuildableName = "CommandLineDemoForSoracomSDK"
+               BlueprintName = "CommandLineDemoForSoracomSDK"
                ReferencedContainer = "container:SoracomAPI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

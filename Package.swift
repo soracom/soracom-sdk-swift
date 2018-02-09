@@ -10,8 +10,8 @@ let package = Package(
             targets: ["SoracomAPI"]
         ),
         .executable(
-            name: "LinuxDemoAppForSoracomSDK",
-            targets: ["LinuxDemoAppForSoracomSDK"]
+            name: "CommandLineDemoForSoracomSDK",
+            targets: ["CommandLineDemoForSoracomSDK"]
         )
     ],
     targets: [
@@ -26,9 +26,9 @@ let package = Package(
             path: "Tests"
         ),
         .target(
-            name: "LinuxDemoAppForSoracomSDK",
+            name: "CommandLineDemoForSoracomSDK",
             dependencies: ["SoracomAPI"],
-            path: "Whatever/LinuxDemoAppForSoracomSDK"
+            path: "Whatever/CommandLineDemoForSoracomSDK"
         )
     ]
 )

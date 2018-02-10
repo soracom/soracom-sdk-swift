@@ -324,19 +324,19 @@
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_8 /* LinuxDemoAppForSoracomSDK */,
+				OBJ_8 /* CommandLineDemoForSoracomSDK */,
 				OBJ_11 /* SoracomAPI */,
 			);
 			name = Sources;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_8 /* LinuxDemoAppForSoracomSDK */ = {
+		OBJ_8 /* CommandLineDemoForSoracomSDK */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* Sources */,
 			);
-			name = LinuxDemoAppForSoracomSDK;
-			path = Whatever/LinuxDemoAppForSoracomSDK;
+			name = CommandLineDemoForSoracomSDK;
+			path = Whatever/CommandLineDemoForSoracomSDK;
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_81 /* Products */ = {

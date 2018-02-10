@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		93C993F0202E87DA00A146E7 /* SimpleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C993EF202E87DA00A146E7 /* SimpleMenu.swift */; };
 		OBJ_100 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* APIOperation.swift */; };
 		OBJ_101 /* AirStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* AirStats.swift */; };
 		OBJ_102 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* AuthResponse.swift */; };
@@ -119,6 +120,7 @@
 
 /* Begin PBXFileReference section */
 		93C993EE202D598400A146E7 /* SoracomAPI.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SoracomAPI.xcconfig; sourceTree = "<group>"; };
+		93C993EF202E87DA00A146E7 /* SimpleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMenu.swift; sourceTree = "<group>"; };
 		OBJ_10 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		OBJ_12 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		OBJ_13 /* APIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_10 /* main.swift */,
+				93C993EF202E87DA00A146E7 /* SimpleMenu.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				93C993F0202E87DA00A146E7 /* SimpleMenu.swift in Sources */,
 				OBJ_90 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

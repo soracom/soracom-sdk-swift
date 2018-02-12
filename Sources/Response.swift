@@ -17,7 +17,7 @@ public struct Response {
     
     /// The normal way that Response objects are instantiated (by Request). Outside of testing, it would be unusual to need to manually init a Response.
     
-    init(request: Request, underlyingURLResponse: HTTPURLResponse?, data: Data? = nil, underlyingError: NSError? = nil ) {
+    public init(request: Request, underlyingURLResponse: HTTPURLResponse?, data: Data? = nil, underlyingError: NSError? = nil ) {
         
         self.request               = request
         self.underlyingURLResponse = underlyingURLResponse
@@ -31,7 +31,7 @@ public struct Response {
     
     /// Init a Response with an error. This is for when a response object is required, but an error occurs on the client side before an actual HTTP response can be obtained.
     
-    init(error: APIError) {
+    public init(error: APIError) {
         self.request = Request("error") // slightly hacky, but I don't want to make path optional right now FIXME do it bro
         self._error   = error
     }
@@ -39,22 +39,22 @@ public struct Response {
     
     /// The originating `Request` instance, for which the receiver is a matched pair. The request has the details about what was requested and what the expectations were, while the result has the details of what actually came back from the sever (or what error occurred).
     
-    let request: Request
+    public let request: Request
     
     
     /// The underlying system response object (which exposes some details like HTTP headers, HTTP version, etc). This object should always be present upon success, but may be nil when some kind of error has occurred (or in automated testing scenarios).
     
-    var underlyingURLResponse: HTTPURLResponse?
+    public var underlyingURLResponse: HTTPURLResponse?
     
     
     /// The raw data received with the response (if any).
     
-    var data: Data?
+    public var data: Data?
     
     
     /// Returns `self.data` as a UTF-8 string.
     
-    var text: String? {
+    public var text: String? {
         guard let data = data else {
             return nil
         }
@@ -64,14 +64,14 @@ public struct Response {
     
     /// The actual HTTP status returned by the underlying HTTP request. May be nil, e.g. if error happened before HTTP response was received.
     
-    var HTTPStatus: Int? {
+    public var HTTPStatus: Int? {
         return underlyingURLResponse?.statusCode
     }
     
     
     /// Creates and returns a Payload object from the HTTP response from the API server, if it included a JSON payload that could be successfully parsed.
     
-    var payload: Payload? {
+    public var payload: Payload? {
         
         var result: Payload? = nil
         
@@ -99,7 +99,7 @@ public struct Response {
     
     /// An `error` value of `nil` indicates success. A non-nil value indicates an error has occured. Usually, an error will be returned by the API server, but other errors are possible. E.g., a client-side error accessing the network.
     
-    var error: APIError? {
+    public var error: APIError? {
         
         guard _error == nil else {
             return _error

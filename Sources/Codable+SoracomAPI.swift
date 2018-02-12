@@ -7,7 +7,7 @@ import Foundation
 */
 extension Encodable {
     
-    func toPayload() -> Payload {
+    public func toPayload() -> Payload {
         
         let jsonData = self.toData()
         
@@ -23,7 +23,7 @@ extension Encodable {
         // of what I am doing now, and anyway Payload may go away soon. (mason 2017-07-14)
     }
     
-    func toData() -> Data? {
+    public func toData() -> Data? {
 
         let e = JSONEncoder()
         e.outputFormatting = [.prettyPrinted]
@@ -39,7 +39,7 @@ extension Encodable {
 
 extension Array where Element: Encodable & PayloadConvertible {
 
-    func toPayload() -> Payload {
+    public func toPayload() -> Payload {
         
         let jsonData = self.toData()
         
@@ -55,7 +55,7 @@ extension Array where Element: Encodable & PayloadConvertible {
         // of what I am doing now, and anyway Payload may go away soon. (mason 2017-07-14)
     }
     
-    func toData() -> Data? {
+    public func toData() -> Data? {
         
         let e = JSONEncoder()
         e.outputFormatting = [.prettyPrinted]
@@ -75,7 +75,7 @@ extension Array where Element: Encodable & PayloadConvertible {
 */
 extension Decodable {
     
-    static func from(_ payload: Payload?) -> Self? {
+    public static func from(_ payload: Payload?) -> Self? {
         
         guard let payload = payload else {
             return nil
@@ -87,7 +87,7 @@ extension Decodable {
     }
     
     
-    static func from(_ jsonData: Data) -> Self? {
+    public static func from(_ jsonData: Data) -> Self? {
         
         let decoder = JSONDecoder()
         
@@ -101,7 +101,7 @@ extension Decodable {
     }
     
     
-    static func listFrom(_ payload: Payload?) -> [Self]? {
+    public static func listFrom(_ payload: Payload?) -> [Self]? {
         
         guard let payload = payload else {
             return nil
@@ -113,7 +113,7 @@ extension Decodable {
     }
     
     
-    static func listFrom(_ jsonData: Data) -> [Self]? {
+    public static func listFrom(_ jsonData: Data) -> [Self]? {
         
         let decoder = JSONDecoder()
         

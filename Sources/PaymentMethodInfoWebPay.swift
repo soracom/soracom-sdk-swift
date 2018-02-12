@@ -1,12 +1,23 @@
-// PaymentMethodInfoWebPay.swift Created by mason on 2017-07-26. 
+// PaymentMethodInfoWebPay.swift Created by mason on 2017-07-26.
 
 
 /// Encapsulates the data for registering a payment method.
 
 public struct PaymentMethodInfoWebPay {
-    var cvc: String
-    var expireMonth: Int
-    var expireYear: Int
-    var name: String
-    var number: String
+
+    public var cvc: String
+    public var expireMonth: Int
+    public var expireYear: Int
+    public var name: String
+    public var number: String
+
+    public init(cvc: String, expireMonth: Int, expireYear: Int, name: String, number: String) {
+
+        self.cvc         = cvc
+        self.expireMonth = expireMonth
+        self.expireYear  = expireYear
+        self.name        = name
+        self.number      = number
+    }
+
 }

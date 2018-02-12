@@ -2,6 +2,18 @@
 
 import Foundation
 
+/// Conveniences
+
+extension SoracomCredentials {
+    
+    public init(authKeyId: String, authKeySecret: String) {
+        self.init()
+        self.authKeyID = authKeyId
+        self.authKeySecret = authKeySecret
+        self.type = .AuthKey
+    }
+}
+
 /// Simple object to represent a set of Soracom credentials (either a Soracom root acccount, SAM user, AuthKey id/secret pair, or API Key / API Token pair). The first three types of credentials are used for authentication, while the last type is typically passed in HTTP headers to authorize individual API operations. `SoracomCredentials` can represent any/all of them, however, and can read/write to/from persistent storage (e.g., the system keychain on iOS and OSX).
 
 public struct SoracomCredentials: Equatable, Codable {

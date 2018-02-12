@@ -6,7 +6,7 @@ import Foundation
 ///
 /// Types like Subscriber or AirStats need to implement PayloadConvertible, so that they can provide a Payload representation of themselves that can then be translated to a basic representation that the JSON encoder can deal with it.
 
-protocol PayloadConvertible {
+public protocol PayloadConvertible {
     
     static func from(_ payload: Payload?) -> Self?
     

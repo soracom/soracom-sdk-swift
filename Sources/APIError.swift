@@ -11,22 +11,22 @@ public struct APIError {
     
     /// The error code. In most cases, this is an error code returned by the API server. However, if the error code begins with "CLI" then it is a client-side error, e.g. something that prevented even getting a response from the server (such as, 'network not available').
     
-    let code: String
+    public let code: String
     
     
     /// The error messsage describing what went wrong.
     
-    let message: String
+    public let message: String
     
     
     /// A non-nil value indicates a client-side error (some error condition that happens on the client side, as opposed to being returned from the API server, e.g. 'network not available'.
     
-    let underlyingError: NSError?
+    public let underlyingError: NSError?
     
     
     /// Init an error the normal way, for an error condition returned by the API server.
     
-    init(code: String?, message: String?) {
+    public init(code: String?, message: String?) {
         self.code    = code ?? "UNK0001" // copy what Go SDK does
         self.message = message ?? "unknown error"
         // FIXME: Mason 2016-03-06: the Go SDK has one more field, messageArgs, which is used to compose the actual message string, but I haven't yet had time to make that work. (See: api_error.go)
@@ -37,7 +37,7 @@ public struct APIError {
     
     /// Init an error for a local client-side error. Usually this would be the NSError reported by NSURLSession, e.g. network connection not available.
     
-    init(underlyingError: NSError) {
+    public init(underlyingError: NSError) {
         self.underlyingError = underlyingError
         
         // FIXME: Someday we should have more intelligent error codes and messages based on what the underlying error is.
@@ -49,7 +49,7 @@ public struct APIError {
     
     /// Init a new APIError from a Payload structure. Returns nil unless Payload exists and has `.code` and `.message` keys.
     
-    init?(payload: Payload?) {
+    public init?(payload: Payload?) {
         
         guard let payload = payload else {
             return nil

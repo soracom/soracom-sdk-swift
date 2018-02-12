@@ -4,9 +4,10 @@ import Foundation
 
 public struct Subscriber: PayloadConvertible, Codable {
     
-    var ipAddress: String?
-    var speedClass: String?
-    var imsi: String?
+    public var ipAddress: String?
+    public var speedClass: String?
+    public var imsi: String?
+    public var status: String?
     
     // FIXME: to be real we need to support all of this:
     

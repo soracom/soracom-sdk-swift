@@ -144,13 +144,13 @@ open class Client {
             return
         }
         
-        let authReq     = Request.auth(credentials)
+        let authReq = Request.auth(credentials)
         
         authReq.run { (response) in
             
             if let payload = response.payload,
-                let apiKey = payload[.apiKey] as? String,
-                let token  = payload[.token] as? String
+               let apiKey = payload[.apiKey] as? String,
+               let token  = payload[.token] as? String
             {
                 credentials.apiKey = apiKey
                 credentials.token  = token
@@ -421,7 +421,7 @@ open class Client {
                 self.log("\(error)")
                 
             } else {
-                self.log("Successfully addded a (fake) payment method to the sandbox user's account.")
+                self.log("Successfully added a (fake) payment method to the sandbox user's account.")
             }
         }
         

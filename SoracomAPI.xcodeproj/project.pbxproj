@@ -21,7 +21,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		93C993F0202E87DA00A146E7 /* SimpleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C993EF202E87DA00A146E7 /* SimpleMenu.swift */; };
+		930DDA58203136780026EB93 /* SimpleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930DDA56203136780026EB93 /* SimpleMenu.swift */; };
+		930DDA59203136780026EB93 /* InputReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930DDA57203136780026EB93 /* InputReader.swift */; };
+		93C993F2202EA14A00A146E7 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C993F1202EA14A00A146E7 /* Strings.swift */; };
+		93C993F4202EA78600A146E7 /* CLIDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C993F3202EA78600A146E7 /* CLIDemo.swift */; };
 		OBJ_100 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* APIOperation.swift */; };
 		OBJ_101 /* AirStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* AirStats.swift */; };
 		OBJ_102 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* AuthResponse.swift */; };
@@ -119,8 +122,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		930DDA56203136780026EB93 /* SimpleMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleMenu.swift; sourceTree = "<group>"; };
+		930DDA57203136780026EB93 /* InputReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputReader.swift; sourceTree = "<group>"; };
 		93C993EE202D598400A146E7 /* SoracomAPI.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SoracomAPI.xcconfig; sourceTree = "<group>"; };
-		93C993EF202E87DA00A146E7 /* SimpleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMenu.swift; sourceTree = "<group>"; };
+		93C993F1202EA14A00A146E7 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		93C993F3202EA78600A146E7 /* CLIDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLIDemo.swift; sourceTree = "<group>"; };
 		OBJ_10 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		OBJ_12 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		OBJ_13 /* APIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
@@ -222,6 +228,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		930DDA55203136780026EB93 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				930DDA56203136780026EB93 /* SimpleMenu.swift */,
+				930DDA57203136780026EB93 /* InputReader.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		OBJ_11 /* SoracomAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,7 +370,9 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_10 /* main.swift */,
-				93C993EF202E87DA00A146E7 /* SimpleMenu.swift */,
+				93C993F3202EA78600A146E7 /* CLIDemo.swift */,
+				93C993F1202EA14A00A146E7 /* Strings.swift */,
+				930DDA55203136780026EB93 /* Utilities */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -503,8 +520,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				93C993F0202E87DA00A146E7 /* SimpleMenu.swift in Sources */,
+				930DDA58203136780026EB93 /* SimpleMenu.swift in Sources */,
+				93C993F4202EA78600A146E7 /* CLIDemo.swift in Sources */,
+				93C993F2202EA14A00A146E7 /* Strings.swift in Sources */,
 				OBJ_90 /* main.swift in Sources */,
+				930DDA59203136780026EB93 /* InputReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

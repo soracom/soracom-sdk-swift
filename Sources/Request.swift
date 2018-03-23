@@ -228,6 +228,9 @@ open class Request {
                           tagValueMatchMode: TagValueMatchMode?  = nil,
                                statusFilter: [SubscriberStatus]? = nil,
                            speedClassFilter: [SpeedClass]?       = nil,
+                                       from: Int?                = nil,
+                                         to: Int?                = nil,
+                                       sort: SortDirection?      = nil,
                                       limit: Int?                = nil,
                            lastEvaluatedKey: String?             = nil
     
@@ -254,6 +257,18 @@ open class Request {
                 let strings = speedClassFilter.map {e in e.rawValue}
                 query["speed_class_filter"] = strings.joined(separator: "|")
             }
+        }
+        
+        if let from = from {
+            query["from"] = String(from)
+        }
+        
+        if let to = to {
+            query["to"] = String(to)
+        }
+        
+        if let sort = sort {
+            query["sort"] = sort.rawValue
         }
         
         if let limit = limit {

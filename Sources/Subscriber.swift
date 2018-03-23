@@ -57,6 +57,12 @@ public enum SpeedClass: String {
 }
 
 
+public enum SortDirection: String {
+    case ascending   = "asc"
+    case descending  = "desc"
+}
+
+
 public enum SubscriberStatus: String {
     case active, inactive, ready, instock, shipped, suspended, terminated
 }

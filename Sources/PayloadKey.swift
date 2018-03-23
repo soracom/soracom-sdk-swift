@@ -58,6 +58,7 @@ public enum PayloadKey: String, Codable, CodingKey {
     case downloadPackets
     case downloadPacketSizeTotal
     case email
+    case encodingType
     case endpoint
     case errorMessage
     case event
@@ -128,6 +129,7 @@ public enum PayloadKey: String, Codable, CodingKey {
     case parameter4
     case parameter5
     case password
+    case payload
     case paymentTransactionId
     case peerOwnerId
     case peerVpcId

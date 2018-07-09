@@ -5,10 +5,34 @@ import SoracomAPI
 
 open class CLIDemo {
     
+    var transcript: [String] = [];
+    
+    
+    /**
+     By default this CLI demo prints all requests and responses, but we can use this flag to turn that off when it would be confusing (e.g., automatic credentials validation).
+     */
+    var printRequestResponseTraffic = true;
+    
     /**
      Runs the demo tool, which will interactively show the user a few features of this SDK.
      */
     open func run() {
+        
+
+        
+        Request.beforeRun { (request) in
+            
+            if (self.printRequestResponseTraffic) {
+                print("\n\n\(request)");
+            }
+        }
+        
+        Request.afterRun { (response) in
+            if (self.printRequestResponseTraffic) {
+                print("\n\n\(response)");
+            }
+
+        }
         
         showWelcomeMessage()
         
@@ -201,6 +225,8 @@ open class CLIDemo {
      */
     open func testSandboxCredentials(_ credentials: SoracomCredentials) -> Bool {
         
+        self.printRequestResponseTraffic = false;
+        
         log("Testing sandbox user credentials...")
         
         var credentials = credentials;
@@ -220,6 +246,9 @@ open class CLIDemo {
         }
         
         log(result ? " OK." : "FAILED", prepend: nil)
+        
+        self.printRequestResponseTraffic = true;
+        
         return result
     }
     

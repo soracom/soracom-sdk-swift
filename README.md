@@ -4,7 +4,7 @@ An SDK for the Soracom API in Swift.
 
 Current status: This SDK is a work in progress, and is still in the design stage. It currently only implements a portion of the API, as an example; complete API support is coming Real Soon Now&trade;.
 
-**UPDATE 2018-02-07:** The work to additionally target Linux has begun, and is basically working, although not yet complete. This project will require Swift 4.1 or later on all supported platforms (macOS, iOS, and Linux), and if Xcode is used, version 9.3 or later.
+**UPDATE 2018-07-23:** The work to additionally target Linux has begun, and is basically working, although not yet complete. This project will require Swift 4.2 or later on all supported platforms (macOS, iOS, and Linux), and if Xcode is used, version 10 or later.
 
 This README will be updated once we have feature parity between platforms, but for now everything below this line pertains to the previous version of this SDK (for macOS and iOS only), circa September 2016. It gives a general overview that is mostly accurate, but many details may be out of date.
 
@@ -25,11 +25,11 @@ This README will be updated once we have feature parity between platforms, but f
 ## Target audience
 This SDK is intended for programmers who want to interact with the [Soracom API](https://dev.soracom.io/jp/docs/api_guide/) from Swift code.
 
-The (revised) goal is to support iOS 10 and macOS 10.12, initially.  Using this SDK for development requires a [Soracom account](https://console.soracom.io/#/signup) and [Xcode 8](https://developer.apple.com/xcode/).
+The (revised) goal is to support iOS 12 and macOS 10.14, initially.  Using this SDK for development requires a [Soracom account](https://console.soracom.io/#/signup) and [Xcode](https://developer.apple.com/xcode/).
 
 A near-term goal, now that Swift 3 has been released, is to to build as [a Swift 3 package](https://swift.org/package-manager/#conceptual-overview), and to fully support Linux (and, hopefully, [other significant platforms?](http://thenextweb.com/dd/2016/04/07/google-facebook-uber-swift/)).
 
-
+**UPDATE:** That was the original goal, but Swift 3 just wasn't ready for Linux. Swift 4.2 solves most of the issues, though, so it became the targeted version in 2018.
 
 ## Demo apps
 The Mac demo app lets you interactively play with some of the API features, and is probably the easiest way to get started. It prints out a color-coded text representation every request and response, to illustrate how the API works:
@@ -320,18 +320,18 @@ The `Request` class also supports making synchronous requests:
 
 ```swift
         let authRequest  = Request.auth(credentials)
-        
-        // to execute a request synchronously, use wait() 
+
+        // to execute a request synchronously, use wait()
         // instead of run(), like this:
-        
+
         let authResponse = authRequest.wait()
-        
+
         guard let payload = authResponse.payload, let apiKey = payload[.apiKey] as? String, let newToken = payload[.token] as? String else
         {
             print("failed to update token: authentication failed: \(authResponse)")
             return nil
         }
-        
+
         // do something with newToken...
 ```
 

@@ -8,92 +8,50 @@
 
 /* Begin PBXBuildFile section */
 		930AB6172105922F00C7F573 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5EA2105922F00C7F573 /* Constants.swift */; };
-		930AB6182105922F00C7F573 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5EA2105922F00C7F573 /* Constants.swift */; };
 		930AB6192105922F00C7F573 /* PayloadKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5EB2105922F00C7F573 /* PayloadKey.swift */; };
-		930AB61A2105922F00C7F573 /* PayloadKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5EB2105922F00C7F573 /* PayloadKey.swift */; };
 		930AB61B2105922F00C7F573 /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5EC2105922F00C7F573 /* Subscriber.swift */; };
-		930AB61C2105922F00C7F573 /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5EC2105922F00C7F573 /* Subscriber.swift */; };
 		930AB61D2105922F00C7F573 /* Request+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5ED2105922F00C7F573 /* Request+Credentials.swift */; };
-		930AB61E2105922F00C7F573 /* Request+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5ED2105922F00C7F573 /* Request+Credentials.swift */; };
 		930AB61F2105922F00C7F573 /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5EE2105922F00C7F573 /* NSDate+SoracomAPI.swift */; };
-		930AB6202105922F00C7F573 /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5EE2105922F00C7F573 /* NSDate+SoracomAPI.swift */; };
 		930AB6212105922F00C7F573 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5EF2105922F00C7F573 /* APIError.swift */; };
-		930AB6222105922F00C7F573 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5EF2105922F00C7F573 /* APIError.swift */; };
 		930AB6232105922F00C7F573 /* ConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F02105922F00C7F573 /* ConfigurationParameter.swift */; };
-		930AB6242105922F00C7F573 /* ConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F02105922F00C7F573 /* ConfigurationParameter.swift */; };
 		930AB6252105922F00C7F573 /* BeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F12105922F00C7F573 /* BeamStats.swift */; };
-		930AB6262105922F00C7F573 /* BeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F12105922F00C7F573 /* BeamStats.swift */; };
 		930AB6272105922F00C7F573 /* Request+Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F22105922F00C7F573 /* Request+Payment.swift */; };
-		930AB6282105922F00C7F573 /* Request+Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F22105922F00C7F573 /* Request+Payment.swift */; };
 		930AB6292105922F00C7F573 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F32105922F00C7F573 /* TextStyle.swift */; };
-		930AB62A2105922F00C7F573 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F32105922F00C7F573 /* TextStyle.swift */; };
 		930AB62B2105922F00C7F573 /* RequestResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F42105922F00C7F573 /* RequestResponseFormatter.swift */; };
-		930AB62C2105922F00C7F573 /* RequestResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F42105922F00C7F573 /* RequestResponseFormatter.swift */; };
 		930AB62D2105922F00C7F573 /* RequestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F52105922F00C7F573 /* RequestQueue.swift */; };
-		930AB62E2105922F00C7F573 /* RequestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F52105922F00C7F573 /* RequestQueue.swift */; };
 		930AB62F2105922F00C7F573 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F62105922F00C7F573 /* HTTPMethod.swift */; };
-		930AB6302105922F00C7F573 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F62105922F00C7F573 /* HTTPMethod.swift */; };
 		930AB6312105922F00C7F573 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F72105922F00C7F573 /* Keychain.swift */; };
-		930AB6322105922F00C7F573 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F72105922F00C7F573 /* Keychain.swift */; };
 		930AB6332105922F00C7F573 /* Codable+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F82105922F00C7F573 /* Codable+SoracomAPI.swift */; };
-		930AB6342105922F00C7F573 /* Codable+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F82105922F00C7F573 /* Codable+SoracomAPI.swift */; };
 		930AB6352105922F00C7F573 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F92105922F00C7F573 /* Response.swift */; };
-		930AB6362105922F00C7F573 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5F92105922F00C7F573 /* Response.swift */; };
 		930AB6372105922F00C7F573 /* SoracomCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5FA2105922F00C7F573 /* SoracomCredentials.swift */; };
-		930AB6382105922F00C7F573 /* SoracomCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5FA2105922F00C7F573 /* SoracomCredentials.swift */; };
 		930AB6392105922F00C7F573 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5FB2105922F00C7F573 /* Client.swift */; };
-		930AB63A2105922F00C7F573 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5FB2105922F00C7F573 /* Client.swift */; };
 		930AB63B2105922F00C7F573 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5FC2105922F00C7F573 /* APIOperation.swift */; };
-		930AB63C2105922F00C7F573 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5FC2105922F00C7F573 /* APIOperation.swift */; };
 		930AB63D2105922F00C7F573 /* CoverageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5FD2105922F00C7F573 /* CoverageType.swift */; };
-		930AB63E2105922F00C7F573 /* CoverageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5FD2105922F00C7F573 /* CoverageType.swift */; };
 		930AB63F2105922F00C7F573 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5FE2105922F00C7F573 /* Request.swift */; };
-		930AB6402105922F00C7F573 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5FE2105922F00C7F573 /* Request.swift */; };
 		930AB6412105922F00C7F573 /* AirStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5FF2105922F00C7F573 /* AirStats.swift */; };
-		930AB6422105922F00C7F573 /* AirStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB5FF2105922F00C7F573 /* AirStats.swift */; };
 		930AB6432105922F00C7F573 /* Request+Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6002105922F00C7F573 /* Request+Subscriber.swift */; };
-		930AB6442105922F00C7F573 /* Request+Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6002105922F00C7F573 /* Request+Subscriber.swift */; };
 		930AB6452105922F00C7F573 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6012105922F00C7F573 /* Credential.swift */; };
-		930AB6462105922F00C7F573 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6012105922F00C7F573 /* Credential.swift */; };
 		930AB6472105922F00C7F573 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6022105922F00C7F573 /* Group.swift */; };
-		930AB6482105922F00C7F573 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6022105922F00C7F573 /* Group.swift */; };
 		930AB6492105922F00C7F573 /* Request+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6032105922F00C7F573 /* Request+Group.swift */; };
-		930AB64A2105922F00C7F573 /* Request+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6032105922F00C7F573 /* Request+Group.swift */; };
 		930AB64B2105922F00C7F573 /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6042105922F00C7F573 /* Request+Auth.swift */; };
-		930AB64C2105922F00C7F573 /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6042105922F00C7F573 /* Request+Auth.swift */; };
-		930AB64D2105922F00C7F573 /* PayloadConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6052105922F00C7F573 /* PayloadConvertible.swift */; };
-		930AB64E2105922F00C7F573 /* PayloadConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6052105922F00C7F573 /* PayloadConvertible.swift */; };
 		930AB64F2105922F00C7F573 /* JSONComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6062105922F00C7F573 /* JSONComparison.swift */; };
-		930AB6502105922F00C7F573 /* JSONComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6062105922F00C7F573 /* JSONComparison.swift */; };
 		930AB6512105922F00C7F573 /* KeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6072105922F00C7F573 /* KeyedEncodingContainer+Payload.swift */; };
-		930AB6522105922F00C7F573 /* KeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6072105922F00C7F573 /* KeyedEncodingContainer+Payload.swift */; };
 		930AB6532105922F00C7F573 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6082105922F00C7F573 /* Payload.swift */; };
-		930AB6542105922F00C7F573 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6082105922F00C7F573 /* Payload.swift */; };
 		930AB6552105922F00C7F573 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6092105922F00C7F573 /* Tag.swift */; };
-		930AB6562105922F00C7F573 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6092105922F00C7F573 /* Tag.swift */; };
 		930AB6572105922F00C7F573 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB60A2105922F00C7F573 /* AuthResponse.swift */; };
-		930AB6582105922F00C7F573 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB60A2105922F00C7F573 /* AuthResponse.swift */; };
 		930AB6592105922F00C7F573 /* PaymentMethodInfoWebPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB60B2105922F00C7F573 /* PaymentMethodInfoWebPay.swift */; };
-		930AB65A2105922F00C7F573 /* PaymentMethodInfoWebPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB60B2105922F00C7F573 /* PaymentMethodInfoWebPay.swift */; };
 		930AB65B2105922F00C7F573 /* Request+Sandbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB60C2105922F00C7F573 /* Request+Sandbox.swift */; };
-		930AB65C2105922F00C7F573 /* Request+Sandbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB60C2105922F00C7F573 /* Request+Sandbox.swift */; };
 		930AB65D2105922F00C7F573 /* UnkeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB60D2105922F00C7F573 /* UnkeyedEncodingContainer+Payload.swift */; };
-		930AB65E2105922F00C7F573 /* UnkeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB60D2105922F00C7F573 /* UnkeyedEncodingContainer+Payload.swift */; };
 		930AB65F2105922F00C7F573 /* DataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB60E2105922F00C7F573 /* DataTrafficStats.swift */; };
-		930AB6602105922F00C7F573 /* DataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB60E2105922F00C7F573 /* DataTrafficStats.swift */; };
 		930AB6612105922F00C7F573 /* Data+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB60F2105922F00C7F573 /* Data+SoracomAPI.swift */; };
-		930AB6622105922F00C7F573 /* Data+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB60F2105922F00C7F573 /* Data+SoracomAPI.swift */; };
 		930AB6632105922F00C7F573 /* Request+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6102105922F00C7F573 /* Request+Operator.swift */; };
-		930AB6642105922F00C7F573 /* Request+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930AB6102105922F00C7F573 /* Request+Operator.swift */; };
 		932A5B901CE80CE4007D0B5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5B8F1CE80CE4007D0B5C /* AppDelegate.swift */; };
 		932A5B951CE80CE4007D0B5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932A5B931CE80CE4007D0B5C /* Main.storyboard */; };
 		932A5B971CE80CE4007D0B5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 932A5B961CE80CE4007D0B5C /* Assets.xcassets */; };
 		932A5B9A1CE80CE4007D0B5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932A5B981CE80CE4007D0B5C /* LaunchScreen.storyboard */; };
 		932A5BA51CE80CE4007D0B5C /* iOSDemoAppForSoracomSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BA41CE80CE4007D0B5C /* iOSDemoAppForSoracomSDKTests.swift */; };
 		932A5BB01CE8111A007D0B5C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BAF1CE8111A007D0B5C /* MainViewController.swift */; };
-		932A5BB11CE8111A007D0B5C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BAF1CE8111A007D0B5C /* MainViewController.swift */; };
 		932A5BB31CE81151007D0B5C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BB21CE81151007D0B5C /* SettingsViewController.swift */; };
-		932A5BB41CE81151007D0B5C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BB21CE81151007D0B5C /* SettingsViewController.swift */; };
 		93406F66210571C000D3ABAE /* ResponsePayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F4B210571C000D3ABAE /* ResponsePayloadTests.swift */; };
 		93406F67210571C000D3ABAE /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F4C210571C000D3ABAE /* RequestTests.swift */; };
 		93406F68210571C000D3ABAE /* JSONComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F4D210571C000D3ABAE /* JSONComparisonTests.swift */; };
@@ -121,7 +79,6 @@
 		93406F7E210571C000D3ABAE /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F63210571C000D3ABAE /* ResponseTests.swift */; };
 		93406F7F210571C000D3ABAE /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F64210571C000D3ABAE /* Fixtures.swift */; };
 		93406F80210571C000D3ABAE /* SubscriberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F65210571C000D3ABAE /* SubscriberTests.swift */; };
-		939BF3A71D12718E0069B3EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5B8F1CE80CE4007D0B5C /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,7 +119,6 @@
 		930AB6022105922F00C7F573 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		930AB6032105922F00C7F573 /* Request+Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Group.swift"; sourceTree = "<group>"; };
 		930AB6042105922F00C7F573 /* Request+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Auth.swift"; sourceTree = "<group>"; };
-		930AB6052105922F00C7F573 /* PayloadConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadConvertible.swift; sourceTree = "<group>"; };
 		930AB6062105922F00C7F573 /* JSONComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONComparison.swift; sourceTree = "<group>"; };
 		930AB6072105922F00C7F573 /* KeyedEncodingContainer+Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyedEncodingContainer+Payload.swift"; sourceTree = "<group>"; };
 		930AB6082105922F00C7F573 /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
@@ -264,7 +220,6 @@
 				930AB6072105922F00C7F573 /* KeyedEncodingContainer+Payload.swift */,
 				930AB5EE2105922F00C7F573 /* NSDate+SoracomAPI.swift */,
 				930AB6082105922F00C7F573 /* Payload.swift */,
-				930AB6052105922F00C7F573 /* PayloadConvertible.swift */,
 				930AB5EB2105922F00C7F573 /* PayloadKey.swift */,
 				930AB60B2105922F00C7F573 /* PaymentMethodInfoWebPay.swift */,
 				930AB5FE2105922F00C7F573 /* Request.swift */,
@@ -506,7 +461,6 @@
 				930AB62B2105922F00C7F573 /* RequestResponseFormatter.swift in Sources */,
 				930AB6552105922F00C7F573 /* Tag.swift in Sources */,
 				930AB6372105922F00C7F573 /* SoracomCredentials.swift in Sources */,
-				930AB64D2105922F00C7F573 /* PayloadConvertible.swift in Sources */,
 				930AB6292105922F00C7F573 /* TextStyle.swift in Sources */,
 				930AB62D2105922F00C7F573 /* RequestQueue.swift in Sources */,
 				930AB6572105922F00C7F573 /* AuthResponse.swift in Sources */,
@@ -536,75 +490,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				93406F6D210571C000D3ABAE /* Request+AuthTests.swift in Sources */,
-				930AB6402105922F00C7F573 /* Request.swift in Sources */,
 				93406F7D210571C000D3ABAE /* DevelopmentEnvironmentTests.swift in Sources */,
-				930AB6202105922F00C7F573 /* NSDate+SoracomAPI.swift in Sources */,
 				93406F67210571C000D3ABAE /* RequestTests.swift in Sources */,
 				93406F7B210571C000D3ABAE /* APIStructuresTests.swift in Sources */,
 				93406F6B210571C000D3ABAE /* APIErrorTests.swift in Sources */,
-				930AB65C2105922F00C7F573 /* Request+Sandbox.swift in Sources */,
-				930AB6362105922F00C7F573 /* Response.swift in Sources */,
-				939BF3A71D12718E0069B3EF /* AppDelegate.swift in Sources */,
 				93406F78210571C000D3ABAE /* RegisterSIMTests.swift in Sources */,
-				930AB6182105922F00C7F573 /* Constants.swift in Sources */,
 				93406F74210571C000D3ABAE /* PayloadTests.swift in Sources */,
-				930AB6222105922F00C7F573 /* APIError.swift in Sources */,
-				930AB62E2105922F00C7F573 /* RequestQueue.swift in Sources */,
-				930AB6582105922F00C7F573 /* AuthResponse.swift in Sources */,
-				930AB6542105922F00C7F573 /* Payload.swift in Sources */,
 				93406F79210571C000D3ABAE /* Request+SubscriberTests.swift in Sources */,
 				93406F6F210571C000D3ABAE /* Request+GroupTests.swift in Sources */,
-				930AB6322105922F00C7F573 /* Keychain.swift in Sources */,
-				930AB63C2105922F00C7F573 /* APIOperation.swift in Sources */,
-				930AB62A2105922F00C7F573 /* TextStyle.swift in Sources */,
-				930AB61C2105922F00C7F573 /* Subscriber.swift in Sources */,
 				93406F7E210571C000D3ABAE /* ResponseTests.swift in Sources */,
 				93406F80210571C000D3ABAE /* SubscriberTests.swift in Sources */,
-				930AB6242105922F00C7F573 /* ConfigurationParameter.swift in Sources */,
-				930AB6622105922F00C7F573 /* Data+SoracomAPI.swift in Sources */,
-				930AB6562105922F00C7F573 /* Tag.swift in Sources */,
 				932A5BA51CE80CE4007D0B5C /* iOSDemoAppForSoracomSDKTests.swift in Sources */,
-				930AB63A2105922F00C7F573 /* Client.swift in Sources */,
-				930AB6602105922F00C7F573 /* DataTrafficStats.swift in Sources */,
-				930AB6442105922F00C7F573 /* Request+Subscriber.swift in Sources */,
-				930AB6282105922F00C7F573 /* Request+Payment.swift in Sources */,
-				930AB6462105922F00C7F573 /* Credential.swift in Sources */,
-				930AB6502105922F00C7F573 /* JSONComparison.swift in Sources */,
 				93406F72210571C000D3ABAE /* BaseTestCaseTests.swift in Sources */,
-				930AB61A2105922F00C7F573 /* PayloadKey.swift in Sources */,
 				93406F66210571C000D3ABAE /* ResponsePayloadTests.swift in Sources */,
 				93406F6C210571C000D3ABAE /* NSDate+SoracomAPITests.swift in Sources */,
-				930AB63E2105922F00C7F573 /* CoverageType.swift in Sources */,
-				930AB65A2105922F00C7F573 /* PaymentMethodInfoWebPay.swift in Sources */,
 				93406F7C210571C000D3ABAE /* KeychainTests.swift in Sources */,
-				930AB61E2105922F00C7F573 /* Request+Credentials.swift in Sources */,
-				930AB6482105922F00C7F573 /* Group.swift in Sources */,
 				93406F7A210571C000D3ABAE /* SerializationTests.swift in Sources */,
-				930AB64C2105922F00C7F573 /* Request+Auth.swift in Sources */,
 				93406F69210571C000D3ABAE /* KeyedEncodingContainer+PayloadTests.swift in Sources */,
 				93406F7F210571C000D3ABAE /* Fixtures.swift in Sources */,
-				932A5BB11CE8111A007D0B5C /* MainViewController.swift in Sources */,
 				93406F6E210571C000D3ABAE /* SoracomCredentialsTests.swift in Sources */,
 				93406F77210571C000D3ABAE /* Request+SandboxTests.swift in Sources */,
 				93406F70210571C000D3ABAE /* BaseTestCase.swift in Sources */,
-				930AB62C2105922F00C7F573 /* RequestResponseFormatter.swift in Sources */,
-				930AB6382105922F00C7F573 /* SoracomCredentials.swift in Sources */,
-				930AB64E2105922F00C7F573 /* PayloadConvertible.swift in Sources */,
-				930AB65E2105922F00C7F573 /* UnkeyedEncodingContainer+Payload.swift in Sources */,
 				93406F71210571C000D3ABAE /* Request+CredentialsTests.swift in Sources */,
-				930AB6522105922F00C7F573 /* KeyedEncodingContainer+Payload.swift in Sources */,
-				930AB6302105922F00C7F573 /* HTTPMethod.swift in Sources */,
-				930AB6342105922F00C7F573 /* Codable+SoracomAPI.swift in Sources */,
-				930AB6422105922F00C7F573 /* AirStats.swift in Sources */,
-				930AB64A2105922F00C7F573 /* Request+Group.swift in Sources */,
 				93406F73210571C000D3ABAE /* BeamStatsTest.swift in Sources */,
 				93406F68210571C000D3ABAE /* JSONComparisonTests.swift in Sources */,
 				93406F76210571C000D3ABAE /* APIOperationTests.swift in Sources */,
-				932A5BB41CE81151007D0B5C /* SettingsViewController.swift in Sources */,
 				93406F75210571C000D3ABAE /* IssueDebuggingTests.swift in Sources */,
-				930AB6262105922F00C7F573 /* BeamStats.swift in Sources */,
 				93406F6A210571C000D3ABAE /* CredentialTests.swift in Sources */,
-				930AB6642105922F00C7F573 /* Request+Operator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,7 +601,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SKIP_TESTABLE_IMPORT_FOR_TESTS;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -740,7 +652,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SKIP_TESTABLE_IMPORT_FOR_TESTS;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

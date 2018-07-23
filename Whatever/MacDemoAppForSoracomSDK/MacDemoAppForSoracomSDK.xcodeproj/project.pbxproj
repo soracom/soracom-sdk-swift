@@ -90,8 +90,6 @@
 		934070AE21058C6600D3ABAE /* Request+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706721058C6500D3ABAE /* Request+Group.swift */; };
 		934070AF21058C6600D3ABAE /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706821058C6500D3ABAE /* Request+Auth.swift */; };
 		934070B021058C6600D3ABAE /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706821058C6500D3ABAE /* Request+Auth.swift */; };
-		934070B121058C6600D3ABAE /* PayloadConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706921058C6500D3ABAE /* PayloadConvertible.swift */; };
-		934070B221058C6600D3ABAE /* PayloadConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706921058C6500D3ABAE /* PayloadConvertible.swift */; };
 		934070B321058C6600D3ABAE /* JSONComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706A21058C6500D3ABAE /* JSONComparison.swift */; };
 		934070B421058C6600D3ABAE /* JSONComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706A21058C6500D3ABAE /* JSONComparison.swift */; };
 		934070B521058C6600D3ABAE /* KeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706B21058C6500D3ABAE /* KeyedEncodingContainer+Payload.swift */; };
@@ -134,7 +132,6 @@
 		930DD8721CDDDFAA000EB36A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		931C38FC1CD0A4CD00FDF6B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		932A5B801CE71FA1007D0B5C /* AppDelegate+DebugConveniences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+DebugConveniences.swift"; sourceTree = "<group>"; };
-		9330484D1FB849E3006E1FD8 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LinuxMain.swift; path = ../LinuxMain.swift; sourceTree = "<group>"; };
 		93406F822105848300D3ABAE /* ResponsePayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponsePayloadTests.swift; sourceTree = "<group>"; };
 		93406F832105848300D3ABAE /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
 		93406F842105848300D3ABAE /* JSONComparisonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONComparisonTests.swift; sourceTree = "<group>"; };
@@ -189,7 +186,6 @@
 		9340706621058C6500D3ABAE /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		9340706721058C6500D3ABAE /* Request+Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Group.swift"; sourceTree = "<group>"; };
 		9340706821058C6500D3ABAE /* Request+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Auth.swift"; sourceTree = "<group>"; };
-		9340706921058C6500D3ABAE /* PayloadConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadConvertible.swift; sourceTree = "<group>"; };
 		9340706A21058C6500D3ABAE /* JSONComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONComparison.swift; sourceTree = "<group>"; };
 		9340706B21058C6500D3ABAE /* KeyedEncodingContainer+Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyedEncodingContainer+Payload.swift"; sourceTree = "<group>"; };
 		9340706C21058C6500D3ABAE /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
@@ -202,6 +198,7 @@
 		9340707321058C6500D3ABAE /* Data+SoracomAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+SoracomAPI.swift"; sourceTree = "<group>"; };
 		9340707421058C6500D3ABAE /* Request+Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Operator.swift"; sourceTree = "<group>"; };
 		938C66BF1F136D2000100F7D /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../../Package.swift; sourceTree = "<group>"; };
+		939A42842105B0C8009E0366 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxMain.swift; sourceTree = "<group>"; };
 		93BDF9111CB8FD1A0058C5BC /* MacDemoAppForSoracomSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacDemoAppForSoracomSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		93BDF9191CB8FD1A0058C5BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -241,32 +238,33 @@
 		93406F812105848300D3ABAE /* SoracomAPITests */ = {
 			isa = PBXGroup;
 			children = (
-				93406F822105848300D3ABAE /* ResponsePayloadTests.swift */,
-				93406F832105848300D3ABAE /* RequestTests.swift */,
-				93406F842105848300D3ABAE /* JSONComparisonTests.swift */,
-				93406F852105848300D3ABAE /* KeyedEncodingContainer+PayloadTests.swift */,
-				93406F862105848300D3ABAE /* CredentialTests.swift */,
 				93406F872105848300D3ABAE /* APIErrorTests.swift */,
-				93406F882105848300D3ABAE /* NSDate+SoracomAPITests.swift */,
-				93406F892105848300D3ABAE /* Request+AuthTests.swift */,
-				93406F8A2105848300D3ABAE /* SoracomCredentialsTests.swift */,
-				93406F8B2105848300D3ABAE /* Request+GroupTests.swift */,
+				93406F922105848300D3ABAE /* APIOperationTests.swift */,
+				93406F972105848300D3ABAE /* APIStructuresTests.swift */,
 				93406F8C2105848300D3ABAE /* BaseTestCase.swift */,
-				93406F8D2105848300D3ABAE /* Request+CredentialsTests.swift */,
 				93406F8E2105848300D3ABAE /* BaseTestCaseTests.swift */,
 				93406F8F2105848300D3ABAE /* BeamStatsTest.swift */,
-				93406F902105848300D3ABAE /* PayloadTests.swift */,
-				93406F912105848300D3ABAE /* IssueDebuggingTests.swift */,
-				93406F922105848300D3ABAE /* APIOperationTests.swift */,
-				93406F932105848300D3ABAE /* Request+SandboxTests.swift */,
-				93406F942105848300D3ABAE /* RegisterSIMTests.swift */,
-				93406F952105848300D3ABAE /* Request+SubscriberTests.swift */,
-				93406F962105848300D3ABAE /* SerializationTests.swift */,
-				93406F972105848300D3ABAE /* APIStructuresTests.swift */,
-				93406F982105848300D3ABAE /* KeychainTests.swift */,
+				93406F862105848300D3ABAE /* CredentialTests.swift */,
 				93406F992105848300D3ABAE /* DevelopmentEnvironmentTests.swift */,
-				93406F9A2105848300D3ABAE /* ResponseTests.swift */,
 				93406F9B2105848300D3ABAE /* Fixtures.swift */,
+				93406F912105848300D3ABAE /* IssueDebuggingTests.swift */,
+				93406F842105848300D3ABAE /* JSONComparisonTests.swift */,
+				93406F982105848300D3ABAE /* KeychainTests.swift */,
+				93406F852105848300D3ABAE /* KeyedEncodingContainer+PayloadTests.swift */,
+				939A42842105B0C8009E0366 /* LinuxMain.swift */,
+				93406F882105848300D3ABAE /* NSDate+SoracomAPITests.swift */,
+				93406F902105848300D3ABAE /* PayloadTests.swift */,
+				93406F942105848300D3ABAE /* RegisterSIMTests.swift */,
+				93406F892105848300D3ABAE /* Request+AuthTests.swift */,
+				93406F8D2105848300D3ABAE /* Request+CredentialsTests.swift */,
+				93406F8B2105848300D3ABAE /* Request+GroupTests.swift */,
+				93406F932105848300D3ABAE /* Request+SandboxTests.swift */,
+				93406F952105848300D3ABAE /* Request+SubscriberTests.swift */,
+				93406F832105848300D3ABAE /* RequestTests.swift */,
+				93406F822105848300D3ABAE /* ResponsePayloadTests.swift */,
+				93406F9A2105848300D3ABAE /* ResponseTests.swift */,
+				93406F962105848300D3ABAE /* SerializationTests.swift */,
+				93406F8A2105848300D3ABAE /* SoracomCredentialsTests.swift */,
 				93406F9C2105848300D3ABAE /* SubscriberTests.swift */,
 			);
 			path = SoracomAPITests;
@@ -310,7 +308,6 @@
 				9340706621058C6500D3ABAE /* Group.swift */,
 				9340706721058C6500D3ABAE /* Request+Group.swift */,
 				9340706821058C6500D3ABAE /* Request+Auth.swift */,
-				9340706921058C6500D3ABAE /* PayloadConvertible.swift */,
 				9340706A21058C6500D3ABAE /* JSONComparison.swift */,
 				9340706B21058C6500D3ABAE /* KeyedEncodingContainer+Payload.swift */,
 				9340706C21058C6500D3ABAE /* Payload.swift */,
@@ -371,7 +368,6 @@
 			isa = PBXGroup;
 			children = (
 				93406F812105848300D3ABAE /* SoracomAPITests */,
-				9330484D1FB849E3006E1FD8 /* LinuxMain.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -501,7 +497,6 @@
 				9340709B21058C6600D3ABAE /* SoracomCredentials.swift in Sources */,
 				934070B521058C6600D3ABAE /* KeyedEncodingContainer+Payload.swift in Sources */,
 				934070BB21058C6600D3ABAE /* AuthResponse.swift in Sources */,
-				934070B121058C6600D3ABAE /* PayloadConvertible.swift in Sources */,
 				934070C121058C6600D3ABAE /* UnkeyedEncodingContainer+Payload.swift in Sources */,
 				934070B721058C6600D3ABAE /* Payload.swift in Sources */,
 				9340708721058C6600D3ABAE /* ConfigurationParameter.swift in Sources */,
@@ -573,7 +568,6 @@
 				93406FB02105848300D3ABAE /* Request+GroupTests.swift in Sources */,
 				93406FA02105848300D3ABAE /* RequestTests.swift in Sources */,
 				93406FB82105848300D3ABAE /* BeamStatsTest.swift in Sources */,
-				934070B221058C6600D3ABAE /* PayloadConvertible.swift in Sources */,
 				934070A621058C6600D3ABAE /* AirStats.swift in Sources */,
 				934070C821058C6600D3ABAE /* Request+Operator.swift in Sources */,
 				93406FCA2105848300D3ABAE /* KeychainTests.swift in Sources */,
@@ -670,7 +664,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SKIP_TESTABLE_IMPORT_FOR_TESTS;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = USE_TESTABLE_IMPORT_FOR_MAC_DEMO_APP;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.2;
@@ -721,7 +715,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SKIP_TESTABLE_IMPORT_FOR_TESTS;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = USE_TESTABLE_IMPORT_FOR_MAC_DEMO_APP;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.2;
 			};

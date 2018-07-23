@@ -2,8 +2,16 @@
 
 import XCTest
 
-#if !SKIP_TESTABLE_IMPORT_FOR_TESTS
-@testable import SoracomAPI
+#if USE_TESTABLE_IMPORT_FOR_MAC_DEMO_APP
+    // Do nothing (it's magic). We unfortunately need 3 different import 
+    // modes: Xcode+macOS, Xcode+iOS, and non-Xcode ("swift test" CLI) 
+    // due to macOS and iOS not supporting SPM build/test...
+
+#elseif USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
+    @testable import iOSDemoAppForSoracomSDK
+
+#else
+    @testable import SoracomAPI 
 #endif
 
 /// These are not really tests of this SDK, they are test cases that use this SDK to help debug issues in various other projects that use the Soracom API. (But using this SDK for that purpose may result in improvements or bug fixes to it as well.)

@@ -2,8 +2,17 @@
 
 import XCTest
 
-#if !SKIP_TESTABLE_IMPORT_FOR_TESTS
-@testable import SoracomAPI
+
+#if USE_TESTABLE_IMPORT_FOR_MAC_DEMO_APP
+    // Do nothing (it's magic). We unfortunately need 3 different import 
+    // modes: Xcode+macOS, Xcode+iOS, and non-Xcode ("swift test" CLI) 
+    // due to macOS and iOS not supporting SPM build/test...
+
+#elseif USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
+    @testable import iOSDemoAppForSoracomSDK
+
+#else
+    @testable import SoracomAPI 
 #endif
 
 #if os(Linux)
@@ -146,7 +155,7 @@ class BaseTestCase: XCTestCase {
     
     /// Encodes `obj` as a Payload, converts that to JSON data, creates a new Payload by decoding that JSON data, instantiates a new object from that new payload, and returns it. (This is a convenience for writing tests for model object serialization.) Explicitly doesn't allow comparison of `Payload` objects which fail to encode (i.e. where `toJSONData()` returns `nil`).
     
-    func roundTripSerializeDeserialize(_ obj: PayloadConvertible) -> PayloadConvertible? {
+    func roundTripSerializeDeserialize(_ obj: Codable) -> Codable? {
         
         let payload = obj.toPayload()
         

@@ -22,12 +22,12 @@ open class Keychain {
     
     /// Normally, `Keychain` will use secure persistent storage if available (macOS & iOS) and use insecure plaintext storage only when no secure mechanism is available (Linux). But, this property can be set to `true` to force Keychain to always use insecure storage — the main use case for =that being testing/debugging Linux code on non-Linux platforms.
     
-    open static var useInsecurePlaintextStorageAlways = false
+    public static var useInsecurePlaintextStorageAlways = false
     
     
     /// Returns a file URL pointing to ~/.soracom-sdk-swift, which is where plaintext data gets stored.
     
-    open static func urlToInsecurePlaintextStorage() -> URL {
+    public static func urlToInsecurePlaintextStorage() -> URL {
         
         let fm  = FileManager.default
         let url = fm.homeDirectoryForCurrentUser.appendingPathComponent(".soracom-sdk-swift")
@@ -43,7 +43,7 @@ open class Keychain {
     
     /// Find and return a blob of data previously stored under `key` using this class's `writeToInsecurePlaintextStorage()` method. Returns nil if not found. This is the primitive read method when `Keychain` is in "insecure plain text" mode (normally, this would only be on Linux, where secure storage isn't yet supported). Note that keys should be globally unique to avoid clashing with other apps that might use this Keychain implementation.
     
-    open static func readFromInsecurePlaintextStorage(_ key: String) -> Data? {
+    public static func readFromInsecurePlaintextStorage(_ key: String) -> Data? {
         
         let uniqueKey = makeUnique(key);
         
@@ -59,7 +59,7 @@ open class Keychain {
     
     /// Store `data` to the "insecure plain text" mode persistent store, under `key`, **overwriting** any existing value. Returns true on success, false on error. This is the primitive write method when `Keychain` is in "insecure plain text" mode (normally, this would only be on Linux, where secure storage isn't yet supported).
     
-    open static func writeToInsecurePlaintextStorage(_ key: String, data: Data) -> Bool {
+    public static func writeToInsecurePlaintextStorage(_ key: String, data: Data) -> Bool {
         
         let uniqueKey = makeUnique(key);
         
@@ -75,7 +75,7 @@ open class Keychain {
     
     /// Delete the blob of data stored under `key` in the "insecure plain text" mode persistent store, if any.
     
-    open static func deleteFromInsecurePlaintextStorage(_ key: String) -> Bool {
+    public static func deleteFromInsecurePlaintextStorage(_ key: String) -> Bool {
         
         let uniqueKey = makeUnique(key);
         
@@ -124,7 +124,7 @@ open class Keychain {
         
         /// Find and return a blob of data previously stored under `key` using this class's `write()` method. Returns nil if not found. This is the primitive read method.
         
-        open static func read(_ key: String) -> Data? {
+    public static func read(_ key: String) -> Data? {
             
             if (useInsecurePlaintextStorageAlways) {
                 
@@ -162,7 +162,7 @@ open class Keychain {
         
         /// Store `data` to the persistent store, under `key`, **overwriting** any existing value. Returns true on success, false on error. This is the primitive write method.
         
-        open static func write(_ key: String, data: Data) -> Bool {
+    public static func write(_ key: String, data: Data) -> Bool {
             
             if (useInsecurePlaintextStorageAlways) {
                 
@@ -221,7 +221,7 @@ open class Keychain {
         
         /// Delete the blob of data stored under `key`, if any.
         
-        open static func delete(_ key: String) -> Bool {
+    public static func delete(_ key: String) -> Bool {
             
             if (useInsecurePlaintextStorageAlways) {
                 
@@ -254,7 +254,7 @@ extension Keychain {
     
     /// Convenience method to read a UTF-8 string.
     
-    open static func readString(_ key: String) -> String? {
+    public static func readString(_ key: String) -> String? {
         if let data = read(key), let stringValue = String(data: data, encoding: .utf8) {
             return stringValue
         } else {
@@ -265,7 +265,7 @@ extension Keychain {
     
     /// Convenience method to write a UTF-8 string.
     
-    open static func writeString(_ key: String, string: String) -> Bool {
+    public static func writeString(_ key: String, string: String) -> Bool {
         if let data = string.data(using: String.Encoding.utf8) {
             return write(key, data: data)
         } else {
@@ -293,7 +293,7 @@ extension Keychain {
     public typealias KeychainErrorLogger = ((_ errCode: OSStatus, _ whenTryingTo: String ) -> Void)
         
     
-    open static func makeUnique(_ key: String) -> String {
+    public static func makeUnique(_ key: String) -> String {
         return storageIdentifier + "." + key;
     }
 

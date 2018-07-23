@@ -60,7 +60,7 @@ class SwaggerRunner {
         if let details = details {
             formattedOutput += "\n\n\(details)"
         }
-        if let status = lastExitStatus, cmd = lastCommand {
+        if let status = lastExitStatus, let cmd = lastCommand {
             formattedOutput += "\n\nLast command (exited with status \(status)): \(cmd)"
         }
         formattedOutput += "\n\n"

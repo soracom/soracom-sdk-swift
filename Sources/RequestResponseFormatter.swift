@@ -9,7 +9,7 @@ open class RequestResponseFormatter {
     
     /// A type propery that serves as a global value that controls whether sensitive information like passwords and keys are redacted in `description` (which may be used by logging functions). By default this is `true` but apps that want to print or log Request and Response instances without masking sensitive information may set this to `false`.
     
-    open static var shouldRedact = true
+    public static var shouldRedact = true
     
     
     /// The instance value of `shouldRedact` has precedence. If not set, then the value of the `shouldRedact` type property will be used.

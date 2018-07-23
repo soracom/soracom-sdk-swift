@@ -10,7 +10,7 @@ open class JSONComparison {
     /**
      Returns true if `leftData` and `rightData` are both valid JSON data and are logically equivalent, ignoring whitespace and key order.  NOTE: Support for number values is limited; see `areEquivalentJSONValues()` for details.
     */
-    open static func areEquivalent(_ leftData: Data, _ rightData: Data) -> Bool {
+    public static func areEquivalent(_ leftData: Data, _ rightData: Data) -> Bool {
         guard let leftObject  = try? JSONSerialization.jsonObject(with: leftData, options: []),
               let rightObject = try? JSONSerialization.jsonObject(with: rightData, options: [])
         else {
@@ -24,7 +24,7 @@ open class JSONComparison {
     /**
      Returns true if `leftData` and `rightData` are both valid JSON strings and are logically equivalent, ignoring whitespace and key order. NOTE: Support for number values is limited; see `areEquivalentJSONValues()` for details.
      */    
-    open static func areEquivalent(_ leftString: String, _ rightString: String) -> Bool {
+    public static func areEquivalent(_ leftString: String, _ rightString: String) -> Bool {
         guard let leftData = leftString.data(using: .utf8),
               let rightData = rightString.data(using: .utf8)
         else {
@@ -38,7 +38,7 @@ open class JSONComparison {
     /**
     A *limited* JSON comparison for equivalence. Supports only booleans, integers expressible by Int, strings, arrays, and objects. (Arrays and objects may only contain these five types.) The main reason for that is there hasn't been time to compare how JSONEncoding, on which this is based, handles non-int numbers on Linux vs macOS/iOS.
     */
-    open static func areEquivalentJSONValues(_ lhs: Any?, _ rhs: Any?) -> Bool {
+    public static func areEquivalentJSONValues(_ lhs: Any?, _ rhs: Any?) -> Bool {
         
         if lhs == nil || rhs == nil {
         

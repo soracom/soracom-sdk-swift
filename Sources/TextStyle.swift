@@ -19,16 +19,16 @@ public enum TextStyle {
 #if os(OSX)
     
     
-    var attributes: [NSAttributedStringKey:AnyObject] {
+    var attributes: [NSAttributedString.Key:AnyObject] {
         switch self {
         case .red:
-            return [NSAttributedStringKey.font: NSFont.userFixedPitchFont(ofSize: 10.0)!, NSAttributedStringKey.foregroundColor: NSColor.red]
+            return [NSAttributedString.Key.font: NSFont.userFixedPitchFont(ofSize: 10.0)!, NSAttributedString.Key.foregroundColor: NSColor.red]
         case .green:
-            return [NSAttributedStringKey.font: NSFont.userFixedPitchFont(ofSize: 10.0)!, NSAttributedStringKey.foregroundColor: NSColor(red:0.0, green: 0.6, blue: 0.0, alpha: 1.0)]
+            return [NSAttributedString.Key.font: NSFont.userFixedPitchFont(ofSize: 10.0)!, NSAttributedString.Key.foregroundColor: NSColor(red:0.0, green: 0.6, blue: 0.0, alpha: 1.0)]
         case .blue:
-            return [NSAttributedStringKey.font: NSFont.userFixedPitchFont(ofSize: 10.0)!, NSAttributedStringKey.foregroundColor: NSColor.blue]
+            return [NSAttributedString.Key.font: NSFont.userFixedPitchFont(ofSize: 10.0)!, NSAttributedString.Key.foregroundColor: NSColor.blue]
         default:
-            return [NSAttributedStringKey.font: NSFont.userFixedPitchFont(ofSize: 10.0)!]
+            return [NSAttributedString.Key.font: NSFont.userFixedPitchFont(ofSize: 10.0)!]
         }
         // FIXME: It doesn't really make sense to have this level of styling info outside of the demo apps.
         // Probably these labels should be more conceptual (.info/.success/.failure or something, and the

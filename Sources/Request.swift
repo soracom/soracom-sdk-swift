@@ -347,7 +347,7 @@ open class Request {
 
     /// Registers a handler, which is then executed when every request is run. Intended as a convenience for logging, experimentation, and debugging. The handler will be executed just before the Request makes its HTTP request. Handlers are executed **in an arbitrary thread** in the order they are registered.
     
-    open static func beforeRun(_ handler: @escaping RequestWillRunHandler) {
+    public static func beforeRun(_ handler: @escaping RequestWillRunHandler) {
         willRunHandlers.append(handler)
     }
     
@@ -356,7 +356,7 @@ open class Request {
     
     /// Registers a handler, which is then executed after every request is run. Intended as a convenience for logging, experimentation, and debugging. The handler will be executed just after the HTTP response has been received (or an error occurs), and immediately before the `responseHandler` executes. Handlers are executed **in an arbitrary thread** in the order they are registered.
 
-    open static func afterRun(_ handler: @escaping RequestDidRunHandler) {
+    public static func afterRun(_ handler: @escaping RequestDidRunHandler) {
         didRunHandlers.append(handler)
     }
     
@@ -401,12 +401,12 @@ open class Request {
     
     /// Set this type property to provide your own routine to look up the credentials (API Key and API Token that are sent in HTTP headers) for **all** Request instances. This will replace the default lookup behavior, and will be used by all subsequently-run Request instances, unless you those instances have their instance-level `credentialsFinder` property set.
     
-    open static var credentialsFinder: CredentialsFinder? = nil
+    public static var credentialsFinder: CredentialsFinder? = nil
 
     
     /// Returns the unique integer ID of the request.
     
-    open let requestId = Request.nextRequestId
+    public let requestId = Request.nextRequestId
     
     
     /// Reserves and returns the next available unique integer ID.

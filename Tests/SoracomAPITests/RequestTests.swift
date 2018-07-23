@@ -15,11 +15,23 @@ import XCTest
 
 class RequestTests: BaseTestCase {
     
+    var originalCredentialsFinder: CredentialsFinder? = nil
+    
     /// Overridden to set the default credentials storage namespace to `storageNamespaceForJunkCredentials`, becuase these tests write credentials as part of their work.
     
     override func setUp() {
         super.setUp()
         SoracomCredentials.defaultStorageNamespace = Client.sharedInstance.storageNamespaceForJunkCredentials
+        
+        originalCredentialsFinder = Request.credentialsFinder
+        Request.credentialsFinder = nil;
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        if (originalCredentialsFinder != nil) {
+            Request.credentialsFinder = originalCredentialsFinder;
+        }
     }
     
 

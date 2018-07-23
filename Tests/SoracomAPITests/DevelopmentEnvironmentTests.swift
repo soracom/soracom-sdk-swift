@@ -3,7 +3,9 @@
 import Foundation
 import XCTest
 
+#if os(Linux)
 @testable import SoracomAPI
+#endif
 
 
 /// This test case is usually a no-op and not that interesting. It is for testing this SDK

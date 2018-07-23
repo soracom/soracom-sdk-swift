@@ -3,6 +3,7 @@
 #if os(Linux)
     
     import XCTest
+
     @testable import SoracomAPITests
     
     XCTMain([

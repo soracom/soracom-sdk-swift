@@ -4,7 +4,9 @@ import XCTest
 
 #if os(Linux)
     import Dispatch
-    @testable import SoracomAPI
+    #if os(Linux)
+@testable import SoracomAPI
+#endif
 #endif
 
 class BaseTestCaseTests: BaseTestCase {

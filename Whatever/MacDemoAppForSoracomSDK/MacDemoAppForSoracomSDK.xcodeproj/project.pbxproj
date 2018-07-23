@@ -7,117 +7,117 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		930181061FB84A23001EE660 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048471FB849CA006E1FD8 /* Fixtures.swift */; };
-		930181071FB84A23001EE660 /* JSONComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048451FB849CA006E1FD8 /* JSONComparisonTests.swift */; };
-		930181081FB84A23001EE660 /* KeyedEncodingContainer+PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048431FB849CA006E1FD8 /* KeyedEncodingContainer+PayloadTests.swift */; };
-		930181091FB84A23001EE660 /* ResponsePayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048441FB849CA006E1FD8 /* ResponsePayloadTests.swift */; };
-		9301810A1FB84A23001EE660 /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048461FB849CA006E1FD8 /* SerializationTests.swift */; };
-		930181171FB84B4D001EE660 /* AirStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482C1FB849BA006E1FD8 /* AirStats.swift */; };
-		930181181FB84B4D001EE660 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D693A1CB9B183002F9D99 /* APIError.swift */; };
-		930181191FB84B4D001EE660 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285301CD09AAF00B17B73 /* APIOperation.swift */; };
-		9301811A1FB84B4D001EE660 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048311FB849BB006E1FD8 /* AuthResponse.swift */; };
-		9301811B1FB84B4D001EE660 /* BeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B411D38D1FB00F57659 /* BeamStats.swift */; };
-		9301811C1FB84B4D001EE660 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A31D124A6C0069B3EF /* Client.swift */; };
-		9301811E1FB84B4D001EE660 /* ConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048301FB849BB006E1FD8 /* ConfigurationParameter.swift */; };
-		9301811F1FB84B4D001EE660 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A81D1280F20069B3EF /* Constants.swift */; };
-		930181201FB84B4D001EE660 /* CoverageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482E1FB849BA006E1FD8 /* CoverageType.swift */; };
-		930181211FB84B4D001EE660 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B3E1D38BDCF00F57659 /* Credential.swift */; };
-		930181231FB84B4D001EE660 /* DataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482F1FB849BB006E1FD8 /* DataTrafficStats.swift */; };
-		930181241FB84B4D001EE660 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B461D38D63000F57659 /* Group.swift */; };
-		930181251FB84B4D001EE660 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048321FB849BB006E1FD8 /* HTTPMethod.swift */; };
-		930181261FB84B4D001EE660 /* JSONComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048351FB849BB006E1FD8 /* JSONComparison.swift */; };
-		930181271FB84B4D001EE660 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69401CB9BA46002F9D99 /* Keychain.swift */; };
-		930181281FB84B4D001EE660 /* KeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048361FB849BB006E1FD8 /* KeyedEncodingContainer+Payload.swift */; };
-		930181291FB84B4D001EE660 /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7DD1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift */; };
-		9301812A1FB84B4D001EE660 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AED1CBB4FA90084DC18 /* Payload.swift */; };
-		9301812B1FB84B4D001EE660 /* PayloadConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B351D38895800F57659 /* PayloadConvertible.swift */; };
-		9301812C1FB84B4D001EE660 /* PayloadKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B381D38B67E00F57659 /* PayloadKey.swift */; };
-		9301812D1FB84B4D001EE660 /* PaymentMethodInfoWebPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048331FB849BB006E1FD8 /* PaymentMethodInfoWebPay.swift */; };
-		9301812E1FB84B4D001EE660 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D694A1CBBA02E002F9D99 /* Request.swift */; };
-		9301812F1FB84B4D001EE660 /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */; };
-		930181301FB84B4D001EE660 /* Request+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */; };
-		930181311FB84B4D001EE660 /* Request+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7D71D1BC132003DDC2F /* Request+Group.swift */; };
-		930181321FB84B4D001EE660 /* Request+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320887B1CBF59CB00384EC7 /* Request+Operator.swift */; };
-		930181331FB84B4D001EE660 /* Request+Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D93921CC0DE14005D24DA /* Request+Payment.swift */; };
-		930181341FB84B4D001EE660 /* Request+Sandbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932088781CBF3D5400384EC7 /* Request+Sandbox.swift */; };
-		930181351FB84B4D001EE660 /* Request+Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938F1CC0A8CA005D24DA /* Request+Subscriber.swift */; };
-		930181361FB84B4D001EE660 /* RequestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A41D124A6C0069B3EF /* RequestQueue.swift */; };
-		930181371FB84B4D001EE660 /* RequestResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */; };
-		930181381FB84B4D001EE660 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D694B1CBBA02E002F9D99 /* Response.swift */; };
-		930181391FB84B4D001EE660 /* SoracomCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69451CB9C002002F9D99 /* SoracomCredentials.swift */; };
-		9301813A1FB84B4D001EE660 /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B491D38D6E300F57659 /* Subscriber.swift */; };
-		9301813B1FB84B4D001EE660 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482D1FB849BA006E1FD8 /* Tag.swift */; };
-		9301813C1FB84B4D001EE660 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3DED11D15515400C60E33 /* TextStyle.swift */; };
-		9301813D1FB84B4D001EE660 /* UnkeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048341FB849BB006E1FD8 /* UnkeyedEncodingContainer+Payload.swift */; };
-		9304B1121D4B328B0077CBDB /* IssueDebuggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9304B1111D4B328B0077CBDB /* IssueDebuggingTests.swift */; };
-		930DD8761CDE0E3E000EB36A /* BaseTestCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930DD8741CDE0E38000EB36A /* BaseTestCaseTests.swift */; };
 		931C38FD1CD0A4CD00FDF6B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931C38FC1CD0A4CD00FDF6B4 /* Assets.xcassets */; };
-		932088791CBF3D5400384EC7 /* Request+Sandbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932088781CBF3D5400384EC7 /* Request+Sandbox.swift */; };
-		9320887C1CBF59CB00384EC7 /* Request+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9320887B1CBF59CB00384EC7 /* Request+Operator.swift */; };
 		932A5B811CE71FA1007D0B5C /* AppDelegate+DebugConveniences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5B801CE71FA1007D0B5C /* AppDelegate+DebugConveniences.swift */; };
-		932D693D1CB9B18E002F9D99 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D693A1CB9B183002F9D99 /* APIError.swift */; };
-		932D693F1CB9B191002F9D99 /* APIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D693C1CB9B183002F9D99 /* APIErrorTests.swift */; };
-		932D69411CB9BA46002F9D99 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69401CB9BA46002F9D99 /* Keychain.swift */; };
-		932D69441CB9BA50002F9D99 /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69431CB9BA50002F9D99 /* KeychainTests.swift */; };
-		932D69481CB9C00A002F9D99 /* SoracomCredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69471CB9C00A002F9D99 /* SoracomCredentialsTests.swift */; };
-		932D69491CB9C016002F9D99 /* SoracomCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69451CB9C002002F9D99 /* SoracomCredentials.swift */; };
-		932D694C1CBBA02E002F9D99 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D694A1CBBA02E002F9D99 /* Request.swift */; };
-		932D694D1CBBA02E002F9D99 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D694B1CBBA02E002F9D99 /* Response.swift */; };
-		932D69541CBC551C002F9D99 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69531CBC551C002F9D99 /* ResponseTests.swift */; };
-		932D69581CBC55F2002F9D99 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69571CBC55F2002F9D99 /* BaseTestCase.swift */; };
-		932D695A1CBC5842002F9D99 /* Request+SubscriberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69591CBC5842002F9D99 /* Request+SubscriberTests.swift */; };
-		932D695C1CBC58A5002F9D99 /* Request+SandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D695B1CBC58A5002F9D99 /* Request+SandboxTests.swift */; };
-		932D695F1CBC59C5002F9D99 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D69501CBC5480002F9D99 /* RequestTests.swift */; };
-		933048381FB849BB006E1FD8 /* AirStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482C1FB849BA006E1FD8 /* AirStats.swift */; };
-		933048391FB849BB006E1FD8 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482D1FB849BA006E1FD8 /* Tag.swift */; };
-		9330483A1FB849BB006E1FD8 /* CoverageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482E1FB849BA006E1FD8 /* CoverageType.swift */; };
-		9330483B1FB849BB006E1FD8 /* DataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330482F1FB849BB006E1FD8 /* DataTrafficStats.swift */; };
-		9330483C1FB849BB006E1FD8 /* ConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048301FB849BB006E1FD8 /* ConfigurationParameter.swift */; };
-		9330483D1FB849BB006E1FD8 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048311FB849BB006E1FD8 /* AuthResponse.swift */; };
-		9330483E1FB849BB006E1FD8 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048321FB849BB006E1FD8 /* HTTPMethod.swift */; };
-		9330483F1FB849BB006E1FD8 /* PaymentMethodInfoWebPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048331FB849BB006E1FD8 /* PaymentMethodInfoWebPay.swift */; };
-		933048401FB849BB006E1FD8 /* UnkeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048341FB849BB006E1FD8 /* UnkeyedEncodingContainer+Payload.swift */; };
-		933048411FB849BB006E1FD8 /* JSONComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048351FB849BB006E1FD8 /* JSONComparison.swift */; };
-		933048421FB849BB006E1FD8 /* KeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933048361FB849BB006E1FD8 /* KeyedEncodingContainer+Payload.swift */; };
-		93406F3E21056AA600D3ABAE /* Data+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F3C21056AA600D3ABAE /* Data+SoracomAPI.swift */; };
-		93406F3F21056AA600D3ABAE /* Data+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F3C21056AA600D3ABAE /* Data+SoracomAPI.swift */; };
-		93406F4021056AA600D3ABAE /* Codable+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F3D21056AA600D3ABAE /* Codable+SoracomAPI.swift */; };
-		93406F4121056AA600D3ABAE /* Codable+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F3D21056AA600D3ABAE /* Codable+SoracomAPI.swift */; };
-		93408AEE1CBB4FA90084DC18 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AED1CBB4FA90084DC18 /* Payload.swift */; };
-		93408AF41CBB4FD80084DC18 /* PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */; };
-		93408AF91CBB4FDF0084DC18 /* APIStructuresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93408AE91CBB4E8D0084DC18 /* APIStructuresTests.swift */; };
-		9343D7D81D1BC132003DDC2F /* Request+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7D71D1BC132003DDC2F /* Request+Group.swift */; };
-		9343D7DB1D1BD2F5003DDC2F /* Request+GroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7DA1D1BD2F5003DDC2F /* Request+GroupTests.swift */; };
-		9343D7DE1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7DD1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift */; };
-		9343D7E11D1CBDAF003DDC2F /* NSDate+SoracomAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9343D7E01D1CBDAF003DDC2F /* NSDate+SoracomAPITests.swift */; };
+		93406F9E2105848300D3ABAE /* ResponsePayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F822105848300D3ABAE /* ResponsePayloadTests.swift */; };
+		93406FA02105848300D3ABAE /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F832105848300D3ABAE /* RequestTests.swift */; };
+		93406FA22105848300D3ABAE /* JSONComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F842105848300D3ABAE /* JSONComparisonTests.swift */; };
+		93406FA42105848300D3ABAE /* KeyedEncodingContainer+PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F852105848300D3ABAE /* KeyedEncodingContainer+PayloadTests.swift */; };
+		93406FA62105848300D3ABAE /* CredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F862105848300D3ABAE /* CredentialTests.swift */; };
+		93406FA82105848300D3ABAE /* APIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F872105848300D3ABAE /* APIErrorTests.swift */; };
+		93406FAA2105848300D3ABAE /* NSDate+SoracomAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F882105848300D3ABAE /* NSDate+SoracomAPITests.swift */; };
+		93406FAC2105848300D3ABAE /* Request+AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F892105848300D3ABAE /* Request+AuthTests.swift */; };
+		93406FAE2105848300D3ABAE /* SoracomCredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F8A2105848300D3ABAE /* SoracomCredentialsTests.swift */; };
+		93406FB02105848300D3ABAE /* Request+GroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F8B2105848300D3ABAE /* Request+GroupTests.swift */; };
+		93406FB22105848300D3ABAE /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F8C2105848300D3ABAE /* BaseTestCase.swift */; };
+		93406FB42105848300D3ABAE /* Request+CredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F8D2105848300D3ABAE /* Request+CredentialsTests.swift */; };
+		93406FB62105848300D3ABAE /* BaseTestCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F8E2105848300D3ABAE /* BaseTestCaseTests.swift */; };
+		93406FB82105848300D3ABAE /* BeamStatsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F8F2105848300D3ABAE /* BeamStatsTest.swift */; };
+		93406FBA2105848300D3ABAE /* PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F902105848300D3ABAE /* PayloadTests.swift */; };
+		93406FBC2105848300D3ABAE /* IssueDebuggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F912105848300D3ABAE /* IssueDebuggingTests.swift */; };
+		93406FBE2105848300D3ABAE /* APIOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F922105848300D3ABAE /* APIOperationTests.swift */; };
+		93406FC02105848300D3ABAE /* Request+SandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F932105848300D3ABAE /* Request+SandboxTests.swift */; };
+		93406FC22105848300D3ABAE /* RegisterSIMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F942105848300D3ABAE /* RegisterSIMTests.swift */; };
+		93406FC42105848300D3ABAE /* Request+SubscriberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F952105848300D3ABAE /* Request+SubscriberTests.swift */; };
+		93406FC62105848300D3ABAE /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F962105848300D3ABAE /* SerializationTests.swift */; };
+		93406FC82105848300D3ABAE /* APIStructuresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F972105848300D3ABAE /* APIStructuresTests.swift */; };
+		93406FCA2105848300D3ABAE /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F982105848300D3ABAE /* KeychainTests.swift */; };
+		93406FCC2105848300D3ABAE /* DevelopmentEnvironmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F992105848300D3ABAE /* DevelopmentEnvironmentTests.swift */; };
+		93406FCE2105848300D3ABAE /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F9A2105848300D3ABAE /* ResponseTests.swift */; };
+		93406FD02105848300D3ABAE /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F9B2105848300D3ABAE /* Fixtures.swift */; };
+		93406FD22105848300D3ABAE /* SubscriberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93406F9C2105848300D3ABAE /* SubscriberTests.swift */; };
+		9340707B21058C6600D3ABAE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340704E21058C6500D3ABAE /* Constants.swift */; };
+		9340707C21058C6600D3ABAE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340704E21058C6500D3ABAE /* Constants.swift */; };
+		9340707D21058C6600D3ABAE /* PayloadKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340704F21058C6500D3ABAE /* PayloadKey.swift */; };
+		9340707E21058C6600D3ABAE /* PayloadKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340704F21058C6500D3ABAE /* PayloadKey.swift */; };
+		9340707F21058C6600D3ABAE /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705021058C6500D3ABAE /* Subscriber.swift */; };
+		9340708021058C6600D3ABAE /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705021058C6500D3ABAE /* Subscriber.swift */; };
+		9340708121058C6600D3ABAE /* Request+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705121058C6500D3ABAE /* Request+Credentials.swift */; };
+		9340708221058C6600D3ABAE /* Request+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705121058C6500D3ABAE /* Request+Credentials.swift */; };
+		9340708321058C6600D3ABAE /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705221058C6500D3ABAE /* NSDate+SoracomAPI.swift */; };
+		9340708421058C6600D3ABAE /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705221058C6500D3ABAE /* NSDate+SoracomAPI.swift */; };
+		9340708521058C6600D3ABAE /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705321058C6500D3ABAE /* APIError.swift */; };
+		9340708621058C6600D3ABAE /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705321058C6500D3ABAE /* APIError.swift */; };
+		9340708721058C6600D3ABAE /* ConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705421058C6500D3ABAE /* ConfigurationParameter.swift */; };
+		9340708821058C6600D3ABAE /* ConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705421058C6500D3ABAE /* ConfigurationParameter.swift */; };
+		9340708921058C6600D3ABAE /* BeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705521058C6500D3ABAE /* BeamStats.swift */; };
+		9340708A21058C6600D3ABAE /* BeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705521058C6500D3ABAE /* BeamStats.swift */; };
+		9340708B21058C6600D3ABAE /* Request+Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705621058C6500D3ABAE /* Request+Payment.swift */; };
+		9340708C21058C6600D3ABAE /* Request+Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705621058C6500D3ABAE /* Request+Payment.swift */; };
+		9340708D21058C6600D3ABAE /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705721058C6500D3ABAE /* TextStyle.swift */; };
+		9340708E21058C6600D3ABAE /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705721058C6500D3ABAE /* TextStyle.swift */; };
+		9340708F21058C6600D3ABAE /* RequestResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705821058C6500D3ABAE /* RequestResponseFormatter.swift */; };
+		9340709021058C6600D3ABAE /* RequestResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705821058C6500D3ABAE /* RequestResponseFormatter.swift */; };
+		9340709121058C6600D3ABAE /* RequestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705921058C6500D3ABAE /* RequestQueue.swift */; };
+		9340709221058C6600D3ABAE /* RequestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705921058C6500D3ABAE /* RequestQueue.swift */; };
+		9340709321058C6600D3ABAE /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705A21058C6500D3ABAE /* HTTPMethod.swift */; };
+		9340709421058C6600D3ABAE /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705A21058C6500D3ABAE /* HTTPMethod.swift */; };
+		9340709521058C6600D3ABAE /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705B21058C6500D3ABAE /* Keychain.swift */; };
+		9340709621058C6600D3ABAE /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705B21058C6500D3ABAE /* Keychain.swift */; };
+		9340709721058C6600D3ABAE /* Codable+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705C21058C6500D3ABAE /* Codable+SoracomAPI.swift */; };
+		9340709821058C6600D3ABAE /* Codable+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705C21058C6500D3ABAE /* Codable+SoracomAPI.swift */; };
+		9340709921058C6600D3ABAE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705D21058C6500D3ABAE /* Response.swift */; };
+		9340709A21058C6600D3ABAE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705D21058C6500D3ABAE /* Response.swift */; };
+		9340709B21058C6600D3ABAE /* SoracomCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705E21058C6500D3ABAE /* SoracomCredentials.swift */; };
+		9340709C21058C6600D3ABAE /* SoracomCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705E21058C6500D3ABAE /* SoracomCredentials.swift */; };
+		9340709D21058C6600D3ABAE /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705F21058C6500D3ABAE /* Client.swift */; };
+		9340709E21058C6600D3ABAE /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340705F21058C6500D3ABAE /* Client.swift */; };
+		9340709F21058C6600D3ABAE /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706021058C6500D3ABAE /* APIOperation.swift */; };
+		934070A021058C6600D3ABAE /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706021058C6500D3ABAE /* APIOperation.swift */; };
+		934070A121058C6600D3ABAE /* CoverageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706121058C6500D3ABAE /* CoverageType.swift */; };
+		934070A221058C6600D3ABAE /* CoverageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706121058C6500D3ABAE /* CoverageType.swift */; };
+		934070A321058C6600D3ABAE /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706221058C6500D3ABAE /* Request.swift */; };
+		934070A421058C6600D3ABAE /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706221058C6500D3ABAE /* Request.swift */; };
+		934070A521058C6600D3ABAE /* AirStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706321058C6500D3ABAE /* AirStats.swift */; };
+		934070A621058C6600D3ABAE /* AirStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706321058C6500D3ABAE /* AirStats.swift */; };
+		934070A721058C6600D3ABAE /* Request+Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706421058C6500D3ABAE /* Request+Subscriber.swift */; };
+		934070A821058C6600D3ABAE /* Request+Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706421058C6500D3ABAE /* Request+Subscriber.swift */; };
+		934070A921058C6600D3ABAE /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706521058C6500D3ABAE /* Credential.swift */; };
+		934070AA21058C6600D3ABAE /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706521058C6500D3ABAE /* Credential.swift */; };
+		934070AB21058C6600D3ABAE /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706621058C6500D3ABAE /* Group.swift */; };
+		934070AC21058C6600D3ABAE /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706621058C6500D3ABAE /* Group.swift */; };
+		934070AD21058C6600D3ABAE /* Request+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706721058C6500D3ABAE /* Request+Group.swift */; };
+		934070AE21058C6600D3ABAE /* Request+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706721058C6500D3ABAE /* Request+Group.swift */; };
+		934070AF21058C6600D3ABAE /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706821058C6500D3ABAE /* Request+Auth.swift */; };
+		934070B021058C6600D3ABAE /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706821058C6500D3ABAE /* Request+Auth.swift */; };
+		934070B121058C6600D3ABAE /* PayloadConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706921058C6500D3ABAE /* PayloadConvertible.swift */; };
+		934070B221058C6600D3ABAE /* PayloadConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706921058C6500D3ABAE /* PayloadConvertible.swift */; };
+		934070B321058C6600D3ABAE /* JSONComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706A21058C6500D3ABAE /* JSONComparison.swift */; };
+		934070B421058C6600D3ABAE /* JSONComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706A21058C6500D3ABAE /* JSONComparison.swift */; };
+		934070B521058C6600D3ABAE /* KeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706B21058C6500D3ABAE /* KeyedEncodingContainer+Payload.swift */; };
+		934070B621058C6600D3ABAE /* KeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706B21058C6500D3ABAE /* KeyedEncodingContainer+Payload.swift */; };
+		934070B721058C6600D3ABAE /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706C21058C6500D3ABAE /* Payload.swift */; };
+		934070B821058C6600D3ABAE /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706C21058C6500D3ABAE /* Payload.swift */; };
+		934070B921058C6600D3ABAE /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706D21058C6500D3ABAE /* Tag.swift */; };
+		934070BA21058C6600D3ABAE /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706D21058C6500D3ABAE /* Tag.swift */; };
+		934070BB21058C6600D3ABAE /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706E21058C6500D3ABAE /* AuthResponse.swift */; };
+		934070BC21058C6600D3ABAE /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706E21058C6500D3ABAE /* AuthResponse.swift */; };
+		934070BD21058C6600D3ABAE /* PaymentMethodInfoWebPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706F21058C6500D3ABAE /* PaymentMethodInfoWebPay.swift */; };
+		934070BE21058C6600D3ABAE /* PaymentMethodInfoWebPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340706F21058C6500D3ABAE /* PaymentMethodInfoWebPay.swift */; };
+		934070BF21058C6600D3ABAE /* Request+Sandbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340707021058C6500D3ABAE /* Request+Sandbox.swift */; };
+		934070C021058C6600D3ABAE /* Request+Sandbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340707021058C6500D3ABAE /* Request+Sandbox.swift */; };
+		934070C121058C6600D3ABAE /* UnkeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340707121058C6500D3ABAE /* UnkeyedEncodingContainer+Payload.swift */; };
+		934070C221058C6600D3ABAE /* UnkeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340707121058C6500D3ABAE /* UnkeyedEncodingContainer+Payload.swift */; };
+		934070C321058C6600D3ABAE /* DataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340707221058C6500D3ABAE /* DataTrafficStats.swift */; };
+		934070C421058C6600D3ABAE /* DataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340707221058C6500D3ABAE /* DataTrafficStats.swift */; };
+		934070C521058C6600D3ABAE /* Data+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340707321058C6500D3ABAE /* Data+SoracomAPI.swift */; };
+		934070C621058C6600D3ABAE /* Data+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340707321058C6500D3ABAE /* Data+SoracomAPI.swift */; };
+		934070C721058C6600D3ABAE /* Request+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340707421058C6500D3ABAE /* Request+Operator.swift */; };
+		934070C821058C6600D3ABAE /* Request+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340707421058C6500D3ABAE /* Request+Operator.swift */; };
 		9346E1FC1D128E1D006B0D01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */; };
 		9346E1FD1D128E1D006B0D01 /* AppDelegate+DebugConveniences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5B801CE71FA1007D0B5C /* AppDelegate+DebugConveniences.swift */; };
-		935285331CD09AAF00B17B73 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285301CD09AAF00B17B73 /* APIOperation.swift */; };
-		935285351CD09AAF00B17B73 /* RequestResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */; };
-		935285491CD09AC500B17B73 /* APIOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935285391CD09ABC00B17B73 /* APIOperationTests.swift */; };
-		9366F5141D966ADD000EC892 /* DevelopmentEnvironmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9366F5131D966ADD000EC892 /* DevelopmentEnvironmentTests.swift */; };
-		936D938B1CC0A3A5005D24DA /* Request+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */; };
-		936D938E1CC0A55C005D24DA /* Request+CredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938D1CC0A55C005D24DA /* Request+CredentialsTests.swift */; };
-		936D93901CC0A8CA005D24DA /* Request+Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D938F1CC0A8CA005D24DA /* Request+Subscriber.swift */; };
-		936D93931CC0DE14005D24DA /* Request+Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D93921CC0DE14005D24DA /* Request+Payment.swift */; };
-		936D93971CC0E3D5005D24DA /* RegisterSIMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D93951CC0E3D5005D24DA /* RegisterSIMTests.swift */; };
-		939BF3A51D124A6C0069B3EF /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A31D124A6C0069B3EF /* Client.swift */; };
-		939BF3A61D124A6C0069B3EF /* RequestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A41D124A6C0069B3EF /* RequestQueue.swift */; };
-		939BF3A91D1280F20069B3EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939BF3A81D1280F20069B3EF /* Constants.swift */; };
 		93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */; };
 		93BDF91A1CB8FD1A0058C5BC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BDF9181CB8FD1A0058C5BC /* MainMenu.xib */; };
-		93CFB67F1CBDC5A20054F8B6 /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */; };
-		93CFB6831CBDCE920054F8B6 /* Request+AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFB6811CBDCE920054F8B6 /* Request+AuthTests.swift */; };
-		93F3DED21D15515400C60E33 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3DED11D15515400C60E33 /* TextStyle.swift */; };
-		93F50B361D38895800F57659 /* PayloadConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B351D38895800F57659 /* PayloadConvertible.swift */; };
-		93F50B391D38B67E00F57659 /* PayloadKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B381D38B67E00F57659 /* PayloadKey.swift */; };
-		93F50B3C1D38B72400F57659 /* CredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B3B1D38B72400F57659 /* CredentialTests.swift */; };
-		93F50B3F1D38BDCF00F57659 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B3E1D38BDCF00F57659 /* Credential.swift */; };
-		93F50B421D38D1FB00F57659 /* BeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B411D38D1FB00F57659 /* BeamStats.swift */; };
-		93F50B451D38D22E00F57659 /* BeamStatsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B441D38D22E00F57659 /* BeamStatsTest.swift */; };
-		93F50B471D38D63000F57659 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B461D38D63000F57659 /* Group.swift */; };
-		93F50B4A1D38D6E300F57659 /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B491D38D6E300F57659 /* Subscriber.swift */; };
-		93F50B4D1D38D70900F57659 /* SubscriberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F50B4C1D38D70900F57659 /* SubscriberTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,83 +131,83 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9304B1111D4B328B0077CBDB /* IssueDebuggingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDebuggingTests.swift; sourceTree = "<group>"; };
-		930DD8721CDDDFAA000EB36A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		930DD8741CDE0E38000EB36A /* BaseTestCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCaseTests.swift; sourceTree = "<group>"; };
+		930DD8721CDDDFAA000EB36A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		931C38FC1CD0A4CD00FDF6B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		932088781CBF3D5400384EC7 /* Request+Sandbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Sandbox.swift"; sourceTree = "<group>"; };
-		9320887B1CBF59CB00384EC7 /* Request+Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Operator.swift"; sourceTree = "<group>"; };
 		932A5B801CE71FA1007D0B5C /* AppDelegate+DebugConveniences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+DebugConveniences.swift"; sourceTree = "<group>"; };
-		932D693A1CB9B183002F9D99 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		932D693C1CB9B183002F9D99 /* APIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorTests.swift; sourceTree = "<group>"; };
-		932D69401CB9BA46002F9D99 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
-		932D69431CB9BA50002F9D99 /* KeychainTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainTests.swift; sourceTree = "<group>"; };
-		932D69451CB9C002002F9D99 /* SoracomCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoracomCredentials.swift; sourceTree = "<group>"; };
-		932D69471CB9C00A002F9D99 /* SoracomCredentialsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoracomCredentialsTests.swift; sourceTree = "<group>"; };
-		932D694A1CBBA02E002F9D99 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		932D694B1CBBA02E002F9D99 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		932D69501CBC5480002F9D99 /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
-		932D69531CBC551C002F9D99 /* ResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
-		932D69571CBC55F2002F9D99 /* BaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
-		932D69591CBC5842002F9D99 /* Request+SubscriberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+SubscriberTests.swift"; sourceTree = "<group>"; };
-		932D695B1CBC58A5002F9D99 /* Request+SandboxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+SandboxTests.swift"; sourceTree = "<group>"; };
-		9330482C1FB849BA006E1FD8 /* AirStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirStats.swift; sourceTree = "<group>"; };
-		9330482D1FB849BA006E1FD8 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
-		9330482E1FB849BA006E1FD8 /* CoverageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverageType.swift; sourceTree = "<group>"; };
-		9330482F1FB849BB006E1FD8 /* DataTrafficStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTrafficStats.swift; sourceTree = "<group>"; };
-		933048301FB849BB006E1FD8 /* ConfigurationParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationParameter.swift; sourceTree = "<group>"; };
-		933048311FB849BB006E1FD8 /* AuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
-		933048321FB849BB006E1FD8 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		933048331FB849BB006E1FD8 /* PaymentMethodInfoWebPay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodInfoWebPay.swift; sourceTree = "<group>"; };
-		933048341FB849BB006E1FD8 /* UnkeyedEncodingContainer+Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnkeyedEncodingContainer+Payload.swift"; sourceTree = "<group>"; };
-		933048351FB849BB006E1FD8 /* JSONComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONComparison.swift; sourceTree = "<group>"; };
-		933048361FB849BB006E1FD8 /* KeyedEncodingContainer+Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyedEncodingContainer+Payload.swift"; sourceTree = "<group>"; };
-		933048431FB849CA006E1FD8 /* KeyedEncodingContainer+PayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyedEncodingContainer+PayloadTests.swift"; sourceTree = "<group>"; };
-		933048441FB849CA006E1FD8 /* ResponsePayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponsePayloadTests.swift; sourceTree = "<group>"; };
-		933048451FB849CA006E1FD8 /* JSONComparisonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONComparisonTests.swift; sourceTree = "<group>"; };
-		933048461FB849CA006E1FD8 /* SerializationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationTests.swift; sourceTree = "<group>"; };
-		933048471FB849CA006E1FD8 /* Fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
 		9330484D1FB849E3006E1FD8 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LinuxMain.swift; path = ../LinuxMain.swift; sourceTree = "<group>"; };
-		93406F3C21056AA600D3ABAE /* Data+SoracomAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+SoracomAPI.swift"; sourceTree = "<group>"; };
-		93406F3D21056AA600D3ABAE /* Codable+SoracomAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Codable+SoracomAPI.swift"; sourceTree = "<group>"; };
-		93408AE91CBB4E8D0084DC18 /* APIStructuresTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStructuresTests.swift; sourceTree = "<group>"; };
-		93408AED1CBB4FA90084DC18 /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
-		93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadTests.swift; sourceTree = "<group>"; };
-		9343D7D71D1BC132003DDC2F /* Request+Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Group.swift"; sourceTree = "<group>"; };
-		9343D7DA1D1BD2F5003DDC2F /* Request+GroupTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+GroupTests.swift"; sourceTree = "<group>"; };
-		9343D7DD1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+SoracomAPI.swift"; sourceTree = "<group>"; };
-		9343D7E01D1CBDAF003DDC2F /* NSDate+SoracomAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+SoracomAPITests.swift"; sourceTree = "<group>"; };
-		935285301CD09AAF00B17B73 /* APIOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
-		935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestResponseFormatter.swift; sourceTree = "<group>"; };
-		935285391CD09ABC00B17B73 /* APIOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOperationTests.swift; sourceTree = "<group>"; };
-		9366F5131D966ADD000EC892 /* DevelopmentEnvironmentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevelopmentEnvironmentTests.swift; sourceTree = "<group>"; };
-		936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Credentials.swift"; sourceTree = "<group>"; };
-		936D938D1CC0A55C005D24DA /* Request+CredentialsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+CredentialsTests.swift"; sourceTree = "<group>"; };
-		936D938F1CC0A8CA005D24DA /* Request+Subscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Subscriber.swift"; sourceTree = "<group>"; };
-		936D93921CC0DE14005D24DA /* Request+Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Payment.swift"; sourceTree = "<group>"; };
-		936D93951CC0E3D5005D24DA /* RegisterSIMTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterSIMTests.swift; sourceTree = "<group>"; };
-		938C66BF1F136D2000100F7D /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		939BF3A31D124A6C0069B3EF /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		939BF3A41D124A6C0069B3EF /* RequestQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestQueue.swift; sourceTree = "<group>"; };
-		939BF3A81D1280F20069B3EF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		93406F822105848300D3ABAE /* ResponsePayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponsePayloadTests.swift; sourceTree = "<group>"; };
+		93406F832105848300D3ABAE /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
+		93406F842105848300D3ABAE /* JSONComparisonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONComparisonTests.swift; sourceTree = "<group>"; };
+		93406F852105848300D3ABAE /* KeyedEncodingContainer+PayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyedEncodingContainer+PayloadTests.swift"; sourceTree = "<group>"; };
+		93406F862105848300D3ABAE /* CredentialTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialTests.swift; sourceTree = "<group>"; };
+		93406F872105848300D3ABAE /* APIErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIErrorTests.swift; sourceTree = "<group>"; };
+		93406F882105848300D3ABAE /* NSDate+SoracomAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+SoracomAPITests.swift"; sourceTree = "<group>"; };
+		93406F892105848300D3ABAE /* Request+AuthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+AuthTests.swift"; sourceTree = "<group>"; };
+		93406F8A2105848300D3ABAE /* SoracomCredentialsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoracomCredentialsTests.swift; sourceTree = "<group>"; };
+		93406F8B2105848300D3ABAE /* Request+GroupTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+GroupTests.swift"; sourceTree = "<group>"; };
+		93406F8C2105848300D3ABAE /* BaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
+		93406F8D2105848300D3ABAE /* Request+CredentialsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+CredentialsTests.swift"; sourceTree = "<group>"; };
+		93406F8E2105848300D3ABAE /* BaseTestCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCaseTests.swift; sourceTree = "<group>"; };
+		93406F8F2105848300D3ABAE /* BeamStatsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeamStatsTest.swift; sourceTree = "<group>"; };
+		93406F902105848300D3ABAE /* PayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadTests.swift; sourceTree = "<group>"; };
+		93406F912105848300D3ABAE /* IssueDebuggingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDebuggingTests.swift; sourceTree = "<group>"; };
+		93406F922105848300D3ABAE /* APIOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOperationTests.swift; sourceTree = "<group>"; };
+		93406F932105848300D3ABAE /* Request+SandboxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+SandboxTests.swift"; sourceTree = "<group>"; };
+		93406F942105848300D3ABAE /* RegisterSIMTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterSIMTests.swift; sourceTree = "<group>"; };
+		93406F952105848300D3ABAE /* Request+SubscriberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+SubscriberTests.swift"; sourceTree = "<group>"; };
+		93406F962105848300D3ABAE /* SerializationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationTests.swift; sourceTree = "<group>"; };
+		93406F972105848300D3ABAE /* APIStructuresTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStructuresTests.swift; sourceTree = "<group>"; };
+		93406F982105848300D3ABAE /* KeychainTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainTests.swift; sourceTree = "<group>"; };
+		93406F992105848300D3ABAE /* DevelopmentEnvironmentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevelopmentEnvironmentTests.swift; sourceTree = "<group>"; };
+		93406F9A2105848300D3ABAE /* ResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
+		93406F9B2105848300D3ABAE /* Fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
+		93406F9C2105848300D3ABAE /* SubscriberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriberTests.swift; sourceTree = "<group>"; };
+		9340704E21058C6500D3ABAE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9340704F21058C6500D3ABAE /* PayloadKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadKey.swift; sourceTree = "<group>"; };
+		9340705021058C6500D3ABAE /* Subscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscriber.swift; sourceTree = "<group>"; };
+		9340705121058C6500D3ABAE /* Request+Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Credentials.swift"; sourceTree = "<group>"; };
+		9340705221058C6500D3ABAE /* NSDate+SoracomAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+SoracomAPI.swift"; sourceTree = "<group>"; };
+		9340705321058C6500D3ABAE /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		9340705421058C6500D3ABAE /* ConfigurationParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationParameter.swift; sourceTree = "<group>"; };
+		9340705521058C6500D3ABAE /* BeamStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeamStats.swift; sourceTree = "<group>"; };
+		9340705621058C6500D3ABAE /* Request+Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Payment.swift"; sourceTree = "<group>"; };
+		9340705721058C6500D3ABAE /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
+		9340705821058C6500D3ABAE /* RequestResponseFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestResponseFormatter.swift; sourceTree = "<group>"; };
+		9340705921058C6500D3ABAE /* RequestQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestQueue.swift; sourceTree = "<group>"; };
+		9340705A21058C6500D3ABAE /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		9340705B21058C6500D3ABAE /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		9340705C21058C6500D3ABAE /* Codable+SoracomAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Codable+SoracomAPI.swift"; sourceTree = "<group>"; };
+		9340705D21058C6500D3ABAE /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		9340705E21058C6500D3ABAE /* SoracomCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoracomCredentials.swift; sourceTree = "<group>"; };
+		9340705F21058C6500D3ABAE /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		9340706021058C6500D3ABAE /* APIOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
+		9340706121058C6500D3ABAE /* CoverageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverageType.swift; sourceTree = "<group>"; };
+		9340706221058C6500D3ABAE /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		9340706321058C6500D3ABAE /* AirStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirStats.swift; sourceTree = "<group>"; };
+		9340706421058C6500D3ABAE /* Request+Subscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Subscriber.swift"; sourceTree = "<group>"; };
+		9340706521058C6500D3ABAE /* Credential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
+		9340706621058C6500D3ABAE /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		9340706721058C6500D3ABAE /* Request+Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Group.swift"; sourceTree = "<group>"; };
+		9340706821058C6500D3ABAE /* Request+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Auth.swift"; sourceTree = "<group>"; };
+		9340706921058C6500D3ABAE /* PayloadConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadConvertible.swift; sourceTree = "<group>"; };
+		9340706A21058C6500D3ABAE /* JSONComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONComparison.swift; sourceTree = "<group>"; };
+		9340706B21058C6500D3ABAE /* KeyedEncodingContainer+Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyedEncodingContainer+Payload.swift"; sourceTree = "<group>"; };
+		9340706C21058C6500D3ABAE /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
+		9340706D21058C6500D3ABAE /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		9340706E21058C6500D3ABAE /* AuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		9340706F21058C6500D3ABAE /* PaymentMethodInfoWebPay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodInfoWebPay.swift; sourceTree = "<group>"; };
+		9340707021058C6500D3ABAE /* Request+Sandbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Sandbox.swift"; sourceTree = "<group>"; };
+		9340707121058C6500D3ABAE /* UnkeyedEncodingContainer+Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnkeyedEncodingContainer+Payload.swift"; sourceTree = "<group>"; };
+		9340707221058C6500D3ABAE /* DataTrafficStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTrafficStats.swift; sourceTree = "<group>"; };
+		9340707321058C6500D3ABAE /* Data+SoracomAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+SoracomAPI.swift"; sourceTree = "<group>"; };
+		9340707421058C6500D3ABAE /* Request+Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Operator.swift"; sourceTree = "<group>"; };
+		938C66BF1F136D2000100F7D /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../../Package.swift; sourceTree = "<group>"; };
 		93BDF9111CB8FD1A0058C5BC /* MacDemoAppForSoracomSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacDemoAppForSoracomSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BDF9141CB8FD1A0058C5BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		93BDF9191CB8FD1A0058C5BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		93BDF91B1CB8FD1A0058C5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93BDF9201CB8FD1A0058C5BC /* MacDemoAppForSoracomSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacDemoAppForSoracomSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BDF9261CB8FD1A0058C5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Auth.swift"; sourceTree = "<group>"; };
-		93CFB6811CBDCE920054F8B6 /* Request+AuthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+AuthTests.swift"; sourceTree = "<group>"; };
-		93F3DED11D15515400C60E33 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
-		93F50B351D38895800F57659 /* PayloadConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadConvertible.swift; sourceTree = "<group>"; };
-		93F50B381D38B67E00F57659 /* PayloadKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadKey.swift; sourceTree = "<group>"; };
-		93F50B3B1D38B72400F57659 /* CredentialTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialTests.swift; sourceTree = "<group>"; };
-		93F50B3E1D38BDCF00F57659 /* Credential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
-		93F50B411D38D1FB00F57659 /* BeamStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeamStats.swift; sourceTree = "<group>"; };
-		93F50B441D38D22E00F57659 /* BeamStatsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeamStatsTest.swift; sourceTree = "<group>"; };
-		93F50B461D38D63000F57659 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		93F50B491D38D6E300F57659 /* Subscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscriber.swift; sourceTree = "<group>"; };
-		93F50B4C1D38D70900F57659 /* SubscriberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriberTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,99 +231,106 @@
 		931C38F71CD0A43B00FDF6B4 /* soracom-sdk-swift */ = {
 			isa = PBXGroup;
 			children = (
-				938C66BF1F136D2000100F7D /* Package.swift */,
-				930DD8721CDDDFAA000EB36A /* README.md */,
-				932D69391CB9B183002F9D99 /* Sources */,
+				9340704C21058C6500D3ABAE /* Sources */,
 				93F83C741E4DA50C000B7565 /* Tests */,
 			);
 			name = "soracom-sdk-swift";
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		932D69391CB9B183002F9D99 /* Sources */ = {
+		93406F812105848300D3ABAE /* SoracomAPITests */ = {
 			isa = PBXGroup;
 			children = (
-				93406F3D21056AA600D3ABAE /* Codable+SoracomAPI.swift */,
-				93406F3C21056AA600D3ABAE /* Data+SoracomAPI.swift */,
-				9330482C1FB849BA006E1FD8 /* AirStats.swift */,
-				932D693A1CB9B183002F9D99 /* APIError.swift */,
-				935285301CD09AAF00B17B73 /* APIOperation.swift */,
-				933048311FB849BB006E1FD8 /* AuthResponse.swift */,
-				93F50B411D38D1FB00F57659 /* BeamStats.swift */,
-				939BF3A31D124A6C0069B3EF /* Client.swift */,
-				933048301FB849BB006E1FD8 /* ConfigurationParameter.swift */,
-				939BF3A81D1280F20069B3EF /* Constants.swift */,
-				9330482E1FB849BA006E1FD8 /* CoverageType.swift */,
-				93F50B3E1D38BDCF00F57659 /* Credential.swift */,
-				9330482F1FB849BB006E1FD8 /* DataTrafficStats.swift */,
-				93F50B461D38D63000F57659 /* Group.swift */,
-				933048321FB849BB006E1FD8 /* HTTPMethod.swift */,
-				933048351FB849BB006E1FD8 /* JSONComparison.swift */,
-				932D69401CB9BA46002F9D99 /* Keychain.swift */,
-				933048361FB849BB006E1FD8 /* KeyedEncodingContainer+Payload.swift */,
-				9343D7DD1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift */,
-				93408AED1CBB4FA90084DC18 /* Payload.swift */,
-				93F50B351D38895800F57659 /* PayloadConvertible.swift */,
-				93F50B381D38B67E00F57659 /* PayloadKey.swift */,
-				933048331FB849BB006E1FD8 /* PaymentMethodInfoWebPay.swift */,
-				932D694A1CBBA02E002F9D99 /* Request.swift */,
-				93CFB67E1CBDC5A20054F8B6 /* Request+Auth.swift */,
-				936D938A1CC0A3A5005D24DA /* Request+Credentials.swift */,
-				9343D7D71D1BC132003DDC2F /* Request+Group.swift */,
-				9320887B1CBF59CB00384EC7 /* Request+Operator.swift */,
-				936D93921CC0DE14005D24DA /* Request+Payment.swift */,
-				932088781CBF3D5400384EC7 /* Request+Sandbox.swift */,
-				936D938F1CC0A8CA005D24DA /* Request+Subscriber.swift */,
-				939BF3A41D124A6C0069B3EF /* RequestQueue.swift */,
-				935285321CD09AAF00B17B73 /* RequestResponseFormatter.swift */,
-				932D694B1CBBA02E002F9D99 /* Response.swift */,
-				932D69451CB9C002002F9D99 /* SoracomCredentials.swift */,
-				93F50B491D38D6E300F57659 /* Subscriber.swift */,
-				9330482D1FB849BA006E1FD8 /* Tag.swift */,
-				93F3DED11D15515400C60E33 /* TextStyle.swift */,
-				933048341FB849BB006E1FD8 /* UnkeyedEncodingContainer+Payload.swift */,
+				93406F822105848300D3ABAE /* ResponsePayloadTests.swift */,
+				93406F832105848300D3ABAE /* RequestTests.swift */,
+				93406F842105848300D3ABAE /* JSONComparisonTests.swift */,
+				93406F852105848300D3ABAE /* KeyedEncodingContainer+PayloadTests.swift */,
+				93406F862105848300D3ABAE /* CredentialTests.swift */,
+				93406F872105848300D3ABAE /* APIErrorTests.swift */,
+				93406F882105848300D3ABAE /* NSDate+SoracomAPITests.swift */,
+				93406F892105848300D3ABAE /* Request+AuthTests.swift */,
+				93406F8A2105848300D3ABAE /* SoracomCredentialsTests.swift */,
+				93406F8B2105848300D3ABAE /* Request+GroupTests.swift */,
+				93406F8C2105848300D3ABAE /* BaseTestCase.swift */,
+				93406F8D2105848300D3ABAE /* Request+CredentialsTests.swift */,
+				93406F8E2105848300D3ABAE /* BaseTestCaseTests.swift */,
+				93406F8F2105848300D3ABAE /* BeamStatsTest.swift */,
+				93406F902105848300D3ABAE /* PayloadTests.swift */,
+				93406F912105848300D3ABAE /* IssueDebuggingTests.swift */,
+				93406F922105848300D3ABAE /* APIOperationTests.swift */,
+				93406F932105848300D3ABAE /* Request+SandboxTests.swift */,
+				93406F942105848300D3ABAE /* RegisterSIMTests.swift */,
+				93406F952105848300D3ABAE /* Request+SubscriberTests.swift */,
+				93406F962105848300D3ABAE /* SerializationTests.swift */,
+				93406F972105848300D3ABAE /* APIStructuresTests.swift */,
+				93406F982105848300D3ABAE /* KeychainTests.swift */,
+				93406F992105848300D3ABAE /* DevelopmentEnvironmentTests.swift */,
+				93406F9A2105848300D3ABAE /* ResponseTests.swift */,
+				93406F9B2105848300D3ABAE /* Fixtures.swift */,
+				93406F9C2105848300D3ABAE /* SubscriberTests.swift */,
+			);
+			path = SoracomAPITests;
+			sourceTree = "<group>";
+		};
+		9340704C21058C6500D3ABAE /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9340704D21058C6500D3ABAE /* SoracomAPI */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		932D693B1CB9B183002F9D99 /* Tests */ = {
+		9340704D21058C6500D3ABAE /* SoracomAPI */ = {
 			isa = PBXGroup;
 			children = (
-				933048471FB849CA006E1FD8 /* Fixtures.swift */,
-				933048451FB849CA006E1FD8 /* JSONComparisonTests.swift */,
-				933048431FB849CA006E1FD8 /* KeyedEncodingContainer+PayloadTests.swift */,
-				933048441FB849CA006E1FD8 /* ResponsePayloadTests.swift */,
-				933048461FB849CA006E1FD8 /* SerializationTests.swift */,
-				932D693C1CB9B183002F9D99 /* APIErrorTests.swift */,
-				935285391CD09ABC00B17B73 /* APIOperationTests.swift */,
-				93408AE91CBB4E8D0084DC18 /* APIStructuresTests.swift */,
-				932D69571CBC55F2002F9D99 /* BaseTestCase.swift */,
-				930DD8741CDE0E38000EB36A /* BaseTestCaseTests.swift */,
-				93F50B441D38D22E00F57659 /* BeamStatsTest.swift */,
-				93F50B3B1D38B72400F57659 /* CredentialTests.swift */,
-				9366F5131D966ADD000EC892 /* DevelopmentEnvironmentTests.swift */,
-				9304B1111D4B328B0077CBDB /* IssueDebuggingTests.swift */,
-				932D69431CB9BA50002F9D99 /* KeychainTests.swift */,
-				9343D7E01D1CBDAF003DDC2F /* NSDate+SoracomAPITests.swift */,
-				93408AEF1CBB4FAC0084DC18 /* PayloadTests.swift */,
-				936D93951CC0E3D5005D24DA /* RegisterSIMTests.swift */,
-				93CFB6811CBDCE920054F8B6 /* Request+AuthTests.swift */,
-				936D938D1CC0A55C005D24DA /* Request+CredentialsTests.swift */,
-				9343D7DA1D1BD2F5003DDC2F /* Request+GroupTests.swift */,
-				932D695B1CBC58A5002F9D99 /* Request+SandboxTests.swift */,
-				932D69591CBC5842002F9D99 /* Request+SubscriberTests.swift */,
-				932D69501CBC5480002F9D99 /* RequestTests.swift */,
-				932D69531CBC551C002F9D99 /* ResponseTests.swift */,
-				932D69471CB9C00A002F9D99 /* SoracomCredentialsTests.swift */,
-				93F50B4C1D38D70900F57659 /* SubscriberTests.swift */,
+				9340704E21058C6500D3ABAE /* Constants.swift */,
+				9340704F21058C6500D3ABAE /* PayloadKey.swift */,
+				9340705021058C6500D3ABAE /* Subscriber.swift */,
+				9340705121058C6500D3ABAE /* Request+Credentials.swift */,
+				9340705221058C6500D3ABAE /* NSDate+SoracomAPI.swift */,
+				9340705321058C6500D3ABAE /* APIError.swift */,
+				9340705421058C6500D3ABAE /* ConfigurationParameter.swift */,
+				9340705521058C6500D3ABAE /* BeamStats.swift */,
+				9340705621058C6500D3ABAE /* Request+Payment.swift */,
+				9340705721058C6500D3ABAE /* TextStyle.swift */,
+				9340705821058C6500D3ABAE /* RequestResponseFormatter.swift */,
+				9340705921058C6500D3ABAE /* RequestQueue.swift */,
+				9340705A21058C6500D3ABAE /* HTTPMethod.swift */,
+				9340705B21058C6500D3ABAE /* Keychain.swift */,
+				9340705C21058C6500D3ABAE /* Codable+SoracomAPI.swift */,
+				9340705D21058C6500D3ABAE /* Response.swift */,
+				9340705E21058C6500D3ABAE /* SoracomCredentials.swift */,
+				9340705F21058C6500D3ABAE /* Client.swift */,
+				9340706021058C6500D3ABAE /* APIOperation.swift */,
+				9340706121058C6500D3ABAE /* CoverageType.swift */,
+				9340706221058C6500D3ABAE /* Request.swift */,
+				9340706321058C6500D3ABAE /* AirStats.swift */,
+				9340706421058C6500D3ABAE /* Request+Subscriber.swift */,
+				9340706521058C6500D3ABAE /* Credential.swift */,
+				9340706621058C6500D3ABAE /* Group.swift */,
+				9340706721058C6500D3ABAE /* Request+Group.swift */,
+				9340706821058C6500D3ABAE /* Request+Auth.swift */,
+				9340706921058C6500D3ABAE /* PayloadConvertible.swift */,
+				9340706A21058C6500D3ABAE /* JSONComparison.swift */,
+				9340706B21058C6500D3ABAE /* KeyedEncodingContainer+Payload.swift */,
+				9340706C21058C6500D3ABAE /* Payload.swift */,
+				9340706D21058C6500D3ABAE /* Tag.swift */,
+				9340706E21058C6500D3ABAE /* AuthResponse.swift */,
+				9340706F21058C6500D3ABAE /* PaymentMethodInfoWebPay.swift */,
+				9340707021058C6500D3ABAE /* Request+Sandbox.swift */,
+				9340707121058C6500D3ABAE /* UnkeyedEncodingContainer+Payload.swift */,
+				9340707221058C6500D3ABAE /* DataTrafficStats.swift */,
+				9340707321058C6500D3ABAE /* Data+SoracomAPI.swift */,
+				9340707421058C6500D3ABAE /* Request+Operator.swift */,
 			);
-			name = Tests;
-			path = SoracomSDKSwiftTests;
+			path = SoracomAPI;
 			sourceTree = "<group>";
 		};
 		93BDF9081CB8FD1A0058C5BC = {
 			isa = PBXGroup;
 			children = (
+				930DD8721CDDDFAA000EB36A /* README.md */,
+				938C66BF1F136D2000100F7D /* Package.swift */,
 				931C38F71CD0A43B00FDF6B4 /* soracom-sdk-swift */,
 				93BDF9131CB8FD1A0058C5BC /* MacDemoAppForSoracomSDK */,
 				93BDF9231CB8FD1A0058C5BC /* MacDemoAppForSoracomSDKTests */,
@@ -363,8 +370,8 @@
 		93F83C741E4DA50C000B7565 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				93406F812105848300D3ABAE /* SoracomAPITests */,
 				9330484D1FB849E3006E1FD8 /* LinuxMain.swift */,
-				932D693B1CB9B183002F9D99 /* Tests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -471,47 +478,47 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				933048391FB849BB006E1FD8 /* Tag.swift in Sources */,
-				9320887C1CBF59CB00384EC7 /* Request+Operator.swift in Sources */,
-				935285331CD09AAF00B17B73 /* APIOperation.swift in Sources */,
-				93F50B3F1D38BDCF00F57659 /* Credential.swift in Sources */,
-				932088791CBF3D5400384EC7 /* Request+Sandbox.swift in Sources */,
-				93F50B421D38D1FB00F57659 /* BeamStats.swift in Sources */,
-				93F3DED21D15515400C60E33 /* TextStyle.swift in Sources */,
-				9330483F1FB849BB006E1FD8 /* PaymentMethodInfoWebPay.swift in Sources */,
-				9330483E1FB849BB006E1FD8 /* HTTPMethod.swift in Sources */,
-				932D694D1CBBA02E002F9D99 /* Response.swift in Sources */,
-				9330483A1FB849BB006E1FD8 /* CoverageType.swift in Sources */,
-				93F50B471D38D63000F57659 /* Group.swift in Sources */,
+				934070B921058C6600D3ABAE /* Tag.swift in Sources */,
+				9340708D21058C6600D3ABAE /* TextStyle.swift in Sources */,
+				934070A721058C6600D3ABAE /* Request+Subscriber.swift in Sources */,
+				934070BD21058C6600D3ABAE /* PaymentMethodInfoWebPay.swift in Sources */,
+				934070A921058C6600D3ABAE /* Credential.swift in Sources */,
+				9340709F21058C6600D3ABAE /* APIOperation.swift in Sources */,
+				9340708B21058C6600D3ABAE /* Request+Payment.swift in Sources */,
+				9340708321058C6600D3ABAE /* NSDate+SoracomAPI.swift in Sources */,
 				93BDF9151CB8FD1A0058C5BC /* AppDelegate.swift in Sources */,
-				9343D7DE1D1CB9DD003DDC2F /* NSDate+SoracomAPI.swift in Sources */,
-				93408AEE1CBB4FA90084DC18 /* Payload.swift in Sources */,
-				933048381FB849BB006E1FD8 /* AirStats.swift in Sources */,
-				93406F3E21056AA600D3ABAE /* Data+SoracomAPI.swift in Sources */,
-				93F50B4A1D38D6E300F57659 /* Subscriber.swift in Sources */,
-				93406F4021056AA600D3ABAE /* Codable+SoracomAPI.swift in Sources */,
-				939BF3A61D124A6C0069B3EF /* RequestQueue.swift in Sources */,
-				932D69491CB9C016002F9D99 /* SoracomCredentials.swift in Sources */,
-				9330483C1FB849BB006E1FD8 /* ConfigurationParameter.swift in Sources */,
-				93F50B361D38895800F57659 /* PayloadConvertible.swift in Sources */,
-				932D693D1CB9B18E002F9D99 /* APIError.swift in Sources */,
+				934070C721058C6600D3ABAE /* Request+Operator.swift in Sources */,
+				934070AD21058C6600D3ABAE /* Request+Group.swift in Sources */,
+				934070AF21058C6600D3ABAE /* Request+Auth.swift in Sources */,
+				934070C521058C6600D3ABAE /* Data+SoracomAPI.swift in Sources */,
+				934070C321058C6600D3ABAE /* DataTrafficStats.swift in Sources */,
+				9340709921058C6600D3ABAE /* Response.swift in Sources */,
+				9340708F21058C6600D3ABAE /* RequestResponseFormatter.swift in Sources */,
+				934070AB21058C6600D3ABAE /* Group.swift in Sources */,
+				9340709521058C6600D3ABAE /* Keychain.swift in Sources */,
+				934070A321058C6600D3ABAE /* Request.swift in Sources */,
 				932A5B811CE71FA1007D0B5C /* AppDelegate+DebugConveniences.swift in Sources */,
-				933048421FB849BB006E1FD8 /* KeyedEncodingContainer+Payload.swift in Sources */,
-				9330483D1FB849BB006E1FD8 /* AuthResponse.swift in Sources */,
-				935285351CD09AAF00B17B73 /* RequestResponseFormatter.swift in Sources */,
-				936D93901CC0A8CA005D24DA /* Request+Subscriber.swift in Sources */,
-				936D93931CC0DE14005D24DA /* Request+Payment.swift in Sources */,
-				933048411FB849BB006E1FD8 /* JSONComparison.swift in Sources */,
-				932D694C1CBBA02E002F9D99 /* Request.swift in Sources */,
-				932D69411CB9BA46002F9D99 /* Keychain.swift in Sources */,
-				93F50B391D38B67E00F57659 /* PayloadKey.swift in Sources */,
-				939BF3A91D1280F20069B3EF /* Constants.swift in Sources */,
-				936D938B1CC0A3A5005D24DA /* Request+Credentials.swift in Sources */,
-				9330483B1FB849BB006E1FD8 /* DataTrafficStats.swift in Sources */,
-				9343D7D81D1BC132003DDC2F /* Request+Group.swift in Sources */,
-				939BF3A51D124A6C0069B3EF /* Client.swift in Sources */,
-				933048401FB849BB006E1FD8 /* UnkeyedEncodingContainer+Payload.swift in Sources */,
-				93CFB67F1CBDC5A20054F8B6 /* Request+Auth.swift in Sources */,
+				9340709B21058C6600D3ABAE /* SoracomCredentials.swift in Sources */,
+				934070B521058C6600D3ABAE /* KeyedEncodingContainer+Payload.swift in Sources */,
+				934070BB21058C6600D3ABAE /* AuthResponse.swift in Sources */,
+				934070B121058C6600D3ABAE /* PayloadConvertible.swift in Sources */,
+				934070C121058C6600D3ABAE /* UnkeyedEncodingContainer+Payload.swift in Sources */,
+				934070B721058C6600D3ABAE /* Payload.swift in Sources */,
+				9340708721058C6600D3ABAE /* ConfigurationParameter.swift in Sources */,
+				934070BF21058C6600D3ABAE /* Request+Sandbox.swift in Sources */,
+				934070A521058C6600D3ABAE /* AirStats.swift in Sources */,
+				9340709121058C6600D3ABAE /* RequestQueue.swift in Sources */,
+				9340709321058C6600D3ABAE /* HTTPMethod.swift in Sources */,
+				9340708921058C6600D3ABAE /* BeamStats.swift in Sources */,
+				9340707F21058C6600D3ABAE /* Subscriber.swift in Sources */,
+				934070B321058C6600D3ABAE /* JSONComparison.swift in Sources */,
+				9340709721058C6600D3ABAE /* Codable+SoracomAPI.swift in Sources */,
+				9340707D21058C6600D3ABAE /* PayloadKey.swift in Sources */,
+				9340708521058C6600D3ABAE /* APIError.swift in Sources */,
+				9340708121058C6600D3ABAE /* Request+Credentials.swift in Sources */,
+				934070A121058C6600D3ABAE /* CoverageType.swift in Sources */,
+				9340709D21058C6600D3ABAE /* Client.swift in Sources */,
+				9340707B21058C6600D3ABAE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,74 +526,74 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93408AF41CBB4FD80084DC18 /* PayloadTests.swift in Sources */,
-				9301813D1FB84B4D001EE660 /* UnkeyedEncodingContainer+Payload.swift in Sources */,
-				9301812A1FB84B4D001EE660 /* Payload.swift in Sources */,
-				9301812E1FB84B4D001EE660 /* Request.swift in Sources */,
-				9301811F1FB84B4D001EE660 /* Constants.swift in Sources */,
-				932D695A1CBC5842002F9D99 /* Request+SubscriberTests.swift in Sources */,
+				93406FAA2105848300D3ABAE /* NSDate+SoracomAPITests.swift in Sources */,
+				93406FC82105848300D3ABAE /* APIStructuresTests.swift in Sources */,
+				9340709421058C6600D3ABAE /* HTTPMethod.swift in Sources */,
 				9346E1FD1D128E1D006B0D01 /* AppDelegate+DebugConveniences.swift in Sources */,
-				9301813B1FB84B4D001EE660 /* Tag.swift in Sources */,
-				930181241FB84B4D001EE660 /* Group.swift in Sources */,
-				930181311FB84B4D001EE660 /* Request+Group.swift in Sources */,
-				93F50B3C1D38B72400F57659 /* CredentialTests.swift in Sources */,
-				930181341FB84B4D001EE660 /* Request+Sandbox.swift in Sources */,
-				93406F4121056AA600D3ABAE /* Codable+SoracomAPI.swift in Sources */,
-				9343D7E11D1CBDAF003DDC2F /* NSDate+SoracomAPITests.swift in Sources */,
-				930181331FB84B4D001EE660 /* Request+Payment.swift in Sources */,
-				93F50B451D38D22E00F57659 /* BeamStatsTest.swift in Sources */,
-				930181381FB84B4D001EE660 /* Response.swift in Sources */,
-				930181171FB84B4D001EE660 /* AirStats.swift in Sources */,
-				930181361FB84B4D001EE660 /* RequestQueue.swift in Sources */,
-				93CFB6831CBDCE920054F8B6 /* Request+AuthTests.swift in Sources */,
-				9301812D1FB84B4D001EE660 /* PaymentMethodInfoWebPay.swift in Sources */,
-				930181271FB84B4D001EE660 /* Keychain.swift in Sources */,
-				9301813C1FB84B4D001EE660 /* TextStyle.swift in Sources */,
-				9301811C1FB84B4D001EE660 /* Client.swift in Sources */,
-				930181321FB84B4D001EE660 /* Request+Operator.swift in Sources */,
-				932D69441CB9BA50002F9D99 /* KeychainTests.swift in Sources */,
-				93406F3F21056AA600D3ABAE /* Data+SoracomAPI.swift in Sources */,
-				930181071FB84A23001EE660 /* JSONComparisonTests.swift in Sources */,
-				930181181FB84B4D001EE660 /* APIError.swift in Sources */,
-				930181061FB84A23001EE660 /* Fixtures.swift in Sources */,
-				93408AF91CBB4FDF0084DC18 /* APIStructuresTests.swift in Sources */,
-				9301813A1FB84B4D001EE660 /* Subscriber.swift in Sources */,
+				9340709A21058C6600D3ABAE /* Response.swift in Sources */,
+				934070AA21058C6600D3ABAE /* Credential.swift in Sources */,
+				93406FAC2105848300D3ABAE /* Request+AuthTests.swift in Sources */,
+				9340708C21058C6600D3ABAE /* Request+Payment.swift in Sources */,
+				934070B421058C6600D3ABAE /* JSONComparison.swift in Sources */,
+				9340709021058C6600D3ABAE /* RequestResponseFormatter.swift in Sources */,
+				934070AC21058C6600D3ABAE /* Group.swift in Sources */,
+				93406FBE2105848300D3ABAE /* APIOperationTests.swift in Sources */,
+				934070B021058C6600D3ABAE /* Request+Auth.swift in Sources */,
+				9340707C21058C6600D3ABAE /* Constants.swift in Sources */,
+				93406FB42105848300D3ABAE /* Request+CredentialsTests.swift in Sources */,
+				93406FC22105848300D3ABAE /* RegisterSIMTests.swift in Sources */,
+				93406FA42105848300D3ABAE /* KeyedEncodingContainer+PayloadTests.swift in Sources */,
+				93406FA22105848300D3ABAE /* JSONComparisonTests.swift in Sources */,
+				934070B821058C6600D3ABAE /* Payload.swift in Sources */,
+				934070C021058C6600D3ABAE /* Request+Sandbox.swift in Sources */,
+				93406FB22105848300D3ABAE /* BaseTestCase.swift in Sources */,
+				934070A821058C6600D3ABAE /* Request+Subscriber.swift in Sources */,
+				9340708A21058C6600D3ABAE /* BeamStats.swift in Sources */,
+				934070C421058C6600D3ABAE /* DataTrafficStats.swift in Sources */,
+				934070C221058C6600D3ABAE /* UnkeyedEncodingContainer+Payload.swift in Sources */,
+				93406FBC2105848300D3ABAE /* IssueDebuggingTests.swift in Sources */,
+				934070BA21058C6600D3ABAE /* Tag.swift in Sources */,
+				9340708821058C6600D3ABAE /* ConfigurationParameter.swift in Sources */,
+				93406FA82105848300D3ABAE /* APIErrorTests.swift in Sources */,
+				9340708621058C6600D3ABAE /* APIError.swift in Sources */,
+				934070A221058C6600D3ABAE /* CoverageType.swift in Sources */,
+				9340709221058C6600D3ABAE /* RequestQueue.swift in Sources */,
+				93406F9E2105848300D3ABAE /* ResponsePayloadTests.swift in Sources */,
+				9340708E21058C6600D3ABAE /* TextStyle.swift in Sources */,
+				93406FD02105848300D3ABAE /* Fixtures.swift in Sources */,
 				9346E1FC1D128E1D006B0D01 /* AppDelegate.swift in Sources */,
-				936D938E1CC0A55C005D24DA /* Request+CredentialsTests.swift in Sources */,
-				932D693F1CB9B191002F9D99 /* APIErrorTests.swift in Sources */,
-				935285491CD09AC500B17B73 /* APIOperationTests.swift in Sources */,
-				93F50B4D1D38D70900F57659 /* SubscriberTests.swift in Sources */,
-				932D695F1CBC59C5002F9D99 /* RequestTests.swift in Sources */,
-				930181351FB84B4D001EE660 /* Request+Subscriber.swift in Sources */,
-				9301811A1FB84B4D001EE660 /* AuthResponse.swift in Sources */,
-				930181211FB84B4D001EE660 /* Credential.swift in Sources */,
-				930181291FB84B4D001EE660 /* NSDate+SoracomAPI.swift in Sources */,
-				9301810A1FB84A23001EE660 /* SerializationTests.swift in Sources */,
-				932D69541CBC551C002F9D99 /* ResponseTests.swift in Sources */,
-				930181261FB84B4D001EE660 /* JSONComparison.swift in Sources */,
-				932D69581CBC55F2002F9D99 /* BaseTestCase.swift in Sources */,
-				9301812F1FB84B4D001EE660 /* Request+Auth.swift in Sources */,
-				930181201FB84B4D001EE660 /* CoverageType.swift in Sources */,
-				930181231FB84B4D001EE660 /* DataTrafficStats.swift in Sources */,
-				930181091FB84A23001EE660 /* ResponsePayloadTests.swift in Sources */,
-				9301812C1FB84B4D001EE660 /* PayloadKey.swift in Sources */,
-				9301812B1FB84B4D001EE660 /* PayloadConvertible.swift in Sources */,
-				930181371FB84B4D001EE660 /* RequestResponseFormatter.swift in Sources */,
-				936D93971CC0E3D5005D24DA /* RegisterSIMTests.swift in Sources */,
-				930181281FB84B4D001EE660 /* KeyedEncodingContainer+Payload.swift in Sources */,
-				930181191FB84B4D001EE660 /* APIOperation.swift in Sources */,
-				9301811B1FB84B4D001EE660 /* BeamStats.swift in Sources */,
-				930181391FB84B4D001EE660 /* SoracomCredentials.swift in Sources */,
-				932D695C1CBC58A5002F9D99 /* Request+SandboxTests.swift in Sources */,
-				930181251FB84B4D001EE660 /* HTTPMethod.swift in Sources */,
-				9366F5141D966ADD000EC892 /* DevelopmentEnvironmentTests.swift in Sources */,
-				9343D7DB1D1BD2F5003DDC2F /* Request+GroupTests.swift in Sources */,
-				930DD8761CDE0E3E000EB36A /* BaseTestCaseTests.swift in Sources */,
-				930181301FB84B4D001EE660 /* Request+Credentials.swift in Sources */,
-				930181081FB84A23001EE660 /* KeyedEncodingContainer+PayloadTests.swift in Sources */,
-				9304B1121D4B328B0077CBDB /* IssueDebuggingTests.swift in Sources */,
-				9301811E1FB84B4D001EE660 /* ConfigurationParameter.swift in Sources */,
-				932D69481CB9C00A002F9D99 /* SoracomCredentialsTests.swift in Sources */,
+				93406FC62105848300D3ABAE /* SerializationTests.swift in Sources */,
+				934070BC21058C6600D3ABAE /* AuthResponse.swift in Sources */,
+				93406FD22105848300D3ABAE /* SubscriberTests.swift in Sources */,
+				93406FBA2105848300D3ABAE /* PayloadTests.swift in Sources */,
+				93406FB62105848300D3ABAE /* BaseTestCaseTests.swift in Sources */,
+				9340709C21058C6600D3ABAE /* SoracomCredentials.swift in Sources */,
+				9340708421058C6600D3ABAE /* NSDate+SoracomAPI.swift in Sources */,
+				9340707E21058C6600D3ABAE /* PayloadKey.swift in Sources */,
+				93406FB02105848300D3ABAE /* Request+GroupTests.swift in Sources */,
+				93406FA02105848300D3ABAE /* RequestTests.swift in Sources */,
+				93406FB82105848300D3ABAE /* BeamStatsTest.swift in Sources */,
+				934070B221058C6600D3ABAE /* PayloadConvertible.swift in Sources */,
+				934070A621058C6600D3ABAE /* AirStats.swift in Sources */,
+				934070C821058C6600D3ABAE /* Request+Operator.swift in Sources */,
+				93406FCA2105848300D3ABAE /* KeychainTests.swift in Sources */,
+				934070AE21058C6600D3ABAE /* Request+Group.swift in Sources */,
+				934070BE21058C6600D3ABAE /* PaymentMethodInfoWebPay.swift in Sources */,
+				934070A421058C6600D3ABAE /* Request.swift in Sources */,
+				93406FC42105848300D3ABAE /* Request+SubscriberTests.swift in Sources */,
+				93406FCC2105848300D3ABAE /* DevelopmentEnvironmentTests.swift in Sources */,
+				93406FC02105848300D3ABAE /* Request+SandboxTests.swift in Sources */,
+				9340708221058C6600D3ABAE /* Request+Credentials.swift in Sources */,
+				934070B621058C6600D3ABAE /* KeyedEncodingContainer+Payload.swift in Sources */,
+				934070A021058C6600D3ABAE /* APIOperation.swift in Sources */,
+				9340709E21058C6600D3ABAE /* Client.swift in Sources */,
+				9340709821058C6600D3ABAE /* Codable+SoracomAPI.swift in Sources */,
+				93406FAE2105848300D3ABAE /* SoracomCredentialsTests.swift in Sources */,
+				93406FA62105848300D3ABAE /* CredentialTests.swift in Sources */,
+				9340709621058C6600D3ABAE /* Keychain.swift in Sources */,
+				934070C621058C6600D3ABAE /* Data+SoracomAPI.swift in Sources */,
+				93406FCE2105848300D3ABAE /* ResponseTests.swift in Sources */,
+				9340708021058C6600D3ABAE /* Subscriber.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

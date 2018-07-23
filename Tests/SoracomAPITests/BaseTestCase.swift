@@ -2,7 +2,9 @@
 
 import XCTest
 
+#if os(Linux)
 @testable import SoracomAPI
+#endif
 
 #if os(Linux)
     import Dispatch

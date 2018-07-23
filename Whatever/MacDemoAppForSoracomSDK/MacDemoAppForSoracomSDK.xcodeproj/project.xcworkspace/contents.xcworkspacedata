@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TestRunnerForSoracomSDK.xcodeproj">
+      location = "self:/Users/mason/SORACOM/soracom-sdk-swift-FIXLAYOUT/Whatever/MacDemoAppForSoracomSDK/MacDemoAppForSoracomSDK.xcodeproj">
    </FileRef>
 </Workspace>

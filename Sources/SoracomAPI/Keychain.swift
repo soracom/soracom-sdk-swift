@@ -30,7 +30,9 @@ open class Keychain {
     public static func urlToInsecurePlaintextStorage() -> URL {
         
         let fm  = FileManager.default
-        let url = fm.homeDirectoryForCurrentUser.appendingPathComponent(".soracom-sdk-swift")
+        let pathToHome = NSHomeDirectory();
+        let urlToHome = NSURL.fileURL(withPath: pathToHome)
+        let url = urlToHome.appendingPathComponent(".soracom-sdk-swift")
         
         do {
             try fm.createDirectory(at: url, withIntermediateDirectories: true)

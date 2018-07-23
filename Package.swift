@@ -1,39 +1,35 @@
-// swift-tools-version:4.0
+// swift-tools-version:4.2
+// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "SoracomAPI",
     products: [
+        // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
             name: "SoracomAPI",
             targets: ["SoracomAPI"]
         ),
         .executable(
-            name: "CommandLineDemoForSoracomSDK",
-            targets: ["CommandLineDemoForSoracomSDK"]
+            name: "SoracomAPIDemo",
+            targets: ["SoracomAPIDemo"]
         )
+    ],
+    dependencies: [
+        // none
     ],
     targets: [
         .target(
             name: "SoracomAPI",
-            dependencies: [],
-            path: "Sources"
+            dependencies: []
+        ),
+        .target(
+            name: "SoracomAPIDemo",
+            dependencies: ["SoracomAPI"]
         ),
         .testTarget(
             name: "SoracomAPITests",
-            dependencies: ["SoracomAPI"],
-            path: "Tests"
-        ),
-        .target(
-            name: "CommandLineDemoForSoracomSDK",
-            dependencies: ["SoracomAPI"],
-            path: "Whatever/CommandLineDemoForSoracomSDK"
-        )
+            dependencies: ["SoracomAPI"]),
     ]
 )
-
-// Note: There are also two other demo apps: one for macOS, and one for iOS.
-// However, as of 2018-02-07, the Swift Package Manager does not yet support
-// building regular macOS apps, or iOS apps, so they aren't listed here.
-// They can be found in the ./Whatever directory.

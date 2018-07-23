@@ -1,6 +1,6 @@
 // Tag.swift Created by mason on 2017-07-26. 
 
-public struct Tag: PayloadConvertible, Codable {
+public struct Tag:  Codable {
     
     var tagName: String
     var tagValue: String

@@ -2,7 +2,7 @@
 
 /// Description forthcoming.
 
-public struct DataTrafficStats: PayloadConvertible, Codable {
+public struct DataTrafficStats:  Codable {
     
     var downloadByteSizeTotal: Int   = 0
     var downloadPacketSizeTotal: Int = 0
@@ -13,7 +13,7 @@ public struct DataTrafficStats: PayloadConvertible, Codable {
 
 /// Description forthcoming.
 
-public struct DataTrafficStatsMap: PayloadConvertible, Codable {
+public struct DataTrafficStatsMap:  Codable {
     
     var s1_fast: DataTrafficStats? = nil
     var s1_minimum: DataTrafficStats? = nil 

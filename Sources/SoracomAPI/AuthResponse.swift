@@ -2,7 +2,7 @@
 
 /// This is the object included in the response returned by the API auth() call. [API docs](https://dev.soracom.io/jp/docs/api/#!/Auth/auth)
 
-public struct AuthResponse: PayloadConvertible, Codable {
+public struct AuthResponse:  Codable {
     
     var apiKey: String
     var token: String

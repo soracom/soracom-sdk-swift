@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct Subscriber: PayloadConvertible, Codable {
+public struct Subscriber:  Codable {
     
     public var ipAddress: String?
     public var speedClass: String?

@@ -37,37 +37,6 @@ extension Encodable {
     }
 }
 
-extension Array where Element: Encodable & PayloadConvertible {
-
-    public func toPayload() -> Payload {
-        
-        let jsonData = self.toData()
-        
-        do {
-            guard let result = try Payload(data: jsonData) else {
-                return [:]
-            }
-            return result
-        } catch {
-            return [:]
-        }        
-        // FIXME: this should probably throw, not return [:], but it is outside the scope
-        // of what I am doing now, and anyway Payload may go away soon. (mason 2017-07-14)
-    }
-    
-    public func toData() -> Data? {
-        
-        let e = JSONEncoder()
-        e.outputFormatting = [.prettyPrinted]
-        
-        do {
-            let jsonData = try e.encode(self)
-            return jsonData
-        } catch {
-            return nil
-        }
-    }
-}
 
 
 /**

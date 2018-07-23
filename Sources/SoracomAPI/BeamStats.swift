@@ -4,7 +4,7 @@ import Foundation
 
 /// A struct that contains a BeamStats struct, and a timestamp, for use with Request.insertBeamStats()
 
-public struct BeamStatsInsertion: PayloadConvertible, Codable {
+public struct BeamStatsInsertion:  Codable {
     
     var beamStats: BeamStats
     var unixtime:  Int
@@ -13,7 +13,7 @@ public struct BeamStatsInsertion: PayloadConvertible, Codable {
 
 // A struct that holds Beam statistics.
 
-public struct BeamStats: PayloadConvertible, Codable {
+public struct BeamStats:  Codable {
         
     var inHttp:   Int
     var inMqtt:   Int

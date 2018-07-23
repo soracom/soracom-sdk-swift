@@ -6,7 +6,7 @@ import Foundation
 ///
 /// **NOTE:** `Credential` objects returned by the API server contain a `Credential` structure, but that structure may not (always does not?) include the `secretAccessKey` value.
 
-public struct Credential: PayloadConvertible, Codable {
+public struct Credential:  Codable {
     
     var createDateTime   : Int?
     var credentials      : Credentials?
@@ -28,7 +28,7 @@ extension Credential {
 }
 
 
-//public struct CredentialList : Codable, PayloadConvertible {
+//public struct CredentialList : Codable {
 //    
 //    var credentials: [Credential] = []
 //}
@@ -42,7 +42,7 @@ extension Credential {
 
 /// This structure contains the values used to create or update a Credentials object.
 
-public struct CredentialOptions: PayloadConvertible, Codable {
+public struct CredentialOptions:  Codable {
     
     var type: String
     var description: String
@@ -51,7 +51,7 @@ public struct CredentialOptions: PayloadConvertible, Codable {
 
 /// This structure contains the raw credential values pertaining to a foreign service like AWS.
 
-public struct Credentials: PayloadConvertible, Codable {
+public struct Credentials:  Codable {
     
     var accessKeyId: String      = ""
     var secretAccessKey: String? = nil    

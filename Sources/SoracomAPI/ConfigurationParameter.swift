@@ -1,6 +1,6 @@
 // ConfigurationParameter.swift Created by mason on 2017-07-26. 
 
-public struct ConfigurationParameter: PayloadConvertible, Codable {
+public struct ConfigurationParameter:  Codable {
     
     public var key: String
     public var value: String

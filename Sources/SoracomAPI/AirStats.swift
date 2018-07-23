@@ -2,7 +2,7 @@
 
 /// Description forthcoming.
 
-public struct AirStats: PayloadConvertible, Codable {
+public struct AirStats:  Codable {
     
     var dataTrafficStatsMap: DataTrafficStatsMap
     var unixtime: Int    

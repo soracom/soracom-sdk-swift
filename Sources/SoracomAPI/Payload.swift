@@ -187,7 +187,7 @@ extension Payload {
     
     public convenience init(tagList: TagList) {
         
-        // FIXME delete this in favor of more generic init with [PayloadConvertible] 
+        // FIXME delete this in favor of more generic init 
         
         var a: [Any] = []
         for t in tagList {
@@ -198,7 +198,7 @@ extension Payload {
     
     public convenience init(configurationParameterList: ConfigurationParameterList) {
         
-        // FIXME delete this in favor of more generic init with [PayloadConvertible] 
+        // FIXME delete this in favor of more generic init
         
         self.init(list: [])
         

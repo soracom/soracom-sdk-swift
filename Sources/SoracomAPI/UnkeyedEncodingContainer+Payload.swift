@@ -47,7 +47,7 @@ extension UnkeyedEncodingContainer {
             
             try encode(value)
             
-        } else if let value = value as? PayloadConvertible {
+        } else if let value = value as? Encodable {
             
             if let dictValue = value.toPayload().toDictionary() {
                 
@@ -74,7 +74,7 @@ extension UnkeyedEncodingContainer {
                 
             } else {
                 let bogusType = type(of: value)
-                print("payloadEncode() is failing on unencodable PayloadConvertible: \(String(describing: value)) >> \(String(describing: bogusType))")
+                print("payloadEncode() is failing on unencodable value: \(String(describing: value)) >> \(String(describing: bogusType))")
                 throw PayloadEncodeError.invalidValueType(type: bogusType)
             }
             

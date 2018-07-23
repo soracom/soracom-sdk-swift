@@ -4,7 +4,7 @@ import XCTest
 
 #if os(Linux)
     import Dispatch
-    #if os(Linux)
+    #if !SKIP_TESTABLE_IMPORT_FOR_TESTS
 @testable import SoracomAPI
 #endif
 #endif

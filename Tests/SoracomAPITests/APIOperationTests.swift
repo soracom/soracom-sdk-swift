@@ -7,10 +7,8 @@ import XCTest
     // Do nothing (it's magic). We unfortunately need 3 different import 
     // modes: Xcode+macOS, Xcode+iOS, and non-Xcode ("swift test" CLI) 
     // due to macOS and iOS not supporting SPM build/test...
-
 #elseif USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
     @testable import iOSDemoAppForSoracomSDK
-
 #else
     @testable import SoracomAPI 
 #endif

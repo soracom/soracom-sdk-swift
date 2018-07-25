@@ -134,7 +134,7 @@ extension Request {
         var tagList: TagList = []
         
         for (k,v) in tags {
-            let tag = Tag(tagName: k, tagValue: v)
+            let tag: Tag = [k:v]
             tagList.append(tag)
         }
         

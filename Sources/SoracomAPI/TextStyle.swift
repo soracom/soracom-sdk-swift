@@ -8,14 +8,13 @@ import Foundation
 
 #endif
 
-
 /// TextStyle defines a few custom styles for logging in the SDK demo app
 
 public enum TextStyle {
 
     case normal, red, blue, green
 
-
+    
 #if os(OSX)
     
     

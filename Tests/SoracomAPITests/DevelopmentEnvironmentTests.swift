@@ -87,7 +87,17 @@ class DevelopmentEnvironmentTests: XCTestCase {
             return nil
         }
         
-        let apiKeyCredentials = SoracomCredentials(apiKey: authResponse.apiKey, token: authResponse.token);
+        guard let apiKey = authResponse.apiKey else {
+            XCTFail("Hmm. Test precondition failed: unable to get API key even though authentication seemed to work")
+            return nil
+        }
+        
+        guard let token = authResponse.token else {
+            XCTFail("Hmm. Test precondition failed: unable to get token even though authentication seemed to work")
+            return nil
+        }
+        
+        let apiKeyCredentials = SoracomCredentials(apiKey: apiKey, token: token);
         return apiKeyCredentials
     }
     

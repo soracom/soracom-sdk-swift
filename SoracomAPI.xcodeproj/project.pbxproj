@@ -21,16 +21,309 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		935028F42108471F004DAC04 /* _Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935028F32108471F004DAC04 /* _Subscriber.swift */; };
-		935028F82108475A004DAC04 /* _ImeiLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935028F52108475A004DAC04 /* _ImeiLock.swift */; };
-		935028F92108475A004DAC04 /* _Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935028F62108475A004DAC04 /* _Map.swift */; };
-		935028FA2108475A004DAC04 /* _SessionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935028F72108475A004DAC04 /* _SessionStatus.swift */; };
-		935028FC210847C3004DAC04 /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935028FB210847C3004DAC04 /* Coding.swift */; };
-		935028FE210847FB004DAC04 /* ImeiLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935028FD210847FB004DAC04 /* ImeiLock.swift */; };
-		9350290021084A1A004DAC04 /* SessionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935028FF21084A1A004DAC04 /* SessionStatus.swift */; };
-		9350290221084B60004DAC04 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9350290121084B60004DAC04 /* AnyCodable.swift */; };
-		9350290421084BBF004DAC04 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9350290321084BBF004DAC04 /* Map.swift */; };
-		9350290621085C48004DAC04 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9350290521085C48004DAC04 /* API.swift */; };
+		93FCBC3E210866F100E70F75 /* AuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBB0E210866F000E70F75 /* AuthRequest.swift */; };
+		93FCBC3F210866F100E70F75 /* SetGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBB0F210866F000E70F75 /* SetGroupRequest.swift */; };
+		93FCBC40210866F100E70F75 /* PaymentAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBB10210866F000E70F75 /* PaymentAmount.swift */; };
+		93FCBCDA210866F100E70F75 /* ObjectInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBAB210866F000E70F75 /* ObjectInstance.swift */; };
+		93FCBCDB210866F100E70F75 /* ListProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBAC210866F000E70F75 /* ListProductResponse.swift */; };
+		93FCBCDC210866F100E70F75 /* SetNetworkSetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBAD210866F000E70F75 /* SetNetworkSetRequest.swift */; };
+		93FCBCDD210866F100E70F75 /* FunnelDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBAE210866F000E70F75 /* FunnelDestination.swift */; };
+		93FCBCDE210866F100E70F75 /* APIKeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBAF210866F000E70F75 /* APIKeyResponse.swift */; };
+		93FCBCDF210866F100E70F75 /* SoracomBeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBB0210866F000E70F75 /* SoracomBeamStats.swift */; };
+		93FCBCE0210866F100E70F75 /* JunctionRedirectionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBB1210866F000E70F75 /* JunctionRedirectionConfiguration.swift */; };
+		93FCBCE1210866F100E70F75 /* ListRolesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBB2210866F000E70F75 /* ListRolesResponse.swift */; };
+		93FCBCE2210866F100E70F75 /* MFARevokingTokenVerifyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBB3210866F000E70F75 /* MFARevokingTokenVerifyRequest.swift */; };
+		93FCBCE3210866F100E70F75 /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBB4210866F000E70F75 /* Subscriber.swift */; };
+		93FCBCE4210866F100E70F75 /* LagoonUserCreationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBB5210866F000E70F75 /* LagoonUserCreationRequest.swift */; };
+		93FCBCE5210866F100E70F75 /* ResourceInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBB6210866F000E70F75 /* ResourceInstance.swift */; };
+		93FCBCE6210866F100E70F75 /* Mapstringstring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBB7210866F000E70F75 /* Mapstringstring.swift */; };
+		93FCBCE7210866F100E70F75 /* SigfoxData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBB8210866F000E70F75 /* SigfoxData.swift */; };
+		93FCBCE8210866F100E70F75 /* JunctionInspectionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBB9210866F000E70F75 /* JunctionInspectionConfiguration.swift */; };
+		93FCBCE9210866F100E70F75 /* AttachRoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBBA210866F000E70F75 /* AttachRoleRequest.swift */; };
+		93FCBCEA210866F100E70F75 /* GenerateTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBBB210866F000E70F75 /* GenerateTokenResponse.swift */; };
+		93FCBCEB210866F100E70F75 /* LoraDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBBC210866F000E70F75 /* LoraDevice.swift */; };
+		93FCBCEC210866F100E70F75 /* GetExportedFileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBBD210866F000E70F75 /* GetExportedFileResponse.swift */; };
+		93FCBCED210866F100E70F75 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBBE210866F000E70F75 /* CreditCard.swift */; };
+		93FCBCEE210866F100E70F75 /* MFAIssueRevokingTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBBF210866F000E70F75 /* MFAIssueRevokingTokenRequest.swift */; };
+		93FCBCEF210866F100E70F75 /* APICallErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBC0210866F000E70F75 /* APICallErrorMessage.swift */; };
+		93FCBCF0210866F100E70F75 /* GroupConfigurationUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBC1210866F000E70F75 /* GroupConfigurationUpdateRequest.swift */; };
+		93FCBCF1210866F100E70F75 /* LagoonRegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBC2210866F000E70F75 /* LagoonRegistrationRequest.swift */; };
+		93FCBCF2210866F100E70F75 /* LagoonRegistrationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBC3210866F000E70F75 /* LagoonRegistrationResponse.swift */; };
+		93FCBCF3210866F100E70F75 /* ListSubOperatorsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBC4210866F000E70F75 /* ListSubOperatorsResponse.swift */; };
+		93FCBCF4210866F100E70F75 /* GenerateTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBC5210866F000E70F75 /* GenerateTokenRequest.swift */; };
+		93FCBCF5210866F100E70F75 /* DeviceObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBC6210866F000E70F75 /* DeviceObjectModel.swift */; };
+		93FCBCF6210866F100E70F75 /* ActionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBC7210866F000E70F75 /* ActionConfig.swift */; };
+		93FCBCF7210866F100E70F75 /* JunctionMirroringPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBC8210866F000E70F75 /* JunctionMirroringPeer.swift */; };
+		93FCBCF8210866F100E70F75 /* FunnelConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBC9210866F000E70F75 /* FunnelConfiguration.swift */; };
+		93FCBCF9210866F100E70F75 /* ListOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBCA210866F000E70F75 /* ListOrderResponse.swift */; };
+		93FCBCFA210866F100E70F75 /* RuleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBCB210866F000E70F75 /* RuleConfig.swift */; };
+		93FCBCFB210866F100E70F75 /* SetDeviceObjectModelScopeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBCC210866F000E70F75 /* SetDeviceObjectModelScopeRequest.swift */; };
+		93FCBCFC210866F100E70F75 /* VerifySubscriberTransferTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBCD210866F000E70F75 /* VerifySubscriberTransferTokenRequest.swift */; };
+		93FCBCFD210866F100E70F75 /* SupportTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBCE210866F000E70F75 /* SupportTokenResponse.swift */; };
+		93FCBCFE210866F100E70F75 /* SessionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBCF210866F000E70F75 /* SessionStatus.swift */; };
+		93FCBCFF210866F100E70F75 /* PutIpAddressMapEntryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBD0210866F000E70F75 /* PutIpAddressMapEntryRequest.swift */; };
+		93FCBD00210866F100E70F75 /* CreateVirtualPrivateGatewayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBD1210866F000E70F75 /* CreateVirtualPrivateGatewayRequest.swift */; };
+		93FCBD01210866F100E70F75 /* UpdatePasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBD2210866F000E70F75 /* UpdatePasswordRequest.swift */; };
+		93FCBD02210866F100E70F75 /* CreateEventHandlerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBD3210866F000E70F75 /* CreateEventHandlerRequest.swift */; };
+		93FCBD03210866F100E70F75 /* OrderedSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBD4210866F000E70F75 /* OrderedSubscriber.swift */; };
+		93FCBD04210866F100E70F75 /* PaymentStatementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBD5210866F000E70F75 /* PaymentStatementResponse.swift */; };
+		93FCBD05210866F100E70F75 /* GetOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBD6210866F000E70F75 /* GetOrderResponse.swift */; };
+		93FCBD06210866F100E70F75 /* DataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBD7210866F000E70F75 /* DataEntry.swift */; };
+		93FCBD07210866F100E70F75 /* VerifySubscriberTransferTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBD8210866F000E70F75 /* VerifySubscriberTransferTokenResponse.swift */; };
+		93FCBD08210866F100E70F75 /* SmsForwardingReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBD9210866F000E70F75 /* SmsForwardingReport.swift */; };
+		93FCBD09210866F100E70F75 /* RegisterGatePeerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBDA210866F000E70F75 /* RegisterGatePeerRequest.swift */; };
+		93FCBD0A210866F100E70F75 /* ListShippingAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBDB210866F000E70F75 /* ListShippingAddressResponse.swift */; };
+		93FCBD0B210866F100E70F75 /* GetOperatorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBDC210866F000E70F75 /* GetOperatorResponse.swift */; };
+		93FCBD0C210866F100E70F75 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBDD210866F000E70F75 /* Config.swift */; };
+		93FCBD0D210866F100E70F75 /* UserDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBDE210866F000E70F75 /* UserDetailResponse.swift */; };
+		93FCBD0E210866F100E70F75 /* UpdateEventHandlerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBDF210866F000E70F75 /* UpdateEventHandlerRequest.swift */; };
+		93FCBD0F210866F100E70F75 /* MFAStatusOfUseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBE0210866F000E70F75 /* MFAStatusOfUseResponse.swift */; };
+		93FCBD10210866F100E70F75 /* RegisterSubscribersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBE1210866F000E70F75 /* RegisterSubscribersRequest.swift */; };
+		93FCBD11210866F100E70F75 /* CreateVpcPeeringConnectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBE2210866F000E70F75 /* CreateVpcPeeringConnectionRequest.swift */; };
+		93FCBD12210866F100E70F75 /* CreateOrUpdateRoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBE3210866F000E70F75 /* CreateOrUpdateRoleRequest.swift */; };
+		93FCBD13210866F100E70F75 /* CredentialsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBE4210866F000E70F75 /* CredentialsModel.swift */; };
+		93FCBD14210866F100E70F75 /* TagUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBE5210866F000E70F75 /* TagUpdateRequest.swift */; };
+		93FCBD15210866F100E70F75 /* GetUserPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBE6210866F000E70F75 /* GetUserPasswordResponse.swift */; };
+		93FCBD16210866F100E70F75 /* SetImeiLockRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBE7210866F000E70F75 /* SetImeiLockRequest.swift */; };
+		93FCBD17210866F100E70F75 /* CreateRoleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBE8210866F000E70F75 /* CreateRoleResponse.swift */; };
+		93FCBD18210866F100E70F75 /* IpAddressMapEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBE9210866F000E70F75 /* IpAddressMapEntry.swift */; };
+		93FCBD19210866F100E70F75 /* LagoonUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBEA210866F000E70F75 /* LagoonUser.swift */; };
+		93FCBD1A210866F100E70F75 /* VpcPeeringConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBEB210866F000E70F75 /* VpcPeeringConnection.swift */; };
+		93FCBD1B210866F100E70F75 /* CreateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBEC210866F000E70F75 /* CreateUserRequest.swift */; };
+		93FCBD1C210866F100E70F75 /* DailyBillResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBED210866F000E70F75 /* DailyBillResponse.swift */; };
+		93FCBD1D210866F100E70F75 /* LagoonUserPermissionUpdatingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBEE210866F000E70F75 /* LagoonUserPermissionUpdatingRequest.swift */; };
+		93FCBD1E210866F100E70F75 /* MonthlyBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBEF210866F000E70F75 /* MonthlyBill.swift */; };
+		93FCBD1F210866F100E70F75 /* EventHandlerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBF0210866F000E70F75 /* EventHandlerModel.swift */; };
+		93FCBD20210866F100E70F75 /* ExportRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBF1210866F000E70F75 /* ExportRequest.swift */; };
+		93FCBD21210866F100E70F75 /* ExpiryTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBF2210866F000E70F75 /* ExpiryTime.swift */; };
+		93FCBD22210866F100E70F75 /* ListOrderedSubscriberResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBF3210866F000E70F75 /* ListOrderedSubscriberResponse.swift */; };
+		93FCBD23210866F100E70F75 /* SigfoxRegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBF4210866F000E70F75 /* SigfoxRegistrationRequest.swift */; };
+		93FCBD24210866F100E70F75 /* RegisterOperatorsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBF5210866F000E70F75 /* RegisterOperatorsRequest.swift */; };
+		93FCBD25210866F100E70F75 /* GetBillingHistoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBF6210866F000E70F75 /* GetBillingHistoryResponse.swift */; };
+		93FCBD26210866F100E70F75 /* GatePeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBF7210866F000E70F75 /* GatePeer.swift */; };
+		93FCBD27210866F100E70F75 /* APICallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBF8210866F000E70F75 /* APICallError.swift */; };
+		93FCBD28210866F100E70F75 /* IssueEmailChangeTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBF9210866F000E70F75 /* IssueEmailChangeTokenRequest.swift */; };
+		93FCBD29210866F100E70F75 /* LoraNetworkSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBFA210866F000E70F75 /* LoraNetworkSet.swift */; };
+		93FCBD2A210866F100E70F75 /* ActionConfigProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBFB210866F000E70F75 /* ActionConfigProperty.swift */; };
+		93FCBD2B210866F100E70F75 /* MapstringDataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBFC210866F000E70F75 /* MapstringDataTrafficStats.swift */; };
+		93FCBD2C210866F100E70F75 /* CreateEstimatedOrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBFD210866F000E70F75 /* CreateEstimatedOrderRequest.swift */; };
+		93FCBD2D210866F100E70F75 /* ImeiLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBFE210866F000E70F75 /* ImeiLock.swift */; };
+		93FCBD2E210866F100E70F75 /* LoraData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBBFF210866F000E70F75 /* LoraData.swift */; };
+		93FCBD2F210866F100E70F75 /* EnableMFAOTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC00210866F000E70F75 /* EnableMFAOTPResponse.swift */; };
+		93FCBD30210866F100E70F75 /* VirtualPrivateGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC01210866F000E70F75 /* VirtualPrivateGateway.swift */; };
+		93FCBD31210866F100E70F75 /* EstimatedOrderItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC02210866F000E70F75 /* EstimatedOrderItemModel.swift */; };
+		93FCBD32210866F100E70F75 /* AuthKeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC03210866F000E70F75 /* AuthKeyResponse.swift */; };
+		93FCBD33210866F100E70F75 /* DataSourceResourceMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC04210866F000E70F75 /* DataSourceResourceMetadata.swift */; };
+		93FCBD34210866F100E70F75 /* IssuePasswordResetTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC05210866F000E70F75 /* IssuePasswordResetTokenRequest.swift */; };
+		93FCBD35210866F100E70F75 /* VerifyOperatorsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC06210866F000E70F75 /* VerifyOperatorsRequest.swift */; };
+		93FCBD36210866F100E70F75 /* RuleConfigProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC07210866F000E70F75 /* RuleConfigProperty.swift */; };
+		93FCBD37210866F100E70F75 /* SessionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC08210866F000E70F75 /* SessionEvent.swift */; };
+		93FCBD38210866F100E70F75 /* GenerateUserAuthKeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC09210866F000E70F75 /* GenerateUserAuthKeyResponse.swift */; };
+		93FCBD39210866F100E70F75 /* GetShippingAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC0A210866F000E70F75 /* GetShippingAddressResponse.swift */; };
+		93FCBD3A210866F100E70F75 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC0B210866F000E70F75 /* ErrorType.swift */; };
+		93FCBD3B210866F100E70F75 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC0C210866F000E70F75 /* Group.swift */; };
+		93FCBD3C210866F100E70F75 /* GetPaymentTransactionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC0D210866F000E70F75 /* GetPaymentTransactionResult.swift */; };
+		93FCBD3D210866F100E70F75 /* SigfoxDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC0E210866F000E70F75 /* SigfoxDevice.swift */; };
+		93FCBD3E210866F100E70F75 /* CreateUserPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC0F210866F000E70F75 /* CreateUserPasswordRequest.swift */; };
+		93FCBD3F210866F100E70F75 /* RegisterLoraDeviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC10210866F000E70F75 /* RegisterLoraDeviceRequest.swift */; };
+		93FCBD40210866F100E70F75 /* GetPaymentMethodResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC11210866F000E70F75 /* GetPaymentMethodResult.swift */; };
+		93FCBD41210866F100E70F75 /* LagoonUserPasswordUpdatingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC12210866F000E70F75 /* LagoonUserPasswordUpdatingRequest.swift */; };
+		93FCBD42210866F100E70F75 /* AirStatsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC13210866F000E70F75 /* AirStatsResponse.swift */; };
+		93FCBD43210866F100E70F75 /* UpdateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC14210866F000E70F75 /* UpdateUserRequest.swift */; };
+		93FCBD44210866F100E70F75 /* RoleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC15210866F000E70F75 /* RoleResponse.swift */; };
+		93FCBD45210866F100E70F75 /* CreateAndUpdateCredentialsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC16210866F000E70F75 /* CreateAndUpdateCredentialsModel.swift */; };
+		93FCBD46210866F100E70F75 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC17210866F000E70F75 /* Device.swift */; };
+		93FCBD47210866F100E70F75 /* CreateGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC18210866F000E70F75 /* CreateGroupRequest.swift */; };
+		93FCBD48210866F100E70F75 /* AttributeUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC19210866F000E70F75 /* AttributeUpdate.swift */; };
+		93FCBD49210866F100E70F75 /* SmsForwardingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC1A210866F000E70F75 /* SmsForwardingRequest.swift */; };
+		93FCBD4A210866F100E70F75 /* GetLatestBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC1B210866F000E70F75 /* GetLatestBill.swift */; };
+		93FCBD4B210866F100E70F75 /* LastSeen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC1C210866F000E70F75 /* LastSeen.swift */; };
+		93FCBD4C210866F100E70F75 /* FileExportResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC1D210866F000E70F75 /* FileExportResponse.swift */; };
+		93FCBD4D210866F100E70F75 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC1E210866F000E70F75 /* Map.swift */; };
+		93FCBD4E210866F100E70F75 /* OrderItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC1F210866F000E70F75 /* OrderItemModel.swift */; };
+		93FCBD4F210866F100E70F75 /* MFAAuthenticationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC20210866F000E70F75 /* MFAAuthenticationRequest.swift */; };
+		93FCBD50210866F100E70F75 /* EstimatedOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC21210866F000E70F75 /* EstimatedOrderModel.swift */; };
+		93FCBD51210866F100E70F75 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC22210866F000E70F75 /* Tag.swift */; };
+		93FCBD52210866F100E70F75 /* VerifyPasswordResetTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC23210866F000E70F75 /* VerifyPasswordResetTokenRequest.swift */; };
+		93FCBD53210866F100E70F75 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC24210866F000E70F75 /* AuthResponse.swift */; };
+		93FCBD54210866F100E70F75 /* SetUserPermissionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC25210866F000E70F75 /* SetUserPermissionRequest.swift */; };
+		93FCBD55210866F100E70F75 /* LagoonUserEmailUpdatingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC26210866F000E70F75 /* LagoonUserEmailUpdatingRequest.swift */; };
+		93FCBD56210866F100E70F75 /* OperatorMFAVerifyingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC27210866F000E70F75 /* OperatorMFAVerifyingResponse.swift */; };
+		93FCBD57210866F100E70F75 /* DailyBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC28210866F000E70F75 /* DailyBill.swift */; };
+		93FCBD58210866F100E70F75 /* CouponResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC29210866F000E70F75 /* CouponResponse.swift */; };
+		93FCBD59210866F100E70F75 /* IssueSubscriberTransferTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC2A210866F000E70F75 /* IssueSubscriberTransferTokenRequest.swift */; };
+		93FCBD5A210866F100E70F75 /* LagoonUserCreationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC2B210866F000E70F75 /* LagoonUserCreationResponse.swift */; };
+		93FCBD5B210866F100E70F75 /* PaymentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC2C210866F000E70F75 /* PaymentDescription.swift */; };
+		93FCBD5C210866F100E70F75 /* GenerateOperatorsAuthKeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC2D210866F000E70F75 /* GenerateOperatorsAuthKeyResponse.swift */; };
+		93FCBD5D210866F100E70F75 /* IssueSubscriberTransferTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC2E210866F000E70F75 /* IssueSubscriberTransferTokenResponse.swift */; };
+		93FCBD5E210866F100E70F75 /* DataTrafficStatsMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC2F210866F000E70F75 /* DataTrafficStatsMap.swift */; };
+		93FCBD5F210866F100E70F75 /* ShippingCostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC30210866F000E70F75 /* ShippingCostModel.swift */; };
+		93FCBD60210866F100E70F75 /* LoraGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC31210866F000E70F75 /* LoraGateway.swift */; };
+		93FCBD61210866F100E70F75 /* ListCouponResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC32210866F000E70F75 /* ListCouponResponse.swift */; };
+		93FCBD62210866F100E70F75 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC33210866F000E70F75 /* ProductModel.swift */; };
+		93FCBD63210866F100E70F75 /* JunctionMirroringConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC34210866F000E70F75 /* JunctionMirroringConfiguration.swift */; };
+		93FCBD64210866F100E70F75 /* RegisterPayerInformationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC35210866F000E70F75 /* RegisterPayerInformationModel.swift */; };
+		93FCBD65210866F100E70F75 /* GetUserPermissionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC36210866F000E70F75 /* GetUserPermissionResponse.swift */; };
+		93FCBD66210866F100E70F75 /* UpdateSpeedClassRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC37210866F000E70F75 /* UpdateSpeedClassRequest.swift */; };
+		93FCBD67210866F100E70F75 /* ListPaymentStatementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC38210866F000E70F75 /* ListPaymentStatementResponse.swift */; };
+		93FCBD68210866F100E70F75 /* ShippingAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC39210866F100E70F75 /* ShippingAddressModel.swift */; };
+		93FCBD69210866F100E70F75 /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC3A210866F100E70F75 /* LogEntry.swift */; };
+		93FCBD6A210866F100E70F75 /* UpdatePermissionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC3B210866F100E70F75 /* UpdatePermissionRequest.swift */; };
+		93FCBD6B210866F100E70F75 /* BeamStatsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC3C210866F100E70F75 /* BeamStatsResponse.swift */; };
+		93FCBD6C210866F100E70F75 /* VerifyEmailChangeTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBC3D210866F100E70F75 /* VerifyEmailChangeTokenRequest.swift */; };
+		93FCBE072108671800E70F75 /* _VerifySubscriberTransferTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD6E2108671800E70F75 /* _VerifySubscriberTransferTokenResponse.swift */; };
+		93FCBE082108671800E70F75 /* _ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD6F2108671800E70F75 /* _ErrorType.swift */; };
+		93FCBE092108671800E70F75 /* _UpdatePermissionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD702108671800E70F75 /* _UpdatePermissionRequest.swift */; };
+		93FCBE0A2108671800E70F75 /* _IssueEmailChangeTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD712108671800E70F75 /* _IssueEmailChangeTokenRequest.swift */; };
+		93FCBE0B2108671800E70F75 /* _SessionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD722108671800E70F75 /* _SessionStatus.swift */; };
+		93FCBE0C2108671800E70F75 /* _FunnelConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD732108671800E70F75 /* _FunnelConfiguration.swift */; };
+		93FCBE0D2108671800E70F75 /* _UpdateSpeedClassRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD742108671800E70F75 /* _UpdateSpeedClassRequest.swift */; };
+		93FCBE0E2108671800E70F75 /* _LagoonUserCreationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD752108671800E70F75 /* _LagoonUserCreationRequest.swift */; };
+		93FCBE0F2108671800E70F75 /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD762108671800E70F75 /* Coding.swift */; };
+		93FCBE102108671800E70F75 /* _LagoonUserPasswordUpdatingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD772108671800E70F75 /* _LagoonUserPasswordUpdatingRequest.swift */; };
+		93FCBE112108671800E70F75 /* _SoracomBeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD782108671800E70F75 /* _SoracomBeamStats.swift */; };
+		93FCBE122108671800E70F75 /* _MFAStatusOfUseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD792108671800E70F75 /* _MFAStatusOfUseResponse.swift */; };
+		93FCBE132108671800E70F75 /* _IpAddressMapEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD7A2108671800E70F75 /* _IpAddressMapEntry.swift */; };
+		93FCBE142108671800E70F75 /* _ResourceInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD7B2108671800E70F75 /* _ResourceInstance.swift */; };
+		93FCBE152108671800E70F75 /* _ListSubOperatorsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD7C2108671800E70F75 /* _ListSubOperatorsResponse.swift */; };
+		93FCBE162108671800E70F75 /* _APICallErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD7D2108671800E70F75 /* _APICallErrorMessage.swift */; };
+		93FCBE172108671800E70F75 /* _SetNetworkSetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD7E2108671800E70F75 /* _SetNetworkSetRequest.swift */; };
+		93FCBE182108671800E70F75 /* _VirtualPrivateGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD7F2108671800E70F75 /* _VirtualPrivateGateway.swift */; };
+		93FCBE192108671800E70F75 /* _ObjectInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD802108671800E70F75 /* _ObjectInstance.swift */; };
+		93FCBE1A2108671800E70F75 /* _VerifyEmailChangeTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD812108671800E70F75 /* _VerifyEmailChangeTokenRequest.swift */; };
+		93FCBE1B2108671800E70F75 /* _Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD822108671800E70F75 /* _Tag.swift */; };
+		93FCBE1C2108671800E70F75 /* _RegisterPayerInformationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD832108671800E70F75 /* _RegisterPayerInformationModel.swift */; };
+		93FCBE1D2108671800E70F75 /* _AttributeUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD842108671800E70F75 /* _AttributeUpdate.swift */; };
+		93FCBE1E2108671800E70F75 /* _ActionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD852108671800E70F75 /* _ActionConfig.swift */; };
+		93FCBE1F2108671800E70F75 /* _AuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD862108671800E70F75 /* _AuthRequest.swift */; };
+		93FCBE202108671800E70F75 /* _RuleConfigProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD872108671800E70F75 /* _RuleConfigProperty.swift */; };
+		93FCBE212108671800E70F75 /* _Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD882108671800E70F75 /* _Config.swift */; };
+		93FCBE222108671800E70F75 /* _LagoonUserPermissionUpdatingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD892108671800E70F75 /* _LagoonUserPermissionUpdatingRequest.swift */; };
+		93FCBE232108671800E70F75 /* _ListProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD8A2108671800E70F75 /* _ListProductResponse.swift */; };
+		93FCBE242108671800E70F75 /* _Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD8B2108671800E70F75 /* _Map.swift */; };
+		93FCBE252108671800E70F75 /* _RegisterSubscribersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD8C2108671800E70F75 /* _RegisterSubscribersRequest.swift */; };
+		93FCBE262108671800E70F75 /* _LagoonRegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD8D2108671800E70F75 /* _LagoonRegistrationRequest.swift */; };
+		93FCBE272108671800E70F75 /* _APIKeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD8E2108671800E70F75 /* _APIKeyResponse.swift */; };
+		93FCBE282108671800E70F75 /* _GenerateTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD8F2108671800E70F75 /* _GenerateTokenRequest.swift */; };
+		93FCBE292108671800E70F75 /* _OrderedSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD902108671800E70F75 /* _OrderedSubscriber.swift */; };
+		93FCBE2A2108671900E70F75 /* _PaymentAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD912108671800E70F75 /* _PaymentAmount.swift */; };
+		93FCBE2B2108671900E70F75 /* _LagoonUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD922108671800E70F75 /* _LagoonUser.swift */; };
+		93FCBE2C2108671900E70F75 /* _CreateAndUpdateCredentialsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD932108671800E70F75 /* _CreateAndUpdateCredentialsModel.swift */; };
+		93FCBE2D2108671900E70F75 /* _DeviceObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD942108671800E70F75 /* _DeviceObjectModel.swift */; };
+		93FCBE2E2108671900E70F75 /* _AuthKeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD952108671800E70F75 /* _AuthKeyResponse.swift */; };
+		93FCBE2F2108671900E70F75 /* _ExpiryTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD962108671800E70F75 /* _ExpiryTime.swift */; };
+		93FCBE302108671900E70F75 /* _CreateEstimatedOrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD972108671800E70F75 /* _CreateEstimatedOrderRequest.swift */; };
+		93FCBE312108671900E70F75 /* _OperatorMFAVerifyingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD982108671800E70F75 /* _OperatorMFAVerifyingResponse.swift */; };
+		93FCBE322108671900E70F75 /* _SupportTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD992108671800E70F75 /* _SupportTokenResponse.swift */; };
+		93FCBE332108671900E70F75 /* _IssueSubscriberTransferTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD9A2108671800E70F75 /* _IssueSubscriberTransferTokenRequest.swift */; };
+		93FCBE342108671900E70F75 /* _FileExportResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD9B2108671800E70F75 /* _FileExportResponse.swift */; };
+		93FCBE352108671900E70F75 /* _ListOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD9C2108671800E70F75 /* _ListOrderResponse.swift */; };
+		93FCBE362108671900E70F75 /* _ListOrderedSubscriberResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD9D2108671800E70F75 /* _ListOrderedSubscriberResponse.swift */; };
+		93FCBE372108671900E70F75 /* _GetOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD9E2108671800E70F75 /* _GetOrderResponse.swift */; };
+		93FCBE382108671900E70F75 /* _VerifySubscriberTransferTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBD9F2108671800E70F75 /* _VerifySubscriberTransferTokenRequest.swift */; };
+		93FCBE392108671900E70F75 /* _GetOperatorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDA02108671800E70F75 /* _GetOperatorResponse.swift */; };
+		93FCBE3A2108671900E70F75 /* _VerifyPasswordResetTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDA12108671800E70F75 /* _VerifyPasswordResetTokenRequest.swift */; };
+		93FCBE3B2108671900E70F75 /* _CreateEventHandlerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDA22108671800E70F75 /* _CreateEventHandlerRequest.swift */; };
+		93FCBE3C2108671900E70F75 /* _EstimatedOrderItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDA32108671800E70F75 /* _EstimatedOrderItemModel.swift */; };
+		93FCBE3D2108671900E70F75 /* _CreateGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDA42108671800E70F75 /* _CreateGroupRequest.swift */; };
+		93FCBE3E2108671900E70F75 /* _SmsForwardingReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDA52108671800E70F75 /* _SmsForwardingReport.swift */; };
+		93FCBE3F2108671900E70F75 /* _CreateVirtualPrivateGatewayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDA62108671800E70F75 /* _CreateVirtualPrivateGatewayRequest.swift */; };
+		93FCBE402108671900E70F75 /* _GetPaymentTransactionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDA72108671800E70F75 /* _GetPaymentTransactionResult.swift */; };
+		93FCBE412108671900E70F75 /* _LagoonRegistrationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDA82108671800E70F75 /* _LagoonRegistrationResponse.swift */; };
+		93FCBE422108671900E70F75 /* _CreateOrUpdateRoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDA92108671800E70F75 /* _CreateOrUpdateRoleRequest.swift */; };
+		93FCBE432108671900E70F75 /* _PaymentStatementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDAA2108671800E70F75 /* _PaymentStatementResponse.swift */; };
+		93FCBE442108671900E70F75 /* _ListCouponResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDAB2108671800E70F75 /* _ListCouponResponse.swift */; };
+		93FCBE452108671900E70F75 /* _DailyBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDAC2108671800E70F75 /* _DailyBill.swift */; };
+		93FCBE462108671900E70F75 /* _GenerateOperatorsAuthKeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDAD2108671800E70F75 /* _GenerateOperatorsAuthKeyResponse.swift */; };
+		93FCBE472108671900E70F75 /* _GenerateUserAuthKeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDAE2108671800E70F75 /* _GenerateUserAuthKeyResponse.swift */; };
+		93FCBE482108671900E70F75 /* _AttachRoleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDAF2108671800E70F75 /* _AttachRoleRequest.swift */; };
+		93FCBE492108671900E70F75 /* _TagUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDB02108671800E70F75 /* _TagUpdateRequest.swift */; };
+		93FCBE4A2108671900E70F75 /* _FunnelDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDB12108671800E70F75 /* _FunnelDestination.swift */; };
+		93FCBE4B2108671900E70F75 /* _CredentialsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDB22108671800E70F75 /* _CredentialsModel.swift */; };
+		93FCBE4C2108671900E70F75 /* _ListPaymentStatementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDB32108671800E70F75 /* _ListPaymentStatementResponse.swift */; };
+		93FCBE4D2108671900E70F75 /* _PaymentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDB42108671800E70F75 /* _PaymentDescription.swift */; };
+		93FCBE4E2108671900E70F75 /* _UpdateEventHandlerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDB52108671800E70F75 /* _UpdateEventHandlerRequest.swift */; };
+		93FCBE4F2108671900E70F75 /* _ListRolesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDB62108671800E70F75 /* _ListRolesResponse.swift */; };
+		93FCBE502108671900E70F75 /* _GetLatestBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDB72108671800E70F75 /* _GetLatestBill.swift */; };
+		93FCBE512108671900E70F75 /* _ShippingCostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDB82108671800E70F75 /* _ShippingCostModel.swift */; };
+		93FCBE522108671900E70F75 /* _ActionConfigProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDB92108671800E70F75 /* _ActionConfigProperty.swift */; };
+		93FCBE532108671900E70F75 /* _MapstringDataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDBA2108671800E70F75 /* _MapstringDataTrafficStats.swift */; };
+		93FCBE542108671900E70F75 /* _LagoonUserEmailUpdatingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDBB2108671800E70F75 /* _LagoonUserEmailUpdatingRequest.swift */; };
+		93FCBE552108671900E70F75 /* _GetUserPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDBC2108671800E70F75 /* _GetUserPasswordResponse.swift */; };
+		93FCBE562108671900E70F75 /* _ImeiLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDBD2108671800E70F75 /* _ImeiLock.swift */; };
+		93FCBE572108671900E70F75 /* _EnableMFAOTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDBE2108671800E70F75 /* _EnableMFAOTPResponse.swift */; };
+		93FCBE582108671900E70F75 /* _LoraData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDBF2108671800E70F75 /* _LoraData.swift */; };
+		93FCBE592108671900E70F75 /* _Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDC02108671800E70F75 /* _Group.swift */; };
+		93FCBE5A2108671900E70F75 /* _APICallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDC12108671800E70F75 /* _APICallError.swift */; };
+		93FCBE5B2108671900E70F75 /* _JunctionRedirectionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDC22108671800E70F75 /* _JunctionRedirectionConfiguration.swift */; };
+		93FCBE5C2108671900E70F75 /* _VpcPeeringConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDC32108671800E70F75 /* _VpcPeeringConnection.swift */; };
+		93FCBE5D2108671900E70F75 /* _PutIpAddressMapEntryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDC42108671800E70F75 /* _PutIpAddressMapEntryRequest.swift */; };
+		93FCBE5E2108671900E70F75 /* _BeamStatsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDC52108671800E70F75 /* _BeamStatsResponse.swift */; };
+		93FCBE5F2108671900E70F75 /* _Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDC62108671800E70F75 /* _Device.swift */; };
+		93FCBE602108671900E70F75 /* _JunctionInspectionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDC72108671800E70F75 /* _JunctionInspectionConfiguration.swift */; };
+		93FCBE612108671900E70F75 /* _SigfoxRegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDC82108671800E70F75 /* _SigfoxRegistrationRequest.swift */; };
+		93FCBE622108671900E70F75 /* _GetBillingHistoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDC92108671800E70F75 /* _GetBillingHistoryResponse.swift */; };
+		93FCBE632108671900E70F75 /* _GatePeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDCA2108671800E70F75 /* _GatePeer.swift */; };
+		93FCBE642108671900E70F75 /* _RegisterGatePeerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDCB2108671800E70F75 /* _RegisterGatePeerRequest.swift */; };
+		93FCBE652108671900E70F75 /* _LagoonUserCreationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDCC2108671800E70F75 /* _LagoonUserCreationResponse.swift */; };
+		93FCBE662108671900E70F75 /* _GroupConfigurationUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDCD2108671800E70F75 /* _GroupConfigurationUpdateRequest.swift */; };
+		93FCBE672108671900E70F75 /* _GenerateTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDCE2108671800E70F75 /* _GenerateTokenResponse.swift */; };
+		93FCBE682108671900E70F75 /* _LoraNetworkSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDCF2108671800E70F75 /* _LoraNetworkSet.swift */; };
+		93FCBE692108671900E70F75 /* _UpdateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDD02108671800E70F75 /* _UpdateUserRequest.swift */; };
+		93FCBE6A2108671900E70F75 /* _CreateUserPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDD12108671800E70F75 /* _CreateUserPasswordRequest.swift */; };
+		93FCBE6B2108671900E70F75 /* _RegisterLoraDeviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDD22108671800E70F75 /* _RegisterLoraDeviceRequest.swift */; };
+		93FCBE6C2108671900E70F75 /* _JunctionMirroringConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDD32108671800E70F75 /* _JunctionMirroringConfiguration.swift */; };
+		93FCBE6D2108671900E70F75 /* _SessionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDD42108671800E70F75 /* _SessionEvent.swift */; };
+		93FCBE6E2108671900E70F75 /* _MFAIssueRevokingTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDD52108671800E70F75 /* _MFAIssueRevokingTokenRequest.swift */; };
+		93FCBE6F2108671900E70F75 /* _JunctionMirroringPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDD62108671800E70F75 /* _JunctionMirroringPeer.swift */; };
+		93FCBE702108671900E70F75 /* _MonthlyBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDD72108671800E70F75 /* _MonthlyBill.swift */; };
+		93FCBE712108671900E70F75 /* _SigfoxDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDD82108671800E70F75 /* _SigfoxDevice.swift */; };
+		93FCBE722108671900E70F75 /* _RegisterOperatorsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDD92108671800E70F75 /* _RegisterOperatorsRequest.swift */; };
+		93FCBE732108671900E70F75 /* _ListShippingAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDDA2108671800E70F75 /* _ListShippingAddressResponse.swift */; };
+		93FCBE742108671900E70F75 /* _RoleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDDB2108671800E70F75 /* _RoleResponse.swift */; };
+		93FCBE752108671900E70F75 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDDC2108671800E70F75 /* API.swift */; };
+		93FCBE762108671900E70F75 /* _AirStatsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDDD2108671800E70F75 /* _AirStatsResponse.swift */; };
+		93FCBE772108671900E70F75 /* _ExportRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDDE2108671800E70F75 /* _ExportRequest.swift */; };
+		93FCBE782108671900E70F75 /* _SetDeviceObjectModelScopeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDDF2108671800E70F75 /* _SetDeviceObjectModelScopeRequest.swift */; };
+		93FCBE792108671900E70F75 /* _CouponResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDE02108671800E70F75 /* _CouponResponse.swift */; };
+		93FCBE7A2108671900E70F75 /* _UpdatePasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDE12108671800E70F75 /* _UpdatePasswordRequest.swift */; };
+		93FCBE7B2108671900E70F75 /* _MFARevokingTokenVerifyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDE22108671800E70F75 /* _MFARevokingTokenVerifyRequest.swift */; };
+		93FCBE7C2108671900E70F75 /* _VerifyOperatorsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDE32108671800E70F75 /* _VerifyOperatorsRequest.swift */; };
+		93FCBE7D2108671900E70F75 /* _SigfoxData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDE42108671800E70F75 /* _SigfoxData.swift */; };
+		93FCBE7E2108671900E70F75 /* _LoraGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDE52108671800E70F75 /* _LoraGateway.swift */; };
+		93FCBE7F2108671900E70F75 /* _AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDE62108671800E70F75 /* _AuthResponse.swift */; };
+		93FCBE802108671900E70F75 /* _GetPaymentMethodResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDE72108671800E70F75 /* _GetPaymentMethodResult.swift */; };
+		93FCBE812108671900E70F75 /* _SmsForwardingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDE82108671800E70F75 /* _SmsForwardingRequest.swift */; };
+		93FCBE822108671900E70F75 /* _LastSeen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDE92108671800E70F75 /* _LastSeen.swift */; };
+		93FCBE832108671900E70F75 /* _CreateVpcPeeringConnectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDEA2108671800E70F75 /* _CreateVpcPeeringConnectionRequest.swift */; };
+		93FCBE842108671900E70F75 /* _Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDEB2108671800E70F75 /* _Subscriber.swift */; };
+		93FCBE852108671900E70F75 /* _GetExportedFileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDEC2108671800E70F75 /* _GetExportedFileResponse.swift */; };
+		93FCBE862108671900E70F75 /* _SetImeiLockRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDED2108671800E70F75 /* _SetImeiLockRequest.swift */; };
+		93FCBE872108671900E70F75 /* _CreateRoleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDEE2108671800E70F75 /* _CreateRoleResponse.swift */; };
+		93FCBE882108671900E70F75 /* _ShippingAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDEF2108671800E70F75 /* _ShippingAddressModel.swift */; };
+		93FCBE892108671900E70F75 /* _GetUserPermissionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDF02108671800E70F75 /* _GetUserPermissionResponse.swift */; };
+		93FCBE8A2108671900E70F75 /* _LoraDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDF12108671800E70F75 /* _LoraDevice.swift */; };
+		93FCBE8B2108671900E70F75 /* _MFAAuthenticationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDF22108671800E70F75 /* _MFAAuthenticationRequest.swift */; };
+		93FCBE8C2108671900E70F75 /* _DataSourceResourceMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDF32108671800E70F75 /* _DataSourceResourceMetadata.swift */; };
+		93FCBE8D2108671900E70F75 /* _CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDF42108671800E70F75 /* _CreditCard.swift */; };
+		93FCBE8E2108671900E70F75 /* _DataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDF52108671800E70F75 /* _DataTrafficStats.swift */; };
+		93FCBE8F2108671900E70F75 /* _CreateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDF62108671800E70F75 /* _CreateUserRequest.swift */; };
+		93FCBE902108671900E70F75 /* _LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDF72108671800E70F75 /* _LogEntry.swift */; };
+		93FCBE912108671900E70F75 /* _EstimatedOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDF82108671800E70F75 /* _EstimatedOrderModel.swift */; };
+		93FCBE922108671900E70F75 /* _DataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDF92108671800E70F75 /* _DataEntry.swift */; };
+		93FCBE932108671900E70F75 /* _DailyBillResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDFA2108671800E70F75 /* _DailyBillResponse.swift */; };
+		93FCBE942108671900E70F75 /* _SetUserPermissionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDFB2108671800E70F75 /* _SetUserPermissionRequest.swift */; };
+		93FCBE952108671900E70F75 /* _SetGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDFC2108671800E70F75 /* _SetGroupRequest.swift */; };
+		93FCBE962108671900E70F75 /* _EventHandlerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDFD2108671800E70F75 /* _EventHandlerModel.swift */; };
+		93FCBE972108671900E70F75 /* _IssueSubscriberTransferTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDFE2108671800E70F75 /* _IssueSubscriberTransferTokenResponse.swift */; };
+		93FCBE982108671900E70F75 /* _ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBDFF2108671800E70F75 /* _ProductModel.swift */; };
+		93FCBE992108671900E70F75 /* _Mapstringstring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBE002108671800E70F75 /* _Mapstringstring.swift */; };
+		93FCBE9A2108671900E70F75 /* _UserDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBE012108671800E70F75 /* _UserDetailResponse.swift */; };
+		93FCBE9B2108671900E70F75 /* _GetShippingAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBE022108671800E70F75 /* _GetShippingAddressResponse.swift */; };
+		93FCBE9C2108671900E70F75 /* _RuleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBE032108671800E70F75 /* _RuleConfig.swift */; };
+		93FCBE9D2108671900E70F75 /* _OrderItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBE042108671800E70F75 /* _OrderItemModel.swift */; };
+		93FCBE9E2108671900E70F75 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBE052108671800E70F75 /* AnyCodable.swift */; };
+		93FCBE9F2108671900E70F75 /* _IssuePasswordResetTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBE062108671800E70F75 /* _IssuePasswordResetTokenRequest.swift */; };
 		OBJ_100 /* Codable+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* Codable+SoracomAPI.swift */; };
 		OBJ_101 /* ConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* ConfigurationParameter.swift */; };
 		OBJ_102 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Constants.swift */; };
@@ -38,7 +331,6 @@
 		OBJ_104 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Credential.swift */; };
 		OBJ_105 /* Data+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* Data+SoracomAPI.swift */; };
 		OBJ_106 /* DataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* DataTrafficStats.swift */; };
-		OBJ_107 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Group.swift */; };
 		OBJ_108 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* HTTPMethod.swift */; };
 		OBJ_109 /* JSONComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* JSONComparison.swift */; };
 		OBJ_110 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* Keychain.swift */; };
@@ -59,8 +351,6 @@
 		OBJ_126 /* RequestResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* RequestResponseFormatter.swift */; };
 		OBJ_127 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* Response.swift */; };
 		OBJ_128 /* SoracomCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* SoracomCredentials.swift */; };
-		OBJ_129 /* Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* Subscriber.swift */; };
-		OBJ_130 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* Tag.swift */; };
 		OBJ_131 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* TextStyle.swift */; };
 		OBJ_132 /* UnkeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* UnkeyedEncodingContainer+Payload.swift */; };
 		OBJ_139 /* CLIDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* CLIDemo.swift */; };
@@ -101,7 +391,6 @@
 		OBJ_94 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* APIError.swift */; };
 		OBJ_95 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* APIOperation.swift */; };
 		OBJ_96 /* AirStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AirStats.swift */; };
-		OBJ_97 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* AuthResponse.swift */; };
 		OBJ_98 /* BeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* BeamStats.swift */; };
 		OBJ_99 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Client.swift */; };
 /* End PBXBuildFile section */
@@ -131,19 +420,311 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		935028F32108471F004DAC04 /* _Subscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Subscriber.swift; sourceTree = "<group>"; };
-		935028F52108475A004DAC04 /* _ImeiLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ImeiLock.swift; sourceTree = "<group>"; };
-		935028F62108475A004DAC04 /* _Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Map.swift; sourceTree = "<group>"; };
-		935028F72108475A004DAC04 /* _SessionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _SessionStatus.swift; sourceTree = "<group>"; };
-		935028FB210847C3004DAC04 /* Coding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coding.swift; sourceTree = "<group>"; };
-		935028FD210847FB004DAC04 /* ImeiLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImeiLock.swift; sourceTree = "<group>"; };
-		935028FF21084A1A004DAC04 /* SessionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStatus.swift; sourceTree = "<group>"; };
-		9350290121084B60004DAC04 /* AnyCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCodable.swift; sourceTree = "<group>"; };
-		9350290321084BBF004DAC04 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
-		9350290521085C48004DAC04 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		93FCBB0E210866F000E70F75 /* AuthRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRequest.swift; sourceTree = "<group>"; };
+		93FCBB0F210866F000E70F75 /* SetGroupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetGroupRequest.swift; sourceTree = "<group>"; };
+		93FCBB10210866F000E70F75 /* PaymentAmount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentAmount.swift; sourceTree = "<group>"; };
+		93FCBBAB210866F000E70F75 /* ObjectInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectInstance.swift; sourceTree = "<group>"; };
+		93FCBBAC210866F000E70F75 /* ListProductResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListProductResponse.swift; sourceTree = "<group>"; };
+		93FCBBAD210866F000E70F75 /* SetNetworkSetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNetworkSetRequest.swift; sourceTree = "<group>"; };
+		93FCBBAE210866F000E70F75 /* FunnelDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunnelDestination.swift; sourceTree = "<group>"; };
+		93FCBBAF210866F000E70F75 /* APIKeyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeyResponse.swift; sourceTree = "<group>"; };
+		93FCBBB0210866F000E70F75 /* SoracomBeamStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoracomBeamStats.swift; sourceTree = "<group>"; };
+		93FCBBB1210866F000E70F75 /* JunctionRedirectionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JunctionRedirectionConfiguration.swift; sourceTree = "<group>"; };
+		93FCBBB2210866F000E70F75 /* ListRolesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRolesResponse.swift; sourceTree = "<group>"; };
+		93FCBBB3210866F000E70F75 /* MFARevokingTokenVerifyRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFARevokingTokenVerifyRequest.swift; sourceTree = "<group>"; };
+		93FCBBB4210866F000E70F75 /* Subscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscriber.swift; sourceTree = "<group>"; };
+		93FCBBB5210866F000E70F75 /* LagoonUserCreationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LagoonUserCreationRequest.swift; sourceTree = "<group>"; };
+		93FCBBB6210866F000E70F75 /* ResourceInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceInstance.swift; sourceTree = "<group>"; };
+		93FCBBB7210866F000E70F75 /* Mapstringstring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapstringstring.swift; sourceTree = "<group>"; };
+		93FCBBB8210866F000E70F75 /* SigfoxData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigfoxData.swift; sourceTree = "<group>"; };
+		93FCBBB9210866F000E70F75 /* JunctionInspectionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JunctionInspectionConfiguration.swift; sourceTree = "<group>"; };
+		93FCBBBA210866F000E70F75 /* AttachRoleRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachRoleRequest.swift; sourceTree = "<group>"; };
+		93FCBBBB210866F000E70F75 /* GenerateTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateTokenResponse.swift; sourceTree = "<group>"; };
+		93FCBBBC210866F000E70F75 /* LoraDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoraDevice.swift; sourceTree = "<group>"; };
+		93FCBBBD210866F000E70F75 /* GetExportedFileResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetExportedFileResponse.swift; sourceTree = "<group>"; };
+		93FCBBBE210866F000E70F75 /* CreditCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
+		93FCBBBF210866F000E70F75 /* MFAIssueRevokingTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFAIssueRevokingTokenRequest.swift; sourceTree = "<group>"; };
+		93FCBBC0210866F000E70F75 /* APICallErrorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICallErrorMessage.swift; sourceTree = "<group>"; };
+		93FCBBC1210866F000E70F75 /* GroupConfigurationUpdateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupConfigurationUpdateRequest.swift; sourceTree = "<group>"; };
+		93FCBBC2210866F000E70F75 /* LagoonRegistrationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LagoonRegistrationRequest.swift; sourceTree = "<group>"; };
+		93FCBBC3210866F000E70F75 /* LagoonRegistrationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LagoonRegistrationResponse.swift; sourceTree = "<group>"; };
+		93FCBBC4210866F000E70F75 /* ListSubOperatorsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSubOperatorsResponse.swift; sourceTree = "<group>"; };
+		93FCBBC5210866F000E70F75 /* GenerateTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateTokenRequest.swift; sourceTree = "<group>"; };
+		93FCBBC6210866F000E70F75 /* DeviceObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceObjectModel.swift; sourceTree = "<group>"; };
+		93FCBBC7210866F000E70F75 /* ActionConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionConfig.swift; sourceTree = "<group>"; };
+		93FCBBC8210866F000E70F75 /* JunctionMirroringPeer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JunctionMirroringPeer.swift; sourceTree = "<group>"; };
+		93FCBBC9210866F000E70F75 /* FunnelConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunnelConfiguration.swift; sourceTree = "<group>"; };
+		93FCBBCA210866F000E70F75 /* ListOrderResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOrderResponse.swift; sourceTree = "<group>"; };
+		93FCBBCB210866F000E70F75 /* RuleConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleConfig.swift; sourceTree = "<group>"; };
+		93FCBBCC210866F000E70F75 /* SetDeviceObjectModelScopeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDeviceObjectModelScopeRequest.swift; sourceTree = "<group>"; };
+		93FCBBCD210866F000E70F75 /* VerifySubscriberTransferTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifySubscriberTransferTokenRequest.swift; sourceTree = "<group>"; };
+		93FCBBCE210866F000E70F75 /* SupportTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportTokenResponse.swift; sourceTree = "<group>"; };
+		93FCBBCF210866F000E70F75 /* SessionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionStatus.swift; sourceTree = "<group>"; };
+		93FCBBD0210866F000E70F75 /* PutIpAddressMapEntryRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutIpAddressMapEntryRequest.swift; sourceTree = "<group>"; };
+		93FCBBD1210866F000E70F75 /* CreateVirtualPrivateGatewayRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateVirtualPrivateGatewayRequest.swift; sourceTree = "<group>"; };
+		93FCBBD2210866F000E70F75 /* UpdatePasswordRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePasswordRequest.swift; sourceTree = "<group>"; };
+		93FCBBD3210866F000E70F75 /* CreateEventHandlerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventHandlerRequest.swift; sourceTree = "<group>"; };
+		93FCBBD4210866F000E70F75 /* OrderedSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedSubscriber.swift; sourceTree = "<group>"; };
+		93FCBBD5210866F000E70F75 /* PaymentStatementResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentStatementResponse.swift; sourceTree = "<group>"; };
+		93FCBBD6210866F000E70F75 /* GetOrderResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOrderResponse.swift; sourceTree = "<group>"; };
+		93FCBBD7210866F000E70F75 /* DataEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataEntry.swift; sourceTree = "<group>"; };
+		93FCBBD8210866F000E70F75 /* VerifySubscriberTransferTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifySubscriberTransferTokenResponse.swift; sourceTree = "<group>"; };
+		93FCBBD9210866F000E70F75 /* SmsForwardingReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmsForwardingReport.swift; sourceTree = "<group>"; };
+		93FCBBDA210866F000E70F75 /* RegisterGatePeerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterGatePeerRequest.swift; sourceTree = "<group>"; };
+		93FCBBDB210866F000E70F75 /* ListShippingAddressResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListShippingAddressResponse.swift; sourceTree = "<group>"; };
+		93FCBBDC210866F000E70F75 /* GetOperatorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOperatorResponse.swift; sourceTree = "<group>"; };
+		93FCBBDD210866F000E70F75 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		93FCBBDE210866F000E70F75 /* UserDetailResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailResponse.swift; sourceTree = "<group>"; };
+		93FCBBDF210866F000E70F75 /* UpdateEventHandlerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateEventHandlerRequest.swift; sourceTree = "<group>"; };
+		93FCBBE0210866F000E70F75 /* MFAStatusOfUseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFAStatusOfUseResponse.swift; sourceTree = "<group>"; };
+		93FCBBE1210866F000E70F75 /* RegisterSubscribersRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterSubscribersRequest.swift; sourceTree = "<group>"; };
+		93FCBBE2210866F000E70F75 /* CreateVpcPeeringConnectionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateVpcPeeringConnectionRequest.swift; sourceTree = "<group>"; };
+		93FCBBE3210866F000E70F75 /* CreateOrUpdateRoleRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateOrUpdateRoleRequest.swift; sourceTree = "<group>"; };
+		93FCBBE4210866F000E70F75 /* CredentialsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialsModel.swift; sourceTree = "<group>"; };
+		93FCBBE5210866F000E70F75 /* TagUpdateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagUpdateRequest.swift; sourceTree = "<group>"; };
+		93FCBBE6210866F000E70F75 /* GetUserPasswordResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserPasswordResponse.swift; sourceTree = "<group>"; };
+		93FCBBE7210866F000E70F75 /* SetImeiLockRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetImeiLockRequest.swift; sourceTree = "<group>"; };
+		93FCBBE8210866F000E70F75 /* CreateRoleResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRoleResponse.swift; sourceTree = "<group>"; };
+		93FCBBE9210866F000E70F75 /* IpAddressMapEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IpAddressMapEntry.swift; sourceTree = "<group>"; };
+		93FCBBEA210866F000E70F75 /* LagoonUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LagoonUser.swift; sourceTree = "<group>"; };
+		93FCBBEB210866F000E70F75 /* VpcPeeringConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VpcPeeringConnection.swift; sourceTree = "<group>"; };
+		93FCBBEC210866F000E70F75 /* CreateUserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserRequest.swift; sourceTree = "<group>"; };
+		93FCBBED210866F000E70F75 /* DailyBillResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyBillResponse.swift; sourceTree = "<group>"; };
+		93FCBBEE210866F000E70F75 /* LagoonUserPermissionUpdatingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LagoonUserPermissionUpdatingRequest.swift; sourceTree = "<group>"; };
+		93FCBBEF210866F000E70F75 /* MonthlyBill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyBill.swift; sourceTree = "<group>"; };
+		93FCBBF0210866F000E70F75 /* EventHandlerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventHandlerModel.swift; sourceTree = "<group>"; };
+		93FCBBF1210866F000E70F75 /* ExportRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportRequest.swift; sourceTree = "<group>"; };
+		93FCBBF2210866F000E70F75 /* ExpiryTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpiryTime.swift; sourceTree = "<group>"; };
+		93FCBBF3210866F000E70F75 /* ListOrderedSubscriberResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOrderedSubscriberResponse.swift; sourceTree = "<group>"; };
+		93FCBBF4210866F000E70F75 /* SigfoxRegistrationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigfoxRegistrationRequest.swift; sourceTree = "<group>"; };
+		93FCBBF5210866F000E70F75 /* RegisterOperatorsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterOperatorsRequest.swift; sourceTree = "<group>"; };
+		93FCBBF6210866F000E70F75 /* GetBillingHistoryResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBillingHistoryResponse.swift; sourceTree = "<group>"; };
+		93FCBBF7210866F000E70F75 /* GatePeer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GatePeer.swift; sourceTree = "<group>"; };
+		93FCBBF8210866F000E70F75 /* APICallError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICallError.swift; sourceTree = "<group>"; };
+		93FCBBF9210866F000E70F75 /* IssueEmailChangeTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueEmailChangeTokenRequest.swift; sourceTree = "<group>"; };
+		93FCBBFA210866F000E70F75 /* LoraNetworkSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoraNetworkSet.swift; sourceTree = "<group>"; };
+		93FCBBFB210866F000E70F75 /* ActionConfigProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionConfigProperty.swift; sourceTree = "<group>"; };
+		93FCBBFC210866F000E70F75 /* MapstringDataTrafficStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapstringDataTrafficStats.swift; sourceTree = "<group>"; };
+		93FCBBFD210866F000E70F75 /* CreateEstimatedOrderRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEstimatedOrderRequest.swift; sourceTree = "<group>"; };
+		93FCBBFE210866F000E70F75 /* ImeiLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImeiLock.swift; sourceTree = "<group>"; };
+		93FCBBFF210866F000E70F75 /* LoraData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoraData.swift; sourceTree = "<group>"; };
+		93FCBC00210866F000E70F75 /* EnableMFAOTPResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnableMFAOTPResponse.swift; sourceTree = "<group>"; };
+		93FCBC01210866F000E70F75 /* VirtualPrivateGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualPrivateGateway.swift; sourceTree = "<group>"; };
+		93FCBC02210866F000E70F75 /* EstimatedOrderItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstimatedOrderItemModel.swift; sourceTree = "<group>"; };
+		93FCBC03210866F000E70F75 /* AuthKeyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthKeyResponse.swift; sourceTree = "<group>"; };
+		93FCBC04210866F000E70F75 /* DataSourceResourceMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceResourceMetadata.swift; sourceTree = "<group>"; };
+		93FCBC05210866F000E70F75 /* IssuePasswordResetTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuePasswordResetTokenRequest.swift; sourceTree = "<group>"; };
+		93FCBC06210866F000E70F75 /* VerifyOperatorsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyOperatorsRequest.swift; sourceTree = "<group>"; };
+		93FCBC07210866F000E70F75 /* RuleConfigProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleConfigProperty.swift; sourceTree = "<group>"; };
+		93FCBC08210866F000E70F75 /* SessionEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionEvent.swift; sourceTree = "<group>"; };
+		93FCBC09210866F000E70F75 /* GenerateUserAuthKeyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateUserAuthKeyResponse.swift; sourceTree = "<group>"; };
+		93FCBC0A210866F000E70F75 /* GetShippingAddressResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetShippingAddressResponse.swift; sourceTree = "<group>"; };
+		93FCBC0B210866F000E70F75 /* ErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
+		93FCBC0C210866F000E70F75 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		93FCBC0D210866F000E70F75 /* GetPaymentTransactionResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPaymentTransactionResult.swift; sourceTree = "<group>"; };
+		93FCBC0E210866F000E70F75 /* SigfoxDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigfoxDevice.swift; sourceTree = "<group>"; };
+		93FCBC0F210866F000E70F75 /* CreateUserPasswordRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserPasswordRequest.swift; sourceTree = "<group>"; };
+		93FCBC10210866F000E70F75 /* RegisterLoraDeviceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterLoraDeviceRequest.swift; sourceTree = "<group>"; };
+		93FCBC11210866F000E70F75 /* GetPaymentMethodResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPaymentMethodResult.swift; sourceTree = "<group>"; };
+		93FCBC12210866F000E70F75 /* LagoonUserPasswordUpdatingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LagoonUserPasswordUpdatingRequest.swift; sourceTree = "<group>"; };
+		93FCBC13210866F000E70F75 /* AirStatsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirStatsResponse.swift; sourceTree = "<group>"; };
+		93FCBC14210866F000E70F75 /* UpdateUserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserRequest.swift; sourceTree = "<group>"; };
+		93FCBC15210866F000E70F75 /* RoleResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleResponse.swift; sourceTree = "<group>"; };
+		93FCBC16210866F000E70F75 /* CreateAndUpdateCredentialsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAndUpdateCredentialsModel.swift; sourceTree = "<group>"; };
+		93FCBC17210866F000E70F75 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		93FCBC18210866F000E70F75 /* CreateGroupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupRequest.swift; sourceTree = "<group>"; };
+		93FCBC19210866F000E70F75 /* AttributeUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeUpdate.swift; sourceTree = "<group>"; };
+		93FCBC1A210866F000E70F75 /* SmsForwardingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmsForwardingRequest.swift; sourceTree = "<group>"; };
+		93FCBC1B210866F000E70F75 /* GetLatestBill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLatestBill.swift; sourceTree = "<group>"; };
+		93FCBC1C210866F000E70F75 /* LastSeen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastSeen.swift; sourceTree = "<group>"; };
+		93FCBC1D210866F000E70F75 /* FileExportResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileExportResponse.swift; sourceTree = "<group>"; };
+		93FCBC1E210866F000E70F75 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		93FCBC1F210866F000E70F75 /* OrderItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderItemModel.swift; sourceTree = "<group>"; };
+		93FCBC20210866F000E70F75 /* MFAAuthenticationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFAAuthenticationRequest.swift; sourceTree = "<group>"; };
+		93FCBC21210866F000E70F75 /* EstimatedOrderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstimatedOrderModel.swift; sourceTree = "<group>"; };
+		93FCBC22210866F000E70F75 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		93FCBC23210866F000E70F75 /* VerifyPasswordResetTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPasswordResetTokenRequest.swift; sourceTree = "<group>"; };
+		93FCBC24210866F000E70F75 /* AuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		93FCBC25210866F000E70F75 /* SetUserPermissionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetUserPermissionRequest.swift; sourceTree = "<group>"; };
+		93FCBC26210866F000E70F75 /* LagoonUserEmailUpdatingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LagoonUserEmailUpdatingRequest.swift; sourceTree = "<group>"; };
+		93FCBC27210866F000E70F75 /* OperatorMFAVerifyingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorMFAVerifyingResponse.swift; sourceTree = "<group>"; };
+		93FCBC28210866F000E70F75 /* DailyBill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyBill.swift; sourceTree = "<group>"; };
+		93FCBC29210866F000E70F75 /* CouponResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponResponse.swift; sourceTree = "<group>"; };
+		93FCBC2A210866F000E70F75 /* IssueSubscriberTransferTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueSubscriberTransferTokenRequest.swift; sourceTree = "<group>"; };
+		93FCBC2B210866F000E70F75 /* LagoonUserCreationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LagoonUserCreationResponse.swift; sourceTree = "<group>"; };
+		93FCBC2C210866F000E70F75 /* PaymentDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentDescription.swift; sourceTree = "<group>"; };
+		93FCBC2D210866F000E70F75 /* GenerateOperatorsAuthKeyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateOperatorsAuthKeyResponse.swift; sourceTree = "<group>"; };
+		93FCBC2E210866F000E70F75 /* IssueSubscriberTransferTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueSubscriberTransferTokenResponse.swift; sourceTree = "<group>"; };
+		93FCBC2F210866F000E70F75 /* DataTrafficStatsMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTrafficStatsMap.swift; sourceTree = "<group>"; };
+		93FCBC30210866F000E70F75 /* ShippingCostModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingCostModel.swift; sourceTree = "<group>"; };
+		93FCBC31210866F000E70F75 /* LoraGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoraGateway.swift; sourceTree = "<group>"; };
+		93FCBC32210866F000E70F75 /* ListCouponResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCouponResponse.swift; sourceTree = "<group>"; };
+		93FCBC33210866F000E70F75 /* ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		93FCBC34210866F000E70F75 /* JunctionMirroringConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JunctionMirroringConfiguration.swift; sourceTree = "<group>"; };
+		93FCBC35210866F000E70F75 /* RegisterPayerInformationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPayerInformationModel.swift; sourceTree = "<group>"; };
+		93FCBC36210866F000E70F75 /* GetUserPermissionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserPermissionResponse.swift; sourceTree = "<group>"; };
+		93FCBC37210866F000E70F75 /* UpdateSpeedClassRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateSpeedClassRequest.swift; sourceTree = "<group>"; };
+		93FCBC38210866F000E70F75 /* ListPaymentStatementResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPaymentStatementResponse.swift; sourceTree = "<group>"; };
+		93FCBC39210866F100E70F75 /* ShippingAddressModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingAddressModel.swift; sourceTree = "<group>"; };
+		93FCBC3A210866F100E70F75 /* LogEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
+		93FCBC3B210866F100E70F75 /* UpdatePermissionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePermissionRequest.swift; sourceTree = "<group>"; };
+		93FCBC3C210866F100E70F75 /* BeamStatsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeamStatsResponse.swift; sourceTree = "<group>"; };
+		93FCBC3D210866F100E70F75 /* VerifyEmailChangeTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyEmailChangeTokenRequest.swift; sourceTree = "<group>"; };
+		93FCBD6E2108671800E70F75 /* _VerifySubscriberTransferTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _VerifySubscriberTransferTokenResponse.swift; sourceTree = "<group>"; };
+		93FCBD6F2108671800E70F75 /* _ErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ErrorType.swift; sourceTree = "<group>"; };
+		93FCBD702108671800E70F75 /* _UpdatePermissionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _UpdatePermissionRequest.swift; sourceTree = "<group>"; };
+		93FCBD712108671800E70F75 /* _IssueEmailChangeTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _IssueEmailChangeTokenRequest.swift; sourceTree = "<group>"; };
+		93FCBD722108671800E70F75 /* _SessionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _SessionStatus.swift; sourceTree = "<group>"; };
+		93FCBD732108671800E70F75 /* _FunnelConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _FunnelConfiguration.swift; sourceTree = "<group>"; };
+		93FCBD742108671800E70F75 /* _UpdateSpeedClassRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _UpdateSpeedClassRequest.swift; sourceTree = "<group>"; };
+		93FCBD752108671800E70F75 /* _LagoonUserCreationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LagoonUserCreationRequest.swift; sourceTree = "<group>"; };
+		93FCBD762108671800E70F75 /* Coding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coding.swift; sourceTree = "<group>"; };
+		93FCBD772108671800E70F75 /* _LagoonUserPasswordUpdatingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LagoonUserPasswordUpdatingRequest.swift; sourceTree = "<group>"; };
+		93FCBD782108671800E70F75 /* _SoracomBeamStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _SoracomBeamStats.swift; sourceTree = "<group>"; };
+		93FCBD792108671800E70F75 /* _MFAStatusOfUseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _MFAStatusOfUseResponse.swift; sourceTree = "<group>"; };
+		93FCBD7A2108671800E70F75 /* _IpAddressMapEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _IpAddressMapEntry.swift; sourceTree = "<group>"; };
+		93FCBD7B2108671800E70F75 /* _ResourceInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ResourceInstance.swift; sourceTree = "<group>"; };
+		93FCBD7C2108671800E70F75 /* _ListSubOperatorsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ListSubOperatorsResponse.swift; sourceTree = "<group>"; };
+		93FCBD7D2108671800E70F75 /* _APICallErrorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _APICallErrorMessage.swift; sourceTree = "<group>"; };
+		93FCBD7E2108671800E70F75 /* _SetNetworkSetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _SetNetworkSetRequest.swift; sourceTree = "<group>"; };
+		93FCBD7F2108671800E70F75 /* _VirtualPrivateGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _VirtualPrivateGateway.swift; sourceTree = "<group>"; };
+		93FCBD802108671800E70F75 /* _ObjectInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ObjectInstance.swift; sourceTree = "<group>"; };
+		93FCBD812108671800E70F75 /* _VerifyEmailChangeTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _VerifyEmailChangeTokenRequest.swift; sourceTree = "<group>"; };
+		93FCBD822108671800E70F75 /* _Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Tag.swift; sourceTree = "<group>"; };
+		93FCBD832108671800E70F75 /* _RegisterPayerInformationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RegisterPayerInformationModel.swift; sourceTree = "<group>"; };
+		93FCBD842108671800E70F75 /* _AttributeUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _AttributeUpdate.swift; sourceTree = "<group>"; };
+		93FCBD852108671800E70F75 /* _ActionConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ActionConfig.swift; sourceTree = "<group>"; };
+		93FCBD862108671800E70F75 /* _AuthRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _AuthRequest.swift; sourceTree = "<group>"; };
+		93FCBD872108671800E70F75 /* _RuleConfigProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RuleConfigProperty.swift; sourceTree = "<group>"; };
+		93FCBD882108671800E70F75 /* _Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Config.swift; sourceTree = "<group>"; };
+		93FCBD892108671800E70F75 /* _LagoonUserPermissionUpdatingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LagoonUserPermissionUpdatingRequest.swift; sourceTree = "<group>"; };
+		93FCBD8A2108671800E70F75 /* _ListProductResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ListProductResponse.swift; sourceTree = "<group>"; };
+		93FCBD8B2108671800E70F75 /* _Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Map.swift; sourceTree = "<group>"; };
+		93FCBD8C2108671800E70F75 /* _RegisterSubscribersRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RegisterSubscribersRequest.swift; sourceTree = "<group>"; };
+		93FCBD8D2108671800E70F75 /* _LagoonRegistrationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LagoonRegistrationRequest.swift; sourceTree = "<group>"; };
+		93FCBD8E2108671800E70F75 /* _APIKeyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _APIKeyResponse.swift; sourceTree = "<group>"; };
+		93FCBD8F2108671800E70F75 /* _GenerateTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GenerateTokenRequest.swift; sourceTree = "<group>"; };
+		93FCBD902108671800E70F75 /* _OrderedSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _OrderedSubscriber.swift; sourceTree = "<group>"; };
+		93FCBD912108671800E70F75 /* _PaymentAmount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _PaymentAmount.swift; sourceTree = "<group>"; };
+		93FCBD922108671800E70F75 /* _LagoonUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LagoonUser.swift; sourceTree = "<group>"; };
+		93FCBD932108671800E70F75 /* _CreateAndUpdateCredentialsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CreateAndUpdateCredentialsModel.swift; sourceTree = "<group>"; };
+		93FCBD942108671800E70F75 /* _DeviceObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _DeviceObjectModel.swift; sourceTree = "<group>"; };
+		93FCBD952108671800E70F75 /* _AuthKeyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _AuthKeyResponse.swift; sourceTree = "<group>"; };
+		93FCBD962108671800E70F75 /* _ExpiryTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ExpiryTime.swift; sourceTree = "<group>"; };
+		93FCBD972108671800E70F75 /* _CreateEstimatedOrderRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CreateEstimatedOrderRequest.swift; sourceTree = "<group>"; };
+		93FCBD982108671800E70F75 /* _OperatorMFAVerifyingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _OperatorMFAVerifyingResponse.swift; sourceTree = "<group>"; };
+		93FCBD992108671800E70F75 /* _SupportTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _SupportTokenResponse.swift; sourceTree = "<group>"; };
+		93FCBD9A2108671800E70F75 /* _IssueSubscriberTransferTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _IssueSubscriberTransferTokenRequest.swift; sourceTree = "<group>"; };
+		93FCBD9B2108671800E70F75 /* _FileExportResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _FileExportResponse.swift; sourceTree = "<group>"; };
+		93FCBD9C2108671800E70F75 /* _ListOrderResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ListOrderResponse.swift; sourceTree = "<group>"; };
+		93FCBD9D2108671800E70F75 /* _ListOrderedSubscriberResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ListOrderedSubscriberResponse.swift; sourceTree = "<group>"; };
+		93FCBD9E2108671800E70F75 /* _GetOrderResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GetOrderResponse.swift; sourceTree = "<group>"; };
+		93FCBD9F2108671800E70F75 /* _VerifySubscriberTransferTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _VerifySubscriberTransferTokenRequest.swift; sourceTree = "<group>"; };
+		93FCBDA02108671800E70F75 /* _GetOperatorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GetOperatorResponse.swift; sourceTree = "<group>"; };
+		93FCBDA12108671800E70F75 /* _VerifyPasswordResetTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _VerifyPasswordResetTokenRequest.swift; sourceTree = "<group>"; };
+		93FCBDA22108671800E70F75 /* _CreateEventHandlerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CreateEventHandlerRequest.swift; sourceTree = "<group>"; };
+		93FCBDA32108671800E70F75 /* _EstimatedOrderItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _EstimatedOrderItemModel.swift; sourceTree = "<group>"; };
+		93FCBDA42108671800E70F75 /* _CreateGroupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CreateGroupRequest.swift; sourceTree = "<group>"; };
+		93FCBDA52108671800E70F75 /* _SmsForwardingReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _SmsForwardingReport.swift; sourceTree = "<group>"; };
+		93FCBDA62108671800E70F75 /* _CreateVirtualPrivateGatewayRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CreateVirtualPrivateGatewayRequest.swift; sourceTree = "<group>"; };
+		93FCBDA72108671800E70F75 /* _GetPaymentTransactionResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GetPaymentTransactionResult.swift; sourceTree = "<group>"; };
+		93FCBDA82108671800E70F75 /* _LagoonRegistrationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LagoonRegistrationResponse.swift; sourceTree = "<group>"; };
+		93FCBDA92108671800E70F75 /* _CreateOrUpdateRoleRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CreateOrUpdateRoleRequest.swift; sourceTree = "<group>"; };
+		93FCBDAA2108671800E70F75 /* _PaymentStatementResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _PaymentStatementResponse.swift; sourceTree = "<group>"; };
+		93FCBDAB2108671800E70F75 /* _ListCouponResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ListCouponResponse.swift; sourceTree = "<group>"; };
+		93FCBDAC2108671800E70F75 /* _DailyBill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _DailyBill.swift; sourceTree = "<group>"; };
+		93FCBDAD2108671800E70F75 /* _GenerateOperatorsAuthKeyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GenerateOperatorsAuthKeyResponse.swift; sourceTree = "<group>"; };
+		93FCBDAE2108671800E70F75 /* _GenerateUserAuthKeyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GenerateUserAuthKeyResponse.swift; sourceTree = "<group>"; };
+		93FCBDAF2108671800E70F75 /* _AttachRoleRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _AttachRoleRequest.swift; sourceTree = "<group>"; };
+		93FCBDB02108671800E70F75 /* _TagUpdateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _TagUpdateRequest.swift; sourceTree = "<group>"; };
+		93FCBDB12108671800E70F75 /* _FunnelDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _FunnelDestination.swift; sourceTree = "<group>"; };
+		93FCBDB22108671800E70F75 /* _CredentialsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CredentialsModel.swift; sourceTree = "<group>"; };
+		93FCBDB32108671800E70F75 /* _ListPaymentStatementResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ListPaymentStatementResponse.swift; sourceTree = "<group>"; };
+		93FCBDB42108671800E70F75 /* _PaymentDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _PaymentDescription.swift; sourceTree = "<group>"; };
+		93FCBDB52108671800E70F75 /* _UpdateEventHandlerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _UpdateEventHandlerRequest.swift; sourceTree = "<group>"; };
+		93FCBDB62108671800E70F75 /* _ListRolesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ListRolesResponse.swift; sourceTree = "<group>"; };
+		93FCBDB72108671800E70F75 /* _GetLatestBill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GetLatestBill.swift; sourceTree = "<group>"; };
+		93FCBDB82108671800E70F75 /* _ShippingCostModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ShippingCostModel.swift; sourceTree = "<group>"; };
+		93FCBDB92108671800E70F75 /* _ActionConfigProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ActionConfigProperty.swift; sourceTree = "<group>"; };
+		93FCBDBA2108671800E70F75 /* _MapstringDataTrafficStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _MapstringDataTrafficStats.swift; sourceTree = "<group>"; };
+		93FCBDBB2108671800E70F75 /* _LagoonUserEmailUpdatingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LagoonUserEmailUpdatingRequest.swift; sourceTree = "<group>"; };
+		93FCBDBC2108671800E70F75 /* _GetUserPasswordResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GetUserPasswordResponse.swift; sourceTree = "<group>"; };
+		93FCBDBD2108671800E70F75 /* _ImeiLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ImeiLock.swift; sourceTree = "<group>"; };
+		93FCBDBE2108671800E70F75 /* _EnableMFAOTPResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _EnableMFAOTPResponse.swift; sourceTree = "<group>"; };
+		93FCBDBF2108671800E70F75 /* _LoraData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LoraData.swift; sourceTree = "<group>"; };
+		93FCBDC02108671800E70F75 /* _Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Group.swift; sourceTree = "<group>"; };
+		93FCBDC12108671800E70F75 /* _APICallError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _APICallError.swift; sourceTree = "<group>"; };
+		93FCBDC22108671800E70F75 /* _JunctionRedirectionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _JunctionRedirectionConfiguration.swift; sourceTree = "<group>"; };
+		93FCBDC32108671800E70F75 /* _VpcPeeringConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _VpcPeeringConnection.swift; sourceTree = "<group>"; };
+		93FCBDC42108671800E70F75 /* _PutIpAddressMapEntryRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _PutIpAddressMapEntryRequest.swift; sourceTree = "<group>"; };
+		93FCBDC52108671800E70F75 /* _BeamStatsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _BeamStatsResponse.swift; sourceTree = "<group>"; };
+		93FCBDC62108671800E70F75 /* _Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Device.swift; sourceTree = "<group>"; };
+		93FCBDC72108671800E70F75 /* _JunctionInspectionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _JunctionInspectionConfiguration.swift; sourceTree = "<group>"; };
+		93FCBDC82108671800E70F75 /* _SigfoxRegistrationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _SigfoxRegistrationRequest.swift; sourceTree = "<group>"; };
+		93FCBDC92108671800E70F75 /* _GetBillingHistoryResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GetBillingHistoryResponse.swift; sourceTree = "<group>"; };
+		93FCBDCA2108671800E70F75 /* _GatePeer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GatePeer.swift; sourceTree = "<group>"; };
+		93FCBDCB2108671800E70F75 /* _RegisterGatePeerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RegisterGatePeerRequest.swift; sourceTree = "<group>"; };
+		93FCBDCC2108671800E70F75 /* _LagoonUserCreationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LagoonUserCreationResponse.swift; sourceTree = "<group>"; };
+		93FCBDCD2108671800E70F75 /* _GroupConfigurationUpdateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GroupConfigurationUpdateRequest.swift; sourceTree = "<group>"; };
+		93FCBDCE2108671800E70F75 /* _GenerateTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GenerateTokenResponse.swift; sourceTree = "<group>"; };
+		93FCBDCF2108671800E70F75 /* _LoraNetworkSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LoraNetworkSet.swift; sourceTree = "<group>"; };
+		93FCBDD02108671800E70F75 /* _UpdateUserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _UpdateUserRequest.swift; sourceTree = "<group>"; };
+		93FCBDD12108671800E70F75 /* _CreateUserPasswordRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CreateUserPasswordRequest.swift; sourceTree = "<group>"; };
+		93FCBDD22108671800E70F75 /* _RegisterLoraDeviceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RegisterLoraDeviceRequest.swift; sourceTree = "<group>"; };
+		93FCBDD32108671800E70F75 /* _JunctionMirroringConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _JunctionMirroringConfiguration.swift; sourceTree = "<group>"; };
+		93FCBDD42108671800E70F75 /* _SessionEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _SessionEvent.swift; sourceTree = "<group>"; };
+		93FCBDD52108671800E70F75 /* _MFAIssueRevokingTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _MFAIssueRevokingTokenRequest.swift; sourceTree = "<group>"; };
+		93FCBDD62108671800E70F75 /* _JunctionMirroringPeer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _JunctionMirroringPeer.swift; sourceTree = "<group>"; };
+		93FCBDD72108671800E70F75 /* _MonthlyBill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _MonthlyBill.swift; sourceTree = "<group>"; };
+		93FCBDD82108671800E70F75 /* _SigfoxDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _SigfoxDevice.swift; sourceTree = "<group>"; };
+		93FCBDD92108671800E70F75 /* _RegisterOperatorsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RegisterOperatorsRequest.swift; sourceTree = "<group>"; };
+		93FCBDDA2108671800E70F75 /* _ListShippingAddressResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ListShippingAddressResponse.swift; sourceTree = "<group>"; };
+		93FCBDDB2108671800E70F75 /* _RoleResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RoleResponse.swift; sourceTree = "<group>"; };
+		93FCBDDC2108671800E70F75 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		93FCBDDD2108671800E70F75 /* _AirStatsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _AirStatsResponse.swift; sourceTree = "<group>"; };
+		93FCBDDE2108671800E70F75 /* _ExportRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ExportRequest.swift; sourceTree = "<group>"; };
+		93FCBDDF2108671800E70F75 /* _SetDeviceObjectModelScopeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _SetDeviceObjectModelScopeRequest.swift; sourceTree = "<group>"; };
+		93FCBDE02108671800E70F75 /* _CouponResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CouponResponse.swift; sourceTree = "<group>"; };
+		93FCBDE12108671800E70F75 /* _UpdatePasswordRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _UpdatePasswordRequest.swift; sourceTree = "<group>"; };
+		93FCBDE22108671800E70F75 /* _MFARevokingTokenVerifyRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _MFARevokingTokenVerifyRequest.swift; sourceTree = "<group>"; };
+		93FCBDE32108671800E70F75 /* _VerifyOperatorsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _VerifyOperatorsRequest.swift; sourceTree = "<group>"; };
+		93FCBDE42108671800E70F75 /* _SigfoxData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _SigfoxData.swift; sourceTree = "<group>"; };
+		93FCBDE52108671800E70F75 /* _LoraGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LoraGateway.swift; sourceTree = "<group>"; };
+		93FCBDE62108671800E70F75 /* _AuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _AuthResponse.swift; sourceTree = "<group>"; };
+		93FCBDE72108671800E70F75 /* _GetPaymentMethodResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GetPaymentMethodResult.swift; sourceTree = "<group>"; };
+		93FCBDE82108671800E70F75 /* _SmsForwardingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _SmsForwardingRequest.swift; sourceTree = "<group>"; };
+		93FCBDE92108671800E70F75 /* _LastSeen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LastSeen.swift; sourceTree = "<group>"; };
+		93FCBDEA2108671800E70F75 /* _CreateVpcPeeringConnectionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CreateVpcPeeringConnectionRequest.swift; sourceTree = "<group>"; };
+		93FCBDEB2108671800E70F75 /* _Subscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Subscriber.swift; sourceTree = "<group>"; };
+		93FCBDEC2108671800E70F75 /* _GetExportedFileResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GetExportedFileResponse.swift; sourceTree = "<group>"; };
+		93FCBDED2108671800E70F75 /* _SetImeiLockRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _SetImeiLockRequest.swift; sourceTree = "<group>"; };
+		93FCBDEE2108671800E70F75 /* _CreateRoleResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CreateRoleResponse.swift; sourceTree = "<group>"; };
+		93FCBDEF2108671800E70F75 /* _ShippingAddressModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ShippingAddressModel.swift; sourceTree = "<group>"; };
+		93FCBDF02108671800E70F75 /* _GetUserPermissionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GetUserPermissionResponse.swift; sourceTree = "<group>"; };
+		93FCBDF12108671800E70F75 /* _LoraDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LoraDevice.swift; sourceTree = "<group>"; };
+		93FCBDF22108671800E70F75 /* _MFAAuthenticationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _MFAAuthenticationRequest.swift; sourceTree = "<group>"; };
+		93FCBDF32108671800E70F75 /* _DataSourceResourceMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _DataSourceResourceMetadata.swift; sourceTree = "<group>"; };
+		93FCBDF42108671800E70F75 /* _CreditCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CreditCard.swift; sourceTree = "<group>"; };
+		93FCBDF52108671800E70F75 /* _DataTrafficStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _DataTrafficStats.swift; sourceTree = "<group>"; };
+		93FCBDF62108671800E70F75 /* _CreateUserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CreateUserRequest.swift; sourceTree = "<group>"; };
+		93FCBDF72108671800E70F75 /* _LogEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _LogEntry.swift; sourceTree = "<group>"; };
+		93FCBDF82108671800E70F75 /* _EstimatedOrderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _EstimatedOrderModel.swift; sourceTree = "<group>"; };
+		93FCBDF92108671800E70F75 /* _DataEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _DataEntry.swift; sourceTree = "<group>"; };
+		93FCBDFA2108671800E70F75 /* _DailyBillResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _DailyBillResponse.swift; sourceTree = "<group>"; };
+		93FCBDFB2108671800E70F75 /* _SetUserPermissionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _SetUserPermissionRequest.swift; sourceTree = "<group>"; };
+		93FCBDFC2108671800E70F75 /* _SetGroupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _SetGroupRequest.swift; sourceTree = "<group>"; };
+		93FCBDFD2108671800E70F75 /* _EventHandlerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _EventHandlerModel.swift; sourceTree = "<group>"; };
+		93FCBDFE2108671800E70F75 /* _IssueSubscriberTransferTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _IssueSubscriberTransferTokenResponse.swift; sourceTree = "<group>"; };
+		93FCBDFF2108671800E70F75 /* _ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ProductModel.swift; sourceTree = "<group>"; };
+		93FCBE002108671800E70F75 /* _Mapstringstring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Mapstringstring.swift; sourceTree = "<group>"; };
+		93FCBE012108671800E70F75 /* _UserDetailResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _UserDetailResponse.swift; sourceTree = "<group>"; };
+		93FCBE022108671800E70F75 /* _GetShippingAddressResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GetShippingAddressResponse.swift; sourceTree = "<group>"; };
+		93FCBE032108671800E70F75 /* _RuleConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RuleConfig.swift; sourceTree = "<group>"; };
+		93FCBE042108671800E70F75 /* _OrderItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _OrderItemModel.swift; sourceTree = "<group>"; };
+		93FCBE052108671800E70F75 /* AnyCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCodable.swift; sourceTree = "<group>"; };
+		93FCBE062108671800E70F75 /* _IssuePasswordResetTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _IssuePasswordResetTokenRequest.swift; sourceTree = "<group>"; };
 		OBJ_10 /* APIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
 		OBJ_11 /* AirStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirStats.swift; sourceTree = "<group>"; };
-		OBJ_12 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		OBJ_13 /* BeamStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamStats.swift; sourceTree = "<group>"; };
 		OBJ_14 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		OBJ_15 /* Codable+SoracomAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+SoracomAPI.swift"; sourceTree = "<group>"; };
@@ -153,7 +734,6 @@
 		OBJ_19 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		OBJ_20 /* Data+SoracomAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+SoracomAPI.swift"; sourceTree = "<group>"; };
 		OBJ_21 /* DataTrafficStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTrafficStats.swift; sourceTree = "<group>"; };
-		OBJ_22 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		OBJ_23 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		OBJ_24 /* JSONComparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONComparison.swift; sourceTree = "<group>"; };
 		OBJ_25 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
@@ -174,8 +754,6 @@
 		OBJ_41 /* RequestResponseFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResponseFormatter.swift; sourceTree = "<group>"; };
 		OBJ_42 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		OBJ_43 /* SoracomCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoracomCredentials.swift; sourceTree = "<group>"; };
-		OBJ_44 /* Subscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscriber.swift; sourceTree = "<group>"; };
-		OBJ_45 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		OBJ_46 /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		OBJ_47 /* UnkeyedEncodingContainer+Payload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnkeyedEncodingContainer+Payload.swift"; sourceTree = "<group>"; };
 		OBJ_49 /* CLIDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLIDemo.swift; sourceTree = "<group>"; };
@@ -246,18 +824,322 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		935028F22108471F004DAC04 /* AutoGeneratedCode */ = {
+		93FCBB0D210866F000E70F75 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9350290521085C48004DAC04 /* API.swift */,
-				9350290121084B60004DAC04 /* AnyCodable.swift */,
-				935028FB210847C3004DAC04 /* Coding.swift */,
-				935028F52108475A004DAC04 /* _ImeiLock.swift */,
-				935028F62108475A004DAC04 /* _Map.swift */,
-				935028F72108475A004DAC04 /* _SessionStatus.swift */,
-				935028F32108471F004DAC04 /* _Subscriber.swift */,
+				93FCBD6D2108671800E70F75 /* _AutoGeneratedCode */,
+				93FCBBC7210866F000E70F75 /* ActionConfig.swift */,
+				93FCBBFB210866F000E70F75 /* ActionConfigProperty.swift */,
+				93FCBC13210866F000E70F75 /* AirStatsResponse.swift */,
+				93FCBBF8210866F000E70F75 /* APICallError.swift */,
+				93FCBBC0210866F000E70F75 /* APICallErrorMessage.swift */,
+				93FCBBAF210866F000E70F75 /* APIKeyResponse.swift */,
+				93FCBBBA210866F000E70F75 /* AttachRoleRequest.swift */,
+				93FCBC19210866F000E70F75 /* AttributeUpdate.swift */,
+				93FCBC03210866F000E70F75 /* AuthKeyResponse.swift */,
+				93FCBB0E210866F000E70F75 /* AuthRequest.swift */,
+				93FCBC24210866F000E70F75 /* AuthResponse.swift */,
+				93FCBC3C210866F100E70F75 /* BeamStatsResponse.swift */,
+				93FCBBDD210866F000E70F75 /* Config.swift */,
+				93FCBC29210866F000E70F75 /* CouponResponse.swift */,
+				93FCBC16210866F000E70F75 /* CreateAndUpdateCredentialsModel.swift */,
+				93FCBBFD210866F000E70F75 /* CreateEstimatedOrderRequest.swift */,
+				93FCBBD3210866F000E70F75 /* CreateEventHandlerRequest.swift */,
+				93FCBC18210866F000E70F75 /* CreateGroupRequest.swift */,
+				93FCBBE3210866F000E70F75 /* CreateOrUpdateRoleRequest.swift */,
+				93FCBBE8210866F000E70F75 /* CreateRoleResponse.swift */,
+				93FCBC0F210866F000E70F75 /* CreateUserPasswordRequest.swift */,
+				93FCBBEC210866F000E70F75 /* CreateUserRequest.swift */,
+				93FCBBD1210866F000E70F75 /* CreateVirtualPrivateGatewayRequest.swift */,
+				93FCBBE2210866F000E70F75 /* CreateVpcPeeringConnectionRequest.swift */,
+				93FCBBE4210866F000E70F75 /* CredentialsModel.swift */,
+				93FCBBBE210866F000E70F75 /* CreditCard.swift */,
+				93FCBC28210866F000E70F75 /* DailyBill.swift */,
+				93FCBBED210866F000E70F75 /* DailyBillResponse.swift */,
+				93FCBBD7210866F000E70F75 /* DataEntry.swift */,
+				93FCBC04210866F000E70F75 /* DataSourceResourceMetadata.swift */,
+				93FCBC2F210866F000E70F75 /* DataTrafficStatsMap.swift */,
+				93FCBC17210866F000E70F75 /* Device.swift */,
+				93FCBBC6210866F000E70F75 /* DeviceObjectModel.swift */,
+				93FCBC00210866F000E70F75 /* EnableMFAOTPResponse.swift */,
+				93FCBC0B210866F000E70F75 /* ErrorType.swift */,
+				93FCBC02210866F000E70F75 /* EstimatedOrderItemModel.swift */,
+				93FCBC21210866F000E70F75 /* EstimatedOrderModel.swift */,
+				93FCBBF0210866F000E70F75 /* EventHandlerModel.swift */,
+				93FCBBF2210866F000E70F75 /* ExpiryTime.swift */,
+				93FCBBF1210866F000E70F75 /* ExportRequest.swift */,
+				93FCBC1D210866F000E70F75 /* FileExportResponse.swift */,
+				93FCBBC9210866F000E70F75 /* FunnelConfiguration.swift */,
+				93FCBBAE210866F000E70F75 /* FunnelDestination.swift */,
+				93FCBBF7210866F000E70F75 /* GatePeer.swift */,
+				93FCBC2D210866F000E70F75 /* GenerateOperatorsAuthKeyResponse.swift */,
+				93FCBBC5210866F000E70F75 /* GenerateTokenRequest.swift */,
+				93FCBBBB210866F000E70F75 /* GenerateTokenResponse.swift */,
+				93FCBC09210866F000E70F75 /* GenerateUserAuthKeyResponse.swift */,
+				93FCBBF6210866F000E70F75 /* GetBillingHistoryResponse.swift */,
+				93FCBBBD210866F000E70F75 /* GetExportedFileResponse.swift */,
+				93FCBC1B210866F000E70F75 /* GetLatestBill.swift */,
+				93FCBBDC210866F000E70F75 /* GetOperatorResponse.swift */,
+				93FCBBD6210866F000E70F75 /* GetOrderResponse.swift */,
+				93FCBC11210866F000E70F75 /* GetPaymentMethodResult.swift */,
+				93FCBC0D210866F000E70F75 /* GetPaymentTransactionResult.swift */,
+				93FCBC0A210866F000E70F75 /* GetShippingAddressResponse.swift */,
+				93FCBBE6210866F000E70F75 /* GetUserPasswordResponse.swift */,
+				93FCBC36210866F000E70F75 /* GetUserPermissionResponse.swift */,
+				93FCBC0C210866F000E70F75 /* Group.swift */,
+				93FCBBC1210866F000E70F75 /* GroupConfigurationUpdateRequest.swift */,
+				93FCBBFE210866F000E70F75 /* ImeiLock.swift */,
+				93FCBBE9210866F000E70F75 /* IpAddressMapEntry.swift */,
+				93FCBBF9210866F000E70F75 /* IssueEmailChangeTokenRequest.swift */,
+				93FCBC05210866F000E70F75 /* IssuePasswordResetTokenRequest.swift */,
+				93FCBC2A210866F000E70F75 /* IssueSubscriberTransferTokenRequest.swift */,
+				93FCBC2E210866F000E70F75 /* IssueSubscriberTransferTokenResponse.swift */,
+				93FCBBB9210866F000E70F75 /* JunctionInspectionConfiguration.swift */,
+				93FCBC34210866F000E70F75 /* JunctionMirroringConfiguration.swift */,
+				93FCBBC8210866F000E70F75 /* JunctionMirroringPeer.swift */,
+				93FCBBB1210866F000E70F75 /* JunctionRedirectionConfiguration.swift */,
+				93FCBBC2210866F000E70F75 /* LagoonRegistrationRequest.swift */,
+				93FCBBC3210866F000E70F75 /* LagoonRegistrationResponse.swift */,
+				93FCBBEA210866F000E70F75 /* LagoonUser.swift */,
+				93FCBBB5210866F000E70F75 /* LagoonUserCreationRequest.swift */,
+				93FCBC2B210866F000E70F75 /* LagoonUserCreationResponse.swift */,
+				93FCBC26210866F000E70F75 /* LagoonUserEmailUpdatingRequest.swift */,
+				93FCBC12210866F000E70F75 /* LagoonUserPasswordUpdatingRequest.swift */,
+				93FCBBEE210866F000E70F75 /* LagoonUserPermissionUpdatingRequest.swift */,
+				93FCBC1C210866F000E70F75 /* LastSeen.swift */,
+				93FCBC32210866F000E70F75 /* ListCouponResponse.swift */,
+				93FCBBF3210866F000E70F75 /* ListOrderedSubscriberResponse.swift */,
+				93FCBBCA210866F000E70F75 /* ListOrderResponse.swift */,
+				93FCBC38210866F000E70F75 /* ListPaymentStatementResponse.swift */,
+				93FCBBAC210866F000E70F75 /* ListProductResponse.swift */,
+				93FCBBB2210866F000E70F75 /* ListRolesResponse.swift */,
+				93FCBBDB210866F000E70F75 /* ListShippingAddressResponse.swift */,
+				93FCBBC4210866F000E70F75 /* ListSubOperatorsResponse.swift */,
+				93FCBC3A210866F100E70F75 /* LogEntry.swift */,
+				93FCBBFF210866F000E70F75 /* LoraData.swift */,
+				93FCBBBC210866F000E70F75 /* LoraDevice.swift */,
+				93FCBC31210866F000E70F75 /* LoraGateway.swift */,
+				93FCBBFA210866F000E70F75 /* LoraNetworkSet.swift */,
+				93FCBC1E210866F000E70F75 /* Map.swift */,
+				93FCBBFC210866F000E70F75 /* MapstringDataTrafficStats.swift */,
+				93FCBBB7210866F000E70F75 /* Mapstringstring.swift */,
+				93FCBC20210866F000E70F75 /* MFAAuthenticationRequest.swift */,
+				93FCBBBF210866F000E70F75 /* MFAIssueRevokingTokenRequest.swift */,
+				93FCBBB3210866F000E70F75 /* MFARevokingTokenVerifyRequest.swift */,
+				93FCBBE0210866F000E70F75 /* MFAStatusOfUseResponse.swift */,
+				93FCBBEF210866F000E70F75 /* MonthlyBill.swift */,
+				93FCBBAB210866F000E70F75 /* ObjectInstance.swift */,
+				93FCBC27210866F000E70F75 /* OperatorMFAVerifyingResponse.swift */,
+				93FCBBD4210866F000E70F75 /* OrderedSubscriber.swift */,
+				93FCBC1F210866F000E70F75 /* OrderItemModel.swift */,
+				93FCBB10210866F000E70F75 /* PaymentAmount.swift */,
+				93FCBC2C210866F000E70F75 /* PaymentDescription.swift */,
+				93FCBBD5210866F000E70F75 /* PaymentStatementResponse.swift */,
+				93FCBC33210866F000E70F75 /* ProductModel.swift */,
+				93FCBBD0210866F000E70F75 /* PutIpAddressMapEntryRequest.swift */,
+				93FCBBDA210866F000E70F75 /* RegisterGatePeerRequest.swift */,
+				93FCBC10210866F000E70F75 /* RegisterLoraDeviceRequest.swift */,
+				93FCBBF5210866F000E70F75 /* RegisterOperatorsRequest.swift */,
+				93FCBC35210866F000E70F75 /* RegisterPayerInformationModel.swift */,
+				93FCBBE1210866F000E70F75 /* RegisterSubscribersRequest.swift */,
+				93FCBBB6210866F000E70F75 /* ResourceInstance.swift */,
+				93FCBC15210866F000E70F75 /* RoleResponse.swift */,
+				93FCBBCB210866F000E70F75 /* RuleConfig.swift */,
+				93FCBC07210866F000E70F75 /* RuleConfigProperty.swift */,
+				93FCBC08210866F000E70F75 /* SessionEvent.swift */,
+				93FCBBCF210866F000E70F75 /* SessionStatus.swift */,
+				93FCBBCC210866F000E70F75 /* SetDeviceObjectModelScopeRequest.swift */,
+				93FCBB0F210866F000E70F75 /* SetGroupRequest.swift */,
+				93FCBBE7210866F000E70F75 /* SetImeiLockRequest.swift */,
+				93FCBBAD210866F000E70F75 /* SetNetworkSetRequest.swift */,
+				93FCBC25210866F000E70F75 /* SetUserPermissionRequest.swift */,
+				93FCBC39210866F100E70F75 /* ShippingAddressModel.swift */,
+				93FCBC30210866F000E70F75 /* ShippingCostModel.swift */,
+				93FCBBB8210866F000E70F75 /* SigfoxData.swift */,
+				93FCBC0E210866F000E70F75 /* SigfoxDevice.swift */,
+				93FCBBF4210866F000E70F75 /* SigfoxRegistrationRequest.swift */,
+				93FCBBD9210866F000E70F75 /* SmsForwardingReport.swift */,
+				93FCBC1A210866F000E70F75 /* SmsForwardingRequest.swift */,
+				93FCBBB0210866F000E70F75 /* SoracomBeamStats.swift */,
+				93FCBBB4210866F000E70F75 /* Subscriber.swift */,
+				93FCBBCE210866F000E70F75 /* SupportTokenResponse.swift */,
+				93FCBC22210866F000E70F75 /* Tag.swift */,
+				93FCBBE5210866F000E70F75 /* TagUpdateRequest.swift */,
+				93FCBBDF210866F000E70F75 /* UpdateEventHandlerRequest.swift */,
+				93FCBBD2210866F000E70F75 /* UpdatePasswordRequest.swift */,
+				93FCBC3B210866F100E70F75 /* UpdatePermissionRequest.swift */,
+				93FCBC37210866F000E70F75 /* UpdateSpeedClassRequest.swift */,
+				93FCBC14210866F000E70F75 /* UpdateUserRequest.swift */,
+				93FCBBDE210866F000E70F75 /* UserDetailResponse.swift */,
+				93FCBC3D210866F100E70F75 /* VerifyEmailChangeTokenRequest.swift */,
+				93FCBC06210866F000E70F75 /* VerifyOperatorsRequest.swift */,
+				93FCBC23210866F000E70F75 /* VerifyPasswordResetTokenRequest.swift */,
+				93FCBBCD210866F000E70F75 /* VerifySubscriberTransferTokenRequest.swift */,
+				93FCBBD8210866F000E70F75 /* VerifySubscriberTransferTokenResponse.swift */,
+				93FCBC01210866F000E70F75 /* VirtualPrivateGateway.swift */,
+				93FCBBEB210866F000E70F75 /* VpcPeeringConnection.swift */,
 			);
-			path = AutoGeneratedCode;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		93FCBD6D2108671800E70F75 /* _AutoGeneratedCode */ = {
+			isa = PBXGroup;
+			children = (
+				93FCBD852108671800E70F75 /* _ActionConfig.swift */,
+				93FCBDB92108671800E70F75 /* _ActionConfigProperty.swift */,
+				93FCBDDD2108671800E70F75 /* _AirStatsResponse.swift */,
+				93FCBDC12108671800E70F75 /* _APICallError.swift */,
+				93FCBD7D2108671800E70F75 /* _APICallErrorMessage.swift */,
+				93FCBD8E2108671800E70F75 /* _APIKeyResponse.swift */,
+				93FCBDAF2108671800E70F75 /* _AttachRoleRequest.swift */,
+				93FCBD842108671800E70F75 /* _AttributeUpdate.swift */,
+				93FCBD952108671800E70F75 /* _AuthKeyResponse.swift */,
+				93FCBD862108671800E70F75 /* _AuthRequest.swift */,
+				93FCBDE62108671800E70F75 /* _AuthResponse.swift */,
+				93FCBDC52108671800E70F75 /* _BeamStatsResponse.swift */,
+				93FCBD882108671800E70F75 /* _Config.swift */,
+				93FCBDE02108671800E70F75 /* _CouponResponse.swift */,
+				93FCBD932108671800E70F75 /* _CreateAndUpdateCredentialsModel.swift */,
+				93FCBD972108671800E70F75 /* _CreateEstimatedOrderRequest.swift */,
+				93FCBDA22108671800E70F75 /* _CreateEventHandlerRequest.swift */,
+				93FCBDA42108671800E70F75 /* _CreateGroupRequest.swift */,
+				93FCBDA92108671800E70F75 /* _CreateOrUpdateRoleRequest.swift */,
+				93FCBDEE2108671800E70F75 /* _CreateRoleResponse.swift */,
+				93FCBDD12108671800E70F75 /* _CreateUserPasswordRequest.swift */,
+				93FCBDF62108671800E70F75 /* _CreateUserRequest.swift */,
+				93FCBDA62108671800E70F75 /* _CreateVirtualPrivateGatewayRequest.swift */,
+				93FCBDEA2108671800E70F75 /* _CreateVpcPeeringConnectionRequest.swift */,
+				93FCBDB22108671800E70F75 /* _CredentialsModel.swift */,
+				93FCBDF42108671800E70F75 /* _CreditCard.swift */,
+				93FCBDAC2108671800E70F75 /* _DailyBill.swift */,
+				93FCBDFA2108671800E70F75 /* _DailyBillResponse.swift */,
+				93FCBDF92108671800E70F75 /* _DataEntry.swift */,
+				93FCBDF32108671800E70F75 /* _DataSourceResourceMetadata.swift */,
+				93FCBDF52108671800E70F75 /* _DataTrafficStats.swift */,
+				93FCBDC62108671800E70F75 /* _Device.swift */,
+				93FCBD942108671800E70F75 /* _DeviceObjectModel.swift */,
+				93FCBDBE2108671800E70F75 /* _EnableMFAOTPResponse.swift */,
+				93FCBD6F2108671800E70F75 /* _ErrorType.swift */,
+				93FCBDA32108671800E70F75 /* _EstimatedOrderItemModel.swift */,
+				93FCBDF82108671800E70F75 /* _EstimatedOrderModel.swift */,
+				93FCBDFD2108671800E70F75 /* _EventHandlerModel.swift */,
+				93FCBD962108671800E70F75 /* _ExpiryTime.swift */,
+				93FCBDDE2108671800E70F75 /* _ExportRequest.swift */,
+				93FCBD9B2108671800E70F75 /* _FileExportResponse.swift */,
+				93FCBD732108671800E70F75 /* _FunnelConfiguration.swift */,
+				93FCBDB12108671800E70F75 /* _FunnelDestination.swift */,
+				93FCBDCA2108671800E70F75 /* _GatePeer.swift */,
+				93FCBDAD2108671800E70F75 /* _GenerateOperatorsAuthKeyResponse.swift */,
+				93FCBD8F2108671800E70F75 /* _GenerateTokenRequest.swift */,
+				93FCBDCE2108671800E70F75 /* _GenerateTokenResponse.swift */,
+				93FCBDAE2108671800E70F75 /* _GenerateUserAuthKeyResponse.swift */,
+				93FCBDC92108671800E70F75 /* _GetBillingHistoryResponse.swift */,
+				93FCBDEC2108671800E70F75 /* _GetExportedFileResponse.swift */,
+				93FCBDB72108671800E70F75 /* _GetLatestBill.swift */,
+				93FCBDA02108671800E70F75 /* _GetOperatorResponse.swift */,
+				93FCBD9E2108671800E70F75 /* _GetOrderResponse.swift */,
+				93FCBDE72108671800E70F75 /* _GetPaymentMethodResult.swift */,
+				93FCBDA72108671800E70F75 /* _GetPaymentTransactionResult.swift */,
+				93FCBE022108671800E70F75 /* _GetShippingAddressResponse.swift */,
+				93FCBDBC2108671800E70F75 /* _GetUserPasswordResponse.swift */,
+				93FCBDF02108671800E70F75 /* _GetUserPermissionResponse.swift */,
+				93FCBDC02108671800E70F75 /* _Group.swift */,
+				93FCBDCD2108671800E70F75 /* _GroupConfigurationUpdateRequest.swift */,
+				93FCBDBD2108671800E70F75 /* _ImeiLock.swift */,
+				93FCBD7A2108671800E70F75 /* _IpAddressMapEntry.swift */,
+				93FCBD712108671800E70F75 /* _IssueEmailChangeTokenRequest.swift */,
+				93FCBE062108671800E70F75 /* _IssuePasswordResetTokenRequest.swift */,
+				93FCBD9A2108671800E70F75 /* _IssueSubscriberTransferTokenRequest.swift */,
+				93FCBDFE2108671800E70F75 /* _IssueSubscriberTransferTokenResponse.swift */,
+				93FCBDC72108671800E70F75 /* _JunctionInspectionConfiguration.swift */,
+				93FCBDD32108671800E70F75 /* _JunctionMirroringConfiguration.swift */,
+				93FCBDD62108671800E70F75 /* _JunctionMirroringPeer.swift */,
+				93FCBDC22108671800E70F75 /* _JunctionRedirectionConfiguration.swift */,
+				93FCBD8D2108671800E70F75 /* _LagoonRegistrationRequest.swift */,
+				93FCBDA82108671800E70F75 /* _LagoonRegistrationResponse.swift */,
+				93FCBD922108671800E70F75 /* _LagoonUser.swift */,
+				93FCBD752108671800E70F75 /* _LagoonUserCreationRequest.swift */,
+				93FCBDCC2108671800E70F75 /* _LagoonUserCreationResponse.swift */,
+				93FCBDBB2108671800E70F75 /* _LagoonUserEmailUpdatingRequest.swift */,
+				93FCBD772108671800E70F75 /* _LagoonUserPasswordUpdatingRequest.swift */,
+				93FCBD892108671800E70F75 /* _LagoonUserPermissionUpdatingRequest.swift */,
+				93FCBDE92108671800E70F75 /* _LastSeen.swift */,
+				93FCBDAB2108671800E70F75 /* _ListCouponResponse.swift */,
+				93FCBD9D2108671800E70F75 /* _ListOrderedSubscriberResponse.swift */,
+				93FCBD9C2108671800E70F75 /* _ListOrderResponse.swift */,
+				93FCBDB32108671800E70F75 /* _ListPaymentStatementResponse.swift */,
+				93FCBD8A2108671800E70F75 /* _ListProductResponse.swift */,
+				93FCBDB62108671800E70F75 /* _ListRolesResponse.swift */,
+				93FCBDDA2108671800E70F75 /* _ListShippingAddressResponse.swift */,
+				93FCBD7C2108671800E70F75 /* _ListSubOperatorsResponse.swift */,
+				93FCBDF72108671800E70F75 /* _LogEntry.swift */,
+				93FCBDBF2108671800E70F75 /* _LoraData.swift */,
+				93FCBDF12108671800E70F75 /* _LoraDevice.swift */,
+				93FCBDE52108671800E70F75 /* _LoraGateway.swift */,
+				93FCBDCF2108671800E70F75 /* _LoraNetworkSet.swift */,
+				93FCBD8B2108671800E70F75 /* _Map.swift */,
+				93FCBDBA2108671800E70F75 /* _MapstringDataTrafficStats.swift */,
+				93FCBE002108671800E70F75 /* _Mapstringstring.swift */,
+				93FCBDF22108671800E70F75 /* _MFAAuthenticationRequest.swift */,
+				93FCBDD52108671800E70F75 /* _MFAIssueRevokingTokenRequest.swift */,
+				93FCBDE22108671800E70F75 /* _MFARevokingTokenVerifyRequest.swift */,
+				93FCBD792108671800E70F75 /* _MFAStatusOfUseResponse.swift */,
+				93FCBDD72108671800E70F75 /* _MonthlyBill.swift */,
+				93FCBD802108671800E70F75 /* _ObjectInstance.swift */,
+				93FCBD982108671800E70F75 /* _OperatorMFAVerifyingResponse.swift */,
+				93FCBD902108671800E70F75 /* _OrderedSubscriber.swift */,
+				93FCBE042108671800E70F75 /* _OrderItemModel.swift */,
+				93FCBD912108671800E70F75 /* _PaymentAmount.swift */,
+				93FCBDB42108671800E70F75 /* _PaymentDescription.swift */,
+				93FCBDAA2108671800E70F75 /* _PaymentStatementResponse.swift */,
+				93FCBDFF2108671800E70F75 /* _ProductModel.swift */,
+				93FCBDC42108671800E70F75 /* _PutIpAddressMapEntryRequest.swift */,
+				93FCBDCB2108671800E70F75 /* _RegisterGatePeerRequest.swift */,
+				93FCBDD22108671800E70F75 /* _RegisterLoraDeviceRequest.swift */,
+				93FCBDD92108671800E70F75 /* _RegisterOperatorsRequest.swift */,
+				93FCBD832108671800E70F75 /* _RegisterPayerInformationModel.swift */,
+				93FCBD8C2108671800E70F75 /* _RegisterSubscribersRequest.swift */,
+				93FCBD7B2108671800E70F75 /* _ResourceInstance.swift */,
+				93FCBDDB2108671800E70F75 /* _RoleResponse.swift */,
+				93FCBE032108671800E70F75 /* _RuleConfig.swift */,
+				93FCBD872108671800E70F75 /* _RuleConfigProperty.swift */,
+				93FCBDD42108671800E70F75 /* _SessionEvent.swift */,
+				93FCBD722108671800E70F75 /* _SessionStatus.swift */,
+				93FCBDDF2108671800E70F75 /* _SetDeviceObjectModelScopeRequest.swift */,
+				93FCBDFC2108671800E70F75 /* _SetGroupRequest.swift */,
+				93FCBDED2108671800E70F75 /* _SetImeiLockRequest.swift */,
+				93FCBD7E2108671800E70F75 /* _SetNetworkSetRequest.swift */,
+				93FCBDFB2108671800E70F75 /* _SetUserPermissionRequest.swift */,
+				93FCBDEF2108671800E70F75 /* _ShippingAddressModel.swift */,
+				93FCBDB82108671800E70F75 /* _ShippingCostModel.swift */,
+				93FCBDE42108671800E70F75 /* _SigfoxData.swift */,
+				93FCBDD82108671800E70F75 /* _SigfoxDevice.swift */,
+				93FCBDC82108671800E70F75 /* _SigfoxRegistrationRequest.swift */,
+				93FCBDA52108671800E70F75 /* _SmsForwardingReport.swift */,
+				93FCBDE82108671800E70F75 /* _SmsForwardingRequest.swift */,
+				93FCBD782108671800E70F75 /* _SoracomBeamStats.swift */,
+				93FCBDEB2108671800E70F75 /* _Subscriber.swift */,
+				93FCBD992108671800E70F75 /* _SupportTokenResponse.swift */,
+				93FCBD822108671800E70F75 /* _Tag.swift */,
+				93FCBDB02108671800E70F75 /* _TagUpdateRequest.swift */,
+				93FCBDB52108671800E70F75 /* _UpdateEventHandlerRequest.swift */,
+				93FCBDE12108671800E70F75 /* _UpdatePasswordRequest.swift */,
+				93FCBD702108671800E70F75 /* _UpdatePermissionRequest.swift */,
+				93FCBD742108671800E70F75 /* _UpdateSpeedClassRequest.swift */,
+				93FCBDD02108671800E70F75 /* _UpdateUserRequest.swift */,
+				93FCBE012108671800E70F75 /* _UserDetailResponse.swift */,
+				93FCBD812108671800E70F75 /* _VerifyEmailChangeTokenRequest.swift */,
+				93FCBDE32108671800E70F75 /* _VerifyOperatorsRequest.swift */,
+				93FCBDA12108671800E70F75 /* _VerifyPasswordResetTokenRequest.swift */,
+				93FCBD9F2108671800E70F75 /* _VerifySubscriberTransferTokenRequest.swift */,
+				93FCBD6E2108671800E70F75 /* _VerifySubscriberTransferTokenResponse.swift */,
+				93FCBD7F2108671800E70F75 /* _VirtualPrivateGateway.swift */,
+				93FCBDC32108671800E70F75 /* _VpcPeeringConnection.swift */,
+				93FCBE052108671800E70F75 /* AnyCodable.swift */,
+				93FCBDDC2108671800E70F75 /* API.swift */,
+				93FCBD762108671800E70F75 /* Coding.swift */,
+			);
+			path = _AutoGeneratedCode;
 			sourceTree = "<group>";
 		};
 		OBJ_48 /* SoracomAPIDemo */ = {
@@ -340,11 +1222,10 @@
 		OBJ_8 /* SoracomAPI */ = {
 			isa = PBXGroup;
 			children = (
-				935028F22108471F004DAC04 /* AutoGeneratedCode */,
+				93FCBB0D210866F000E70F75 /* Models */,
 				OBJ_9 /* APIError.swift */,
 				OBJ_10 /* APIOperation.swift */,
 				OBJ_11 /* AirStats.swift */,
-				OBJ_12 /* AuthResponse.swift */,
 				OBJ_13 /* BeamStats.swift */,
 				OBJ_14 /* Client.swift */,
 				OBJ_15 /* Codable+SoracomAPI.swift */,
@@ -353,17 +1234,15 @@
 				OBJ_18 /* CoverageType.swift */,
 				OBJ_19 /* Credential.swift */,
 				OBJ_20 /* Data+SoracomAPI.swift */,
-				9350290321084BBF004DAC04 /* Map.swift */,
 				OBJ_21 /* DataTrafficStats.swift */,
-				OBJ_22 /* Group.swift */,
 				OBJ_23 /* HTTPMethod.swift */,
 				OBJ_24 /* JSONComparison.swift */,
 				OBJ_25 /* Keychain.swift */,
 				OBJ_26 /* KeyedEncodingContainer+Payload.swift */,
 				OBJ_27 /* NSDate+SoracomAPI.swift */,
 				OBJ_28 /* Payload.swift */,
-				OBJ_30 /* PayloadKey.swift */,
 				OBJ_31 /* PaymentMethodInfoWebPay.swift */,
+				OBJ_30 /* PayloadKey.swift */,
 				OBJ_32 /* Request+Auth.swift */,
 				OBJ_33 /* Request+Credentials.swift */,
 				OBJ_34 /* Request+Group.swift */,
@@ -371,17 +1250,13 @@
 				OBJ_36 /* Request+Payment.swift */,
 				OBJ_37 /* Request+Sandbox.swift */,
 				OBJ_38 /* Request+Subscriber.swift */,
-				935028FF21084A1A004DAC04 /* SessionStatus.swift */,
 				OBJ_39 /* Request.swift */,
 				OBJ_40 /* RequestQueue.swift */,
 				OBJ_41 /* RequestResponseFormatter.swift */,
 				OBJ_42 /* Response.swift */,
 				OBJ_43 /* SoracomCredentials.swift */,
-				OBJ_44 /* Subscriber.swift */,
-				OBJ_45 /* Tag.swift */,
 				OBJ_46 /* TextStyle.swift */,
 				OBJ_47 /* UnkeyedEncodingContainer+Payload.swift */,
-				935028FD210847FB004DAC04 /* ImeiLock.swift */,
 			);
 			name = SoracomAPI;
 			path = Sources/SoracomAPI;
@@ -552,54 +1427,343 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				93FCBE172108671800E70F75 /* _SetNetworkSetRequest.swift in Sources */,
+				93FCBE582108671900E70F75 /* _LoraData.swift in Sources */,
+				93FCBE272108671800E70F75 /* _APIKeyResponse.swift in Sources */,
+				93FCBE2C2108671900E70F75 /* _CreateAndUpdateCredentialsModel.swift in Sources */,
+				93FCBD37210866F100E70F75 /* SessionEvent.swift in Sources */,
+				93FCBD46210866F100E70F75 /* Device.swift in Sources */,
+				93FCBD30210866F100E70F75 /* VirtualPrivateGateway.swift in Sources */,
+				93FCBD26210866F100E70F75 /* GatePeer.swift in Sources */,
+				93FCBD45210866F100E70F75 /* CreateAndUpdateCredentialsModel.swift in Sources */,
+				93FCBD1B210866F100E70F75 /* CreateUserRequest.swift in Sources */,
+				93FCBE802108671900E70F75 /* _GetPaymentMethodResult.swift in Sources */,
+				93FCBE8A2108671900E70F75 /* _LoraDevice.swift in Sources */,
+				93FCBD58210866F100E70F75 /* CouponResponse.swift in Sources */,
+				93FCBE622108671900E70F75 /* _GetBillingHistoryResponse.swift in Sources */,
+				93FCBE532108671900E70F75 /* _MapstringDataTrafficStats.swift in Sources */,
+				93FCBE9D2108671900E70F75 /* _OrderItemModel.swift in Sources */,
+				93FCBD2A210866F100E70F75 /* ActionConfigProperty.swift in Sources */,
+				93FCBE2A2108671900E70F75 /* _PaymentAmount.swift in Sources */,
 				OBJ_94 /* APIError.swift in Sources */,
 				OBJ_95 /* APIOperation.swift in Sources */,
-				935028FE210847FB004DAC04 /* ImeiLock.swift in Sources */,
-				935028FA2108475A004DAC04 /* _SessionStatus.swift in Sources */,
+				93FCBCF5210866F100E70F75 /* DeviceObjectModel.swift in Sources */,
 				OBJ_96 /* AirStats.swift in Sources */,
-				OBJ_97 /* AuthResponse.swift in Sources */,
+				93FCBCE0210866F100E70F75 /* JunctionRedirectionConfiguration.swift in Sources */,
+				93FCBE692108671900E70F75 /* _UpdateUserRequest.swift in Sources */,
+				93FCBE422108671900E70F75 /* _CreateOrUpdateRoleRequest.swift in Sources */,
+				93FCBD47210866F100E70F75 /* CreateGroupRequest.swift in Sources */,
+				93FCBD51210866F100E70F75 /* Tag.swift in Sources */,
+				93FCBE822108671900E70F75 /* _LastSeen.swift in Sources */,
+				93FCBE392108671900E70F75 /* _GetOperatorResponse.swift in Sources */,
+				93FCBE9C2108671900E70F75 /* _RuleConfig.swift in Sources */,
+				93FCBD3E210866F100E70F75 /* CreateUserPasswordRequest.swift in Sources */,
+				93FCBD3B210866F100E70F75 /* Group.swift in Sources */,
+				93FCBE762108671900E70F75 /* _AirStatsResponse.swift in Sources */,
+				93FCBD06210866F100E70F75 /* DataEntry.swift in Sources */,
+				93FCBE7A2108671900E70F75 /* _UpdatePasswordRequest.swift in Sources */,
+				93FCBCDC210866F100E70F75 /* SetNetworkSetRequest.swift in Sources */,
+				93FCBE732108671900E70F75 /* _ListShippingAddressResponse.swift in Sources */,
+				93FCBE432108671900E70F75 /* _PaymentStatementResponse.swift in Sources */,
+				93FCBD4E210866F100E70F75 /* OrderItemModel.swift in Sources */,
+				93FCBE8E2108671900E70F75 /* _DataTrafficStats.swift in Sources */,
+				93FCBE5B2108671900E70F75 /* _JunctionRedirectionConfiguration.swift in Sources */,
+				93FCBCFE210866F100E70F75 /* SessionStatus.swift in Sources */,
+				93FCBE2B2108671900E70F75 /* _LagoonUser.swift in Sources */,
+				93FCBCEE210866F100E70F75 /* MFAIssueRevokingTokenRequest.swift in Sources */,
+				93FCBE5C2108671900E70F75 /* _VpcPeeringConnection.swift in Sources */,
+				93FCBD15210866F100E70F75 /* GetUserPasswordResponse.swift in Sources */,
+				93FCBE442108671900E70F75 /* _ListCouponResponse.swift in Sources */,
+				93FCBD62210866F100E70F75 /* ProductModel.swift in Sources */,
+				93FCBD34210866F100E70F75 /* IssuePasswordResetTokenRequest.swift in Sources */,
+				93FCBD0B210866F100E70F75 /* GetOperatorResponse.swift in Sources */,
+				93FCBD49210866F100E70F75 /* SmsForwardingRequest.swift in Sources */,
 				OBJ_98 /* BeamStats.swift in Sources */,
+				93FCBD18210866F100E70F75 /* IpAddressMapEntry.swift in Sources */,
+				93FCBE2E2108671900E70F75 /* _AuthKeyResponse.swift in Sources */,
+				93FCBD6B210866F100E70F75 /* BeamStatsResponse.swift in Sources */,
+				93FCBE942108671900E70F75 /* _SetUserPermissionRequest.swift in Sources */,
+				93FCBE502108671900E70F75 /* _GetLatestBill.swift in Sources */,
+				93FCBE892108671900E70F75 /* _GetUserPermissionResponse.swift in Sources */,
+				93FCBE852108671900E70F75 /* _GetExportedFileResponse.swift in Sources */,
+				93FCBE1A2108671800E70F75 /* _VerifyEmailChangeTokenRequest.swift in Sources */,
+				93FCBD1F210866F100E70F75 /* EventHandlerModel.swift in Sources */,
+				93FCBD35210866F100E70F75 /* VerifyOperatorsRequest.swift in Sources */,
+				93FCBD12210866F100E70F75 /* CreateOrUpdateRoleRequest.swift in Sources */,
+				93FCBD08210866F100E70F75 /* SmsForwardingReport.swift in Sources */,
+				93FCBD1E210866F100E70F75 /* MonthlyBill.swift in Sources */,
+				93FCBE242108671800E70F75 /* _Map.swift in Sources */,
+				93FCBD21210866F100E70F75 /* ExpiryTime.swift in Sources */,
+				93FCBD52210866F100E70F75 /* VerifyPasswordResetTokenRequest.swift in Sources */,
 				OBJ_99 /* Client.swift in Sources */,
+				93FCBE0E2108671800E70F75 /* _LagoonUserCreationRequest.swift in Sources */,
+				93FCBE612108671900E70F75 /* _SigfoxRegistrationRequest.swift in Sources */,
+				93FCBCFF210866F100E70F75 /* PutIpAddressMapEntryRequest.swift in Sources */,
+				93FCBE682108671900E70F75 /* _LoraNetworkSet.swift in Sources */,
+				93FCBCE2210866F100E70F75 /* MFARevokingTokenVerifyRequest.swift in Sources */,
+				93FCBD25210866F100E70F75 /* GetBillingHistoryResponse.swift in Sources */,
+				93FCBE0C2108671800E70F75 /* _FunnelConfiguration.swift in Sources */,
+				93FCBE872108671900E70F75 /* _CreateRoleResponse.swift in Sources */,
+				93FCBD0D210866F100E70F75 /* UserDetailResponse.swift in Sources */,
+				93FCBE4F2108671900E70F75 /* _ListRolesResponse.swift in Sources */,
+				93FCBE862108671900E70F75 /* _SetImeiLockRequest.swift in Sources */,
+				93FCBD19210866F100E70F75 /* LagoonUser.swift in Sources */,
+				93FCBCE5210866F100E70F75 /* ResourceInstance.swift in Sources */,
+				93FCBE382108671900E70F75 /* _VerifySubscriberTransferTokenRequest.swift in Sources */,
+				93FCBD54210866F100E70F75 /* SetUserPermissionRequest.swift in Sources */,
+				93FCBE132108671800E70F75 /* _IpAddressMapEntry.swift in Sources */,
+				93FCBE142108671800E70F75 /* _ResourceInstance.swift in Sources */,
+				93FCBE302108671900E70F75 /* _CreateEstimatedOrderRequest.swift in Sources */,
+				93FCBD5E210866F100E70F75 /* DataTrafficStatsMap.swift in Sources */,
+				93FCBD69210866F100E70F75 /* LogEntry.swift in Sources */,
+				93FCBD67210866F100E70F75 /* ListPaymentStatementResponse.swift in Sources */,
+				93FCBE1B2108671800E70F75 /* _Tag.swift in Sources */,
+				93FCBCEF210866F100E70F75 /* APICallErrorMessage.swift in Sources */,
+				93FCBE8D2108671900E70F75 /* _CreditCard.swift in Sources */,
+				93FCBD5C210866F100E70F75 /* GenerateOperatorsAuthKeyResponse.swift in Sources */,
+				93FCBCE6210866F100E70F75 /* Mapstringstring.swift in Sources */,
 				OBJ_100 /* Codable+SoracomAPI.swift in Sources */,
+				93FCBE8C2108671900E70F75 /* _DataSourceResourceMetadata.swift in Sources */,
 				OBJ_101 /* ConfigurationParameter.swift in Sources */,
+				93FCBE122108671800E70F75 /* _MFAStatusOfUseResponse.swift in Sources */,
+				93FCBD57210866F100E70F75 /* DailyBill.swift in Sources */,
+				93FCBE912108671900E70F75 /* _EstimatedOrderModel.swift in Sources */,
+				93FCBE4B2108671900E70F75 /* _CredentialsModel.swift in Sources */,
 				OBJ_102 /* Constants.swift in Sources */,
+				93FCBE812108671900E70F75 /* _SmsForwardingRequest.swift in Sources */,
+				93FCBE512108671900E70F75 /* _ShippingCostModel.swift in Sources */,
+				93FCBE292108671800E70F75 /* _OrderedSubscriber.swift in Sources */,
+				93FCBD4B210866F100E70F75 /* LastSeen.swift in Sources */,
+				93FCBE9A2108671900E70F75 /* _UserDetailResponse.swift in Sources */,
+				93FCBE5A2108671900E70F75 /* _APICallError.swift in Sources */,
+				93FCBD44210866F100E70F75 /* RoleResponse.swift in Sources */,
+				93FCBE182108671800E70F75 /* _VirtualPrivateGateway.swift in Sources */,
+				93FCBCFB210866F100E70F75 /* SetDeviceObjectModelScopeRequest.swift in Sources */,
+				93FCBD5A210866F100E70F75 /* LagoonUserCreationResponse.swift in Sources */,
+				93FCBD28210866F100E70F75 /* IssueEmailChangeTokenRequest.swift in Sources */,
+				93FCBE262108671800E70F75 /* _LagoonRegistrationRequest.swift in Sources */,
+				93FCBD41210866F100E70F75 /* LagoonUserPasswordUpdatingRequest.swift in Sources */,
+				93FCBCE3210866F100E70F75 /* Subscriber.swift in Sources */,
+				93FCBE992108671900E70F75 /* _Mapstringstring.swift in Sources */,
+				93FCBD61210866F100E70F75 /* ListCouponResponse.swift in Sources */,
+				93FCBE6A2108671900E70F75 /* _CreateUserPasswordRequest.swift in Sources */,
+				93FCBCE9210866F100E70F75 /* AttachRoleRequest.swift in Sources */,
+				93FCBD56210866F100E70F75 /* OperatorMFAVerifyingResponse.swift in Sources */,
+				93FCBD0F210866F100E70F75 /* MFAStatusOfUseResponse.swift in Sources */,
+				93FCBE072108671800E70F75 /* _VerifySubscriberTransferTokenResponse.swift in Sources */,
+				93FCBE6C2108671900E70F75 /* _JunctionMirroringConfiguration.swift in Sources */,
+				93FCBE7B2108671900E70F75 /* _MFARevokingTokenVerifyRequest.swift in Sources */,
+				93FCBE7E2108671900E70F75 /* _LoraGateway.swift in Sources */,
+				93FCBD02210866F100E70F75 /* CreateEventHandlerRequest.swift in Sources */,
 				OBJ_103 /* CoverageType.swift in Sources */,
+				93FCBE092108671800E70F75 /* _UpdatePermissionRequest.swift in Sources */,
+				93FCBE9B2108671900E70F75 /* _GetShippingAddressResponse.swift in Sources */,
+				93FCBCDE210866F100E70F75 /* APIKeyResponse.swift in Sources */,
+				93FCBD50210866F100E70F75 /* EstimatedOrderModel.swift in Sources */,
+				93FCBE372108671900E70F75 /* _GetOrderResponse.swift in Sources */,
 				OBJ_104 /* Credential.swift in Sources */,
+				93FCBE632108671900E70F75 /* _GatePeer.swift in Sources */,
 				OBJ_105 /* Data+SoracomAPI.swift in Sources */,
+				93FCBE1C2108671800E70F75 /* _RegisterPayerInformationModel.swift in Sources */,
+				93FCBD4C210866F100E70F75 /* FileExportResponse.swift in Sources */,
+				93FCBE952108671900E70F75 /* _SetGroupRequest.swift in Sources */,
+				93FCBE162108671800E70F75 /* _APICallErrorMessage.swift in Sources */,
+				93FCBD33210866F100E70F75 /* DataSourceResourceMetadata.swift in Sources */,
+				93FCBE6E2108671900E70F75 /* _MFAIssueRevokingTokenRequest.swift in Sources */,
+				93FCBD03210866F100E70F75 /* OrderedSubscriber.swift in Sources */,
+				93FCBE192108671800E70F75 /* _ObjectInstance.swift in Sources */,
+				93FCBD5B210866F100E70F75 /* PaymentDescription.swift in Sources */,
 				OBJ_106 /* DataTrafficStats.swift in Sources */,
-				OBJ_107 /* Group.swift in Sources */,
-				935028F82108475A004DAC04 /* _ImeiLock.swift in Sources */,
+				93FCBE112108671800E70F75 /* _SoracomBeamStats.swift in Sources */,
+				93FCBD3C210866F100E70F75 /* GetPaymentTransactionResult.swift in Sources */,
+				93FCBE232108671800E70F75 /* _ListProductResponse.swift in Sources */,
+				93FCBE472108671900E70F75 /* _GenerateUserAuthKeyResponse.swift in Sources */,
+				93FCBD39210866F100E70F75 /* GetShippingAddressResponse.swift in Sources */,
+				93FCBE4A2108671900E70F75 /* _FunnelDestination.swift in Sources */,
+				93FCBE972108671900E70F75 /* _IssueSubscriberTransferTokenResponse.swift in Sources */,
 				OBJ_108 /* HTTPMethod.swift in Sources */,
+				93FCBE4E2108671900E70F75 /* _UpdateEventHandlerRequest.swift in Sources */,
+				93FCBE452108671900E70F75 /* _DailyBill.swift in Sources */,
+				93FCBD2D210866F100E70F75 /* ImeiLock.swift in Sources */,
+				93FCBE0B2108671800E70F75 /* _SessionStatus.swift in Sources */,
+				93FCBD10210866F100E70F75 /* RegisterSubscribersRequest.swift in Sources */,
+				93FCBD6A210866F100E70F75 /* UpdatePermissionRequest.swift in Sources */,
+				93FCBD63210866F100E70F75 /* JunctionMirroringConfiguration.swift in Sources */,
+				93FCBE792108671900E70F75 /* _CouponResponse.swift in Sources */,
+				93FCBD22210866F100E70F75 /* ListOrderedSubscriberResponse.swift in Sources */,
+				93FCBD29210866F100E70F75 /* LoraNetworkSet.swift in Sources */,
+				93FCBC40210866F100E70F75 /* PaymentAmount.swift in Sources */,
+				93FCBCE4210866F100E70F75 /* LagoonUserCreationRequest.swift in Sources */,
+				93FCBE312108671900E70F75 /* _OperatorMFAVerifyingResponse.swift in Sources */,
 				OBJ_109 /* JSONComparison.swift in Sources */,
 				OBJ_110 /* Keychain.swift in Sources */,
-				935028F42108471F004DAC04 /* _Subscriber.swift in Sources */,
+				93FCBD16210866F100E70F75 /* SetImeiLockRequest.swift in Sources */,
+				93FCBD2B210866F100E70F75 /* MapstringDataTrafficStats.swift in Sources */,
+				93FCBD5F210866F100E70F75 /* ShippingCostModel.swift in Sources */,
+				93FCBE672108671900E70F75 /* _GenerateTokenResponse.swift in Sources */,
+				93FCBCF9210866F100E70F75 /* ListOrderResponse.swift in Sources */,
+				93FCBE7F2108671900E70F75 /* _AuthResponse.swift in Sources */,
+				93FCBE0D2108671800E70F75 /* _UpdateSpeedClassRequest.swift in Sources */,
+				93FCBD2E210866F100E70F75 /* LoraData.swift in Sources */,
+				93FCBE642108671900E70F75 /* _RegisterGatePeerRequest.swift in Sources */,
 				OBJ_111 /* KeyedEncodingContainer+Payload.swift in Sources */,
+				93FCBE3B2108671900E70F75 /* _CreateEventHandlerRequest.swift in Sources */,
+				93FCBE412108671900E70F75 /* _LagoonRegistrationResponse.swift in Sources */,
+				93FCBD36210866F100E70F75 /* RuleConfigProperty.swift in Sources */,
+				93FCBD01210866F100E70F75 /* UpdatePasswordRequest.swift in Sources */,
+				93FCBD1C210866F100E70F75 /* DailyBillResponse.swift in Sources */,
+				93FCBD32210866F100E70F75 /* AuthKeyResponse.swift in Sources */,
+				93FCBD11210866F100E70F75 /* CreateVpcPeeringConnectionRequest.swift in Sources */,
+				93FCBCF0210866F100E70F75 /* GroupConfigurationUpdateRequest.swift in Sources */,
+				93FCBE2D2108671900E70F75 /* _DeviceObjectModel.swift in Sources */,
+				93FCBD60210866F100E70F75 /* LoraGateway.swift in Sources */,
 				OBJ_112 /* NSDate+SoracomAPI.swift in Sources */,
+				93FCBE772108671900E70F75 /* _ExportRequest.swift in Sources */,
+				93FCBE252108671800E70F75 /* _RegisterSubscribersRequest.swift in Sources */,
+				93FCBE102108671800E70F75 /* _LagoonUserPasswordUpdatingRequest.swift in Sources */,
 				OBJ_113 /* Payload.swift in Sources */,
 				OBJ_115 /* PayloadKey.swift in Sources */,
+				93FCBE222108671800E70F75 /* _LagoonUserPermissionUpdatingRequest.swift in Sources */,
+				93FCBE9F2108671900E70F75 /* _IssuePasswordResetTokenRequest.swift in Sources */,
+				93FCBE6D2108671900E70F75 /* _SessionEvent.swift in Sources */,
 				OBJ_116 /* PaymentMethodInfoWebPay.swift in Sources */,
+				93FCBE4C2108671900E70F75 /* _ListPaymentStatementResponse.swift in Sources */,
 				OBJ_117 /* Request+Auth.swift in Sources */,
+				93FCBE662108671900E70F75 /* _GroupConfigurationUpdateRequest.swift in Sources */,
+				93FCBCE1210866F100E70F75 /* ListRolesResponse.swift in Sources */,
+				93FCBCEC210866F100E70F75 /* GetExportedFileResponse.swift in Sources */,
+				93FCBE832108671900E70F75 /* _CreateVpcPeeringConnectionRequest.swift in Sources */,
+				93FCBD40210866F100E70F75 /* GetPaymentMethodResult.swift in Sources */,
+				93FCBD3F210866F100E70F75 /* RegisterLoraDeviceRequest.swift in Sources */,
+				93FCBE712108671900E70F75 /* _SigfoxDevice.swift in Sources */,
+				93FCBE7C2108671900E70F75 /* _VerifyOperatorsRequest.swift in Sources */,
+				93FCBE882108671900E70F75 /* _ShippingAddressModel.swift in Sources */,
+				93FCBE552108671900E70F75 /* _GetUserPasswordResponse.swift in Sources */,
+				93FCBE3A2108671900E70F75 /* _VerifyPasswordResetTokenRequest.swift in Sources */,
+				93FCBE402108671900E70F75 /* _GetPaymentTransactionResult.swift in Sources */,
+				93FCBE0A2108671800E70F75 /* _IssueEmailChangeTokenRequest.swift in Sources */,
+				93FCBD0C210866F100E70F75 /* Config.swift in Sources */,
+				93FCBE0F2108671800E70F75 /* Coding.swift in Sources */,
+				93FCBD3A210866F100E70F75 /* ErrorType.swift in Sources */,
+				93FCBD42210866F100E70F75 /* AirStatsResponse.swift in Sources */,
+				93FCBE332108671900E70F75 /* _IssueSubscriberTransferTokenRequest.swift in Sources */,
+				93FCBD0E210866F100E70F75 /* UpdateEventHandlerRequest.swift in Sources */,
+				93FCBD13210866F100E70F75 /* CredentialsModel.swift in Sources */,
+				93FCBE752108671900E70F75 /* API.swift in Sources */,
+				93FCBE342108671900E70F75 /* _FileExportResponse.swift in Sources */,
 				OBJ_118 /* Request+Credentials.swift in Sources */,
-				935028F92108475A004DAC04 /* _Map.swift in Sources */,
+				93FCBE352108671900E70F75 /* _ListOrderResponse.swift in Sources */,
+				93FCBE922108671900E70F75 /* _DataEntry.swift in Sources */,
+				93FCBE902108671900E70F75 /* _LogEntry.swift in Sources */,
+				93FCBD64210866F100E70F75 /* RegisterPayerInformationModel.swift in Sources */,
+				93FCBCEB210866F100E70F75 /* LoraDevice.swift in Sources */,
+				93FCBE9E2108671900E70F75 /* AnyCodable.swift in Sources */,
+				93FCBD6C210866F100E70F75 /* VerifyEmailChangeTokenRequest.swift in Sources */,
+				93FCBD53210866F100E70F75 /* AuthResponse.swift in Sources */,
+				93FCBE6B2108671900E70F75 /* _RegisterLoraDeviceRequest.swift in Sources */,
+				93FCBE082108671800E70F75 /* _ErrorType.swift in Sources */,
+				93FCBD24210866F100E70F75 /* RegisterOperatorsRequest.swift in Sources */,
+				93FCBCF8210866F100E70F75 /* FunnelConfiguration.swift in Sources */,
+				93FCBCF6210866F100E70F75 /* ActionConfig.swift in Sources */,
 				OBJ_119 /* Request+Group.swift in Sources */,
+				93FCBD1A210866F100E70F75 /* VpcPeeringConnection.swift in Sources */,
+				93FCBD4D210866F100E70F75 /* Map.swift in Sources */,
+				93FCBD1D210866F100E70F75 /* LagoonUserPermissionUpdatingRequest.swift in Sources */,
+				93FCBE3E2108671900E70F75 /* _SmsForwardingReport.swift in Sources */,
+				93FCBE522108671900E70F75 /* _ActionConfigProperty.swift in Sources */,
 				OBJ_120 /* Request+Operator.swift in Sources */,
+				93FCBE322108671900E70F75 /* _SupportTokenResponse.swift in Sources */,
+				93FCBCEA210866F100E70F75 /* GenerateTokenResponse.swift in Sources */,
 				OBJ_121 /* Request+Payment.swift in Sources */,
-				935028FC210847C3004DAC04 /* Coding.swift in Sources */,
-				9350290221084B60004DAC04 /* AnyCodable.swift in Sources */,
+				93FCBE492108671900E70F75 /* _TagUpdateRequest.swift in Sources */,
+				93FCBCDF210866F100E70F75 /* SoracomBeamStats.swift in Sources */,
+				93FCBE7D2108671900E70F75 /* _SigfoxData.swift in Sources */,
+				93FCBE702108671900E70F75 /* _MonthlyBill.swift in Sources */,
+				93FCBD48210866F100E70F75 /* AttributeUpdate.swift in Sources */,
+				93FCBE1E2108671800E70F75 /* _ActionConfig.swift in Sources */,
+				93FCBE212108671800E70F75 /* _Config.swift in Sources */,
+				93FCBCE8210866F100E70F75 /* JunctionInspectionConfiguration.swift in Sources */,
+				93FCBE8F2108671900E70F75 /* _CreateUserRequest.swift in Sources */,
 				OBJ_122 /* Request+Sandbox.swift in Sources */,
-				9350290421084BBF004DAC04 /* Map.swift in Sources */,
+				93FCBE6F2108671900E70F75 /* _JunctionMirroringPeer.swift in Sources */,
+				93FCBE202108671800E70F75 /* _RuleConfigProperty.swift in Sources */,
+				93FCBD23210866F100E70F75 /* SigfoxRegistrationRequest.swift in Sources */,
+				93FCBE3F2108671900E70F75 /* _CreateVirtualPrivateGatewayRequest.swift in Sources */,
+				93FCBCFA210866F100E70F75 /* RuleConfig.swift in Sources */,
+				93FCBCDA210866F100E70F75 /* ObjectInstance.swift in Sources */,
 				OBJ_123 /* Request+Subscriber.swift in Sources */,
+				93FCBE962108671900E70F75 /* _EventHandlerModel.swift in Sources */,
+				93FCBE5E2108671900E70F75 /* _BeamStatsResponse.swift in Sources */,
+				93FCBE1D2108671800E70F75 /* _AttributeUpdate.swift in Sources */,
+				93FCBCF1210866F100E70F75 /* LagoonRegistrationRequest.swift in Sources */,
 				OBJ_124 /* Request.swift in Sources */,
+				93FCBD68210866F100E70F75 /* ShippingAddressModel.swift in Sources */,
+				93FCBE462108671900E70F75 /* _GenerateOperatorsAuthKeyResponse.swift in Sources */,
+				93FCBD20210866F100E70F75 /* ExportRequest.swift in Sources */,
+				93FCBD4A210866F100E70F75 /* GetLatestBill.swift in Sources */,
+				93FCBE5F2108671900E70F75 /* _Device.swift in Sources */,
+				93FCBD31210866F100E70F75 /* EstimatedOrderItemModel.swift in Sources */,
+				93FCBD5D210866F100E70F75 /* IssueSubscriberTransferTokenResponse.swift in Sources */,
+				93FCBCF3210866F100E70F75 /* ListSubOperatorsResponse.swift in Sources */,
+				93FCBE5D2108671900E70F75 /* _PutIpAddressMapEntryRequest.swift in Sources */,
+				93FCBE362108671900E70F75 /* _ListOrderedSubscriberResponse.swift in Sources */,
+				93FCBE8B2108671900E70F75 /* _MFAAuthenticationRequest.swift in Sources */,
+				93FCBE1F2108671800E70F75 /* _AuthRequest.swift in Sources */,
+				93FCBE932108671900E70F75 /* _DailyBillResponse.swift in Sources */,
+				93FCBE542108671900E70F75 /* _LagoonUserEmailUpdatingRequest.swift in Sources */,
+				93FCBE562108671900E70F75 /* _ImeiLock.swift in Sources */,
 				OBJ_125 /* RequestQueue.swift in Sources */,
-				9350290021084A1A004DAC04 /* SessionStatus.swift in Sources */,
+				93FCBE572108671900E70F75 /* _EnableMFAOTPResponse.swift in Sources */,
+				93FCBD66210866F100E70F75 /* UpdateSpeedClassRequest.swift in Sources */,
+				93FCBD00210866F100E70F75 /* CreateVirtualPrivateGatewayRequest.swift in Sources */,
+				93FCBC3E210866F100E70F75 /* AuthRequest.swift in Sources */,
+				93FCBD17210866F100E70F75 /* CreateRoleResponse.swift in Sources */,
+				93FCBE4D2108671900E70F75 /* _PaymentDescription.swift in Sources */,
+				93FCBD04210866F100E70F75 /* PaymentStatementResponse.swift in Sources */,
+				93FCBD65210866F100E70F75 /* GetUserPermissionResponse.swift in Sources */,
+				93FCBD14210866F100E70F75 /* TagUpdateRequest.swift in Sources */,
+				93FCBE722108671900E70F75 /* _RegisterOperatorsRequest.swift in Sources */,
 				OBJ_126 /* RequestResponseFormatter.swift in Sources */,
+				93FCBCF7210866F100E70F75 /* JunctionMirroringPeer.swift in Sources */,
+				93FCBD0A210866F100E70F75 /* ListShippingAddressResponse.swift in Sources */,
+				93FCBC3F210866F100E70F75 /* SetGroupRequest.swift in Sources */,
+				93FCBE592108671900E70F75 /* _Group.swift in Sources */,
+				93FCBE3D2108671900E70F75 /* _CreateGroupRequest.swift in Sources */,
+				93FCBD2C210866F100E70F75 /* CreateEstimatedOrderRequest.swift in Sources */,
 				OBJ_127 /* Response.swift in Sources */,
+				93FCBD38210866F100E70F75 /* GenerateUserAuthKeyResponse.swift in Sources */,
+				93FCBE3C2108671900E70F75 /* _EstimatedOrderItemModel.swift in Sources */,
 				OBJ_128 /* SoracomCredentials.swift in Sources */,
-				OBJ_129 /* Subscriber.swift in Sources */,
-				OBJ_130 /* Tag.swift in Sources */,
+				93FCBCF4210866F100E70F75 /* GenerateTokenRequest.swift in Sources */,
+				93FCBE482108671900E70F75 /* _AttachRoleRequest.swift in Sources */,
+				93FCBE842108671900E70F75 /* _Subscriber.swift in Sources */,
+				93FCBE742108671900E70F75 /* _RoleResponse.swift in Sources */,
+				93FCBD43210866F100E70F75 /* UpdateUserRequest.swift in Sources */,
+				93FCBD27210866F100E70F75 /* APICallError.swift in Sources */,
+				93FCBE2F2108671900E70F75 /* _ExpiryTime.swift in Sources */,
+				93FCBE782108671900E70F75 /* _SetDeviceObjectModelScopeRequest.swift in Sources */,
+				93FCBCFC210866F100E70F75 /* VerifySubscriberTransferTokenRequest.swift in Sources */,
+				93FCBD59210866F100E70F75 /* IssueSubscriberTransferTokenRequest.swift in Sources */,
+				93FCBCDB210866F100E70F75 /* ListProductResponse.swift in Sources */,
+				93FCBD3D210866F100E70F75 /* SigfoxDevice.swift in Sources */,
+				93FCBD55210866F100E70F75 /* LagoonUserEmailUpdatingRequest.swift in Sources */,
+				93FCBD09210866F100E70F75 /* RegisterGatePeerRequest.swift in Sources */,
+				93FCBE652108671900E70F75 /* _LagoonUserCreationResponse.swift in Sources */,
+				93FCBD2F210866F100E70F75 /* EnableMFAOTPResponse.swift in Sources */,
 				OBJ_131 /* TextStyle.swift in Sources */,
-				9350290621085C48004DAC04 /* API.swift in Sources */,
+				93FCBE982108671900E70F75 /* _ProductModel.swift in Sources */,
+				93FCBD4F210866F100E70F75 /* MFAAuthenticationRequest.swift in Sources */,
+				93FCBE152108671800E70F75 /* _ListSubOperatorsResponse.swift in Sources */,
+				93FCBD05210866F100E70F75 /* GetOrderResponse.swift in Sources */,
+				93FCBCDD210866F100E70F75 /* FunnelDestination.swift in Sources */,
+				93FCBE282108671800E70F75 /* _GenerateTokenRequest.swift in Sources */,
+				93FCBCE7210866F100E70F75 /* SigfoxData.swift in Sources */,
+				93FCBE602108671900E70F75 /* _JunctionInspectionConfiguration.swift in Sources */,
+				93FCBCED210866F100E70F75 /* CreditCard.swift in Sources */,
+				93FCBCF2210866F100E70F75 /* LagoonRegistrationResponse.swift in Sources */,
 				OBJ_132 /* UnkeyedEncodingContainer+Payload.swift in Sources */,
+				93FCBCFD210866F100E70F75 /* SupportTokenResponse.swift in Sources */,
+				93FCBD07210866F100E70F75 /* VerifySubscriberTransferTokenResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

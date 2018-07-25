@@ -1,17 +1,6 @@
-// DataTrafficStats.swift Created by mason on 2017-07-26. 
+// DataTrafficStatsMap.swift Created by mason on 2017-07-26.
 
-/// Description forthcoming.
-
-public struct DataTrafficStats:  Codable {
-    
-    var downloadByteSizeTotal: Int   = 0
-    var downloadPacketSizeTotal: Int = 0
-    var uploadByteSizeTotal: Int     = 0
-    var uploadPacketSizeTotal: Int   = 0    
-}
-
-
-/// Description forthcoming.
+// FIXME: check this model; it might actually need arbitrary string keys, not just the 4 defined here
 
 public struct DataTrafficStatsMap:  Codable {
     

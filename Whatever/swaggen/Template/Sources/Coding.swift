@@ -245,7 +245,7 @@ public struct DateDay: Codable, Comparable {
         let container = try decoder.singleValueContainer()
         let string = try container.decode(String.self)
         guard let date = DateDay.dateFormatter.date(from: string) else {
-            throw DecodingError.dataCorruptedError(in: container, debugDescription: "Date not in correct format of \( DateDay.dateFormatter.dateFormat)")
+            throw DecodingError.dataCorruptedError(in: container, debugDescription: "Date not in correct format of \( String(describing: DateDay.dateFormatter.dateFormat))")
         }
         self.init(date: date)
     }

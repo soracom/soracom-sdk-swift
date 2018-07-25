@@ -19,8 +19,7 @@ class SerializationTests: BaseTestCase {
         
         let ar1 = AuthResponse(
             apiKey:     "just the good ol' boys",
-            token:      "never meanin' no harm",
-            operatorId: "beats all you never saw, been in trouble with the law",
+            operatorId: "beats all you never saw, been in trouble with the law", token:      "never meanin' no harm",
             userName:   "since the day they was born"
         )
         
@@ -95,8 +94,8 @@ class SerializationTests: BaseTestCase {
     
     func test_seralize_Tag() {
         
-        let uno = Tag(tagName: "foo", tagValue: "bar")
-        let dos = Tag(tagName: "baz", tagValue: "ホゲ")
+        let uno: Tag = ["foo": "bar"] // Tag(tagName: "foo", tagValue: "bar")
+        let dos: Tag = ["baz": "ホゲ"] // Tag(tagName: "baz", tagValue: "ホゲ")
 
         guard let eins = roundTripSerializeDeserialize(uno) as? Tag,
               let zwei = roundTripSerializeDeserialize(dos) as? Tag
@@ -104,10 +103,10 @@ class SerializationTests: BaseTestCase {
             XCTFail()
             return
         }
-        XCTAssertEqual(eins.tagName,  "foo");
-        XCTAssertEqual(eins.tagValue, "bar");
-        XCTAssertEqual(zwei.tagName,  "baz");
-        XCTAssertEqual(zwei.tagValue, "ホゲ");
+        XCTAssertEqual(eins.keys.first,  "foo");
+        XCTAssertEqual(eins.values.first, "bar");
+        XCTAssertEqual(zwei.keys.first,  "baz");
+        XCTAssertEqual(zwei.values.first, "ホゲ");
     }
     
     // Mason 2017-07-26: The below was intended to demonstrate a bug in JSONEncoder. I did

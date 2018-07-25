@@ -10,7 +10,9 @@ options:
   modelType: class # can be struct or class
   modelInheritance: true # must be false for struct modelType
   modelNames: {} # override model type names
-  enumNames: {} # override enum type names
+  enumNames: {
+    Protocol: "`Protocol`"
+  } # override enum type names
   dependencies: []
 templateFiles:
   - path: README.md

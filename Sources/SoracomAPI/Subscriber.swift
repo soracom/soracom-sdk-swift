@@ -2,48 +2,9 @@
 
 import Foundation
 
-public struct Subscriber:  Codable {
+public class Subscriber: _Subscriber {
     
-    public var ipAddress: String?
-    public var speedClass: String?
-    public var imsi: String?
-    public var status: String?
-    
-    // FIXME: to be real we need to support all of this:
-    
-    //    {
-    //    "ipAddress" : "10.48.37.87",
-    //    "moduleType" : "nano",
-    //    "status" : "ready",
-    //    "plan" : 0,
-    //    "imsi" : "001010929605213",
-    //    "tags" : {
-    //
-    //    },
-    //    "speedClass" : "s1.fast",
-    //    "expiryAction" : null,
-    //    "sessionStatus" : {
-    //    "ueIpAddress" : null,
-    //    "online" : false,
-    //    "lastUpdatedAt" : 1465374445531,
-    //    "dnsServers" : null,
-    //    "location" : null,
-    //    "imei" : null
-    //    },
-    //    "createdAt" : 1465374445530,
-    //    "lastModifiedTime" : 1465374445593,
-    //    "operatorId" : "OP0060667224",
-    //    "type" : "s1.fast",
-    //    "apn" : "soracom-sandbox.io",
-    //    "createdTime" : 1465374445530,
-    //    "terminationEnabled" : false,
-    //    "serialNumber" : "TS2142687158193",
-    //    "groupId" : null,
-    //    "expiryTime" : null,
-    //    "lastModifiedAt" : 1465374445593,
-    //    "msisdn" : "999949175086",
-    //    "expiredAt" : null
-    //    }
+    // Implementation is provided by auto-generated superclass.
 }
 
 public typealias SubscriberList = [Subscriber]

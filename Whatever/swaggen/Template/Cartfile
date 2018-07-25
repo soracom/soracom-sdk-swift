@@ -1,3 +1,0 @@
-{% for dependency in options.dependencies %}
-github "{{ dependency.github }}" ~> {{ dependency.version }}
-{% endfor %}

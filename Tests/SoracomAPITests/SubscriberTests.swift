@@ -15,7 +15,7 @@ import XCTest
 class SubscriberTests: BaseTestCase {
     
     func test_serialize() {
-        let s  = Subscriber(ipAddress: "1.2.3.4", speedClass: "s1.fast", imsi: "8675309", status:"ready")
+        let s  = Subscriber(imsi: "8675309", ipAddress: "1.2.3.4", speedClass: "s1.fast", status:"ready")
         
         guard let s2 = roundTripSerializeDeserialize(s) as? Subscriber else {
             XCTFail()
@@ -29,9 +29,9 @@ class SubscriberTests: BaseTestCase {
     
     func test_serialize_list() {
         
-        let a  = Subscriber(ipAddress: "1.2.3.4", speedClass: "s1.fast", imsi: "8675309", status:"ready")
-        let b  = Subscriber(ipAddress: "2.3.4.5", speedClass: "s1.fast", imsi: "8675310", status:"ready")
-        let c  = Subscriber(ipAddress: "3.4.5.6", speedClass: "s1.fast", imsi: "8675311", status:"ready")
+        let a  = Subscriber(imsi: "8675309", ipAddress: "1.2.3.4", speedClass: "s1.fast", status:"ready")
+        let b  = Subscriber(imsi: "8675310", ipAddress: "2.3.4.5", speedClass: "s1.fast", status:"ready")
+        let c  = Subscriber(imsi: "8675311", ipAddress: "3.4.5.6", speedClass: "s1.fast", status:"ready")
         
 
         

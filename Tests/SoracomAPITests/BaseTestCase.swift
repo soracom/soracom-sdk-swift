@@ -130,17 +130,31 @@ class BaseTestCase: XCTestCase {
     
     // MARK: - Round-trip serialization testing conveniences
     
+    func roundTripSerializeDeserialize<T: Codable>(_ obj: T, caller: StaticString = #function) -> T? {
+        
+        guard let encoded = obj.toData() else {
+            XCTFail("roundTripSerializeDeserialize: failed to encode: \(obj)")
+            return nil
+        }
+        guard let decoded = T.from(encoded) else {
+            XCTFail("roundTripSerializeDeserialize: failed to decode: \(encoded.utf8String ?? "no JSON!")")
+            return nil
+        }
+        XCTAssertEqual(encoded, decoded.toData())
+        return decoded
+    }
+    
     /// Encode`payload` as JSON, then initializes a new Payload instance with that JSON data. Asserts the newly-decoded payload emits identical JSON, failing otherwise. Returns the new decoded Payload instance. (This is a convenience for writing tests for model object serialization.)
     
-    func roundTripSerializeDeserialize(_ payload: Payload, caller: StaticString = #function) -> Payload? {
+    func roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION(_ payload: Payload, caller: StaticString = #function) -> Payload? {
         
         guard let data = payload.toJSONData() else {
-            XCTFail("roundTripSerializeDeserialize: failed to encode: \(payload)")
+            XCTFail("roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION: failed to encode: \(payload)")
             return nil
         }
         
         guard let decodedPayload = try? Payload(data: data) else {
-            XCTFail("roundTripSerializeDeserialize: failed to decode: \(data.utf8String ?? "no JSON!")")
+            XCTFail("roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION: failed to decode: \(data.utf8String ?? "no JSON!")")
             return nil
         }
         
@@ -153,7 +167,7 @@ class BaseTestCase: XCTestCase {
     
     /// Encodes `obj` as a Payload, converts that to JSON data, creates a new Payload by decoding that JSON data, instantiates a new object from that new payload, and returns it. (This is a convenience for writing tests for model object serialization.) Explicitly doesn't allow comparison of `Payload` objects which fail to encode (i.e. where `toJSONData()` returns `nil`).
     
-    func roundTripSerializeDeserialize(_ obj: Codable) -> Codable? {
+    func roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION(_ obj: Codable) -> Codable? {
         
         let payload = obj.toPayload()
         

@@ -18,7 +18,7 @@ class BeamStatsTests: BaseTestCase {
         
         let s  = BeamStats(inHttp: 1, inMqtt: 2, inTcp: 3, inUdp: 4, outHttp: 5, outHttps: 6, outMqtt: 7, outMqtts: 8, outTcp: 9, outTcps: 10, outUdp: 11)
         
-        guard let s2 = roundTripSerializeDeserialize(s) as? BeamStats else {
+        guard let s2 = roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION(s) as? BeamStats else {
             XCTFail()
             return
         }

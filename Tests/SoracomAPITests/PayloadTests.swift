@@ -259,8 +259,8 @@ class PayloadTests: BaseTestCase {
 //        let decoded = Payload(data: encoded)
         
         
-        guard let p2 = roundTripSerializeDeserialize(p)?.toPayload() else {
-            XCTFail("roundTripSerializeDeserialize() failed for \(p)")
+        guard let p2 = roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION(p)?.toPayload() else {
+            XCTFail("roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION() failed for \(p)")
             return
         }
         guard let amount = p2[.amount] as? Int, let unixtime = p2[.unixtime] as? Int else {

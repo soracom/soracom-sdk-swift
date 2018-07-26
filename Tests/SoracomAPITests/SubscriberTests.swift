@@ -17,7 +17,7 @@ class SubscriberTests: BaseTestCase {
     func test_serialize() {
         let s  = Subscriber(imsi: "8675309", ipAddress: "1.2.3.4", speedClass: "s1.fast", status:"ready")
         
-        guard let s2 = roundTripSerializeDeserialize(s) as? Subscriber else {
+        guard let s2 = roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION(s) as? Subscriber else {
             XCTFail()
             return
         }
@@ -37,7 +37,7 @@ class SubscriberTests: BaseTestCase {
         
         let outgoing = Payload(list: [a,b,c])
         
-        guard let incoming = roundTripSerializeDeserialize(outgoing),
+        guard let incoming = roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION(outgoing),
               let list = Subscriber.listFrom(incoming.toPayload())
         else {
             XCTFail()

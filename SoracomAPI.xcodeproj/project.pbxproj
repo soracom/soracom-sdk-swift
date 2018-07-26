@@ -337,7 +337,6 @@
 		OBJ_112 /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* NSDate+SoracomAPI.swift */; };
 		OBJ_113 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* Payload.swift */; };
 		OBJ_115 /* PayloadKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* PayloadKey.swift */; };
-		OBJ_116 /* PaymentMethodInfoWebPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* PaymentMethodInfoWebPay.swift */; };
 		OBJ_117 /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* Request+Auth.swift */; };
 		OBJ_118 /* Request+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* Request+Credentials.swift */; };
 		OBJ_119 /* Request+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* Request+Group.swift */; };
@@ -739,7 +738,6 @@
 		OBJ_27 /* NSDate+SoracomAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDate+SoracomAPI.swift"; sourceTree = "<group>"; };
 		OBJ_28 /* Payload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
 		OBJ_30 /* PayloadKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadKey.swift; sourceTree = "<group>"; };
-		OBJ_31 /* PaymentMethodInfoWebPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodInfoWebPay.swift; sourceTree = "<group>"; };
 		OBJ_32 /* Request+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Auth.swift"; sourceTree = "<group>"; };
 		OBJ_33 /* Request+Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Credentials.swift"; sourceTree = "<group>"; };
 		OBJ_34 /* Request+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Group.swift"; sourceTree = "<group>"; };
@@ -1238,7 +1236,6 @@
 				OBJ_26 /* KeyedEncodingContainer+Payload.swift */,
 				OBJ_27 /* NSDate+SoracomAPI.swift */,
 				OBJ_28 /* Payload.swift */,
-				OBJ_31 /* PaymentMethodInfoWebPay.swift */,
 				OBJ_30 /* PayloadKey.swift */,
 				OBJ_32 /* Request+Auth.swift */,
 				OBJ_33 /* Request+Credentials.swift */,
@@ -1622,7 +1619,6 @@
 				93FCBE222108671800E70F75 /* _LagoonUserPermissionUpdatingRequest.swift in Sources */,
 				93FCBE9F2108671900E70F75 /* _IssuePasswordResetTokenRequest.swift in Sources */,
 				93FCBE6D2108671900E70F75 /* _SessionEvent.swift in Sources */,
-				OBJ_116 /* PaymentMethodInfoWebPay.swift in Sources */,
 				93FCBE4C2108671900E70F75 /* _ListPaymentStatementResponse.swift in Sources */,
 				OBJ_117 /* Request+Auth.swift in Sources */,
 				93FCBE662108671900E70F75 /* _GroupConfigurationUpdateRequest.swift in Sources */,

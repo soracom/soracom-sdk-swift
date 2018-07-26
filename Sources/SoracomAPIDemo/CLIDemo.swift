@@ -51,10 +51,10 @@ open class CLIDemo {
      */
     open func registerPaymentMethod() {
         
-        let paymentMethodInfo = PaymentMethodInfoWebPay(cvc: "123", expireMonth: 12, expireYear: 2020, name: "SORAO TAMAGAWA", number: "4242424242424242")
+        let card = CreditCard(cvc: "123", expireMonth: 12, expireYear: 2020, name: "SORAO TAMAGAWA", number: "4242424242424242")
           // This fake credit card info comes from the API Sandbox docs.
         
-        let registerResponse     = Request.registerWebPayPaymentMethod(paymentMethodInfo).wait()
+        let registerResponse     = Request.registerWebPayPaymentMethod(card).wait()
         let authenticateResponse = Request.auth().wait()
           // We need to authenticate again after adding a payment method. We don't need to specify the credentials because this app only uses the single default stored set of credentials.
         

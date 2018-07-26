@@ -4,17 +4,14 @@ extension Request {
 
     /// Register credit card information. ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Payment/registerWebPayPaymentMethod))
     
-    public class func registerWebPayPaymentMethod(_ info: PaymentMethodInfoWebPay, responseHandler: ResponseHandler? = nil) -> Request {
-        let req = self.init("/payment_methods/webpay", responseHandler: responseHandler)
-        req.payload = [
-            .cvc         : info.cvc,
-            .expireMonth : info.expireMonth,
-            .expireYear  : info.expireYear,
-            .name        : info.name,
-            .number      : info.number,
-        ]
+    public class func registerWebPayPaymentMethod(_ info: CreditCard, responseHandler: ResponseHandler? = nil) -> Request {
         
-        req.expectedHTTPStatus = 201 // FIXME: file a bug against the API docs; they say 200 OK is returned on success, but it's really 201 CREATED.
+        let req = self.init("/payment_methods/webpay", responseHandler: responseHandler)
+        
+        req.messageBody = info.toData()
+        
+        req.expectedHTTPStatus = 201
+            // FIXME: file a bug against the API docs; they say 200 OK is returned on success, but it's really 201 CREATED.
         return req
     }
 

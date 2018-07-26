@@ -6,20 +6,17 @@ extension Request {
     
     /// Register a new operator. In the sandbox environment, this is one of the first steps that needs to be done. ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Operator/createOperator))
     
-    public class func createOperator(_ email: String, password: String, coverageTypes: [String:String]? = nil, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func createOperator(_ email: String, password: String, coverageTypes: [String]? = nil, responseHandler: ResponseHandler? = nil) -> Request {
         
         let req = self.init("/operators", responseHandler: responseHandler)
         
-        let payload: Payload = [
-            .email    : email,
-            .password : password,
-        ]
-        
+        let requestObject = RegisterOperatorsRequest(email: email, password: password, coverageTypes: coverageTypes)
         if let coverageTypes = coverageTypes {
-            payload[.coverageTypes] = coverageTypes
+            requestObject.coverageTypes = coverageTypes
         }
-        
-        req.payload = payload
+
+        req.messageBody = requestObject.toData()
+
         req.shouldSendAPIKeyAndTokenInHTTPHeaders = false
         req.expectedHTTPStatus = 201
         
@@ -50,8 +47,8 @@ extension Request {
         
         let req = self.init("/operators/verify", responseHandler: responseHandler)
         
+        req.messageBody = VerifyOperatorsRequest(token: token).toData()
         req.shouldSendAPIKeyAndTokenInHTTPHeaders = false
-        req.payload = [.token: token]
         return req
     }
     
@@ -63,7 +60,7 @@ extension Request {
         let req = self.init("/operators/\(operatorId)/coverage_type/\(coverageType.rawValue)/signup", responseHandler: responseHandler)
         
         req.shouldSendAPIKeyAndTokenInHTTPHeaders = true
-        // no req.payload
+        // no message body
         return req
     }
 

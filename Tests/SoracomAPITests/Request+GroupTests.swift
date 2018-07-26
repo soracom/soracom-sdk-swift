@@ -107,7 +107,7 @@ class RequestGroupTests: BaseTestCase {
     
     func test_groupConfigurationParameters() {
         
-        var group = createGroup()
+        let group = createGroup()
         
         guard let groupId = group?.groupId else {
             XCTFail("failed to get groupId")
@@ -131,7 +131,7 @@ class RequestGroupTests: BaseTestCase {
             return
         }
         let refetchedGroup = Group.from(data)
-        print(refetchedGroup)
+        print(refetchedGroup ?? "oh noes")
         
         // FIXME: the asserts below fail. There is either something wrong with our code generation, or else a problem with the Swagger API spec. Group.configuration should be [String: [String:String]] not [String:String]. Disabling this test because it is out of scope for current work, but should investigate and fix this.
         

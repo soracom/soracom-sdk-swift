@@ -4,6 +4,34 @@ import Foundation
 
 public class RegisterOperatorsRequest: _RegisterOperatorsRequest {
 
+    open var coverageTypes: [String]?
+    
+    
+    private enum CodingKeys: String, CodingKey {
+        case coverageTypes
+    }
+    
+    public init(email: String, password: String, coverageTypes: [String]?) {
+        super.init(email: email, password: password)
+        self.coverageTypes = coverageTypes
+    }
+
+    public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        coverageTypes = try container.decode(.coverageTypes)
+    }
+    
+    open override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder)
+
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        if let coverageTypes = coverageTypes {
+            try container.encode(coverageTypes, forKey: .coverageTypes)
+        }
+    }
+
     // The base implementation for this class is provided by the
     // auto-generated superclass (_RegisterOperatorsRequest).
     //

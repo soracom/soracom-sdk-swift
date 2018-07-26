@@ -48,6 +48,7 @@ import Dispatch
 
 open class Request {
     
+    
     /// The host name of the production Soracom API server endpoint.
     
     static let productionEndpointHost = "api.soracom.io"
@@ -122,6 +123,9 @@ open class Request {
     /// Many API requests have a payload of keys and values that are sent to the server in the HTTP body of the request. The `payload` property contains those values. (It is not normally necessary to explicitly set this property, because it will happen automatically when using the one of the convenience methods for creating a request.) This list will be converted to a JSON object when being sent to the server.
     
     var payload: Payload?
+    
+    
+    var messageBody: Data?
     
     
     /// The URL path, e.g. "/operators/verify". (It is not normally necessary to explicitly set this property, because it will happen automatically when using the one of the convenience methods for creating a request.)
@@ -377,8 +381,17 @@ open class Request {
         
         request.httpMethod = self.method.rawValue
         
-        if let payload = payload
-        {
+        if let messageBody = messageBody {
+            
+            // New preferred way; the obsolete Payload class is going away mason 2018-07-26
+            
+            request.httpBody = messageBody;
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        } else if let payload = payload {
+            
+            // Obsolete way; this will go away! But, code coversion is currently in progress. mason 2018-07-26
+            
             request.httpBody =  payload.toJSONData() ?? Data() // FIXME: set error and fail if payload can't make JSON data
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }

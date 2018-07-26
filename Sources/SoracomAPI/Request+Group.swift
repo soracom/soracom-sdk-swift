@@ -131,14 +131,16 @@ extension Request {
         req.method = .put
         req.expectedHTTPStatus = 200
         
-        var tagList: TagList = []
+        var tagList: [TagUpdateRequest] = []
         
         for (k,v) in tags {
-            let tag: Tag = [k:v]
-            tagList.append(tag)
+            let tagUpdateRequest = TagUpdateRequest(tagName: k, tagValue: v)
+            tagList.append(tagUpdateRequest)
         }
         
-        req.payload = Payload(tagList: tagList)
+        // req.payload = Payload(tagList: [TagUpdateRequest])
+        
+        req.messageBody = tagList.toData()
         
         return req
     }

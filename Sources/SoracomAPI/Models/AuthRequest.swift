@@ -4,6 +4,24 @@ import Foundation
 
 public class AuthRequest: _AuthRequest {
 
+    convenience init?(from credentials: SoracomCredentials) {
+        self.init()
+        switch credentials.type {
+        case .RootAccount:
+            email = credentials.emailAddress
+            password = credentials.password
+        case .SAM:
+            operatorId = credentials.operatorID
+            userName = credentials.username
+            password = credentials.password
+        case .AuthKey:
+            authKey = credentials.authKeySecret
+            authKeyId = credentials.authKeyID
+        case .KeyAndToken:
+            return nil
+        }
+    }
+    
     // The base implementation for this class is provided by the
     // auto-generated superclass (_AuthRequest).
     //

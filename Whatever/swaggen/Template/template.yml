@@ -5,7 +5,7 @@ options:
   mutableModels: true # whether model properties are mutable
   safeOptionalDecoding: true # set invalid optionals to nil instead of throwing
   safeArrayDecoding: true # filter out invalid items in array instead of throwing
-  modelPrefix: _ # applied to model classes and enums
+  modelPrefix: _ # applied to model classes and enums # Mason 2018-07-26 underscore doesn't work here so we do it in the template
   modelSuffix: null # applied to model classes
   modelType: class # can be struct or class
   modelInheritance: true # must be false for struct modelType

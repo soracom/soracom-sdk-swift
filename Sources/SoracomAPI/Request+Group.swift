@@ -6,7 +6,7 @@ extension Request {
 
     /// Returns a list of groups. [API docs](https://dev.soracom.io/en/docs/api/#!/Group/listGroups)
     
-    public class func listGroups(_ tagName: String?             = nil,
+    public class func listGroups(_ tagName: String?           = nil,
                                 tagValue: String?             = nil,
                        tagValueMatchMode: TagValueMatchMode?  = nil,
                                    limit: Int?                = nil,
@@ -38,9 +38,7 @@ extension Request {
             tags["name"] = name
         }
         
-        req.payload = [
-            .tags: tags,
-        ]
+        req.messageBody = CreateGroupRequest(tags: tags).toData()
         
         req.expectedHTTPStatus = 201
         
@@ -90,13 +88,13 @@ extension Request {
     
     /// Adds/updates parameters for the specified group. [API docs](https://dev.soracom.io/en/docs/api/#!/Group/putConfigurationParameters)
     
-    public class func putConfigurationParameters(_ groupId: String, namespace: ConfigurationParametersNamespace, parameters: ConfigurationParameterList, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func putConfigurationParameters(_ groupId: String, namespace: ConfigurationParametersNamespace, parameters: [_GroupConfigurationUpdateRequest], responseHandler: ResponseHandler? = nil) -> Request {
         
         let req    = self.init("/groups/\(groupId)/configuration/\(namespace.rawValue)", responseHandler: responseHandler)
         req.method = .put
         req.expectedHTTPStatus = 200
         
-        req.payload = Payload(configurationParameterList: parameters)
+        req.messageBody = parameters.toData()
 
         return req
     }
@@ -137,8 +135,6 @@ extension Request {
             let tagUpdateRequest = TagUpdateRequest(tagName: k, tagValue: v)
             tagList.append(tagUpdateRequest)
         }
-        
-        // req.payload = Payload(tagList: [TagUpdateRequest])
         
         req.messageBody = tagList.toData()
         

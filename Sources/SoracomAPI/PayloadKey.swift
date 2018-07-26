@@ -165,6 +165,8 @@ public enum PayloadKey: String, Codable, CodingKey {
     case shippingCostList
     case shippingLabelNumber
     case size
+    case SoracomAir
+    case SoracomBeam
     case speedClass
     case state
     case status

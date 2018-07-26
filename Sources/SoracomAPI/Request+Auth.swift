@@ -22,37 +22,14 @@ extension Request {
         
         req.credentials = credentials ?? SoracomCredentials.defaultSavedCredentials()
         
-        if req.credentials.type == .RootAccount {
-            
-            req.payload = [
-                .email               : req.credentials.emailAddress,
-                .password            : req.credentials.password,
-                .tokenTimeoutSeconds : timeout
-            ]
-            
-        } else if req.credentials.type == .SAM {
-            
-            req.payload = [
-                .operatorId          : req.credentials.operatorID,
-                .userName            : req.credentials.username,
-                .password            : req.credentials.password,
-                .tokenTimeoutSeconds : timeout
-            ]
-            
-        } else if req.credentials.type == .AuthKey {
-            
-            req.payload = [
-                .authKey             : req.credentials.authKeySecret,
-                .authKeyId           : req.credentials.authKeyID,
-                .tokenTimeoutSeconds : timeout
-            ]
-            
-        } else {
-            
+        guard let requestObject = AuthRequest(from: req.credentials) else {
             fatalError("unsupported auth type other than RootAccount, SAM, or AuthKey. ")
-            // FIXME: fatalError is a little extreme bro... just make the request error. 
+            // FIXME: fatalError is a little extreme bro... just make the request error.
         }
         
+        requestObject.tokenTimeoutSeconds = timeout
+        req.messageBody = requestObject.toData()
+
         req.shouldSendAPIKeyAndTokenInHTTPHeaders = false // is auth() the only false case?
         
         return req
@@ -64,9 +41,7 @@ extension Request {
     public class func issuePasswordResetToken(_ email: String, responseHandler: ResponseHandler? = nil) -> Request {
         
         let req = self.init("/auth/password_reset_token/issue", responseHandler: responseHandler)
-        req.payload = [
-            .email: email
-        ]
+        req.messageBody = IssuePasswordResetTokenRequest(email: email).toData()
         return req
     }
     
@@ -76,10 +51,7 @@ extension Request {
     public class func verifyPasswordResetToken(_ password: String, token: String, responseHandler: ResponseHandler? = nil) -> Request {
         
         let req = self.init("/auth/password_reset_token/verify", responseHandler: responseHandler)
-        req.payload = [
-            .password : password,
-            .token    : token,
-        ]
+        req.messageBody = VerifyPasswordResetTokenRequest(password: password, token: token).toData()
         return req
     }
 

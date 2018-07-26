@@ -67,22 +67,15 @@ class APIOperationTests: BaseTestCase {
             let valFromFuture = values.last ?? "test bug"
             XCTAssertEqual(valFromFuture, COM0008)
             
+            // create fake creds that use the value from the first op as the email/password:
             let credentialsBasedOnPreviousOperation = SoracomCredentials(type: .RootAccount, emailAddress: valFromFuture, password: valFromFuture)
             
             return Request.auth(credentialsBasedOnPreviousOperation) { (response: Response) in
                 
                 values.append("second operation did run")
                 
-                let payload = response.request.payload
-                
-                if let email    = payload?[.email] as? String,
-                   let password = payload?[.password] as? String
-                {
-                    XCTAssertEqual(email, COM0008)
-                    XCTAssertEqual(password, COM0008)
-                } else {
-                    XCTFail("Operation's request should have used value from previous request for email and password. (Instead: \(String(describing: payload))")
-                }
+                XCTAssertEqual(response.request.credentials.emailAddress, COM0008)
+                XCTAssertEqual(response.request.credentials.password, COM0008)
                 self.endAsyncSection()
             }
 

@@ -40,8 +40,8 @@ class RequestCredentialsTests: BaseTestCase {
     func test_CRUD_credentials() {
         
         let junk    = UUID().uuidString
-        let creds   = Credentials(accessKeyId: "foo", secretAccessKey: "bar")
-        var options = CredentialOptions(type: "aws-credentials", description: "test_CRUD_credentials", credentials: creds)
+        let creds   = ["accessKeyId": "foo", "secretAccessKey": "bar"]
+        let options = CreateAndUpdateCredentialsModel(credentials: creds, description: "test_CRUD_credentials", type: .awsCredentials)
         
         // CREATE:
         let createRequest  = Request.createCredential(id: junk, options: options)
@@ -49,12 +49,12 @@ class RequestCredentialsTests: BaseTestCase {
         
         XCTAssertNil(createResponse.error)
         
-        let created = Credential.from(createResponse.payload)
+        let created = CredentialsModel.from(createResponse.payload)
         
         XCTAssertNotNil(created)
         XCTAssertNotNil(created?.credentials)
         XCTAssertEqual("test_CRUD_credentials", created?.description)
-        XCTAssertEqual("foo", created?.credentials?.accessKeyId)
+        XCTAssertEqual("foo", created?.credentials?["accessKeyId"] as? String)
         XCTAssertEqual(junk, created?.credentialsId)
         
         XCTAssertNotNil(findCredential(junk))
@@ -79,12 +79,12 @@ class RequestCredentialsTests: BaseTestCase {
     }
     
     
-    func listCredentials() -> [Credential]? {
+    func listCredentials() -> [CredentialsModel]? {
         
         let listRequest  = Request.listCredentials()
         let listResponse = listRequest.wait()
         
-        guard let credList = Credential.listFrom(listResponse.payload) else {
+        guard let credList = CredentialsModel.listFrom(listResponse.payload) else {
             XCTFail()
             return nil
         }
@@ -93,14 +93,14 @@ class RequestCredentialsTests: BaseTestCase {
     }
     
     
-    func findCredential(_ id: String) -> Credential? {
+    func findCredential(_ id: String) -> CredentialsModel? {
         
         guard let list = listCredentials() else {
             XCTFail()
             return nil
         }
         
-        var found: Credential? = nil
+        var found: CredentialsModel? = nil
         
         for cred in list {
             if cred.credentialsId == id {

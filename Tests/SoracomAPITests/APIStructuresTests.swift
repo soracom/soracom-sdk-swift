@@ -69,31 +69,28 @@ class APIStructuresTests: BaseTestCase {
         
         // This test predates our serialization testing convenience methods.
         
-        var foo = Credential()
+        let foo = CredentialsModel()
         foo.createDateTime   = 666
-        foo.credentials      = Credentials(accessKeyId: "access key bro", secretAccessKey: "secret bro")
+        foo.credentials      = ["accessKeyId": "access key bro", "secretAccessKey": "secret bro"]
         foo.credentialsId    = "credentials ID bro"
         foo.description      = "description bro"
         foo.lastUsedDateTime = 666
-        foo.type             = "type bro"
+        foo.type             = .awsCredentials
         foo.updateDateTime   = 666
         
-        guard let encoded = foo.toPayload().toJSON()?.data(using: String.Encoding.utf8) else {
-            XCTFail()
-            return
-        }
-        
-        guard let payload = try? Payload(data: encoded),  let decoded = Credential.from(payload) else {
+        guard let encoded = foo.toData(),
+              let decoded = CredentialsModel.from(encoded)
+        else {
             XCTFail()
             return
         }
         
         XCTAssert(decoded.createDateTime == 666)
-        XCTAssert(decoded.credentials?.accessKeyId == "access key bro")
-        XCTAssert(decoded.credentials?.secretAccessKey == "secret bro")
+        XCTAssert(decoded.credentials?["accessKeyId"] as? String == "access key bro")
+        XCTAssert(decoded.credentials?["secretAccessKey"] as? String  == "secret bro")
         XCTAssert(decoded.description == "description bro")
         XCTAssert(decoded.lastUsedDateTime == 666)
-        XCTAssert(decoded.type == "type bro")
+        XCTAssert(decoded.type == .awsCredentials)
         XCTAssert(decoded.updateDateTime == 666)
     }
     

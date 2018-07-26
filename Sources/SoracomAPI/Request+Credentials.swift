@@ -31,7 +31,7 @@ extension Request {
     
     /// Creates a new credential. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/createCredential)
     
-    public class func createCredential(id: String, options: CredentialOptions, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func createCredential(id: String, options: CreateAndUpdateCredentialsModel, responseHandler: ResponseHandler? = nil) -> Request {
         
         let safeComponent = id.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
@@ -40,14 +40,14 @@ extension Request {
         
         req.expectedHTTPStatus = 201
         req.method             = .post
-        req.payload            = options.toPayload()
+        req.messageBody        = options.toData()
         return req
     }
     
     
     /// Updates a credential. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/updateCredential)
     
-    public class func updateCredential(id: String, options: CredentialOptions, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func updateCredential(id: String, options: CreateAndUpdateCredentialsModel, responseHandler: ResponseHandler? = nil) -> Request {
         
         let safeComponent = id.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
@@ -56,7 +56,7 @@ extension Request {
         
         req.expectedHTTPStatus = 200
         req.method             = .put
-        req.payload            = options.toPayload()
+        req.messageBody        = options.toData()
         return req
     }
     

@@ -328,7 +328,6 @@
 		OBJ_101 /* ConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* ConfigurationParameter.swift */; };
 		OBJ_102 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Constants.swift */; };
 		OBJ_103 /* CoverageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* CoverageType.swift */; };
-		OBJ_104 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Credential.swift */; };
 		OBJ_105 /* Data+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* Data+SoracomAPI.swift */; };
 		OBJ_106 /* DataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* DataTrafficStats.swift */; };
 		OBJ_108 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* HTTPMethod.swift */; };
@@ -731,7 +730,6 @@
 		OBJ_16 /* ConfigurationParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationParameter.swift; sourceTree = "<group>"; };
 		OBJ_17 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		OBJ_18 /* CoverageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageType.swift; sourceTree = "<group>"; };
-		OBJ_19 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		OBJ_20 /* Data+SoracomAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+SoracomAPI.swift"; sourceTree = "<group>"; };
 		OBJ_21 /* DataTrafficStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTrafficStats.swift; sourceTree = "<group>"; };
 		OBJ_23 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -1232,7 +1230,6 @@
 				OBJ_16 /* ConfigurationParameter.swift */,
 				OBJ_17 /* Constants.swift */,
 				OBJ_18 /* CoverageType.swift */,
-				OBJ_19 /* Credential.swift */,
 				OBJ_20 /* Data+SoracomAPI.swift */,
 				OBJ_21 /* DataTrafficStats.swift */,
 				OBJ_23 /* HTTPMethod.swift */,
@@ -1561,7 +1558,6 @@
 				93FCBCDE210866F100E70F75 /* APIKeyResponse.swift in Sources */,
 				93FCBD50210866F100E70F75 /* EstimatedOrderModel.swift in Sources */,
 				93FCBE372108671900E70F75 /* _GetOrderResponse.swift in Sources */,
-				OBJ_104 /* Credential.swift in Sources */,
 				93FCBE632108671900E70F75 /* _GatePeer.swift in Sources */,
 				OBJ_105 /* Data+SoracomAPI.swift in Sources */,
 				93FCBE1C2108671800E70F75 /* _RegisterPayerInformationModel.swift in Sources */,

@@ -99,20 +99,12 @@ class APIStructuresTests: BaseTestCase {
     
     
     func test_AuthResponse_init() {
+
         let good: Payload = [
             .apiKey     : "some key",
             .token      : "some token value",
             .operatorId : "OP666",
         ]
-        
-        let bad: Payload = [
-            .token      : "some token value",
-            .operatorId : "OP666",
-        ]
-        
-        let bogus = AuthResponse.from(bad)
-        
-        XCTAssertNil( bogus )
         
         let a = AuthResponse.from(good)
         

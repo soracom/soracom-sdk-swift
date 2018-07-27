@@ -37,7 +37,7 @@ class RegisterSIMTests: BaseTestCase {
         registerSubscriber(subscriber.IMSI, registrationSecret: subscriber.registrationSecret)
           // Finally, register the SIM!
         
-        updateSpeedClass(subscriber.IMSI, speedClass: .s1_fast)
+        updateSpeedClass(subscriber.IMSI, speedClass: .s1Fast)
         
         let list = listSubscribers()
         
@@ -121,7 +121,7 @@ class RegisterSIMTests: BaseTestCase {
     
     /// Update the speed class.
     
-    func updateSpeedClass(_ imsi: String, speedClass: SpeedClass) {
+    func updateSpeedClass(_ imsi: String, speedClass: _UpdateSpeedClassRequest.SpeedClass) {
 
         _ = beginAsyncSection()
         

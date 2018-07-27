@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		93AF77C1210AAD4C008D1BEF /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF77C0210AAD4C008D1BEF /* Metrics.swift */; };
 		93FCBC3E210866F100E70F75 /* AuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBB0E210866F000E70F75 /* AuthRequest.swift */; };
 		93FCBC3F210866F100E70F75 /* SetGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBB0F210866F000E70F75 /* SetGroupRequest.swift */; };
 		93FCBC40210866F100E70F75 /* PaymentAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FCBB10210866F000E70F75 /* PaymentAmount.swift */; };
@@ -418,6 +419,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		93AF77C0210AAD4C008D1BEF /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		93FCBB0E210866F000E70F75 /* AuthRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRequest.swift; sourceTree = "<group>"; };
 		93FCBB0F210866F000E70F75 /* SetGroupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetGroupRequest.swift; sourceTree = "<group>"; };
 		93FCBB10210866F000E70F75 /* PaymentAmount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentAmount.swift; sourceTree = "<group>"; };
@@ -1251,6 +1253,7 @@
 				OBJ_43 /* SoracomCredentials.swift */,
 				OBJ_46 /* TextStyle.swift */,
 				OBJ_47 /* UnkeyedEncodingContainer+Payload.swift */,
+				93AF77C0210AAD4C008D1BEF /* Metrics.swift */,
 			);
 			name = SoracomAPI;
 			path = Sources/SoracomAPI;
@@ -1740,6 +1743,7 @@
 				93FCBD3D210866F100E70F75 /* SigfoxDevice.swift in Sources */,
 				93FCBD55210866F100E70F75 /* LagoonUserEmailUpdatingRequest.swift in Sources */,
 				93FCBD09210866F100E70F75 /* RegisterGatePeerRequest.swift in Sources */,
+				93AF77C1210AAD4C008D1BEF /* Metrics.swift in Sources */,
 				93FCBE652108671900E70F75 /* _LagoonUserCreationResponse.swift in Sources */,
 				93FCBD2F210866F100E70F75 /* EnableMFAOTPResponse.swift in Sources */,
 				OBJ_131 /* TextStyle.swift in Sources */,

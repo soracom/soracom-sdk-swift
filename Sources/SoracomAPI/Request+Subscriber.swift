@@ -31,7 +31,7 @@ extension Request {
         
         let req = self.init("/subscribers/\(imsi)/register", responseHandler: responseHandler)
         
-        req.payload = [.registrationSecret: registrationSecret]
+        req.messageBody = RegisterSubscribersRequest(registrationSecret: registrationSecret).toData()
         
         // FIXME: groupId and tags
         
@@ -55,11 +55,13 @@ extension Request {
     
     /// Update speed class of a subscriber (a SIM). ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Subscriber/updateSpeedClass))
     
-    public class func updateSpeedClass(_ imsi: String, speedClass: SpeedClass, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func updateSpeedClass(_ imsi: String, speedClass: _UpdateSpeedClassRequest.SpeedClass, responseHandler: ResponseHandler? = nil) -> Request {
+        
+        // FIXME: the _UpdateSpeedClassRequest.SpeedClass thing there is gross... how to handle?
 
         let req = self.init("/subscribers/\(imsi)/update_speed_class", responseHandler: responseHandler)
         
-        req.payload = [.speedClass: speedClass.rawValue]
+        req.messageBody = UpdateSpeedClassRequest(speedClass: speedClass).toData()
         req.expectedHTTPStatus = 200
         return req
     }
@@ -71,12 +73,12 @@ extension Request {
         
         req.method = .post
         
-        if let imei = imei {
-            req.payload = [.imei: imei]
-        }
+        req.messageBody = SetImeiLockRequest(imei: imei).toData()
+        
         req.expectedHTTPStatus = 200
         return req
     }
+    
     
     public class func unsetImeiLock(imsi: String, responseHandler: ResponseHandler? = nil) -> Request {
         
@@ -86,8 +88,5 @@ extension Request {
         req.expectedHTTPStatus = 200
         return req
     }
-    
-    
-
     
 }

@@ -2,46 +2,11 @@
 
 import Foundation
 
-/// Response represents the result of an API call, which is typically the response by the Soracom API server, but might instead be an error.
-///
-/// There are three basic failure modes:
-/// - the API returns an error/failure
-/// - the client app encountered a local error trying to access the API (e.g., network not available)
-/// - the client failed to parse the response (indicating a bug in either the client (this SDK) or the API server)
-///
-/// If no error occurs, this object provides access to the response data from the API server.
-///
-/// This object also provides information about whether an error (of any of the types above) occurred, and provides access to the error.
+open class BaseResponse {
+    
+    public let baseRequest: BaseRequest
+    
 
-public struct Response {
-    
-    /// The normal way that Response objects are instantiated (by Request). Outside of testing, it would be unusual to need to manually init a Response.
-    
-    public init(request: Request, underlyingURLResponse: HTTPURLResponse?, data: Data? = nil, underlyingError: NSError? = nil ) {
-        
-        self.request               = request
-        self.underlyingURLResponse = underlyingURLResponse
-        self.data                  = data
-        
-        if let err = underlyingError {
-            _error = APIError(underlyingError: err)
-        }
-    }
-    
-    
-    /// Init a Response with an error. This is for when a response object is required, but an error occurs on the client side before an actual HTTP response can be obtained.
-    
-    public init(error: APIError) {
-        self.request = Request("error") // slightly hacky, but I don't want to make path optional right now FIXME do it bro
-        self._error   = error
-    }
-    
-    
-    /// The originating `Request` instance, for which the receiver is a matched pair. The request has the details about what was requested and what the expectations were, while the result has the details of what actually came back from the sever (or what error occurred).
-    
-    public let request: Request
-    
-    
     /// The underlying system response object (which exposes some details like HTTP headers, HTTP version, etc). This object should always be present upon success, but may be nil when some kind of error has occurred (or in automated testing scenarios).
     
     public var underlyingURLResponse: HTTPURLResponse?
@@ -67,7 +32,21 @@ public struct Response {
     public var HTTPStatus: Int? {
         return underlyingURLResponse?.statusCode
     }
+
+
     
+
+    public init(request: BaseRequest, underlyingURLResponse: HTTPURLResponse?, data: Data? = nil, underlyingError: NSError? = nil, internalError: APIError? = nil) {
+        self.baseRequest = request;
+        self.underlyingURLResponse = underlyingURLResponse
+        self.data                  = data
+        
+        if let err = underlyingError {
+            _error = APIError(underlyingError: err)
+        }
+    }
+    
+
     
     /// Creates and returns a Payload object from the HTTP response from the API server, if it included a JSON payload that could be successfully parsed.
     
@@ -85,15 +64,15 @@ public struct Response {
         
         // Mason 2016-04-12: I was going to make this somewhat efficient (not parse the dictionary every time), but making this a "mutating get"
         // caused all sorts of hassle (any func in this struct using payload had to also be marked mutating, etc...) and I think it is not worth it.
-        // (Unlike a class, a struct cannot modify a private property unless method is marked as mutating...) 
+        // (Unlike a class, a struct cannot modify a private property unless method is marked as mutating...)
         //        mutating get {
-        //            
+        //
         //            // Ah, "mutating get", my old nemesis... blecch
-        //            
+        //
         //            if _payload != nil {
         //                return _payload
         //            }
-
+        
     }
     
     
@@ -105,14 +84,14 @@ public struct Response {
             return _error
         }
         
-        guard HTTPStatus == request.expectedHTTPStatus else {
+        guard HTTPStatus == baseRequest.expectedHTTPStatus else {
             
             // The API reported an error. Let's see if we can parse this as a regular API error response, since that
             // will presumably yield a more informative error message. If not, just create a generic error here.
             // FIXME: See if we can add real err codes for client-side errs, that don't potentially conflict with API-side err codes.
             
             return APIError(payload: payload) ??
-                   APIError(code: "CLI0666", message: "got HTTP status \(String(describing: HTTPStatus)), but expected \(request.expectedHTTPStatus)")
+                APIError(code: "CLI0666", message: "got HTTP status \(String(describing: HTTPStatus)), but expected \(baseRequest.expectedHTTPStatus)")
         }
         
         guard let data = data else {
@@ -129,28 +108,34 @@ public struct Response {
         return nil
     }
     private var _error: APIError? = nil // can be set at init time, when client-side err occurs before networking
+
+}
+
+/// Response represents the result of an API call, which is typically the response by the Soracom API server, but might instead be an error.
+///
+/// There are three basic failure modes:
+/// - the API returns an error/failure
+/// - the client app encountered a local error trying to access the API (e.g., network not available)
+/// - the client failed to parse the response (indicating a bug in either the client (this SDK) or the API server)
+///
+/// If no error occurs, this object provides access to the response data from the API server.
+///
+/// This object also provides information about whether an error (of any of the types above) occurred, and provides access to the error.
+
+open class Response<T>: BaseResponse {
+    
+    /// The normal way that Response objects are instantiated (by Request). Outside of testing, it would be unusual to need to manually init a Response.
+    
+    public init(request: Request<T>, underlyingURLResponse: HTTPURLResponse?, data: Data? = nil, underlyingError: NSError? = nil, internalError: APIError? = nil) {
+        
+        self.request               = request
+        super.init(request: request, underlyingURLResponse: underlyingURLResponse, data: data, underlyingError: underlyingError, internalError: internalError)
+    }
     
     
-//    /// Internal func to check for missing keys and return an appropriate APIError if required keys are missing. Returns nil if no keys are missing. FIXME: Should be Payload's job, but that's not in yet.
-//    
-//    func getErrorIfExpectedKeysAreMissing() -> APIError? {
-//        
-//        var missingKeys: [String] = []
-//        let dict = dictionary
-//        
-//        for key in request.expectedResponseKeys {
-//            if dict?[key] == nil {
-//                missingKeys.append(key)
-//            }
-//        }
-//        if missingKeys.count > 0 {
-//            return APIError(code:"CLI0667", message: "failed to parse response: missing data for \(missingKeys.joinWithSeparator(", "))" )
-//        } else {
-//            return nil
-//        }
-//    }
-    // FIXME: the above is a busted-ass approach, but leaving a fossil here until I implement something cool (e.g., an optional validation closure that Request can specify, that will then be called on the resulting payload at response-processing time?)
+    /// The originating `Request` instance, for which the receiver is a matched pair. The request has the details about what was requested and what the expectations were, while the result has the details of what actually came back from the sever (or what error occurred).
     
+    public let request: Request<T>
 }
 
 

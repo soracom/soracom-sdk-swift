@@ -4,43 +4,12 @@ import Foundation
 
 extension Request {
     
-    /// Authenticate using one of the supported forms of credentials, and obtain an API Key and API Token for use when making subsequent requests. ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Auth/auth))
-    ///
-    /// - parameter credentials: A credentials object that can (optionally) override the default credentials. Unlike most
-    ///   API requests, which send the API Key and API Token in HTTP headers to authenticate, the `auth()` method requires
-    ///   authenticating with `.RootAccount`, `.SAM`, or `.AuthKey` credentials.
-    ///
-    ///   If no credentials are supplied, the "default" credentials, if they exist, are used. If no credentials are supplied
-    ///   and none can be found, the request will fail.
-    ///
-    /// Upon success, the Response will have a payload that can be used to initialize an AuthResponse struct, that contains the API Key and API Token.
-    
-    public class func auth(_ credentials: SoracomCredentials? = nil, responseHandler: ResponseHandler? = nil) -> Request {
-        
-        let req = self.init("/auth", responseHandler: responseHandler)
-        let timeout = 86400
-        
-        req.credentials = credentials ?? SoracomCredentials.defaultSavedCredentials()
-        
-        guard let requestObject = AuthRequest(from: req.credentials) else {
-            fatalError("unsupported auth type other than RootAccount, SAM, or AuthKey. ")
-            // FIXME: fatalError is a little extreme bro... just make the request error.
-        }
-        
-        requestObject.tokenTimeoutSeconds = timeout
-        req.messageBody = requestObject.toData()
-
-        req.shouldSendAPIKeyAndTokenInHTTPHeaders = false // is auth() the only false case?
-        
-        return req
-    }
-    
     
     /// Issue a one-time operator password reset token (sent via email). [API docs](https://dev.soracom.io/jp/docs/api/#!/Auth/issuePasswordResetToken)
     
-    public class func issuePasswordResetToken(_ email: String, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func issuePasswordResetToken(_ email: String, responseHandler: ResponseHandler<NoResponseBody>? = nil) -> Request<NoResponseBody> {
         
-        let req = self.init("/auth/password_reset_token/issue", responseHandler: responseHandler)
+        let req = Request<NoResponseBody>.init("/auth/password_reset_token/issue", responseHandler: responseHandler)
         req.messageBody = IssuePasswordResetTokenRequest(email: email).toData()
         return req
     }
@@ -48,9 +17,9 @@ extension Request {
     
     /// Verify an operator password reset token. [API docs](https://dev.soracom.io/jp/docs/api/#!/Auth/verifyPasswordResetToken)
     
-    public class func verifyPasswordResetToken(_ password: String, token: String, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func verifyPasswordResetToken(_ password: String, token: String, responseHandler: ResponseHandler<NoResponseBody>? = nil) -> Request<NoResponseBody> {
         
-        let req = self.init("/auth/password_reset_token/verify", responseHandler: responseHandler)
+        let req = Request<NoResponseBody>.init("/auth/password_reset_token/verify", responseHandler: responseHandler)
         req.messageBody = VerifyPasswordResetTokenRequest(password: password, token: token).toData()
         return req
     }

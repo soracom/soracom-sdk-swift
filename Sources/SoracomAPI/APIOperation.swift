@@ -53,7 +53,7 @@ open class APIOperation: Operation {
     
     /// Init with a Request instance that should run when the operation executes. This is the simple non-deferred case, where the values needed to construct the Request are known up front, and can simply be passed in as parameters.
     
-    public init(_ request: Request) {
+    public init(_ request: BaseRequest) {
         
         self.requestBuilder = { return request }
         super.init()
@@ -83,11 +83,13 @@ open class APIOperation: Operation {
             return
         }
         
-        let req = request
+        guard  let req = request as? Request<Any> else {
+            fatalError("darn!")
+        }
         
         let originalHandler = req.responseHandler
         
-        let extendedHandler: ResponseHandler = { (response) in
+        let extendedHandler: ResponseHandler<Any> = { (response) in
             
             if let originalHandler = originalHandler {
                 originalHandler(response)
@@ -106,7 +108,7 @@ open class APIOperation: Operation {
     
     /// Returns the Request instance that this operation will run.
     
-    private var request: Request {
+    private var request: BaseRequest {
         return requestBuilder()
     }
     

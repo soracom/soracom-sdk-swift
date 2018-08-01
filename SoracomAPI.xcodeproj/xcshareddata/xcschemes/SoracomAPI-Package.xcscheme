@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SoracomAPI::SoracomAPIDemo"
-               BuildableName = "SoracomAPIDemo"
-               BlueprintName = "SoracomAPIDemo"
+               BlueprintIdentifier = "SoracomAPI::SoracomAPI"
+               BuildableName = "SoracomAPI.framework"
+               BlueprintName = "SoracomAPI"
                ReferencedContainer = "container:SoracomAPI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SoracomAPI::SoracomAPI"
-               BuildableName = "SoracomAPI.framework"
-               BlueprintName = "SoracomAPI"
+               BlueprintIdentifier = "SoracomAPI::SoracomAPIDemo"
+               BuildableName = "SoracomAPIDemo"
+               BlueprintName = "SoracomAPIDemo"
                ReferencedContainer = "container:SoracomAPI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -69,9 +69,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "SoracomAPI::SoracomAPIDemo"
-            BuildableName = "SoracomAPIDemo"
-            BlueprintName = "SoracomAPIDemo"
+            BlueprintIdentifier = "SoracomAPI::SoracomAPI"
+            BuildableName = "SoracomAPI.framework"
+            BlueprintName = "SoracomAPI"
             ReferencedContainer = "container:SoracomAPI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

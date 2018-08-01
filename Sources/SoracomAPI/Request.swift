@@ -3,6 +3,27 @@
 import Foundation
 import Dispatch
 
+extension String {
+    var snakeCased: String {
+        var newString: String = ""
+        let upperCase = CharacterSet.uppercaseLetters
+        for scalar in self.unicodeScalars {
+            if upperCase.contains(scalar) {
+                if newString.count > 0 {
+                    newString.append("_")
+                }
+                let character = Character(scalar)
+                newString.append(String(character).lowercased())
+            } else {
+                let character = Character(scalar)
+                newString.append(character)
+            }
+        }
+        return newString
+    }
+}
+
+
 /// The Request class defines and executes a single request to the Soracom API server. Typically, the API request is normally constructed via one of the convenience constructor methods, which takes an appropriate set of zero or more arguments. 
 ///
 /// A Request instance may be executed with `run()`, or else wrapped in an APIOperation object and added to an NSOperationQueue for later execution. 
@@ -46,24 +67,75 @@ import Dispatch
 /// results of previous requests. In such cases, it can be convenient to use APIOperation to sequentially 
 /// execute requests from an NSOperationQueue.
 
-open class Request {
+open class BaseRequest {
+    
+    
+    
+    /// Registers a handler, which is then executed when every request is run. Intended as a convenience for logging, experimentation, and debugging. The handler will be executed just before the Request makes its HTTP request. Handlers are executed **in an arbitrary thread** in the order they are registered.
+    
+    public static func beforeRun(_ handler: @escaping RequestWillRunHandler) {
+        willRunHandlers.append(handler)
+    }
+    
+    fileprivate static var willRunHandlers: [RequestWillRunHandler] = []
+    
+    
+    /// Registers a handler, which is then executed after every request is run. Intended as a convenience for logging, experimentation, and debugging. The handler will be executed just after the HTTP response has been received (or an error occurs), and immediately before the `responseHandler` executes. Handlers are executed **in an arbitrary thread** in the order they are registered.
+    
+    public static func afterRun(_ handler: @escaping RequestDidRunHandler) {
+        didRunHandlers.append(handler)
+    }
+    
+    fileprivate static var didRunHandlers: [RequestDidRunHandler] = []
+    
+    /// Set this instance property to provide your own routine to look up the credentials (API Key and API Token that are sent in HTTP headers). This will override any global custom routine you have set, and the default lookup routine.
+    
+    var credentialsFinder: CredentialsFinder? = nil
+    
+    
+    /// Set this type property to provide your own routine to look up the credentials (API Key and API Token that are sent in HTTP headers) for **all** Request instances. This will replace the default lookup behavior, and will be used by all subsequently-run Request instances, unless you those instances have their instance-level `credentialsFinder` property set.
+    
+    public static var credentialsFinder: CredentialsFinder? = nil
+    
+    /// Returns the unique integer ID of the request.
+    
+    public let requestId = BaseRequest.nextRequestId
+    
+    
+    /// Reserves and returns the next available unique integer ID.
+    
+    fileprivate static var nextRequestId: Int64  {
+        var result: Int64 = -1
+        
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).sync {
+            result = lastRequestId
+            lastRequestId += 1
+        }
+        return result
+    }
+    fileprivate static var lastRequestId: Int64 = 1
     
     
     /// The host name of the production Soracom API server endpoint.
     
-    static let productionEndpointHost = "api.soracom.io"
+    static var productionEndpointHost: String {
+        return "api.soracom.io";
+    }
     
     
     /// The host name of the API sandbox Soracom API server endpoint, used for testing and development.
     
-    static let sandboxEndpointHost = "api-sandbox.soracom.io"
+    static var sandboxEndpointHost: String {
+        return "api-sandbox.soracom.io"
+        
+    }
     
     
     /// The API version, currently should always be left at the default "v1".
     
     var apiVersionString = "v1"
     
- 
+    
     /// By default, the API sandbox endpoint will be used. Set this property to override the default. FIXME: Implement a way to set the global default.
     
     var endpointHost: String {
@@ -83,7 +155,7 @@ open class Request {
     /// Directly setting this property on a Request instance is supported, but it may be more convenient to set `credentialsFinder` instead, to supply a lookup routine (either on a Request instance, or on the Request type itself to make it the default for all new instances).
     ///
     /// If this property has not been set, the "default" stored credentials of type .KeyAndToken will normally be used, which may suffice for simple applications.
-
+    
     var credentials: SoracomCredentials {
         
         get {
@@ -91,7 +163,7 @@ open class Request {
                 
                 return finder(self)
                 
-            } else if let finder = Request.credentialsFinder {
+            } else if let finder = BaseRequest.credentialsFinder {
                 
                 return finder(self)
                 
@@ -110,7 +182,7 @@ open class Request {
     }
     
     
-    /// The HTTP method used to make the request. 
+    /// The HTTP method used to make the request.
     
     var method = HTTPMethod.post
     
@@ -130,17 +202,12 @@ open class Request {
     
     /// The URL path, e.g. "/operators/verify". (It is not normally necessary to explicitly set this property, because it will happen automatically when using the one of the convenience methods for creating a request.)
     
-    let path: String
+    var path: String = ""
     
     
     /// The query that should be encoded into the URL when built.
     
     var query: [String:String]? = nil
-    
-    
-    /// The ResponseHandler function that, if it exists, will be use to process the response to the request (or potentially the error that occurred).
-    
-    var responseHandler: ResponseHandler?
     
     
     /// If true (the default), the `responseHandler` (if any) will be executed on the main thread. Set to false to disable that (in which case, the handler will be executed on an **arbitrary** thread). The `wait()` method sets this propery to false, so that it can be called in the main thread without deadlocking.
@@ -152,7 +219,7 @@ open class Request {
     
     var URLRequest: URLRequest?
     
-
+    
     /// The HTTP status expected to be returned by the underlying HTTP request on success. (FIXME: this should be array; some request types have multiple possible success values.)
     
     var expectedHTTPStatus: Int = 200
@@ -166,25 +233,11 @@ open class Request {
         }
         return nil
     }
-
+    
     
     /// An array of keys indicating the values the response payload **must** have to be considered successful. // FIXME: this responsibility should probably be delegated to Payload, and this should then become something like `expectedPayloadTypes`.
     
     var expectedResponseKeys: [String] = []
-    
-    
-    /// The basic initializer can be used if (for some reason) you want to create an API request manually. The `path` should begin with "/". It is also possible to supply the `responseHandler` at init time (in which case Swift trailing closure syntax may be used).
-    
-    public required init(_ path: String, responseHandler: ResponseHandler? = nil) {
-        self.path = path
-        self.responseHandler = responseHandler
-    }
-    
-    // Mason 2016-06-30: started to implement this, but then I thought maybe actually the request should always run (and get error from server). Not sure yet.
-    //    convenience init(clientSideError: APIError, responseHandler: ResponseHandler? = nil) {
-    //        self.init("", responseHandler: responseHandler)
-    //        self.response = Response(error: clientSideError)
-    //    }
     
     
     /// Returns the complete URL, based on endpointHost, API version, path, and query.
@@ -206,7 +259,7 @@ open class Request {
             var queryItems: [URLQueryItem] = []
             
             let keys = query.keys.sorted()
-              // preserve stable order to help test cases
+            // preserve stable order to help test cases
             
             for k in keys {
                 if let v = query[k] {
@@ -216,26 +269,26 @@ open class Request {
             }
             urlComponents.queryItems = queryItems
         }
-
+        
         if let result = urlComponents.url {
             return result
         } else {
             fatalError("failed to build URL")
-        }        
+        }
     }
     
     
     /// Returns a dictionary that can be used as a Request's query, which will then be converted to a HTTP query string per the Soracom API conventions.
     
-    open class func makeQueryDictionary(tagName: String?             = nil,
-                                   tagValue: String?             = nil,
-                          tagValueMatchMode: TagValueMatchMode?  = nil,
-                               statusFilter: [SubscriberStatus]? = nil,
-                           speedClassFilter: [SpeedClass]?       = nil,
-                                      limit: Int?                = nil,
-                           lastEvaluatedKey: String?             = nil
-    
-    ) -> [String:String] {
+    open class func makeQueryDictionaryORIGINAL(tagName: String?             = nil,
+                                        tagValue: String?             = nil,
+                                        tagValueMatchMode: TagValueMatchMode?  = nil,
+                                        statusFilter: [SubscriberStatus]? = nil,
+                                        speedClassFilter: [SpeedClass]?       = nil,
+                                        limit: Int?                = nil,
+                                        lastEvaluatedKey: String?             = nil
+        
+        ) -> [String:String] {
         
         var query: [String:String] = [:]
         
@@ -272,12 +325,104 @@ open class Request {
         return query
     }
     
+    open class func makeQueryDictionary(_ dictionary: [String:Any]) -> [String:String] {
+        
+        var query: [String:String] = [:]
+        
+        for (k,v) in dictionary {
+            
+            let key = k.snakeCased
+            
+            if let value = v as? TagValueMatchMode {
+                query[key] = value.rawValue;
+            
+            } else if let value = v as? [SubscriberStatus] {
+                let strings = value.map {e in e.rawValue}
+                query[key] = strings.joined(separator: "|")
+            
+            } else if let value = v as? [SpeedClass] {
+                let strings = value.map {e in e.rawValue}
+                query[key] = strings.joined(separator: "|")
+            
+            } else {
+                query[key] = String(describing: v)
+            }
+        }
+        
+        return query
+    }
+    
+
+    /// Builds the receiver's underlying NSURLRequest object, which is used when `run()` is invoked. This just builds it and returns the result; it doesn't modify the receiver's `URLRequest` property.
+    
+    func buildURLRequest() -> URLRequest {
+        
+        let URL = buildURL()
+        
+        #if os(Linux)
+        var request = Foundation.URLRequest(url: URL)
+        #else
+        let request = NSMutableURLRequest(url: URL)
+        #endif
+        
+        request.httpMethod = self.method.rawValue
+        
+        if let messageBody = messageBody {
+            
+            // New preferred way; the obsolete Payload class is going away mason 2018-07-26
+            
+            request.httpBody = messageBody;
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+        } else if let payload = payload {
+            
+            // Obsolete way; this will go away! But, code coversion is currently in progress. mason 2018-07-26
+            
+            request.httpBody =  payload.toJSONData() ?? Data() // FIXME: set error and fail if payload can't make JSON data
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
+        
+        if (shouldSendAPIKeyAndTokenInHTTPHeaders) {
+            let creds = credentials
+            request.setValue(creds.apiKey, forHTTPHeaderField: "X-Soracom-API-Key")
+            request.setValue(creds.token, forHTTPHeaderField: "X-Soracom-Token")
+        }
+        
+        return request as URLRequest // as? always succeeds on macOS, but always fails on Linux... ;-/
+        
+    }
+
+}
+
+
+open class Request<T>: BaseRequest {
+    
+    /// The ResponseHandler function that, if it exists, will be use to process the response to the request (or potentially the error that occurred).
+    
+    var responseHandler: ResponseHandler<T>?
+    
+    
+
+    /// The basic initializer can be used if (for some reason) you want to create an API request manually. The `path` should begin with "/". It is also possible to supply the `responseHandler` at init time (in which case Swift trailing closure syntax may be used).
+    
+    public required init(_ path: String, responseHandler: ResponseHandler<T>? = nil) {
+        super.init()
+        self.path = path
+        self.responseHandler = responseHandler
+    }
+    
+    // Mason 2016-06-30: started to implement this, but then I thought maybe actually the request should always run (and get error from server). Not sure yet.
+    //    convenience init(clientSideError: APIError, responseHandler: ResponseHandler? = nil) {
+    //        self.init("", responseHandler: responseHandler)
+    //        self.response = Response(error: clientSideError)
+    //    }
+    
     
     /// Send the actual request to the API server, asynchronously doing the network request on a background thread, and then invoking `responseHandler` on the main thread after the response is received (or, potentially, when the request times out or an error occurs). If the `responseHandler` argument is non-nil, it will be used and the receiver's `responseHandler` instance property will be ignored.
     ///
     /// (You can opt out of handling the response on the main thread by setting the receiver's `handleResponseInMainThread` property to false.)
     
-    public func run(_ responseHandler: ResponseHandler? = nil) {
+    public func run(_ responseHandler: ResponseHandler<T>? = nil) {
         
         let urlRequest  = buildURLRequest()
         self.URLRequest = urlRequest
@@ -325,9 +470,9 @@ open class Request {
     
     /// Run request synchronously, blocking the calling thread until the Response is available. This isn't the most performant way to make a request, and it is [discouraged for various good reasons](https://forums.developer.apple.com/thread/11519), but in some circumstances it may be appropriate and convenient.
     
-    public func wait() -> Response {
+    public func wait() -> Response<T> {
         
-        var result: Response? = nil
+        var result: Response<T>? = nil
         let waitSemaphore     = DispatchSemaphore(value: 0);
         
         handleResponseInMainThread = false
@@ -342,98 +487,12 @@ open class Request {
         
         guard let response = result else {
             let err = APIError(code: "CLI0666", message: "client-side error: synchronous execution failed")
-            return Response(error: err)
+            return Response<T>(request: self, underlyingURLResponse: nil, data: nil, underlyingError: nil, internalError: err)
         }
         
         return response
     }
     
-
-    /// Registers a handler, which is then executed when every request is run. Intended as a convenience for logging, experimentation, and debugging. The handler will be executed just before the Request makes its HTTP request. Handlers are executed **in an arbitrary thread** in the order they are registered.
-    
-    public static func beforeRun(_ handler: @escaping RequestWillRunHandler) {
-        willRunHandlers.append(handler)
-    }
-    
-    fileprivate static var willRunHandlers: [RequestWillRunHandler] = []
-
-    
-    /// Registers a handler, which is then executed after every request is run. Intended as a convenience for logging, experimentation, and debugging. The handler will be executed just after the HTTP response has been received (or an error occurs), and immediately before the `responseHandler` executes. Handlers are executed **in an arbitrary thread** in the order they are registered.
-
-    public static func afterRun(_ handler: @escaping RequestDidRunHandler) {
-        didRunHandlers.append(handler)
-    }
-    
-    fileprivate static var didRunHandlers: [RequestDidRunHandler] = []
-    
-    
-    /// Builds the receiver's underlying NSURLRequest object, which is used when `run()` is invoked. This just builds it and returns the result; it doesn't modify the receiver's `URLRequest` property.
-    
-    func buildURLRequest() -> URLRequest {
-        
-        let URL = buildURL()
-        
-        #if os(Linux)
-            var request = Foundation.URLRequest(url: URL)
-        #else
-            let request = NSMutableURLRequest(url: URL)
-        #endif
-        
-        request.httpMethod = self.method.rawValue
-        
-        if let messageBody = messageBody {
-            
-            // New preferred way; the obsolete Payload class is going away mason 2018-07-26
-            
-            request.httpBody = messageBody;
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-
-        } else if let payload = payload {
-            
-            // Obsolete way; this will go away! But, code coversion is currently in progress. mason 2018-07-26
-            
-            request.httpBody =  payload.toJSONData() ?? Data() // FIXME: set error and fail if payload can't make JSON data
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        }
-        
-        if (shouldSendAPIKeyAndTokenInHTTPHeaders) {
-            let creds = credentials
-            request.setValue(creds.apiKey, forHTTPHeaderField: "X-Soracom-API-Key")
-            request.setValue(creds.token, forHTTPHeaderField: "X-Soracom-Token")
-        }
-        
-        return request as URLRequest // as? always succeeds on macOS, but always fails on Linux... ;-/
-        
-    }
-    
-    
-    /// Set this instance property to provide your own routine to look up the credentials (API Key and API Token that are sent in HTTP headers). This will override any global custom routine you have set, and the default lookup routine.
-    
-    var credentialsFinder: CredentialsFinder? = nil
-    
-    
-    /// Set this type property to provide your own routine to look up the credentials (API Key and API Token that are sent in HTTP headers) for **all** Request instances. This will replace the default lookup behavior, and will be used by all subsequently-run Request instances, unless you those instances have their instance-level `credentialsFinder` property set.
-    
-    public static var credentialsFinder: CredentialsFinder? = nil
-
-    
-    /// Returns the unique integer ID of the request.
-    
-    public let requestId = Request.nextRequestId
-    
-    
-    /// Reserves and returns the next available unique integer ID.
-    
-    fileprivate static var nextRequestId: Int64  {
-        var result: Int64 = -1
-        
-        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).sync {
-            result = lastRequestId
-            lastRequestId += 1
-        }
-        return result
-    }
-    fileprivate static var lastRequestId: Int64 = 1
     
     
 }
@@ -457,24 +516,24 @@ extension Request: CustomStringConvertible {
 
 /// RequestBuilder defines a simple closure with no parameters, which returns a Request. This is used by APIOperation to make it simple to queue operations in advance, but defer creation of Request instances until previous requests have run and returned their data.
 
-public typealias RequestBuilder = (() -> Request)
+public typealias RequestBuilder = (() -> BaseRequest)
 
 
 /// ResponseHandler defines the type of closure that it used to handle the Response object that is the result of running a Request.
 
-public typealias ResponseHandler = ((Response) -> ())
+public typealias ResponseHandler<T> = ((Response<T>) -> ())
 
 
 /// See beforeRun().
 
-public typealias RequestWillRunHandler = ((Request) -> ())
+public typealias RequestWillRunHandler = ((BaseRequest) -> ())
 
 
 /// See afterRun().
 
-public typealias RequestDidRunHandler = ((Response) -> ())
+public typealias RequestDidRunHandler = ((BaseResponse) -> ())
 
 
 /// The CredentialsFinder typealias names a closure that looks up credentials. If the default behavior isn't suitable, client code can provide its own lookup routine, on a per-instance or global basis.
 
-public typealias CredentialsFinder = ((Request) -> (SoracomCredentials))
+public typealias CredentialsFinder = ((BaseRequest) -> (SoracomCredentials))

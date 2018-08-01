@@ -413,7 +413,7 @@ open class Client {
         let paymentMethodInfo = CreditCard(cvc: "123", expireMonth: 12, expireYear: 2020, name: "SORAO TAMAGAWA", number: "4242424242424242")
         // This fake credit card info comes from the API Sandbox docs.
         
-        let registerPaymentMethodRequest = Request.registerWebPayPaymentMethod(paymentMethodInfo)
+        let registerPaymentMethodRequest = Request.registerWebPayPaymentMethod(creditCard: paymentMethodInfo)
         registerPaymentMethodRequest.responseHandler = { (response) in
             
             if let error = response.error {
@@ -505,7 +505,7 @@ open class Client {
         let paymentMethodInfo = CreditCard(cvc: "123", expireMonth: 12, expireYear: 2020, name: "SORAO TAMAGAWA", number: "4242424242424242")
         // This fake credit card info comes from the API Sandbox docs.
         
-        let registerPaymentMethodRequest  = Request.registerWebPayPaymentMethod(paymentMethodInfo)
+        let registerPaymentMethodRequest  = Request.registerWebPayPaymentMethod(creditCard: paymentMethodInfo)
         
         registerPaymentMethodRequest.credentials = newUserCredentials
         // This step is necessary because we have not yet saved the credentials anywhere, so the request would otherwise use previously-cached credentials (and therefore, fail).

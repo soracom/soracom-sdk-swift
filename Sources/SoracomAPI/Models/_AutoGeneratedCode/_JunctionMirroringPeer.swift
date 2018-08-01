@@ -10,7 +10,7 @@ open class _JunctionMirroringPeer: Codable, Equatable {
     public enum `Protocol`: String, Codable {
         case gre = "gre"
 
-        public static let cases: [Protocol] = [
+        public static let cases: [`Protocol`] = [
           .gre,
         ]
     }
@@ -21,7 +21,7 @@ open class _JunctionMirroringPeer: Codable, Equatable {
 
     open var ipAddress: String?
 
-    open var `protocol`: Protocol?
+    open var `protocol`: `Protocol`?
 
     public init(description: String? = nil, enabled: Bool? = nil, ipAddress: String? = nil, `protocol`: `Protocol`? = nil) {
         self.description = description

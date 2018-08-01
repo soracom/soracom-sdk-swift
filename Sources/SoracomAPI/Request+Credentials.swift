@@ -4,60 +4,60 @@ import Foundation
 
 extension Request {
     
-    /// Returns the list of stored credentials. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/listCredentials)
-    
-    public class func listCredentials(_ responseHandler: ResponseHandler? = nil) -> Request {
-        
-        let req = self.init("/credentials", responseHandler: responseHandler)
-        req.method = .get
-        return req
-    }
+//    /// Returns the list of stored credentials. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/listCredentials)
+//
+//    public class func listCredentials(_ responseHandler: ResponseHandler? = nil) -> Request {
+//
+//        let req = self.init("/credentials", responseHandler: responseHandler)
+//        req.method = .get
+//        return req
+//    }
     
 
-    /// Deletes a credential. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/deleteCredential)
-    
-    public class func deleteCredential(id: String, responseHandler: ResponseHandler? = nil) -> Request {
-        
-        let safeComponent = id.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
-        
-        let req = self.init("/credentials/" + (safeComponent ?? ""), responseHandler: responseHandler)
-          // FIXME: blank component will cause error, but we should fail better here
-        
-        req.expectedHTTPStatus = 204
-        req.method             = .delete
-        return req
-    }
-    
-    
-    /// Creates a new credential. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/createCredential)
-    
-    public class func createCredential(id: String, options: CreateAndUpdateCredentialsModel, responseHandler: ResponseHandler? = nil) -> Request {
-        
-        let safeComponent = id.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
-        
-        let req = self.init("/credentials/" + (safeComponent ?? ""), responseHandler: responseHandler)
-          // FIXME: blank component will cause error, but we should fail better here
-        
-        req.expectedHTTPStatus = 201
-        req.method             = .post
-        req.messageBody        = options.toData()
-        return req
-    }
+//    /// Deletes a credential. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/deleteCredential)
+//
+//    public class func deleteCredential(id: String, responseHandler: ResponseHandler? = nil) -> Request {
+//
+//        let safeComponent = id.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+//
+//        let req = self.init("/credentials/" + (safeComponent ?? ""), responseHandler: responseHandler)
+//          // FIXME: blank component will cause error, but we should fail better here
+//
+//        req.expectedHTTPStatus = 204
+//        req.method             = .delete
+//        return req
+//    }
     
     
-    /// Updates a credential. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/updateCredential)
+//    /// Creates a new credential. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/createCredential)
+//
+//    public class func createCredential(id: String, options: CreateAndUpdateCredentialsModel, responseHandler: ResponseHandler? = nil) -> Request {
+//
+//        let safeComponent = id.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+//
+//        let req = self.init("/credentials/" + (safeComponent ?? ""), responseHandler: responseHandler)
+//          // FIXME: blank component will cause error, but we should fail better here
+//
+//        req.expectedHTTPStatus = 201
+//        req.method             = .post
+//        req.messageBody        = options.toData()
+//        return req
+//    }
     
-    public class func updateCredential(id: String, options: CreateAndUpdateCredentialsModel, responseHandler: ResponseHandler? = nil) -> Request {
-        
-        let safeComponent = id.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
-        
-        let req = self.init("/credentials/" + (safeComponent ?? ""), responseHandler: responseHandler)
-          // FIXME: blank component will cause error, but we should fail better here
-        
-        req.expectedHTTPStatus = 200
-        req.method             = .put
-        req.messageBody        = options.toData()
-        return req
-    }
     
+//    /// Updates a credential. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/updateCredential)
+//    
+//    public class func updateCredential(id: String, options: CreateAndUpdateCredentialsModel, responseHandler: ResponseHandler? = nil) -> Request {
+//        
+//        let safeComponent = id.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+//        
+//        let req = self.init("/credentials/" + (safeComponent ?? ""), responseHandler: responseHandler)
+//          // FIXME: blank component will cause error, but we should fail better here
+//        
+//        req.expectedHTTPStatus = 200
+//        req.method             = .put
+//        req.messageBody        = options.toData()
+//        return req
+//    }
+//    
 }

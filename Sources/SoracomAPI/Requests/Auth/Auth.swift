@@ -37,7 +37,7 @@ extension Request where T == AuthResponse {
         
         requestObject.tokenTimeoutSeconds = timeout
         
-        return auth(auth: requestObject)
+        return auth(auth: requestObject, responseHandler: responseHandler)
     }
 
 }

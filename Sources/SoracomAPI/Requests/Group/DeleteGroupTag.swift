@@ -1,4 +1,4 @@
-extension Request {
+extension Request where T == NoResponseBody {
 
     /// [API docs](https://dev.soracom.io/en/docs/api/#!/Group/deleteGroupTag)
 

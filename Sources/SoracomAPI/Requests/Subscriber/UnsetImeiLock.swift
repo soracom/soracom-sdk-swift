@@ -1,4 +1,4 @@
-extension Request {
+extension Request where T == Subscriber {
 
     public class func unsetImeiLock(
         

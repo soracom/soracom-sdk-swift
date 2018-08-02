@@ -22,7 +22,7 @@ extension Request {
         requestObject.method = .post
 
         requestObject.query = makeQueryDictionary([
-            "exportMode": exportMode as Any
+            "exportMode": exportMode
         ])
 
         return requestObject

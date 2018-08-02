@@ -1,4 +1,4 @@
-extension Request {
+extension Request where T == CredentialsModel {
 
     /// Updates a credential. [API docs](https://dev.soracom.io/en/docs/api/#!/Credential/updateCredential)
 

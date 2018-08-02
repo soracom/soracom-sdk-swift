@@ -20,9 +20,11 @@ class IssueDebuggingTests: BaseTestCase {
     
         // https://api-sandbox.soracom.io/v1/groups/c8726c12-75f2-47db-8ecb-ee35d6e9ee66/subscribers?status_filter=suspended&limit=10
         
-        let req = Request.listSubscribersInGroup("c8726c12-75f2-47db-8ecb-ee35d6e9ee66")
+        let req = Request.listSubscribersInGroup(groupId: "c8726c12-75f2-47db-8ecb-ee35d6e9ee66") // HOI
         
-        req.query = Request.makeQueryDictionary(statusFilter: [.inactive])
+        let qd = ["statusFilter": [SubscriberStatus.inactive]]
+        
+        req.query = BaseRequest.makeQueryDictionary(qd)
         let res = req.wait();
         
         let subscribers = Subscriber.listFrom(res.payload)

@@ -1,4 +1,4 @@
-extension Request {
+extension Request where T == NoResponseBody {
 
     /// Delete the operator specified by `operatorId`. [Sandbox API docs](https://dev.soracom.io/jp/docs/api_sandbox/#!/Operator/deleteSandboxOperator)
 

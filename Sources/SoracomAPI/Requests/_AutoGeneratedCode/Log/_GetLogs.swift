@@ -28,13 +28,13 @@ extension Request {
         requestObject.method = .get
 
         requestObject.query = makeQueryDictionary([
-            "resourceType": resourceType as Any,
-            "resourceId": resourceId as Any,
-            "service": service as Any,
-            "from": from as Any,
-            "to": to as Any,
-            "limit": limit as Any,
-            "lastEvaluatedKey": lastEvaluatedKey as Any
+            "resourceType": resourceType,
+            "resourceId": resourceId,
+            "service": service,
+            "from": from,
+            "to": to,
+            "limit": limit,
+            "lastEvaluatedKey": lastEvaluatedKey
         ])
 
         return requestObject

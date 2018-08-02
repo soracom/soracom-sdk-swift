@@ -24,8 +24,8 @@ extension Request {
         requestObject.method = .get
 
         requestObject.query = makeQueryDictionary([
-            "limit": limit as Any,
-            "lastEvaluatedKey": lastEvaluatedKey as Any
+            "limit": limit,
+            "lastEvaluatedKey": lastEvaluatedKey
         ])
 
         return requestObject

@@ -1,4 +1,4 @@
-extension Request {
+extension Request where T == [Group] {
 
     /// Returns a list of groups. [API docs](https://dev.soracom.io/en/docs/api/#!/Group/listGroups)
 

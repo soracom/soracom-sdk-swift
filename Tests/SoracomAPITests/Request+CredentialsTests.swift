@@ -44,7 +44,7 @@ class RequestCredentialsTests: BaseTestCase {
         let options = CreateAndUpdateCredentialsModel(credentials: creds, description: "test_CRUD_credentials", type: .awsCredentials)
         
         // CREATE:
-        let createRequest  = Request.createCredential(id: junk, options: options)
+        let createRequest  = Request.createCredential(credentials: options, credentialsId: junk)
         let createResponse = createRequest.wait()
         
         XCTAssertNil(createResponse.error)
@@ -62,7 +62,7 @@ class RequestCredentialsTests: BaseTestCase {
         options.description = "updated description"
         
         // UPDATE:
-        let updateRequest  = Request.updateCredential(id: junk, options: options)
+        let updateRequest  = Request.updateCredential(credentials: options, credentialsId: junk)
         let updateResponse = updateRequest.wait()
         
         XCTAssertNil(updateResponse.error)
@@ -71,7 +71,7 @@ class RequestCredentialsTests: BaseTestCase {
         XCTAssertEqual("updated description", updated?.description)
         
         // DELETE:
-        let deleteRequest  = Request.deleteCredential(id: junk)
+        let deleteRequest  = Request.deleteCredential(credentialsId: junk)
         let deleteResponse = deleteRequest.wait()
         
         XCTAssertNil(deleteResponse.error)

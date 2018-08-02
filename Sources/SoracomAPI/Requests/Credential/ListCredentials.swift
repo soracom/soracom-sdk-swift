@@ -1,4 +1,4 @@
-extension Request {
+extension Request where T == [CredentialsModel] {
 
     public class func listCredentials(
         

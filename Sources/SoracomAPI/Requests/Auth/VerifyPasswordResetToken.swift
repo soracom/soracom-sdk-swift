@@ -1,4 +1,6 @@
-extension Request {
+extension Request where T == NoResponseBody {
+
+    /// Verify an operator password reset token. [API docs](https://dev.soracom.io/jp/docs/api/#!/Auth/verifyPasswordResetToken)
 
     public class func verifyPasswordResetToken(
         request: VerifyPasswordResetTokenRequest, 
@@ -13,4 +15,5 @@ extension Request {
 
         return req
     }
+    
 }

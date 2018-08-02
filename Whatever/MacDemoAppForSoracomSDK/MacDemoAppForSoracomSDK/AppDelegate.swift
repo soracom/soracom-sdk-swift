@@ -57,7 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let off = NSControl.StateValue.off
         redactSwitch.state = RequestResponseFormatter.shouldRedact ? on : off
         
-        Request.credentialsFinder = { (request) in
+        BaseRequest.credentialsFinder = { (request) in
             // This app is unusual since it does most things as a user in the API Sandbox, but sometimes
             // needs production credentials too. Here we set the default credentials to the ones we store
             // for the sandbox user. This makes these the default credentials used by all requests, unless

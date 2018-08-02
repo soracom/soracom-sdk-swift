@@ -14,7 +14,7 @@ import XCTest
 
 class ResponseTests: XCTestCase {
     
-    var request: Request = Request("/foo")
+    var request: Request = Request<NoResponseBody>("/foo")
     
     var dummyURL: URL { return request.buildURL() as URL }
     

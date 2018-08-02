@@ -27,11 +27,11 @@ extension Request {
         requestObject.method = .get
 
         requestObject.query = makeQueryDictionary([
-            "from": from as Any,
-            "to": to as Any,
-            "sort": sort as Any,
-            "limit": limit as Any,
-            "lastEvaluatedKey": lastEvaluatedKey as Any
+            "from": from,
+            "to": to,
+            "sort": sort,
+            "limit": limit,
+            "lastEvaluatedKey": lastEvaluatedKey
         ])
 
         return requestObject

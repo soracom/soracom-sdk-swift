@@ -1,4 +1,4 @@
-extension Request {
+extension Request where T == [Subscriber] {
 
     /// Returns a list of subscribers that belong to the specified group by group ID. [API docs](https://dev.soracom.io/en/docs/api/#!/Group/listSubscribersInGroup)
 
@@ -7,8 +7,8 @@ extension Request {
         groupId: String,
         limit: Int? = nil,
         lastEvaluatedKey: String? = nil,
-        responseHandler: ResponseHandler<Group>? = nil
-    ) ->   Request<Group> {
+        responseHandler: ResponseHandler<[Subscriber]>? = nil
+    ) ->   Request<[Subscriber]> {
 
 
         // First, call the auto-generated implmentation, created from the API spec:

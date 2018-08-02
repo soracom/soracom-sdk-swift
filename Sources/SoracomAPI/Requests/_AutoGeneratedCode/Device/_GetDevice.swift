@@ -23,7 +23,7 @@ extension Request {
         requestObject.method = .get
 
         requestObject.query = makeQueryDictionary([
-            "model": model as Any
+            "model": model
         ])
 
         return requestObject

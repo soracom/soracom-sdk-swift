@@ -89,7 +89,7 @@ class RequestGroupTests: BaseTestCase {
         XCTAssert(tags1["uno"] == "uno")
         XCTAssert(tags2["dos"] == "dos")
         
-        let deletionResponse = Request.deleteGroupTag(groupId1, tagName: "uno").wait()
+        let deletionResponse = Request.deleteGroupTag(groupId: groupId1, tagName: "uno").wait()
         
         XCTAssertNil(deletionResponse.error)
         
@@ -120,13 +120,13 @@ class RequestGroupTests: BaseTestCase {
             GroupConfigurationUpdateRequest(key: "toast", value: "jam")
         ]
         
+        let req = Request.putConfigurationParameters(parameters: newParams, groupId: groupId, namespace: Namespace.soracomAir)
         
-        let req = Request.putConfigurationParameters(groupId, namespace: .SoracomAir, parameters: newParams)
         let res = req.wait()
         
         XCTAssertNil(res.error)
 
-        guard let data = Request.getGroup(groupId).wait().data else {
+        guard let data = Request.getGroup(groupId: groupId).wait().data else {
             XCTFail("failed to re-fetch group")
             return
         }
@@ -152,7 +152,7 @@ class RequestGroupTests: BaseTestCase {
             return
         }
 
-        let request  = Request.listSubscribersInGroup(groupId)
+        let request  = Request.listSubscribersInGroup(groupId: groupId)
         let response = request.wait()
         
         XCTAssertNil(response.error)
@@ -240,7 +240,7 @@ class RequestGroupTests: BaseTestCase {
     /// Delete group by ID (synchronously), and return `true` for success, `false` otherwise.
     
     func deleteGroup(_ groupId: String) -> Bool {
-        let deleteRequest  = Request.deleteGroup(groupId)
+        let deleteRequest  = Request.deleteGroup(groupId: groupId)
         let deleteResponse = deleteRequest.wait()
         
         let noErr = deleteResponse.error == nil
@@ -253,7 +253,7 @@ class RequestGroupTests: BaseTestCase {
     
     func getGroup(_ groupId: String) -> Group? {
         
-        let response = Request.getGroup(groupId).wait()
+        let response = Request.getGroup(groupId: groupId).wait()
         
         guard let payload = response.payload else {
             return nil

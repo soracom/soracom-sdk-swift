@@ -25,9 +25,9 @@ extension Request {
         requestObject.method = .get
 
         requestObject.query = makeQueryDictionary([
-            "from": from as Any,
-            "to": to as Any,
-            "period": period as Any
+            "from": from,
+            "to": to,
+            "period": period
         ])
 
         return requestObject

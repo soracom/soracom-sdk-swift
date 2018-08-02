@@ -12,20 +12,20 @@ extension Request {
         groupId: String,
         limit: Int? = nil,
         lastEvaluatedKey: String? = nil,
-        responseHandler: ResponseHandler<Group>? = nil
-    ) ->   Request<Group> {
+        responseHandler: ResponseHandler<[Subscriber]>? = nil
+    ) ->   Request<[Subscriber]> {
 
         let path = "/groups/{group_id}/subscribers".replacingOccurrences(of: "{" + "groupId" + "}", with: "\(groupId)") // This nonsense should be fixed in the code generator, we might do a PR for at some point...
 
-        let requestObject = Request<Group>.init(path, responseHandler: responseHandler)
+        let requestObject = Request<[Subscriber]>.init(path, responseHandler: responseHandler)
 
         
         requestObject.expectedHTTPStatus = 200
         requestObject.method = .get
 
         requestObject.query = makeQueryDictionary([
-            "limit": limit as Any,
-            "lastEvaluatedKey": lastEvaluatedKey as Any
+            "limit": limit,
+            "lastEvaluatedKey": lastEvaluatedKey
         ])
 
         return requestObject

@@ -26,11 +26,11 @@ extension Request {
         requestObject.method = .get
 
         requestObject.query = makeQueryDictionary([
-            "tagName": tagName as Any,
-            "tagValue": tagValue as Any,
-            "tagValueMatchMode": tagValueMatchMode as Any,
-            "lastEvaluatedKey": lastEvaluatedKey as Any,
-            "limit": limit as Any
+            "tagName": tagName,
+            "tagValue": tagValue,
+            "tagValueMatchMode": tagValueMatchMode,
+            "lastEvaluatedKey": lastEvaluatedKey,
+            "limit": limit
         ])
 
         return requestObject

@@ -23,7 +23,7 @@ extension Request {
         {% if queryParams %}
         requestObject.query = makeQueryDictionary([
         {% for param in queryParams %}
-            "{{ param.name }}": {{ param.name }} as Any{% ifnot forloop.last %},{% endif %}
+            "{{ param.name }}": {{ param.name }}{% ifnot forloop.last %},{% endif %}
         {% endfor %}
         ])
         {% endif %}

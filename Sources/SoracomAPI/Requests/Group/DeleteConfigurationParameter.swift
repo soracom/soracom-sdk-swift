@@ -1,6 +1,6 @@
 import Foundation
 
-extension Request {
+extension Request where T == NoResponseBody {
 
     /// Delete parameters for the specified group. [API docs](https://dev.soracom.io/en/docs/api/#!/Group/deleteConfigurationParameter)
     ///

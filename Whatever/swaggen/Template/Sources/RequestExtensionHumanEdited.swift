@@ -1,4 +1,4 @@
-extension Request {
+extension Request where T == {{ successType|default:"NoResponseBody"}} {
 
     public class func {{ operationId }}(
         {% if bodyParam %}{{ bodyParam.name}}: {{ bodyParam.type }}, {% endif %}
@@ -16,4 +16,5 @@ extension Request {
 
         return req
     }
+
 }

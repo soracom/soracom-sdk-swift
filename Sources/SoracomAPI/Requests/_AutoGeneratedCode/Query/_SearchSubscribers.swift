@@ -31,16 +31,16 @@ extension Request {
         requestObject.method = .get
 
         requestObject.query = makeQueryDictionary([
-            "name": name as Any,
-            "group": group as Any,
-            "imsi": imsi as Any,
-            "msisdn": msisdn as Any,
-            "iccid": iccid as Any,
-            "serialNumber": serialNumber as Any,
-            "tag": tag as Any,
-            "limit": limit as Any,
-            "lastEvaluatedKey": lastEvaluatedKey as Any,
-            "searchType": searchType as Any
+            "name": name,
+            "group": group,
+            "imsi": imsi,
+            "msisdn": msisdn,
+            "iccid": iccid,
+            "serialNumber": serialNumber,
+            "tag": tag,
+            "limit": limit,
+            "lastEvaluatedKey": lastEvaluatedKey,
+            "searchType": searchType
         ])
 
         return requestObject

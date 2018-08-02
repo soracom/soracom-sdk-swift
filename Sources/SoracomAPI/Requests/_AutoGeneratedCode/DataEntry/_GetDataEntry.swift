@@ -24,7 +24,7 @@ extension Request {
         requestObject.method = .get
 
         requestObject.query = makeQueryDictionary([
-            "time": time as Any
+            "time": time
         ])
 
         return requestObject

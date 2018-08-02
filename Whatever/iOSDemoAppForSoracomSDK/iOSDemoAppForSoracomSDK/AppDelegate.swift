@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("🤖 Welcome to the iOS Demo App for the Soracom Swift SDK.")
         
-        Request.credentialsFinder = { (req) in
+        BaseRequest.credentialsFinder = { (req) in
             
             // For almost everything it does, this app will use the credentials for the API Sandbox user.
             // The only exception is the real SAM user credentials it needs to create the sandbox user.

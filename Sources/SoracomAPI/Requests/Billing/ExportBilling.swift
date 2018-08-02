@@ -1,4 +1,4 @@
-extension Request {
+extension Request where T == FileExportResponse {
 
     public class func exportBilling(
         

@@ -497,6 +497,7 @@
 		93926F79211142370059ED61 /* _InsertBeamStatsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93926F70211142360059ED61 /* _InsertBeamStatsRequest.swift */; };
 		93926F7A211142370059ED61 /* _InsertAirStatsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93926F71211142370059ED61 /* _InsertAirStatsRequest.swift */; };
 		93926F7C211142630059ED61 /* FixmeBreakIntoFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93926F7B211142630059ED61 /* FixmeBreakIntoFiles.swift */; };
+		93926FA62112B7B00059ED61 /* _OpenGateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93926FA52112B7B00059ED61 /* _OpenGateRequest.swift */; };
 		OBJ_1000 /* ResourceInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_140 /* ResourceInstance.swift */; };
 		OBJ_1001 /* RoleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_141 /* RoleResponse.swift */; };
 		OBJ_1002 /* RuleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_142 /* RuleConfig.swift */; };
@@ -715,7 +716,6 @@
 		OBJ_1688 /* APIStructuresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_834 /* APIStructuresTests.swift */; };
 		OBJ_1689 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_835 /* BaseTestCase.swift */; };
 		OBJ_1690 /* BaseTestCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_836 /* BaseTestCaseTests.swift */; };
-		OBJ_1691 /* BeamStatsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_837 /* BeamStatsTest.swift */; };
 		OBJ_1692 /* CredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_838 /* CredentialTests.swift */; };
 		OBJ_1693 /* DevelopmentEnvironmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_839 /* DevelopmentEnvironmentTests.swift */; };
 		OBJ_1694 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_840 /* Fixtures.swift */; };
@@ -741,7 +741,6 @@
 		OBJ_870 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* APIError.swift */; };
 		OBJ_871 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* APIOperation.swift */; };
 		OBJ_872 /* AirStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AirStats.swift */; };
-		OBJ_873 /* BeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BeamStats.swift */; };
 		OBJ_874 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Client.swift */; };
 		OBJ_875 /* Codable+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Codable+SoracomAPI.swift */; };
 		OBJ_876 /* ConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* ConfigurationParameter.swift */; };
@@ -1371,6 +1370,7 @@
 		93926F70211142360059ED61 /* _InsertBeamStatsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _InsertBeamStatsRequest.swift; sourceTree = "<group>"; };
 		93926F71211142370059ED61 /* _InsertAirStatsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _InsertAirStatsRequest.swift; sourceTree = "<group>"; };
 		93926F7B211142630059ED61 /* FixmeBreakIntoFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixmeBreakIntoFiles.swift; sourceTree = "<group>"; };
+		93926FA52112B7B00059ED61 /* _OpenGateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _OpenGateRequest.swift; sourceTree = "<group>"; };
 		OBJ_10 /* APIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
 		OBJ_100 /* LagoonUserCreationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LagoonUserCreationResponse.swift; sourceTree = "<group>"; };
 		OBJ_101 /* LagoonUserEmailUpdatingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LagoonUserEmailUpdatingRequest.swift; sourceTree = "<group>"; };
@@ -1393,7 +1393,6 @@
 		OBJ_117 /* LoraNetworkSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoraNetworkSet.swift; sourceTree = "<group>"; };
 		OBJ_118 /* MFAAuthenticationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFAAuthenticationRequest.swift; sourceTree = "<group>"; };
 		OBJ_119 /* MFAIssueRevokingTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFAIssueRevokingTokenRequest.swift; sourceTree = "<group>"; };
-		OBJ_12 /* BeamStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamStats.swift; sourceTree = "<group>"; };
 		OBJ_120 /* MFARevokingTokenVerifyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFARevokingTokenVerifyRequest.swift; sourceTree = "<group>"; };
 		OBJ_121 /* MFAStatusOfUseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFAStatusOfUseResponse.swift; sourceTree = "<group>"; };
 		OBJ_122 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
@@ -1701,7 +1700,6 @@
 		OBJ_834 /* APIStructuresTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStructuresTests.swift; sourceTree = "<group>"; };
 		OBJ_835 /* BaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
 		OBJ_836 /* BaseTestCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTestCaseTests.swift; sourceTree = "<group>"; };
-		OBJ_837 /* BeamStatsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamStatsTest.swift; sourceTree = "<group>"; };
 		OBJ_838 /* CredentialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialTests.swift; sourceTree = "<group>"; };
 		OBJ_839 /* DevelopmentEnvironmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentEnvironmentTests.swift; sourceTree = "<group>"; };
 		OBJ_84 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -2748,6 +2746,7 @@
 				OBJ_275 /* _MFAStatusOfUseResponse.swift */,
 				OBJ_279 /* _MonthlyBill.swift */,
 				OBJ_280 /* _ObjectInstance.swift */,
+				93926FA52112B7B00059ED61 /* _OpenGateRequest.swift */,
 				OBJ_281 /* _OperatorMFAVerifyingResponse.swift */,
 				OBJ_283 /* _OrderedSubscriber.swift */,
 				OBJ_282 /* _OrderItemModel.swift */,
@@ -3025,7 +3024,6 @@
 				OBJ_9 /* APIError.swift */,
 				OBJ_10 /* APIOperation.swift */,
 				OBJ_11 /* AirStats.swift */,
-				OBJ_12 /* BeamStats.swift */,
 				OBJ_13 /* Client.swift */,
 				OBJ_14 /* Codable+SoracomAPI.swift */,
 				OBJ_15 /* ConfigurationParameter.swift */,
@@ -3092,7 +3090,6 @@
 				OBJ_834 /* APIStructuresTests.swift */,
 				OBJ_835 /* BaseTestCase.swift */,
 				OBJ_836 /* BaseTestCaseTests.swift */,
-				OBJ_837 /* BeamStatsTest.swift */,
 				OBJ_838 /* CredentialTests.swift */,
 				OBJ_839 /* DevelopmentEnvironmentTests.swift */,
 				OBJ_840 /* Fixtures.swift */,
@@ -3255,7 +3252,6 @@
 				OBJ_1688 /* APIStructuresTests.swift in Sources */,
 				OBJ_1689 /* BaseTestCase.swift in Sources */,
 				OBJ_1690 /* BaseTestCaseTests.swift in Sources */,
-				OBJ_1691 /* BeamStatsTest.swift in Sources */,
 				OBJ_1692 /* CredentialTests.swift in Sources */,
 				OBJ_1693 /* DevelopmentEnvironmentTests.swift in Sources */,
 				OBJ_1694 /* Fixtures.swift in Sources */,
@@ -3291,7 +3287,6 @@
 				9389C76621104E690053F9D7 /* _GetRole.swift in Sources */,
 				OBJ_871 /* APIOperation.swift in Sources */,
 				OBJ_872 /* AirStats.swift in Sources */,
-				OBJ_873 /* BeamStats.swift in Sources */,
 				OBJ_874 /* Client.swift in Sources */,
 				OBJ_875 /* Codable+SoracomAPI.swift in Sources */,
 				OBJ_876 /* ConfigurationParameter.swift in Sources */,
@@ -4060,6 +4055,7 @@
 				OBJ_1187 /* _VirtualPrivateGateway.swift in Sources */,
 				OBJ_1188 /* _VpcPeeringConnection.swift in Sources */,
 				9389C7F221104E6A0053F9D7 /* _UnsetGroup.swift in Sources */,
+				93926FA62112B7B00059ED61 /* _OpenGateRequest.swift in Sources */,
 				9389C8C421104E6A0053F9D7 /* SuspendSubscriber.swift in Sources */,
 				9389C78E21104E690053F9D7 /* _DeleteConfigurationParameter.swift in Sources */,
 				9389C7C021104E690053F9D7 /* _DeleteDeviceObjectModel.swift in Sources */,

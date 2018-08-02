@@ -8,7 +8,7 @@ import Foundation
 extension Request {
 
     public class func _openGate(
-        
+        configurationParameters: OpenGateRequest, 
         vpgId: String,
         responseHandler: ResponseHandler<NoResponseBody>? = nil
     ) ->   Request<NoResponseBody> {
@@ -17,7 +17,7 @@ extension Request {
 
         let requestObject = Request<NoResponseBody>.init(path, responseHandler: responseHandler)
 
-        
+        requestObject.messageBody = configurationParameters.toData()
         requestObject.expectedHTTPStatus = 200
         requestObject.method = .post
 

@@ -66,7 +66,7 @@ class RequestAuthTests: BaseTestCase {
 
         beginAsyncSection()
         
-        Request.issuePasswordResetToken("fragnock@whut.com").run { (response) in
+        Request.issuePasswordResetToken(email: "fragnock@whut.com").run { (response) in
             
             // Mason 2016-06-29: Observed API behavior change: previously err was AUM0004 but as of today looks like it is now AUM0015. For this test, I will just allow both, for now.
             
@@ -95,7 +95,7 @@ class RequestAuthTests: BaseTestCase {
         
         beginAsyncSection()
 
-        let req = Request.issuePasswordResetToken("bob@example.com")
+        let req = Request.issuePasswordResetToken(email: "bob@example.com")
         
         req.responseHandler = { (response) in
             

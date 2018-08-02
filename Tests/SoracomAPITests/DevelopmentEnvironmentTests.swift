@@ -102,21 +102,6 @@ class DevelopmentEnvironmentTests: XCTestCase {
     }
     
     
-    func test_flipImeiLock() {
-        
-        guard let endpointHost = endpointHost,
-              let credentials  = apiKeyCredentials
-        else {
-            return
-        }
-        
-        _ = endpointHost
-        _ = credentials
-        
-        // BODY OF TEST HERE...
-    }
-    
-    
     func test_newApiFutzing() {
         
         guard let endpointHost = endpointHost,
@@ -130,21 +115,6 @@ class DevelopmentEnvironmentTests: XCTestCase {
         
         // BODY OF TEST HERE...
         
-        let listReq = Request.listSubscribers()
-        listReq.endpointHost = endpointHost;
-        listReq.credentials = credentials;
-        let listRes = listReq.wait()
-        
-        print(listRes)
-        
-        let req1 = Request.addCoverageType(.global, operatorId: "OP0026966374")
-        
-        req1.endpointHost = endpointHost
-        req1.credentials = credentials
-        
-        let res1 = req1.wait()
-        
-        print(res1)
     }
     
 }
@@ -153,7 +123,6 @@ class DevelopmentEnvironmentTests: XCTestCase {
     extension DevelopmentEnvironmentTests {
         static var allTests : [(String, (DevelopmentEnvironmentTests) -> () throws -> Void)] {
             return [
-                ("test_flipImeiLock", test_flipImeiLock),
                 ("test_newApiFutzing", test_newApiFutzing),
             ]
         }

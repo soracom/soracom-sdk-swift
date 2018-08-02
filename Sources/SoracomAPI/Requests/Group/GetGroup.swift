@@ -1,4 +1,4 @@
-extension Request {
+extension Request where T == Group {
 
     /// Returns the group specified by the group ID. [API docs](https://dev.soracom.io/en/docs/api/#!/Group/getGroup)
 

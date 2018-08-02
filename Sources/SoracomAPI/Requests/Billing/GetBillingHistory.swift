@@ -1,4 +1,4 @@
-extension Request {
+extension Request where T == GetBillingHistoryResponse {
 
     public class func getBillingHistory(
         

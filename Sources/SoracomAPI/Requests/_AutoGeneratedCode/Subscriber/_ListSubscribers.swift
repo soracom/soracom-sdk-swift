@@ -29,14 +29,14 @@ extension Request {
         requestObject.method = .get
 
         requestObject.query = makeQueryDictionary([
-            "tagName": tagName as Any,
-            "tagValue": tagValue as Any,
-            "tagValueMatchMode": tagValueMatchMode as Any,
-            "statusFilter": statusFilter as Any,
-            "speedClassFilter": speedClassFilter as Any,
-            "serialNumberFilter": serialNumberFilter as Any,
-            "limit": limit as Any,
-            "lastEvaluatedKey": lastEvaluatedKey as Any
+            "tagName": tagName,
+            "tagValue": tagValue,
+            "tagValueMatchMode": tagValueMatchMode,
+            "statusFilter": statusFilter,
+            "speedClassFilter": speedClassFilter,
+            "serialNumberFilter": serialNumberFilter,
+            "limit": limit,
+            "lastEvaluatedKey": lastEvaluatedKey
         ])
 
         return requestObject

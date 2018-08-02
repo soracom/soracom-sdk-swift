@@ -325,11 +325,15 @@ open class BaseRequest {
         return query
     }
     
-    open class func makeQueryDictionary(_ dictionary: [String:Any]) -> [String:String] {
+    open class func makeQueryDictionary(_ dictionary: [String:Any?]) -> [String:String] {
         
         var query: [String:String] = [:]
         
         for (k,v) in dictionary {
+            
+            if (v == nil) {
+                continue
+            }
             
             let key = k.snakeCased
             

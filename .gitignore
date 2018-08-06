@@ -24,3 +24,4 @@ xcuserdata/
 *.xcscmblueprint
 Whatever/swagger/tmp-build-files
 
+Whatever/swaggen/auto-generated-code-output

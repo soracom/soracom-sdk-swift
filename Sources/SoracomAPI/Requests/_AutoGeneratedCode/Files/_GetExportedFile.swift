@@ -13,7 +13,8 @@ extension Request {
         responseHandler: ResponseHandler<GetExportedFileResponse>? = nil
     ) ->   Request<GetExportedFileResponse> {
 
-        let path = "/files/exported/{exported_file_id}".replacingOccurrences(of: "{" + "exportedFileId" + "}", with: "\(exportedFileId)") // This nonsense should be fixed in the code generator, we might do a PR for at some point...
+    let path = "/files/exported/{exported_file_id}".replacingOccurrences(of: "{" + "exported_file_id" + "}", with: "\(exportedFileId)")
+      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
 
         let requestObject = Request<GetExportedFileResponse>.init(path, responseHandler: responseHandler)
 

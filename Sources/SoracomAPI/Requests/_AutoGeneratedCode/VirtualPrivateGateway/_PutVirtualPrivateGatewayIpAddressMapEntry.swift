@@ -13,7 +13,8 @@ extension Request {
         responseHandler: ResponseHandler<IpAddressMapEntry>? = nil
     ) ->   Request<IpAddressMapEntry> {
 
-        let path = "/virtual_private_gateways/{vpg_id}/ip_address_map".replacingOccurrences(of: "{" + "vpgId" + "}", with: "\(vpgId)") // This nonsense should be fixed in the code generator, we might do a PR for at some point...
+    let path = "/virtual_private_gateways/{vpg_id}/ip_address_map".replacingOccurrences(of: "{" + "vpg_id" + "}", with: "\(vpgId)")
+      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
 
         let requestObject = Request<IpAddressMapEntry>.init(path, responseHandler: responseHandler)
 

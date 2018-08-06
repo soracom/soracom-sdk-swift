@@ -7,13 +7,13 @@ import Foundation
 
 extension Request {
 
-
     public class func _issuePasswordResetToken(
         email: IssuePasswordResetTokenRequest, 
         responseHandler: ResponseHandler<NoResponseBody>? = nil
     ) ->   Request<NoResponseBody> {
 
-        let path = "/auth/password_reset_token/issue" // This nonsense should be fixed in the code generator, we might do a PR for at some point...
+    let path = "/auth/password_reset_token/issue"
+      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
 
         let requestObject = Request<NoResponseBody>.init(path, responseHandler: responseHandler)
 

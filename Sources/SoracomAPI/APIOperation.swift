@@ -83,22 +83,29 @@ open class APIOperation: Operation {
             return
         }
         
-        guard  let req = request as? Request<Any> else {
-            fatalError("darn!")
-        }
+        //        guard  let req = request as? Request<Any> else {
+        //            fatalError("darn!")
+        //        }
+        //
+        //        let originalHandler = req.responseHandler
+        //
+        //        let extendedHandler: ResponseHandler<Any> = { (response) in
+        //
+        //            if let originalHandler = originalHandler {
+        //                originalHandler(response)
+        //            }
+        //
+        //            self.semaphore.signal();
+        //        }
+        //
+        //        req.run(extendedHandler)
         
-        let originalHandler = req.responseHandler
         
-        let extendedHandler: ResponseHandler<Any> = { (response) in
-            
-            if let originalHandler = originalHandler {
-                originalHandler(response)
-            }
-            
+        
+        request.whenFinished {
             self.semaphore.signal();
         }
-        
-        req.run(extendedHandler)
+        request.runToTheHills()
         
         _ = semaphore.wait(timeout: DispatchTime.distantFuture);
     }

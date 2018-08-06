@@ -19,7 +19,8 @@ extension Request {
         responseHandler: ResponseHandler<[LogEntry]>? = nil
     ) ->   Request<[LogEntry]> {
 
-        let path = "/logs" // This nonsense should be fixed in the code generator, we might do a PR for at some point...
+    let path = "/logs"
+      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
 
         let requestObject = Request<[LogEntry]>.init(path, responseHandler: responseHandler)
 

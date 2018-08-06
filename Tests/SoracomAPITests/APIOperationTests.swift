@@ -54,7 +54,7 @@ class APIOperationTests: BaseTestCase {
         beginAsyncSection()
 
         let COM0008 = "COM0008"
-          // Because req is bogus, COM0008 error should be returned ('not a well-formed email address'). We will use this.
+          // Because the first request is bogus, COM0008 error should be returned ('not a well-formed email address'). We will use this.
         
         var values: [String] = []
         
@@ -72,10 +72,20 @@ class APIOperationTests: BaseTestCase {
             
             return Request.auth(credentialsBasedOnPreviousOperation) { (response: Response) in
                 
+                
                 values.append("second operation did run")
                 
-                XCTAssertEqual(response.request.credentials.emailAddress, COM0008)
-                XCTAssertEqual(response.request.credentials.password, COM0008)
+                let foo = response.request.credentials
+                print(foo)
+                
+                guard let rehydratedCredentials = AuthRequest.from(response.request.messageBody) else {
+                    XCTFail()
+                    self.endAsyncSection()
+                    return;
+                }
+                
+                XCTAssertEqual(rehydratedCredentials.email, COM0008)
+                XCTAssertEqual(rehydratedCredentials.password, COM0008)
                 self.endAsyncSection()
             }
 

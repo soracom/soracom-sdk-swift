@@ -17,7 +17,8 @@ extension Request {
         responseHandler: ResponseHandler<[LoraDevice]>? = nil
     ) ->   Request<[LoraDevice]> {
 
-        let path = "/lora_devices" // This nonsense should be fixed in the code generator, we might do a PR for at some point...
+    let path = "/lora_devices"
+      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
 
         let requestObject = Request<[LoraDevice]>.init(path, responseHandler: responseHandler)
 

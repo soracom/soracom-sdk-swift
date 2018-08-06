@@ -15,7 +15,8 @@ extension Request {
         responseHandler: ResponseHandler<ListOrderedSubscriberResponse>? = nil
     ) ->   Request<ListOrderedSubscriberResponse> {
 
-        let path = "/orders/{order_id}/subscribers".replacingOccurrences(of: "{" + "orderId" + "}", with: "\(orderId)") // This nonsense should be fixed in the code generator, we might do a PR for at some point...
+    let path = "/orders/{order_id}/subscribers".replacingOccurrences(of: "{" + "order_id" + "}", with: "\(orderId)")
+      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
 
         let requestObject = Request<ListOrderedSubscriberResponse>.init(path, responseHandler: responseHandler)
 

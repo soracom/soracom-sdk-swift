@@ -12,7 +12,8 @@ extension Request {
         responseHandler: ResponseHandler<AuthResponse>? = nil
     ) ->   Request<AuthResponse> {
 
-        let path = "/auth" // This nonsense should be fixed in the code generator, we might do a PR for at some point...
+    let path = "/auth"
+      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
 
         let requestObject = Request<AuthResponse>.init(path, responseHandler: responseHandler)
 

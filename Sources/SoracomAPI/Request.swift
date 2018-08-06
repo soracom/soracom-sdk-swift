@@ -348,8 +348,15 @@ open class BaseRequest {
                 let strings = value.map {e in e.rawValue}
                 query[key] = strings.joined(separator: "|")
             
+            } else if let value = v as? Int {
+                query[key] = String(describing: value)
+                
+            } else if let value = v as? String {
+                query[key] = value
+                
             } else {
                 query[key] = String(describing: v)
+                // This probably won't work. But as of 2018-08-02 we don't have any query types other than the ones handled above.
             }
         }
         
@@ -396,13 +403,33 @@ open class BaseRequest {
         
     }
     
+    
+    /**
+     The `whenFinished` action (if one exists) runs after the receiver has `run()` and any response handlers have executed. It's main purpose is to allow operations that wrap requests to know when they have been fully executed.
+     */
+    public func whenFinished(_ action: @escaping WhenFinishedAction) {
+        _whenFinished = action;
+    }
+    internal var _whenFinished : WhenFinishedAction? = nil
+    
+ 
+    public func runToTheHills() {
+        
+    }
 }
 
+
+public typealias WhenFinishedAction = (() -> Void)
+
+
+protocol Runnable {
+    
+}
 
 open class Request<T>: BaseRequest {
     
     /// The ResponseHandler function that, if it exists, will be use to process the response to the request (or potentially the error that occurred).
-    
+
     var responseHandler: ResponseHandler<T>?
     
     
@@ -414,6 +441,11 @@ open class Request<T>: BaseRequest {
         self.path = path
         self.responseHandler = responseHandler
     }
+    
+    public override func runToTheHills() {
+        run()
+    }
+
     
     // Mason 2016-06-30: started to implement this, but then I thought maybe actually the request should always run (and get error from server). Not sure yet.
     //    convenience init(clientSideError: APIError, responseHandler: ResponseHandler? = nil) {
@@ -467,6 +499,10 @@ open class Request<T>: BaseRequest {
                     responseHandler(response)
                 }
             }
+            if let f = self._whenFinished {
+                f()
+            }
+
         }
         task.resume()
     }

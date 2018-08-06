@@ -17,7 +17,8 @@ extension Request {
         responseHandler: ResponseHandler<[VirtualPrivateGateway]>? = nil
     ) ->   Request<[VirtualPrivateGateway]> {
 
-        let path = "/virtual_private_gateways" // This nonsense should be fixed in the code generator, we might do a PR for at some point...
+    let path = "/virtual_private_gateways"
+      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
 
         let requestObject = Request<[VirtualPrivateGateway]>.init(path, responseHandler: responseHandler)
 

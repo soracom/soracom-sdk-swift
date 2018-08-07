@@ -84,7 +84,7 @@ class RequestSandboxTests: BaseTestCase {
             
             XCTAssertNil(response.error)
             
-            let token = response.payload?[.token]
+            let token = response.parse()?.token
             XCTAssertNotNil(token)
             
             self.endAsyncSection()
@@ -154,7 +154,7 @@ class RequestSandboxTests: BaseTestCase {
             
             XCTAssert(response.error == nil)
             
-            if let imsi = response.payload?[.imsi] as? String {
+            if let imsi = response.parse()?.imsi {
                 XCTAssert(imsi.count > 10)
             } else {
                 XCTFail("Could not get IMSI")

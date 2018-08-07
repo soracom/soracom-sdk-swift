@@ -82,7 +82,7 @@ class DevelopmentEnvironmentTests: XCTestCase {
         
         let response = authRequest.wait()
         
-        guard let authResponse = AuthResponse.from(response.payload) else {
+        guard let authResponse = response.parse() else {
             XCTFail("Hmm. Test precondition failed: unable to authenticate to get API key")
             return nil
         }

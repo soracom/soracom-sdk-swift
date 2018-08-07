@@ -144,71 +144,6 @@ class BaseTestCase: XCTestCase {
         return decoded
     }
     
-    /// Encode`payload` as JSON, then initializes a new Payload instance with that JSON data. Asserts the newly-decoded payload emits identical JSON, failing otherwise. Returns the new decoded Payload instance. (This is a convenience for writing tests for model object serialization.)
-    
-    func roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION(_ payload: Payload, caller: StaticString = #function) -> Payload? {
-        
-        guard let data = payload.toJSONData() else {
-            XCTFail("roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION: failed to encode: \(payload)")
-            return nil
-        }
-        
-        guard let decodedPayload = try? Payload(data: data) else {
-            XCTFail("roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION: failed to decode: \(data.utf8String ?? "no JSON!")")
-            return nil
-        }
-        
-        // Mason 2016-08-02: If testing for binary identicality ever becomes an issue causing spurious failures, convert to isEquivalentJSON() like below.
-        XCTAssertEqual(data, decodedPayload?.toJSONData())
-        
-        return decodedPayload
-    }
-    
-    
-    /// Encodes `obj` as a Payload, converts that to JSON data, creates a new Payload by decoding that JSON data, instantiates a new object from that new payload, and returns it. (This is a convenience for writing tests for model object serialization.) Explicitly doesn't allow comparison of `Payload` objects which fail to encode (i.e. where `toJSONData()` returns `nil`).
-    
-    func roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION(_ obj: Codable) -> Codable? {
-        
-        let payload = obj.toPayload()
-        
-        guard let data = payload.toJSONData() else {
-            XCTFail()
-            return nil
-        }
-
-        guard let decodedPayload = try? Payload(data: data) else {
-            XCTFail()
-            return nil
-        }
-        
-        guard let decodedObject = type(of: obj).from(decodedPayload) else {
-            XCTFail()
-            return nil
-        }
-        
-        // XCTAssertEqual(decodedObject.toPayload().toJSONData(), data)
-        //
-        // I no longer do this because key order is not deterministic, or at least I
-        // don't know what determines that order, and this caused spurious failures.
-        // Instead:
-        
-        guard let data2 = decodedObject.toPayload().toJSONData() else {
-            XCTFail()
-            return nil
-        }
-        
-        guard let json  = String(data: data, encoding: .utf8),
-              let json2 = String(data: data2, encoding: .utf8)
-        else {
-            XCTFail()
-            return nil
-        }
-        
-        XCTAssertTrue(isEquivalentJSON(json, json2))
-        
-        return decodedObject
-    }
-    
     
     // MARK: - Asychronous testing conveniences
     // These are intended to make our normal async test pattern slightly more convenient.
@@ -284,7 +219,7 @@ class BaseTestCase: XCTestCase {
     func withNewIMSI(_ handler: @escaping (_ imsi: String) -> ()) {
         Request.createSandboxSubscriber().run { (response) in
             XCTAssert(response.error == nil)
-            if let imsi = response.payload?[.imsi] as? String {
+            if let imsi = response.parse()?.imsi {
                 handler(imsi)
             } else {
                 XCTFail("withNewIMSI() could not get new IMSI")

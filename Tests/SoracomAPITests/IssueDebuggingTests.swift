@@ -27,7 +27,7 @@ class IssueDebuggingTests: BaseTestCase {
         req.query = BaseRequest.makeQueryDictionary(qd)
         let res = req.wait();
         
-        let subscribers = Subscriber.listFrom(res.payload)
+        let subscribers = res.parse()
         
         print(req)
         print(res)

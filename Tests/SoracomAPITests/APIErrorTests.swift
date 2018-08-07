@@ -23,13 +23,18 @@ class APIErrorTests: BaseTestCase {
     
     func test_APIError_init_with_payload() {
         
-        let bad: Payload  = [.email: "no error code", .message: "a message"]
-        let good: Payload = [.code: "no error code", .message: "a message"]
+        let bad = ["email": "no error code", "message": "a message"].toData()
+        let good = ["code": "no error code", "message": "a message"].toData()
         
-        XCTAssertNil(APIError(payload: bad))
-        XCTAssertNil(APIError(payload: nil))
+        let e1 = APIError.from(jsonData: bad)
+        let e2 = APIError.from(jsonData: nil)
         
-        XCTAssertNotNil(APIError(payload:good))
+        let e3 = APIError.from(jsonData: good)
+        
+        XCTAssertNil( e1 )
+        XCTAssertNil( e2 )
+        
+        XCTAssertNotNil( e3)
     }
     
 }

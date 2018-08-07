@@ -23,7 +23,7 @@ class SerializationTests: BaseTestCase {
             userName:   "since the day they was born"
         )
         
-        guard let ar2  = roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION(ar1) as? AuthResponse else {
+        guard let ar2  = roundTripSerializeDeserialize(ar1) else {
             XCTFail()
             return
         }
@@ -54,8 +54,8 @@ class SerializationTests: BaseTestCase {
         let isEquivalent = isEquivalentJSON(json1, json2)
         XCTAssert(isEquivalent)
         
-        guard let un   = roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION(uno) as? AirStats,
-              let deux = roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION(dos) as? AirStats
+        guard let un   = roundTripSerializeDeserialize(uno),
+              let deux = roundTripSerializeDeserialize(dos)
         else {
             XCTFail()
             return
@@ -80,8 +80,8 @@ class SerializationTests: BaseTestCase {
         let isEquivalent = isEquivalentJSON(json1, json2)
         XCTAssert(isEquivalent)
         
-        guard let un   = roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION(uno) as? DataTrafficStats,
-              let deux = roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION(dos) as? DataTrafficStats
+        guard let un   = roundTripSerializeDeserialize(uno),
+              let deux = roundTripSerializeDeserialize(dos)
         else {
             XCTFail()
             return
@@ -97,8 +97,8 @@ class SerializationTests: BaseTestCase {
         let uno = TagUpdateRequest(tagName: "foo", tagValue: "bar")
         let dos = TagUpdateRequest(tagName: "baz", tagValue: "ホゲ")
 
-        guard let eins = roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION(uno) as? TagUpdateRequest,
-              let zwei = roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION(dos) as? TagUpdateRequest
+        guard let eins = roundTripSerializeDeserialize(uno),
+              let zwei = roundTripSerializeDeserialize(dos)
         else {
             XCTFail()
             return

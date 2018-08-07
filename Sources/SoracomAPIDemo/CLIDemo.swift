@@ -81,13 +81,14 @@ open class CLIDemo {
      */
     open func registerNewSIM() {
         
-        let createDummySIMResponse = Request.createSandboxSubscriber().wait()
+        let createReq = Request.createSandboxSubscriber()
+        let createDummySIMResponse = createReq.wait().parse()
         
-        guard let payload = createDummySIMResponse.payload,
-              let imsi    = payload[.imsi] as? String,
-              let secret  = payload[.registrationSecret] as? String
+        guard let response = createDummySIMResponse,
+              let imsi     = response.imsi,
+              let secret   = response.registrationSecret
         else {
-            exit("unable to create dummy SIM in API Sandbox environment:\n \(createDummySIMResponse)")
+            exit("unable to create dummy SIM in API Sandbox environment:\n \(createReq)")
         }
         
         let registerResponse = Request.registerSubscriber(imsi, registrationSecret: secret).wait()
@@ -121,7 +122,7 @@ open class CLIDemo {
             showMainMenu(error)
         } else {
             
-            guard let subscriberList = Subscriber.listFrom(response.payload) else {
+            guard let subscriberList = response.parse() else {
                 exit("failed to parse subscriber list")
             }
             
@@ -234,9 +235,9 @@ open class CLIDemo {
         
         let authResponse = Request.auth(credentials).wait()
         
-        if let payload = authResponse.payload,
-            let apiKey  = payload[.apiKey] as? String,
-            let token   = payload[.token] as? String
+        if let decoded  = authResponse.parse(),
+            let apiKey  = decoded.apiKey,
+            let token   = decoded.token
         {
             credentials.apiKey = apiKey
             credentials.token  = token
@@ -314,7 +315,7 @@ open class CLIDemo {
                 link via email) in API Sandbox environment succeeded.
                 """)
             
-            guard let token = signupResponse.payload?[.token] as? String else {
+            guard let token = signupResponse.parse()?.token else {
                 exit("Expected sign-up token was not found in the API response: \(signupResponse)")
             }
             return SoracomCredentials(token: token)

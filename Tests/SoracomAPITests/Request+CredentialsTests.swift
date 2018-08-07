@@ -49,8 +49,9 @@ class RequestCredentialsTests: BaseTestCase {
         
         XCTAssertNil(createResponse.error)
         
-        let created = CredentialsModel.from(createResponse.payload)
-        
+        //        let created = CredentialsModel.from(createResponse.payload)
+        let created = createResponse.parse()
+
         XCTAssertNotNil(created)
         XCTAssertNotNil(created?.credentials)
         XCTAssertEqual("test_CRUD_credentials", created?.description)
@@ -84,7 +85,7 @@ class RequestCredentialsTests: BaseTestCase {
         let listRequest  = Request.listCredentials()
         let listResponse = listRequest.wait()
         
-        guard let credList = CredentialsModel.listFrom(listResponse.payload) else {
+        guard let credList = listResponse.parse() else {
             XCTFail()
             return nil
         }

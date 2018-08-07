@@ -36,14 +36,12 @@ class RequestAuthTests: BaseTestCase {
             print("AUTH: ", response)
             XCTAssert(response.error == nil)
             
-            if let payload = response.payload {
-                
-                let authResponse = AuthResponse.from(payload)
+            if let authResponse = response.parse() {
                 
                 XCTAssertNotNil(authResponse)
-                XCTAssertNotNil(authResponse?.operatorId)
-                XCTAssertNotNil(authResponse?.apiKey)
-                XCTAssertNotNil(authResponse?.token)
+                XCTAssertNotNil(authResponse.operatorId)
+                XCTAssertNotNil(authResponse.apiKey)
+                XCTAssertNotNil(authResponse.token)
                 
             } else {
                 XCTFail("auth() did not receive a payload")

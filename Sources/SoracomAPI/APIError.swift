@@ -7,7 +7,7 @@ import Foundation
 ///
 /// (Despite having *Error* in its name, it is a data structure, not an ErrorType or relative of NSError.)
 
-public struct APIError {
+open class APIError: Decodable {
     
     /// The error code. In most cases, this is an error code returned by the API server. However, if the error code begins with "CLI" then it is a client-side error, e.g. something that prevented even getting a response from the server (such as, 'network not available').
     
@@ -47,24 +47,36 @@ public struct APIError {
     }
     
     
-    /// Init a new APIError from a Payload structure. Returns nil unless Payload exists and has `.code` and `.message` keys.
+    /// Init a new APIError from JSON data. Returns nil unless `data` exists and has `.code` and `.message` keys.
     
-    public init?(payload: Payload?) {
+    public static func from(jsonData: Data?) -> APIError? {
         
-        guard let payload = payload else {
+        guard let jsonData = jsonData else {
             return nil
         }
         
-        let code    = payload[.code] as? String
-        let message = payload[.message] as? String
+         var result: APIError? = nil
         
-        // FIXME: add messageArgs (see note above)
-        
-        if code != nil && message != nil {
-            self.init(code:code, message:message)
-        } else {
-            return nil;
+        do {
+            result = try JSONDecoder().decode(self, from: jsonData)
+        } catch let err {
+            Metrics.record(type: .decodeFailure, description: self, error: err, data: jsonData)
         }
+        return result
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        code = try container.decode(.code)
+        message = try container.decode(.message)
+        underlyingError = nil
+        // FIXME: add messageArgs (see note above)
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case code
+        case message
     }
 
 }

@@ -192,10 +192,7 @@ open class BaseRequest {
     var shouldSendAPIKeyAndTokenInHTTPHeaders = true
     
     
-    /// Many API requests have a payload of keys and values that are sent to the server in the HTTP body of the request. The `payload` property contains those values. (It is not normally necessary to explicitly set this property, because it will happen automatically when using the one of the convenience methods for creating a request.) This list will be converted to a JSON object when being sent to the server.
-    
-    var payload: Payload?
-    
+    /// The message body (if any) of the HTTP request. If this exists, it should contain JSON data. It's generally not necessary to set this directly, because it will happen automatically when using the one of the convenience methods for creating a request.
     
     var messageBody: Data?
     
@@ -233,11 +230,6 @@ open class BaseRequest {
         }
         return nil
     }
-    
-    
-    /// An array of keys indicating the values the response payload **must** have to be considered successful. // FIXME: this responsibility should probably be delegated to Payload, and this should then become something like `expectedPayloadTypes`.
-    
-    var expectedResponseKeys: [String] = []
     
     
     /// Returns the complete URL, based on endpointHost, API version, path, and query.
@@ -385,12 +377,6 @@ open class BaseRequest {
             request.httpBody = messageBody;
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             
-        } else if let payload = payload {
-            
-            // Obsolete way; this will go away! But, code coversion is currently in progress. mason 2018-07-26
-            
-            request.httpBody =  payload.toJSONData() ?? Data() // FIXME: set error and fail if payload can't make JSON data
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         
         if (shouldSendAPIKeyAndTokenInHTTPHeaders) {

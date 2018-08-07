@@ -39,7 +39,7 @@ class RequestSubscriberTests: BaseTestCase {
         
         r.run { (response) in
             XCTAssertNil(response.error)
-            let list = Subscriber.listFrom(response.payload)
+            let list = response.parse()
             XCTAssertNotNil(list)
             self.endAsyncSection()
         }
@@ -52,7 +52,7 @@ class RequestSubscriberTests: BaseTestCase {
 
         let response = Request.listSubscribers().wait()
         
-        guard let list = Subscriber.listFrom(response.payload) else {
+        guard let list = response.parse() else {
             XCTFail("failed to parse subscribers")
             return
         }

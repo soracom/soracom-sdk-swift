@@ -48,34 +48,6 @@ open class BaseResponse {
     
 
     
-    /// Creates and returns a Payload object from the HTTP response from the API server, if it included a JSON payload that could be successfully parsed.
-    
-    public var payload: Payload? {
-        
-        var result: Payload? = nil
-        
-        do {
-            result = try Payload(data: data)
-        } catch {
-            result = nil
-        }
-        return result
-        
-        
-        // Mason 2016-04-12: I was going to make this somewhat efficient (not parse the dictionary every time), but making this a "mutating get"
-        // caused all sorts of hassle (any func in this struct using payload had to also be marked mutating, etc...) and I think it is not worth it.
-        // (Unlike a class, a struct cannot modify a private property unless method is marked as mutating...)
-        //        mutating get {
-        //
-        //            // Ah, "mutating get", my old nemesis... blecch
-        //
-        //            if _payload != nil {
-        //                return _payload
-        //            }
-        
-    }
-    
-    
     /// An `error` value of `nil` indicates success. A non-nil value indicates an error has occured. Usually, an error will be returned by the API server, but other errors are possible. E.g., a client-side error accessing the network.
     
     public var error: APIError? {
@@ -83,28 +55,6 @@ open class BaseResponse {
         guard _error == nil else {
             return _error
         }
-        
-        guard HTTPStatus == baseRequest.expectedHTTPStatus else {
-            
-            // The API reported an error. Let's see if we can parse this as a regular API error response, since that
-            // will presumably yield a more informative error message. If not, just create a generic error here.
-            // FIXME: See if we can add real err codes for client-side errs, that don't potentially conflict with API-side err codes.
-            
-            return APIError(payload: payload) ??
-                APIError(code: "CLI0666", message: "got HTTP status \(String(describing: HTTPStatus)), but expected \(baseRequest.expectedHTTPStatus)")
-        }
-        
-        guard let data = data else {
-            // If there's no data, there is no payload, so getting here means no error.
-            return nil
-        }
-        
-        do {
-            let _ = try Payload(data: data)
-        } catch {
-            return APIError(code: "CLI0666", message: "could not decode response payload")
-        }
-        
         return nil
     }
     private var _error: APIError? = nil // can be set at init time, when client-side err occurs before networking
@@ -136,6 +86,64 @@ open class Response<T>: BaseResponse {
     /// The originating `Request` instance, for which the receiver is a matched pair. The request has the details about what was requested and what the expectations were, while the result has the details of what actually came back from the sever (or what error occurred).
     
     public let request: Request<T>
+    
+    
+    /// Creates and returns an object from the HTTP response from the API server, assuming it included a JSON payload that could be successfully parsed as the expected object type.
+
+//    open func parse() -> T? {
+//
+//        guard let data = data else {
+//            return nil
+//        }
+//
+//        var result: T? = nil
+//
+//        let d = JSONDecoder()
+//
+//        do {
+//
+//            // THIS WORKS, BUT WE'D HAVE TO AUTOGEN HUGE IF SERIES:
+////            if T.self == Group.self {
+////                print("bleet")
+////                result = try d.decode(Group.self, from: data) as? T
+////            } else if T.self == AuthResponse.self {
+////                print("blart")
+////                result = try d.decode(AuthResponse.self, from: data) as? T
+////            } else {
+////                result = try d.decodeAny(T.self, from: data) as? T
+////            }
+//        } catch let err {
+//            Metrics.record(type: .decodeFailure, description: "\(self).parse() failed", error: err, data: data)
+//        }
+//        return result;
+//    }
+
+    /// An `error` value of `nil` indicates success. A non-nil value indicates an error has occured. Usually, an error will be returned by the API server, but other errors are possible. E.g., a client-side error accessing the network.
+    
+    public override var error: APIError? {
+        
+        guard _error == nil else {
+            return _error
+        }
+        
+        guard HTTPStatus == baseRequest.expectedHTTPStatus else {
+            
+            // The API reported an error. Let's see if we can parse this as a regular API error response, since that
+            // will presumably yield a more informative error message. If not, just create a generic error here.
+            // FIXME: See if we can add real err codes for client-side errs, that don't potentially conflict with API-side err codes.
+            
+            return APIError.from(jsonData: data) ??
+                APIError(code: "CLI0666", message: "got HTTP status \(String(describing: HTTPStatus)), but expected \(baseRequest.expectedHTTPStatus)")
+        }
+        
+        guard parse() != nil else {
+            return APIError(code: "CLI0666", message: "could not decode response payload")
+        }
+        
+        return nil
+    }
+    private var _error: APIError? = nil // can be set at init time, when client-side err occurs before networking
+
 }
 
 

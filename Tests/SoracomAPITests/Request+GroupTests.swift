@@ -14,6 +14,15 @@ import XCTest
 
 class RequestGroupTests: BaseTestCase {
     
+    func test_createGroup() {
+        guard let group = createGroup() else {
+            XCTFail("failed to create group")
+            return
+        }
+        print(group.toData()?.utf8String ?? "T_T")
+    }
+    
+    
     func test_CRUD_groups() {
         
         guard let group = createGroup() else {
@@ -157,7 +166,7 @@ class RequestGroupTests: BaseTestCase {
         
         XCTAssertNil(response.error)
         
-        guard let subscriberList = Subscriber.listFrom(response.payload) else {
+        guard let subscriberList = response.parse() else {
             XCTFail("did not get subscriber list")
             return
         }
@@ -182,12 +191,7 @@ class RequestGroupTests: BaseTestCase {
         
         XCTAssertNil(createResponse.error)
         
-        guard let payload = createResponse.payload else {
-            XCTFail("expected payload")
-            return nil
-        }
-        
-        guard let group = Group.from(payload) else {
+        guard let group = createResponse.parse() else {
             XCTFail("expected group")
             return nil
         }
@@ -224,15 +228,11 @@ class RequestGroupTests: BaseTestCase {
         
         XCTAssertNil(listResponse.error)
         
-        guard let payload = listResponse.payload else {
-            XCTFail("no payload received from listGroups")
-            return nil
-        }
-        
-        guard let groups = Group.listFrom(payload) else {
+        guard let groups = listResponse.parse() else {
             XCTFail("could not decode payload received from listGroups")
             return nil
         }
+        
         return groups
     }
     
@@ -255,10 +255,10 @@ class RequestGroupTests: BaseTestCase {
         
         let response = Request.getGroup(groupId: groupId).wait()
         
-        guard let payload = response.payload else {
+        guard let group = response.parse() else {
             return nil
         }
-        return Group.from(payload)
+        return group
     }
 
 }

@@ -498,6 +498,7 @@
 		93926F7A211142370059ED61 /* _InsertAirStatsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93926F71211142370059ED61 /* _InsertAirStatsRequest.swift */; };
 		93926F7C211142630059ED61 /* FixmeBreakIntoFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93926F7B211142630059ED61 /* FixmeBreakIntoFiles.swift */; };
 		93926FA62112B7B00059ED61 /* _OpenGateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93926FA52112B7B00059ED61 /* _OpenGateRequest.swift */; };
+		93F9D34C211A2E52007F6A05 /* ResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F9D34B211A2E52007F6A05 /* ResponseDecoder.swift */; };
 		OBJ_1000 /* ResourceInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_140 /* ResourceInstance.swift */; };
 		OBJ_1001 /* RoleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_141 /* RoleResponse.swift */; };
 		OBJ_1002 /* RuleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_142 /* RuleConfig.swift */; };
@@ -688,8 +689,6 @@
 		OBJ_1187 /* _VirtualPrivateGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_328 /* _VirtualPrivateGateway.swift */; };
 		OBJ_1188 /* _VpcPeeringConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_329 /* _VpcPeeringConnection.swift */; };
 		OBJ_1189 /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_330 /* NSDate+SoracomAPI.swift */; };
-		OBJ_1190 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_331 /* Payload.swift */; };
-		OBJ_1191 /* PayloadKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_332 /* PayloadKey.swift */; };
 		OBJ_1192 /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_333 /* Request+Auth.swift */; };
 		OBJ_1193 /* Request+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_334 /* Request+Credentials.swift */; };
 		OBJ_1194 /* Request+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_335 /* Request+Group.swift */; };
@@ -703,7 +702,6 @@
 		OBJ_1652 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_820 /* Response.swift */; };
 		OBJ_1653 /* SoracomCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_821 /* SoracomCredentials.swift */; };
 		OBJ_1654 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_822 /* TextStyle.swift */; };
-		OBJ_1655 /* UnkeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_823 /* UnkeyedEncodingContainer+Payload.swift */; };
 		OBJ_1662 /* CLIDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_825 /* CLIDemo.swift */; };
 		OBJ_1663 /* InputReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_826 /* InputReader.swift */; };
 		OBJ_1664 /* SimpleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_827 /* SimpleMenu.swift */; };
@@ -722,9 +720,7 @@
 		OBJ_1695 /* IssueDebuggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_841 /* IssueDebuggingTests.swift */; };
 		OBJ_1696 /* JSONComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_842 /* JSONComparisonTests.swift */; };
 		OBJ_1697 /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_843 /* KeychainTests.swift */; };
-		OBJ_1698 /* KeyedEncodingContainer+PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_844 /* KeyedEncodingContainer+PayloadTests.swift */; };
 		OBJ_1699 /* NSDate+SoracomAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_845 /* NSDate+SoracomAPITests.swift */; };
-		OBJ_1700 /* PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_846 /* PayloadTests.swift */; };
 		OBJ_1701 /* RegisterSIMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_847 /* RegisterSIMTests.swift */; };
 		OBJ_1702 /* Request+AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_848 /* Request+AuthTests.swift */; };
 		OBJ_1703 /* Request+CredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_849 /* Request+CredentialsTests.swift */; };
@@ -732,7 +728,6 @@
 		OBJ_1705 /* Request+SandboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_851 /* Request+SandboxTests.swift */; };
 		OBJ_1706 /* Request+SubscriberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_852 /* Request+SubscriberTests.swift */; };
 		OBJ_1707 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_853 /* RequestTests.swift */; };
-		OBJ_1708 /* ResponsePayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_854 /* ResponsePayloadTests.swift */; };
 		OBJ_1709 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_855 /* ResponseTests.swift */; };
 		OBJ_1710 /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_856 /* SerializationTests.swift */; };
 		OBJ_1711 /* SoracomCredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_857 /* SoracomCredentialsTests.swift */; };
@@ -751,7 +746,6 @@
 		OBJ_881 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* HTTPMethod.swift */; };
 		OBJ_882 /* JSONComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* JSONComparison.swift */; };
 		OBJ_883 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Keychain.swift */; };
-		OBJ_884 /* KeyedEncodingContainer+Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* KeyedEncodingContainer+Payload.swift */; };
 		OBJ_885 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* Metrics.swift */; };
 		OBJ_886 /* APICallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* APICallError.swift */; };
 		OBJ_887 /* APICallErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* APICallErrorMessage.swift */; };
@@ -1371,6 +1365,7 @@
 		93926F71211142370059ED61 /* _InsertAirStatsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _InsertAirStatsRequest.swift; sourceTree = "<group>"; };
 		93926F7B211142630059ED61 /* FixmeBreakIntoFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixmeBreakIntoFiles.swift; sourceTree = "<group>"; };
 		93926FA52112B7B00059ED61 /* _OpenGateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _OpenGateRequest.swift; sourceTree = "<group>"; };
+		93F9D34B211A2E52007F6A05 /* ResponseDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseDecoder.swift; sourceTree = "<group>"; };
 		OBJ_10 /* APIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
 		OBJ_100 /* LagoonUserCreationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LagoonUserCreationResponse.swift; sourceTree = "<group>"; };
 		OBJ_101 /* LagoonUserEmailUpdatingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LagoonUserEmailUpdatingRequest.swift; sourceTree = "<group>"; };
@@ -1512,7 +1507,6 @@
 		OBJ_227 /* _GenerateUserAuthKeyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _GenerateUserAuthKeyResponse.swift; sourceTree = "<group>"; };
 		OBJ_228 /* _GetBillingHistoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _GetBillingHistoryResponse.swift; sourceTree = "<group>"; };
 		OBJ_229 /* _GetExportedFileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _GetExportedFileResponse.swift; sourceTree = "<group>"; };
-		OBJ_23 /* KeyedEncodingContainer+Payload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyedEncodingContainer+Payload.swift"; sourceTree = "<group>"; };
 		OBJ_230 /* _GetLatestBill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _GetLatestBill.swift; sourceTree = "<group>"; };
 		OBJ_231 /* _GetOperatorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _GetOperatorResponse.swift; sourceTree = "<group>"; };
 		OBJ_232 /* _GetOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _GetOrderResponse.swift; sourceTree = "<group>"; };
@@ -1623,8 +1617,6 @@
 		OBJ_329 /* _VpcPeeringConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _VpcPeeringConnection.swift; sourceTree = "<group>"; };
 		OBJ_33 /* AttributeUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeUpdate.swift; sourceTree = "<group>"; };
 		OBJ_330 /* NSDate+SoracomAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDate+SoracomAPI.swift"; sourceTree = "<group>"; };
-		OBJ_331 /* Payload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
-		OBJ_332 /* PayloadKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadKey.swift; sourceTree = "<group>"; };
 		OBJ_333 /* Request+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Auth.swift"; sourceTree = "<group>"; };
 		OBJ_334 /* Request+Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Credentials.swift"; sourceTree = "<group>"; };
 		OBJ_335 /* Request+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Group.swift"; sourceTree = "<group>"; };
@@ -1688,7 +1680,6 @@
 		OBJ_820 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		OBJ_821 /* SoracomCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoracomCredentials.swift; sourceTree = "<group>"; };
 		OBJ_822 /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
-		OBJ_823 /* UnkeyedEncodingContainer+Payload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnkeyedEncodingContainer+Payload.swift"; sourceTree = "<group>"; };
 		OBJ_825 /* CLIDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLIDemo.swift; sourceTree = "<group>"; };
 		OBJ_826 /* InputReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputReader.swift; sourceTree = "<group>"; };
 		OBJ_827 /* SimpleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMenu.swift; sourceTree = "<group>"; };
@@ -1707,9 +1698,7 @@
 		OBJ_841 /* IssueDebuggingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDebuggingTests.swift; sourceTree = "<group>"; };
 		OBJ_842 /* JSONComparisonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONComparisonTests.swift; sourceTree = "<group>"; };
 		OBJ_843 /* KeychainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTests.swift; sourceTree = "<group>"; };
-		OBJ_844 /* KeyedEncodingContainer+PayloadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyedEncodingContainer+PayloadTests.swift"; sourceTree = "<group>"; };
 		OBJ_845 /* NSDate+SoracomAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDate+SoracomAPITests.swift"; sourceTree = "<group>"; };
-		OBJ_846 /* PayloadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadTests.swift; sourceTree = "<group>"; };
 		OBJ_847 /* RegisterSIMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSIMTests.swift; sourceTree = "<group>"; };
 		OBJ_848 /* Request+AuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+AuthTests.swift"; sourceTree = "<group>"; };
 		OBJ_849 /* Request+CredentialsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+CredentialsTests.swift"; sourceTree = "<group>"; };
@@ -1718,7 +1707,6 @@
 		OBJ_851 /* Request+SandboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+SandboxTests.swift"; sourceTree = "<group>"; };
 		OBJ_852 /* Request+SubscriberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+SubscriberTests.swift"; sourceTree = "<group>"; };
 		OBJ_853 /* RequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
-		OBJ_854 /* ResponsePayloadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsePayloadTests.swift; sourceTree = "<group>"; };
 		OBJ_855 /* ResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
 		OBJ_856 /* SerializationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationTests.swift; sourceTree = "<group>"; };
 		OBJ_857 /* SoracomCredentialsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoracomCredentialsTests.swift; sourceTree = "<group>"; };
@@ -3021,6 +3009,7 @@
 		OBJ_8 /* SoracomAPI */ = {
 			isa = PBXGroup;
 			children = (
+				93F9D34B211A2E52007F6A05 /* ResponseDecoder.swift */,
 				OBJ_9 /* APIError.swift */,
 				OBJ_10 /* APIOperation.swift */,
 				OBJ_11 /* AirStats.swift */,
@@ -3034,12 +3023,9 @@
 				OBJ_20 /* HTTPMethod.swift */,
 				OBJ_21 /* JSONComparison.swift */,
 				OBJ_22 /* Keychain.swift */,
-				OBJ_23 /* KeyedEncodingContainer+Payload.swift */,
 				OBJ_24 /* Metrics.swift */,
 				OBJ_25 /* Models */,
 				OBJ_330 /* NSDate+SoracomAPI.swift */,
-				OBJ_331 /* Payload.swift */,
-				OBJ_332 /* PayloadKey.swift */,
 				OBJ_333 /* Request+Auth.swift */,
 				OBJ_334 /* Request+Credentials.swift */,
 				OBJ_335 /* Request+Group.swift */,
@@ -3054,7 +3040,6 @@
 				OBJ_820 /* Response.swift */,
 				OBJ_821 /* SoracomCredentials.swift */,
 				OBJ_822 /* TextStyle.swift */,
-				OBJ_823 /* UnkeyedEncodingContainer+Payload.swift */,
 				9389C513210FEF9B0053F9D7 /* Enums.swift */,
 			);
 			name = SoracomAPI;
@@ -3096,9 +3081,7 @@
 				OBJ_841 /* IssueDebuggingTests.swift */,
 				OBJ_842 /* JSONComparisonTests.swift */,
 				OBJ_843 /* KeychainTests.swift */,
-				OBJ_844 /* KeyedEncodingContainer+PayloadTests.swift */,
 				OBJ_845 /* NSDate+SoracomAPITests.swift */,
-				OBJ_846 /* PayloadTests.swift */,
 				OBJ_847 /* RegisterSIMTests.swift */,
 				OBJ_848 /* Request+AuthTests.swift */,
 				OBJ_849 /* Request+CredentialsTests.swift */,
@@ -3106,7 +3089,6 @@
 				OBJ_851 /* Request+SandboxTests.swift */,
 				OBJ_852 /* Request+SubscriberTests.swift */,
 				OBJ_853 /* RequestTests.swift */,
-				OBJ_854 /* ResponsePayloadTests.swift */,
 				OBJ_855 /* ResponseTests.swift */,
 				OBJ_856 /* SerializationTests.swift */,
 				OBJ_857 /* SoracomCredentialsTests.swift */,
@@ -3258,9 +3240,7 @@
 				OBJ_1695 /* IssueDebuggingTests.swift in Sources */,
 				OBJ_1696 /* JSONComparisonTests.swift in Sources */,
 				OBJ_1697 /* KeychainTests.swift in Sources */,
-				OBJ_1698 /* KeyedEncodingContainer+PayloadTests.swift in Sources */,
 				OBJ_1699 /* NSDate+SoracomAPITests.swift in Sources */,
-				OBJ_1700 /* PayloadTests.swift in Sources */,
 				OBJ_1701 /* RegisterSIMTests.swift in Sources */,
 				OBJ_1702 /* Request+AuthTests.swift in Sources */,
 				OBJ_1703 /* Request+CredentialsTests.swift in Sources */,
@@ -3268,7 +3248,6 @@
 				OBJ_1705 /* Request+SandboxTests.swift in Sources */,
 				OBJ_1706 /* Request+SubscriberTests.swift in Sources */,
 				OBJ_1707 /* RequestTests.swift in Sources */,
-				OBJ_1708 /* ResponsePayloadTests.swift in Sources */,
 				OBJ_1709 /* ResponseTests.swift in Sources */,
 				OBJ_1710 /* SerializationTests.swift in Sources */,
 				OBJ_1711 /* SoracomCredentialsTests.swift in Sources */,
@@ -3311,7 +3290,6 @@
 				OBJ_882 /* JSONComparison.swift in Sources */,
 				93926F78211142370059ED61 /* _InitRequest.swift in Sources */,
 				OBJ_883 /* Keychain.swift in Sources */,
-				OBJ_884 /* KeyedEncodingContainer+Payload.swift in Sources */,
 				OBJ_885 /* Metrics.swift in Sources */,
 				9389C85A21104E6A0053F9D7 /* ListLagoonUsers.swift in Sources */,
 				9389C88F21104E6A0053F9D7 /* GetExportedFile.swift in Sources */,
@@ -4057,13 +4035,12 @@
 				9389C7F221104E6A0053F9D7 /* _UnsetGroup.swift in Sources */,
 				93926FA62112B7B00059ED61 /* _OpenGateRequest.swift in Sources */,
 				9389C8C421104E6A0053F9D7 /* SuspendSubscriber.swift in Sources */,
+				93F9D34C211A2E52007F6A05 /* ResponseDecoder.swift in Sources */,
 				9389C78E21104E690053F9D7 /* _DeleteConfigurationParameter.swift in Sources */,
 				9389C7C021104E690053F9D7 /* _DeleteDeviceObjectModel.swift in Sources */,
 				OBJ_1189 /* NSDate+SoracomAPI.swift in Sources */,
-				OBJ_1190 /* Payload.swift in Sources */,
 				9389C8F621104E6A0053F9D7 /* VerifyMFARevokingToken.swift in Sources */,
 				9389C74921104E690053F9D7 /* ExportLatestBilling.swift in Sources */,
-				OBJ_1191 /* PayloadKey.swift in Sources */,
 				OBJ_1192 /* Request+Auth.swift in Sources */,
 				9389C8F321104E6A0053F9D7 /* ListOperatorAuthKeys.swift in Sources */,
 				9389C8EC21104E6A0053F9D7 /* EnableMFA.swift in Sources */,
@@ -4090,7 +4067,6 @@
 				9389C7F821104E6A0053F9D7 /* _UnsetSigfoxDeviceGroup.swift in Sources */,
 				9389C76721104E690053F9D7 /* _AttachRole.swift in Sources */,
 				9389C84C21104E6A0053F9D7 /* GetUserPermission.swift in Sources */,
-				OBJ_1655 /* UnkeyedEncodingContainer+Payload.swift in Sources */,
 				9389C88221104E6A0053F9D7 /* GetLoraGateway.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

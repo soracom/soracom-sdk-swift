@@ -72,10 +72,10 @@ class CredentialTests: BaseTestCase {
         let b = CredentialsModel(description: "bodacious credential")
         let c = CredentialsModel(description: "consummate credential")
         
-        let outgoing = Payload(list: [a,b,c])
+        let outgoing = [a,b,c]
         
-        guard let incoming = roundTripSerializeDeserialize_OBSOLETE_PAYLOAD_VERSION(outgoing),
-              let list = CredentialsModel.listFrom(incoming.toPayload())
+        guard let incoming = roundTripSerializeDeserialize(outgoing)?.toData(),
+              let list = CredentialsModel.listFrom(incoming)
         else {
             XCTFail()
             return
@@ -144,10 +144,13 @@ class CredentialTests: BaseTestCase {
             consummate
         ]
         
-        let encoded = list.toPayload()
+        guard let encoded = list.toData() else {
+            XCTFail("failed to encode Credential list")
+            return;
+        }
         
         guard let decoded = CredentialsModel.listFrom(encoded) else {
-            XCTFail("failed to decode Credential list from Payload")
+            XCTFail("failed to decode Credential list")
             return;
         }
         
@@ -176,7 +179,7 @@ class CredentialTests: BaseTestCase {
     
     func test_codable_serialization_via_payload() {
         
-        let encoded = bodacious.toPayload()
+        let encoded = bodacious.toData()
         guard let decoded = CredentialsModel.from(encoded) else {
             XCTFail("failed to decode Credential object from Payload")
             return;

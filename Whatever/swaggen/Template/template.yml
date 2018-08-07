@@ -36,6 +36,9 @@ templateFiles:
   - path: Sources/Model.swift
     context: definitions
     destination: "Sources/Models/_{{ type }}.swift"
+  - path: Sources/ResponseDecode.swift
+    context: definitions
+    destination: "Sources/Decode/Response+{{type}}.swift"
   - path: Sources/Request.swift
     context: operations
     destination: "Sources/RequestsUNUSED{% if tag %}/{{ tag|upperCamelCase }}{% endif %}/{{ type }}.swift"

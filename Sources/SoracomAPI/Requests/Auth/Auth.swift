@@ -1,3 +1,5 @@
+import Foundation
+
 extension Request where T == AuthResponse {
 
     public class func auth(
@@ -21,7 +23,7 @@ extension Request where T == AuthResponse {
     ///   If no credentials are supplied, the "default" credentials, if they exist, are used. If no credentials are supplied
     ///   and none can be found, the request will fail.
     ///
-    /// Upon success, the Response will have a payload that can be used to initialize an AuthResponse struct, that contains the API Key and API Token.
+    /// Upon success, the response will contain an AuthResponse struct, with the API Key and API Token.
     
     public class func auth(_ credentials: SoracomCredentials? = nil, responseHandler: ResponseHandler<AuthResponse>? = nil) -> Request<AuthResponse> {
         
@@ -39,5 +41,6 @@ extension Request where T == AuthResponse {
         
         return auth(auth: requestObject, responseHandler: responseHandler)
     }
-
+    
 }
+

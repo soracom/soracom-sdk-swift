@@ -60,7 +60,7 @@ class RegisterSIMTests: BaseTestCase {
         req.run { (response) in
             
             print(response)
-            print(response.payload ?? "(response.payload == nil)")
+            print(response.parse() ?? "(response.parse() == nil)")
             
             // Payload looks like:
             // [
@@ -79,13 +79,13 @@ class RegisterSIMTests: BaseTestCase {
             //
             // For now we just grab the IMSI and registrationSecret.
             
-            guard let payload = response.payload else {
+            guard let payload = response.parse() else {
                 XCTFail("expected payload")
                 return
             }
             
-            IMSI = payload[.imsi] as? String ?? "BOGUS"
-            registrationSecret = payload[.registrationSecret] as? String ?? "BOGUS"
+            IMSI = payload.imsi ?? "BOGUS"
+            registrationSecret = payload.registrationSecret ?? "BOGUS"
             
             XCTAssert(response.error == nil)
             
@@ -107,7 +107,7 @@ class RegisterSIMTests: BaseTestCase {
         req.run { (response) in
             
             print(response)
-            print(response.payload ?? "(response.payload == nil)")
+            print(response.parse() ?? "(parse() == nil)")
             
             XCTAssert(response.error == nil)
             
@@ -149,8 +149,8 @@ class RegisterSIMTests: BaseTestCase {
         
             XCTAssert(response.error == nil)
             
-            if let payload = response.payload, let list = Subscriber.listFrom(payload) {
-                result.append(contentsOf: list)
+            if let subscriberList = response.parse() {
+                result.append(contentsOf: subscriberList)
             } else {
                 XCTFail("could not get subscriber list")
             }
@@ -180,7 +180,7 @@ class RegisterSIMTests: BaseTestCase {
             
             XCTAssert(response.error == nil)
             
-            if let subscriber = Subscriber.from(response.payload) {
+            if let subscriber = response.parse() {
                 
                 XCTAssert(subscriber.imsi == imsi)
                 XCTAssert(subscriber.speedClass == SpeedClass.s1_fast.rawValue)

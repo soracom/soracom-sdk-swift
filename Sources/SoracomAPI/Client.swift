@@ -81,20 +81,19 @@ open class Client {
             
             reAuthRequest.responseHandler = { (response) in
                 
-                if let payload = response.payload,
-                    let apiKey  = payload[.apiKey] as? String,
-                    let token   = payload[.token] as? String
-                {
-                    var updatedCredentials    = self.credentialsForUser(.APISandboxUser)
-                    updatedCredentials.apiKey = apiKey
-                    updatedCredentials.token  = token
-                    self.saveCredentials(updatedCredentials, user: .APISandboxUser)
-                    
-                    self.log("Authenticated successfully as the newly-created sandbox user, and stored the updated API key and token.")
-                    
-                } else {
+                guard let authResponse = response.parse(),
+                      let apiKey       = authResponse.apiKey,
+                      let token        = authResponse.token
+                else {
                     self.log("Authentication as the newly-created sandbox user failed.")
+                    return
                 }
+                var updatedCredentials    = self.credentialsForUser(.APISandboxUser)
+                updatedCredentials.apiKey = apiKey
+                updatedCredentials.token  = token
+                self.saveCredentials(updatedCredentials, user: .APISandboxUser)
+                
+                self.log("Authenticated successfully as the newly-created sandbox user, and stored the updated API key and token.")
             }
             return reAuthRequest
         }
@@ -112,11 +111,13 @@ open class Client {
         }
         
         let authRequest  = Request.auth(credentials)
-        let authResponse = authRequest.wait()
         
-        guard let payload = authResponse.payload, let apiKey = payload[.apiKey] as? String, let newToken = payload[.token] as? String else
-        {
-            print("failed to update token: authentication failed: \(authResponse)")
+        
+        guard let authResponse = authRequest.wait().parse(),
+              let apiKey       = authResponse.apiKey,
+              let newToken     = authResponse.token
+        else {
+            print("failed to update token: authentication failed: \(authRequest)")
             return nil
         }
         
@@ -148,9 +149,9 @@ open class Client {
         
         authReq.run { (response) in
             
-            if let payload = response.payload,
-               let apiKey = payload[.apiKey] as? String,
-               let token  = payload[.token] as? String
+            if let authResponse = response.parse(),
+               let apiKey = authResponse.apiKey,
+               let token  = authResponse.token
             {
                 credentials.apiKey = apiKey
                 credentials.token  = token
@@ -202,7 +203,7 @@ open class Client {
             
             } else {
                 
-                if let payload = response.payload, let token = payload[.token] as? String {
+                if let authResponse = response.parse(), let token = authResponse.token {
 
                     self.log("Authenticated successfully. 😁")
 
@@ -230,11 +231,12 @@ open class Client {
         
         let req = Request.createSandboxSubscriber() { (response) in
             
-            if let payload = response.payload, let imsi = payload[.imsi] as? String, let secret = payload[.registrationSecret] as? String{
-                
+            if let createResponse = response.parse(),
+               let imsi           = createResponse.imsi,
+               let secret         = createResponse.registrationSecret
+            {
                 let registerRequest = Request.registerSubscriber(imsi, registrationSecret: secret)
                 self.queue.addOperation(APIOperation(registerRequest))
-                
             } else {
                 self.log("Uh-oh: couldn't create SIM, but handling that error is beyond the scope of this demo app.")
             }
@@ -334,7 +336,7 @@ open class Client {
                 
             } else {
                 
-                if let token = response.payload?[.token] as? String {
+                if let token = response.parse()?.token {
                     
                     let tokenCredentials = SoracomCredentials(token: token)
                     _ = tokenCredentials.save(sandboxUserTokenIdentifier)
@@ -468,7 +470,7 @@ open class Client {
             return nil
         }
         
-        guard let token = signupResponse.payload?[.token] as? String else {
+        guard let token = signupResponse.parse()?.token else {
             print("failed to create a new sandbox user: response did not contain signup token: \(signupResponse)")
             return nil
         }
@@ -489,11 +491,14 @@ open class Client {
         var newUserCredentials = SoracomCredentials(type: .RootAccount, emailAddress: email, password: password)
         
         let authRequest  = Request.auth(newUserCredentials)
-        let authResponse = authRequest.wait()
         
-        guard let payload = authResponse.payload, let apiKey = payload[.apiKey] as? String, let newToken = payload[.token] as? String else
-        {
-            print("failed to create a new sandbox user: could not authenticate as sandbox user: \(authResponse)")
+        
+        guard
+            let authResponse = authRequest.wait().parse(),
+            let apiKey       = authResponse.apiKey,
+            let newToken     = authResponse.token
+        else {
+            print("failed to create a new sandbox user: could not authenticate as sandbox user: \(authRequest)")
             return nil
         }
         

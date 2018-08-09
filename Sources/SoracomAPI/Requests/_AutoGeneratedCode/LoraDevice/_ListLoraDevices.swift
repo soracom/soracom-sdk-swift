@@ -11,7 +11,7 @@ extension Request {
         
         tagName: String? = nil,
         tagValue: String? = nil,
-        tagValueMatchMode: TagValueMatchMode? = nil,
+        tagValueMatchMode: FUNKMASTER? = nil,
         limit: Int? = nil,
         lastEvaluatedKey: String? = nil,
         responseHandler: ResponseHandler<[LoraDevice]>? = nil

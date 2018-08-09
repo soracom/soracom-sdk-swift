@@ -11,11 +11,8 @@ options:
   modelInheritance: true # must be false for struct modelType
   modelNames: {} # override model type names
   enumNames: {
-    Protocol: "`Protocol`",
-    ExportMode: ExportMode,
-    tag_value_match_mode: FUNKMASTER,
-    resource_type: RezourceType
-  } # override enum type names
+    # We can override enum names, if we don't like default (default: resource_type→ResourceType)
+  } # override enum type  names
   dependencies: []
 templateFiles:
   - path: README.md

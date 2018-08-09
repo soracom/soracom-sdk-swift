@@ -9,7 +9,7 @@ extension Request {
 
     public class func _getLogs(
         
-        resourceType: ResourceType? = nil,
+        resourceType: RezourceType? = nil,
         resourceId: String? = nil,
         service: Service? = nil,
         from: Int? = nil,

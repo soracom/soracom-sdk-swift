@@ -9,7 +9,7 @@ extension Request {
 
     public class func _deleteDataEntry(
         
-        resourceType: RezourceType,
+        resourceType: ResourceType,
         resourceId: String,
         time: Int,
         responseHandler: ResponseHandler<NoResponseBody>? = nil

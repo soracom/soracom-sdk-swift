@@ -9,7 +9,7 @@ extension Request {
 
     public class func _listDataSourceResources(
         
-        resourceType: RezourceType? = nil,
+        resourceType: ResourceType? = nil,
         limit: Int? = nil,
         lastEvaluatedKey: String? = nil,
         responseHandler: ResponseHandler<[DataSourceResourceMetadata]>? = nil

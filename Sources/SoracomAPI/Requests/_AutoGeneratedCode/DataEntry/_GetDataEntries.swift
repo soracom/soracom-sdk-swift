@@ -9,7 +9,7 @@ extension Request {
 
     public class func _getDataEntries(
         
-        resourceType: RezourceType,
+        resourceType: ResourceType,
         resourceId: String,
         from: Int? = nil,
         to: Int? = nil,

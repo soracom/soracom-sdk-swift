@@ -11,7 +11,7 @@ extension Request {
         
         tagName: String? = nil,
         tagValue: String? = nil,
-        tagValueMatchMode: FUNKMASTER? = nil,
+        tagValueMatchMode: TagValueMatchMode? = nil,
         statusFilter: String? = nil,
         speedClassFilter: String? = nil,
         serialNumberFilter: String? = nil,

@@ -13,8 +13,7 @@ extension Request {
         responseHandler: ResponseHandler<GetSignupTokenResponse>? = nil
     ) ->   Request<GetSignupTokenResponse> {
 
-    let path = "/sandbox/operators/token/{email}".replacingOccurrences(of: "{" + "email" + "}", with: "\(email)")
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/sandbox/operators/token/\(email)"
 
         let requestObject = Request<GetSignupTokenResponse>.init(path, responseHandler: responseHandler)
 

@@ -12,8 +12,7 @@ extension Request {
         responseHandler: ResponseHandler<CreateSubscriberResponse>? = nil
     ) ->   Request<CreateSubscriberResponse> {
 
-    let path = "/sandbox/subscribers/create"
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/sandbox/subscribers/create"
 
         let requestObject = Request<CreateSubscriberResponse>.init(path, responseHandler: responseHandler)
 

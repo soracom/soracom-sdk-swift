@@ -12,8 +12,7 @@ extension Request {
         responseHandler: ResponseHandler<AuthResponse>? = nil
     ) ->   Request<AuthResponse> {
 
-    let path = "/sandbox/init"
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/sandbox/init"
 
         let requestObject = Request<AuthResponse>.init(path, responseHandler: responseHandler)
 

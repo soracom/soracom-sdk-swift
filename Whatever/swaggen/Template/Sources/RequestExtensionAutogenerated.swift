@@ -12,8 +12,7 @@ extension Request {
         responseHandler: ResponseHandler<{{ successType|default:"NoResponseBody"}}>? = nil
     ) ->   Request<{{ successType|default:"NoResponseBody"}}> {
 
-    let path = "{{path}}"{% for param in pathParams %}.replacingOccurrences(of: "{" + "{{ param.value }}" + "}", with: "\({{ param.encodedValue }})"){% endfor %}
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "{{ pathWithPlaceholdersConvertedToSwiftStringLiteralWithInterpolation }}"
 
         let requestObject = Request<{{ successType|default:"NoResponseBody"}}>.init(path, responseHandler: responseHandler)
 

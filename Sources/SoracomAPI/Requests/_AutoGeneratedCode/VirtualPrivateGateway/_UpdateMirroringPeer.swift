@@ -14,8 +14,7 @@ extension Request {
         responseHandler: ResponseHandler<NoResponseBody>? = nil
     ) ->   Request<NoResponseBody> {
 
-    let path = "/virtual_private_gateways/{vpg_id}/junction/mirroring/peers/{ipaddr}".replacingOccurrences(of: "{" + "vpg_id" + "}", with: "\(vpgId)").replacingOccurrences(of: "{" + "ipaddr" + "}", with: "\(ipaddr)")
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/virtual_private_gateways/\(vpgId)/junction/mirroring/peers/\(ipaddr)"
 
         let requestObject = Request<NoResponseBody>.init(path, responseHandler: responseHandler)
 

@@ -17,8 +17,7 @@ extension Request {
         responseHandler: ResponseHandler<[SigfoxDevice]>? = nil
     ) ->   Request<[SigfoxDevice]> {
 
-    let path = "/sigfox_devices"
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/sigfox_devices"
 
         let requestObject = Request<[SigfoxDevice]>.init(path, responseHandler: responseHandler)
 

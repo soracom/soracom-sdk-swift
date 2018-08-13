@@ -13,8 +13,7 @@ extension Request {
         responseHandler: ResponseHandler<SupportTokenResponse>? = nil
     ) ->   Request<SupportTokenResponse> {
 
-    let path = "/operators/{operator_id}/support/token".replacingOccurrences(of: "{" + "operator_id" + "}", with: "\(operatorId)")
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/operators/\(operatorId)/support/token"
 
         let requestObject = Request<SupportTokenResponse>.init(path, responseHandler: responseHandler)
 

@@ -14,8 +14,7 @@ extension Request {
         responseHandler: ResponseHandler<Group>? = nil
     ) ->   Request<Group> {
 
-    let path = "/groups/{group_id}/configuration/{namespace}".replacingOccurrences(of: "{" + "group_id" + "}", with: "\(groupId)").replacingOccurrences(of: "{" + "namespace" + "}", with: "\(namespace.encode())")
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/groups/\(groupId)/configuration/\(namespace.encode())"
 
         let requestObject = Request<Group>.init(path, responseHandler: responseHandler)
 

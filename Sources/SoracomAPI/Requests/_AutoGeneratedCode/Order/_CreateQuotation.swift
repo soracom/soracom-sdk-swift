@@ -12,8 +12,7 @@ extension Request {
         responseHandler: ResponseHandler<EstimatedOrderModel>? = nil
     ) ->   Request<EstimatedOrderModel> {
 
-    let path = "/orders"
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/orders"
 
         let requestObject = Request<EstimatedOrderModel>.init(path, responseHandler: responseHandler)
 

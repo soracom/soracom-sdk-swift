@@ -12,8 +12,7 @@ extension Request {
         responseHandler: ResponseHandler<LagoonRegistrationResponse>? = nil
     ) ->   Request<LagoonRegistrationResponse> {
 
-    let path = "/lagoon/register"
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/lagoon/register"
 
         let requestObject = Request<LagoonRegistrationResponse>.init(path, responseHandler: responseHandler)
 

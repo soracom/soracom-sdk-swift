@@ -13,8 +13,7 @@ extension Request {
         responseHandler: ResponseHandler<GetPaymentTransactionResult>? = nil
     ) ->   Request<GetPaymentTransactionResult> {
 
-    let path = "/payment_history/transactions/{payment_transaction_id}".replacingOccurrences(of: "{" + "payment_transaction_id" + "}", with: "\(paymentTransactionId)")
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/payment_history/transactions/\(paymentTransactionId)"
 
         let requestObject = Request<GetPaymentTransactionResult>.init(path, responseHandler: responseHandler)
 

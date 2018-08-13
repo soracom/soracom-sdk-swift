@@ -14,8 +14,7 @@ extension Request {
         responseHandler: ResponseHandler<GenerateUserAuthKeyResponse>? = nil
     ) ->   Request<GenerateUserAuthKeyResponse> {
 
-    let path = "/operators/{operator_id}/users/{user_name}/auth_keys".replacingOccurrences(of: "{" + "operator_id" + "}", with: "\(operatorId)").replacingOccurrences(of: "{" + "user_name" + "}", with: "\(userName)")
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/operators/\(operatorId)/users/\(userName)/auth_keys"
 
         let requestObject = Request<GenerateUserAuthKeyResponse>.init(path, responseHandler: responseHandler)
 

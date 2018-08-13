@@ -16,8 +16,7 @@ extension Request {
         responseHandler: ResponseHandler<[BeamStatsResponse]>? = nil
     ) ->   Request<[BeamStatsResponse]> {
 
-    let path = "/stats/beam/subscribers/{imsi}".replacingOccurrences(of: "{" + "imsi" + "}", with: "\(imsi)")
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/stats/beam/subscribers/\(imsi)"
 
         let requestObject = Request<[BeamStatsResponse]>.init(path, responseHandler: responseHandler)
 

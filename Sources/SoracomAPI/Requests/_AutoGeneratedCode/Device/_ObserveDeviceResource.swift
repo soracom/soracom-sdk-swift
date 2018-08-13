@@ -17,8 +17,7 @@ extension Request {
         responseHandler: ResponseHandler<NoResponseBody>? = nil
     ) ->   Request<NoResponseBody> {
 
-    let path = "/devices/{device_id}/{object}/{instance}/{resource}/observe".replacingOccurrences(of: "{" + "device_id" + "}", with: "\(deviceId)").replacingOccurrences(of: "{" + "object" + "}", with: "\(object)").replacingOccurrences(of: "{" + "instance" + "}", with: "\(instance)").replacingOccurrences(of: "{" + "resource" + "}", with: "\(resource)")
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/devices/\(deviceId)/\(object)/\(instance)/\(resource)/observe"
 
         let requestObject = Request<NoResponseBody>.init(path, responseHandler: responseHandler)
 

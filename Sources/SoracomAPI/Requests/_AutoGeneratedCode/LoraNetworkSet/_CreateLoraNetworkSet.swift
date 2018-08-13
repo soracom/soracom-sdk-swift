@@ -12,8 +12,7 @@ extension Request {
         responseHandler: ResponseHandler<LoraNetworkSet>? = nil
     ) ->   Request<LoraNetworkSet> {
 
-    let path = "/lora_network_sets"
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/lora_network_sets"
 
         let requestObject = Request<LoraNetworkSet>.init(path, responseHandler: responseHandler)
 

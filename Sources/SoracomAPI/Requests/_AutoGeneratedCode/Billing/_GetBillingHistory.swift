@@ -12,8 +12,7 @@ extension Request {
         responseHandler: ResponseHandler<GetBillingHistoryResponse>? = nil
     ) ->   Request<GetBillingHistoryResponse> {
 
-    let path = "/bills"
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/bills"
 
         let requestObject = Request<GetBillingHistoryResponse>.init(path, responseHandler: responseHandler)
 

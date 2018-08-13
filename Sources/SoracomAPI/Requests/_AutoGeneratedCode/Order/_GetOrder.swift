@@ -13,8 +13,7 @@ extension Request {
         responseHandler: ResponseHandler<GetOrderResponse>? = nil
     ) ->   Request<GetOrderResponse> {
 
-    let path = "/orders/{order_id}".replacingOccurrences(of: "{" + "order_id" + "}", with: "\(orderId)")
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/orders/\(orderId)"
 
         let requestObject = Request<GetOrderResponse>.init(path, responseHandler: responseHandler)
 

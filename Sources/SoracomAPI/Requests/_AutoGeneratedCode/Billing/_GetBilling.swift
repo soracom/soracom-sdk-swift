@@ -13,8 +13,7 @@ extension Request {
         responseHandler: ResponseHandler<MonthlyBill>? = nil
     ) ->   Request<MonthlyBill> {
 
-    let path = "/bills/{yyyyMM}".replacingOccurrences(of: "{" + "yyyyMM" + "}", with: "\(yyyyMM)")
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/bills/\(yyyyMM)"
 
         let requestObject = Request<MonthlyBill>.init(path, responseHandler: responseHandler)
 

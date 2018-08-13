@@ -12,8 +12,7 @@ extension Request {
         responseHandler: ResponseHandler<GetLatestBill>? = nil
     ) ->   Request<GetLatestBill> {
 
-    let path = "/bills/latest"
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/bills/latest"
 
         let requestObject = Request<GetLatestBill>.init(path, responseHandler: responseHandler)
 

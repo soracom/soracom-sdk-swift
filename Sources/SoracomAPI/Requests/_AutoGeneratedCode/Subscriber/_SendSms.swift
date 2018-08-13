@@ -13,8 +13,7 @@ extension Request {
         responseHandler: ResponseHandler<SmsForwardingReport>? = nil
     ) ->   Request<SmsForwardingReport> {
 
-    let path = "/subscribers/{imsi}/send_sms".replacingOccurrences(of: "{" + "imsi" + "}", with: "\(imsi)")
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/subscribers/\(imsi)/send_sms"
 
         let requestObject = Request<SmsForwardingReport>.init(path, responseHandler: responseHandler)
 

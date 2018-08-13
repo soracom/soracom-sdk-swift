@@ -13,8 +13,7 @@ extension Request {
         responseHandler: ResponseHandler<Subscriber>? = nil
     ) ->   Request<Subscriber> {
 
-    let path = "/subscribers/{imsi}/unset_imei_lock".replacingOccurrences(of: "{" + "imsi" + "}", with: "\(imsi)")
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/subscribers/\(imsi)/unset_imei_lock"
 
         let requestObject = Request<Subscriber>.init(path, responseHandler: responseHandler)
 

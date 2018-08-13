@@ -13,8 +13,7 @@ extension Request {
         responseHandler: ResponseHandler<CreateVpcPeeringConnectionRequest>? = nil
     ) ->   Request<CreateVpcPeeringConnectionRequest> {
 
-    let path = "/virtual_private_gateways/{vpg_id}/vpc_peering_connections".replacingOccurrences(of: "{" + "vpg_id" + "}", with: "\(vpgId)")
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/virtual_private_gateways/\(vpgId)/vpc_peering_connections"
 
         let requestObject = Request<CreateVpcPeeringConnectionRequest>.init(path, responseHandler: responseHandler)
 

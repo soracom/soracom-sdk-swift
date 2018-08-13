@@ -13,8 +13,7 @@ extension Request {
         responseHandler: ResponseHandler<MFAStatusOfUseResponse>? = nil
     ) ->   Request<MFAStatusOfUseResponse> {
 
-    let path = "/operators/{operator_id}/mfa".replacingOccurrences(of: "{" + "operator_id" + "}", with: "\(operatorId)")
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/operators/\(operatorId)/mfa"
 
         let requestObject = Request<MFAStatusOfUseResponse>.init(path, responseHandler: responseHandler)
 

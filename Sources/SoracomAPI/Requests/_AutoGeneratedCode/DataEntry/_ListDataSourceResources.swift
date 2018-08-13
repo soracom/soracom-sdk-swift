@@ -15,8 +15,7 @@ extension Request {
         responseHandler: ResponseHandler<[DataSourceResourceMetadata]>? = nil
     ) ->   Request<[DataSourceResourceMetadata]> {
 
-    let path = "/data/resources"
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/data/resources"
 
         let requestObject = Request<[DataSourceResourceMetadata]>.init(path, responseHandler: responseHandler)
 

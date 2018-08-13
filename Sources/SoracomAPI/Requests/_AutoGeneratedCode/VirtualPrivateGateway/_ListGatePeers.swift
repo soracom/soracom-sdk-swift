@@ -13,8 +13,7 @@ extension Request {
         responseHandler: ResponseHandler<[GatePeer]>? = nil
     ) ->   Request<[GatePeer]> {
 
-    let path = "/virtual_private_gateways/{vpg_id}/gate/peers".replacingOccurrences(of: "{" + "vpg_id" + "}", with: "\(vpgId)")
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/virtual_private_gateways/\(vpgId)/gate/peers"
 
         let requestObject = Request<[GatePeer]>.init(path, responseHandler: responseHandler)
 

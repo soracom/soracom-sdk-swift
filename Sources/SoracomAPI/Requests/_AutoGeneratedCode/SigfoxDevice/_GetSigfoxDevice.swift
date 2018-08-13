@@ -13,8 +13,7 @@ extension Request {
         responseHandler: ResponseHandler<SigfoxDevice>? = nil
     ) ->   Request<SigfoxDevice> {
 
-    let path = "/sigfox_devices/{device_id}".replacingOccurrences(of: "{" + "device_id" + "}", with: "\(deviceId)")
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/sigfox_devices/\(deviceId)"
 
         let requestObject = Request<SigfoxDevice>.init(path, responseHandler: responseHandler)
 

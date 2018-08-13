@@ -14,8 +14,7 @@ extension Request {
         responseHandler: ResponseHandler<FileExportResponse>? = nil
     ) ->   Request<FileExportResponse> {
 
-    let path = "/payment_statements/{payment_statement_id}/export".replacingOccurrences(of: "{" + "payment_statement_id" + "}", with: "\(paymentStatementId)")
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/payment_statements/\(paymentStatementId)/export"
 
         let requestObject = Request<FileExportResponse>.init(path, responseHandler: responseHandler)
 

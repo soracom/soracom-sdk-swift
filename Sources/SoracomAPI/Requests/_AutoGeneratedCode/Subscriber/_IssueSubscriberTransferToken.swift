@@ -12,8 +12,7 @@ extension Request {
         responseHandler: ResponseHandler<IssueSubscriberTransferTokenResponse>? = nil
     ) ->   Request<IssueSubscriberTransferTokenResponse> {
 
-    let path = "/subscribers/transfer_token/issue"
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/subscribers/transfer_token/issue"
 
         let requestObject = Request<IssueSubscriberTransferTokenResponse>.init(path, responseHandler: responseHandler)
 

@@ -12,8 +12,7 @@ extension Request {
         responseHandler: ResponseHandler<RegisterPayerInformationModel>? = nil
     ) ->   Request<RegisterPayerInformationModel> {
 
-    let path = "/payment_statements/payer_information"
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/payment_statements/payer_information"
 
         let requestObject = Request<RegisterPayerInformationModel>.init(path, responseHandler: responseHandler)
 

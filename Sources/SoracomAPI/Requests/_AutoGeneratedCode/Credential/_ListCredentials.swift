@@ -12,8 +12,7 @@ extension Request {
         responseHandler: ResponseHandler<[CredentialsModel]>? = nil
     ) ->   Request<[CredentialsModel]> {
 
-    let path = "/credentials"
-      // FIXME: This path-expansion nonsense should be done in the code generation step (custom Stencil filter maybe?), and not done at all to paths that don't need it...
+        let path  = "/credentials"
 
         let requestObject = Request<[CredentialsModel]>.init(path, responseHandler: responseHandler)
 

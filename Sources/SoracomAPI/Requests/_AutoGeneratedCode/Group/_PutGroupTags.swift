@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Update Group Tags.
+
+        Adds/updates tags of specified configuration group.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Group/putGroupTags
+    */
     public class func _putGroupTags(
         tags: [TagUpdateRequest], 
         groupId: String,

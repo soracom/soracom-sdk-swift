@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Write value to a resource of a device
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Device/writeDeviceResource
+    */
     public class func _writeDeviceResource(
         value: Value, 
         deviceId: String,

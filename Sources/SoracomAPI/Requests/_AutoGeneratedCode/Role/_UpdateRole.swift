@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Update Role.
+
+        Edits a role.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Role/updateRole
+    */
     public class func _updateRole(
         request: CreateOrUpdateRoleRequest, 
         operatorId: String,

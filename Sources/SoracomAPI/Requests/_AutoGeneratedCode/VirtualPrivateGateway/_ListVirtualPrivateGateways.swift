@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List Virtual Private Gateways.
+
+        Returns a list of VPGs.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/listVirtualPrivateGateways
+    */
     public class func _listVirtualPrivateGateways(
         
         tagName: String? = nil,

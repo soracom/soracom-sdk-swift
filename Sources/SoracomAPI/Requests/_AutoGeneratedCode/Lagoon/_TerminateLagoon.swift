@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Terminate (deactivate) SORACOM Lagoon
+
+        Terminate (deactivate) SORACOM Lagoon.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Lagoon/terminateLagoon
+    */
     public class func _terminateLagoon(
         
         responseHandler: ResponseHandler<NoResponseBody>? = nil

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List Operator AuthKeys.
+
+        Returns the operator's AuthKey list.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/listOperatorAuthKeys
+    */
     public class func _listOperatorAuthKeys(
         
         operatorId: String,

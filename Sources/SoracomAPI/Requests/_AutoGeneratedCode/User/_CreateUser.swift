@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Create User.
+
+        Adds a new SAM user.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/User/createUser
+    */
     public class func _createUser(
         request: CreateUserRequest, 
         operatorId: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Issue Operator's MFA Revoke Token.
+
+        Issues a token to revoke operator's MFA. The issued token will be sent to the operator via email.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/issueMFARevokingToken
+    */
     public class func _issueMFARevokingToken(
         request: MFAIssueRevokingTokenRequest, 
         responseHandler: ResponseHandler<NoResponseBody>? = nil

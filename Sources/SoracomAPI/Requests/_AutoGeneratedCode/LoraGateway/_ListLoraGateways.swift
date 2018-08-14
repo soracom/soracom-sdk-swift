@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List LoRa Gateways.
+
+        Returns a list of LoRa gateways that match certain criteria. If the total number of LoRa gateways does not fit in one page, a URL for accessing the next page is returned in the 'Link' header of the response.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraGateway/listLoraGateways
+    */
     public class func _listLoraGateways(
         
         tagName: String? = nil,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get LoRa network set.
+
+        Returns information about the specified LoRa network set.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/getLoraNetworkSet
+    */
     public class func _getLoraNetworkSet(
         
         nsId: String,

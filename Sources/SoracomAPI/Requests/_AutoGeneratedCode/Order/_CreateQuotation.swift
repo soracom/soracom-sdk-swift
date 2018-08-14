@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Create Quotation.
+
+        Creates a new order quotation. If the orderId is put in /confirm, the order is complete.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Order/createQuotation
+    */
     public class func _createQuotation(
         request: CreateEstimatedOrderRequest, 
         responseHandler: ResponseHandler<EstimatedOrderModel>? = nil

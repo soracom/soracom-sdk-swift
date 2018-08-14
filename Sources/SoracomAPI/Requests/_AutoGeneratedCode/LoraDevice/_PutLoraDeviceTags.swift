@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Bulk Insert or Update LoRa device Tags.
+
+        Inserts/updates tags for the specified LoRa device.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraDevice/putLoraDeviceTags
+    */
     public class func _putLoraDeviceTags(
         tags: [TagUpdateRequest], 
         deviceId: String,

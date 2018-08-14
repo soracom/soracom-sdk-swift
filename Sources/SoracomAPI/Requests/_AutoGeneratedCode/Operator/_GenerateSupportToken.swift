@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Generate Token for Support Console.
+
+        Returns a token for accessing the support console.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/generateSupportToken
+    */
     public class func _generateSupportToken(
         
         operatorId: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Returns a list of device object models
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/DeviceObjectModel/listDeviceObjectModels
+    */
     public class func _listDeviceObjectModels(
         
         lastEvaluatedKey: String? = nil,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Send SMS to Subscriber
+
+        Send SMS to the specified subscriber.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/sendSms
+    */
     public class func _sendSms(
         smsForwardingRequest: SmsForwardingRequest, 
         imsi: String,

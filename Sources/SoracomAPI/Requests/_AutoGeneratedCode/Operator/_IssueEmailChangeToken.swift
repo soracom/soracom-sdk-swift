@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Issue Email Change Token.
+
+        Sends an e-mail with a one-time token for executing the e-mail address change.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/issueEmailChangeToken
+    */
     public class func _issueEmailChangeToken(
         request: IssueEmailChangeTokenRequest, 
         responseHandler: ResponseHandler<NoResponseBody>? = nil

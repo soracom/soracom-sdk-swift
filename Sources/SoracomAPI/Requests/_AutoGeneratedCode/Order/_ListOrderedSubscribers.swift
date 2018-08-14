@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List ordered subscribers.
+
+        List ordered subscribers
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Order/listOrderedSubscribers
+    */
     public class func _listOrderedSubscribers(
         
         orderId: String,

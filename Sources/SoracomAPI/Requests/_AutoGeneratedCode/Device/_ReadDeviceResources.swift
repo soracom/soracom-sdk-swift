@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Get resources under an object instance of a device
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Device/readDeviceResources
+    */
     public class func _readDeviceResources(
         
         deviceId: String,

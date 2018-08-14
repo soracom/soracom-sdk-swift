@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Gets a data entry
+
+        Gets a data entry identified with resource ID and timestamp
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/DataEntry/getDataEntry
+    */
     public class func _getDataEntry(
         
         resourceType: ResourceType,

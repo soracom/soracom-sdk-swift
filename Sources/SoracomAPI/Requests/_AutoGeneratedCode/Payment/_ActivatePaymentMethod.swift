@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Activate payment method.
+
+        Activates a current payment method that has an error.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/activatePaymentMethod
+    */
     public class func _activatePaymentMethod(
         
         responseHandler: ResponseHandler<[String: Any]>? = nil

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Register VPG Gate peer
+
+        Register a host as a gate peer in the Virtual Private Gateway
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/registerGatePeer
+    */
     public class func _registerGatePeer(
         gatePeer: RegisterGatePeerRequest, 
         vpgId: String,

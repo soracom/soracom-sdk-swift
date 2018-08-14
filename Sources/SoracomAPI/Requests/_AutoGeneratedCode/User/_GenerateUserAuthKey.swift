@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Generate AuthKey.
+
+        Generates an AuthKey for the SAM user.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/User/generateUserAuthKey
+    */
     public class func _generateUserAuthKey(
         
         operatorId: String,

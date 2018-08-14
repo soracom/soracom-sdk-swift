@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get User.
+
+        Returns a SAM user.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/User/getUser
+    */
     public class func _getUser(
         
         operatorId: String,

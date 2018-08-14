@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Update Password.
+
+        Updates the password of the SAM user.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/User/updateUserPassword
+    */
     public class func _updateUserPassword(
         request: UpdatePasswordRequest, 
         operatorId: String,

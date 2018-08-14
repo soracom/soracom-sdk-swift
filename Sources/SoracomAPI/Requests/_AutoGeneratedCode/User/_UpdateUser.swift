@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Update User.
+
+        Updates the SAM user.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/User/updateUser
+    */
     public class func _updateUser(
         request: UpdateUserRequest, 
         operatorId: String,

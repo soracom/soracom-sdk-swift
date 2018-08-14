@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Register LoRa device.
+
+        Registers a LoRa device.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraDevice/registerLoraDevice
+    */
     public class func _registerLoraDevice(
         loraDevice: RegisterLoraDeviceRequest, 
         deviceId: String,

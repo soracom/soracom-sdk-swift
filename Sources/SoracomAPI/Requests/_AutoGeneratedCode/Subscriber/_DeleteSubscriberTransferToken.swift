@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete Subscribers Transfer Token.
+
+        Deletes the subscriber's inter-operator control transfer token, and cancels the control transfer.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/deleteSubscriberTransferToken
+    */
     public class func _deleteSubscriberTransferToken(
         
         token: String,

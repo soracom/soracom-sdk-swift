@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get data sent from a resource.
+
+        Returns a list of data entries sent from a resource that match certain criteria. If the total number of entries does not fit in one page, a URL for accessing the next page is returned in the 'Link' header of the response.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/DataEntry/getDataEntries
+    */
     public class func _getDataEntries(
         
         resourceType: ResourceType,

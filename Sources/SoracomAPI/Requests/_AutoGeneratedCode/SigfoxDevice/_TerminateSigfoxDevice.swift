@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Terminate Sigfox device.
+
+        Terminates the specified Sigfox device
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/terminateSigfoxDevice
+    */
     public class func _terminateSigfoxDevice(
         
         deviceId: String,

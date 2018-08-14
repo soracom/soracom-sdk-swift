@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Open SORACOM Gate.
+
+        Open SORACOM Gate on the specified VPG.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/openGate
+    */
     public class func _openGate(
         configurationParameters: OpenGateRequest, 
         vpgId: String,

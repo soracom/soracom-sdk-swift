@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Create Role.
+
+        Adds a new role.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Role/createRole
+    */
     public class func _createRole(
         request: CreateOrUpdateRoleRequest, 
         operatorId: String,

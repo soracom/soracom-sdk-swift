@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get Group.
+
+        Returns the group specified by the group ID.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Group/getGroup
+    */
     public class func _getGroup(
         
         groupId: String,

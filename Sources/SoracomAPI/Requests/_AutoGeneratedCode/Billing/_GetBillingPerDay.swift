@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get bill per day.
+
+        Returns detailed information of billing amounts per day for the specified month. This API only returns the billing amounts that have been finalized.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Billing/getBillingPerDay
+    */
     public class func _getBillingPerDay(
         
         yyyyMM: String,

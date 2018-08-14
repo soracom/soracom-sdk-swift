@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Suspend Subscriber.
+
+        Suspends the specified subscriber
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/suspendSubscriber
+    */
     public class func _suspendSubscriber(
         
         imsi: String,

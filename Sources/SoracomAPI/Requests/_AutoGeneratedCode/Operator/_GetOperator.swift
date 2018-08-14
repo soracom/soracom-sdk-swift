@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get Operator.
+
+        Returns information about the operator.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/getOperator
+    */
     public class func _getOperator(
         
         operatorId: String,

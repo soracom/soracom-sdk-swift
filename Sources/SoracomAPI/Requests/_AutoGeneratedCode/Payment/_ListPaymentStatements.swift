@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        List payment statements.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/listPaymentStatements
+    */
     public class func _listPaymentStatements(
         
         responseHandler: ResponseHandler<ListPaymentStatementResponse>? = nil

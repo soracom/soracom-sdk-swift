@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Create Operator.
+
+        Makes a request to create a new operator. An e-mail is sent to the e-mail address specified in the parameters, containing a one-time token for verifying the operator’s registration.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/createOperator
+    */
     public class func _createOperator(
         request: RegisterOperatorsRequest, 
         responseHandler: ResponseHandler<NoResponseBody>? = nil

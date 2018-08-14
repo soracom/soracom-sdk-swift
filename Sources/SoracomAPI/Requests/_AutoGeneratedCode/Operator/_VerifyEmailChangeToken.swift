@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Verify Email Change Token.
+
+        Verifies the token for the e-mail address change, and then changes the e-mail address.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/verifyEmailChangeToken
+    */
     public class func _verifyEmailChangeToken(
         token: VerifyEmailChangeTokenRequest, 
         responseHandler: ResponseHandler<NoResponseBody>? = nil

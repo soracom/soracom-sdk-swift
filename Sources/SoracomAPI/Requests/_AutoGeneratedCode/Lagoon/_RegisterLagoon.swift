@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Register (activate) SORACOM Lagoon
+
+        Register (activate) SORACOM Lagoon. This API is only allowed to operate by root account.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Lagoon/registerLagoon
+    */
     public class func _registerLagoon(
         request: LagoonRegistrationRequest, 
         responseHandler: ResponseHandler<LagoonRegistrationResponse>? = nil

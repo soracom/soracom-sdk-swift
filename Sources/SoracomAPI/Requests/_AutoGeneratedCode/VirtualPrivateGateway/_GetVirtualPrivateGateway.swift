@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get Virtual Private Gateway.
+
+        Retrieves information about the specified VPG.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/getVirtualPrivateGateway
+    */
     public class func _getVirtualPrivateGateway(
         
         vpgId: String,

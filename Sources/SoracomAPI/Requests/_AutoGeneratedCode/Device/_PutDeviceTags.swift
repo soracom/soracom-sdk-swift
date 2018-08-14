@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Updates device tags
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Device/putDeviceTags
+    */
     public class func _putDeviceTags(
         
         deviceId: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete Session
+
+        Deletes session for the specified subscriber.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/deleteSubscriberSession
+    */
     public class func _deleteSubscriberSession(
         
         imsi: String,

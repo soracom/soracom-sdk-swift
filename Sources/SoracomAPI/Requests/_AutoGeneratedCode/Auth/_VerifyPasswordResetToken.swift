@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Verifies the password reset token and updates password.
+
+        Updates the operator's password if the password reset token is verified.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Auth/verifyPasswordResetToken
+    */
     public class func _verifyPasswordResetToken(
         request: VerifyPasswordResetTokenRequest, 
         responseHandler: ResponseHandler<NoResponseBody>? = nil

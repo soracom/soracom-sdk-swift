@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Output billing CSV file to S3.
+
+        Returns detailed information for the billing amounts for the specified month. This detailed information includes billing amounts per day, subscriber, and billing item.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Billing/exportBilling
+    */
     public class func _exportBilling(
         
         yyyyMM: String,

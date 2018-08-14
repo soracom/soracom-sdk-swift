@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List Role Attached Users.
+
+        Retrieves a list of users attached to a role.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Role/listRoleAttachedUsers
+    */
     public class func _listRoleAttachedUsers(
         
         operatorId: String,

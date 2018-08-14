@@ -4,6 +4,17 @@ import Foundation
 
 extension Request {
 
+    /**
+        {% if summary %}{% if summary != description %}{{ summary }}{% else %}Description forthcoming.{% endif %}
+
+        {% endif %}
+        {% if description %}
+        {{ description }}
+
+        {% endif %}
+        {%if tag %}
+        Docs: {%if tag == "sandbox" %}https://dev.soracom.io/jp/docs/api_sandbox/#!/{% else %}https://dev.soracom.io/en/docs/api/#!/{% endif %}{{ tag }}/{{ operationId }}{% endif %}
+    */
     public class func _{{ operationId }}(
         {% if bodyParam %}{{ bodyParam.name}}: {{ bodyParam.type }}, {% endif %}
         {% for param in nonBodyParams %}

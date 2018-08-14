@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Set Network Set ID of LoRa gateway.
+
+        Sets or overwrites network set ID for the specified LoRa gateway.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraGateway/setLoraNetworkSet
+    */
     public class func _setLoraNetworkSet(
         nsId: SetNetworkSetRequest, 
         gatewayId: String,

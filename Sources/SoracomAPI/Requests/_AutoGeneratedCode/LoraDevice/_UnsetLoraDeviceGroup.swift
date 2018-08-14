@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Unset Group of LoRa device.
+
+        Removes the group configuration from the specified LoRa device.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraDevice/unsetLoraDeviceGroup
+    */
     public class func _unsetLoraDeviceGroup(
         
         deviceId: String,

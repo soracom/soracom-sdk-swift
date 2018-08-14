@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Deactivate Subscriber.
+
+        Deactivates specified subscriber.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/deactivateSubscriber
+    */
     public class func _deactivateSubscriber(
         
         imsi: String,

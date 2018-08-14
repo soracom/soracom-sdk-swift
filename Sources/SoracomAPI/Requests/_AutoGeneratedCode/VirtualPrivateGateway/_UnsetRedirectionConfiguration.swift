@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Unset configuration for Junction redirection feature
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/unsetRedirectionConfiguration
+    */
     public class func _unsetRedirectionConfiguration(
         
         vpgId: String,

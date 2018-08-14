@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Create Group.
+
+        Create a new group.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Group/createGroup
+    */
     public class func _createGroup(
         tags: CreateGroupRequest, 
         responseHandler: ResponseHandler<Group>? = nil

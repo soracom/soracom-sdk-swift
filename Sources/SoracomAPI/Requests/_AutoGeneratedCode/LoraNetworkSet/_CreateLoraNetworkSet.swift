@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Create a LoRa network set.
+
+        Creates a specified LoRa network set
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/createLoraNetworkSet
+    */
     public class func _createLoraNetworkSet(
         loraNetworkSet: LoraNetworkSet, 
         responseHandler: ResponseHandler<LoraNetworkSet>? = nil

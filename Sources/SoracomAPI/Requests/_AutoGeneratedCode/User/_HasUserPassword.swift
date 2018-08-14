@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Has User Password.
+
+        Retrieves whether the SAM user has a password or not.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/User/hasUserPassword
+    */
     public class func _hasUserPassword(
         
         operatorId: String,

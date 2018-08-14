@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get LoRa device.
+
+        Returns information about the specified LoRa device.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraDevice/getLoraDevice
+    */
     public class func _getLoraDevice(
         
         deviceId: String,

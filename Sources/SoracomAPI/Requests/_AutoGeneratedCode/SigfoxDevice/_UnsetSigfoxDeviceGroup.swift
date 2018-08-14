@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Unset Group of Sigfox device.
+
+        Removes the group configuration from the specified Sigfox device.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/unsetSigfoxDeviceGroup
+    */
     public class func _unsetSigfoxDeviceGroup(
         
         deviceId: String,

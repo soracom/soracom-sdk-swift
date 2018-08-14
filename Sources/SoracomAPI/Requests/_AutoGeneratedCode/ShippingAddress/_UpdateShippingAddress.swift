@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Update shipping address.
+
+        Updates a shipping address.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/ShippingAddress/updateShippingAddress
+    */
     public class func _updateShippingAddress(
         model: ShippingAddressModel, 
         operatorId: String,

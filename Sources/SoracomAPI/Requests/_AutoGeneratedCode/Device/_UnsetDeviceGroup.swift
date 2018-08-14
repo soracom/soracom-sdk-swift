@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Lets a device leave from a group
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Device/unsetDeviceGroup
+    */
     public class func _unsetDeviceGroup(
         
         deviceId: String,

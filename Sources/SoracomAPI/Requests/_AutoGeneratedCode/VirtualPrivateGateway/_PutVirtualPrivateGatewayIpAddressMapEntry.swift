@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Put an entry in VPG IP address map
+
+        Puts an entry in VPG IP address map.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/putVirtualPrivateGatewayIpAddressMapEntry
+    */
     public class func _putVirtualPrivateGatewayIpAddressMapEntry(
         putIpAddressMapEntryRequest: PutIpAddressMapEntryRequest, 
         vpgId: String,

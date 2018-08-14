@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Bulk Insert or Update Subscriber Tags.
+
+        Inserts/updates tags for the specified subscriber.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/putSubscriberTags
+    */
     public class func _putSubscriberTags(
         tags: [TagUpdateRequest], 
         imsi: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Returns a list of Devices
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Device/listDevices
+    */
     public class func _listDevices(
         
         tagName: String? = nil,

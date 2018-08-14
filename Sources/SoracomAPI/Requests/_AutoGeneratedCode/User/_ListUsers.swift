@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List Users.
+
+        Returns a list of SAM users.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/User/listUsers
+    */
     public class func _listUsers(
         
         operatorId: String,

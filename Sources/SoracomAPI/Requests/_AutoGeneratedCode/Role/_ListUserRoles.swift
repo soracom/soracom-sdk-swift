@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List User Roles.
+
+        Retrieves a list of the user's roles.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Role/listUserRoles
+    */
     public class func _listUserRoles(
         
         operatorId: String,

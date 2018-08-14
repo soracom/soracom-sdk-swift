@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Adds permission to a LoRa network set.
+
+        Adds permission to allow another operator to use the network set.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/addPermissionToLoraNetworkSet
+    */
     public class func _addPermissionToLoraNetworkSet(
         operatorId: UpdatePermissionRequest, 
         nsId: String,

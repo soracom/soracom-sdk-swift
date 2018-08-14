@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Terminate Virtual Private Gateway.
+
+        Terminates the specified VPG.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/terminateVirtualPrivateGateway
+    */
     public class func _terminateVirtualPrivateGateway(
         
         vpgId: String,

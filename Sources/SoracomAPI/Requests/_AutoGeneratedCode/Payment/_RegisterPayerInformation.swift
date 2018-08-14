@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Register payer information.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/registerPayerInformation
+    */
     public class func _registerPayerInformation(
         req: RegisterPayerInformationModel, 
         responseHandler: ResponseHandler<NoResponseBody>? = nil

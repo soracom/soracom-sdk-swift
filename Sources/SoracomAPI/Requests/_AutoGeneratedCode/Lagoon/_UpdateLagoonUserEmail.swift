@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Update email address of a SORACOM Lagoon user
+
+        Update email address of a SORACOM Lagoon user.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Lagoon/updateLagoonUserEmail
+    */
     public class func _updateLagoonUserEmail(
         request: LagoonUserEmailUpdatingRequest, 
         lagoonUserId: Int,

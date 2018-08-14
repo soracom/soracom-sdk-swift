@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get Sigfox device.
+
+        Returns information about the specified Sigfox device.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/getSigfoxDevice
+    */
     public class func _getSigfoxDevice(
         
         deviceId: String,

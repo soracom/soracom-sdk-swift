@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Disable Termination of Subscriber.
+
+        Disables termination of specified subscriber.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/disableTermination
+    */
     public class func _disableTermination(
         
         imsi: String,

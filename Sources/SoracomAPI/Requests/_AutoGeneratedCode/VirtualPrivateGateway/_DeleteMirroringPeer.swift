@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Remove peer from the list of Junction mirroring peers
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/deleteMirroringPeer
+    */
     public class func _deleteMirroringPeer(
         
         vpgId: String,

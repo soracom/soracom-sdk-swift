@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Activate Subscriber.
+
+        Activates status of specified subscriber.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/activateSubscriber
+    */
     public class func _activateSubscriber(
         
         imsi: String,

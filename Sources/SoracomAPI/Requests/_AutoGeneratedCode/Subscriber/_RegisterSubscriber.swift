@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Register Subscriber.
+
+        Registers a subscriber.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/registerSubscriber
+    */
     public class func _registerSubscriber(
         subscriber: RegisterSubscribersRequest, 
         imsi: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List SORACOM Lagoon users that belong to operator
+
+        List SORACOM Lagoon users that belong to operator.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Lagoon/listLagoonUsers
+    */
     public class func _listLagoonUsers(
         
         responseHandler: ResponseHandler<NoResponseBody>? = nil

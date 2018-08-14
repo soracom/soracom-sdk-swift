@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Set Group of Sigfox device.
+
+        Sets or overwrites a group for the specified Sigfox device.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/setSigfoxDeviceGroup
+    */
     public class func _setSigfoxDeviceGroup(
         group: Group, 
         deviceId: String,

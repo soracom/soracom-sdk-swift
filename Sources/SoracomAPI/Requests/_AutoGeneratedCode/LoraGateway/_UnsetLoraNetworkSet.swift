@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Unset Network Set ID of LoRa gateway.
+
+        Unset network set ID of the specified LoRa gateway.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraGateway/unsetLoraNetworkSet
+    */
     public class func _unsetLoraNetworkSet(
         
         gatewayId: String,

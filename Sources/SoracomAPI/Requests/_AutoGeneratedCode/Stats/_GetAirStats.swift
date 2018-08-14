@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get Air Usage Report of Subscriber.
+
+        Retrieves the usage report for the subscriber specified by the IMSI.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Stats/getAirStats
+    */
     public class func _getAirStats(
         
         imsi: String,

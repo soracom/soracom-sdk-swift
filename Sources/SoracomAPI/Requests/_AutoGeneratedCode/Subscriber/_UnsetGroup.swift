@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Unset Group to Subscriber.
+
+        Removes the group configuration from the specified subscriber.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/unsetGroup
+    */
     public class func _unsetGroup(
         
         imsi: String,

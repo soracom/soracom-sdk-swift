@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List Roles.
+
+        Returns a list of roles.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Role/listRoles
+    */
     public class func _listRoles(
         
         operatorId: String,

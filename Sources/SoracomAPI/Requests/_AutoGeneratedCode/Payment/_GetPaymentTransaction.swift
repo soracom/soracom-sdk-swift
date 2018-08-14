@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get payment transaction result.
+
+        Returns result of a payment transaction.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/getPaymentTransaction
+    */
     public class func _getPaymentTransaction(
         
         paymentTransactionId: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Export Beam Usage Report of All Subscribers.
+
+        Retrieves a file containing the usage report of all subscribers for the specified operator. The report data range is specified with from, to in unixtime. The report contains monthly data. The file output destination is AWS S3. The file output format is CSV.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Stats/exportBeamStats
+    */
     public class func _exportBeamStats(
         request: ExportRequest, 
         operatorId: String,

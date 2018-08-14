@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Sets scope for a device object model
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/DeviceObjectModel/setDeviceObjectModelScope
+    */
     public class func _setDeviceObjectModelScope(
         scope: SetDeviceObjectModelScopeRequest, 
         modelId: String,

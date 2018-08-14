@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get Event Handler.
+
+        Returns information about the specified event handler.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/EventHandler/getEventHandler
+    */
     public class func _getEventHandler(
         
         handlerId: String,

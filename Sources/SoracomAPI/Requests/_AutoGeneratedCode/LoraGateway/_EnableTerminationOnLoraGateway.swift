@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Enable Termination of LoRa gateway.
+
+        Enables termination of specified LoRa gateway.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraGateway/enableTerminationOnLoraGateway
+    */
     public class func _enableTerminationOnLoraGateway(
         
         gatewayId: String,

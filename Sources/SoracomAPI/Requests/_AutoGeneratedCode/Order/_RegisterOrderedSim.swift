@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Register subscribers for operator.
+
+        Registers the ordered SIM with the operator.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Order/registerOrderedSim
+    */
     public class func _registerOrderedSim(
         
         orderId: String,

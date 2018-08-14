@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Stops observation of resources under an object instance of a device
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Device/unobserveDeviceResources
+    */
     public class func _unobserveDeviceResources(
         
         deviceId: String,

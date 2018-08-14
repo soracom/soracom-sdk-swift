@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Set configuration for Junction inspection feature
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/setInspectionConfiguration
+    */
     public class func _setInspectionConfiguration(
         inspectionConfiguration: JunctionInspectionConfiguration, 
         vpgId: String,

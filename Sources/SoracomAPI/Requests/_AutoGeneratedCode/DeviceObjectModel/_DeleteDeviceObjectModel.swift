@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Deletes a device object model
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/DeviceObjectModel/deleteDeviceObjectModel
+    */
     public class func _deleteDeviceObjectModel(
         
         modelId: String,

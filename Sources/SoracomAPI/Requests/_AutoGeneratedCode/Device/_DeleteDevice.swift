@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Delete Device
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Device/deleteDevice
+    */
     public class func _deleteDevice(
         
         deviceId: String,

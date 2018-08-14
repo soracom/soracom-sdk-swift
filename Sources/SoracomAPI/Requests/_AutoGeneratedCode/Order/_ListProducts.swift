@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List products.
+
+        Returns a list of products.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Order/listProducts
+    */
     public class func _listProducts(
         
         responseHandler: ResponseHandler<ListProductResponse>? = nil

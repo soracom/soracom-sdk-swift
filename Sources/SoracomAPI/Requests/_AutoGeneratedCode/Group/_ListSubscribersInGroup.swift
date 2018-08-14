@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List Subscribers in a group.
+
+        Returns a list of subscribers that belong to the specified group by group ID.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Group/listSubscribersInGroup
+    */
     public class func _listSubscribersInGroup(
         
         groupId: String,

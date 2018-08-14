@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Attach Role to User.
+
+        Attaches a role to a user.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Role/attachRole
+    */
     public class func _attachRole(
         request: AttachRoleRequest, 
         operatorId: String,

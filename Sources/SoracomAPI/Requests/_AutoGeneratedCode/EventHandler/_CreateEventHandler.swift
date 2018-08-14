@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Create Event Handler.
+
+        Creates a new event handler. Please see also https://dev.soracom.io/en/docs/event_handler/
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/EventHandler/createEventHandler
+    */
     public class func _createEventHandler(
         req: CreateEventHandlerRequest, 
         responseHandler: ResponseHandler<EventHandlerModel>? = nil

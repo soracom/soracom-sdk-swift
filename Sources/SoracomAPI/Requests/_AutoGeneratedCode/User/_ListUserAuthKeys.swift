@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List User AuthKeys.
+
+        Returns the SAM user's AuthKey list.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/User/listUserAuthKeys
+    */
     public class func _listUserAuthKeys(
         
         operatorId: String,

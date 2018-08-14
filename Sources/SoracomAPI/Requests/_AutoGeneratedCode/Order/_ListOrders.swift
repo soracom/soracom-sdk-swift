@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List confirmed orders.
+
+        Returns a list of confirmed orders.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Order/listOrders
+    */
     public class func _listOrders(
         
         responseHandler: ResponseHandler<ListOrderResponse>? = nil

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete Group Configuration Parameters.
+
+        Delete parameters for the specified group.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Group/deleteConfigurationParameter
+    */
     public class func _deleteConfigurationParameter(
         
         groupId: String,

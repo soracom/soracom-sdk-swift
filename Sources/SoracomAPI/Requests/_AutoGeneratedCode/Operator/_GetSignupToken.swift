@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get Signup Token
+
+        To get the sign-up token for the registration confirmation. Make a call to put the SAM user of AuthKeyId and AuthKey of the production environment to the argument of the API.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/getSignupToken
+    */
     public class func _getSignupToken(
         auth: GetSignupTokenRequest, 
         email: String,

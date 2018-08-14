@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete LoRa network set tag.
+
+        Deletes a tag from the specified LoRa network set.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/deleteLoraNetworkSetTag
+    */
     public class func _deleteLoraNetworkSetTag(
         
         nsId: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Update Event Handler.
+
+        Updates the specified event handler. Please see also https://dev.soracom.io/en/docs/event_handler/
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/EventHandler/updateEventHandler
+    */
     public class func _updateEventHandler(
         eventHandlerModel: UpdateEventHandlerRequest, 
         handlerId: String,

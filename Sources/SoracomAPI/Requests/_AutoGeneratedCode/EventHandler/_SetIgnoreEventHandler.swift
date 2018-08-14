@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Ignore Event Handler.
+
+        Adds a setting for ignoring the specified event handler of the specified IMSI.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/EventHandler/setIgnoreEventHandler
+    */
     public class func _setIgnoreEventHandler(
         
         imsi: String,

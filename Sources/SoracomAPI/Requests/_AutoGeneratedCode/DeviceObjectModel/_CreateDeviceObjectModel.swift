@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Creates a new device object model
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/DeviceObjectModel/createDeviceObjectModel
+    */
     public class func _createDeviceObjectModel(
         objectModelDefinition: DeviceObjectModel, 
         responseHandler: ResponseHandler<DeviceObjectModel>? = nil

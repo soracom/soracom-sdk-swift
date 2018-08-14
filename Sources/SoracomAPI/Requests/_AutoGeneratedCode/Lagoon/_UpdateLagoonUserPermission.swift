@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Update permission of a SORACOM Lagoon user
+
+        Update permission of a SORACOM Lagoon user.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Lagoon/updateLagoonUserPermission
+    */
     public class func _updateLagoonUserPermission(
         request: LagoonUserPermissionUpdatingRequest, 
         lagoonUserId: Int,

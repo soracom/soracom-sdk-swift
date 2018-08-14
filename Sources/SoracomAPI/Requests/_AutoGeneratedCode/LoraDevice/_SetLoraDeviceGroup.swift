@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Set Group of LoRa device.
+
+        Sets or overwrites a group for the specified LoRa device.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraDevice/setLoraDeviceGroup
+    */
     public class func _setLoraDeviceGroup(
         group: Group, 
         deviceId: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Lets a device device join a group
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Device/setDeviceGroup
+    */
     public class func _setDeviceGroup(
         groupId: GroupId, 
         deviceId: String,

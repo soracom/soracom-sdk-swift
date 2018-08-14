@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Create shipping address.
+
+        Creates a new shipping address.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/ShippingAddress/createShippingAddress
+    */
     public class func _createShippingAddress(
         model: ShippingAddressModel, 
         operatorId: String,

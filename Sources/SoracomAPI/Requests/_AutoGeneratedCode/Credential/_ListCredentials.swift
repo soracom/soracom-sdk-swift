@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List of credentials.
+
+        Returns a list of credentials.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Credential/listCredentials
+    */
     public class func _listCredentials(
         
         responseHandler: ResponseHandler<[CredentialsModel]>? = nil

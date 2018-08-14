@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete a SORACOM Lagoon user
+
+        Delete a SORACOM Lagoon user.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Lagoon/deleteLagoonUser
+    */
     public class func _deleteLagoonUser(
         
         lagoonUserId: Int,

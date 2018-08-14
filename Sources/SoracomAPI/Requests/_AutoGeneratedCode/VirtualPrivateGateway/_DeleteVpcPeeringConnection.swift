@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete VPC Peering Connection.
+
+        Deletes the specified VPC peering connection.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/deleteVpcPeeringConnection
+    */
     public class func _deleteVpcPeeringConnection(
         
         vpgId: String,

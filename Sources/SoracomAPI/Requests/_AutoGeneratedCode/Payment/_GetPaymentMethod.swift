@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get payment method information
+
+        Returns current payment methods. Detailed information is included in the properties.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/getPaymentMethod
+    */
     public class func _getPaymentMethod(
         
         responseHandler: ResponseHandler<GetPaymentMethodResult>? = nil

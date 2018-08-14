@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Register credit card information for WebPay.
+
+        Registers credit card information for WebPay payments.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/registerWebPayPaymentMethod
+    */
     public class func _registerWebPayPaymentMethod(
         creditCard: CreditCard, 
         responseHandler: ResponseHandler<NoResponseBody>? = nil

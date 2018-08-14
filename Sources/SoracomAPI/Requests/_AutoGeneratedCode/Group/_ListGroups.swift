@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List Groups.
+
+        Returns a list of groups.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Group/listGroups
+    */
     public class func _listGroups(
         
         tagName: String? = nil,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List VPG Gate peers
+
+        List Gate peers registered in the Virtual Private Gateway
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/listGatePeers
+    */
     public class func _listGatePeers(
         
         vpgId: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Search subscribers by query terms
+
+        Search subscibers by query terms. It returns partial match results.  When this API permission is allowed, it grants the authority to search and retrieve all SIMs that includes group information.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Query/searchSubscribers
+    */
     public class func _searchSubscribers(
         
         name: [String]? = nil,

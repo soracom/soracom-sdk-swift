@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Verify Operator's MFA OTP Code.
+
+        Verifies operator's MFA with OTP code after calling `Operator:enableMFA` API. MFA will not be activated unless the MFA OTP is verified with this API. Backup codes are going to be returned in the response. These codes must be securely stored.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/verifyMFA
+    */
     public class func _verifyMFA(
         request: MFAAuthenticationRequest, 
         operatorId: String,

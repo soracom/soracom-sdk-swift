@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete Password.
+
+        Deletes the user's password.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/User/deleteUserPassword
+    */
     public class func _deleteUserPassword(
         
         operatorId: String,

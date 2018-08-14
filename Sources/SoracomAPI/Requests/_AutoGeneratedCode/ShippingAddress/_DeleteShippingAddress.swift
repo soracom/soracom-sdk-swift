@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete shipping address.
+
+        Deletes a shipping address.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/ShippingAddress/deleteShippingAddress
+    */
     public class func _deleteShippingAddress(
         
         operatorId: String,

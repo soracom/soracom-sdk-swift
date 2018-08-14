@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Create a credential.
+
+        Creates a new credential.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Credential/createCredential
+    */
     public class func _createCredential(
         credentials: CreateAndUpdateCredentialsModel, 
         credentialsId: String,

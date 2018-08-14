@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Triggers observation of the specified resource of a device
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Device/observeDeviceResource
+    */
     public class func _observeDeviceResource(
         
         deviceId: String,

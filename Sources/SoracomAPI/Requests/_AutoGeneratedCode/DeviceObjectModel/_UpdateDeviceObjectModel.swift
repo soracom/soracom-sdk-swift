@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Updates a device object model
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/DeviceObjectModel/updateDeviceObjectModel
+    */
     public class func _updateDeviceObjectModel(
         objectModelDefinition: DeviceObjectModel, 
         modelId: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Revoke Operator's MFA.
+
+        Revokes operator's MFA without backup codes.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/revokeMFA
+    */
     public class func _revokeMFA(
         
         operatorId: String,

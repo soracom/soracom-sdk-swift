@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Detach Role from User.
+
+        Detaches a role from a user.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Role/detachRole
+    */
     public class func _detachRole(
         
         operatorId: String,

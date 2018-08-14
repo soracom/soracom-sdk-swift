@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete Group.
+
+        Deletes the specified group by group ID
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Group/deleteGroup
+    */
     public class func _deleteGroup(
         
         groupId: String,

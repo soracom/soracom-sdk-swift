@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete Subscriber Tag.
+
+        Deletes a tag from the specified subscriber.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/deleteSubscriberTag
+    */
     public class func _deleteSubscriberTag(
         
         imsi: String,

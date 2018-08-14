@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Register a Sigfox device.
+
+        Registers a Sigfox device
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/registerSigfoxDevice
+    */
     public class func _registerSigfoxDevice(
         registrationRequest: SigfoxRegistrationRequest, 
         deviceId: String,

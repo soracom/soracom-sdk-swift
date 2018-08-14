@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete User AuthKey.
+
+        Deletes an AuthKey from the SAM user.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/User/deleteUserAuthKey
+    */
     public class func _deleteUserAuthKey(
         
         operatorId: String,

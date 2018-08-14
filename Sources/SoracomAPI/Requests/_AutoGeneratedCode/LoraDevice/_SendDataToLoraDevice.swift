@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Send data to a LoRa device.
+
+        Sends data to the specified LoRa device. The data is sent to the LoRa network server, to be sent out to the device using the next available slot. If another message destined for the same LoRa device ID is already waiting to be sent, the existing message will be discarded, and the new message will be sent instead.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraDevice/sendDataToLoraDevice
+    */
     public class func _sendDataToLoraDevice(
         data: LoraData, 
         deviceId: String,

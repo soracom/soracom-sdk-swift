@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List coupons.
+
+        Returns a list of currently registered coupons.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/listCoupons
+    */
     public class func _listCoupons(
         
         responseHandler: ResponseHandler<ListCouponResponse>? = nil

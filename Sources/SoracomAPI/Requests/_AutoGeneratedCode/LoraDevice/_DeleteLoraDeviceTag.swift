@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete LoRa device Tag.
+
+        Deletes a tag from the specified LoRa device.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraDevice/deleteLoraDeviceTag
+    */
     public class func _deleteLoraDeviceTag(
         
         deviceId: String,

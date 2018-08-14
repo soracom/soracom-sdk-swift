@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get AuthKey.
+
+        Returns the SAM user's AuthKey.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/User/getUserAuthKey
+    */
     public class func _getUserAuthKey(
         
         operatorId: String,

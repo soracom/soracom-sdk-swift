@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get Subscriber.
+
+        Returns information about the specified subscriber.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/getSubscriber
+    */
     public class func _getSubscriber(
         
         imsi: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Register Coupon.
+
+        Registers a coupon.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/registerCoupon
+    */
     public class func _registerCoupon(
         
         couponCode: String,

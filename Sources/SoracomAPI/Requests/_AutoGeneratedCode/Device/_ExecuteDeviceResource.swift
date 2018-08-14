@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Executes a resource of a device
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Device/executeDeviceResource
+    */
     public class func _executeDeviceResource(
         arg: Arg, 
         deviceId: String,

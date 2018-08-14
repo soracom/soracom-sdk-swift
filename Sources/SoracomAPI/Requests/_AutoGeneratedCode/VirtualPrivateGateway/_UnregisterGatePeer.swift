@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Unregister VPG gate peer
+
+        Unregister a gate peer from the Virtual Private Gateway
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/unregisterGatePeer
+    */
     public class func _unregisterGatePeer(
         
         vpgId: String,

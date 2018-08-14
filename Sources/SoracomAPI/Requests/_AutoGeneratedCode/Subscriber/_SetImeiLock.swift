@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Set IMEI lock configuration for Subscriber.
+
+        Set IMEI that the subscriber should be locked to.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/setImeiLock
+    */
     public class func _setImeiLock(
         imeiLock: SetImeiLockRequest, 
         imsi: String,

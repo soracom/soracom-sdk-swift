@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Update Operator Password.
+
+        Updates the operator's password.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/updateOperatorPassword
+    */
     public class func _updateOperatorPassword(
         request: UpdatePasswordRequest, 
         operatorId: String,

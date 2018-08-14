@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Creates a new Device
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Device/createDevice
+    */
     public class func _createDevice(
         device: Device, 
         responseHandler: ResponseHandler<Device>? = nil

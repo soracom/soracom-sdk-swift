@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Generate Operator AuthKey.
+
+        Generates an AuthKey for the operator.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/generateOperatorAuthKey
+    */
     public class func _generateOperatorAuthKey(
         
         operatorId: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get Beam Usage Report of Subscriber.
+
+        Retrieves the Soracom Beam usage report for the subscriber specified by the IMSI.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Stats/getBeamStats
+    */
     public class func _getBeamStats(
         
         imsi: String,

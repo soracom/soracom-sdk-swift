@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete Group Tag.
+
+        Deletes tag from the specified group.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Group/deleteGroupTag
+    */
     public class func _deleteGroupTag(
         
         groupId: String,

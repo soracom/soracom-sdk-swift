@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Update Group Configuration Parameters.
+
+        Adds/updates parameters for the specified group.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Group/putConfigurationParameters
+    */
     public class func _putConfigurationParameters(
         parameters: [GroupConfigurationUpdateRequest], 
         groupId: String,

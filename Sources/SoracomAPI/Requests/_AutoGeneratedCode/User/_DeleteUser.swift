@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete User.
+
+        Deletes the SAM user.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/User/deleteUser
+    */
     public class func _deleteUser(
         
         operatorId: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Update password of a SORACOM Lagoon user
+
+        Update password of a SORACOM Lagoon user.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Lagoon/updateLagoonUserPassword
+    */
     public class func _updateLagoonUserPassword(
         request: LagoonUserPasswordUpdatingRequest, 
         lagoonUserId: Int,

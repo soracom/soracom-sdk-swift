@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List Event Handlers.
+
+        Returns a list of event handlers.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/EventHandler/listEventHandlers
+    */
     public class func _listEventHandlers(
         
         target: Target? = nil,

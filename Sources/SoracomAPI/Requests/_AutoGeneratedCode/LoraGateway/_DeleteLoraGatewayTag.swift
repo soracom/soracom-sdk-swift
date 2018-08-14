@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete LoRa gateway tag.
+
+        Deletes a tag from the specified LoRa gateway.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraGateway/deleteLoraGatewayTag
+    */
     public class func _deleteLoraGatewayTag(
         
         gatewayId: String,

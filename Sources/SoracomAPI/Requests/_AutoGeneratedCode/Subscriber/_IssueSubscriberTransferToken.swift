@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Issue Subscribers Transfer Token.
+
+        Sends the subscriber's inter-operator control transfer token to the control destination operator.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/issueSubscriberTransferToken
+    */
     public class func _issueSubscriberTransferToken(
         request: IssueSubscriberTransferTokenRequest, 
         responseHandler: ResponseHandler<IssueSubscriberTransferTokenResponse>? = nil

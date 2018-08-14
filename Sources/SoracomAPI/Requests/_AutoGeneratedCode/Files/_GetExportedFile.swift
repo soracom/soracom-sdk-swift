@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get an exported file.
+
+        Get an exported file. The `url` field in the response will contain a URL to download the exported file.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Files/getExportedFile
+    */
     public class func _getExportedFile(
         
         exportedFileId: String,

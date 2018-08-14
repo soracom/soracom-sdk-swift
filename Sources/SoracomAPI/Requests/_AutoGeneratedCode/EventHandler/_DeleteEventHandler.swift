@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete Event Handler.
+
+        Deletes the specified event handler.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/EventHandler/deleteEventHandler
+    */
     public class func _deleteEventHandler(
         
         handlerId: String,

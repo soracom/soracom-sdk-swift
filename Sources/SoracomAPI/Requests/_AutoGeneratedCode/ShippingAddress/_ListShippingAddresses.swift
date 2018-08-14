@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List shipping addresses.
+
+        Returns a list of shipping addresses.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/ShippingAddress/listShippingAddresses
+    */
     public class func _listShippingAddresses(
         
         operatorId: String,

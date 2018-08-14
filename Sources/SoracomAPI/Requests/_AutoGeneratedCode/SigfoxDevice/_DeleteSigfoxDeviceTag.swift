@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete Sigfox device Tag.
+
+        Deletes a tag from the specified Sigfox device.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/deleteSigfoxDeviceTag
+    */
     public class func _deleteSigfoxDeviceTag(
         
         deviceId: String,

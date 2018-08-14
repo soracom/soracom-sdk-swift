@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete VPG IP address map entry
+
+        Deletes an entry in VPG IP address map.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/deleteVirtualPrivateGatewayIpAddressMapEntry
+    */
     public class func _deleteVirtualPrivateGatewayIpAddressMapEntry(
         
         vpgId: String,

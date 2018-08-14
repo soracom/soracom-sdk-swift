@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Update Subscriber speed class.
+
+        Changes the speed class of the specified subscriber.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/updateSpeedClass
+    */
     public class func _updateSpeedClass(
         speedClass: UpdateSpeedClassRequest, 
         imsi: String,

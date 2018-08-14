@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get bill.
+
+        Returns the billing history for the specified month (after applied discounts such as free tiers, etc., inclusive of tax). The amounts retrieved using this API correspond to the values before the invoice was finalized.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Billing/getBilling
+    */
     public class func _getBilling(
         
         yyyyMM: String,

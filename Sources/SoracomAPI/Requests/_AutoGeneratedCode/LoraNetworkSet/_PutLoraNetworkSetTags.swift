@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Bulk Insert or Update LoRa network set tags.
+
+        Inserts/updates tags for the specified LoRa network set.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/putLoraNetworkSetTags
+    */
     public class func _putLoraNetworkSetTags(
         tags: [TagUpdateRequest], 
         nsId: String,

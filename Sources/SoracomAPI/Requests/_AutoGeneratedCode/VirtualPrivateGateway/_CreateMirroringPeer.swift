@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Add node in the list of Junction mirroring peers
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/createMirroringPeer
+    */
     public class func _createMirroringPeer(
         mirroringPeer: JunctionMirroringPeer, 
         vpgId: String,

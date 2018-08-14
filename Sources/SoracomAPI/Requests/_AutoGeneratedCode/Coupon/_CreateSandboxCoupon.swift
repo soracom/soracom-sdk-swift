@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Create Coupon
+
+        The Coupon to create a new one.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Coupon/createSandboxCoupon
+    */
     public class func _createSandboxCoupon(
         request: CreateCouponRequest, 
         responseHandler: ResponseHandler<CreateCouponResponse>? = nil

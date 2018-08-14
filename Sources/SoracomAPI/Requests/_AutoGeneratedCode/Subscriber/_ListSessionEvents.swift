@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List Session Events.
+
+        Returns the event history for the specified subscriber, including session creation, change, and deletion. If the total number of events does not fit in one page, a URL for accessing the next page is returned in the `Link` header of the response.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/listSessionEvents
+    */
     public class func _listSessionEvents(
         
         imsi: String,

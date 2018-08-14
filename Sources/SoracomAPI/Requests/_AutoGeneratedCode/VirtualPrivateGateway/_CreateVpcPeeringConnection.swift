@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Create VPC Peering Connection
+
+        Creates a VPC peering connection for the specified VPG.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/createVpcPeeringConnection
+    */
     public class func _createVpcPeeringConnection(
         vpcPeeringConnection: CreateVpcPeeringConnectionRequest, 
         vpgId: String,

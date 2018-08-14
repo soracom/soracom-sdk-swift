@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Close SORACOM Gate.
+
+        Close SORACOM Gate on the specified VPG.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/closeGate
+    */
     public class func _closeGate(
         
         vpgId: String,

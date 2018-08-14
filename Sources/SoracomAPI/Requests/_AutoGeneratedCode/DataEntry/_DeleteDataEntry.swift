@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Deletes a data entry
+
+        Deletes a data entry identified with resource ID and timestamp
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/DataEntry/deleteDataEntry
+    */
     public class func _deleteDataEntry(
         
         resourceType: ResourceType,

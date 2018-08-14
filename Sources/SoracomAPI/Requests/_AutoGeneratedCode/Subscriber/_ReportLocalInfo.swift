@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Triggers Subscriber to report SIM local info.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/reportLocalInfo
+    */
     public class func _reportLocalInfo(
         
         imsi: String,

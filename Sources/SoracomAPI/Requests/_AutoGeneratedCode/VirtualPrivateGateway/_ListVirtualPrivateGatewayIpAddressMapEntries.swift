@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        List VPG IP address map entries
+
+        Describes the list of IP addresse map entries in the Virtual Private Gateway
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/listVirtualPrivateGatewayIpAddressMapEntries
+    */
     public class func _listVirtualPrivateGatewayIpAddressMapEntries(
         
         vpgId: String,

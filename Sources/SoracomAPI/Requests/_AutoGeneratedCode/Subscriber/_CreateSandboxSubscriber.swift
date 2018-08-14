@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Create Subscriber
+
+        The Subscriber to create a new one.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/createSandboxSubscriber
+    */
     public class func _createSandboxSubscriber(
         
         responseHandler: ResponseHandler<CreateSubscriberResponse>? = nil

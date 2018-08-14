@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Bulk Insert or Update Sigfox device Tags.
+
+        Inserts/updates tags for the specified Sigfox device.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/putSigfoxDeviceTags
+    */
     public class func _putSigfoxDeviceTags(
         tags: [TagUpdateRequest], 
         deviceId: String,

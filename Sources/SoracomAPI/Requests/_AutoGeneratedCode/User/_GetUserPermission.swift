@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get User Permission.
+
+        Retrieves the SAM user's permissions.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/User/getUserPermission
+    */
     public class func _getUserPermission(
         
         operatorId: String,

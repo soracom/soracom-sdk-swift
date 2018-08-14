@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get shipping address.
+
+        Returns a shipping address.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/ShippingAddress/getShippingAddress
+    */
     public class func _getShippingAddress(
         
         operatorId: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Enable Termination of LoRa device.
+
+        Enables termination of specified LoRa device.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraDevice/enableTerminationOnLoraDevice
+    */
     public class func _enableTerminationOnLoraDevice(
         
         deviceId: String,

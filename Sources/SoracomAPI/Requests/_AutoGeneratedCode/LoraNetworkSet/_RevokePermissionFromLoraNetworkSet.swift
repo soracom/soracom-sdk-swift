@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Revokes a permission from a LoRa network set.
+
+        Revokes a permission and removes an operator from the list of allowed operators in the network set.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/revokePermissionFromLoraNetworkSet
+    */
     public class func _revokePermissionFromLoraNetworkSet(
         operatorId: UpdatePermissionRequest, 
         nsId: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete Operator AuthKey.
+
+        Deletes an AuthKey from the operator.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/deleteOperatorAuthKey
+    */
     public class func _deleteOperatorAuthKey(
         
         operatorId: String,

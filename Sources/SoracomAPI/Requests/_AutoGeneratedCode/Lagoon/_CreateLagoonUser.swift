@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Create a SORACOM Lagoon user
+
+        Create a SORACOM Lagoon user.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Lagoon/createLagoonUser
+    */
     public class func _createLagoonUser(
         request: LagoonUserCreationRequest, 
         responseHandler: ResponseHandler<LagoonUserCreationResponse>? = nil

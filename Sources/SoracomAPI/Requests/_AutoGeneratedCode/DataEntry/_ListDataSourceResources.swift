@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get the list of data source resources
+
+        Returns a list of data source resources that have sent data from resources that belong to the operator. If the total number of entries does not fit in one page, a URL for accessing the next page is returned in the 'Link' header of the response.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/DataEntry/listDataSourceResources
+    */
     public class func _listDataSourceResources(
         
         resourceType: ResourceType? = nil,

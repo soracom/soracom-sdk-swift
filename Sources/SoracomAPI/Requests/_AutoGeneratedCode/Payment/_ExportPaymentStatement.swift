@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Export payment statement.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/exportPaymentStatement
+    */
     public class func _exportPaymentStatement(
         
         paymentStatementId: String,

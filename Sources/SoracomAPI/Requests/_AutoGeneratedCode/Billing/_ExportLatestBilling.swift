@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Export latest billing CSV file to S3.
+
+        Returns detailed information of the billing amounts for the latest month. This detailed information includes billing amounts per day, subscriber, and billing item. The amounts retrieved using this API correspond to the values before the invoice was finalized.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Billing/exportLatestBilling
+    */
     public class func _exportLatestBilling(
         
         exportMode: ExportMode? = nil,

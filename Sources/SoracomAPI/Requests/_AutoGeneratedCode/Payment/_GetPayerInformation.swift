@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Export payer information.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/getPayerInformation
+    */
     public class func _getPayerInformation(
         
         responseHandler: ResponseHandler<RegisterPayerInformationModel>? = nil

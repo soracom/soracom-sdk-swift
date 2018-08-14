@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Create Virtual Private Gateway.
+
+        Create new VPG.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/createVirtualPrivateGateway
+    */
     public class func _createVirtualPrivateGateway(
         createVirtualPrivateGatewayRequest: CreateVirtualPrivateGatewayRequest, 
         responseHandler: ResponseHandler<VirtualPrivateGateway>? = nil

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Set Group to Subscriber.
+
+        Sets or overwrites a group for the specified subscriber.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/setGroup
+    */
     public class func _setGroup(
         group: SetGroupRequest, 
         imsi: String,

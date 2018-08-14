@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete LoRa network set.
+
+        Deletes the specified LoRa network set
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/deleteLoraNetworkSet
+    */
     public class func _deleteLoraNetworkSet(
         
         nsId: String,

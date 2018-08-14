@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Update a Junction mirroring peer
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/updateMirroringPeer
+    */
     public class func _updateMirroringPeer(
         updates: [AttributeUpdate], 
         vpgId: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get confirmed order.
+
+        Returns a confirmed order.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Order/getOrder
+    */
     public class func _getOrder(
         
         orderId: String,

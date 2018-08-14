@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Verify Operator.
+
+        Verifies the operator's registration. Called by setting as parameter the one-time verification token received via e-mail.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/verifyOperator
+    */
     public class func _verifyOperator(
         token: VerifyOperatorsRequest, 
         responseHandler: ResponseHandler<NoResponseBody>? = nil

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete Role.
+
+        Deletes a role.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Role/deleteRole
+    */
     public class func _deleteRole(
         
         operatorId: String,

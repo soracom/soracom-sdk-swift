@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete Operator
+
+        To remove the Operator.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/deleteSandboxOperator
+    */
     public class func _deleteSandboxOperator(
         
         operatorId: String,

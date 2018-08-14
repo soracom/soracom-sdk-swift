@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Get Role.
+
+        Retrieves a role.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Role/getRole
+    */
     public class func _getRole(
         
         operatorId: String,

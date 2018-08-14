@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Confirm order.
+
+        Performs a credit limit and confirms the order if no problems are encountered.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Order/confirmOrder
+    */
     public class func _confirmOrder(
         
         orderId: String,

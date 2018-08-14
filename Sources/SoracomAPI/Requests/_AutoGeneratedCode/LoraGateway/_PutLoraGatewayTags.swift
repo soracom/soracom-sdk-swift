@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Bulk Insert or Update LoRa gateway Tags.
+
+        Inserts/updates tags for the specified LoRa gateway.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/LoraGateway/putLoraGatewayTags
+    */
     public class func _putLoraGatewayTags(
         tags: [TagUpdateRequest], 
         gatewayId: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Unset IMEI lock configuration for Subscriber.
+
+        Remove any existing IMEI lock configuration for the subscriber.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/unsetImeiLock
+    */
     public class func _unsetImeiLock(
         
         imsi: String,

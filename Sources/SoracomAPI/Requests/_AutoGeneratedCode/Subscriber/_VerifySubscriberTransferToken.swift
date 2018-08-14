@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Verify Subscriber Transfer Token.
+
+        Verifies the subscriber's control transfer token, and executes the transfer. This API is called from the operator of the control destination.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/verifySubscriberTransferToken
+    */
     public class func _verifySubscriberTransferToken(
         token: VerifySubscriberTransferTokenRequest, 
         responseHandler: ResponseHandler<VerifySubscriberTransferTokenResponse>? = nil

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Gets a device object model
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/DeviceObjectModel/getDeviceObjectModel
+    */
     public class func _getDeviceObjectModel(
         
         modelId: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Delete Expiry Time of Subscriber.
+
+        Deletes expiry time of specified subscriber and changes it to indefinite.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/unsetExpiryTime
+    */
     public class func _unsetExpiryTime(
         
         imsi: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Set Subscriber to standby mode.
+
+        Set the specified subscriber to standby mode.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/setSubscriberToStandby
+    */
     public class func _setSubscriberToStandby(
         
         imsi: String,

@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Create Password.
+
+        Creates a password for the SAM user.
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/User/createUserPassword
+    */
     public class func _createUserPassword(
         request: CreateUserPasswordRequest, 
         operatorId: String,

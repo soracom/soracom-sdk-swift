@@ -7,6 +7,13 @@ import Foundation
 
 extension Request {
 
+    /**
+        Description forthcoming.
+
+        Returns a Device identified by device ID
+
+        Docs: https://dev.soracom.io/en/docs/api/#!/Device/getDevice
+    */
     public class func _getDevice(
         
         deviceId: String,

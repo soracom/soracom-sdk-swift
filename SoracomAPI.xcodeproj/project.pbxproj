@@ -735,7 +735,6 @@
 		OBJ_1714 /* SoracomAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SoracomAPI::SoracomAPI::Product" /* SoracomAPI.framework */; };
 		OBJ_870 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* APIError.swift */; };
 		OBJ_871 /* APIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* APIOperation.swift */; };
-		OBJ_872 /* AirStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AirStats.swift */; };
 		OBJ_874 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Client.swift */; };
 		OBJ_875 /* Codable+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Codable+SoracomAPI.swift */; };
 		OBJ_876 /* ConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* ConfigurationParameter.swift */; };
@@ -1377,7 +1376,6 @@
 		OBJ_107 /* ListOrderedSubscriberResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrderedSubscriberResponse.swift; sourceTree = "<group>"; };
 		OBJ_108 /* ListPaymentStatementResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPaymentStatementResponse.swift; sourceTree = "<group>"; };
 		OBJ_109 /* ListProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductResponse.swift; sourceTree = "<group>"; };
-		OBJ_11 /* AirStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirStats.swift; sourceTree = "<group>"; };
 		OBJ_110 /* ListRolesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRolesResponse.swift; sourceTree = "<group>"; };
 		OBJ_111 /* ListShippingAddressResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListShippingAddressResponse.swift; sourceTree = "<group>"; };
 		OBJ_112 /* ListSubOperatorsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSubOperatorsResponse.swift; sourceTree = "<group>"; };
@@ -3009,10 +3007,8 @@
 		OBJ_8 /* SoracomAPI */ = {
 			isa = PBXGroup;
 			children = (
-				93F9D34B211A2E52007F6A05 /* ResponseDecoder.swift */,
 				OBJ_9 /* APIError.swift */,
 				OBJ_10 /* APIOperation.swift */,
-				OBJ_11 /* AirStats.swift */,
 				OBJ_13 /* Client.swift */,
 				OBJ_14 /* Codable+SoracomAPI.swift */,
 				OBJ_15 /* ConfigurationParameter.swift */,
@@ -3020,12 +3016,14 @@
 				OBJ_17 /* CoverageType.swift */,
 				OBJ_18 /* Data+SoracomAPI.swift */,
 				OBJ_19 /* DataTrafficStats.swift */,
+				9389C513210FEF9B0053F9D7 /* Enums.swift */,
 				OBJ_20 /* HTTPMethod.swift */,
 				OBJ_21 /* JSONComparison.swift */,
 				OBJ_22 /* Keychain.swift */,
 				OBJ_24 /* Metrics.swift */,
 				OBJ_25 /* Models */,
 				OBJ_330 /* NSDate+SoracomAPI.swift */,
+				OBJ_340 /* Request.swift */,
 				OBJ_333 /* Request+Auth.swift */,
 				OBJ_334 /* Request+Credentials.swift */,
 				OBJ_335 /* Request+Group.swift */,
@@ -3033,14 +3031,13 @@
 				OBJ_337 /* Request+Payment.swift */,
 				OBJ_338 /* Request+Sandbox.swift */,
 				OBJ_339 /* Request+Subscriber.swift */,
-				OBJ_340 /* Request.swift */,
 				OBJ_341 /* RequestQueue.swift */,
 				OBJ_342 /* RequestResponseFormatter.swift */,
 				OBJ_343 /* Requests */,
 				OBJ_820 /* Response.swift */,
+				93F9D34B211A2E52007F6A05 /* ResponseDecoder.swift */,
 				OBJ_821 /* SoracomCredentials.swift */,
 				OBJ_822 /* TextStyle.swift */,
-				9389C513210FEF9B0053F9D7 /* Enums.swift */,
 			);
 			name = SoracomAPI;
 			path = Sources/SoracomAPI;
@@ -3265,7 +3262,6 @@
 				9389C75221104E690053F9D7 /* UpdateShippingAddress.swift in Sources */,
 				9389C76621104E690053F9D7 /* _GetRole.swift in Sources */,
 				OBJ_871 /* APIOperation.swift in Sources */,
-				OBJ_872 /* AirStats.swift in Sources */,
 				OBJ_874 /* Client.swift in Sources */,
 				OBJ_875 /* Codable+SoracomAPI.swift in Sources */,
 				OBJ_876 /* ConfigurationParameter.swift in Sources */,

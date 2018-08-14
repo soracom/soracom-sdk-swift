@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		937BC88721236196009FFF8D /* ListOrdersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937BC88621236196009FFF8D /* ListOrdersTests.swift */; };
 		9389C512210F53E00053F9D7 /* NoResponseBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C511210F53E00053F9D7 /* NoResponseBody.swift */; };
 		9389C514210FEF9B0053F9D7 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C513210FEF9B0053F9D7 /* Enums.swift */; };
 		9389C74521104E690053F9D7 /* GetLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C54121104E670053F9D7 /* GetLogs.swift */; };
@@ -887,6 +888,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		937BC88621236196009FFF8D /* ListOrdersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersTests.swift; sourceTree = "<group>"; };
 		9389C511210F53E00053F9D7 /* NoResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResponseBody.swift; sourceTree = "<group>"; };
 		9389C513210FEF9B0053F9D7 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		9389C54121104E670053F9D7 /* GetLogs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLogs.swift; sourceTree = "<group>"; };
@@ -3078,6 +3080,7 @@
 				OBJ_841 /* IssueDebuggingTests.swift */,
 				OBJ_842 /* JSONComparisonTests.swift */,
 				OBJ_843 /* KeychainTests.swift */,
+				937BC88621236196009FFF8D /* ListOrdersTests.swift */,
 				OBJ_845 /* NSDate+SoracomAPITests.swift */,
 				OBJ_847 /* RegisterSIMTests.swift */,
 				OBJ_848 /* Request+AuthTests.swift */,
@@ -3232,6 +3235,7 @@
 				OBJ_1689 /* BaseTestCase.swift in Sources */,
 				OBJ_1690 /* BaseTestCaseTests.swift in Sources */,
 				OBJ_1692 /* CredentialTests.swift in Sources */,
+				937BC88721236196009FFF8D /* ListOrdersTests.swift in Sources */,
 				OBJ_1693 /* DevelopmentEnvironmentTests.swift in Sources */,
 				OBJ_1694 /* Fixtures.swift in Sources */,
 				OBJ_1695 /* IssueDebuggingTests.swift in Sources */,

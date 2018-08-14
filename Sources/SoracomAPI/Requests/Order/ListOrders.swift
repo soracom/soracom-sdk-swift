@@ -1,4 +1,4 @@
-extension Request {
+extension Request where T == ListOrderResponse {
 
     public class func listOrders(
         

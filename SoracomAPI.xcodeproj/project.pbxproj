@@ -742,7 +742,6 @@
 		OBJ_877 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Constants.swift */; };
 		OBJ_878 /* CoverageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* CoverageType.swift */; };
 		OBJ_879 /* Data+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Data+SoracomAPI.swift */; };
-		OBJ_880 /* DataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* DataTrafficStats.swift */; };
 		OBJ_881 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* HTTPMethod.swift */; };
 		OBJ_882 /* JSONComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* JSONComparison.swift */; };
 		OBJ_883 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Keychain.swift */; };
@@ -1463,7 +1462,6 @@
 		OBJ_187 /* _AttributeUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _AttributeUpdate.swift; sourceTree = "<group>"; };
 		OBJ_188 /* _AuthKeyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _AuthKeyResponse.swift; sourceTree = "<group>"; };
 		OBJ_189 /* _AuthRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _AuthRequest.swift; sourceTree = "<group>"; };
-		OBJ_19 /* DataTrafficStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTrafficStats.swift; sourceTree = "<group>"; };
 		OBJ_190 /* _AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _AuthResponse.swift; sourceTree = "<group>"; };
 		OBJ_191 /* _BeamStatsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _BeamStatsResponse.swift; sourceTree = "<group>"; };
 		OBJ_192 /* _Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _Config.swift; sourceTree = "<group>"; };
@@ -3017,7 +3015,6 @@
 				OBJ_16 /* Constants.swift */,
 				OBJ_17 /* CoverageType.swift */,
 				OBJ_18 /* Data+SoracomAPI.swift */,
-				OBJ_19 /* DataTrafficStats.swift */,
 				9389C513210FEF9B0053F9D7 /* Enums.swift */,
 				OBJ_20 /* HTTPMethod.swift */,
 				OBJ_21 /* JSONComparison.swift */,
@@ -3278,7 +3275,6 @@
 				9389C83821104E6A0053F9D7 /* _VerifyOperator.swift in Sources */,
 				9389C7BF21104E690053F9D7 /* _UpdateDeviceObjectModel.swift in Sources */,
 				9389C81C21104E6A0053F9D7 /* _ListLoraDevices.swift in Sources */,
-				OBJ_880 /* DataTrafficStats.swift in Sources */,
 				9389C83921104E6A0053F9D7 /* _GetBilling.swift in Sources */,
 				9389C7F121104E6A0053F9D7 /* _DisableTermination.swift in Sources */,
 				9389C87421104E6A0053F9D7 /* ActivatePaymentMethod.swift in Sources */,

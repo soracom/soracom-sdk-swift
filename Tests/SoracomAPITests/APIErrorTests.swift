@@ -12,6 +12,7 @@ import XCTest
     @testable import SoracomAPI 
 #endif
 
+
 class APIErrorTests: BaseTestCase {
     
     func test_APIError_existence() {

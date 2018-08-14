@@ -372,11 +372,8 @@ open class BaseRequest {
         
         if let messageBody = messageBody {
             
-            // New preferred way; the obsolete Payload class is going away mason 2018-07-26
-            
             request.httpBody = messageBody;
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            
         }
         
         if (shouldSendAPIKeyAndTokenInHTTPHeaders) {
@@ -386,7 +383,6 @@ open class BaseRequest {
         }
         
         return request as URLRequest // as? always succeeds on macOS, but always fails on Linux... ;-/
-        
     }
     
     

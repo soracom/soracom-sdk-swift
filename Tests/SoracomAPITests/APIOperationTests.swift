@@ -13,6 +13,7 @@ import XCTest
     @testable import SoracomAPI 
 #endif
 
+
 class APIOperationTests: BaseTestCase {
     
     var bogusCreds: SoracomCredentials {

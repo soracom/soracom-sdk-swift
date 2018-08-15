@@ -9,7 +9,10 @@ options:
   modelSuffix: null # applied to model classes
   modelType: class # can be struct or class
   modelInheritance: true # must be false for struct modelType
-  modelNames: {} # override model type names
+  modelNames:
+    ? "Map«string,DataTrafficStats»"
+    : DataTrafficStatsMap
+      # override model type names
   enumNames: {
     # We can override enum names, if we don't like default (default: resource_type→ResourceType)
   } # override enum type  names

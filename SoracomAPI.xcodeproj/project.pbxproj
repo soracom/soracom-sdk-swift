@@ -22,6 +22,9 @@
 
 /* Begin PBXBuildFile section */
 		937BC88721236196009FFF8D /* ListOrdersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937BC88621236196009FFF8D /* ListOrdersTests.swift */; };
+		937BC88921248246009FFF8D /* _DataTrafficStatsMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937BC88821248246009FFF8D /* _DataTrafficStatsMap.swift */; };
+		937BC88C2124A50F009FFF8D /* DataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937BC88B2124A50F009FFF8D /* DataTrafficStats.swift */; };
+		937BC8902124A520009FFF8D /* _MapstringDataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937BC88E2124A520009FFF8D /* _MapstringDataTrafficStats.swift */; };
 		9389C512210F53E00053F9D7 /* NoResponseBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C511210F53E00053F9D7 /* NoResponseBody.swift */; };
 		9389C514210FEF9B0053F9D7 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C513210FEF9B0053F9D7 /* Enums.swift */; };
 		9389C74521104E690053F9D7 /* GetLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C54121104E670053F9D7 /* GetLogs.swift */; };
@@ -636,7 +639,6 @@
 		OBJ_1133 /* _MFARevokingTokenVerifyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_274 /* _MFARevokingTokenVerifyRequest.swift */; };
 		OBJ_1134 /* _MFAStatusOfUseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_275 /* _MFAStatusOfUseResponse.swift */; };
 		OBJ_1135 /* _Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_276 /* _Map.swift */; };
-		OBJ_1136 /* _MapstringDataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_277 /* _MapstringDataTrafficStats.swift */; };
 		OBJ_1137 /* _Mapstringstring.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_278 /* _Mapstringstring.swift */; };
 		OBJ_1138 /* _MonthlyBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_279 /* _MonthlyBill.swift */; };
 		OBJ_1139 /* _ObjectInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_280 /* _ObjectInstance.swift */; };
@@ -843,7 +845,6 @@
 		OBJ_980 /* MFARevokingTokenVerifyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_120 /* MFARevokingTokenVerifyRequest.swift */; };
 		OBJ_981 /* MFAStatusOfUseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_121 /* MFAStatusOfUseResponse.swift */; };
 		OBJ_982 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_122 /* Map.swift */; };
-		OBJ_983 /* MapstringDataTrafficStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_123 /* MapstringDataTrafficStats.swift */; };
 		OBJ_984 /* Mapstringstring.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_124 /* Mapstringstring.swift */; };
 		OBJ_985 /* MonthlyBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_125 /* MonthlyBill.swift */; };
 		OBJ_986 /* ObjectInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_126 /* ObjectInstance.swift */; };
@@ -888,6 +889,9 @@
 
 /* Begin PBXFileReference section */
 		937BC88621236196009FFF8D /* ListOrdersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersTests.swift; sourceTree = "<group>"; };
+		937BC88821248246009FFF8D /* _DataTrafficStatsMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _DataTrafficStatsMap.swift; sourceTree = "<group>"; };
+		937BC88B2124A50F009FFF8D /* DataTrafficStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTrafficStats.swift; sourceTree = "<group>"; };
+		937BC88E2124A520009FFF8D /* _MapstringDataTrafficStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _MapstringDataTrafficStats.swift; sourceTree = "<group>"; };
 		9389C511210F53E00053F9D7 /* NoResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResponseBody.swift; sourceTree = "<group>"; };
 		9389C513210FEF9B0053F9D7 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		9389C54121104E670053F9D7 /* GetLogs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLogs.swift; sourceTree = "<group>"; };
@@ -1390,7 +1394,6 @@
 		OBJ_120 /* MFARevokingTokenVerifyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFARevokingTokenVerifyRequest.swift; sourceTree = "<group>"; };
 		OBJ_121 /* MFAStatusOfUseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFAStatusOfUseResponse.swift; sourceTree = "<group>"; };
 		OBJ_122 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
-		OBJ_123 /* MapstringDataTrafficStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapstringDataTrafficStats.swift; sourceTree = "<group>"; };
 		OBJ_124 /* Mapstringstring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapstringstring.swift; sourceTree = "<group>"; };
 		OBJ_125 /* MonthlyBill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyBill.swift; sourceTree = "<group>"; };
 		OBJ_126 /* ObjectInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectInstance.swift; sourceTree = "<group>"; };
@@ -1555,7 +1558,6 @@
 		OBJ_274 /* _MFARevokingTokenVerifyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _MFARevokingTokenVerifyRequest.swift; sourceTree = "<group>"; };
 		OBJ_275 /* _MFAStatusOfUseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _MFAStatusOfUseResponse.swift; sourceTree = "<group>"; };
 		OBJ_276 /* _Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _Map.swift; sourceTree = "<group>"; };
-		OBJ_277 /* _MapstringDataTrafficStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _MapstringDataTrafficStats.swift; sourceTree = "<group>"; };
 		OBJ_278 /* _Mapstringstring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _Mapstringstring.swift; sourceTree = "<group>"; };
 		OBJ_279 /* _MonthlyBill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _MonthlyBill.swift; sourceTree = "<group>"; };
 		OBJ_28 /* APIKeyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyResponse.swift; sourceTree = "<group>"; };
@@ -2622,6 +2624,7 @@
 		OBJ_176 /* _AutoGeneratedCode */ = {
 			isa = PBXGroup;
 			children = (
+				937BC88E2124A520009FFF8D /* _MapstringDataTrafficStats.swift */,
 				OBJ_183 /* _ActionConfig.swift */,
 				OBJ_184 /* _ActionConfigProperty.swift */,
 				OBJ_185 /* _AirStatsResponse.swift */,
@@ -2657,6 +2660,7 @@
 				OBJ_208 /* _DataEntry.swift */,
 				OBJ_209 /* _DataSourceResourceMetadata.swift */,
 				OBJ_210 /* _DataTrafficStats.swift */,
+				937BC88821248246009FFF8D /* _DataTrafficStatsMap.swift */,
 				OBJ_211 /* _Device.swift */,
 				OBJ_212 /* _DeviceObjectModel.swift */,
 				OBJ_213 /* _EnableMFAOTPResponse.swift */,
@@ -2724,7 +2728,6 @@
 				OBJ_270 /* _LoraGateway.swift */,
 				OBJ_271 /* _LoraNetworkSet.swift */,
 				OBJ_276 /* _Map.swift */,
-				OBJ_277 /* _MapstringDataTrafficStats.swift */,
 				OBJ_278 /* _Mapstringstring.swift */,
 				OBJ_272 /* _MFAAuthenticationRequest.swift */,
 				OBJ_273 /* _MFAIssueRevokingTokenRequest.swift */,
@@ -2824,6 +2827,7 @@
 				OBJ_54 /* DataEntry.swift */,
 				OBJ_55 /* DataSourceResourceMetadata.swift */,
 				OBJ_56 /* DataTrafficStatsMap.swift */,
+				937BC88B2124A50F009FFF8D /* DataTrafficStats.swift */,
 				OBJ_57 /* Device.swift */,
 				OBJ_58 /* DeviceObjectModel.swift */,
 				OBJ_59 /* EnableMFAOTPResponse.swift */,
@@ -2886,7 +2890,6 @@
 				OBJ_116 /* LoraGateway.swift */,
 				OBJ_117 /* LoraNetworkSet.swift */,
 				OBJ_122 /* Map.swift */,
-				OBJ_123 /* MapstringDataTrafficStats.swift */,
 				OBJ_124 /* Mapstringstring.swift */,
 				OBJ_118 /* MFAAuthenticationRequest.swift */,
 				OBJ_119 /* MFAIssueRevokingTokenRequest.swift */,
@@ -3301,6 +3304,7 @@
 				9389C82D21104E6A0053F9D7 /* _VerifyMFA.swift in Sources */,
 				9389C85E21104E6A0053F9D7 /* UpdateLagoonUserEmail.swift in Sources */,
 				9389C75E21104E690053F9D7 /* _ConfirmOrder.swift in Sources */,
+				937BC88921248246009FFF8D /* _DataTrafficStatsMap.swift in Sources */,
 				9389C81F21104E6A0053F9D7 /* _GetBeamStats.swift in Sources */,
 				9389C87621104E6A0053F9D7 /* RegisterCoupon.swift in Sources */,
 				9389C86F21104E6A0053F9D7 /* RegisterWebPayPaymentMethod.swift in Sources */,
@@ -3372,6 +3376,7 @@
 				OBJ_918 /* DeviceObjectModel.swift in Sources */,
 				9389C8C621104E6A0053F9D7 /* TerminateSubscriber.swift in Sources */,
 				9389C77F21104E690053F9D7 /* _UnsetRedirectionConfiguration.swift in Sources */,
+				937BC88C2124A50F009FFF8D /* DataTrafficStats.swift in Sources */,
 				OBJ_919 /* EnableMFAOTPResponse.swift in Sources */,
 				OBJ_920 /* ErrorType.swift in Sources */,
 				93926F7C211142630059ED61 /* FixmeBreakIntoFiles.swift in Sources */,
@@ -3516,7 +3521,6 @@
 				OBJ_982 /* Map.swift in Sources */,
 				9389C7C821104E690053F9D7 /* _UnobserveDeviceResources.swift in Sources */,
 				9389C8C321104E6A0053F9D7 /* RegisterSubscriber.swift in Sources */,
-				OBJ_983 /* MapstringDataTrafficStats.swift in Sources */,
 				9389C7B321104E690053F9D7 /* _PutLoraNetworkSetTags.swift in Sources */,
 				OBJ_984 /* Mapstringstring.swift in Sources */,
 				9389C8D521104E6A0053F9D7 /* ListSessionEvents.swift in Sources */,
@@ -3600,6 +3604,7 @@
 				9389C80921104E6A0053F9D7 /* _DeleteLoraGatewayTag.swift in Sources */,
 				OBJ_1010 /* SetUserPermissionRequest.swift in Sources */,
 				9389C7D721104E690053F9D7 /* _DeleteShippingAddress.swift in Sources */,
+				937BC8902124A520009FFF8D /* _MapstringDataTrafficStats.swift in Sources */,
 				9389C77C21104E690053F9D7 /* _DeleteVpcPeeringConnection.swift in Sources */,
 				9389C89021104E6A0053F9D7 /* ObserveDeviceResources.swift in Sources */,
 				9389C87221104E6A0053F9D7 /* ListPaymentStatements.swift in Sources */,
@@ -3902,7 +3907,6 @@
 				9389C80A21104E6A0053F9D7 /* _DeleteEventHandler.swift in Sources */,
 				OBJ_1135 /* _Map.swift in Sources */,
 				9389C8F721104E6A0053F9D7 /* ListVirtualPrivateGatewayIpAddressMapEntries.swift in Sources */,
-				OBJ_1136 /* _MapstringDataTrafficStats.swift in Sources */,
 				OBJ_1137 /* _Mapstringstring.swift in Sources */,
 				9389C82721104E6A0053F9D7 /* _EnableMFA.swift in Sources */,
 				9389C84021104E6A0053F9D7 /* DeleteCredential.swift in Sources */,

@@ -12,7 +12,13 @@ options:
   modelNames:
     ? "Map«string,DataTrafficStats»"
     : DataTrafficStatsMap
+    ? "Map«string,string»"
+    : Map
       # override model type names
+      # Mason 2018-08-15: These might get fixed in the API spec itself, but as of 2018-08-15 we have
+      # these names which makes things non-optimal in generated code (weird entity names). The first
+      # one might(?) be unavoidable, but the second form is just the same as Map so should probably
+      # be eliminated from the API spec. For now, we work around it here.
   enumNames: {
     # We can override enum names, if we don't like default (default: resource_type→ResourceType)
   } # override enum type  names

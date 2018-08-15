@@ -163,6 +163,10 @@ extension Response {
                 result = try d.decode(DataTrafficStats.self, from: data) as? T
             } else if T.self == [DataTrafficStats].self {
                 result = try d.decode([DataTrafficStats].self, from: data) as? T
+            } else if T.self == DataTrafficStatsMap.self {
+                result = try d.decode(DataTrafficStatsMap.self, from: data) as? T
+            } else if T.self == [DataTrafficStatsMap].self {
+                result = try d.decode([DataTrafficStatsMap].self, from: data) as? T
             } else if T.self == Device.self {
                 result = try d.decode(Device.self, from: data) as? T
             } else if T.self == [Device].self {
@@ -447,14 +451,6 @@ extension Response {
                 result = try d.decode(Map.self, from: data) as? T
             } else if T.self == [Map].self {
                 result = try d.decode([Map].self, from: data) as? T
-            } else if T.self == MapstringDataTrafficStats.self {
-                result = try d.decode(MapstringDataTrafficStats.self, from: data) as? T
-            } else if T.self == [MapstringDataTrafficStats].self {
-                result = try d.decode([MapstringDataTrafficStats].self, from: data) as? T
-            } else if T.self == Mapstringstring.self {
-                result = try d.decode(Mapstringstring.self, from: data) as? T
-            } else if T.self == [Mapstringstring].self {
-                result = try d.decode([Mapstringstring].self, from: data) as? T
             } else if T.self == MonthlyBill.self {
                 result = try d.decode(MonthlyBill.self, from: data) as? T
             } else if T.self == [MonthlyBill].self {

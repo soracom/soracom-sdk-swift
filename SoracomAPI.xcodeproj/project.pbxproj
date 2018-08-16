@@ -420,9 +420,13 @@
 		9389C512210F53E00053F9D7 /* NoResponseBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C511210F53E00053F9D7 /* NoResponseBody.swift */; };
 		9389C514210FEF9B0053F9D7 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C513210FEF9B0053F9D7 /* Enums.swift */; };
 		93926F7C211142630059ED61 /* FixmeBreakIntoFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93926F7B211142630059ED61 /* FixmeBreakIntoFiles.swift */; };
+		93FB747B21262C70003C3C2B /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB747621262C70003C3C2B /* NSDate+SoracomAPI.swift */; };
+		93FB747C21262C70003C3C2B /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB747721262C70003C3C2B /* TextStyle.swift */; };
+		93FB747D21262C70003C3C2B /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB747821262C70003C3C2B /* Keychain.swift */; };
+		93FB747E21262C70003C3C2B /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB747921262C70003C3C2B /* Metrics.swift */; };
+		93FB747F21262C70003C3C2B /* Data+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB747A21262C70003C3C2B /* Data+SoracomAPI.swift */; };
 		OBJ_1019 /* Subscriber+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_159 /* Subscriber+Extras.swift */; };
 		OBJ_1021 /* Tag+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_161 /* Tag+Extras.swift */; };
-		OBJ_1189 /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_330 /* NSDate+SoracomAPI.swift */; };
 		OBJ_1192 /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_333 /* Request+Auth.swift */; };
 		OBJ_1193 /* Request+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_334 /* Request+Credentials.swift */; };
 		OBJ_1194 /* Request+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_335 /* Request+Group.swift */; };
@@ -435,7 +439,6 @@
 		OBJ_1201 /* RequestResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_342 /* RequestResponseFormatter.swift */; };
 		OBJ_1652 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_820 /* Response.swift */; };
 		OBJ_1653 /* SoracomCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_821 /* SoracomCredentials.swift */; };
-		OBJ_1654 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_822 /* TextStyle.swift */; };
 		OBJ_1662 /* CLIDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_825 /* CLIDemo.swift */; };
 		OBJ_1663 /* InputReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_826 /* InputReader.swift */; };
 		OBJ_1664 /* SimpleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_827 /* SimpleMenu.swift */; };
@@ -473,11 +476,8 @@
 		OBJ_875 /* Codable+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Codable+SoracomAPI.swift */; };
 		OBJ_876 /* ConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* ConfigurationParameter.swift */; };
 		OBJ_877 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Constants.swift */; };
-		OBJ_879 /* Data+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Data+SoracomAPI.swift */; };
 		OBJ_881 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* HTTPMethod.swift */; };
 		OBJ_882 /* JSONComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* JSONComparison.swift */; };
-		OBJ_883 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Keychain.swift */; };
-		OBJ_885 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* Metrics.swift */; };
 		OBJ_895 /* AuthRequest+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* AuthRequest+Extras.swift */; };
 		OBJ_910 /* CredentialsModel+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* CredentialsModel+Extras.swift */; };
 		OBJ_944 /* Group+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* Group+Extras.swift */; };
@@ -908,6 +908,11 @@
 		9389C511210F53E00053F9D7 /* NoResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResponseBody.swift; sourceTree = "<group>"; };
 		9389C513210FEF9B0053F9D7 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		93926F7B211142630059ED61 /* FixmeBreakIntoFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixmeBreakIntoFiles.swift; sourceTree = "<group>"; };
+		93FB747621262C70003C3C2B /* NSDate+SoracomAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+SoracomAPI.swift"; sourceTree = "<group>"; };
+		93FB747721262C70003C3C2B /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
+		93FB747821262C70003C3C2B /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		93FB747921262C70003C3C2B /* Metrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
+		93FB747A21262C70003C3C2B /* Data+SoracomAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+SoracomAPI.swift"; sourceTree = "<group>"; };
 		OBJ_10 /* APIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
 		OBJ_13 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		OBJ_137 /* RegisterOperatorsRequest+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterOperatorsRequest+Extras.swift"; sourceTree = "<group>"; };
@@ -916,12 +921,8 @@
 		OBJ_159 /* Subscriber+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subscriber+Extras.swift"; sourceTree = "<group>"; };
 		OBJ_16 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		OBJ_161 /* Tag+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+Extras.swift"; sourceTree = "<group>"; };
-		OBJ_18 /* Data+SoracomAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+SoracomAPI.swift"; sourceTree = "<group>"; };
 		OBJ_20 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		OBJ_21 /* JSONComparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONComparison.swift; sourceTree = "<group>"; };
-		OBJ_22 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
-		OBJ_24 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
-		OBJ_330 /* NSDate+SoracomAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDate+SoracomAPI.swift"; sourceTree = "<group>"; };
 		OBJ_333 /* Request+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Auth.swift"; sourceTree = "<group>"; };
 		OBJ_334 /* Request+Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Credentials.swift"; sourceTree = "<group>"; };
 		OBJ_335 /* Request+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Group.swift"; sourceTree = "<group>"; };
@@ -937,7 +938,6 @@
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_820 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		OBJ_821 /* SoracomCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoracomCredentials.swift; sourceTree = "<group>"; };
-		OBJ_822 /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		OBJ_825 /* CLIDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLIDemo.swift; sourceTree = "<group>"; };
 		OBJ_826 /* InputReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputReader.swift; sourceTree = "<group>"; };
 		OBJ_827 /* SimpleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMenu.swift; sourceTree = "<group>"; };
@@ -1628,6 +1628,18 @@
 			path = Billing;
 			sourceTree = "<group>";
 		};
+		93FB747521262C70003C3C2B /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				93FB747621262C70003C3C2B /* NSDate+SoracomAPI.swift */,
+				93FB747721262C70003C3C2B /* TextStyle.swift */,
+				93FB747821262C70003C3C2B /* Keychain.swift */,
+				93FB747921262C70003C3C2B /* Metrics.swift */,
+				93FB747A21262C70003C3C2B /* Data+SoracomAPI.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		OBJ_25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1667,21 +1679,17 @@
 		OBJ_8 /* SoracomAPI */ = {
 			isa = PBXGroup;
 			children = (
-				937BC8912124B7DC009FFF8D /* AutoGeneratedCode */,
 				OBJ_9 /* APIError.swift */,
 				OBJ_10 /* APIOperation.swift */,
+				937BC8912124B7DC009FFF8D /* AutoGeneratedCode */,
 				OBJ_13 /* Client.swift */,
 				OBJ_14 /* Codable+SoracomAPI.swift */,
 				OBJ_15 /* ConfigurationParameter.swift */,
 				OBJ_16 /* Constants.swift */,
-				OBJ_18 /* Data+SoracomAPI.swift */,
 				9389C513210FEF9B0053F9D7 /* Enums.swift */,
 				OBJ_20 /* HTTPMethod.swift */,
 				OBJ_21 /* JSONComparison.swift */,
-				OBJ_22 /* Keychain.swift */,
-				OBJ_24 /* Metrics.swift */,
 				OBJ_25 /* Models */,
-				OBJ_330 /* NSDate+SoracomAPI.swift */,
 				OBJ_340 /* Request.swift */,
 				OBJ_333 /* Request+Auth.swift */,
 				OBJ_334 /* Request+Credentials.swift */,
@@ -1694,7 +1702,7 @@
 				OBJ_342 /* RequestResponseFormatter.swift */,
 				OBJ_820 /* Response.swift */,
 				OBJ_821 /* SoracomCredentials.swift */,
-				OBJ_822 /* TextStyle.swift */,
+				93FB747521262C70003C3C2B /* Utility */,
 			);
 			name = SoracomAPI;
 			path = Sources/SoracomAPI;
@@ -1935,14 +1943,12 @@
 				937BCBCE2124B7DD009FFF8D /* ShippingCostModel.swift in Sources */,
 				OBJ_877 /* Constants.swift in Sources */,
 				937BCBD72124B7DD009FFF8D /* ShippingAddressModel.swift in Sources */,
+				93FB747D21262C70003C3C2B /* Keychain.swift in Sources */,
 				937BCC022124B7DD009FFF8D /* CreateVpcPeeringConnection.swift in Sources */,
-				OBJ_879 /* Data+SoracomAPI.swift in Sources */,
 				OBJ_881 /* HTTPMethod.swift in Sources */,
 				937BCD8C2124B7DE009FFF8D /* GetBeamStats.swift in Sources */,
 				OBJ_882 /* JSONComparison.swift in Sources */,
 				937BCBCB2124B7DD009FFF8D /* GenerateOperatorsAuthKeyResponse.swift in Sources */,
-				OBJ_883 /* Keychain.swift in Sources */,
-				OBJ_885 /* Metrics.swift in Sources */,
 				937BCB7B2124B7DD009FFF8D /* CreateCouponRequest.swift in Sources */,
 				937BCB862124B7DD009FFF8D /* LagoonUserPermissionUpdatingRequest.swift in Sources */,
 				937BCB892124B7DD009FFF8D /* EventHandlerModel.swift in Sources */,
@@ -2020,6 +2026,7 @@
 				937BCBEA2124B7DD009FFF8D /* CreateRole.swift in Sources */,
 				937BCD892124B7DE009FFF8D /* DisableTerminationOnLoraDevice.swift in Sources */,
 				937BCC662124B7DD009FFF8D /* UnsetGroup.swift in Sources */,
+				93FB747C21262C70003C3C2B /* TextStyle.swift in Sources */,
 				937BCBA82124B7DD009FFF8D /* Group.swift in Sources */,
 				937BCC222124B7DD009FFF8D /* GetPaymentTransaction.swift in Sources */,
 				937BCB6D2124B7DD009FFF8D /* DataEntry.swift in Sources */,
@@ -2043,6 +2050,7 @@
 				937BCC4F2124B7DD009FFF8D /* WriteDeviceResource.swift in Sources */,
 				937BCC0C2124B7DD009FFF8D /* IssuePasswordResetToken.swift in Sources */,
 				937BCC592124B7DD009FFF8D /* UpdateShippingAddress.swift in Sources */,
+				93FB747E21262C70003C3C2B /* Metrics.swift in Sources */,
 				937BCDA52124B7DE009FFF8D /* VerifyMFARevokingToken.swift in Sources */,
 				937BCC632124B7DD009FFF8D /* UnsetImeiLock.swift in Sources */,
 				937BCB3F2124B7DD009FFF8D /* PaymentAmount.swift in Sources */,
@@ -2074,6 +2082,7 @@
 				937BCBF82124B7DD009FFF8D /* UnregisterGatePeer.swift in Sources */,
 				937BCD812124B7DE009FFF8D /* EnableTerminationOnLoraDevice.swift in Sources */,
 				937BCB802124B7DD009FFF8D /* GetSignupTokenResponse.swift in Sources */,
+				93FB747B21262C70003C3C2B /* NSDate+SoracomAPI.swift in Sources */,
 				937BCC312124B7DD009FFF8D /* GetUserPermission.swift in Sources */,
 				937BCBB82124B7DD009FFF8D /* SmsForwardingRequest.swift in Sources */,
 				937BCBDF2124B7DD009FFF8D /* ListProducts.swift in Sources */,
@@ -2302,7 +2311,6 @@
 				937BCC562124B7DD009FFF8D /* SetDeviceGroup.swift in Sources */,
 				937BCC892124B7DD009FFF8D /* SetLoraNetworkSet.swift in Sources */,
 				937BCC8A2124B7DD009FFF8D /* DisableTerminationOnLoraGateway.swift in Sources */,
-				OBJ_1189 /* NSDate+SoracomAPI.swift in Sources */,
 				937BCC272124B7DD009FFF8D /* ListCoupons.swift in Sources */,
 				937BCBCA2124B7DD009FFF8D /* PaymentDescription.swift in Sources */,
 				OBJ_1192 /* Request+Auth.swift in Sources */,
@@ -2316,6 +2324,7 @@
 				OBJ_1194 /* Request+Group.swift in Sources */,
 				OBJ_1195 /* Request+Operator.swift in Sources */,
 				937BCBFB2124B7DD009FFF8D /* ListVirtualPrivateGateways.swift in Sources */,
+				93FB747F21262C70003C3C2B /* Data+SoracomAPI.swift in Sources */,
 				937BCB712124B7DD009FFF8D /* ListShippingAddressResponse.swift in Sources */,
 				OBJ_1196 /* Request+Payment.swift in Sources */,
 				OBJ_1197 /* Request+Sandbox.swift in Sources */,
@@ -2342,7 +2351,6 @@
 				937BCBE12124B7DD009FFF8D /* RegisterOrderedSim.swift in Sources */,
 				937BCC242124B7DD009FFF8D /* RegisterPayerInformation.swift in Sources */,
 				OBJ_1653 /* SoracomCredentials.swift in Sources */,
-				OBJ_1654 /* TextStyle.swift in Sources */,
 				937BCD862124B7DE009FFF8D /* GetDataFromLoraDevice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

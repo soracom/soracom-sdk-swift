@@ -169,7 +169,7 @@ class RequestSandboxTests: BaseTestCase {
         
         let time      = 0
        // let stats = InsertBeamStatsRequest(beamStatsMap: <#T##BeamStatsMap?#>, unixtime: <#T##Int?#>)
-        let beamStats = BeamStatsMap(inHttp: 1, inMqtt: 2, inTcp: 3, inUdp: 4, outHttp: 5, outHttps: 6, outMqtt: 7, outMqtts: 8, outTcp: 9, outTcps: 10, outUdp: 11)
+        let beamStats = InsertBeamStatsRequest.BeamStatsMap(inHttp: 1, inMqtt: 2, inTcp: 3, inUdp: 4, outHttp: 5, outHttps: 6, outMqtt: 7, outMqtts: 8, outTcp: 9, outTcps: 10, outUdp: 11)
         let toInsert  = InsertBeamStatsRequest(beamStatsMap: beamStats, unixtime: time)
 
         beginAsyncSection()

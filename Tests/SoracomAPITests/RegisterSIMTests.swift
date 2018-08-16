@@ -121,7 +121,7 @@ class RegisterSIMTests: BaseTestCase {
     
     /// Update the speed class.
     
-    func updateSpeedClass(_ imsi: String, speedClass: _UpdateSpeedClassRequest.SpeedClass) {
+    func updateSpeedClass(_ imsi: String, speedClass: UpdateSpeedClassRequest.SpeedClass) {
 
         _ = beginAsyncSection()
         

@@ -2,7 +2,7 @@
 
 import Foundation
 
-extension Request {
+extension Request where T == {{ successType|default:"NoResponseBody"}} {
 
     /**
         {% if summary %}{% if summary != description %}{{ summary }}{% else %}Description forthcoming.{% endif %}
@@ -15,7 +15,7 @@ extension Request {
         {%if tag %}
         Docs: {%if tag == "sandbox" %}https://dev.soracom.io/jp/docs/api_sandbox/#!/{% else %}https://dev.soracom.io/en/docs/api/#!/{% endif %}{{ tag }}/{{ operationId }}{% endif %}
     */
-    public class func _{{ operationId }}(
+    public class func {{ operationId }}(
         {% if bodyParam %}{{ bodyParam.name}}: {{ bodyParam.type }}, {% endif %}
         {% for param in nonBodyParams %}
         {{param.name}}: {{param.optionalType}}{% ifnot param.required %} = nil{% endif %},

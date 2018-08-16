@@ -25,6 +25,8 @@ cd SwagGen; swift build; cd ..
 
 fi
 
+rm -rf auto-generated-code-output/Sources auto-generated-code-output/README
+
 SwagGen/.build/debug/swaggen generate soracom-sandbox-api.en.json \
   --template Template \
   --destination auto-generated-code-output
@@ -33,5 +35,9 @@ SwagGen/.build/debug/swaggen generate soracom-api.en.json \
   --template Template \
   --destination auto-generated-code-output
 
+cat auto-generated-code-output/Sources/ResponseDecoder.top.swift \
+    auto-generated-code-output/Sources/Decode/*.swift \
+    auto-generated-code-output/Sources/ResponseDecoder.bottom.swift \
+    > auto-generated-code-output/Sources/ResponseDecoder.swift
 
 ./copy-generated-code-into-place.sh

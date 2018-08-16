@@ -33,7 +33,7 @@ extension Request where T == Subscriber {
     
     /// Update speed class of a subscriber (a SIM). ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Subscriber/updateSpeedClass))
     
-    public class func updateSpeedClass(_ imsi: String, speedClass: _UpdateSpeedClassRequest.SpeedClass, responseHandler: ResponseHandler<Subscriber>? = nil) -> Request<Subscriber> {
+    public class func updateSpeedClass(_ imsi: String, speedClass: UpdateSpeedClassRequest.SpeedClass, responseHandler: ResponseHandler<Subscriber>? = nil) -> Request<Subscriber> {
         
         // FIXME: the _UpdateSpeedClassRequest.SpeedClass thing there is gross... how to handle?
 

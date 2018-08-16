@@ -21,10 +21,18 @@ class ListOrdersTests: BaseTestCase {
         let req = Request.listOrders()
         let res = req.wait()
         guard let obj = res.parse() else {
-            XCTFail("couldn't parse response");
-            return;
+            XCTFail("couldn't parse response")
+            return
         }
-        print(obj)
+        guard let d = obj.toData() else {
+            XCTFail()
+            return
+        }
+        guard let e = ListOrderResponse.from(d) else {
+            XCTFail()
+            return
+        }
+        print(e)
     }
 }
 

@@ -2,7 +2,82 @@
 
 import Foundation
 
-extension Request {
+
+extension Request where T == Group {
+    
+    /**
+    Create a new group. [API docs](https://dev.soracom.io/en/docs/api/#!/Group/createGroup)
+ 
+    Note that the `name` parameter is just a convenience that adds a tag with key "name" and the value supplied. (Note that the `name` parameter will **replace** any existing value for the key "name" that exists in `tags`.)
+    */
+    public class func createGroup(_ name: String? = nil, tags: [String:String]? = nil, responseHandler: ResponseHandler<Group>? = nil) -> Request {
+        
+        let req    = Request<Group>.init("/groups", responseHandler: responseHandler)
+        req.method = .post
+        
+        var tags = tags ?? [:]
+        
+        if let name = name {
+            tags["name"] = name
+        }
+        
+//        req.messageBody = CreateGroupRequest(tags: tags).toData()
+//        req.expectedHTTPStatus = 201
+//        return req
+        return createGroup(tags: CreateGroupRequest(tags: tags), responseHandler: responseHandler)
+
+    }
+
+    
+    /**
+     Adds/updates tags of specified configuration group. [API docs](https://dev.soracom.io/en/docs/api/#!/Group/putGroupTags)
+     */
+    public class func putGroupTags(_ groupId: String, tags: [String:String], responseHandler: ResponseHandler<Group>? = nil) -> Request<Group> {
+        
+        let req    = self.init("/groups/\(groupId)/tags", responseHandler: responseHandler)
+        req.method = .put
+        req.expectedHTTPStatus = 200
+        
+        var tagList: [TagUpdateRequest] = []
+        
+        for (k,v) in tags {
+            let tagUpdateRequest = TagUpdateRequest(tagName: k, tagValue: v)
+            tagList.append(tagUpdateRequest)
+        }
+        
+        return putGroupTags(tags: tagList, groupId: groupId, responseHandler: responseHandler)
+    }
+
+}
+
+extension Request where T == NoResponseBody {
+    
+    /// Delete parameters for the specified group. [API docs](https://dev.soracom.io/en/docs/api/#!/Group/deleteConfigurationParameter)
+    ///
+    /// Note that this method will handle percent-encoding the configuration parameter name, as mentioned in the API docs, so `parameterName` can just be the name of the parameter as-is.
+    
+    public class func deleteConfigurationParameterHMMFIXME(
+        
+        groupId: String,
+        namespace: Namespace,
+        name: String,
+        responseHandler: ResponseHandler<NoResponseBody>? = nil
+        ) ->   Request<NoResponseBody> {
+        
+        let encodedName = name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed) ?? name;
+        
+        // Mason 2016-06-30: FIXME: We don't currently have a way to make a request fail with an error before it is run. I think we probably should, but it is beyond the scope of what I am currently working on. I want to think about it more. Subclass that overrides run(), wait() and any other future methods that execute the request? Or extend Request itself to have some kind pre-execute error property that run(), wait() etc respect? Or other? Deferring by marking FIXME here because we really don't want to be careless with parameters that control data getting deleted. For now, though, this kludge:
+        
+        // Call the auto-generated implmentation, created from the API spec:
+        let req = deleteConfigurationParameter(groupId: groupId, namespace: namespace, name: encodedName,  responseHandler: responseHandler)
+        
+        
+        return req
+    }
+}
+
+/// OLD PRE CODEGEN STUFF BELOW: FIXME: REVIEW/RELOCATE/DELETE
+//extension Request {
 
 //    /// Returns a list of groups. [API docs](https://dev.soracom.io/en/docs/api/#!/Group/listGroups)
 //
@@ -132,4 +207,4 @@ extension Request {
 //        return req
 //    }
 
-}
+//}

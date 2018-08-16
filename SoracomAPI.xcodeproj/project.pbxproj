@@ -419,16 +419,6 @@
 		937BCDAE2124B7DE009FFF8D /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937BCB3B2124B7DC009FFF8D /* AnyCodable.swift */; };
 		9389C512210F53E00053F9D7 /* NoResponseBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C511210F53E00053F9D7 /* NoResponseBody.swift */; };
 		9389C514210FEF9B0053F9D7 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C513210FEF9B0053F9D7 /* Enums.swift */; };
-		9389C86121104E6A0053F9D7 /* Auth+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C68021104E680053F9D7 /* Auth+Extras.swift */; };
-		9389C86221104E6A0053F9D7 /* IssuePasswordResetToken+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C68121104E680053F9D7 /* IssuePasswordResetToken+Extras.swift */; };
-		9389C8A921104E6A0053F9D7 /* DeleteConfigurationParameter+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C6D121104E680053F9D7 /* DeleteConfigurationParameter+Extras.swift */; };
-		9389C8AB21104E6A0053F9D7 /* PutGroupTags+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C6D321104E680053F9D7 /* PutGroupTags+Extras.swift */; };
-		9389C8AE21104E6A0053F9D7 /* CreateGroup+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C6D621104E680053F9D7 /* CreateGroup+Extras.swift */; };
-		9389C8D021104E6A0053F9D7 /* ListSubscribers+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C6FA21104E690053F9D7 /* ListSubscribers+Extras.swift */; };
-		9389C8D821104E6A0053F9D7 /* CreateSandboxSubscriber+extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C70221104E690053F9D7 /* CreateSandboxSubscriber+extras.swift */; };
-		9389C8E821104E6A0053F9D7 /* CreateOperator+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C71621104E690053F9D7 /* CreateOperator+Extras.swift */; };
-		9389C8F121104E6A0053F9D7 /* VerifyOperator+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C71F21104E690053F9D7 /* VerifyOperator+Extras.swift */; };
-		9389C8F221104E6A0053F9D7 /* GetSignupToken+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C72021104E690053F9D7 /* GetSignupToken+Extras.swift */; };
 		93926F7C211142630059ED61 /* FixmeBreakIntoFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93926F7B211142630059ED61 /* FixmeBreakIntoFiles.swift */; };
 		OBJ_1019 /* Subscriber+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_159 /* Subscriber+Extras.swift */; };
 		OBJ_1021 /* Tag+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_161 /* Tag+Extras.swift */; };
@@ -917,16 +907,6 @@
 		937BCB3B2124B7DC009FFF8D /* AnyCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCodable.swift; sourceTree = "<group>"; };
 		9389C511210F53E00053F9D7 /* NoResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResponseBody.swift; sourceTree = "<group>"; };
 		9389C513210FEF9B0053F9D7 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
-		9389C68021104E680053F9D7 /* Auth+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Auth+Extras.swift"; sourceTree = "<group>"; };
-		9389C68121104E680053F9D7 /* IssuePasswordResetToken+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IssuePasswordResetToken+Extras.swift"; sourceTree = "<group>"; };
-		9389C6D121104E680053F9D7 /* DeleteConfigurationParameter+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DeleteConfigurationParameter+Extras.swift"; sourceTree = "<group>"; };
-		9389C6D321104E680053F9D7 /* PutGroupTags+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PutGroupTags+Extras.swift"; sourceTree = "<group>"; };
-		9389C6D621104E680053F9D7 /* CreateGroup+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CreateGroup+Extras.swift"; sourceTree = "<group>"; };
-		9389C6FA21104E690053F9D7 /* ListSubscribers+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ListSubscribers+Extras.swift"; sourceTree = "<group>"; };
-		9389C70221104E690053F9D7 /* CreateSandboxSubscriber+extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CreateSandboxSubscriber+extras.swift"; sourceTree = "<group>"; };
-		9389C71621104E690053F9D7 /* CreateOperator+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CreateOperator+Extras.swift"; sourceTree = "<group>"; };
-		9389C71F21104E690053F9D7 /* VerifyOperator+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VerifyOperator+Extras.swift"; sourceTree = "<group>"; };
-		9389C72021104E690053F9D7 /* GetSignupToken+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GetSignupToken+Extras.swift"; sourceTree = "<group>"; };
 		93926F7B211142630059ED61 /* FixmeBreakIntoFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixmeBreakIntoFiles.swift; sourceTree = "<group>"; };
 		OBJ_10 /* APIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
 		OBJ_13 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -1025,12 +1005,12 @@
 		937BC8912124B7DC009FFF8D /* AutoGeneratedCode */ = {
 			isa = PBXGroup;
 			children = (
+				937BCB3B2124B7DC009FFF8D /* AnyCodable.swift */,
+				937BCB3A2124B7DC009FFF8D /* API.swift */,
 				937BC8922124B7DC009FFF8D /* Coding.swift */,
 				937BC8932124B7DC009FFF8D /* Models */,
 				937BC9332124B7DC009FFF8D /* Requests */,
 				937BCB392124B7DC009FFF8D /* ResponseDecoder.swift */,
-				937BCB3A2124B7DC009FFF8D /* API.swift */,
-				937BCB3B2124B7DC009FFF8D /* AnyCodable.swift */,
 			);
 			path = AutoGeneratedCode;
 			sourceTree = "<group>";
@@ -1648,44 +1628,6 @@
 			path = Billing;
 			sourceTree = "<group>";
 		};
-		9389C67E21104E680053F9D7 /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				9389C68021104E680053F9D7 /* Auth+Extras.swift */,
-				9389C68121104E680053F9D7 /* IssuePasswordResetToken+Extras.swift */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		9389C6CF21104E680053F9D7 /* Group */ = {
-			isa = PBXGroup;
-			children = (
-				9389C6D621104E680053F9D7 /* CreateGroup+Extras.swift */,
-				9389C6D121104E680053F9D7 /* DeleteConfigurationParameter+Extras.swift */,
-				9389C6D321104E680053F9D7 /* PutGroupTags+Extras.swift */,
-			);
-			path = Group;
-			sourceTree = "<group>";
-		};
-		9389C6E621104E690053F9D7 /* Subscriber */ = {
-			isa = PBXGroup;
-			children = (
-				9389C70221104E690053F9D7 /* CreateSandboxSubscriber+extras.swift */,
-				9389C6FA21104E690053F9D7 /* ListSubscribers+Extras.swift */,
-			);
-			path = Subscriber;
-			sourceTree = "<group>";
-		};
-		9389C71021104E690053F9D7 /* Operator */ = {
-			isa = PBXGroup;
-			children = (
-				9389C71621104E690053F9D7 /* CreateOperator+Extras.swift */,
-				9389C72021104E690053F9D7 /* GetSignupToken+Extras.swift */,
-				9389C71F21104E690053F9D7 /* VerifyOperator+Extras.swift */,
-			);
-			path = Operator;
-			sourceTree = "<group>";
-		};
 		OBJ_25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1699,17 +1641,6 @@
 				93926F7B211142630059ED61 /* FixmeBreakIntoFiles.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		OBJ_343 /* Requests */ = {
-			isa = PBXGroup;
-			children = (
-				9389C67E21104E680053F9D7 /* Auth */,
-				9389C6CF21104E680053F9D7 /* Group */,
-				9389C71021104E690053F9D7 /* Operator */,
-				9389C6E621104E690053F9D7 /* Subscriber */,
-			);
-			path = Requests;
 			sourceTree = "<group>";
 		};
 		OBJ_5 = {
@@ -1761,7 +1692,6 @@
 				OBJ_339 /* Request+Subscriber.swift */,
 				OBJ_341 /* RequestQueue.swift */,
 				OBJ_342 /* RequestResponseFormatter.swift */,
-				OBJ_343 /* Requests */,
 				OBJ_820 /* Response.swift */,
 				OBJ_821 /* SoracomCredentials.swift */,
 				OBJ_822 /* TextStyle.swift */,
@@ -2022,7 +1952,6 @@
 				937BCDAC2124B7DE009FFF8D /* ResponseDecoder.swift in Sources */,
 				937BCC552124B7DD009FFF8D /* PutDeviceTags.swift in Sources */,
 				937BCB562124B7DD009FFF8D /* GroupConfigurationUpdateRequest.swift in Sources */,
-				9389C8D821104E6A0053F9D7 /* CreateSandboxSubscriber+extras.swift in Sources */,
 				937BCC342124B7DD009FFF8D /* DeleteUser.swift in Sources */,
 				937BCC5F2124B7DD009FFF8D /* VerifySubscriberTransferToken.swift in Sources */,
 				937BCBD92124B7DD009FFF8D /* UpdatePermissionRequest.swift in Sources */,
@@ -2176,7 +2105,6 @@
 				937BCB832124B7DD009FFF8D /* VpcPeeringConnection.swift in Sources */,
 				937BCC7C2124B7DD009FFF8D /* PutSigfoxDeviceTags.swift in Sources */,
 				937BCC862124B7DD009FFF8D /* TerminateLoraGateway.swift in Sources */,
-				9389C8E821104E6A0053F9D7 /* CreateOperator+Extras.swift in Sources */,
 				937BCBA22124B7DD009FFF8D /* RuleConfigProperty.swift in Sources */,
 				937BCBE62124B7DD009FFF8D /* ListCredentials.swift in Sources */,
 				937BCC642124B7DD009FFF8D /* RegisterSubscriber.swift in Sources */,
@@ -2240,12 +2168,10 @@
 				937BCC1B2124B7DD009FFF8D /* CreateLagoonUser.swift in Sources */,
 				937BCC3B2124B7DD009FFF8D /* RevokePermissionFromLoraNetworkSet.swift in Sources */,
 				937BCDA32124B7DE009FFF8D /* RevokeMFA.swift in Sources */,
-				9389C8A921104E6A0053F9D7 /* DeleteConfigurationParameter+Extras.swift in Sources */,
 				937BCB4F2124B7DD009FFF8D /* AttachRoleRequest.swift in Sources */,
 				937BCBA72124B7DD009FFF8D /* ErrorType.swift in Sources */,
 				937BCB7A2124B7DD009FFF8D /* CredentialsModel.swift in Sources */,
 				937BCDAA2124B7DE009FFF8D /* GetBillingPerDay.swift in Sources */,
-				9389C8AE21104E6A0053F9D7 /* CreateGroup+Extras.swift in Sources */,
 				937BCC2C2124B7DD009FFF8D /* CreateUser.swift in Sources */,
 				937BCBC52124B7DD009FFF8D /* OperatorMFAVerifyingResponse.swift in Sources */,
 				937BCBAD2124B7DD009FFF8D /* RegisterLoraDeviceRequest.swift in Sources */,
@@ -2275,8 +2201,6 @@
 				937BCC7F2124B7DD009FFF8D /* UnsetSigfoxDeviceGroup.swift in Sources */,
 				937BCC472124B7DD009FFF8D /* GetExportedFile.swift in Sources */,
 				937BCC822124B7DD009FFF8D /* TerminateSigfoxDevice.swift in Sources */,
-				9389C86121104E6A0053F9D7 /* Auth+Extras.swift in Sources */,
-				9389C86221104E6A0053F9D7 /* IssuePasswordResetToken+Extras.swift in Sources */,
 				937BCC6F2124B7DD009FFF8D /* DeleteSubscriberTransferToken.swift in Sources */,
 				937BCB5B2124B7DD009FFF8D /* DeviceObjectModel.swift in Sources */,
 				937BCC6B2124B7DD009FFF8D /* PutSubscriberTags.swift in Sources */,
@@ -2289,7 +2213,6 @@
 				937BCC072124B7DD009FFF8D /* DeleteVpcPeeringConnection.swift in Sources */,
 				937BCBBA2124B7DD009FFF8D /* LastSeen.swift in Sources */,
 				937BCB772124B7DD009FFF8D /* RegisterSubscribersRequest.swift in Sources */,
-				9389C8F221104E6A0053F9D7 /* GetSignupToken+Extras.swift in Sources */,
 				937BCC292124B7DD009FFF8D /* UpdateUser.swift in Sources */,
 				937BCC002124B7DD009FFF8D /* DeleteMirroringPeer.swift in Sources */,
 				937BCD832124B7DE009FFF8D /* GetLoraDevice.swift in Sources */,
@@ -2306,7 +2229,6 @@
 				937BCC5C2124B7DD009FFF8D /* GetShippingAddress.swift in Sources */,
 				937BCBA92124B7DD009FFF8D /* GetPaymentTransactionResult.swift in Sources */,
 				937BCB962124B7DD009FFF8D /* ImeiLock.swift in Sources */,
-				9389C8D021104E6A0053F9D7 /* ListSubscribers+Extras.swift in Sources */,
 				937BCBF72124B7DD009FFF8D /* GetVirtualPrivateGateway.swift in Sources */,
 				937BCC082124B7DD009FFF8D /* SetRedirectionConfiguration.swift in Sources */,
 				937BCC2A2124B7DD009FFF8D /* ListUsers.swift in Sources */,
@@ -2335,7 +2257,6 @@
 				937BCC742124B7DD009FFF8D /* SetSubscriberToStandby.swift in Sources */,
 				937BCC332124B7DD009FFF8D /* UpdateUserPermission.swift in Sources */,
 				937BCC282124B7DD009FFF8D /* GetUserAuthKey.swift in Sources */,
-				9389C8F121104E6A0053F9D7 /* VerifyOperator+Extras.swift in Sources */,
 				937BCB4E2124B7DD009FFF8D /* JunctionInspectionConfiguration.swift in Sources */,
 				937BCB7E2124B7DD009FFF8D /* SetImeiLockRequest.swift in Sources */,
 				937BCBAE2124B7DD009FFF8D /* GetPaymentMethodResult.swift in Sources */,
@@ -2393,7 +2314,6 @@
 				937BCBC02124B7DD009FFF8D /* Tag.swift in Sources */,
 				OBJ_1193 /* Request+Credentials.swift in Sources */,
 				OBJ_1194 /* Request+Group.swift in Sources */,
-				9389C8AB21104E6A0053F9D7 /* PutGroupTags+Extras.swift in Sources */,
 				OBJ_1195 /* Request+Operator.swift in Sources */,
 				937BCBFB2124B7DD009FFF8D /* ListVirtualPrivateGateways.swift in Sources */,
 				937BCB712124B7DD009FFF8D /* ListShippingAddressResponse.swift in Sources */,

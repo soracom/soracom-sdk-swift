@@ -260,6 +260,70 @@ class RequestGroupTests: BaseTestCase {
         }
         return group
     }
+    
+    
+    
+    func test_create_tag_and_then_delete_Group() {
+        
+        let uuidString = UUID().uuidString
+        
+        // Create a group, and assert that the tags we set are present:
+        
+        let createResponse = Request.createGroup("my-awesome-test-group-\(uuidString)", tags: ["foo": "bar", "baz": "hoge"]).wait()
+        
+        guard
+            let group   = createResponse.parse(),
+            let groupId = group.groupId
+        else {
+            return XCTFail()
+        }
+        XCTAssertEqual(group.tags?["foo"], "bar")
+        XCTAssertEqual(group.tags?["baz"], "hoge")
+
+        // Fetch the group again, and double-check:
+        
+        guard let fetchedGroup = Request.getGroup(groupId: groupId).wait().parse() else {
+            return XCTFail()
+        }
+        XCTAssertEqual(fetchedGroup.tags?["foo"], "bar")
+        XCTAssertEqual(fetchedGroup.tags?["baz"], "hoge")
+
+        // Put tags; put one new tag, and overwrite one existing tag:
+        
+        let putTagsResponse = Request.putGroupTags(groupId, tags: ["hello" : "moto", "baz": "replaced value for baz"]).wait()
+        guard let taggedGroup = putTagsResponse.parse() else {
+            return XCTFail()
+        }
+        XCTAssertEqual(taggedGroup.tags?["hello"], "moto")
+        XCTAssertEqual(taggedGroup.tags?["baz"], "replaced value for baz")
+
+        // Fetch the group again, and assert tags match our expectations:
+        
+        guard let refetchedGroup = Request.getGroup(groupId: groupId).wait().parse() else {
+            return XCTFail()
+        }
+        XCTAssertEqual(refetchedGroup.tags?["foo"], "bar")
+        XCTAssertEqual(refetchedGroup.tags?["baz"], "replaced value for baz")
+        XCTAssertEqual(refetchedGroup.tags?["hello"], "moto")
+
+        // Delete the group:
+        
+        var deleteResponse = Request.deleteGroup(groupId: groupId).wait()
+        
+        XCTAssert(deleteResponse.statusCode == 204)
+        XCTAssertNotNil(deleteResponse.parse())
+        XCTAssertNil(deleteResponse.error)
+
+        // Try to delete the already-deleted group, and assert that it fails as expected:
+        
+        deleteResponse = Request.deleteGroup(groupId: groupId).wait()
+        guard let deleteResult2 = deleteResponse.parse() else {
+            return XCTFail()
+        }
+        XCTAssert(deleteResponse.statusCode == 404)
+        XCTAssertNil(deleteResponse.parse())
+        XCTAssertNotNil(deleteResponse.error)
+    }
 
 }
 

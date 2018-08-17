@@ -11,6 +11,13 @@ open class BaseResponse {
     
     public var underlyingURLResponse: HTTPURLResponse?
     
+    public var statusCode: Int? {
+        
+        get {
+            return underlyingURLResponse?.statusCode
+        }
+    }
+    
     
     /// The raw data received with the response (if any).
     

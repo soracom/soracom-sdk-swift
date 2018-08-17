@@ -6,10 +6,10 @@ import Foundation
 extension Request where T == Group {
     
     /**
-    Create a new group. [API docs](https://dev.soracom.io/en/docs/api/#!/Group/createGroup)
- 
-    Note that the `name` parameter is just a convenience that adds a tag with key "name" and the value supplied. (Note that the `name` parameter will **replace** any existing value for the key "name" that exists in `tags`.)
-    */
+     Convenience method to create a new group. [API docs](https://dev.soracom.io/en/docs/api/#!/Group/createGroup)
+     
+     Note that the `name` parameter is just a convenience that adds a tag with key "name" and the value supplied. (Note that the `name` parameter will **replace** any existing value for the key "name" that exists in `tags`.)
+     */
     public class func createGroup(_ name: String? = nil, tags: [String:String]? = nil, responseHandler: ResponseHandler<Group>? = nil) -> Request {
         
         let req    = Request<Group>.init("/groups", responseHandler: responseHandler)
@@ -21,11 +21,7 @@ extension Request where T == Group {
             tags["name"] = name
         }
         
-//        req.messageBody = CreateGroupRequest(tags: tags).toData()
-//        req.expectedHTTPStatus = 201
-//        return req
         return createGroup(tags: CreateGroupRequest(tags: tags), responseHandler: responseHandler)
-
     }
 
     

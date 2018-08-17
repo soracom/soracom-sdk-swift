@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		93036A7A212631CB00865B1D /* ModelExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93036A79212631CB00865B1D /* ModelExtensionTests.swift */; };
 		937BC88721236196009FFF8D /* ListOrdersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937BC88621236196009FFF8D /* ListOrdersTests.swift */; };
 		937BCB3C2124B7DD009FFF8D /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937BC8922124B7DC009FFF8D /* Coding.swift */; };
 		937BCB3D2124B7DD009FFF8D /* AuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937BC8942124B7DC009FFF8D /* AuthRequest.swift */; };
@@ -425,6 +426,7 @@
 		93FB747D21262C70003C3C2B /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB747821262C70003C3C2B /* Keychain.swift */; };
 		93FB747E21262C70003C3C2B /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB747921262C70003C3C2B /* Metrics.swift */; };
 		93FB747F21262C70003C3C2B /* Data+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB747A21262C70003C3C2B /* Data+SoracomAPI.swift */; };
+		93FB748121262D9B003C3C2B /* String+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB748021262D9B003C3C2B /* String+SoracomAPI.swift */; };
 		OBJ_1019 /* Subscriber+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_159 /* Subscriber+Extras.swift */; };
 		OBJ_1021 /* Tag+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_161 /* Tag+Extras.swift */; };
 		OBJ_1192 /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_333 /* Request+Auth.swift */; };
@@ -480,8 +482,6 @@
 		OBJ_882 /* JSONComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* JSONComparison.swift */; };
 		OBJ_895 /* AuthRequest+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* AuthRequest+Extras.swift */; };
 		OBJ_910 /* CredentialsModel+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* CredentialsModel+Extras.swift */; };
-		OBJ_944 /* Group+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* Group+Extras.swift */; };
-		OBJ_997 /* RegisterOperatorsRequest+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_137 /* RegisterOperatorsRequest+Extras.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -509,6 +509,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		93036A79212631CB00865B1D /* ModelExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelExtensionTests.swift; sourceTree = "<group>"; };
 		937BC88621236196009FFF8D /* ListOrdersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersTests.swift; sourceTree = "<group>"; };
 		937BC8922124B7DC009FFF8D /* Coding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coding.swift; sourceTree = "<group>"; };
 		937BC8942124B7DC009FFF8D /* AuthRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRequest.swift; sourceTree = "<group>"; };
@@ -913,9 +914,9 @@
 		93FB747821262C70003C3C2B /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		93FB747921262C70003C3C2B /* Metrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		93FB747A21262C70003C3C2B /* Data+SoracomAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+SoracomAPI.swift"; sourceTree = "<group>"; };
+		93FB748021262D9B003C3C2B /* String+SoracomAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SoracomAPI.swift"; sourceTree = "<group>"; };
 		OBJ_10 /* APIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOperation.swift; sourceTree = "<group>"; };
 		OBJ_13 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		OBJ_137 /* RegisterOperatorsRequest+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterOperatorsRequest+Extras.swift"; sourceTree = "<group>"; };
 		OBJ_14 /* Codable+SoracomAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+SoracomAPI.swift"; sourceTree = "<group>"; };
 		OBJ_15 /* ConfigurationParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationParameter.swift; sourceTree = "<group>"; };
 		OBJ_159 /* Subscriber+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subscriber+Extras.swift"; sourceTree = "<group>"; };
@@ -950,7 +951,6 @@
 		OBJ_836 /* BaseTestCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTestCaseTests.swift; sourceTree = "<group>"; };
 		OBJ_838 /* CredentialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialTests.swift; sourceTree = "<group>"; };
 		OBJ_839 /* DevelopmentEnvironmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentEnvironmentTests.swift; sourceTree = "<group>"; };
-		OBJ_84 /* Group+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+Extras.swift"; sourceTree = "<group>"; };
 		OBJ_840 /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
 		OBJ_841 /* IssueDebuggingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDebuggingTests.swift; sourceTree = "<group>"; };
 		OBJ_842 /* JSONComparisonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONComparisonTests.swift; sourceTree = "<group>"; };
@@ -1636,6 +1636,7 @@
 				93FB747821262C70003C3C2B /* Keychain.swift */,
 				93FB747921262C70003C3C2B /* Metrics.swift */,
 				93FB747A21262C70003C3C2B /* Data+SoracomAPI.swift */,
+				93FB748021262D9B003C3C2B /* String+SoracomAPI.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1645,9 +1646,7 @@
 			children = (
 				OBJ_35 /* AuthRequest+Extras.swift */,
 				OBJ_50 /* CredentialsModel+Extras.swift */,
-				OBJ_84 /* Group+Extras.swift */,
 				9389C511210F53E00053F9D7 /* NoResponseBody.swift */,
-				OBJ_137 /* RegisterOperatorsRequest+Extras.swift */,
 				OBJ_159 /* Subscriber+Extras.swift */,
 				OBJ_161 /* Tag+Extras.swift */,
 				93926F7B211142630059ED61 /* FixmeBreakIntoFiles.swift */,
@@ -1744,6 +1743,7 @@
 				OBJ_842 /* JSONComparisonTests.swift */,
 				OBJ_843 /* KeychainTests.swift */,
 				937BC88621236196009FFF8D /* ListOrdersTests.swift */,
+				93036A79212631CB00865B1D /* ModelExtensionTests.swift */,
 				OBJ_845 /* NSDate+SoracomAPITests.swift */,
 				OBJ_847 /* RegisterSIMTests.swift */,
 				OBJ_848 /* Request+AuthTests.swift */,
@@ -1908,6 +1908,7 @@
 				OBJ_1701 /* RegisterSIMTests.swift in Sources */,
 				OBJ_1702 /* Request+AuthTests.swift in Sources */,
 				OBJ_1703 /* Request+CredentialsTests.swift in Sources */,
+				93036A7A212631CB00865B1D /* ModelExtensionTests.swift in Sources */,
 				OBJ_1704 /* Request+GroupTests.swift in Sources */,
 				OBJ_1705 /* Request+SandboxTests.swift in Sources */,
 				OBJ_1706 /* Request+SubscriberTests.swift in Sources */,
@@ -1949,6 +1950,7 @@
 				937BCD8C2124B7DE009FFF8D /* GetBeamStats.swift in Sources */,
 				OBJ_882 /* JSONComparison.swift in Sources */,
 				937BCBCB2124B7DD009FFF8D /* GenerateOperatorsAuthKeyResponse.swift in Sources */,
+				93FB748121262D9B003C3C2B /* String+SoracomAPI.swift in Sources */,
 				937BCB7B2124B7DD009FFF8D /* CreateCouponRequest.swift in Sources */,
 				937BCB862124B7DD009FFF8D /* LagoonUserPermissionUpdatingRequest.swift in Sources */,
 				937BCB892124B7DD009FFF8D /* EventHandlerModel.swift in Sources */,
@@ -2041,7 +2043,6 @@
 				937BCB572124B7DD009FFF8D /* LagoonRegistrationRequest.swift in Sources */,
 				937BCC972124B7DD009FFF8D /* SearchSubscribers.swift in Sources */,
 				937BCC942124B7DD009FFF8D /* DeleteEventHandler.swift in Sources */,
-				OBJ_944 /* Group+Extras.swift in Sources */,
 				937BCC052124B7DD009FFF8D /* UnsetInspectionConfiguration.swift in Sources */,
 				937BCC612124B7DD009FFF8D /* SetExpiryTime.swift in Sources */,
 				937BCC412124B7DD009FFF8D /* GetDeviceObjectModel.swift in Sources */,
@@ -2128,7 +2129,6 @@
 				937BCB6A2124B7DD009FFF8D /* OrderedSubscriber.swift in Sources */,
 				937BCB622124B7DD009FFF8D /* SetDeviceObjectModelScopeRequest.swift in Sources */,
 				937BCC4B2124B7DD009FFF8D /* UnsetDeviceGroup.swift in Sources */,
-				OBJ_997 /* RegisterOperatorsRequest+Extras.swift in Sources */,
 				937BCB5E2124B7DD009FFF8D /* FunnelConfiguration.swift in Sources */,
 				937BCB982124B7DD009FFF8D /* EnableMFAOTPResponse.swift in Sources */,
 				937BCC3C2124B7DD009FFF8D /* GetLoraNetworkSet.swift in Sources */,

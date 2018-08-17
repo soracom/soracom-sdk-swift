@@ -3,26 +3,6 @@
 import Foundation
 import Dispatch
 
-extension String {
-    var snakeCased: String {
-        var newString: String = ""
-        let upperCase = CharacterSet.uppercaseLetters
-        for scalar in self.unicodeScalars {
-            if upperCase.contains(scalar) {
-                if newString.count > 0 {
-                    newString.append("_")
-                }
-                let character = Character(scalar)
-                newString.append(String(character).lowercased())
-            } else {
-                let character = Character(scalar)
-                newString.append(character)
-            }
-        }
-        return newString
-    }
-}
-
 
 /// The Request class defines and executes a single request to the Soracom API server. Typically, the API request is normally constructed via one of the convenience constructor methods, which takes an appropriate set of zero or more arguments. 
 ///

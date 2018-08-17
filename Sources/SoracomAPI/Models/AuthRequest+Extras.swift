@@ -2,6 +2,9 @@
 
 import Foundation
 
+/**
+ Convenience extension to make working with AuthRequest more pleasant.
+ */
 extension AuthRequest {
 
     convenience init?(from credentials: SoracomCredentials) {

@@ -3,7 +3,7 @@
 import Foundation
 
 
-/// The Client is a higher-level object that demonstrates how to use the SDK building blocks like `Request` and `Response` to perform multi-step operations via the Soracom API. It is not necessary to use the Client class, but it may be useful as a starting point for your own applications. (It is the core of the demo apps on both macOS and iOS, s
+/// The Client is a higher-level object that demonstrates how to use the SDK building blocks like `Request` and `Response` to perform multi-step operations via the Soracom API. It is not necessary to use the Client class, but it may be useful as a starting point for your own applications. (It is the core of the demo apps on both macOS and iOS.)
 
 open class Client {
     

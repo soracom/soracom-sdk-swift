@@ -420,7 +420,7 @@
 		937BCDAE2124B7DE009FFF8D /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937BCB3B2124B7DC009FFF8D /* AnyCodable.swift */; };
 		9389C512210F53E00053F9D7 /* NoResponseBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C511210F53E00053F9D7 /* NoResponseBody.swift */; };
 		9389C514210FEF9B0053F9D7 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C513210FEF9B0053F9D7 /* Enums.swift */; };
-		93926F7C211142630059ED61 /* FixmeBreakIntoFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93926F7B211142630059ED61 /* FixmeBreakIntoFiles.swift */; };
+		93926F7C211142630059ED61 /* BeamCounts+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93926F7B211142630059ED61 /* BeamCounts+Extras.swift */; };
 		93FB747B21262C70003C3C2B /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB747621262C70003C3C2B /* NSDate+SoracomAPI.swift */; };
 		93FB747C21262C70003C3C2B /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB747721262C70003C3C2B /* TextStyle.swift */; };
 		93FB747D21262C70003C3C2B /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB747821262C70003C3C2B /* Keychain.swift */; };
@@ -907,7 +907,7 @@
 		937BCB3B2124B7DC009FFF8D /* AnyCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCodable.swift; sourceTree = "<group>"; };
 		9389C511210F53E00053F9D7 /* NoResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResponseBody.swift; sourceTree = "<group>"; };
 		9389C513210FEF9B0053F9D7 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
-		93926F7B211142630059ED61 /* FixmeBreakIntoFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixmeBreakIntoFiles.swift; sourceTree = "<group>"; };
+		93926F7B211142630059ED61 /* BeamCounts+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeamCounts+Extras.swift"; sourceTree = "<group>"; };
 		93FB747621262C70003C3C2B /* NSDate+SoracomAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+SoracomAPI.swift"; sourceTree = "<group>"; };
 		93FB747721262C70003C3C2B /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		93FB747821262C70003C3C2B /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
@@ -1647,7 +1647,7 @@
 				9389C511210F53E00053F9D7 /* NoResponseBody.swift */,
 				OBJ_159 /* Subscriber+Extras.swift */,
 				OBJ_161 /* Tag+Extras.swift */,
-				93926F7B211142630059ED61 /* FixmeBreakIntoFiles.swift */,
+				93926F7B211142630059ED61 /* BeamCounts+Extras.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2002,7 +2002,7 @@
 				937BCC692124B7DD009FFF8D /* EnableTermination.swift in Sources */,
 				937BCC5E2124B7DD009FFF8D /* ActivateSubscriber.swift in Sources */,
 				937BCBE22124B7DD009FFF8D /* ConfirmOrder.swift in Sources */,
-				93926F7C211142630059ED61 /* FixmeBreakIntoFiles.swift in Sources */,
+				93926F7C211142630059ED61 /* BeamCounts+Extras.swift in Sources */,
 				937BCC772124B7DD009FFF8D /* SendSms.swift in Sources */,
 				937BCBB32124B7DD009FFF8D /* CreateAndUpdateCredentialsModel.swift in Sources */,
 				937BCC0D2124B7DD009FFF8D /* GetGroup.swift in Sources */,

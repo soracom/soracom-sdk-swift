@@ -2,6 +2,7 @@
 
 import Foundation
 
+
 public typealias SubscriberList = [Subscriber]
 
 

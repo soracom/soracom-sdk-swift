@@ -2,8 +2,6 @@
 
 import Foundation
 
-//public typealias Tag = _Tag
-
 public typealias TagList = [Tag]
 
 public enum TagValueMatchMode: String {

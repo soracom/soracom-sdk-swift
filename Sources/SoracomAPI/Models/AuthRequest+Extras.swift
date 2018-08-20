@@ -3,10 +3,10 @@
 import Foundation
 
 /**
- Convenience extension to make working with AuthRequest more pleasant.
+    Convenience extension to make working with AuthRequest more pleasant.
  */
 extension AuthRequest {
-
+    
     convenience init?(from credentials: SoracomCredentials) {
         self.init()
         switch credentials.type {
@@ -23,5 +23,5 @@ extension AuthRequest {
         case .KeyAndToken:
             return nil
         }
-    }    
+    }
 }

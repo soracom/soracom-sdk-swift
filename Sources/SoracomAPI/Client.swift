@@ -48,7 +48,6 @@ open class Client {
     open var helpMessage = ""
 
     
-    
     /// Cancel all queued operations and log a message to that effect.
     
     func cancelAllOperations(_ errorObj: Any? = nil) {
@@ -57,11 +56,8 @@ open class Client {
         log("The error was: \(errorObj ?? "unknown error")")
     }
     
-
-    
     
     // MARK: - Authentication
-    
     
     // FIXME: there are too many similar-but-different authentications methods, clean this up:
     // deferredAuthOperation(), synchronousUpdateToken(), authenticateAsSandboxUser(), authenticateSandboxUserAndUpdateStoredCredentials() ... this is for historical reasons from all the code that was pulled into this class.
@@ -249,6 +245,7 @@ open class Client {
     
     
     /// List all sandbox SIMs
+    
     func listSandboxSIMs() {
         log("🚀 Will try to list all SIMs (aka 'subscribers') that are registered in the API Sandbox...")
         
@@ -633,11 +630,6 @@ open class Client {
     }
     
     
-//    public func deleteCredentialsForUser(user: User) {
-//        
-//    }
-    
-    
     /// Returns the storage namespace for the given user. (This implementation is for the SDK demo apps, which have simple requirements; all the possible user types are known in advance.)
     
     public func storageNamespaceForUser(_ user: User) -> UUID {
@@ -654,7 +646,6 @@ open class Client {
     
 
 }
-
 
 
 /// This enum defines values (with raw values that are strings) that identify the types of users for which the SDK demo apps (and the automated tests) need to read/write credentials.

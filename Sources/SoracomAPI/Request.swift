@@ -367,7 +367,7 @@ open class BaseRequest {
     
     
     /**
-     The `whenFinished` action (if one exists) runs after the receiver has `run()` and any response handlers have executed. It's main purpose is to allow operations that wrap requests to know when they have been fully executed.
+     The `whenFinished` action (if one exists) runs after the receiver has `run()` and any response handlers have executed. (Its main purpose is to allow operations that wrap requests to know when they have been fully executed.)
      */
     public func whenFinished(_ action: @escaping WhenFinishedAction) {
         _whenFinished = action;
@@ -375,25 +375,23 @@ open class BaseRequest {
     internal var _whenFinished : WhenFinishedAction? = nil
     
  
-    public func runToTheHills() {
+    /**
+     BaseRequest's implementation does nothing. Concrete Request<T> types with a type parameter override this to invoke `run()`.
+     
+     This method exists to allow APIOperation to invoke `Request<T>.run()` without having to know the type of `T`.
+    */
+    public func invokeRun() {
         
+        // Do nothing.
     }
 }
 
-
-public typealias WhenFinishedAction = (() -> Void)
-
-
-protocol Runnable {
-    
-}
 
 open class Request<T>: BaseRequest {
     
     /// The ResponseHandler function that, if it exists, will be use to process the response to the request (or potentially the error that occurred).
 
     var responseHandler: ResponseHandler<T>?
-    
     
 
     /// The basic initializer can be used if (for some reason) you want to create an API request manually. The `path` should begin with "/". It is also possible to supply the `responseHandler` at init time (in which case Swift trailing closure syntax may be used).
@@ -404,7 +402,7 @@ open class Request<T>: BaseRequest {
         self.responseHandler = responseHandler
     }
     
-    public override func runToTheHills() {
+    public override func invokeRun() {
         run()
     }
 
@@ -496,7 +494,6 @@ open class Request<T>: BaseRequest {
     }
     
     
-    
 }
 
 
@@ -539,3 +536,8 @@ public typealias RequestDidRunHandler = ((BaseResponse) -> ())
 /// The CredentialsFinder typealias names a closure that looks up credentials. If the default behavior isn't suitable, client code can provide its own lookup routine, on a per-instance or global basis.
 
 public typealias CredentialsFinder = ((BaseRequest) -> (SoracomCredentials))
+
+
+/// Defines the type for Request.whenFinished
+
+public typealias WhenFinishedAction = (() -> Void)

@@ -317,11 +317,8 @@ class RequestGroupTests: BaseTestCase {
         // Try to delete the already-deleted group, and assert that it fails as expected:
         
         deleteResponse = Request.deleteGroup(groupId: groupId).wait()
-        guard let deleteResult2 = deleteResponse.parse() else {
-            return XCTFail()
-        }
         XCTAssert(deleteResponse.statusCode == 404)
-        XCTAssertNil(deleteResponse.parse())
+        // This doesn't work (which is probably OK) because a NoResponseBody object is returned by parse() when there is no HTTP response message body: XCTAssertNil(deleteResponse.parse())
         XCTAssertNotNil(deleteResponse.error)
     }
 

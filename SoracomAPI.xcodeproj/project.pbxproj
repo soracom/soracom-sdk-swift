@@ -421,6 +421,7 @@
 		9389C512210F53E00053F9D7 /* NoResponseBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C511210F53E00053F9D7 /* NoResponseBody.swift */; };
 		9389C514210FEF9B0053F9D7 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C513210FEF9B0053F9D7 /* Enums.swift */; };
 		93926F7C211142630059ED61 /* BeamCounts+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93926F7B211142630059ED61 /* BeamCounts+Extras.swift */; };
+		93F36B30212CCFB100F181ED /* Request+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F36B2F212CCFB100F181ED /* Request+Group.swift */; };
 		93FB747B21262C70003C3C2B /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB747621262C70003C3C2B /* NSDate+SoracomAPI.swift */; };
 		93FB747C21262C70003C3C2B /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB747721262C70003C3C2B /* TextStyle.swift */; };
 		93FB747D21262C70003C3C2B /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB747821262C70003C3C2B /* Keychain.swift */; };
@@ -1681,6 +1682,7 @@
 				OBJ_340 /* Request.swift */,
 				OBJ_333 /* Request+Auth.swift */,
 				OBJ_336 /* Request+Operator.swift */,
+				93F36B2F212CCFB100F181ED /* Request+Group.swift */,
 				OBJ_339 /* Request+Subscriber.swift */,
 				OBJ_341 /* RequestQueue.swift */,
 				OBJ_342 /* RequestResponseFormatter.swift */,
@@ -2044,6 +2046,7 @@
 				937BCD912124B7DE009FFF8D /* ExportBeamStats.swift in Sources */,
 				937BCB8B2124B7DD009FFF8D /* ExpiryTime.swift in Sources */,
 				937BCC902124B7DD009FFF8D /* ListEventHandlersBySubscriber.swift in Sources */,
+				93F36B30212CCFB100F181ED /* Request+Group.swift in Sources */,
 				937BCC6D2124B7DD009FFF8D /* IssueSubscriberTransferToken.swift in Sources */,
 				937BCBD52124B7DD009FFF8D /* UpdateSpeedClassRequest.swift in Sources */,
 				937BCD822124B7DE009FFF8D /* RegisterLoraDevice.swift in Sources */,

@@ -81,9 +81,10 @@ class RequestGroupTests: BaseTestCase {
             return
         }
         
-        let response1 = Request.putGroupTags(groupId1, tags: ["uno": "uno"]).wait()
-        let response2 = Request.putGroupTags(groupId2, tags: ["dos": "dos"]).wait()
-        
+//        let response1 = Request.putGroupTags(groupId1, tags: ["uno": "uno"]).wait()
+//        let response2 = Request.putGroupTags(groupId2, tags: ["dos": "dos"]).wait()
+        let response1 = Request.putGroupTags(tags: [["uno": "uno"]], groupId: groupId1).wait()
+        let response2 = Request.putGroupTags(tags: [["dos": "dos"]], groupId: groupId1).wait()
         XCTAssertNil(response1.error)
         XCTAssertNil(response2.error)
         
@@ -290,7 +291,7 @@ class RequestGroupTests: BaseTestCase {
 
         // Put tags; put one new tag, and overwrite one existing tag:
         
-        let putTagsResponse = Request.putGroupTags(groupId, tags: ["hello" : "moto", "baz": "replaced value for baz"]).wait()
+        let putTagsResponse = Request.putGroupTags(tags: ["hello" : "moto", "baz": "replaced value for baz"], groupId: groupId).wait()
         guard let taggedGroup = putTagsResponse.parse() else {
             return XCTFail()
         }

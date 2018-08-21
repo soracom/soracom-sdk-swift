@@ -422,6 +422,8 @@
 		9389C514210FEF9B0053F9D7 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C513210FEF9B0053F9D7 /* Enums.swift */; };
 		93926F7C211142630059ED61 /* BeamCounts+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93926F7B211142630059ED61 /* BeamCounts+Extras.swift */; };
 		93F36B30212CCFB100F181ED /* Request+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F36B2F212CCFB100F181ED /* Request+Group.swift */; };
+		93F36B32212CD60000F181ED /* TagUpdateRequest+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F36B31212CD60000F181ED /* TagUpdateRequest+Extras.swift */; };
+		93F36B34212CD66500F181ED /* TagUpdateRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F36B33212CD66500F181ED /* TagUpdateRequestTests.swift */; };
 		93FB747B21262C70003C3C2B /* NSDate+SoracomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB747621262C70003C3C2B /* NSDate+SoracomAPI.swift */; };
 		93FB747C21262C70003C3C2B /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB747721262C70003C3C2B /* TextStyle.swift */; };
 		93FB747D21262C70003C3C2B /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB747821262C70003C3C2B /* Keychain.swift */; };
@@ -905,6 +907,9 @@
 		9389C511210F53E00053F9D7 /* NoResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResponseBody.swift; sourceTree = "<group>"; };
 		9389C513210FEF9B0053F9D7 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		93926F7B211142630059ED61 /* BeamCounts+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeamCounts+Extras.swift"; sourceTree = "<group>"; };
+		93F36B2F212CCFB100F181ED /* Request+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Group.swift"; sourceTree = "<group>"; };
+		93F36B31212CD60000F181ED /* TagUpdateRequest+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagUpdateRequest+Extras.swift"; sourceTree = "<group>"; };
+		93F36B33212CD66500F181ED /* TagUpdateRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagUpdateRequestTests.swift; sourceTree = "<group>"; };
 		93FB747621262C70003C3C2B /* NSDate+SoracomAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+SoracomAPI.swift"; sourceTree = "<group>"; };
 		93FB747721262C70003C3C2B /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		93FB747821262C70003C3C2B /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
@@ -1642,6 +1647,7 @@
 				OBJ_159 /* Subscriber+Extras.swift */,
 				OBJ_161 /* Tag+Extras.swift */,
 				93926F7B211142630059ED61 /* BeamCounts+Extras.swift */,
+				93F36B31212CD60000F181ED /* TagUpdateRequest+Extras.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1743,6 +1749,7 @@
 				OBJ_856 /* SerializationTests.swift */,
 				OBJ_857 /* SoracomCredentialsTests.swift */,
 				OBJ_858 /* SubscriberTests.swift */,
+				93F36B33212CD66500F181ED /* TagUpdateRequestTests.swift */,
 			);
 			name = SoracomAPITests;
 			path = Tests/SoracomAPITests;
@@ -1894,6 +1901,7 @@
 				OBJ_1699 /* NSDate+SoracomAPITests.swift in Sources */,
 				OBJ_1701 /* RegisterSIMTests.swift in Sources */,
 				OBJ_1702 /* Request+AuthTests.swift in Sources */,
+				93F36B34212CD66500F181ED /* TagUpdateRequestTests.swift in Sources */,
 				OBJ_1703 /* Request+CredentialsTests.swift in Sources */,
 				93036A7A212631CB00865B1D /* ModelExtensionTests.swift in Sources */,
 				OBJ_1704 /* Request+GroupTests.swift in Sources */,
@@ -2021,6 +2029,7 @@
 				937BCD9C2124B7DE009FFF8D /* VerifyEmailChangeToken.swift in Sources */,
 				937BCBCC2124B7DD009FFF8D /* IssueSubscriberTransferTokenResponse.swift in Sources */,
 				937BCC7A2124B7DD009FFF8D /* GetDataFromSigfoxDevice.swift in Sources */,
+				93F36B32212CD60000F181ED /* TagUpdateRequest+Extras.swift in Sources */,
 				937BCC212124B7DD009FFF8D /* ListPaymentStatements.swift in Sources */,
 				937BCD992124B7DE009FFF8D /* IssueEmailChangeToken.swift in Sources */,
 				937BCB9A2124B7DD009FFF8D /* GetSignupTokenRequest.swift in Sources */,

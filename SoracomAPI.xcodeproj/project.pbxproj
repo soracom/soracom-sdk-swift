@@ -430,10 +430,7 @@
 		OBJ_1019 /* Subscriber+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_159 /* Subscriber+Extras.swift */; };
 		OBJ_1021 /* Tag+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_161 /* Tag+Extras.swift */; };
 		OBJ_1192 /* Request+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_333 /* Request+Auth.swift */; };
-		OBJ_1194 /* Request+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_335 /* Request+Group.swift */; };
 		OBJ_1195 /* Request+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_336 /* Request+Operator.swift */; };
-		OBJ_1196 /* Request+Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_337 /* Request+Payment.swift */; };
-		OBJ_1197 /* Request+Sandbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_338 /* Request+Sandbox.swift */; };
 		OBJ_1198 /* Request+Subscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_339 /* Request+Subscriber.swift */; };
 		OBJ_1199 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_340 /* Request.swift */; };
 		OBJ_1200 /* RequestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_341 /* RequestQueue.swift */; };
@@ -922,10 +919,7 @@
 		OBJ_20 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		OBJ_21 /* JSONComparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONComparison.swift; sourceTree = "<group>"; };
 		OBJ_333 /* Request+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Auth.swift"; sourceTree = "<group>"; };
-		OBJ_335 /* Request+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Group.swift"; sourceTree = "<group>"; };
 		OBJ_336 /* Request+Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Operator.swift"; sourceTree = "<group>"; };
-		OBJ_337 /* Request+Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Payment.swift"; sourceTree = "<group>"; };
-		OBJ_338 /* Request+Sandbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Sandbox.swift"; sourceTree = "<group>"; };
 		OBJ_339 /* Request+Subscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Subscriber.swift"; sourceTree = "<group>"; };
 		OBJ_340 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		OBJ_341 /* RequestQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestQueue.swift; sourceTree = "<group>"; };
@@ -1686,10 +1680,7 @@
 				OBJ_25 /* Models */,
 				OBJ_340 /* Request.swift */,
 				OBJ_333 /* Request+Auth.swift */,
-				OBJ_335 /* Request+Group.swift */,
 				OBJ_336 /* Request+Operator.swift */,
-				OBJ_337 /* Request+Payment.swift */,
-				OBJ_338 /* Request+Sandbox.swift */,
 				OBJ_339 /* Request+Subscriber.swift */,
 				OBJ_341 /* RequestQueue.swift */,
 				OBJ_342 /* RequestResponseFormatter.swift */,
@@ -2313,13 +2304,10 @@
 				937BCB792124B7DD009FFF8D /* CreateOrUpdateRoleRequest.swift in Sources */,
 				937BCB4A2124B7DD009FFF8D /* Subscriber.swift in Sources */,
 				937BCBC02124B7DD009FFF8D /* Tag.swift in Sources */,
-				OBJ_1194 /* Request+Group.swift in Sources */,
 				OBJ_1195 /* Request+Operator.swift in Sources */,
 				937BCBFB2124B7DD009FFF8D /* ListVirtualPrivateGateways.swift in Sources */,
 				93FB747F21262C70003C3C2B /* Data+SoracomAPI.swift in Sources */,
 				937BCB712124B7DD009FFF8D /* ListShippingAddressResponse.swift in Sources */,
-				OBJ_1196 /* Request+Payment.swift in Sources */,
-				OBJ_1197 /* Request+Sandbox.swift in Sources */,
 				937BCD8E2124B7DE009FFF8D /* InsertAirStats.swift in Sources */,
 				937BCC452124B7DD009FFF8D /* UpdateDeviceObjectModel.swift in Sources */,
 				OBJ_1198 /* Request+Subscriber.swift in Sources */,

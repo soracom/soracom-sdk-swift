@@ -77,6 +77,8 @@ extension Request where T == Subscriber {
     }
     
     
+    /// Convenience method to set IMEI lock from a simple string IMEI... FIXME: test whether Xcode will offer the convenience form in autocomplete automatically, if we make the SetImeiLockRequest expressible by string literal. If so, then this wouldn't be worth having...
+    
     public class func setImeiLock(imsi: String, imei: String? = nil, responseHandler: ResponseHandler<Subscriber>? = nil) -> Request<Subscriber> {
         
         let req = Request<Subscriber>.init("/subscribers/\(imsi)/set_imei_lock", responseHandler: responseHandler)
@@ -89,14 +91,5 @@ extension Request where T == Subscriber {
         return req
     }
     
-    
-//    public class func unsetImeiLock(imsi: String, responseHandler: ResponseHandler<Subscriber>? = nil) -> Request<Subscriber> {
-//        
-//        let req = Request<Subscriber>.init("/subscribers/\(imsi)/unset_imei_lock", responseHandler: responseHandler)
-//        
-//        req.method = .post
-//        req.expectedHTTPStatus = 200
-//        return req
-//    }
     
 }

@@ -84,7 +84,7 @@ class RequestGroupTests: BaseTestCase {
 //        let response1 = Request.putGroupTags(groupId1, tags: ["uno": "uno"]).wait()
 //        let response2 = Request.putGroupTags(groupId2, tags: ["dos": "dos"]).wait()
         let response1 = Request.putGroupTags(tags: [["uno": "uno"]], groupId: groupId1).wait()
-        let response2 = Request.putGroupTags(tags: [["dos": "dos"]], groupId: groupId1).wait()
+        let response2 = Request.putGroupTags(tags: [["dos": "dos"]], groupId: groupId2).wait()
         XCTAssertNil(response1.error)
         XCTAssertNil(response2.error)
         

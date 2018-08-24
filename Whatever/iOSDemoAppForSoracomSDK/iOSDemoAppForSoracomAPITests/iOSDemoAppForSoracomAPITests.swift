@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import iOSDemoAppForSoracomSDK
+@testable import iOSDemoAppForSoracomAPI
 
 class iOSDemoAppForSoracomSDKTests: XCTestCase {
     

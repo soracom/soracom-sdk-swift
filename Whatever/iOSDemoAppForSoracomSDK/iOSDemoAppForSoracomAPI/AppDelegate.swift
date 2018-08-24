@@ -2,6 +2,8 @@
 
 import UIKit
 
+import SoracomAPI
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -22,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Client.sharedInstance.doInitialHousekeeping()
           // This will allow us to use Xcode to securely input credentials that can be used by the tests.
+          // You can set a breakpoint in that method (see its comments) and then enter your credentials
+          // in the lldb debugger console inside Xcode (which may be easier than trying to enter the long
+          // AuthKey ID and secret in the iOS app itself).
 
         return true
     }

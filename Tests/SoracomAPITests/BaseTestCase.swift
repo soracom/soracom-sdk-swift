@@ -2,16 +2,8 @@
 
 import XCTest
 
+@testable import SoracomAPI
 
-#if USE_TESTABLE_IMPORT_FOR_MAC_DEMO_APP
-    // Do nothing (it's magic). We unfortunately need 3 different import 
-    // modes: Xcode+macOS, Xcode+iOS, and non-Xcode ("swift test" CLI) 
-    // due to macOS and iOS not supporting SPM build/test...
-#elseif USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
-    @testable import iOSDemoAppForSoracomSDK
-#else
-    @testable import SoracomAPI 
-#endif
 
 #if os(Linux)
     import Dispatch
@@ -22,7 +14,7 @@ var oneTimeTestSetupToken: Int  = 0
 
 /// A base class that implements some common conveniences/hacks for the project's tests. e.g. making async tests require less boilerplate.
 
-class BaseTestCase: XCTestCase {
+open class BaseTestCase: XCTestCase {
 
     private static var __once: () = {
         
@@ -119,7 +111,7 @@ class BaseTestCase: XCTestCase {
     /// 
     /// - run some one-time setup code that tries to log in to the API sandbox using those credentials, to fetch an expiring API Key and API Token, which is needed for most tests that exercise the API.
     
-    override func setUp() {
+    open override func setUp() {
         
         super.setUp()
         

@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		932A5B901CE80CE4007D0B5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5B8F1CE80CE4007D0B5C /* AppDelegate.swift */; };
+		932A5B951CE80CE4007D0B5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932A5B931CE80CE4007D0B5C /* Main.storyboard */; };
+		932A5B971CE80CE4007D0B5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 932A5B961CE80CE4007D0B5C /* Assets.xcassets */; };
+		932A5B9A1CE80CE4007D0B5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932A5B981CE80CE4007D0B5C /* LaunchScreen.storyboard */; };
+		932A5BA51CE80CE4007D0B5C /* iOSDemoAppForSoracomAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BA41CE80CE4007D0B5C /* iOSDemoAppForSoracomAPITests.swift */; };
+		932A5BB01CE8111A007D0B5C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BAF1CE8111A007D0B5C /* MainViewController.swift */; };
+		932A5BB31CE81151007D0B5C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932A5BB21CE81151007D0B5C /* SettingsViewController.swift */; };
+		93890718212FEA8200CACF6F /* SoracomAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93890711212FE6F200CACF6F /* SoracomAPI.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		932A5BA11CE80CE4007D0B5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 932A5B841CE80CE4007D0B5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 932A5B8B1CE80CE4007D0B5C;
+			remoteInfo = iOSDemoAppForSoracomSDK;
+		};
+		93890710212FE6F200CACF6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93890708212FE6F200CACF6F /* SoracomAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SoracomAPI::SoracomAPI::Product";
+			remoteInfo = SoracomAPI;
+		};
+		93890712212FE6F200CACF6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93890708212FE6F200CACF6F /* SoracomAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SoracomAPI::SoracomAPIDemo::Product";
+			remoteInfo = SoracomAPIDemo;
+		};
+		93890714212FE6F200CACF6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93890708212FE6F200CACF6F /* SoracomAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SoracomAPI::SoracomAPITests::Product";
+			remoteInfo = SoracomAPITests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		932A5B8C1CE80CE4007D0B5C /* iOSDemoAppForSoracomAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemoAppForSoracomAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		932A5B8F1CE80CE4007D0B5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		932A5B941CE80CE4007D0B5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		932A5B961CE80CE4007D0B5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		932A5B991CE80CE4007D0B5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		932A5B9B1CE80CE4007D0B5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		932A5BA01CE80CE4007D0B5C /* iOSDemoAppForSoracomAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSDemoAppForSoracomAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		932A5BA41CE80CE4007D0B5C /* iOSDemoAppForSoracomAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSDemoAppForSoracomAPITests.swift; sourceTree = "<group>"; };
+		932A5BA61CE80CE4007D0B5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		932A5BAF1CE8111A007D0B5C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		932A5BB21CE81151007D0B5C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		93890708212FE6F200CACF6F /* SoracomAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SoracomAPI.xcodeproj; path = ../../SoracomAPI.xcodeproj; sourceTree = "<group>"; };
+		9389071A212FF08A00CACF6F /* iOSDemoAppForSoracomAPI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSDemoAppForSoracomAPI.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		932A5B891CE80CE4007D0B5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93890718212FEA8200CACF6F /* SoracomAPI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		932A5B9D1CE80CE4007D0B5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		932A5B831CE80CE4007D0B5C = {
+			isa = PBXGroup;
+			children = (
+				932A5B8E1CE80CE4007D0B5C /* iOSDemoAppForSoracomAPI */,
+				932A5BA31CE80CE4007D0B5C /* iOSDemoAppForSoracomAPITests */,
+				932A5B8D1CE80CE4007D0B5C /* Products */,
+				93890708212FE6F200CACF6F /* SoracomAPI.xcodeproj */,
+				93890716212FE73A00CACF6F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		932A5B8D1CE80CE4007D0B5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				932A5B8C1CE80CE4007D0B5C /* iOSDemoAppForSoracomAPI.app */,
+				932A5BA01CE80CE4007D0B5C /* iOSDemoAppForSoracomAPITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		932A5B8E1CE80CE4007D0B5C /* iOSDemoAppForSoracomAPI */ = {
+			isa = PBXGroup;
+			children = (
+				932A5B8F1CE80CE4007D0B5C /* AppDelegate.swift */,
+				932A5B961CE80CE4007D0B5C /* Assets.xcassets */,
+				932A5B9B1CE80CE4007D0B5C /* Info.plist */,
+				9389071A212FF08A00CACF6F /* iOSDemoAppForSoracomAPI.entitlements */,
+				932A5B981CE80CE4007D0B5C /* LaunchScreen.storyboard */,
+				932A5B931CE80CE4007D0B5C /* Main.storyboard */,
+				932A5BAF1CE8111A007D0B5C /* MainViewController.swift */,
+				932A5BB21CE81151007D0B5C /* SettingsViewController.swift */,
+			);
+			path = iOSDemoAppForSoracomAPI;
+			sourceTree = "<group>";
+		};
+		932A5BA31CE80CE4007D0B5C /* iOSDemoAppForSoracomAPITests */ = {
+			isa = PBXGroup;
+			children = (
+				932A5BA41CE80CE4007D0B5C /* iOSDemoAppForSoracomAPITests.swift */,
+				932A5BA61CE80CE4007D0B5C /* Info.plist */,
+			);
+			path = iOSDemoAppForSoracomAPITests;
+			sourceTree = "<group>";
+		};
+		93890709212FE6F200CACF6F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93890711212FE6F200CACF6F /* SoracomAPI.framework */,
+				93890713212FE6F200CACF6F /* SoracomAPIDemo */,
+				93890715212FE6F200CACF6F /* SoracomAPITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93890716212FE73A00CACF6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		932A5B8B1CE80CE4007D0B5C /* iOSDemoAppForSoracomAPI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 932A5BA91CE80CE4007D0B5C /* Build configuration list for PBXNativeTarget "iOSDemoAppForSoracomAPI" */;
+			buildPhases = (
+				932A5B881CE80CE4007D0B5C /* Sources */,
+				932A5B891CE80CE4007D0B5C /* Frameworks */,
+				932A5B8A1CE80CE4007D0B5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOSDemoAppForSoracomAPI;
+			productName = iOSDemoAppForSoracomSDK;
+			productReference = 932A5B8C1CE80CE4007D0B5C /* iOSDemoAppForSoracomAPI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		932A5B9F1CE80CE4007D0B5C /* iOSDemoAppForSoracomAPITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 932A5BAC1CE80CE4007D0B5C /* Build configuration list for PBXNativeTarget "iOSDemoAppForSoracomAPITests" */;
+			buildPhases = (
+				932A5B9C1CE80CE4007D0B5C /* Sources */,
+				932A5B9D1CE80CE4007D0B5C /* Frameworks */,
+				932A5B9E1CE80CE4007D0B5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				932A5BA21CE80CE4007D0B5C /* PBXTargetDependency */,
+			);
+			name = iOSDemoAppForSoracomAPITests;
+			productName = iOSDemoAppForSoracomSDKTests;
+			productReference = 932A5BA01CE80CE4007D0B5C /* iOSDemoAppForSoracomAPITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		932A5B841CE80CE4007D0B5C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Soracom, Inc.";
+				TargetAttributes = {
+					932A5B8B1CE80CE4007D0B5C = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 6PWR9U8YY9;
+						LastSwiftMigration = 0910;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
+					};
+					932A5B9F1CE80CE4007D0B5C = {
+						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0910;
+						TestTargetID = 932A5B8B1CE80CE4007D0B5C;
+					};
+				};
+			};
+			buildConfigurationList = 932A5B871CE80CE4007D0B5C /* Build configuration list for PBXProject "iOSDemoAppForSoracomAPI" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 932A5B831CE80CE4007D0B5C;
+			productRefGroup = 932A5B8D1CE80CE4007D0B5C /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 93890709212FE6F200CACF6F /* Products */;
+					ProjectRef = 93890708212FE6F200CACF6F /* SoracomAPI.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				932A5B8B1CE80CE4007D0B5C /* iOSDemoAppForSoracomAPI */,
+				932A5B9F1CE80CE4007D0B5C /* iOSDemoAppForSoracomAPITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		93890711212FE6F200CACF6F /* SoracomAPI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SoracomAPI.framework;
+			remoteRef = 93890710212FE6F200CACF6F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		93890713212FE6F200CACF6F /* SoracomAPIDemo */ = {
+			isa = PBXReferenceProxy;
+			fileType = text;
+			path = SoracomAPIDemo;
+			remoteRef = 93890712212FE6F200CACF6F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		93890715212FE6F200CACF6F /* SoracomAPITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = file;
+			path = SoracomAPITests.xctest;
+			remoteRef = 93890714212FE6F200CACF6F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		932A5B8A1CE80CE4007D0B5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				932A5B9A1CE80CE4007D0B5C /* LaunchScreen.storyboard in Resources */,
+				932A5B971CE80CE4007D0B5C /* Assets.xcassets in Resources */,
+				932A5B951CE80CE4007D0B5C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		932A5B9E1CE80CE4007D0B5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		932A5B881CE80CE4007D0B5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				932A5BB01CE8111A007D0B5C /* MainViewController.swift in Sources */,
+				932A5B901CE80CE4007D0B5C /* AppDelegate.swift in Sources */,
+				932A5BB31CE81151007D0B5C /* SettingsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		932A5B9C1CE80CE4007D0B5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				932A5BA51CE80CE4007D0B5C /* iOSDemoAppForSoracomAPITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		932A5BA21CE80CE4007D0B5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 932A5B8B1CE80CE4007D0B5C /* iOSDemoAppForSoracomAPI */;
+			targetProxy = 932A5BA11CE80CE4007D0B5C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		932A5B931CE80CE4007D0B5C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				932A5B941CE80CE4007D0B5C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		932A5B981CE80CE4007D0B5C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				932A5B991CE80CE4007D0B5C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		932A5BA71CE80CE4007D0B5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		932A5BA81CE80CE4007D0B5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		932A5BAA1CE80CE4007D0B5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iOSDemoAppForSoracomAPI/iOSDemoAppForSoracomAPI.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer: mason@soracom.jp (GZ4Y6T4G3U)";
+				DEVELOPMENT_TEAM = 6PWR9U8YY9;
+				INFOPLIST_FILE = iOSDemoAppForSoracomAPI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.iOSDemoAppForSoracomAPI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		932A5BAB1CE80CE4007D0B5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iOSDemoAppForSoracomAPI/iOSDemoAppForSoracomAPI.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer: mason@soracom.jp (GZ4Y6T4G3U)";
+				DEVELOPMENT_TEAM = 6PWR9U8YY9;
+				INFOPLIST_FILE = iOSDemoAppForSoracomAPI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.iOSDemoAppForSoracomAPI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		932A5BAD1CE80CE4007D0B5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = iOSDemoAppForSoracomAPITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.iOSDemoAppForSoracomAPITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSDemoAppForSoracomAPI.app/iOSDemoAppForSoracomAPI";
+			};
+			name = Debug;
+		};
+		932A5BAE1CE80CE4007D0B5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = iOSDemoAppForSoracomAPITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.iOSDemoAppForSoracomAPITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSDemoAppForSoracomAPI.app/iOSDemoAppForSoracomAPI";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		932A5B871CE80CE4007D0B5C /* Build configuration list for PBXProject "iOSDemoAppForSoracomAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				932A5BA71CE80CE4007D0B5C /* Debug */,
+				932A5BA81CE80CE4007D0B5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		932A5BA91CE80CE4007D0B5C /* Build configuration list for PBXNativeTarget "iOSDemoAppForSoracomAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				932A5BAA1CE80CE4007D0B5C /* Debug */,
+				932A5BAB1CE80CE4007D0B5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		932A5BAC1CE80CE4007D0B5C /* Build configuration list for PBXNativeTarget "iOSDemoAppForSoracomAPITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				932A5BAD1CE80CE4007D0B5C /* Debug */,
+				932A5BAE1CE80CE4007D0B5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 932A5B841CE80CE4007D0B5C /* Project object */;
+}

@@ -2,6 +2,8 @@
 
 import UIKit
 
+import SoracomAPI
+
 class MainViewController: UIViewController {
     
     
@@ -42,7 +44,6 @@ class MainViewController: UIViewController {
         
         Client.sharedInstance.authenticateAsSandboxUser(true)
         // trigger auth and update the status display
-        
     }
 
 }

@@ -2,6 +2,8 @@
 
 import UIKit
 
+import SoracomAPI
+    
 class SettingsViewController: UITableViewController {
     
     override func viewDidLoad() {

@@ -2,12 +2,7 @@
 
 import XCTest
 
-#if USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
-    @testable import iOSDemoAppForSoracomSDK
-#else
-    @testable import SoracomAPI
-#endif
-
+@testable import SoracomAPI
 
 class ModelExtensionTests: XCTestCase {
     

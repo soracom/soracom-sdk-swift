@@ -2,10 +2,12 @@
 
 
 import Cocoa
+import Dispatch
+import SoracomAPI
 
 @NSApplicationMain
 
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
     
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var sandboxUserEmailField: NSTextField!
@@ -14,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var authKeySecretField: NSTextField!
     @IBOutlet weak var redactSwitch: NSButton!
     @IBOutlet var outputTextView: NSTextView!
-      // Mason 2016-03-13: NOTE: For historical reasons, NSTextView is marked as NS_AUTOMATED_REFCOUNT_WEAK_UNAVAILABLE, so weak ref will cause crash. (In this app, we don't really care, though.)
+    // Mason 2016-03-13: NOTE: For historical reasons, NSTextView is marked as NS_AUTOMATED_REFCOUNT_WEAK_UNAVAILABLE, so weak ref will cause crash. (In this app, we don't really care, though.)
     
     let kFontSizeKey      = "font-size-for-transcript"
     var fontSize: CGFloat = 10.0
@@ -40,13 +42,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // In this app, since it is an experimental/exploratory tool, we want to log every
         // request and response made. This is easy to do using beforeRun() and afterRun():
         
-        Request.beforeRun { (request) in
+        BaseRequest.beforeRun { (request) in
+
             DispatchQueue.main.async {
                 self.log("\(request)", attrs: .blue)
             }
         }
         
-        Request.afterRun { (response) in
+        BaseRequest.afterRun { (response) in
             DispatchQueue.main.async {
                 let attrs: TextStyle = response.error != nil ? .red : .green
                 self.log("\(response)", attrs: attrs)
@@ -67,28 +70,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         Client.sharedInstance.doInitialHousekeeping()
-          // This will allow us to use Xcode to securely input credentials that can be used by the tests.
+        // This will allow us to use Xcode to securely input credentials that can be used by the tests.
         
         let preferredFontSize = UserDefaults.standard.float(forKey: kFontSizeKey);
         if (preferredFontSize > 1.0) {
             fontSize = CGFloat(preferredFontSize)
         }
-        
+                
         log("🤘 SORACOM API Swift SDK demo app is ready.")
     }
     
     
     /// NSControl delegate — used to notice when the user edits credentials, and save them.
     
-    override func controlTextDidChange(_ obj: Notification) {
+    func controlTextDidChange(_ obj: Notification) {
         
         if let control = obj.object as? NSTextField {
             
             if control == authKeyIDField || control == authKeySecretField  {
-            
+                
                 let sel = #selector(AppDelegate.saveCredentials)
                 NSObject.cancelPreviousPerformRequests(withTarget: self, selector: sel, object: nil)
-                self.perform(sel, with: nil, afterDelay: 0.3, inModes: [RunLoopMode.commonModes])
+                self.perform(sel, with: nil, afterDelay: 0.3, inModes: [RunLoop.Mode.common])
             }
         }
     }
@@ -138,7 +141,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func log(_ str: String, attrs: TextStyle = .normal) {
         
-        func appendOutput(_ text: String, attrs: [NSAttributedStringKey:AnyObject]) {
+        func appendOutput(_ text: String, attrs: [NSAttributedString.Key:AnyObject]) {
             // We should at some point move this to extension of NSTextView
             let attrStr = NSAttributedString(string: text, attributes: attrs)
             outputTextView.textStorage!.append(attrStr)
@@ -152,7 +155,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             padded = padded + "\n"
         }
         var updatedAttrs = attrs.attributes
-        updatedAttrs[NSAttributedStringKey.font] = defaultFont(size: fontSize);
+        updatedAttrs[NSAttributedString.Key.font] = defaultFont(size: fontSize);
         appendOutput(padded, attrs: updatedAttrs)
         
         print(str)  // pad it in the app output only
@@ -162,7 +165,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - UI actions
     
     @IBAction func clearLog(_ sender: AnyObject) {
-        let cleared = NSAttributedString(string: "", attributes: [NSAttributedStringKey.font: NSFont.userFixedPitchFont(ofSize: fontSize)!])
+        let cleared = NSAttributedString(string: "", attributes: [NSAttributedString.Key.font: NSFont.userFixedPitchFont(ofSize: fontSize)!])
         outputTextView.textStorage?.setAttributedString(cleared)
     }
     
@@ -180,11 +183,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let emailAddress = sandboxUserEmailField.stringValue
         let password     = sandboxUserPasswordField.stringValue
-
+        
         apiClient.createSandboxUser(email: emailAddress, password:password)
     }
     
-
+    
     @IBAction func authWithSandboxUserCredentials(_ sender: AnyObject) {
         apiClient.authenticateSandboxUserAndUpdateStoredCredentials()
     }

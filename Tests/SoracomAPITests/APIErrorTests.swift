@@ -22,7 +22,7 @@ class APIErrorTests: BaseTestCase {
     }
     
     
-    func test_APIError_init_with_payload() {
+    func test_APIError_init_from_data() {
         
         let bad = ["email": "no error code", "message": "a message"].toData()
         let good = ["code": "no error code", "message": "a message"].toData()
@@ -40,6 +40,7 @@ class APIErrorTests: BaseTestCase {
     
 }
 
+
 #if os(Linux)
     extension APIErrorTests {
         static var allTests : [(String, (APIErrorTests) -> () throws -> Void)] {
@@ -50,4 +51,3 @@ class APIErrorTests: BaseTestCase {
         }
     }
 #endif 
-

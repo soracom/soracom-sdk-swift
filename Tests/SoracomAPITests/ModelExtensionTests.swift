@@ -2,11 +2,7 @@
 
 import XCTest
 
-#if USE_TESTABLE_IMPORT_FOR_MAC_DEMO_APP
-    // Do nothing (it's magic). We unfortunately need 3 different import
-    // modes: Xcode+macOS, Xcode+iOS, and non-Xcode ("swift test" CLI)
-    // due to macOS and iOS not supporting SPM build/test...
-#elseif USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
+#if USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
     @testable import iOSDemoAppForSoracomSDK
 #else
     @testable import SoracomAPI
@@ -15,7 +11,7 @@ import XCTest
 
 class ModelExtensionTests: XCTestCase {
     
-    /// sanity check test for custom initializer
+    /// sanity check test for SoracomCredentials custom initializer
     
     func test_initialization() {
         
@@ -32,14 +28,13 @@ class ModelExtensionTests: XCTestCase {
         XCTAssert(key == "keyId-bar-hoge")
     }
     
-    /// sanity check test for custom initializer
+    /// sanity check test for CredentialsModel custom initializer
 
     func test_initialization_CredentialsModel() {
         
         let creds = CredentialsModel(description: "this is a test");
         XCTAssert(creds.description == "this is a test")
     }
-    
     
 }
 

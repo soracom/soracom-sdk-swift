@@ -230,7 +230,7 @@ open class Client {
     open func createSandboxSIM() {
         log("🚀 Will try to create a SIM (aka 'subscriber') in the API Sandbox, and register it...")
         
-        log("This operation will attempt to create a subscriber object (SIM) in the API sandbox. You can then use the data pertaining to that subscriber for testing, as if they were real SIMs that you had purchased. (The first step would be to register it.)")
+        log("This operation will attempt to create a SIM (aka \"subscriber\") in the API sandbox. This simulates a real SIM that has been purchased.")
         
         let req = Request.createSandboxSubscriber() { (response) in
             
@@ -238,7 +238,15 @@ open class Client {
                let imsi           = createResponse.imsi,
                let secret         = createResponse.registrationSecret
             {
-                let registerRequest = Request.registerSubscriber(imsi, registrationSecret: secret)
+                self.log("👍 The SIM was created successfully. Next, we will register it to the test user's account. This will be done via the Soracom API, but in real life it is often done via the Soracom user console.")
+                
+                let registerRequest = Request.registerSubscriber(imsi, registrationSecret: secret) { response in
+                    if let _ = response.error {
+                        self.log("🤮 An error occurred??! Yeah, an error occurred...")
+                    } else {
+                        self.log("👍 The SIM was registered successfully.")
+                    }
+                }
                 self.queue.addOperation(APIOperation(registerRequest))
             } else {
                 self.log("Uh-oh: couldn't create SIM, but handling that error is beyond the scope of this demo app.")

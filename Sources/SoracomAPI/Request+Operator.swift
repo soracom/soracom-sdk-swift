@@ -51,7 +51,7 @@ extension Request where T == NoResponseBody {
     
     public class func verifyOperator(token: String, responseHandler: ResponseHandler<NoResponseBody>? = nil) -> Request<NoResponseBody> {
         
-        return verifyOperator(token: VerifyOperatorsRequest(token: token))
+        return verifyOperator(token: VerifyOperatorsRequest(token: token), responseHandler: responseHandler)
         
     }
     

@@ -18,7 +18,7 @@ public enum TextStyle {
 #if os(OSX)
     
     
-    var attributes: [NSAttributedString.Key:AnyObject] {
+    public var attributes: [NSAttributedString.Key:AnyObject] {
         switch self {
         case .red:
             return [NSAttributedString.Key.font: NSFont.userFixedPitchFont(ofSize: 10.0)!, NSAttributedString.Key.foregroundColor: NSColor.red]
@@ -36,7 +36,7 @@ public enum TextStyle {
     
 #else
     
-    var attributes: [String:AnyObject] {
+    public var attributes: [String:AnyObject] {
         return [:] // for now we don't do color logging except on macOS/OSX
     }
     

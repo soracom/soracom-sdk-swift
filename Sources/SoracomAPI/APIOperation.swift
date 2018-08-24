@@ -68,6 +68,8 @@ open class APIOperation: Operation {
 
     override open func main() {
         
+        Metrics.record(type: .operationStart, description: self)
+        
         guard !self.isCancelled else {
             return
         }
@@ -77,16 +79,26 @@ open class APIOperation: Operation {
         request.invokeRun()
         
         _ = semaphore.wait(timeout: DispatchTime.distantFuture);
+        
+        Metrics.record(type: .operationEnd, description: self)
     }
     
     
     // MARK: Internals 
     
-    /// Returns the Request instance that this operation will run.
+    /// Returns the Request instance that this operation will run. If the request has not yet been built, `self.requestBuilder` will be executed and the result returned. If the request has already been built, the existing, previously-built request instance will be returned.
     
     private var request: BaseRequest {
-        return requestBuilder()
+
+        guard let result = builtRequest else {
+            let result = requestBuilder()
+            builtRequest = result
+            return result
+        }
+        return result
     }
+    
+    private var builtRequest: BaseRequest?
     
     
     /// The function that builds the request that this operation will run.

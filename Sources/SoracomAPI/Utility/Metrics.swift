@@ -17,6 +17,8 @@ open class Metrics {
         case wtf
         case decodeFailure
         case encodeFailure
+        case operationStart
+        case operationEnd
     }
     
     

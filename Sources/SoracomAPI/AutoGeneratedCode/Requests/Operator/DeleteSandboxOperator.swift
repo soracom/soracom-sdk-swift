@@ -27,6 +27,7 @@ extension Request where T == NoResponseBody {
         
         requestObject.expectedHTTPStatus = 200
         requestObject.method = .delete
+        requestObject.shouldSendAPIKeyAndTokenInHTTPHeaders = false
 
 
         return requestObject

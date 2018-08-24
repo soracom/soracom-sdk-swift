@@ -27,6 +27,7 @@ extension Request where T == NoResponseBody {
         requestObject.messageBody = stats.toData()
         requestObject.expectedHTTPStatus = 200
         requestObject.method = .post
+        requestObject.shouldSendAPIKeyAndTokenInHTTPHeaders = false
 
 
         return requestObject

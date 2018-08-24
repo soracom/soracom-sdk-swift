@@ -26,6 +26,7 @@ extension Request where T == AuthResponse {
         requestObject.messageBody = request.toData()
         requestObject.expectedHTTPStatus = 201
         requestObject.method = .post
+        requestObject.shouldSendAPIKeyAndTokenInHTTPHeaders = false
 
 
         return requestObject

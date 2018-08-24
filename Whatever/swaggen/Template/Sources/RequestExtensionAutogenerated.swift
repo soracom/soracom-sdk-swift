@@ -29,7 +29,8 @@ extension Request where T == {{ successType|default:"NoResponseBody"}} {
 
         {% if bodyParam %}requestObject.messageBody = {{ bodyParam.name}}.toData(){% endif %}
         requestObject.expectedHTTPStatus = {{ responses.first.statusCode }}
-        requestObject.method = .{{ method|lowercase }}
+        requestObject.method = .{{ method|lowercase }}{% if not securityRequirements %}
+        requestObject.shouldSendAPIKeyAndTokenInHTTPHeaders = false{% endif %}
 
         {% if queryParams %}
         requestObject.query = makeQueryDictionary([

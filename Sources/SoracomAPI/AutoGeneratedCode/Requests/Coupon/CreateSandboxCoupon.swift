@@ -26,6 +26,7 @@ extension Request where T == CreateCouponResponse {
         requestObject.messageBody = request.toData()
         requestObject.expectedHTTPStatus = 200
         requestObject.method = .post
+        requestObject.shouldSendAPIKeyAndTokenInHTTPHeaders = false
 
 
         return requestObject

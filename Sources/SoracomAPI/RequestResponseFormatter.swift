@@ -110,7 +110,7 @@ open class RequestResponseFormatter {
         }
         
         let pretty = prettifyJSON(response.text)
-        result += "  HTTP body (payload): \(pretty)\n"
+        result += "  HTTP message body: \(pretty)\n"
         
         result += "}"
         

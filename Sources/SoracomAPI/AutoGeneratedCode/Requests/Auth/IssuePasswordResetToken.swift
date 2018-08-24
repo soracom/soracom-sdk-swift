@@ -10,7 +10,7 @@ extension Request where T == NoResponseBody {
     /**
         Issues a password reset token for the operator.
 
-        Generates a password reset token and send it to the operator's mail address. After receiving the password reset token, call /v1/auth/password_reset_token/verify API with the token to update operator's password.
+        Generates a password reset token and sends it to the operator's mail address. After receiving the password reset token, call /v1/auth/password_reset_token/verify API with the token to update operator's password.
 
         Docs: https://dev.soracom.io/en/docs/api/#!/Auth/issuePasswordResetToken
     */
@@ -26,6 +26,7 @@ extension Request where T == NoResponseBody {
         requestObject.messageBody = email.toData()
         requestObject.expectedHTTPStatus = 200
         requestObject.method = .post
+        requestObject.shouldSendAPIKeyAndTokenInHTTPHeaders = false
 
 
         return requestObject

@@ -27,6 +27,7 @@ extension Request where T == GetSignupTokenResponse {
         requestObject.messageBody = auth.toData()
         requestObject.expectedHTTPStatus = 200
         requestObject.method = .post
+        requestObject.shouldSendAPIKeyAndTokenInHTTPHeaders = false
 
 
         return requestObject

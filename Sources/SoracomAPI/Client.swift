@@ -10,11 +10,18 @@ open class Client {
     /// Returns a single shared Client instance.
 
     public static let sharedInstance = Client()
+    
+    
+    /// The `init()` method doesn't do anything, but its existence is required to avoid being marked "internal" by default.
+    
+    public init() {
+        
+    }
 
     
     /// The queue that the Client will use for scheduling API operations. Uses the global shared RequestQueue by default, but you can set this if desired.
     
-    var queue = RequestQueue.sharedQueue
+    public var queue = RequestQueue.sharedQueue
     
     
     /// This type allows you to define your own logging implementation to replace the default (which just does print() and ignores text attributes).
@@ -24,12 +31,12 @@ open class Client {
     
     /// The logging implementation that will be used. If nil, the default implementation will be used (equivalent to `print()`).
     
-    var logger: Logger?  = nil
+    public var logger: Logger?  = nil
 
     
     /// Logs `str` using the `logger` logging implementation if set, otherwise using the default implementation (equivalent to `print()`).
     
-    func log(_ str: String, attrs: TextStyle = .normal) {
+    open func log(_ str: String, attrs: TextStyle = .normal) {
         
         guard let logger = logger else {
             print(str)
@@ -50,7 +57,7 @@ open class Client {
     
     /// Cancel all queued operations and log a message to that effect.
     
-    func cancelAllOperations(_ errorObj: Any? = nil) {
+    open func cancelAllOperations(_ errorObj: Any? = nil) {
         self.queue.cancelAllOperations()
         log("Because there was an error, all queued operations have been canceled.")
         log("The error was: \(errorObj ?? "unknown error")")
@@ -68,7 +75,7 @@ open class Client {
     /// reason this method exists is that we sometimes have to do some work, wait for the results of that work
     /// to be returned by the server, save updated credentials, and then log in using those credentials.
     
-    func deferredAuthOperation() -> APIOperation {
+    open func deferredAuthOperation() -> APIOperation {
         
         let authOperation = APIOperation() {
             
@@ -100,7 +107,7 @@ open class Client {
     
     /// Attempts to authenticate using `credentials`. Upon success, this returns a copy or `credentials` with the updated API key and token returned by the server.
     
-    func synchronousUpdateToken(_ credentials: SoracomCredentials?) -> SoracomCredentials? {
+    open func synchronousUpdateToken(_ credentials: SoracomCredentials?) -> SoracomCredentials? {
         
         guard let credentials = credentials else {
             return nil
@@ -176,7 +183,7 @@ open class Client {
     
     /// This method looks up the stored sandbox user credentials, tries to authenticate with them, and on success updates the stored credentials. This assumes that SoracomCredentials.sandboxCredentials is used to read/write the sandbox user's credentials (which isn't necessarily true, but happens to be true for the SDK demo apps).
     
-    func authenticateSandboxUserAndUpdateStoredCredentials() {
+    open func authenticateSandboxUserAndUpdateStoredCredentials() {
         
         // FIXME: this could be made more generic...
         
@@ -220,7 +227,7 @@ open class Client {
     
     /// Create a single dummy SIM in the sandbox environment.
     
-    func createSandboxSIM() {
+    open func createSandboxSIM() {
         log("🚀 Will try to create a SIM (aka 'subscriber') in the API Sandbox, and register it...")
         
         log("This operation will attempt to create a subscriber object (SIM) in the API sandbox. You can then use the data pertaining to that subscriber for testing, as if they were real SIMs that you had purchased. (The first step would be to register it.)")
@@ -246,10 +253,18 @@ open class Client {
     
     /// List all sandbox SIMs
     
-    func listSandboxSIMs() {
+    open func listSandboxSIMs() {
         log("🚀 Will try to list all SIMs (aka 'subscribers') that are registered in the API Sandbox...")
         
-        let req = Request.listSubscribers()
+        let req = Request.listSubscribers() { (response) in
+            
+            if let _ = response.error {
+                self.log("🤮 An error occurred??! Yeah, an error occurred...")
+            } else {
+                self.log("👆 No errors occurred, so the results have been printed above.")
+            }
+        }
+        
         let op  = APIOperation(req)
         queue.addOperation(op)
     }
@@ -259,7 +274,7 @@ open class Client {
     
     /// Queues a series of asynchronous operations to create a new user in the API sandbox. This is a multi-step process. Using the operation queue, we can run the different steps sequentially, waiting on each before running the next. Returns nothing, because the operations queued by this function will be executed at a later time.
     
-    func createSandboxUser(_ productionCredentials: SoracomCredentials? = nil, email: String? = nil, password: String? = nil) {
+    open func createSandboxUser(_ productionCredentials: SoracomCredentials? = nil, email: String? = nil, password: String? = nil) {
         
         // FIXME: make read/write credentials overridable somehow
         // FIXME: then, add a unit test for this, which tests this method without affecting stored credentials used elsewhere
@@ -434,7 +449,7 @@ open class Client {
     
     /// Create a user in the API Sandbox, returning the new user's credentials if successful, otherwise nil.
     
-    func synchronousCreateSandboxUser(_ productionCredentials: SoracomCredentials, email: String? = nil, password: String? = nil) -> SoracomCredentials? {
+    open func synchronousCreateSandboxUser(_ productionCredentials: SoracomCredentials, email: String? = nil, password: String? = nil) -> SoracomCredentials? {
         
         print("CREATE SANDBOX USER")
         
@@ -533,7 +548,7 @@ open class Client {
     // MARK: - Testing & Debugging Helpers
     
     
-    public func doInitialHousekeeping() {
+    open func doInitialHousekeeping() {
         
         log("Credentials for API Sandbox user: \(self.credentialsForSandboxUser.blank ? "⚠️ ABSENT" : "✓ PRESENT")")
         log("Credentials for production SAM user: \(self.credentialsForProductionSAMUser.blank ? "⚠️ ABSENT" : "✓ PRESENT")")

@@ -13,7 +13,7 @@ extension Encodable {
     public func toData() -> Data? {
 
         let e = JSONEncoder()
-        e.outputFormatting = [.prettyPrinted]
+        //e.outputFormatting = [.prettyPrinted]
 
         do {
             let jsonData = try e.encode(self)

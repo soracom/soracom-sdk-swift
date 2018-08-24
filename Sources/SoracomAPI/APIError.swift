@@ -80,3 +80,14 @@ open class APIError: Decodable {
     }
 
 }
+
+// MARK: - CustomStringConvertible
+
+extension APIError: CustomStringConvertible {
+    
+    public var description: String {
+        return "\(type(of: self)): {code: \"\(code)\",  message: \"\(message)\"}"
+    }
+    
+}
+

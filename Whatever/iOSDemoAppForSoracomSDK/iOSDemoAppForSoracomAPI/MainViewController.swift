@@ -2,8 +2,6 @@
 
 import UIKit
 
-import SoracomAPI
-
 class MainViewController: UIViewController {
     
     

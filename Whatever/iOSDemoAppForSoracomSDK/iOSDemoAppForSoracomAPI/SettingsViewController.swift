@@ -1,8 +1,6 @@
     // SettingsViewController.swift Created by mason on 2016-05-15. Copyright © 2016 Soracom, Inc. All rights reserved.
 
 import UIKit
-
-import SoracomAPI
     
 class SettingsViewController: UITableViewController {
     

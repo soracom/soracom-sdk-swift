@@ -2,9 +2,13 @@
 
 import XCTest
 
-@testable import SoracomAPI
+#if USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
+    @testable import iOSDemoAppForSoracomAPI
+#else
+    @testable import SoracomAPI
+#endif
 
-
+open class KeychainTests: BaseTestCase {
 
         
     let key1 = "foo.bar.baz.test.key.for.KeychainTests"

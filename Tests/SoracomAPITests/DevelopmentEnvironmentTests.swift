@@ -3,7 +3,11 @@
 import Foundation
 import XCTest
 
-@testable import SoracomAPI
+#if USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
+    @testable import iOSDemoAppForSoracomAPI
+#else
+    @testable import SoracomAPI
+#endif
 
 
 /// This test case is usually a no-op and not that interesting. It is for testing this SDK

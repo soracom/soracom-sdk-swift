@@ -2,7 +2,11 @@
 
 import XCTest
 
-@testable import SoracomAPI
+#if USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
+    @testable import iOSDemoAppForSoracomAPI
+#else
+    @testable import SoracomAPI
+#endif
 
 class TagUpdateRequestTests: XCTestCase {
     

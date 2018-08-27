@@ -2,8 +2,6 @@
 
 import UIKit
 
-import SoracomAPI
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

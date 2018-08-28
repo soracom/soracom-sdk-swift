@@ -2,13 +2,8 @@
 
 import Foundation
 
-public struct SimpleMenuItem {
-    let value: String
-    let description: String
-}
-
 /**
- Simple kludgey little CLI menu mechanism.
+    Simple kludgey little CLI menu mechanism.
  */
 public class SimpleMenu: ExpressibleByDictionaryLiteral {
     
@@ -87,4 +82,10 @@ public class SimpleMenu: ExpressibleByDictionaryLiteral {
         }
     }
     
+}
+
+
+public struct SimpleMenuItem {
+    let value: String
+    let description: String
 }

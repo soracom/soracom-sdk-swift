@@ -36,10 +36,12 @@ struct Strings {
 
                      ⭐︎ COMMAND-LINE DEMO FOR SORACOM SDK ⭐︎
 
-        Welcome to CommandLineDemoForSoracomSDK, a simple example program
-        to demonstrate how to use this SDK to interact with the SORACOM API
-        from Swift code. This program requires a command-line environment and
-        Swift 4.1. It should work on both Linux and macOS.
+        Welcome to SoracomAPIDemo, a simple command-line example program to
+        demonstrate how to use this SDK to interact with the SORACOM API from
+        Swift code. This program requires a command-line environment and
+        Swift 4.2. It should work on both Linux and macOS. (For demonstration
+        purposes, this program will use the API Sandbox rather than the real
+        production environment.)
         """
     
     public static let noCredentialsExist = """
@@ -61,8 +63,4 @@ struct Strings {
     public static let pleaseEnterProductionAuthKeySecret = """
         Please enter the 'authKeySecret' for a production SAM user:
         """
-    
-    
-    
-    
 }

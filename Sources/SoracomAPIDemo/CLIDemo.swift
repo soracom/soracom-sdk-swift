@@ -9,16 +9,15 @@ open class CLIDemo {
     
     
     /**
-     By default this CLI demo prints all requests and responses, but we can use this flag to turn that off when it would be confusing (e.g., automatic credentials validation).
+        By default this CLI demo prints all requests and responses, but we can use this flag to turn that off when it would be confusing (e.g., during automatic credentials validation).
      */
     var printRequestResponseTraffic = true;
-    
+
+
     /**
-     Runs the demo tool, which will interactively show the user a few features of this SDK.
+        Runs the demo tool, which will interactively show the user a few features of this SDK.
      */
     open func run() {
-        
-
         
         BaseRequest.beforeRun { (request) in
             
@@ -47,7 +46,7 @@ open class CLIDemo {
     // MARK: - User actions that call the API
     
     /**
-      When this action is initiated by the user, the demo program registers a payment method (credit card) in the API Sandbox environment. (This is not a real credit card. It is a dummy card, that just allows the sandbox user to perform various operations in the sandbox which require a payment method to be registered. This also re-authenticates upon success, and saves the resulting API token in the stored sandbox user credentials.
+        When this action is initiated by the user, the demo program registers a payment method (credit card) in the API Sandbox environment. (This is not a real credit card. It is a dummy card, that just allows the sandbox user to perform various operations in the sandbox which require a payment method to be registered. This also re-authenticates upon success, and saves the resulting API token in the stored sandbox user credentials.
      */
     open func registerPaymentMethod() {
         

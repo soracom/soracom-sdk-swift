@@ -3,7 +3,7 @@
 import Foundation
 
 
-/// APIError represents an error returned by the API, or (in a few limited cases) an error that occurred while attempting to interact with the API. 
+/// APIError represents an error returned by the API, or (in a few limited cases) a locally-originating error that occurred while attempting to interact with the API.
 ///
 /// (Despite having *Error* in its name, it is a data structure, not an ErrorType or relative of NSError.)
 
@@ -27,6 +27,7 @@ open class APIError: Decodable {
     /// Init an error the normal way, for an error condition returned by the API server.
     
     public init(code: String?, message: String?) {
+        
         self.code    = code ?? "UNK0001" // copy what Go SDK does
         self.message = message ?? "unknown error"
         // FIXME: Mason 2016-03-06: the Go SDK has one more field, messageArgs, which is used to compose the actual message string, but I haven't yet had time to make that work. (See: api_error.go)
@@ -81,6 +82,7 @@ open class APIError: Decodable {
 
 }
 
+
 // MARK: - CustomStringConvertible
 
 extension APIError: CustomStringConvertible {
@@ -90,4 +92,3 @@ extension APIError: CustomStringConvertible {
     }
     
 }
-

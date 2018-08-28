@@ -4,6 +4,8 @@ import Foundation
 
 extension String {
     
+    /// Returns a new string with the receiver converted from camel case to snake case (e.g., `"fooBarBaz".snakeCased` → `"foo_bar_baz"`).
+    
     var snakeCased: String {
         var newString: String = ""
         let upperCase = CharacterSet.uppercaseLetters

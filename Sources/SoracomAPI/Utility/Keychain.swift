@@ -31,7 +31,16 @@ open class Keychain {
         
         let fm  = FileManager.default
         let pathToHome = NSHomeDirectory();
-        let urlToHome = NSURL.fileURL(withPath: pathToHome)
+
+        #if !os(Linux)
+            let urlToHome = NSURL.fileURL(withPath: pathToHome)
+        #else
+            // NSURL.fileURL(withPath:) does not exist on Linux (a bug, as of Swift 4.2 convergence 2018-08-08)
+            guard let urlToHome = NSURL.fileURL(withPathComponents: [pathToHome]) else {
+                fatalError("Keychain: fatal error: cannot get URL to home directory: \(pathToHome)")
+            }
+        #endif
+
         let url = urlToHome.appendingPathComponent(".soracom-sdk-swift")
         
         do {
@@ -101,7 +110,7 @@ open class Keychain {
     
     /// Find and return a blob of data previously stored under `key` using this class's `write()` method. Returns nil if not found. This is the primitive read method. Note that keys should be globally unique to avoid clashing with other apps that might use this Keychain implementation.
 
-        open static func read(_ key: String) -> Data? {
+        public static func read(_ key: String) -> Data? {
             
             return readFromInsecurePlaintextStorage(key)
         }
@@ -109,7 +118,7 @@ open class Keychain {
     
         /// Store `data` to the persistent store, under `key`, **overwriting** any existing value. Returns true on success, false on error. This is the primitive write method.
 
-        open static func write(_ key: String, data: Data) -> Bool {
+        public static func write(_ key: String, data: Data) -> Bool {
             
             return writeToInsecurePlaintextStorage(key, data: data)
         }
@@ -117,7 +126,7 @@ open class Keychain {
         
         /// Delete the blob of data stored under `key`, if any.
 
-        open static func delete(_ key: String) -> Bool {
+        public static func delete(_ key: String) -> Bool {
             
             return deleteFromInsecurePlaintextStorage(key)
         }

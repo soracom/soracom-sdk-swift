@@ -558,8 +558,11 @@ open class Client {
     
     open func doInitialHousekeeping() {
         
-        log("Credentials for API Sandbox user: \(self.credentialsForSandboxUser.blank ? "⚠️ ABSENT" : "✓ PRESENT")")
-        log("Credentials for production SAM user: \(self.credentialsForProductionSAMUser.blank ? "⚠️ ABSENT" : "✓ PRESENT")")
+        let sandboxUserCredentials = self.credentialsForSandboxUser
+        let productionSAMUserCredentials = self.credentialsForProductionSAMUser
+
+        log("Credentials for API Sandbox user: \(sandboxUserCredentials.blank ? "⚠️ ABSENT" : "✓ PRESENT")")
+        log("Credentials for production SAM user: \(productionSAMUserCredentials.blank ? "⚠️ ABSENT" : "✓ PRESENT")")
         
         // To make all the automated tests run, you need to enter real production credentials for a SAM user.
         // But is very cumbersome to enter text into the iOS Simulator. One alternative is to set a breakpoint

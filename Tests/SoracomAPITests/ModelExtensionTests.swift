@@ -39,8 +39,8 @@ class ModelExtensionTests: XCTestCase {
 
 
 #if os(Linux)
-extension AuthRequestTests {
-    static var allTests : [(String, (RequestAuthTests) -> () throws -> Void)] {
+extension ModelExtensionTests {
+    static var allTests : [(String, (ModelExtensionTests) -> () throws -> Void)] {
         return [
             ("test_initialization", test_initialization),
         ]

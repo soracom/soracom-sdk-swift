@@ -8,6 +8,7 @@ import XCTest
     @testable import SoracomAPI
 #endif
 
+
 class TagUpdateRequestTests: XCTestCase {
     
     func test_convenience_initializers() {

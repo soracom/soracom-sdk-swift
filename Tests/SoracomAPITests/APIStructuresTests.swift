@@ -115,7 +115,6 @@ class APIStructuresTests: BaseTestCase {
     extension APIStructuresTests {
         static var allTests : [(String, (APIStructuresTests) -> () throws -> Void)] {
             return [
-                ("test_AirStats_serialization", test_AirStats_serialization),
                 ("test_credential_roundtrip_JSON_serialization", test_credential_roundtrip_JSON_serialization),
                 ("test_AuthResponse_init", test_AuthResponse_init),
             ]

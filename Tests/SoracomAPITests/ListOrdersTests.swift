@@ -35,7 +35,7 @@ class ListOrdersTests: BaseTestCase {
 
 #if os(Linux)
 extension ListOrdersTests {
-    static var allTests : [(String, (RequestAuthTests) -> () throws -> Void)] {
+    static var allTests : [(String, (ListOrdersTests) -> () throws -> Void)] {
         return [
             ("test_listOrders", test_listOrders),
         ]

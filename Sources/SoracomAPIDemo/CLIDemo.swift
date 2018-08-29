@@ -203,7 +203,7 @@ open class CLIDemo {
         verifyOperator(tokenCredentials)
         
         let sandboxCredentials = SoracomCredentials(type: .RootAccount, emailAddress: email, password: password)
-
+        
         log("""
             👍   Finished creating a user in the API Sandbox environment.
                  Sandbox user credentials have been saved for future use.
@@ -261,6 +261,9 @@ open class CLIDemo {
         let saveResult = credentials.save();
           // Since this demo program only stores a single set of credentials (those of the demo user in the sandbox environment), we don't have to worry about the save identifier and namespace used for saving, like we might in an app that manages multiple API users.
         
+        Client.sharedInstance.saveCredentials(credentials, user: .APISandboxUser)
+            // This saves them in the place the automated tests expect; we do this so that if tests aren't working because credentials are wrong/expired, they can easily be recreated by running the demo app.
+
         if (!saveResult) {
             exit("Saving credentials failed unexpectedly.")
         }

@@ -207,7 +207,6 @@ class SerializationTests: BaseTestCase {
         static var allTests : [(String, (SerializationTests) -> () throws -> Void)] {
             return [
                 ("test_serialize_AuthResponse", test_serialize_AuthResponse),
-                ("test_serialize_AirStats", test_serialize_AirStats),
                 ("test_serialize_DataTrafficStats", test_serialize_DataTrafficStats),
                 ("test_seralize_Tag", test_seralize_Tag),
             ]

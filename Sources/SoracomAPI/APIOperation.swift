@@ -9,7 +9,7 @@ import Dispatch
 
     The simplest way is to init an APIOperation with a Request instance, and then add the operation to a queue:
 
-        let op = APIOperation(request)
+        let op = APIOperation(someRequest)
         myQueue.addOperation(op);
 
     However, in many cases, a request will depend on values returned from previous requests. For those cases, you can initialize an APIOperation instance with a RequestBuilder, instead of a Request.
@@ -97,6 +97,8 @@ open class APIOperation: Operation {
         }
         return result
     }
+    
+    /// This property caches the result of `self.requestBuilder`, so that the request is only built once.
     
     private var builtRequest: BaseRequest?
     

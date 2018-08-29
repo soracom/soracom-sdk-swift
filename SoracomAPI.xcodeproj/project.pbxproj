@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		93036A7A212631CB00865B1D /* ModelExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93036A79212631CB00865B1D /* ModelExtensionTests.swift */; };
+		933F6F0F21353797001F5B8B /* OrdersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933F6F0E21353797001F5B8B /* OrdersTests.swift */; };
 		937BC88721236196009FFF8D /* ListOrdersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937BC88621236196009FFF8D /* ListOrdersTests.swift */; };
 		937BCB3C2124B7DD009FFF8D /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937BC8922124B7DC009FFF8D /* Coding.swift */; };
 		937BCB3D2124B7DD009FFF8D /* AuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937BC8942124B7DC009FFF8D /* AuthRequest.swift */; };
@@ -508,6 +509,7 @@
 
 /* Begin PBXFileReference section */
 		93036A79212631CB00865B1D /* ModelExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelExtensionTests.swift; sourceTree = "<group>"; };
+		933F6F0E21353797001F5B8B /* OrdersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTests.swift; sourceTree = "<group>"; };
 		937BC88621236196009FFF8D /* ListOrdersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersTests.swift; sourceTree = "<group>"; };
 		937BC8922124B7DC009FFF8D /* Coding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coding.swift; sourceTree = "<group>"; };
 		937BC8942124B7DC009FFF8D /* AuthRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRequest.swift; sourceTree = "<group>"; };
@@ -1738,6 +1740,7 @@
 				937BC88621236196009FFF8D /* ListOrdersTests.swift */,
 				93036A79212631CB00865B1D /* ModelExtensionTests.swift */,
 				OBJ_845 /* NSDate+SoracomAPITests.swift */,
+				933F6F0E21353797001F5B8B /* OrdersTests.swift */,
 				OBJ_847 /* RegisterSIMTests.swift */,
 				OBJ_848 /* Request+AuthTests.swift */,
 				OBJ_849 /* Request+CredentialsTests.swift */,
@@ -1912,6 +1915,7 @@
 				OBJ_1710 /* SerializationTests.swift in Sources */,
 				OBJ_1711 /* SoracomCredentialsTests.swift in Sources */,
 				OBJ_1712 /* SubscriberTests.swift in Sources */,
+				933F6F0F21353797001F5B8B /* OrdersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

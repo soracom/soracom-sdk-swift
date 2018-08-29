@@ -15,10 +15,9 @@ class APIOperationTests: BaseTestCase {
         return SoracomCredentials(type: .RootAccount, emailAddress: "bogus", password: "bogus")
     }
 
-    
+    // Simple assertion that APIOperation can run a request and that the completion handler gets executed.
+
     func test_basic() {
-        
-        // This just tests that APIOperation can run a request and that the completion handler gets executed.
         
         var testValue        = 0
         var error: APIError? = nil
@@ -42,10 +41,10 @@ class APIOperationTests: BaseTestCase {
         XCTAssert(error != nil)
     }
     
-    
+
+    /// Test that we can create an APIOperation that defers creating its Request until it is executed, so that it can depend on the result of an earlier operation.
+
     func test_deferred_operation() {
-        
-        // Test that we can create an APIOperation that defers creating its Request until it is executed, so that it can depend on the result of an earlier operation.
         
         beginAsyncSection()
 

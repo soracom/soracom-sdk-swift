@@ -3,6 +3,10 @@ import Foundation
 extension Response {
 
     open func parse() -> T? {
+        
+        guard HTTPStatus == baseRequest.expectedHTTPStatus else {
+            return nil
+        }
 
         guard let data = data else {
 

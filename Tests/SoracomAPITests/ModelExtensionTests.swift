@@ -43,6 +43,7 @@ extension ModelExtensionTests {
     static var allTests : [(String, (ModelExtensionTests) -> () throws -> Void)] {
         return [
             ("test_initialization", test_initialization),
+            ("test_initialization_CredentialsModel", test_initialization_CredentialsModel),
         ]
     }
 }

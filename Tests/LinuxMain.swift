@@ -16,6 +16,7 @@
         testCase(IssueDebuggingTests.allTests),
         testCase(JSONComparisonTests.allTests),
         testCase(KeychainTests.allTests),
+        testCase(KeychainInsecureModeTests.allTests),
         testCase(ListOrdersTests.allTests),
         testCase(ModelExtensionTests.allTests),
         testCase(NSDateSoracomAPITests.allTests),

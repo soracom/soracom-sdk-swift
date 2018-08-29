@@ -323,9 +323,12 @@ class RequestGroupTests: BaseTestCase {
     extension RequestGroupTests {
         static var allTests : [(String, (RequestGroupTests) -> () throws -> Void)] {
             return [
+                ("test_createGroup", test_createGroup),
                 ("test_CRUD_groups", test_CRUD_groups),
                 ("test_putGroupTags", test_putGroupTags),
+                ("test_groupConfigurationParameters", test_groupConfigurationParameters),
                 ("test_listSubscribersInGroup", test_listSubscribersInGroup),
+                ("test_create_tag_and_then_delete_Group", test_create_tag_and_then_delete_Group)
             ]
         }
     }

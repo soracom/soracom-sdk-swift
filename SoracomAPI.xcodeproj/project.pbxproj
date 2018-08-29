@@ -909,6 +909,7 @@
 		9389C511210F53E00053F9D7 /* NoResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResponseBody.swift; sourceTree = "<group>"; };
 		9389C513210FEF9B0053F9D7 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		93926F7B211142630059ED61 /* BeamCounts+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeamCounts+Extras.swift"; sourceTree = "<group>"; };
+		93B0F7A421366DE8003C7EFE /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LinuxMain.swift; path = Tests/LinuxMain.swift; sourceTree = "<group>"; };
 		93F36B2F212CCFB100F181ED /* Request+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Group.swift"; sourceTree = "<group>"; };
 		93F36B31212CD60000F181ED /* TagUpdateRequest+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagUpdateRequest+Extras.swift"; sourceTree = "<group>"; };
 		93F36B33212CD66500F181ED /* TagUpdateRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagUpdateRequestTests.swift; sourceTree = "<group>"; };
@@ -1718,6 +1719,7 @@
 		OBJ_830 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				93B0F7A421366DE8003C7EFE /* LinuxMain.swift */,
 				OBJ_831 /* SoracomAPITests */,
 			);
 			name = Tests;

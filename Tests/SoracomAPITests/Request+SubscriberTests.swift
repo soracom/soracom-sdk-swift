@@ -53,8 +53,10 @@ class RequestSubscriberTests: BaseTestCase {
             return
         }
         
-        XCTAssert(list.count > 0)
-
+        guard list.count > 0 else {
+            return XCTFail("wtf no SIMs found")
+        }
+            
         let firstSIM = list[0]
         
         guard let imsi = firstSIM.imsi else {

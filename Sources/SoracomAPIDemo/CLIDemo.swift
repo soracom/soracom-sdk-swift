@@ -50,8 +50,7 @@ open class CLIDemo {
      */
     open func registerPaymentMethod() {
         
-        let card = CreditCard(cvc: "123", expireMonth: 12, expireYear: 2020, name: "SORAO TAMAGAWA", number: "4242424242424242")
-          // This fake credit card info comes from the API Sandbox docs.
+        let card = CreditCard.testCard
         
         let registerResponse     = Request.registerWebPayPaymentMethod(creditCard: card).wait()
         let authenticateResponse = Request.auth().wait()

@@ -118,15 +118,17 @@ open class Client {
         
         guard let authResponse = authRequest.wait().parse(),
               let apiKey       = authResponse.apiKey,
-              let newToken     = authResponse.token
+              let newToken     = authResponse.token,
+              let operatorId   = authResponse.operatorId
         else {
             print("failed to update token: authentication failed: \(authRequest)")
             return nil
         }
         
-        var newCredentials    = credentials
-        newCredentials.apiKey = apiKey
-        newCredentials.token  = newToken
+        var newCredentials        = credentials
+        newCredentials.apiKey     = apiKey
+        newCredentials.token      = newToken
+        newCredentials.operatorID = operatorId // Mason 2018-08-29: hmm, is it correct to store this like this?
         
         return newCredentials
     }

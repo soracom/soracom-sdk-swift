@@ -31,6 +31,14 @@ open class BaseTestCase: XCTestCase {
         //
         // (UNCOMMMENT ABOVE TO DEBUG ALL REQUESTS AND RESPONSES WHILE TESTS RUN)
         
+        #if os(Linux)
+            if Keychain.storageIdentifier == Keychain.missingStorageIdentifier {
+                
+                Keychain.storageIdentifier = "SoracomAPIDemo-38039529-030E-4B12-8D34-33E787BB2783"
+                
+                // Mason 2018-08-29: the reason we have to do this is that, unlike on macOS and iOS, on Linux the SDK tests are run in the context of some executable provided by the "swift test" command. So, our own CLI demo executable's main.swift (which also does this) is not executed, and so without this code the tests will not be able to read credentials from the correct context.
+            }
+        #endif
         Client.sharedInstance.doInitialHousekeeping()
           // This is done here to allow setting up credentials for tests to use to run tests against
           // the API Sandbox. See the implmentation for details. You can enter credentials using lldb.

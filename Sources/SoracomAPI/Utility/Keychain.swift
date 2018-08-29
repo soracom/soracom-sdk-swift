@@ -316,7 +316,7 @@ extension Keychain {
         get {
             return _storageIdentifier 
                 ?? Bundle.main.bundleIdentifier
-                ?? "missing-storage-identifier"
+                ?? missingStorageIdentifier
         }
         set {
             _storageIdentifier = newValue
@@ -324,4 +324,8 @@ extension Keychain {
     }
     internal static var _storageIdentifier: String? = nil
 
+    
+    /// In the case of no storage identifier (which is a coding error), this string will be used
+    
+    public static let missingStorageIdentifier = "missing-storage-identifier"
 }

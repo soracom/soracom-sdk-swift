@@ -13,7 +13,7 @@ extension Request where T == {{ successType|default:"NoResponseBody"}} {
 
         {% endif %}
         {%if tag %}
-        Docs: {%if tag == "sandbox" %}https://dev.soracom.io/jp/docs/api_sandbox/#!/{% else %}https://dev.soracom.io/en/docs/api/#!/{% endif %}{{ tag }}/{{ operationId }}{% endif %}
+        [API Documentation]({%if tag == "sandbox" %}https://dev.soracom.io/jp/docs/api_sandbox/#!/{% else %}https://dev.soracom.io/en/docs/api/#!/{% endif %}{{ tag }}/{{ operationId }}){% endif %}
     */
     public class func {{ operationId }}(
         {% if bodyParam %}{{ bodyParam.name}}: {{ bodyParam.type }}, {% endif %}

@@ -12,7 +12,7 @@ extension Request where T == DeviceObjectModel {
 
         Sets scope for a device object model
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/DeviceObjectModel/setDeviceObjectModelScope
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/DeviceObjectModel/setDeviceObjectModelScope)
     */
     public class func setDeviceObjectModelScope(
         scope: SetDeviceObjectModelScopeRequest, 

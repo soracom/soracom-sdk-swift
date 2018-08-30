@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Update password of a SORACOM Lagoon user.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Lagoon/updateLagoonUserPassword
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Lagoon/updateLagoonUserPassword)
     */
     public class func updateLagoonUserPassword(
         request: LagoonUserPasswordUpdatingRequest, 

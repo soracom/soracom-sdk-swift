@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Updates the SAM user's permissions.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/User/updateUserPermission
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/User/updateUserPermission)
     */
     public class func updateUserPermission(
         request: SetUserPermissionRequest, 

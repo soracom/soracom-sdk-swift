@@ -12,7 +12,7 @@ extension Request where T == Subscriber {
 
         Deactivates specified subscriber.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/deactivateSubscriber
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/deactivateSubscriber)
     */
     public class func deactivateSubscriber(
         

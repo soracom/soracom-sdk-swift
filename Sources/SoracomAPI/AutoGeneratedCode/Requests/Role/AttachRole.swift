@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Attaches a role to a user.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Role/attachRole
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Role/attachRole)
     */
     public class func attachRole(
         request: AttachRoleRequest, 

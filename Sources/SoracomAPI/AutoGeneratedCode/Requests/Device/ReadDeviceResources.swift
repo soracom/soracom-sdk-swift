@@ -12,7 +12,7 @@ extension Request where T == ObjectInstance {
 
         Get resources under an object instance of a device
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Device/readDeviceResources
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Device/readDeviceResources)
     */
     public class func readDeviceResources(
         

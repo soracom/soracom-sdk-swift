@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes a tag from the specified LoRa gateway.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraGateway/deleteLoraGatewayTag
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraGateway/deleteLoraGatewayTag)
     */
     public class func deleteLoraGatewayTag(
         

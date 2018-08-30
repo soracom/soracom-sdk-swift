@@ -12,7 +12,7 @@ extension Request where T == GetOperatorResponse {
 
         Returns information about the operator.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/getOperator
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/getOperator)
     */
     public class func getOperator(
         

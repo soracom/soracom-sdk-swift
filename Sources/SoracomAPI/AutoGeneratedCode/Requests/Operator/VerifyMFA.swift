@@ -12,7 +12,7 @@ extension Request where T == OperatorMFAVerifyingResponse {
 
         Verifies operator's MFA with OTP code after calling `Operator:enableMFA` API. MFA will not be activated unless the MFA OTP is verified with this API. Backup codes are going to be returned in the response. These codes must be securely stored.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/verifyMFA
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/verifyMFA)
     */
     public class func verifyMFA(
         request: MFAAuthenticationRequest, 

@@ -12,7 +12,7 @@ extension Request where T == [ListRolesResponse] {
 
         Returns a list of roles.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Role/listRoles
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Role/listRoles)
     */
     public class func listRoles(
         

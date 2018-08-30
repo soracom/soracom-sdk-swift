@@ -5,27 +5,27 @@
 
 import Foundation
 
-extension Request where T == String {
+extension Request where T == GetShippingAddressResponse {
 
     /**
         Create shipping address.
 
         Creates a new shipping address.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/ShippingAddress/createShippingAddress
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/ShippingAddress/createShippingAddress)
     */
     public class func createShippingAddress(
         model: ShippingAddressModel, 
         operatorId: String,
-        responseHandler: ResponseHandler<String>? = nil
-    ) ->   Request<String> {
+        responseHandler: ResponseHandler<GetShippingAddressResponse>? = nil
+    ) ->   Request<GetShippingAddressResponse> {
 
         let path  = "/operators/\(operatorId)/shipping_addresses"
 
-        let requestObject = Request<String>.init(path, responseHandler: responseHandler)
+        let requestObject = Request<GetShippingAddressResponse>.init(path, responseHandler: responseHandler)
 
         requestObject.messageBody = model.toData()
-        requestObject.expectedHTTPStatus = 200
+        requestObject.expectedHTTPStatus = 201
         requestObject.method = .post
 
 

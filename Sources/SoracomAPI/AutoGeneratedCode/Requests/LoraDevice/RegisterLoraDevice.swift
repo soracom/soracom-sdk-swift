@@ -12,7 +12,7 @@ extension Request where T == LoraDevice {
 
         Registers a LoRa device.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraDevice/registerLoraDevice
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraDevice/registerLoraDevice)
     */
     public class func registerLoraDevice(
         loraDevice: RegisterLoraDeviceRequest, 

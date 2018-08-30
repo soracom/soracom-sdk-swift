@@ -12,7 +12,7 @@ extension Request where T == CreateVpcPeeringConnectionRequest {
 
         Creates a VPC peering connection for the specified VPG.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/createVpcPeeringConnection
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/createVpcPeeringConnection)
     */
     public class func createVpcPeeringConnection(
         vpcPeeringConnection: CreateVpcPeeringConnectionRequest, 

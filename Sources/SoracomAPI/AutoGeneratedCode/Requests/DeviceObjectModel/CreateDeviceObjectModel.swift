@@ -12,7 +12,7 @@ extension Request where T == DeviceObjectModel {
 
         Creates a new device object model
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/DeviceObjectModel/createDeviceObjectModel
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/DeviceObjectModel/createDeviceObjectModel)
     */
     public class func createDeviceObjectModel(
         objectModelDefinition: DeviceObjectModel, 

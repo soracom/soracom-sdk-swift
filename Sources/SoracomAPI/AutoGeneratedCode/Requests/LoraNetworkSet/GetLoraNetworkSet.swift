@@ -12,7 +12,7 @@ extension Request where T == LoraNetworkSet {
 
         Returns information about the specified LoRa network set.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/getLoraNetworkSet
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/getLoraNetworkSet)
     */
     public class func getLoraNetworkSet(
         

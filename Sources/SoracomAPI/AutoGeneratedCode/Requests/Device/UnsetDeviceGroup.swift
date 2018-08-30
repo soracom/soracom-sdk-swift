@@ -12,7 +12,7 @@ extension Request where T == Device {
 
         Lets a device leave from a group
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Device/unsetDeviceGroup
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Device/unsetDeviceGroup)
     */
     public class func unsetDeviceGroup(
         

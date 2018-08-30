@@ -12,7 +12,7 @@ extension Request where T == GenerateUserAuthKeyResponse {
 
         Generates an AuthKey for the SAM user.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/User/generateUserAuthKey
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/User/generateUserAuthKey)
     */
     public class func generateUserAuthKey(
         

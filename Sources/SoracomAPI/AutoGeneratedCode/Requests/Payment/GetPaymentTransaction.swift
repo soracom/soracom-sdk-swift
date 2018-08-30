@@ -12,7 +12,7 @@ extension Request where T == GetPaymentTransactionResult {
 
         Returns result of a payment transaction.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/getPaymentTransaction
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Payment/getPaymentTransaction)
     */
     public class func getPaymentTransaction(
         

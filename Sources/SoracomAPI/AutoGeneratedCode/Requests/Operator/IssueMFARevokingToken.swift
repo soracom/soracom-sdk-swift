@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Issues a token to revoke operator's MFA. The issued token will be sent to the operator via email.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/issueMFARevokingToken
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/issueMFARevokingToken)
     */
     public class func issueMFARevokingToken(
         request: MFAIssueRevokingTokenRequest, 

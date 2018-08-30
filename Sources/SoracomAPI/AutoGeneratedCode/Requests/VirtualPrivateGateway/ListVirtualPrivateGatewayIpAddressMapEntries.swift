@@ -12,7 +12,7 @@ extension Request where T == [IpAddressMapEntry] {
 
         Describes the list of IP addresse map entries in the Virtual Private Gateway
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/listVirtualPrivateGatewayIpAddressMapEntries
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/listVirtualPrivateGatewayIpAddressMapEntries)
     */
     public class func listVirtualPrivateGatewayIpAddressMapEntries(
         

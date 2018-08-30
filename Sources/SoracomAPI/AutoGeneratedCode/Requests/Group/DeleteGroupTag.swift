@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes tag from the specified group.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Group/deleteGroupTag
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Group/deleteGroupTag)
     */
     public class func deleteGroupTag(
         

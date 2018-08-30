@@ -12,7 +12,7 @@ extension Request where T == [EventHandlerModel] {
 
         Returns a list of event handlers related to the specified IMSI.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/EventHandler/listEventHandlersBySubscriber
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/EventHandler/listEventHandlersBySubscriber)
     */
     public class func listEventHandlersBySubscriber(
         

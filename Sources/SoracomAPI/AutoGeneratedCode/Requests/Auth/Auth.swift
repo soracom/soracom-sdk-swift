@@ -12,7 +12,7 @@ extension Request where T == AuthResponse {
 
         Performs authentication to access to the SORACOM API. To perform authentication by a root account, specify `email` and `password`. To perform authentication by an AuthKey, specify `authKeyId` and `authKey`. To perform authentication by a SAM user, specify `operatorId`, `userName` and `password`. An API Key and an API Token will be included in the response if successful. Specify the API Key and the API Token to requests afterwards
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Auth/auth
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Auth/auth)
     */
     public class func auth(
         auth: AuthRequest, 

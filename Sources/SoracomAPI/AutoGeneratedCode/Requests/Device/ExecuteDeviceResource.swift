@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Executes a resource of a device
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Device/executeDeviceResource
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Device/executeDeviceResource)
     */
     public class func executeDeviceResource(
         arg: Arg, 

@@ -12,7 +12,7 @@ extension Request where T == SigfoxDevice {
 
         Disables termination of specified Sigfox device.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/disableTerminationOnSigfoxDevice
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/disableTerminationOnSigfoxDevice)
     */
     public class func disableTerminationOnSigfoxDevice(
         

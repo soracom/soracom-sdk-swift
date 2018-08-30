@@ -12,7 +12,7 @@ extension Request where T == Device {
 
         Lets a device device join a group
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Device/setDeviceGroup
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Device/setDeviceGroup)
     */
     public class func setDeviceGroup(
         groupId: GroupId, 

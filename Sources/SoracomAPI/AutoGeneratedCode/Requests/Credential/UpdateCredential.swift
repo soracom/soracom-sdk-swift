@@ -12,7 +12,7 @@ extension Request where T == CredentialsModel {
 
         Updates a credential.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Credential/updateCredential
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Credential/updateCredential)
     */
     public class func updateCredential(
         credentials: CreateAndUpdateCredentialsModel, 

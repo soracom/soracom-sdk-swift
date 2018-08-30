@@ -12,7 +12,7 @@ extension Request where T == LoraGateway {
 
         Sets or overwrites network set ID for the specified LoRa gateway.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraGateway/setLoraNetworkSet
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraGateway/setLoraNetworkSet)
     */
     public class func setLoraNetworkSet(
         nsId: SetNetworkSetRequest, 

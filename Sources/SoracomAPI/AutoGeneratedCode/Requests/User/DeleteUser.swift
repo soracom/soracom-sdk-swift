@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes the SAM user.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/User/deleteUser
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/User/deleteUser)
     */
     public class func deleteUser(
         

@@ -12,7 +12,7 @@ extension Request where T == Device {
 
         Creates a new Device
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Device/createDevice
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Device/createDevice)
     */
     public class func createDevice(
         device: Device, 

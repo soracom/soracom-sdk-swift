@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes a tag from the specified subscriber.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/deleteSubscriberTag
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/deleteSubscriberTag)
     */
     public class func deleteSubscriberTag(
         

@@ -12,7 +12,7 @@ extension Request where T == Subscriber {
 
         Removes the group configuration from the specified subscriber.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/unsetGroup
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/unsetGroup)
     */
     public class func unsetGroup(
         

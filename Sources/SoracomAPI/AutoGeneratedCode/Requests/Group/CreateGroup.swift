@@ -12,7 +12,7 @@ extension Request where T == Group {
 
         Create a new group.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Group/createGroup
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Group/createGroup)
     */
     public class func createGroup(
         tags: CreateGroupRequest, 

@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Triggers observation of resources under an object instance of a device
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Device/observeDeviceResources
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Device/observeDeviceResources)
     */
     public class func observeDeviceResources(
         

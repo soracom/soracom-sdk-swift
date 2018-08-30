@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Adds a new SAM user.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/User/createUser
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/User/createUser)
     */
     public class func createUser(
         request: CreateUserRequest, 

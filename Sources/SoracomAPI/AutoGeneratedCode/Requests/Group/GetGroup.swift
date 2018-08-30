@@ -12,7 +12,7 @@ extension Request where T == Group {
 
         Returns the group specified by the group ID.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Group/getGroup
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Group/getGroup)
     */
     public class func getGroup(
         

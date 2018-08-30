@@ -12,7 +12,7 @@ extension Request where T == String {
 
         Cancels an order. If the order has already been dispatched, an error is returned.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Order/cancelOrder
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Order/cancelOrder)
     */
     public class func cancelOrder(
         

@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes the setting for ignoring the specified event handler of the specified IMSI.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/EventHandler/deleteIgnoreEventHandler
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/EventHandler/deleteIgnoreEventHandler)
     */
     public class func deleteIgnoreEventHandler(
         

@@ -12,7 +12,7 @@ extension Request where T == IpAddressMapEntry {
 
         Deletes an entry in VPG IP address map.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/deleteVirtualPrivateGatewayIpAddressMapEntry
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/deleteVirtualPrivateGatewayIpAddressMapEntry)
     */
     public class func deleteVirtualPrivateGatewayIpAddressMapEntry(
         

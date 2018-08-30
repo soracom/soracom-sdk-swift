@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Remove peer from the list of Junction mirroring peers
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/deleteMirroringPeer
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/deleteMirroringPeer)
     */
     public class func deleteMirroringPeer(
         

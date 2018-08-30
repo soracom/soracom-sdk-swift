@@ -12,7 +12,7 @@ extension Request where T == Subscriber {
 
         Inserts/updates tags for the specified subscriber.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/putSubscriberTags
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/putSubscriberTags)
     */
     public class func putSubscriberTags(
         tags: [TagUpdateRequest], 

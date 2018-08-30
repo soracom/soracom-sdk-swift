@@ -12,7 +12,7 @@ extension Request where T == RegisterPayerInformationModel {
 
         Export payer information.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/getPayerInformation
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Payment/getPayerInformation)
     */
     public class func getPayerInformation(
         

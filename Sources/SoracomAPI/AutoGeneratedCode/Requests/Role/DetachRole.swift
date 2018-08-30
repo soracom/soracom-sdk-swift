@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Detaches a role from a user.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Role/detachRole
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Role/detachRole)
     */
     public class func detachRole(
         

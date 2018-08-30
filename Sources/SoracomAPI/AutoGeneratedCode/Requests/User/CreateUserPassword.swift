@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Creates a password for the SAM user.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/User/createUserPassword
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/User/createUserPassword)
     */
     public class func createUserPassword(
         request: CreateUserPasswordRequest, 

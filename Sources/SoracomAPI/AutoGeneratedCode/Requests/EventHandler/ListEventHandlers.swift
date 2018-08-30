@@ -12,7 +12,7 @@ extension Request where T == [EventHandlerModel] {
 
         Returns a list of event handlers.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/EventHandler/listEventHandlers
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/EventHandler/listEventHandlers)
     */
     public class func listEventHandlers(
         

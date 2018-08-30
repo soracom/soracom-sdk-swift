@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         List SORACOM Lagoon users that belong to operator.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Lagoon/listLagoonUsers
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Lagoon/listLagoonUsers)
     */
     public class func listLagoonUsers(
         

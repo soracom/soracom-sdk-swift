@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Stops observation of a resource of a device
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Device/unobserveDeviceResource
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Device/unobserveDeviceResource)
     */
     public class func unobserveDeviceResource(
         

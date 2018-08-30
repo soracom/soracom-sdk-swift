@@ -12,7 +12,7 @@ extension Request where T == ListOrderedSubscriberResponse {
 
         List ordered subscribers
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Order/listOrderedSubscribers
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Order/listOrderedSubscribers)
     */
     public class func listOrderedSubscribers(
         

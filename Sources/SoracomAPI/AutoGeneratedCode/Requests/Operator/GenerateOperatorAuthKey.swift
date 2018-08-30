@@ -12,7 +12,7 @@ extension Request where T == GenerateOperatorsAuthKeyResponse {
 
         Generates an AuthKey for the operator.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/generateOperatorAuthKey
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/generateOperatorAuthKey)
     */
     public class func generateOperatorAuthKey(
         

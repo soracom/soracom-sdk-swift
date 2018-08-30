@@ -12,7 +12,7 @@ extension Request where T == GetOrderResponse {
 
         Returns a confirmed order.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Order/getOrder
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Order/getOrder)
     */
     public class func getOrder(
         

@@ -12,7 +12,7 @@ extension Request where T == LoraGateway {
 
         Enables termination of specified LoRa gateway.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraGateway/enableTerminationOnLoraGateway
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraGateway/enableTerminationOnLoraGateway)
     */
     public class func enableTerminationOnLoraGateway(
         

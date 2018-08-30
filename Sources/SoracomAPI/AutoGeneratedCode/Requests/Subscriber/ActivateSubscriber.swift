@@ -12,7 +12,7 @@ extension Request where T == Subscriber {
 
         Activates status of specified subscriber.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/activateSubscriber
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/activateSubscriber)
     */
     public class func activateSubscriber(
         

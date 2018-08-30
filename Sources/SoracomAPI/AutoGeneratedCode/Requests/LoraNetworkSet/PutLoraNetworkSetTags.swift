@@ -12,7 +12,7 @@ extension Request where T == LoraNetworkSet {
 
         Inserts/updates tags for the specified LoRa network set.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/putLoraNetworkSetTags
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/putLoraNetworkSetTags)
     */
     public class func putLoraNetworkSetTags(
         tags: [TagUpdateRequest], 

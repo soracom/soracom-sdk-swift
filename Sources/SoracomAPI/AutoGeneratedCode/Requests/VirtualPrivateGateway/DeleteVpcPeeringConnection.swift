@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes the specified VPC peering connection.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/deleteVpcPeeringConnection
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/deleteVpcPeeringConnection)
     */
     public class func deleteVpcPeeringConnection(
         

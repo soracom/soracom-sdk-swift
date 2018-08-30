@@ -12,7 +12,7 @@ extension Request where T == GetPaymentMethodResult {
 
         Returns current payment methods. Detailed information is included in the properties.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/getPaymentMethod
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Payment/getPaymentMethod)
     */
     public class func getPaymentMethod(
         

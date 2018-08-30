@@ -12,7 +12,7 @@ extension Request where T == LoraDevice {
 
         Removes the group configuration from the specified LoRa device.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraDevice/unsetLoraDeviceGroup
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraDevice/unsetLoraDeviceGroup)
     */
     public class func unsetLoraDeviceGroup(
         

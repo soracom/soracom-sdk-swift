@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Update a Junction mirroring peer
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/updateMirroringPeer
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/updateMirroringPeer)
     */
     public class func updateMirroringPeer(
         updates: [AttributeUpdate], 

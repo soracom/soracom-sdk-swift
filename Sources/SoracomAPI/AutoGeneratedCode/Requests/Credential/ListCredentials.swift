@@ -12,7 +12,7 @@ extension Request where T == [CredentialsModel] {
 
         Returns a list of credentials.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Credential/listCredentials
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Credential/listCredentials)
     */
     public class func listCredentials(
         

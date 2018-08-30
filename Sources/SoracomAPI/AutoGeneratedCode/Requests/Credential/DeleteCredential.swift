@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes a credential.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Credential/deleteCredential
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Credential/deleteCredential)
     */
     public class func deleteCredential(
         

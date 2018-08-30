@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Makes a request to create a new operator. An e-mail is sent to the e-mail address specified in the parameters, containing a one-time token for verifying the operator’s registration.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/createOperator
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/createOperator)
     */
     public class func createOperator(
         request: RegisterOperatorsRequest, 

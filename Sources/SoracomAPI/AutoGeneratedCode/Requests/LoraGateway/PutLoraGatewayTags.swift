@@ -12,7 +12,7 @@ extension Request where T == LoraGateway {
 
         Inserts/updates tags for the specified LoRa gateway.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraGateway/putLoraGatewayTags
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraGateway/putLoraGatewayTags)
     */
     public class func putLoraGatewayTags(
         tags: [TagUpdateRequest], 

@@ -12,7 +12,7 @@ extension Request where T == MFAStatusOfUseResponse {
 
         Gets operator's MFA status. The MFA status is one of `ACTIVE`, `INACTIVE` or `UNCONFIRMED`.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/getMFAStatus
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/getMFAStatus)
     */
     public class func getMFAStatus(
         

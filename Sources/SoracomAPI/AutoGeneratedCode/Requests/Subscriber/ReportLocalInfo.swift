@@ -12,7 +12,7 @@ extension Request where T == Subscriber {
 
         Triggers Subscriber to report SIM local info.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/reportLocalInfo
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/reportLocalInfo)
     */
     public class func reportLocalInfo(
         

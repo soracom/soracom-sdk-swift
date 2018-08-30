@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Registers credit card information for WebPay payments.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/registerWebPayPaymentMethod
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Payment/registerWebPayPaymentMethod)
     */
     public class func registerWebPayPaymentMethod(
         creditCard: CreditCard, 

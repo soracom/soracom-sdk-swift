@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes an AuthKey from the operator.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/deleteOperatorAuthKey
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/deleteOperatorAuthKey)
     */
     public class func deleteOperatorAuthKey(
         

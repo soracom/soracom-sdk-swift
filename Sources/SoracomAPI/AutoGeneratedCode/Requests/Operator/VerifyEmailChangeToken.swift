@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Verifies the token for the e-mail address change, and then changes the e-mail address.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/verifyEmailChangeToken
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/verifyEmailChangeToken)
     */
     public class func verifyEmailChangeToken(
         token: VerifyEmailChangeTokenRequest, 

@@ -12,7 +12,7 @@ extension Request where T == ListShippingAddressResponse {
 
         Returns a list of shipping addresses.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/ShippingAddress/listShippingAddresses
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/ShippingAddress/listShippingAddresses)
     */
     public class func listShippingAddresses(
         

@@ -12,7 +12,7 @@ extension Request where T == [LogEntry] {
 
         Returns a list of log entries that match certain criteria. If the total number of entries does not fit in one page, a URL for accessing the next page is returned in the 'Link' header of the response.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Log/getLogs
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Log/getLogs)
     */
     public class func getLogs(
         

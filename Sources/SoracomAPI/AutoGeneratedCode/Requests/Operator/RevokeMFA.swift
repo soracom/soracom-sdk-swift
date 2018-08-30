@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Revokes operator's MFA without backup codes.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/revokeMFA
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/revokeMFA)
     */
     public class func revokeMFA(
         

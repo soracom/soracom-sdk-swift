@@ -12,7 +12,7 @@ extension Request where T == LoraDevice {
 
         Returns information about the specified LoRa device.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraDevice/getLoraDevice
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraDevice/getLoraDevice)
     */
     public class func getLoraDevice(
         

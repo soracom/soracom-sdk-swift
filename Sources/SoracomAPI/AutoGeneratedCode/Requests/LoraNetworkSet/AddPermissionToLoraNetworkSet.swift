@@ -12,7 +12,7 @@ extension Request where T == LoraNetworkSet {
 
         Adds permission to allow another operator to use the network set.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/addPermissionToLoraNetworkSet
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/addPermissionToLoraNetworkSet)
     */
     public class func addPermissionToLoraNetworkSet(
         operatorId: UpdatePermissionRequest, 

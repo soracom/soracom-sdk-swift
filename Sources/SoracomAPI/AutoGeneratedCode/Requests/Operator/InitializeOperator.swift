@@ -12,7 +12,7 @@ extension Request where T == AuthResponse {
 
         Performs sign-up, authentication to access to the SORACOM API and registration of payment method. To call this API, specify `email` and `password` for an operator which will be created on sandbox, `authKeyId` and `authKey` for a real operator on the production environment. An API Key and an API Token will be included in the response if successful. Specify the API Key and the API Token to requests afterwards
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/initializeOperator
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/initializeOperator)
     */
     public class func initializeOperator(
         request: InitRequest, 

@@ -12,7 +12,7 @@ extension Request where T == GetUserPermissionResponse {
 
         Retrieves the SAM user's permissions.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/User/getUserPermission
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/User/getUserPermission)
     */
     public class func getUserPermission(
         

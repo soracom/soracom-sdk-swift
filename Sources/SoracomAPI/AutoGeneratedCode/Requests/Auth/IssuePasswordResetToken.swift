@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Generates a password reset token and sends it to the operator's mail address. After receiving the password reset token, call /v1/auth/password_reset_token/verify API with the token to update operator's password.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Auth/issuePasswordResetToken
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Auth/issuePasswordResetToken)
     */
     public class func issuePasswordResetToken(
         email: IssuePasswordResetTokenRequest, 

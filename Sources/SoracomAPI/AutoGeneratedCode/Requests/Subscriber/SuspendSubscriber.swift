@@ -12,7 +12,7 @@ extension Request where T == Subscriber {
 
         Suspends the specified subscriber
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/suspendSubscriber
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/suspendSubscriber)
     */
     public class func suspendSubscriber(
         

@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Add node in the list of Junction mirroring peers
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/createMirroringPeer
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/createMirroringPeer)
     */
     public class func createMirroringPeer(
         mirroringPeer: JunctionMirroringPeer, 

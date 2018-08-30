@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Test data (the number of requests, time with a stamp) as the statistical information of Beam to introduce. Statistics per day per-month internal Sandbox also be able to get is automatically accumulated. It is not possible to put the data multiple times in the same time stamp.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Stats/insertBeamStats
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Stats/insertBeamStats)
     */
     public class func insertBeamStats(
         stats: InsertBeamStatsRequest, 

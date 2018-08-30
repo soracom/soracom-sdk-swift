@@ -12,7 +12,7 @@ extension Request where T == GetBillingHistoryResponse {
 
         Returns past billing history (after applied discounts such as free tiers, etc., inclusive of tax). This API only returns the billing amounts that have been finalized at the end of the month.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Billing/getBillingHistory
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Billing/getBillingHistory)
     */
     public class func getBillingHistory(
         

@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Sends data to the specified Sigfox device. The data will be stored until the device sends a next uplink message. If another message destined for the same Sigfox device ID is already waiting to be sent, the existing message will be discarded, and the new message will be sent instead.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/sendDataToSigfoxDevice
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/sendDataToSigfoxDevice)
     */
     public class func sendDataToSigfoxDevice(
         data: SigfoxData, 

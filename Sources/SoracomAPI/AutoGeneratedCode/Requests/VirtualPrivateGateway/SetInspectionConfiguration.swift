@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Set configuration for Junction inspection feature
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/setInspectionConfiguration
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/setInspectionConfiguration)
     */
     public class func setInspectionConfiguration(
         inspectionConfiguration: JunctionInspectionConfiguration, 

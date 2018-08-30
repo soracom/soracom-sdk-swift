@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Write value to a resource of a device
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Device/writeDeviceResource
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Device/writeDeviceResource)
     */
     public class func writeDeviceResource(
         value: Value, 

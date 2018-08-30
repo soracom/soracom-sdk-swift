@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes a shipping address.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/ShippingAddress/deleteShippingAddress
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/ShippingAddress/deleteShippingAddress)
     */
     public class func deleteShippingAddress(
         

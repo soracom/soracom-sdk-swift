@@ -12,7 +12,7 @@ extension Request where T == GetExportedFileResponse {
 
         Get an exported file. The `url` field in the response will contain a URL to download the exported file.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Files/getExportedFile
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Files/getExportedFile)
     */
     public class func getExportedFile(
         

@@ -12,7 +12,7 @@ extension Request where T == Subscriber {
 
         Remove any existing IMEI lock configuration for the subscriber.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/unsetImeiLock
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/unsetImeiLock)
     */
     public class func unsetImeiLock(
         

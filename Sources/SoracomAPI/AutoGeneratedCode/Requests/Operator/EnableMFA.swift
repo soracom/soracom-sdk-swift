@@ -12,7 +12,7 @@ extension Request where T == EnableMFAOTPResponse {
 
         Enables operator's MFA. After calling this APIg, it should be verified by calling `Operator:verifyMFA` API.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/enableMFA
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/enableMFA)
     */
     public class func enableMFA(
         

@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Retrieves information about the specified VPG.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/getVirtualPrivateGateway
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/getVirtualPrivateGateway)
     */
     public class func getVirtualPrivateGateway(
         

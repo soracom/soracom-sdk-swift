@@ -12,7 +12,7 @@ extension Request where T == ListOrderResponse {
 
         Returns a list of confirmed orders.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Order/listOrders
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Order/listOrders)
     */
     public class func listOrders(
         

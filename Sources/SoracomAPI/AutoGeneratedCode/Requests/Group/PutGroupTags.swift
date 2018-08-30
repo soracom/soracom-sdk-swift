@@ -12,7 +12,7 @@ extension Request where T == Group {
 
         Adds/updates tags of specified configuration group.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Group/putGroupTags
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Group/putGroupTags)
     */
     public class func putGroupTags(
         tags: [TagUpdateRequest], 

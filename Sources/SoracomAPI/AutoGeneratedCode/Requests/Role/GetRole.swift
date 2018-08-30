@@ -12,7 +12,7 @@ extension Request where T == RoleResponse {
 
         Retrieves a role.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Role/getRole
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Role/getRole)
     */
     public class func getRole(
         

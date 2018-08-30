@@ -12,7 +12,7 @@ extension Request where T == LoraGateway {
 
         Returns information about the specified LoRa gateway.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraGateway/getLoraGateway
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraGateway/getLoraGateway)
     */
     public class func getLoraGateway(
         

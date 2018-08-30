@@ -12,7 +12,7 @@ extension Request where T == LagoonUserCreationResponse {
 
         Create a SORACOM Lagoon user.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Lagoon/createLagoonUser
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Lagoon/createLagoonUser)
     */
     public class func createLagoonUser(
         request: LagoonUserCreationRequest, 

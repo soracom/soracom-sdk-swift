@@ -12,7 +12,7 @@ extension Request where T == VirtualPrivateGateway {
 
         Create new VPG.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/createVirtualPrivateGateway
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/createVirtualPrivateGateway)
     */
     public class func createVirtualPrivateGateway(
         createVirtualPrivateGatewayRequest: CreateVirtualPrivateGatewayRequest, 

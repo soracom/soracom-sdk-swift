@@ -12,7 +12,7 @@ extension Request where T == [GatePeer] {
 
         List Gate peers registered in the Virtual Private Gateway
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/listGatePeers
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/listGatePeers)
     */
     public class func listGatePeers(
         

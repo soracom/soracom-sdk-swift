@@ -12,7 +12,7 @@ extension Request where T == LoraGateway {
 
         Unset network set ID of the specified LoRa gateway.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraGateway/unsetLoraNetworkSet
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraGateway/unsetLoraNetworkSet)
     */
     public class func unsetLoraNetworkSet(
         

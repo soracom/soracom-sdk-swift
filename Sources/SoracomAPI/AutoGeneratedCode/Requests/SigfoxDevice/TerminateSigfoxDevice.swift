@@ -12,7 +12,7 @@ extension Request where T == SigfoxDevice {
 
         Terminates the specified Sigfox device
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/terminateSigfoxDevice
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/terminateSigfoxDevice)
     */
     public class func terminateSigfoxDevice(
         

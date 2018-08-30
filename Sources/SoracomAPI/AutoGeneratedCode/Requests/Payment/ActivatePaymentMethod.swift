@@ -12,7 +12,7 @@ extension Request where T == [String: Any] {
 
         Activates a current payment method that has an error.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/activatePaymentMethod
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Payment/activatePaymentMethod)
     */
     public class func activatePaymentMethod(
         

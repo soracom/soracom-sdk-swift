@@ -12,7 +12,7 @@ extension Request where T == Device {
 
         Updates device tags
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Device/putDeviceTags
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Device/putDeviceTags)
     */
     public class func putDeviceTags(
         

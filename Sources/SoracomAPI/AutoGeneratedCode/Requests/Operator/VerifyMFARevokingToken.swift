@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Verifies the one-time token which is previously issued by calling `/operators/mfa_revoke_token/issue` API, operator's email address, password, and one of the backup codes. If verified, operator's MFA is going to be revoked.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/verifyMFARevokingToken
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/verifyMFARevokingToken)
     */
     public class func verifyMFARevokingToken(
         request: MFARevokingTokenVerifyRequest, 

@@ -12,7 +12,7 @@ extension Request where T == LoraDevice {
 
         Inserts/updates tags for the specified LoRa device.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraDevice/putLoraDeviceTags
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraDevice/putLoraDeviceTags)
     */
     public class func putLoraDeviceTags(
         tags: [TagUpdateRequest], 

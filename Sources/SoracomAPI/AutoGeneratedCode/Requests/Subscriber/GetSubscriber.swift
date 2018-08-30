@@ -12,7 +12,7 @@ extension Request where T == Subscriber {
 
         Returns information about the specified subscriber.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/getSubscriber
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/getSubscriber)
     */
     public class func getSubscriber(
         

@@ -12,7 +12,7 @@ extension Request where T == ListProductResponse {
 
         Returns a list of products.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Order/listProducts
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Order/listProducts)
     */
     public class func listProducts(
         

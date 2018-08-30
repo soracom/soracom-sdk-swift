@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes the subscriber's inter-operator control transfer token, and cancels the control transfer.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/deleteSubscriberTransferToken
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/deleteSubscriberTransferToken)
     */
     public class func deleteSubscriberTransferToken(
         

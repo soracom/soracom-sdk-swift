@@ -12,7 +12,7 @@ extension Request where T == [AirStatsResponse] {
 
         Retrieves the usage report for the subscriber specified by the IMSI.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Stats/getAirStats
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Stats/getAirStats)
     */
     public class func getAirStats(
         

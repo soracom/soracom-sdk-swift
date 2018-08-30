@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Register payer information.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/registerPayerInformation
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Payment/registerPayerInformation)
     */
     public class func registerPayerInformation(
         req: RegisterPayerInformationModel, 

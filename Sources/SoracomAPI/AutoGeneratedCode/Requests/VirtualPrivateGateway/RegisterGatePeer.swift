@@ -12,7 +12,7 @@ extension Request where T == GatePeer {
 
         Register a host as a gate peer in the Virtual Private Gateway
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/registerGatePeer
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/registerGatePeer)
     */
     public class func registerGatePeer(
         gatePeer: RegisterGatePeerRequest, 

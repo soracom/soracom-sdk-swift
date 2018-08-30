@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Updates the operator's password.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/updateOperatorPassword
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/updateOperatorPassword)
     */
     public class func updateOperatorPassword(
         request: UpdatePasswordRequest, 

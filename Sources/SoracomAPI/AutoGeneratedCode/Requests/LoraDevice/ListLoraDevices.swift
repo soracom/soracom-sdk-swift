@@ -12,7 +12,7 @@ extension Request where T == [LoraDevice] {
 
         Returns a list of LoRa devices that match certain criteria. If the total number of LoRa devices does not fit in one page, a URL for accessing the next page is returned in the 'Link' header of the response.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraDevice/listLoraDevices
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraDevice/listLoraDevices)
     */
     public class func listLoraDevices(
         

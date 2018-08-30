@@ -12,7 +12,7 @@ extension Request where T == SupportTokenResponse {
 
         Returns a token for accessing the support console.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/generateSupportToken
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/generateSupportToken)
     */
     public class func generateSupportToken(
         

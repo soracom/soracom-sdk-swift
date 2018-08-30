@@ -12,7 +12,7 @@ extension Request where T == [Subscriber] {
 
         Returns a list of subscribers that belong to the specified group by group ID.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Group/listSubscribersInGroup
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Group/listSubscribersInGroup)
     */
     public class func listSubscribersInGroup(
         

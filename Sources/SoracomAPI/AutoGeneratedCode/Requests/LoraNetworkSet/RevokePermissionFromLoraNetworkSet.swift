@@ -12,7 +12,7 @@ extension Request where T == LoraNetworkSet {
 
         Revokes a permission and removes an operator from the list of allowed operators in the network set.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/revokePermissionFromLoraNetworkSet
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/revokePermissionFromLoraNetworkSet)
     */
     public class func revokePermissionFromLoraNetworkSet(
         operatorId: UpdatePermissionRequest, 

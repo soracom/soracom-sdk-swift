@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes a tag from the specified LoRa network set.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/deleteLoraNetworkSetTag
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/deleteLoraNetworkSetTag)
     */
     public class func deleteLoraNetworkSetTag(
         

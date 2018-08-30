@@ -12,7 +12,7 @@ extension Request where T == SigfoxDevice {
 
         Registers a Sigfox device
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/registerSigfoxDevice
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/registerSigfoxDevice)
     */
     public class func registerSigfoxDevice(
         registrationRequest: SigfoxRegistrationRequest, 

@@ -12,7 +12,7 @@ extension Request where T == [BeamStatsResponse] {
 
         Retrieves the Soracom Beam usage report for the subscriber specified by the IMSI.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Stats/getBeamStats
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Stats/getBeamStats)
     */
     public class func getBeamStats(
         

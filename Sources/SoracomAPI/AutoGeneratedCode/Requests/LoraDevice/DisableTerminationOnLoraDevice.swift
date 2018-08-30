@@ -12,7 +12,7 @@ extension Request where T == LoraDevice {
 
         Disables termination of specified LoRa device.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraDevice/disableTerminationOnLoraDevice
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraDevice/disableTerminationOnLoraDevice)
     */
     public class func disableTerminationOnLoraDevice(
         

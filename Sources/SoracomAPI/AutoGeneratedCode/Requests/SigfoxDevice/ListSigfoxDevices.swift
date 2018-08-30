@@ -12,7 +12,7 @@ extension Request where T == [SigfoxDevice] {
 
         Returns a list of Sigfox devices that match certain criteria. If the total number of Sigfox devices does not fit in one page, a URL for accessing the next page is returned in the 'Link' header of the response.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/listSigfoxDevices
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/listSigfoxDevices)
     */
     public class func listSigfoxDevices(
         

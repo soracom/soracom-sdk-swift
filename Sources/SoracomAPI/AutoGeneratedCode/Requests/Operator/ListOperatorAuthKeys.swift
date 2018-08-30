@@ -12,7 +12,7 @@ extension Request where T == [AuthKeyResponse] {
 
         Returns the operator's AuthKey list.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/listOperatorAuthKeys
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/listOperatorAuthKeys)
     */
     public class func listOperatorAuthKeys(
         

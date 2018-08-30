@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes a data entry identified with resource ID and timestamp
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/DataEntry/deleteDataEntry
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/DataEntry/deleteDataEntry)
     */
     public class func deleteDataEntry(
         

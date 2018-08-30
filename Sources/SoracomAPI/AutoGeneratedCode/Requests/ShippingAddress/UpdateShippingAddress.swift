@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Updates a shipping address.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/ShippingAddress/updateShippingAddress
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/ShippingAddress/updateShippingAddress)
     */
     public class func updateShippingAddress(
         model: ShippingAddressModel, 

@@ -12,7 +12,7 @@ extension Request where T == FileExportResponse {
 
         Export payment statement.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/exportPaymentStatement
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Payment/exportPaymentStatement)
     */
     public class func exportPaymentStatement(
         

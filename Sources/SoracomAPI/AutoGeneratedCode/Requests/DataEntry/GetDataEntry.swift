@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Gets a data entry identified with resource ID and timestamp
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/DataEntry/getDataEntry
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/DataEntry/getDataEntry)
     */
     public class func getDataEntry(
         

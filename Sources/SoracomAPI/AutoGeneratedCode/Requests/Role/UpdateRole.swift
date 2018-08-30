@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Edits a role.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Role/updateRole
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Role/updateRole)
     */
     public class func updateRole(
         request: CreateOrUpdateRoleRequest, 

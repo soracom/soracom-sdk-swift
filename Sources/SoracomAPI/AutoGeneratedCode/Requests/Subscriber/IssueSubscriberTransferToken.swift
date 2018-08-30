@@ -12,7 +12,7 @@ extension Request where T == IssueSubscriberTransferTokenResponse {
 
         Sends the subscriber's inter-operator control transfer token to the control destination operator.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/issueSubscriberTransferToken
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/issueSubscriberTransferToken)
     */
     public class func issueSubscriberTransferToken(
         request: IssueSubscriberTransferTokenRequest, 

@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Delete parameters for the specified group.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Group/deleteConfigurationParameter
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Group/deleteConfigurationParameter)
     */
     public class func deleteConfigurationParameter(
         

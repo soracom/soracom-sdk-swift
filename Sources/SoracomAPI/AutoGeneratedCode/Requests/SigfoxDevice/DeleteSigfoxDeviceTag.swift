@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes a tag from the specified Sigfox device.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/deleteSigfoxDeviceTag
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/deleteSigfoxDeviceTag)
     */
     public class func deleteSigfoxDeviceTag(
         

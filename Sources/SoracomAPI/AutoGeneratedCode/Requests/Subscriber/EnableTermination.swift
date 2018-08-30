@@ -12,7 +12,7 @@ extension Request where T == Subscriber {
 
         Enables termination of specified subscriber.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/enableTermination
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/enableTermination)
     */
     public class func enableTermination(
         

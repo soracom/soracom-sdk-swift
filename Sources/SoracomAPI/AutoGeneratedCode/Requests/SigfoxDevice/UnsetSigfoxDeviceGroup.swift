@@ -12,7 +12,7 @@ extension Request where T == SigfoxDevice {
 
         Removes the group configuration from the specified Sigfox device.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/unsetSigfoxDeviceGroup
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/unsetSigfoxDeviceGroup)
     */
     public class func unsetSigfoxDeviceGroup(
         

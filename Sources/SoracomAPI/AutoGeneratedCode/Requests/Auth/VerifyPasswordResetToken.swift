@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Updates the operator's password if the password reset token is verified.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Auth/verifyPasswordResetToken
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Auth/verifyPasswordResetToken)
     */
     public class func verifyPasswordResetToken(
         request: VerifyPasswordResetTokenRequest, 

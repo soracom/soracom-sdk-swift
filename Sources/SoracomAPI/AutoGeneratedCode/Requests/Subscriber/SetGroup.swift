@@ -12,7 +12,7 @@ extension Request where T == Subscriber {
 
         Sets or overwrites a group for the specified subscriber.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/setGroup
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/setGroup)
     */
     public class func setGroup(
         group: SetGroupRequest, 

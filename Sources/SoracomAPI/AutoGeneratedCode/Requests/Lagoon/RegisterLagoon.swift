@@ -12,7 +12,7 @@ extension Request where T == LagoonRegistrationResponse {
 
         Register (activate) SORACOM Lagoon. This API is only allowed to operate by root account.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Lagoon/registerLagoon
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Lagoon/registerLagoon)
     */
     public class func registerLagoon(
         request: LagoonRegistrationRequest, 

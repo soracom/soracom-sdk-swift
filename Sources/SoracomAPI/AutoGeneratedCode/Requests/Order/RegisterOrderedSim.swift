@@ -12,7 +12,7 @@ extension Request where T == String {
 
         Registers the ordered SIM with the operator.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Order/registerOrderedSim
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Order/registerOrderedSim)
     */
     public class func registerOrderedSim(
         

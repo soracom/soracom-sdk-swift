@@ -12,7 +12,7 @@ extension Request where T == GenerateTokenResponse {
 
         Generates a new API token. If you insert the current API token into the header and make a request, a response is returned containing the new API token. You can then use the new API token in future requests.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/generateAuthToken
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/generateAuthToken)
     */
     public class func generateAuthToken(
         request: GenerateTokenRequest, 

@@ -12,7 +12,7 @@ extension Request where T == String {
 
         Performs a credit limit and confirms the order if no problems are encountered.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Order/confirmOrder
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Order/confirmOrder)
     */
     public class func confirmOrder(
         

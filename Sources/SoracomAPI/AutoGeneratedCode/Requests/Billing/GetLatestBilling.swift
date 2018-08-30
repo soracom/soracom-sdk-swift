@@ -12,7 +12,7 @@ extension Request where T == GetLatestBill {
 
         Returns the latest billing amounts after applied discounts such as free tiers, etc. The amounts retrieved using this API correspond to the values before the invoice was finalized.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Billing/getLatestBilling
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Billing/getLatestBilling)
     */
     public class func getLatestBilling(
         

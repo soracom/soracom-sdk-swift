@@ -12,7 +12,7 @@ extension Request where T == GetUserPasswordResponse {
 
         Retrieves whether the SAM user has a password or not.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/User/hasUserPassword
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/User/hasUserPassword)
     */
     public class func hasUserPassword(
         

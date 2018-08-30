@@ -12,7 +12,7 @@ extension Request where T == VerifySubscriberTransferTokenResponse {
 
         Verifies the subscriber's control transfer token, and executes the transfer. This API is called from the operator of the control destination.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/verifySubscriberTransferToken
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/verifySubscriberTransferToken)
     */
     public class func verifySubscriberTransferToken(
         token: VerifySubscriberTransferTokenRequest, 

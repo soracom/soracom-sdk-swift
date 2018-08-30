@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         The test data to introduce as Air statistical information. Statistics per day per-month internal Sandbox also be able to get is automatically accumulated. It is not possible to put the data multiple times in the same time stamp.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Stats/insertAirStats
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Stats/insertAirStats)
     */
     public class func insertAirStats(
         stats: InsertAirStatsRequest, 

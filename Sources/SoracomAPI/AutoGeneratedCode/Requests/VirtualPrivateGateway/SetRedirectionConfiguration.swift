@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Set configuration for Junction redirection feature
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/setRedirectionConfiguration
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/setRedirectionConfiguration)
     */
     public class func setRedirectionConfiguration(
         redirectionConfiguration: JunctionRedirectionConfiguration, 

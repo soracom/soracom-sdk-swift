@@ -12,7 +12,7 @@ extension Request where T == SmsForwardingReport {
 
         Send SMS to the specified subscriber.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/sendSms
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/sendSms)
     */
     public class func sendSms(
         smsForwardingRequest: SmsForwardingRequest, 

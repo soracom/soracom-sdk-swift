@@ -12,7 +12,7 @@ extension Request where T == EstimatedOrderModel {
 
         Creates a new order quotation. If the orderId is put in /confirm, the order is complete.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Order/createQuotation
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Order/createQuotation)
     */
     public class func createQuotation(
         request: CreateEstimatedOrderRequest, 

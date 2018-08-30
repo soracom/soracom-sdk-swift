@@ -12,7 +12,7 @@ extension Request where T == IpAddressMapEntry {
 
         Puts an entry in VPG IP address map.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/putVirtualPrivateGatewayIpAddressMapEntry
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/putVirtualPrivateGatewayIpAddressMapEntry)
     */
     public class func putVirtualPrivateGatewayIpAddressMapEntry(
         putIpAddressMapEntryRequest: PutIpAddressMapEntryRequest, 

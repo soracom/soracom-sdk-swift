@@ -12,7 +12,7 @@ extension Request where T == SigfoxDevice {
 
         Returns information about the specified Sigfox device.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/getSigfoxDevice
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/getSigfoxDevice)
     */
     public class func getSigfoxDevice(
         

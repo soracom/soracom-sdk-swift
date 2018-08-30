@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes a tag from the specified LoRa device.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraDevice/deleteLoraDeviceTag
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraDevice/deleteLoraDeviceTag)
     */
     public class func deleteLoraDeviceTag(
         

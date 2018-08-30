@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes the specified group by group ID
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Group/deleteGroup
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Group/deleteGroup)
     */
     public class func deleteGroup(
         

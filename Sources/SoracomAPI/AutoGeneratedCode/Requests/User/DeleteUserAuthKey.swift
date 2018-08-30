@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes an AuthKey from the SAM user.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/User/deleteUserAuthKey
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/User/deleteUserAuthKey)
     */
     public class func deleteUserAuthKey(
         

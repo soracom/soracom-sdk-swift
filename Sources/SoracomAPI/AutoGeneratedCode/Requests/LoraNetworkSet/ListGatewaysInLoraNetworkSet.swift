@@ -12,7 +12,7 @@ extension Request where T == [LoraGateway] {
 
         Returns a list of LoRa gateways that belong to the specified network set. If the total number of LoRa gateways does not fit in one page, a URL for accessing the next page is returned in the 'Link' header of the response.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/listGatewaysInLoraNetworkSet
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/listGatewaysInLoraNetworkSet)
     */
     public class func listGatewaysInLoraNetworkSet(
         

@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Delete a SORACOM Lagoon user.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Lagoon/deleteLagoonUser
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Lagoon/deleteLagoonUser)
     */
     public class func deleteLagoonUser(
         

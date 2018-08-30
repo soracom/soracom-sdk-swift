@@ -12,7 +12,7 @@ extension Request where T == UserDetailResponse {
 
         Returns a SAM user.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/User/getUser
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/User/getUser)
     */
     public class func getUser(
         

@@ -12,7 +12,7 @@ extension Request where T == GetShippingAddressResponse {
 
         Returns a shipping address.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/ShippingAddress/getShippingAddress
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/ShippingAddress/getShippingAddress)
     */
     public class func getShippingAddress(
         

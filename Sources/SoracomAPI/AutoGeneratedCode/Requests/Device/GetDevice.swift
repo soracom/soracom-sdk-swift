@@ -12,7 +12,7 @@ extension Request where T == Device {
 
         Returns a Device identified by device ID
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Device/getDevice
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Device/getDevice)
     */
     public class func getDevice(
         

@@ -12,7 +12,7 @@ extension Request where T == SigfoxDevice {
 
         Sets or overwrites a group for the specified Sigfox device.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/setSigfoxDeviceGroup
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/setSigfoxDeviceGroup)
     */
     public class func setSigfoxDeviceGroup(
         group: Group, 

@@ -12,7 +12,7 @@ extension Request where T == DeviceObjectModel {
 
         Gets a device object model
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/DeviceObjectModel/getDeviceObjectModel
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/DeviceObjectModel/getDeviceObjectModel)
     */
     public class func getDeviceObjectModel(
         

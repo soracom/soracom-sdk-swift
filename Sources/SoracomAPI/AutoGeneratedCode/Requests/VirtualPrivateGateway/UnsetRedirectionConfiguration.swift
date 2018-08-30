@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Unset configuration for Junction redirection feature
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/unsetRedirectionConfiguration
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/unsetRedirectionConfiguration)
     */
     public class func unsetRedirectionConfiguration(
         

@@ -12,7 +12,7 @@ extension Request where T == [Device] {
 
         Returns a list of Devices
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Device/listDevices
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Device/listDevices)
     */
     public class func listDevices(
         

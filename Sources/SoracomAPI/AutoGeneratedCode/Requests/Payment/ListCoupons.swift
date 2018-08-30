@@ -12,7 +12,7 @@ extension Request where T == ListCouponResponse {
 
         Returns a list of currently registered coupons.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/listCoupons
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Payment/listCoupons)
     */
     public class func listCoupons(
         

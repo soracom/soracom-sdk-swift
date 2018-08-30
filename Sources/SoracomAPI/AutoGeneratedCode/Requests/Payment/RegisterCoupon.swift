@@ -12,7 +12,7 @@ extension Request where T == CouponResponse {
 
         Registers a coupon.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/registerCoupon
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Payment/registerCoupon)
     */
     public class func registerCoupon(
         

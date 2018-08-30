@@ -12,7 +12,7 @@ extension Request where T == CreateCouponResponse {
 
         The Coupon to create a new one.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Coupon/createSandboxCoupon
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Coupon/createSandboxCoupon)
     */
     public class func createSandboxCoupon(
         request: CreateCouponRequest, 

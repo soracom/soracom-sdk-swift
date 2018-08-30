@@ -12,7 +12,7 @@ extension Request where T == [VirtualPrivateGateway] {
 
         Returns a list of VPGs.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/listVirtualPrivateGateways
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/listVirtualPrivateGateways)
     */
     public class func listVirtualPrivateGateways(
         

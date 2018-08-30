@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Update email address of a SORACOM Lagoon user.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Lagoon/updateLagoonUserEmail
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Lagoon/updateLagoonUserEmail)
     */
     public class func updateLagoonUserEmail(
         request: LagoonUserEmailUpdatingRequest, 

@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Close SORACOM Gate on the specified VPG.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/closeGate
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/closeGate)
     */
     public class func closeGate(
         

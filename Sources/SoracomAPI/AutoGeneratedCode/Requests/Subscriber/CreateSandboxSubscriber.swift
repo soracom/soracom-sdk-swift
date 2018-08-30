@@ -12,7 +12,7 @@ extension Request where T == CreateSubscriberResponse {
 
         The Subscriber to create a new one.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/createSandboxSubscriber
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/createSandboxSubscriber)
     */
     public class func createSandboxSubscriber(
         

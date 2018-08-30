@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Open SORACOM Gate on the specified VPG.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/openGate
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/openGate)
     */
     public class func openGate(
         configurationParameters: OpenGateRequest, 

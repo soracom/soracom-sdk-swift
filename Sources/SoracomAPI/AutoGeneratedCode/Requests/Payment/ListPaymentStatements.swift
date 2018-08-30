@@ -12,7 +12,7 @@ extension Request where T == ListPaymentStatementResponse {
 
         List payment statements.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Payment/listPaymentStatements
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Payment/listPaymentStatements)
     */
     public class func listPaymentStatements(
         

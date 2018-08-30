@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes the specified event handler.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/EventHandler/deleteEventHandler
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/EventHandler/deleteEventHandler)
     */
     public class func deleteEventHandler(
         

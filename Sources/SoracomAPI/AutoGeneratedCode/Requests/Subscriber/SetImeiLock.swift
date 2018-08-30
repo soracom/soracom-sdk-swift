@@ -12,7 +12,7 @@ extension Request where T == Subscriber {
 
         Set IMEI that the subscriber should be locked to.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/setImeiLock
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/setImeiLock)
     */
     public class func setImeiLock(
         imeiLock: SetImeiLockRequest, 

@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes a role.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Role/deleteRole
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Role/deleteRole)
     */
     public class func deleteRole(
         

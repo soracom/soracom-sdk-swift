@@ -12,7 +12,7 @@ extension Request where T == Subscriber {
 
         Changes the speed class of the specified subscriber.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/updateSpeedClass
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/updateSpeedClass)
     */
     public class func updateSpeedClass(
         speedClass: UpdateSpeedClassRequest, 

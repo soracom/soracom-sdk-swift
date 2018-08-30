@@ -12,7 +12,7 @@ extension Request where T == EventHandlerModel {
 
         Creates a new event handler. Please see also https://dev.soracom.io/en/docs/event_handler/
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/EventHandler/createEventHandler
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/EventHandler/createEventHandler)
     */
     public class func createEventHandler(
         req: CreateEventHandlerRequest, 

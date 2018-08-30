@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes the user's password.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/User/deleteUserPassword
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/User/deleteUserPassword)
     */
     public class func deleteUserPassword(
         

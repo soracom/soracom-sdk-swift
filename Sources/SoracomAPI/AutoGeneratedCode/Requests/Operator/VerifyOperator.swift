@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Verifies the operator's registration. Called by setting as parameter the one-time verification token received via e-mail.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/verifyOperator
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/verifyOperator)
     */
     public class func verifyOperator(
         token: VerifyOperatorsRequest, 

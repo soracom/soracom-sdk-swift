@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Terminates the specified VPG.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/terminateVirtualPrivateGateway
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/terminateVirtualPrivateGateway)
     */
     public class func terminateVirtualPrivateGateway(
         

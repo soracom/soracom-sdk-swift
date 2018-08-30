@@ -12,7 +12,7 @@ extension Request where T == SigfoxDevice {
 
         Inserts/updates tags for the specified Sigfox device.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/putSigfoxDeviceTags
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/SigfoxDevice/putSigfoxDeviceTags)
     */
     public class func putSigfoxDeviceTags(
         tags: [TagUpdateRequest], 

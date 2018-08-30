@@ -12,7 +12,7 @@ extension Request where T == [AuthKeyResponse] {
 
         Returns the SAM user's AuthKey list.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/User/listUserAuthKeys
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/User/listUserAuthKeys)
     */
     public class func listUserAuthKeys(
         

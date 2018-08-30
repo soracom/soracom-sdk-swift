@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Terminate (deactivate) SORACOM Lagoon.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Lagoon/terminateLagoon
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Lagoon/terminateLagoon)
     */
     public class func terminateLagoon(
         

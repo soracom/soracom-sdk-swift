@@ -12,7 +12,7 @@ extension Request where T == AuthKeyResponse {
 
         Returns the SAM user's AuthKey.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/User/getUserAuthKey
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/User/getUserAuthKey)
     */
     public class func getUserAuthKey(
         

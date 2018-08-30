@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Updates the SAM user.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/User/updateUser
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/User/updateUser)
     */
     public class func updateUser(
         request: UpdateUserRequest, 

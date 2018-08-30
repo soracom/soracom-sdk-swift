@@ -12,7 +12,7 @@ extension Request where T == [UserDetailResponse] {
 
         Retrieves a list of users attached to a role.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Role/listRoleAttachedUsers
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Role/listRoleAttachedUsers)
     */
     public class func listRoleAttachedUsers(
         

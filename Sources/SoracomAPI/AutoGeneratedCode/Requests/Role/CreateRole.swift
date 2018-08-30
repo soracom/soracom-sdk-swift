@@ -12,7 +12,7 @@ extension Request where T == CreateRoleResponse {
 
         Adds a new role.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Role/createRole
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Role/createRole)
     */
     public class func createRole(
         request: CreateOrUpdateRoleRequest, 

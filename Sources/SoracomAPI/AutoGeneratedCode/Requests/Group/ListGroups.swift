@@ -12,7 +12,7 @@ extension Request where T == [Group] {
 
         Returns a list of groups.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Group/listGroups
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Group/listGroups)
     */
     public class func listGroups(
         

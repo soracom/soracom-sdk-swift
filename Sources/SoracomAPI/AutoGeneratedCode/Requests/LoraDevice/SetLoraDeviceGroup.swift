@@ -12,7 +12,7 @@ extension Request where T == LoraDevice {
 
         Sets or overwrites a group for the specified LoRa device.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraDevice/setLoraDeviceGroup
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraDevice/setLoraDeviceGroup)
     */
     public class func setLoraDeviceGroup(
         group: Group, 

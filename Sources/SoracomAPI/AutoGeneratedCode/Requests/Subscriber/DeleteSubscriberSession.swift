@@ -12,7 +12,7 @@ extension Request where T == Subscriber {
 
         Deletes session for the specified subscriber.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/deleteSubscriberSession
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/deleteSubscriberSession)
     */
     public class func deleteSubscriberSession(
         

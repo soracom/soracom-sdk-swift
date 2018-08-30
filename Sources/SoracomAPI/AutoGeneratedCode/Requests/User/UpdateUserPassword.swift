@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Updates the password of the SAM user.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/User/updateUserPassword
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/User/updateUserPassword)
     */
     public class func updateUserPassword(
         request: UpdatePasswordRequest, 

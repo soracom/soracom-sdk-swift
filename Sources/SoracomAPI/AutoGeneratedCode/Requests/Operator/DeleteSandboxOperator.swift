@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         To remove the Operator.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Operator/deleteSandboxOperator
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Operator/deleteSandboxOperator)
     */
     public class func deleteSandboxOperator(
         

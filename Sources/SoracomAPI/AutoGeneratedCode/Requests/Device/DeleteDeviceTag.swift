@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Delete device tag
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Device/deleteDeviceTag
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Device/deleteDeviceTag)
     */
     public class func deleteDeviceTag(
         

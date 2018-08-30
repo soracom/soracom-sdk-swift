@@ -12,7 +12,7 @@ extension Request where T == Subscriber {
 
         Updates expiry time of specified subscriber.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/setExpiryTime
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/setExpiryTime)
     */
     public class func setExpiryTime(
         request: ExpiryTime, 

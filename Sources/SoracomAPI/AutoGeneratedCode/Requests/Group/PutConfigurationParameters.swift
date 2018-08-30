@@ -12,7 +12,7 @@ extension Request where T == Group {
 
         Adds/updates parameters for the specified group.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Group/putConfigurationParameters
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Group/putConfigurationParameters)
     */
     public class func putConfigurationParameters(
         parameters: [GroupConfigurationUpdateRequest], 

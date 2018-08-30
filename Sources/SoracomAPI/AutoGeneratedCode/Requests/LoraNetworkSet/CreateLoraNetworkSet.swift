@@ -12,7 +12,7 @@ extension Request where T == LoraNetworkSet {
 
         Creates a specified LoRa network set
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/createLoraNetworkSet
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraNetworkSet/createLoraNetworkSet)
     */
     public class func createLoraNetworkSet(
         loraNetworkSet: LoraNetworkSet, 

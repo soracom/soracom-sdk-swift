@@ -12,7 +12,7 @@ extension Request where T == Subscriber {
 
         Set the specified subscriber to standby mode.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/setSubscriberToStandby
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/setSubscriberToStandby)
     */
     public class func setSubscriberToStandby(
         

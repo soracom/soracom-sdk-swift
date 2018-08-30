@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Deletes a device object model
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/DeviceObjectModel/deleteDeviceObjectModel
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/DeviceObjectModel/deleteDeviceObjectModel)
     */
     public class func deleteDeviceObjectModel(
         

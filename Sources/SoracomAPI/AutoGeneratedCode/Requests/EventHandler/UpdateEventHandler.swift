@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Updates the specified event handler. Please see also https://dev.soracom.io/en/docs/event_handler/
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/EventHandler/updateEventHandler
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/EventHandler/updateEventHandler)
     */
     public class func updateEventHandler(
         eventHandlerModel: UpdateEventHandlerRequest, 

@@ -12,7 +12,7 @@ extension Request where T == NoResponseBody {
 
         Unregister a gate peer from the Virtual Private Gateway
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/unregisterGatePeer
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/VirtualPrivateGateway/unregisterGatePeer)
     */
     public class func unregisterGatePeer(
         

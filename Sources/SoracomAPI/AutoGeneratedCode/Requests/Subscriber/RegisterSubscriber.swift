@@ -12,7 +12,7 @@ extension Request where T == Subscriber {
 
         Registers a subscriber.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Subscriber/registerSubscriber
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Subscriber/registerSubscriber)
     */
     public class func registerSubscriber(
         subscriber: RegisterSubscribersRequest, 

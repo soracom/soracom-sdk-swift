@@ -12,7 +12,7 @@ extension Request where T == MonthlyBill {
 
         Returns the billing history for the specified month (after applied discounts such as free tiers, etc., inclusive of tax). The amounts retrieved using this API correspond to the values before the invoice was finalized.
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/Billing/getBilling
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/Billing/getBilling)
     */
     public class func getBilling(
         

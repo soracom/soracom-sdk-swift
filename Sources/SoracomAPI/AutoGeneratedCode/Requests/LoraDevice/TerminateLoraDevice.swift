@@ -12,7 +12,7 @@ extension Request where T == LoraDevice {
 
         Terminates the specified LoRa device
 
-        Docs: https://dev.soracom.io/en/docs/api/#!/LoraDevice/terminateLoraDevice
+        [API Documentation](https://dev.soracom.io/en/docs/api/#!/LoraDevice/terminateLoraDevice)
     */
     public class func terminateLoraDevice(
         

@@ -4,7 +4,7 @@ import Foundation
 
 extension Data {
     
-    var utf8String: String? {
+    public var utf8String: String? {
         return String(data: self, encoding: .utf8)
     }
 }

@@ -24,7 +24,7 @@ class OrdersTests: BaseTestCase {
     
     func test_getPaymentInformation() {
         let info = Request.getPaymentMethod().wait().parse()
-        print(info)
+        print(info ?? "nope")
     }
     
     
@@ -40,7 +40,7 @@ class OrdersTests: BaseTestCase {
         XCTAssert(prodList.count > 0)
         
         let productCode = prodList[0].productCode
-        print(productCode)
+        print(productCode ?? "nope")
     }
     
     
@@ -56,7 +56,6 @@ class OrdersTests: BaseTestCase {
         
         let card = CreditCard.testCard
         
-        Request.getPaymentMethod()
         
         let regCardResult = Request.registerWebPayPaymentMethod(creditCard: card).wait().parse()
         XCTAssertNotNil(regCardResult)
@@ -129,9 +128,9 @@ class OrdersTests: BaseTestCase {
         let createOrderResponse = createOrderRequest.wait()
         let createOrderResult = createOrderResponse.parse()
         
-        print(createOrderResult)
+        print(createOrderResult ?? "nope")
         
-        let foo = Request.listProducts()
+        // let foo = Request.listProducts()
         
         // DELETE ADDRESS
         let deleteAddressResponse = Request.deleteShippingAddress(operatorId: operatorId, shippingAddressId: shippingAddressId).wait()

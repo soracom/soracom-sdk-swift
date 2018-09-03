@@ -12,6 +12,8 @@
 		93376BAE212E9CB200505603 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93376BAC212E9CB200505603 /* MainMenu.xib */; };
 		93376BBA212E9CB200505603 /* MacDemoAppForSoracomAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93376BB9212E9CB200505603 /* MacDemoAppForSoracomAPITests.swift */; };
 		93BD74F3212E9E6500E846C8 /* AppDelegate+DebugConveniences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BD74F2212E9E6500E846C8 /* AppDelegate+DebugConveniences.swift */; };
+		93EE616B213D169C004A9935 /* SoracomAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BD74EB212E9CFE00E846C8 /* SoracomAPI.framework */; };
+		93EE616C213D169C004A9935 /* SoracomAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93BD74EB212E9CFE00E846C8 /* SoracomAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +45,14 @@
 			remoteGlobalIDString = "SoracomAPI::SoracomAPITests::Product";
 			remoteInfo = SoracomAPITests;
 		};
-		93BD74F0212E9D2C00E846C8 /* PBXContainerItemProxy */ = {
+		93EE6168213D168F004A9935 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93BD74E2212E9CFE00E846C8 /* SoracomAPI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = "SoracomAPI::SoracomAPI";
+			remoteInfo = SoracomAPI;
+		};
+		93EE616D213D169C004A9935 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 93BD74E2212E9CFE00E846C8 /* SoracomAPI.xcodeproj */;
 			proxyType = 1;
@@ -51,6 +60,20 @@
 			remoteInfo = SoracomAPI;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		93EE616F213D169C004A9935 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				93EE616C213D169C004A9935 /* SoracomAPI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		93376BA5212E9CB100505603 /* MacDemoAppForSoracomAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacDemoAppForSoracomAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93EE616B213D169C004A9935 /* SoracomAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +115,7 @@
 				93376BB8212E9CB200505603 /* MacDemoAppForSoracomAPITests */,
 				93376BA6212E9CB100505603 /* Products */,
 				93BD74E2212E9CFE00E846C8 /* SoracomAPI.xcodeproj */,
+				93EE6160213D1679004A9935 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +160,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		93EE6160213D1679004A9935 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,11 +177,13 @@
 				93376BA1212E9CB100505603 /* Sources */,
 				93376BA2212E9CB100505603 /* Frameworks */,
 				93376BA3212E9CB100505603 /* Resources */,
+				93EE616F213D169C004A9935 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				93BD74F1212E9D2C00E846C8 /* PBXTargetDependency */,
+				93EE6169213D168F004A9935 /* PBXTargetDependency */,
+				93EE616E213D169C004A9935 /* PBXTargetDependency */,
 			);
 			name = MacDemoAppForSoracomAPI;
 			productName = MacDemoAppForSoracomAPI;
@@ -287,10 +321,15 @@
 			target = 93376BA4212E9CB100505603 /* MacDemoAppForSoracomAPI */;
 			targetProxy = 93376BB6212E9CB200505603 /* PBXContainerItemProxy */;
 		};
-		93BD74F1212E9D2C00E846C8 /* PBXTargetDependency */ = {
+		93EE6169213D168F004A9935 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SoracomAPI;
-			targetProxy = 93BD74F0212E9D2C00E846C8 /* PBXContainerItemProxy */;
+			targetProxy = 93EE6168213D168F004A9935 /* PBXContainerItemProxy */;
+		};
+		93EE616E213D169C004A9935 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SoracomAPI;
+			targetProxy = 93EE616D213D169C004A9935 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -424,6 +463,7 @@
 		93376BBF212E9CB200505603 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -442,6 +482,7 @@
 		93376BC0212E9CB200505603 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;

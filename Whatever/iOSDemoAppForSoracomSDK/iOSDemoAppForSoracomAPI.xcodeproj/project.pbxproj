@@ -465,6 +465,7 @@
 		93C12F212133EE3B0006FB74 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C12F062133EE3A0006FB74 /* ResponseTests.swift */; };
 		93C12F222133EE3B0006FB74 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C12F072133EE3A0006FB74 /* Fixtures.swift */; };
 		93C12F232133EE3B0006FB74 /* SubscriberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C12F082133EE3A0006FB74 /* SubscriberTests.swift */; };
+		93CE7DDE2138F167000C2BD3 /* CreditCard+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE7DDD2138F167000C2BD3 /* CreditCard+Extras.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -942,6 +943,7 @@
 		93C12F062133EE3A0006FB74 /* ResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
 		93C12F072133EE3A0006FB74 /* Fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
 		93C12F082133EE3A0006FB74 /* SubscriberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriberTests.swift; sourceTree = "<group>"; };
+		93CE7DDD2138F167000C2BD3 /* CreditCard+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CreditCard+Extras.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1677,6 +1679,7 @@
 		93C12D0F2133EE260006FB74 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				93CE7DDD2138F167000C2BD3 /* CreditCard+Extras.swift */,
 				93C12D102133EE260006FB74 /* BeamCounts+Extras.swift */,
 				93C12D112133EE260006FB74 /* CredentialsModel+Extras.swift */,
 				93C12D122133EE260006FB74 /* Subscriber+Extras.swift */,
@@ -2216,6 +2219,7 @@
 				93C12D602133EE260006FB74 /* SetDeviceObjectModelScopeRequest.swift in Sources */,
 				93C12E912133EE260006FB74 /* ListEventHandlers.swift in Sources */,
 				93C12DD02133EE260006FB74 /* JunctionMirroringConfiguration.swift in Sources */,
+				93CE7DDE2138F167000C2BD3 /* CreditCard+Extras.swift in Sources */,
 				93C12D702133EE260006FB74 /* GetOperatorResponse.swift in Sources */,
 				93C12DF02133EE260006FB74 /* ListDataSourceResources.swift in Sources */,
 				93C12DBE2133EE260006FB74 /* Tag.swift in Sources */,

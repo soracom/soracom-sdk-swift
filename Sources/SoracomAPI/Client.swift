@@ -38,6 +38,8 @@ open class Client {
     
     open func log(_ str: String, attrs: TextStyle = .normal) {
         
+        sandboxUserAuthenticationStatus = str
+
         guard let logger = logger else {
             print(str)
             return
@@ -47,7 +49,14 @@ open class Client {
     
     
     /// Global status message used by iOS demo app.
-    open var sandboxUserAuthenticationStatus = "😑 Idle. Tap Start to begin."
+    
+    open var sandboxUserAuthenticationStatus = "😑 Idle. Tap Start to begin." {
+        
+        didSet(oldStatus) {
+            let nc = NotificationCenter.default
+            nc.post(name: Notifications.SandboxUserAuthenticationDidUpdate, object: nil)
+        }
+    }
     
     
     /// Global help message used by iOS demo app.
@@ -59,8 +68,12 @@ open class Client {
     
     open func cancelAllOperations(_ errorObj: Any? = nil) {
         self.queue.cancelAllOperations()
-        log("Because there was an error, all queued operations have been canceled.")
-        log("The error was: \(errorObj ?? "unknown error")")
+        let msg = """
+                  Because there was an error, all queued operations have been canceled.
+                  The error was: \(errorObj ?? "unknown error")
+                  """
+        log(msg)
+        sandboxUserAuthenticationStatus = msg
     }
     
     
@@ -96,7 +109,7 @@ open class Client {
                 updatedCredentials.token  = token
                 self.saveCredentials(updatedCredentials, user: .APISandboxUser)
                 
-                self.log("Authenticated successfully as the newly-created sandbox user, and stored the updated API key and token.")
+                self.log("🆗 Authenticated as: \(credentials.emailAddress)")
             }
             return reAuthRequest
         }
@@ -144,15 +157,15 @@ open class Client {
             nc.post(name: Notifications.SandboxUserAuthenticationDidUpdate, object: nil)
             
             if recreateOnFailure {
-                self.createSandboxUser()
+                self.cancelAllOperations("Authentication as the API Sandbox user failed, apparently because no sandbox user has been defined yet.")
+                self.createSandboxUser() // adds a series of requests to the queue
+                self.authenticateAsSandboxUser(false) // adds one auth request to the queue
             }
             
             return
         }
         
-        let authReq = Request.auth(credentials)
-        
-        authReq.run { (response) in
+        let authReq = Request.auth(credentials) { (response) in
             
             if let authResponse = response.parse(),
                let apiKey = authResponse.apiKey,
@@ -174,12 +187,17 @@ open class Client {
                 self.helpMessage = "(Valid SAM user credentials from the production environment are required.)"
 
                 if recreateOnFailure {
-                    self.createSandboxUser()
+                    self.cancelAllOperations("Authentication as the API Sandbox user failed. This might be due to the sandbox user having expired, though, so we will try to recreate.")
+                    self.createSandboxUser() // adds a series of requests to the queue
+                    self.authenticateAsSandboxUser(false) // adds one auth request to the queue
                 }
             }
             
             nc.post(name: Notifications.SandboxUserAuthenticationDidUpdate, object: nil)
         }
+        
+        let authOp = APIOperation(authReq)
+        queue.addOperation(authOp)
     }
     
     
@@ -298,16 +316,6 @@ open class Client {
             return
         }
         
-        guard queue.operationCount == 0 else {
-            print("Sorry, the queue has existing operations pending (see below). For clarity, this demo app only supports a single queue, and only accepts new operations when idle. Feel free to fork it and go wild, though!")
-            print("Here is what is currently in the queue: ")
-            
-            for op in queue.operations {
-                print("     \(op)")
-            }
-            return
-        }
-
         func makeValid(_ orig: String?, _ sub: String) -> String {
             guard let orig = orig else {
                 return sub
@@ -355,6 +363,10 @@ open class Client {
             if let error = response.error {
                 
                 self.cancelAllOperations(error)
+                
+                if (error.code == "SBX1002") {
+                    self.sandboxUserAuthenticationStatus = "An error occurred creating the API Sandbox user. Please double-check your production credentials in the settings. (SBX1002)"
+                }
                 
             } else {
                 

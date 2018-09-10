@@ -27,16 +27,19 @@ class SettingsViewController: UITableViewController {
     
     func saveSAMUserCredentials() {
         
-        // let oldCredentials = Credentials.credentialsForProductionSAMUser()
+        
         let authKeyID      = authKeyIDField.text ?? ""
         let authKeySecret  = authKeySecretField.text ?? ""
         let newCredentials = SoracomCredentials(type: .AuthKey,  authKeyID: authKeyID, authKeySecret: authKeySecret)
         
-        Client.sharedInstance.saveCredentials(newCredentials, user: .ProductionSAMUser)
+        let oldCredentials = Client.sharedInstance.credentialsForUser(.ProductionSAMUser)
+        if (oldCredentials != newCredentials) {
+            Client.sharedInstance.saveCredentials(SoracomCredentials(), user: .APISandboxUser) // nuke old ones
+            Client.sharedInstance.saveCredentials(newCredentials, user: .ProductionSAMUser)
+            Client.sharedInstance.createSandboxUser()
+        }
         
-        // FIXME: maybe don't crete new sandbox user unless ______?
-        
-        Client.sharedInstance.authenticateAsSandboxUser(true)
+        Client.sharedInstance.authenticateAsSandboxUser(false)
     }
     
     

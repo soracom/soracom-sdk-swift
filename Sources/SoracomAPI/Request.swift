@@ -120,14 +120,14 @@ open class BaseRequest {
     
     var endpointHost: String {
         get {
-            return _endpointHost ?? type(of: self).sandboxEndpointHost
+            return BaseRequest._endpointHost ?? type(of: self).sandboxEndpointHost
         }
         set {
-            _endpointHost = newValue
+            BaseRequest._endpointHost = newValue
         }
     }
     
-    fileprivate var _endpointHost: String? = nil
+    fileprivate static var _endpointHost: String? = nil
     
     
     /// The credentials object that is used to authorize the API request.

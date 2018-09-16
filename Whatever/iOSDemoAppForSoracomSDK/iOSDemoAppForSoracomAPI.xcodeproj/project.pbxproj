@@ -466,6 +466,8 @@
 		93C12F222133EE3B0006FB74 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C12F072133EE3A0006FB74 /* Fixtures.swift */; };
 		93C12F232133EE3B0006FB74 /* SubscriberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C12F082133EE3A0006FB74 /* SubscriberTests.swift */; };
 		93CE7DDE2138F167000C2BD3 /* CreditCard+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE7DDD2138F167000C2BD3 /* CreditCard+Extras.swift */; };
+		AA814B112148EE78008537E5 /* SubscribersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA814B102148EE78008537E5 /* SubscribersTableViewController.swift */; };
+		AABFA3F1214A58BD0005B0FC /* SubscriberDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABFA3F0214A58BD0005B0FC /* SubscriberDetailTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -944,6 +946,8 @@
 		93C12F072133EE3A0006FB74 /* Fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
 		93C12F082133EE3A0006FB74 /* SubscriberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriberTests.swift; sourceTree = "<group>"; };
 		93CE7DDD2138F167000C2BD3 /* CreditCard+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CreditCard+Extras.swift"; sourceTree = "<group>"; };
+		AA814B102148EE78008537E5 /* SubscribersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribersTableViewController.swift; sourceTree = "<group>"; };
+		AABFA3F0214A58BD0005B0FC /* SubscriberDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriberDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -994,7 +998,9 @@
 				932A5B981CE80CE4007D0B5C /* LaunchScreen.storyboard */,
 				932A5B931CE80CE4007D0B5C /* Main.storyboard */,
 				932A5BAF1CE8111A007D0B5C /* MainViewController.swift */,
+				AA814B102148EE78008537E5 /* SubscribersTableViewController.swift */,
 				932A5BB21CE81151007D0B5C /* SettingsViewController.swift */,
+				AABFA3F0214A58BD0005B0FC /* SubscriberDetailTableViewController.swift */,
 			);
 			path = iOSDemoAppForSoracomAPI;
 			sourceTree = "<group>";
@@ -1808,8 +1814,9 @@
 				TargetAttributes = {
 					932A5B8B1CE80CE4007D0B5C = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 6PWR9U8YY9;
+						DevelopmentTeam = 84WU9SDQ2B;
 						LastSwiftMigration = 0910;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 0;
@@ -1888,6 +1895,7 @@
 				93C12E3F2133EE260006FB74 /* GetDeviceObjectModel.swift in Sources */,
 				93C12DE02133EE260006FB74 /* ConfirmOrder.swift in Sources */,
 				93C12D802133EE260006FB74 /* LagoonUser.swift in Sources */,
+				AABFA3F1214A58BD0005B0FC /* SubscriberDetailTableViewController.swift in Sources */,
 				93C12E352133EE260006FB74 /* CreateSandboxCoupon.swift in Sources */,
 				93C12E2E2133EE260006FB74 /* DeleteUserPassword.swift in Sources */,
 				93C12E612133EE260006FB74 /* UnsetImeiLock.swift in Sources */,
@@ -1954,6 +1962,7 @@
 				93C12E8C2133EE260006FB74 /* EnableTerminationOnLoraGateway.swift in Sources */,
 				93C12E3D2133EE260006FB74 /* ListLoraNetworkSets.swift in Sources */,
 				93C12E692133EE260006FB74 /* PutSubscriberTags.swift in Sources */,
+				AA814B112148EE78008537E5 /* SubscribersTableViewController.swift in Sources */,
 				93C12E212133EE260006FB74 /* ActivatePaymentMethod.swift in Sources */,
 				93C12D872133EE260006FB74 /* EventHandlerModel.swift in Sources */,
 				93C12EB02133EE260006FB74 /* InitializeOperator.swift in Sources */,
@@ -2477,12 +2486,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iOSDemoAppForSoracomAPI/iOSDemoAppForSoracomAPI.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer: mason@soracom.jp (GZ4Y6T4G3U)";
-				DEVELOPMENT_TEAM = 6PWR9U8YY9;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 84WU9SDQ2B;
 				INFOPLIST_FILE = iOSDemoAppForSoracomAPI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.iOSDemoAppForSoracomAPI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christian.iOSDemoAppForSoracomAPI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -2492,12 +2503,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iOSDemoAppForSoracomAPI/iOSDemoAppForSoracomAPI.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer: mason@soracom.jp (GZ4Y6T4G3U)";
-				DEVELOPMENT_TEAM = 6PWR9U8YY9;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 84WU9SDQ2B;
 				INFOPLIST_FILE = iOSDemoAppForSoracomAPI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.iOSDemoAppForSoracomAPI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christian.iOSDemoAppForSoracomAPI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
 			};

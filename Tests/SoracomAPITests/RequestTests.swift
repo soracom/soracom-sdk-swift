@@ -91,6 +91,7 @@ class RequestTests: BaseTestCase {
         XCTAssertEqual(bar.buildURL().absoluteString, "https://yes.no/bar")
         
         // ensure domain is changed for all requests
+        BaseRequest.endpointHost = "yes.no"
         XCTAssertEqual(foo.buildURL().absoluteString, "https://yes.no/v1/foo")
     }
     

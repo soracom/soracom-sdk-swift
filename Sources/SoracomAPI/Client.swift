@@ -247,7 +247,7 @@ open class Client {
     
     /// Create a single dummy SIM in the sandbox environment.
     
-    open func createSandboxSIM() {
+    open func createSandboxSIM(completionHandler: ((Bool) -> ())? = nil )  {
         log("🚀 Will try to create a SIM (aka 'subscriber') in the API Sandbox, and register it...")
         
         log("This operation will attempt to create a SIM (aka \"subscriber\") in the API sandbox. This simulates a real SIM that has been purchased.")
@@ -263,13 +263,16 @@ open class Client {
                 let registerRequest = Request.registerSubscriber(imsi, registrationSecret: secret) { response in
                     if let _ = response.error {
                         self.log("🤮 An error occurred??! Yeah, an error occurred...")
+                        completionHandler?(false)
                     } else {
                         self.log("👍 The SIM was registered successfully.")
+                        completionHandler?(true)
                     }
                 }
                 self.queue.addOperation(APIOperation(registerRequest))
             } else {
                 self.log("Uh-oh: couldn't create SIM, but handling that error is beyond the scope of this demo app.")
+                completionHandler?(false)
             }
             
         }

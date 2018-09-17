@@ -1,0 +1,576 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93376BA9212E9CB100505603 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93376BA8212E9CB100505603 /* AppDelegate.swift */; };
+		93376BAB212E9CB200505603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93376BAA212E9CB200505603 /* Assets.xcassets */; };
+		93376BAE212E9CB200505603 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93376BAC212E9CB200505603 /* MainMenu.xib */; };
+		93376BBA212E9CB200505603 /* MacDemoAppForSoracomAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93376BB9212E9CB200505603 /* MacDemoAppForSoracomAPITests.swift */; };
+		93BD74F3212E9E6500E846C8 /* AppDelegate+DebugConveniences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BD74F2212E9E6500E846C8 /* AppDelegate+DebugConveniences.swift */; };
+		93EE616B213D169C004A9935 /* SoracomAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BD74EB212E9CFE00E846C8 /* SoracomAPI.framework */; };
+		93EE616C213D169C004A9935 /* SoracomAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93BD74EB212E9CFE00E846C8 /* SoracomAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		93376BB6212E9CB200505603 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93376B9D212E9CB100505603 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93376BA4212E9CB100505603;
+			remoteInfo = MacDemoAppForSoracomAPI;
+		};
+		93BD74EA212E9CFE00E846C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93BD74E2212E9CFE00E846C8 /* SoracomAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SoracomAPI::SoracomAPI::Product";
+			remoteInfo = SoracomAPI;
+		};
+		93BD74EC212E9CFE00E846C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93BD74E2212E9CFE00E846C8 /* SoracomAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SoracomAPI::SoracomAPIDemo::Product";
+			remoteInfo = SoracomAPIDemo;
+		};
+		93BD74EE212E9CFE00E846C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93BD74E2212E9CFE00E846C8 /* SoracomAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SoracomAPI::SoracomAPITests::Product";
+			remoteInfo = SoracomAPITests;
+		};
+		93EE6168213D168F004A9935 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93BD74E2212E9CFE00E846C8 /* SoracomAPI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = "SoracomAPI::SoracomAPI";
+			remoteInfo = SoracomAPI;
+		};
+		93EE616D213D169C004A9935 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93BD74E2212E9CFE00E846C8 /* SoracomAPI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = "SoracomAPI::SoracomAPI";
+			remoteInfo = SoracomAPI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		93EE616F213D169C004A9935 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				93EE616C213D169C004A9935 /* SoracomAPI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		93376BA5212E9CB100505603 /* MacDemoAppForSoracomAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacDemoAppForSoracomAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93376BA8212E9CB100505603 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		93376BAA212E9CB200505603 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		93376BAD212E9CB200505603 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		93376BAF212E9CB200505603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93376BB0212E9CB200505603 /* MacDemoAppForSoracomAPI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacDemoAppForSoracomAPI.entitlements; sourceTree = "<group>"; };
+		93376BB5212E9CB200505603 /* MacDemoAppForSoracomAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacDemoAppForSoracomAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93376BB9212E9CB200505603 /* MacDemoAppForSoracomAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacDemoAppForSoracomAPITests.swift; sourceTree = "<group>"; };
+		93376BBB212E9CB200505603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93BD74E2212E9CFE00E846C8 /* SoracomAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SoracomAPI.xcodeproj; path = ../../SoracomAPI.xcodeproj; sourceTree = "<group>"; };
+		93BD74F2212E9E6500E846C8 /* AppDelegate+DebugConveniences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+DebugConveniences.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93376BA2212E9CB100505603 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93EE616B213D169C004A9935 /* SoracomAPI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93376BB2212E9CB200505603 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		93376B9C212E9CB100505603 = {
+			isa = PBXGroup;
+			children = (
+				93376BA7212E9CB100505603 /* MacDemoAppForSoracomAPI */,
+				93376BB8212E9CB200505603 /* MacDemoAppForSoracomAPITests */,
+				93376BA6212E9CB100505603 /* Products */,
+				93BD74E2212E9CFE00E846C8 /* SoracomAPI.xcodeproj */,
+				93EE6160213D1679004A9935 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		93376BA6212E9CB100505603 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93376BA5212E9CB100505603 /* MacDemoAppForSoracomAPI.app */,
+				93376BB5212E9CB200505603 /* MacDemoAppForSoracomAPITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93376BA7212E9CB100505603 /* MacDemoAppForSoracomAPI */ = {
+			isa = PBXGroup;
+			children = (
+				93376BA8212E9CB100505603 /* AppDelegate.swift */,
+				93BD74F2212E9E6500E846C8 /* AppDelegate+DebugConveniences.swift */,
+				93376BAA212E9CB200505603 /* Assets.xcassets */,
+				93376BAF212E9CB200505603 /* Info.plist */,
+				93376BB0212E9CB200505603 /* MacDemoAppForSoracomAPI.entitlements */,
+				93376BAC212E9CB200505603 /* MainMenu.xib */,
+			);
+			path = MacDemoAppForSoracomAPI;
+			sourceTree = "<group>";
+		};
+		93376BB8212E9CB200505603 /* MacDemoAppForSoracomAPITests */ = {
+			isa = PBXGroup;
+			children = (
+				93376BB9212E9CB200505603 /* MacDemoAppForSoracomAPITests.swift */,
+				93376BBB212E9CB200505603 /* Info.plist */,
+			);
+			path = MacDemoAppForSoracomAPITests;
+			sourceTree = "<group>";
+		};
+		93BD74E3212E9CFE00E846C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93BD74EB212E9CFE00E846C8 /* SoracomAPI.framework */,
+				93BD74ED212E9CFE00E846C8 /* SoracomAPIDemo */,
+				93BD74EF212E9CFE00E846C8 /* SoracomAPITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93EE6160213D1679004A9935 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		93376BA4212E9CB100505603 /* MacDemoAppForSoracomAPI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93376BBE212E9CB200505603 /* Build configuration list for PBXNativeTarget "MacDemoAppForSoracomAPI" */;
+			buildPhases = (
+				93376BA1212E9CB100505603 /* Sources */,
+				93376BA2212E9CB100505603 /* Frameworks */,
+				93376BA3212E9CB100505603 /* Resources */,
+				93EE616F213D169C004A9935 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93EE6169213D168F004A9935 /* PBXTargetDependency */,
+				93EE616E213D169C004A9935 /* PBXTargetDependency */,
+			);
+			name = MacDemoAppForSoracomAPI;
+			productName = MacDemoAppForSoracomAPI;
+			productReference = 93376BA5212E9CB100505603 /* MacDemoAppForSoracomAPI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		93376BB4212E9CB200505603 /* MacDemoAppForSoracomAPITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93376BC1212E9CB200505603 /* Build configuration list for PBXNativeTarget "MacDemoAppForSoracomAPITests" */;
+			buildPhases = (
+				93376BB1212E9CB200505603 /* Sources */,
+				93376BB2212E9CB200505603 /* Frameworks */,
+				93376BB3212E9CB200505603 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93376BB7212E9CB200505603 /* PBXTargetDependency */,
+			);
+			name = MacDemoAppForSoracomAPITests;
+			productName = MacDemoAppForSoracomAPITests;
+			productReference = 93376BB5212E9CB200505603 /* MacDemoAppForSoracomAPITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93376B9D212E9CB100505603 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "SORACOM, INC.";
+				TargetAttributes = {
+					93376BA4212E9CB100505603 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					93376BB4212E9CB200505603 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 93376BA4212E9CB100505603;
+					};
+				};
+			};
+			buildConfigurationList = 93376BA0212E9CB100505603 /* Build configuration list for PBXProject "MacDemoAppForSoracomAPI" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 93376B9C212E9CB100505603;
+			productRefGroup = 93376BA6212E9CB100505603 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 93BD74E3212E9CFE00E846C8 /* Products */;
+					ProjectRef = 93BD74E2212E9CFE00E846C8 /* SoracomAPI.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				93376BA4212E9CB100505603 /* MacDemoAppForSoracomAPI */,
+				93376BB4212E9CB200505603 /* MacDemoAppForSoracomAPITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		93BD74EB212E9CFE00E846C8 /* SoracomAPI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SoracomAPI.framework;
+			remoteRef = 93BD74EA212E9CFE00E846C8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		93BD74ED212E9CFE00E846C8 /* SoracomAPIDemo */ = {
+			isa = PBXReferenceProxy;
+			fileType = text;
+			path = SoracomAPIDemo;
+			remoteRef = 93BD74EC212E9CFE00E846C8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		93BD74EF212E9CFE00E846C8 /* SoracomAPITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = file;
+			path = SoracomAPITests.xctest;
+			remoteRef = 93BD74EE212E9CFE00E846C8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93376BA3212E9CB100505603 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93376BAB212E9CB200505603 /* Assets.xcassets in Resources */,
+				93376BAE212E9CB200505603 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93376BB3212E9CB200505603 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93376BA1212E9CB100505603 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93BD74F3212E9E6500E846C8 /* AppDelegate+DebugConveniences.swift in Sources */,
+				93376BA9212E9CB100505603 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93376BB1212E9CB200505603 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93376BBA212E9CB200505603 /* MacDemoAppForSoracomAPITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		93376BB7212E9CB200505603 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93376BA4212E9CB100505603 /* MacDemoAppForSoracomAPI */;
+			targetProxy = 93376BB6212E9CB200505603 /* PBXContainerItemProxy */;
+		};
+		93EE6169213D168F004A9935 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SoracomAPI;
+			targetProxy = 93EE6168213D168F004A9935 /* PBXContainerItemProxy */;
+		};
+		93EE616E213D169C004A9935 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SoracomAPI;
+			targetProxy = 93EE616D213D169C004A9935 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		93376BAC212E9CB200505603 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93376BAD212E9CB200505603 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		93376BBC212E9CB200505603 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		93376BBD212E9CB200505603 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		93376BBF212E9CB200505603 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 6PWR9U8YY9;
+				INFOPLIST_FILE = MacDemoAppForSoracomAPI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomAPI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		93376BC0212E9CB200505603 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 6PWR9U8YY9;
+				INFOPLIST_FILE = MacDemoAppForSoracomAPI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomAPI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		93376BC2212E9CB200505603 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 6PWR9U8YY9;
+				INFOPLIST_FILE = MacDemoAppForSoracomAPITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomAPITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacDemoAppForSoracomAPI.app/Contents/MacOS/MacDemoAppForSoracomAPI";
+			};
+			name = Debug;
+		};
+		93376BC3212E9CB200505603 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 6PWR9U8YY9;
+				INFOPLIST_FILE = MacDemoAppForSoracomAPITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.soracom.MacDemoAppForSoracomAPITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacDemoAppForSoracomAPI.app/Contents/MacOS/MacDemoAppForSoracomAPI";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93376BA0212E9CB100505603 /* Build configuration list for PBXProject "MacDemoAppForSoracomAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93376BBC212E9CB200505603 /* Debug */,
+				93376BBD212E9CB200505603 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93376BBE212E9CB200505603 /* Build configuration list for PBXNativeTarget "MacDemoAppForSoracomAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93376BBF212E9CB200505603 /* Debug */,
+				93376BC0212E9CB200505603 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93376BC1212E9CB200505603 /* Build configuration list for PBXNativeTarget "MacDemoAppForSoracomAPITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93376BC2212E9CB200505603 /* Debug */,
+				93376BC3212E9CB200505603 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 93376B9D212E9CB100505603 /* Project object */;
+}

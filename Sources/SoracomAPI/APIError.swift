@@ -3,11 +3,11 @@
 import Foundation
 
 
-/// APIError represents an error returned by the API, or (in a few limited cases) an error that occurred while attempting to interact with the API. 
+/// APIError represents an error returned by the API, or (in a few limited cases) a locally-originating error that occurred while attempting to interact with the API.
 ///
 /// (Despite having *Error* in its name, it is a data structure, not an ErrorType or relative of NSError.)
 
-public struct APIError {
+open class APIError: Decodable {
     
     /// The error code. In most cases, this is an error code returned by the API server. However, if the error code begins with "CLI" then it is a client-side error, e.g. something that prevented even getting a response from the server (such as, 'network not available').
     
@@ -27,6 +27,7 @@ public struct APIError {
     /// Init an error the normal way, for an error condition returned by the API server.
     
     public init(code: String?, message: String?) {
+        
         self.code    = code ?? "UNK0001" // copy what Go SDK does
         self.message = message ?? "unknown error"
         // FIXME: Mason 2016-03-06: the Go SDK has one more field, messageArgs, which is used to compose the actual message string, but I haven't yet had time to make that work. (See: api_error.go)
@@ -47,24 +48,47 @@ public struct APIError {
     }
     
     
-    /// Init a new APIError from a Payload structure. Returns nil unless Payload exists and has `.code` and `.message` keys.
+    /// Init a new APIError from JSON data. Returns nil unless `data` exists and has `.code` and `.message` keys.
     
-    public init?(payload: Payload?) {
+    public static func from(jsonData: Data?) -> APIError? {
         
-        guard let payload = payload else {
+        guard let jsonData = jsonData else {
             return nil
         }
         
-        let code    = payload[.code] as? String
-        let message = payload[.message] as? String
+         var result: APIError? = nil
         
-        // FIXME: add messageArgs (see note above)
-        
-        if code != nil && message != nil {
-            self.init(code:code, message:message)
-        } else {
-            return nil;
+        do {
+            result = try JSONDecoder().decode(self, from: jsonData)
+        } catch let err {
+            Metrics.record(type: .decodeFailure, description: self, error: err, data: jsonData)
         }
+        return result
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        code = try container.decode(.code)
+        message = try container.decode(.message)
+        underlyingError = nil
+        // FIXME: add messageArgs (see note above)
     }
 
+    private enum CodingKeys: String, CodingKey {
+        case code
+        case message
+    }
+
+}
+
+
+// MARK: - CustomStringConvertible
+
+extension APIError: CustomStringConvertible {
+    
+    public var description: String {
+        return "\(type(of: self)): {code: \"\(code)\",  message: \"\(message)\"}"
+    }
+    
 }

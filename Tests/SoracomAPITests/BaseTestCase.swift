@@ -2,16 +2,12 @@
 
 import XCTest
 
-
-#if USE_TESTABLE_IMPORT_FOR_MAC_DEMO_APP
-    // Do nothing (it's magic). We unfortunately need 3 different import 
-    // modes: Xcode+macOS, Xcode+iOS, and non-Xcode ("swift test" CLI) 
-    // due to macOS and iOS not supporting SPM build/test...
-#elseif USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
-    @testable import iOSDemoAppForSoracomSDK
+#if USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
+    @testable import iOSDemoAppForSoracomAPI
 #else
-    @testable import SoracomAPI 
+    @testable import SoracomAPI
 #endif
+
 
 #if os(Linux)
     import Dispatch
@@ -22,7 +18,7 @@ var oneTimeTestSetupToken: Int  = 0
 
 /// A base class that implements some common conveniences/hacks for the project's tests. e.g. making async tests require less boilerplate.
 
-class BaseTestCase: XCTestCase {
+open class BaseTestCase: XCTestCase {
 
     private static var __once: () = {
         
@@ -35,6 +31,14 @@ class BaseTestCase: XCTestCase {
         //
         // (UNCOMMMENT ABOVE TO DEBUG ALL REQUESTS AND RESPONSES WHILE TESTS RUN)
         
+        #if os(Linux)
+            if Keychain.storageIdentifier == Keychain.missingStorageIdentifier {
+                
+                Keychain.storageIdentifier = "SoracomAPIDemo-38039529-030E-4B12-8D34-33E787BB2783"
+                
+                // Mason 2018-08-29: the reason we have to do this is that, unlike on macOS and iOS, on Linux the SDK tests are run in the context of some executable provided by the "swift test" command. So, our own CLI demo executable's main.swift (which also does this) is not executed, and so without this code the tests will not be able to read credentials from the correct context.
+            }
+        #endif
         Client.sharedInstance.doInitialHousekeeping()
           // This is done here to allow setting up credentials for tests to use to run tests against
           // the API Sandbox. See the implmentation for details. You can enter credentials using lldb.
@@ -119,7 +123,7 @@ class BaseTestCase: XCTestCase {
     /// 
     /// - run some one-time setup code that tries to log in to the API sandbox using those credentials, to fetch an expiring API Key and API Token, which is needed for most tests that exercise the API.
     
-    override func setUp() {
+    open override func setUp() {
         
         super.setUp()
         
@@ -130,69 +134,18 @@ class BaseTestCase: XCTestCase {
     
     // MARK: - Round-trip serialization testing conveniences
     
-    /// Encode`payload` as JSON, then initializes a new Payload instance with that JSON data. Asserts the newly-decoded payload emits identical JSON, failing otherwise. Returns the new decoded Payload instance. (This is a convenience for writing tests for model object serialization.)
-    
-    func roundTripSerializeDeserialize(_ payload: Payload, caller: StaticString = #function) -> Payload? {
+    func roundTripSerializeDeserialize<T: Codable>(_ obj: T, caller: StaticString = #function) -> T? {
         
-        guard let data = payload.toJSONData() else {
-            XCTFail("roundTripSerializeDeserialize: failed to encode: \(payload)")
+        guard let encoded = obj.toData() else {
+            XCTFail("roundTripSerializeDeserialize: failed to encode: \(obj)")
             return nil
         }
-        
-        guard let decodedPayload = try? Payload(data: data) else {
-            XCTFail("roundTripSerializeDeserialize: failed to decode: \(data.utf8String ?? "no JSON!")")
+        guard let decoded = T.from(encoded) else {
+            XCTFail("roundTripSerializeDeserialize: failed to decode: \(encoded.utf8String ?? "no JSON!")")
             return nil
         }
-        
-        // Mason 2016-08-02: If testing for binary identicality ever becomes an issue causing spurious failures, convert to isEquivalentJSON() like below.
-        XCTAssertEqual(data, decodedPayload?.toJSONData())
-        
-        return decodedPayload
-    }
-    
-    
-    /// Encodes `obj` as a Payload, converts that to JSON data, creates a new Payload by decoding that JSON data, instantiates a new object from that new payload, and returns it. (This is a convenience for writing tests for model object serialization.) Explicitly doesn't allow comparison of `Payload` objects which fail to encode (i.e. where `toJSONData()` returns `nil`).
-    
-    func roundTripSerializeDeserialize(_ obj: Codable) -> Codable? {
-        
-        let payload = obj.toPayload()
-        
-        guard let data = payload.toJSONData() else {
-            XCTFail()
-            return nil
-        }
-
-        guard let decodedPayload = try? Payload(data: data) else {
-            XCTFail()
-            return nil
-        }
-        
-        guard let decodedObject = type(of: obj).from(decodedPayload) else {
-            XCTFail()
-            return nil
-        }
-        
-        // XCTAssertEqual(decodedObject.toPayload().toJSONData(), data)
-        //
-        // I no longer do this because key order is not deterministic, or at least I
-        // don't know what determines that order, and this caused spurious failures.
-        // Instead:
-        
-        guard let data2 = decodedObject.toPayload().toJSONData() else {
-            XCTFail()
-            return nil
-        }
-        
-        guard let json  = String(data: data, encoding: .utf8),
-              let json2 = String(data: data2, encoding: .utf8)
-        else {
-            XCTFail()
-            return nil
-        }
-        
-        XCTAssertTrue(isEquivalentJSON(json, json2))
-        
-        return decodedObject
+        XCTAssertEqual(encoded, decoded.toData())
+        return decoded
     }
     
     
@@ -202,22 +155,31 @@ class BaseTestCase: XCTestCase {
     private var asyncSectionExpectation: [String: XCTestExpectation] = [:]
     
     
-    /// Creates a test expectation, the same as XCTestCase's `expectationWithDescription()` does. The difference is that it stores the expectation, so keeping the expectation object around in a variable in the test case isn't required. Normally, you end the async section (i.e., fulfill the expectation) by calling `self.endAsyncSection()` from within the async block. **Note:** This method used to return the expectation, so that you could capture it and fulfill it the normal XCTestCase way, if you for some reason want to avoid capturing self in the async block. But, ignoring return values became more annoying in Swift 3, so this was changed. Now it just stashes the newly-created expectation in `self.asyncSectionExpectation`, so if you really need it (not normally true) you have to get it from there.
-    
+    /**
+        Creates a test expectation, the same as XCTestCase's `expectationWithDescription()` does. The difference is that it stores the expectation, so keeping the expectation object around in a variable in the test case isn't required. Normally, you end the async section (i.e., fulfill the expectation) by calling `self.endAsyncSection()` from within the async block.
+     
+        **Note:** This method used to return the expectation, so that you could capture it and fulfill it the normal XCTestCase way, if you for some reason want to avoid capturing self in the async block. But, ignoring return values became more annoying in Swift 3, so this was changed. Now it just stashes the newly-created expectation in `self.asyncSectionExpectation`, so if you really need it (not normally true) you have to get it from there.
+     */
     func beginAsyncSection(_ description: String = #function) {
         let expectation = self.expectation(description: description)
         asyncSectionExpectation["\(description)"] = expectation
     }
-    
-    
+
+
+    /**
+        Ends an async section that was started with `beginAsyncSection()`. You must call this at the end of your test assertions (whether that is at the end of your test function, or when explicitly returning (e.g. `return XCTFail()`)), or else the `waitForAsyncSection()` method will never return.
+     */
     func endAsyncSection(_ description: String = #function) {
         guard let ex = asyncSectionExpectation["\(description)"] else {
             fatalError("Ooops! Your async tests seem fubared.")
         }
         ex.fulfill()
     }
-    
-    
+
+
+    /**
+        Waits for an async section to complete. This is most commonly used to allow a test to wait for the results of an asynchronous API call.
+     */
     func waitForAsyncSection(_ description: String = #function, timeout: TimeInterval = 60.0) {
         waitForExpectations(timeout: timeout) { error in
             if let error = error {
@@ -270,7 +232,7 @@ class BaseTestCase: XCTestCase {
     func withNewIMSI(_ handler: @escaping (_ imsi: String) -> ()) {
         Request.createSandboxSubscriber().run { (response) in
             XCTAssert(response.error == nil)
-            if let imsi = response.payload?[.imsi] as? String {
+            if let imsi = response.parse()?.imsi {
                 handler(imsi)
             } else {
                 XCTFail("withNewIMSI() could not get new IMSI")

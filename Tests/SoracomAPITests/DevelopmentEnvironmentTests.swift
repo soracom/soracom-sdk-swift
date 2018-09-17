@@ -3,14 +3,10 @@
 import Foundation
 import XCTest
 
-#if USE_TESTABLE_IMPORT_FOR_MAC_DEMO_APP
-    // Do nothing (it's magic). We unfortunately need 3 different import 
-    // modes: Xcode+macOS, Xcode+iOS, and non-Xcode ("swift test" CLI) 
-    // due to macOS and iOS not supporting SPM build/test...
-#elseif USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
-    @testable import iOSDemoAppForSoracomSDK
+#if USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
+    @testable import iOSDemoAppForSoracomAPI
 #else
-    @testable import SoracomAPI 
+    @testable import SoracomAPI
 #endif
 
 
@@ -82,28 +78,23 @@ class DevelopmentEnvironmentTests: XCTestCase {
         
         let response = authRequest.wait()
         
-        guard let authResponse = AuthResponse.from(response.payload) else {
+        guard let authResponse = response.parse() else {
             XCTFail("Hmm. Test precondition failed: unable to authenticate to get API key")
             return nil
         }
         
-        let apiKeyCredentials = SoracomCredentials(apiKey: authResponse.apiKey, token: authResponse.token);
-        return apiKeyCredentials
-    }
-    
-    
-    func test_flipImeiLock() {
-        
-        guard let endpointHost = endpointHost,
-              let credentials  = apiKeyCredentials
-        else {
-            return
+        guard let apiKey = authResponse.apiKey else {
+            XCTFail("Hmm. Test precondition failed: unable to get API key even though authentication seemed to work")
+            return nil
         }
         
-        _ = endpointHost
-        _ = credentials
+        guard let token = authResponse.token else {
+            XCTFail("Hmm. Test precondition failed: unable to get token even though authentication seemed to work")
+            return nil
+        }
         
-        // BODY OF TEST HERE...
+        let apiKeyCredentials = SoracomCredentials(apiKey: apiKey, token: token);
+        return apiKeyCredentials
     }
     
     
@@ -120,21 +111,6 @@ class DevelopmentEnvironmentTests: XCTestCase {
         
         // BODY OF TEST HERE...
         
-        let listReq = Request.listSubscribers()
-        listReq.endpointHost = endpointHost;
-        listReq.credentials = credentials;
-        let listRes = listReq.wait()
-        
-        print(listRes)
-        
-        let req1 = Request.addCoverageType(.global, operatorId: "OP0026966374")
-        
-        req1.endpointHost = endpointHost
-        req1.credentials = credentials
-        
-        let res1 = req1.wait()
-        
-        print(res1)
     }
     
 }
@@ -143,7 +119,6 @@ class DevelopmentEnvironmentTests: XCTestCase {
     extension DevelopmentEnvironmentTests {
         static var allTests : [(String, (DevelopmentEnvironmentTests) -> () throws -> Void)] {
             return [
-                ("test_flipImeiLock", test_flipImeiLock),
                 ("test_newApiFutzing", test_newApiFutzing),
             ]
         }

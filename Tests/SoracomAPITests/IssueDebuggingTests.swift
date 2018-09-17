@@ -2,14 +2,10 @@
 
 import XCTest
 
-#if USE_TESTABLE_IMPORT_FOR_MAC_DEMO_APP
-    // Do nothing (it's magic). We unfortunately need 3 different import 
-    // modes: Xcode+macOS, Xcode+iOS, and non-Xcode ("swift test" CLI) 
-    // due to macOS and iOS not supporting SPM build/test...
-#elseif USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
-    @testable import iOSDemoAppForSoracomSDK
+#if USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
+    @testable import iOSDemoAppForSoracomAPI
 #else
-    @testable import SoracomAPI 
+    @testable import SoracomAPI
 #endif
 
 /// These are not really tests of this SDK, they are test cases that use this SDK to help debug issues in various other projects that use the Soracom API. (But using this SDK for that purpose may result in improvements or bug fixes to it as well.)
@@ -20,12 +16,14 @@ class IssueDebuggingTests: BaseTestCase {
     
         // https://api-sandbox.soracom.io/v1/groups/c8726c12-75f2-47db-8ecb-ee35d6e9ee66/subscribers?status_filter=suspended&limit=10
         
-        let req = Request.listSubscribersInGroup("c8726c12-75f2-47db-8ecb-ee35d6e9ee66")
+        let req = Request.listSubscribersInGroup(groupId: "c8726c12-75f2-47db-8ecb-ee35d6e9ee66") // HOI
         
-        req.query = Request.makeQueryDictionary(statusFilter: [.inactive])
+        let qd = ["statusFilter": [SubscriberStatus.inactive]]
+        
+        req.query = BaseRequest.makeQueryDictionary(qd)
         let res = req.wait();
         
-        let subscribers = Subscriber.listFrom(res.payload)
+        let subscribers = res.parse()
         
         print(req)
         print(res)

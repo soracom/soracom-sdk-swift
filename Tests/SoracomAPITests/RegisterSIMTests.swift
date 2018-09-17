@@ -2,14 +2,10 @@
 
 import XCTest
 
-#if USE_TESTABLE_IMPORT_FOR_MAC_DEMO_APP
-    // Do nothing (it's magic). We unfortunately need 3 different import 
-    // modes: Xcode+macOS, Xcode+iOS, and non-Xcode ("swift test" CLI) 
-    // due to macOS and iOS not supporting SPM build/test...
-#elseif USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
-    @testable import iOSDemoAppForSoracomSDK
+#if USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
+    @testable import iOSDemoAppForSoracomAPI
 #else
-    @testable import SoracomAPI 
+    @testable import SoracomAPI
 #endif
 
 class RegisterSIMTests: BaseTestCase {
@@ -37,7 +33,7 @@ class RegisterSIMTests: BaseTestCase {
         registerSubscriber(subscriber.IMSI, registrationSecret: subscriber.registrationSecret)
           // Finally, register the SIM!
         
-        updateSpeedClass(subscriber.IMSI, speedClass: .s1_fast)
+        updateSpeedClass(subscriber.IMSI, speedClass: .s1Fast)
         
         let list = listSubscribers()
         
@@ -60,7 +56,7 @@ class RegisterSIMTests: BaseTestCase {
         req.run { (response) in
             
             print(response)
-            print(response.payload ?? "(response.payload == nil)")
+            print(response.parse() ?? "(response.parse() == nil)")
             
             // Payload looks like:
             // [
@@ -79,13 +75,13 @@ class RegisterSIMTests: BaseTestCase {
             //
             // For now we just grab the IMSI and registrationSecret.
             
-            guard let payload = response.payload else {
+            guard let payload = response.parse() else {
                 XCTFail("expected payload")
                 return
             }
             
-            IMSI = payload[.imsi] as? String ?? "BOGUS"
-            registrationSecret = payload[.registrationSecret] as? String ?? "BOGUS"
+            IMSI = payload.imsi ?? "BOGUS"
+            registrationSecret = payload.registrationSecret ?? "BOGUS"
             
             XCTAssert(response.error == nil)
             
@@ -107,7 +103,7 @@ class RegisterSIMTests: BaseTestCase {
         req.run { (response) in
             
             print(response)
-            print(response.payload ?? "(response.payload == nil)")
+            print(response.parse() ?? "(parse() == nil)")
             
             XCTAssert(response.error == nil)
             
@@ -121,7 +117,7 @@ class RegisterSIMTests: BaseTestCase {
     
     /// Update the speed class.
     
-    func updateSpeedClass(_ imsi: String, speedClass: SpeedClass) {
+    func updateSpeedClass(_ imsi: String, speedClass: UpdateSpeedClassRequest.SpeedClass) {
 
         _ = beginAsyncSection()
         
@@ -149,8 +145,8 @@ class RegisterSIMTests: BaseTestCase {
         
             XCTAssert(response.error == nil)
             
-            if let payload = response.payload, let list = Subscriber.listFrom(payload) {
-                result.append(contentsOf: list)
+            if let subscriberList = response.parse() {
+                result.append(contentsOf: subscriberList)
             } else {
                 XCTFail("could not get subscriber list")
             }
@@ -180,7 +176,7 @@ class RegisterSIMTests: BaseTestCase {
             
             XCTAssert(response.error == nil)
             
-            if let subscriber = Subscriber.from(response.payload) {
+            if let subscriber = response.parse() {
                 
                 XCTAssert(subscriber.imsi == imsi)
                 XCTAssert(subscriber.speedClass == SpeedClass.s1_fast.rawValue)

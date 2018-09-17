@@ -2,16 +2,12 @@
 
 import XCTest
 
-
-#if USE_TESTABLE_IMPORT_FOR_MAC_DEMO_APP
-    // Do nothing (it's magic). We unfortunately need 3 different import 
-    // modes: Xcode+macOS, Xcode+iOS, and non-Xcode ("swift test" CLI) 
-    // due to macOS and iOS not supporting SPM build/test...
-#elseif USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
-    @testable import iOSDemoAppForSoracomSDK
+#if USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
+    @testable import iOSDemoAppForSoracomAPI
 #else
-    @testable import SoracomAPI 
+    @testable import SoracomAPI
 #endif
+
 
 class APIOperationTests: BaseTestCase {
     
@@ -19,10 +15,9 @@ class APIOperationTests: BaseTestCase {
         return SoracomCredentials(type: .RootAccount, emailAddress: "bogus", password: "bogus")
     }
 
-    
+    // Simple assertion that APIOperation can run a request and that the completion handler gets executed.
+
     func test_basic() {
-        
-        // This just tests that APIOperation can run a request and that the completion handler gets executed.
         
         var testValue        = 0
         var error: APIError? = nil
@@ -46,15 +41,15 @@ class APIOperationTests: BaseTestCase {
         XCTAssert(error != nil)
     }
     
-    
+
+    /// Test that we can create an APIOperation that defers creating its Request until it is executed, so that it can depend on the result of an earlier operation.
+
     func test_deferred_operation() {
-        
-        // Test that we can create an APIOperation that defers creating its Request until it is executed, so that it can depend on the result of an earlier operation.
         
         beginAsyncSection()
 
         let COM0008 = "COM0008"
-          // Because req is bogus, COM0008 error should be returned ('not a well-formed email address'). We will use this.
+          // Because the first request is bogus, COM0008 error should be returned ('not a well-formed email address'). We will use this.
         
         var values: [String] = []
         
@@ -67,22 +62,25 @@ class APIOperationTests: BaseTestCase {
             let valFromFuture = values.last ?? "test bug"
             XCTAssertEqual(valFromFuture, COM0008)
             
+            // create fake creds that use the value from the first op as the email/password:
             let credentialsBasedOnPreviousOperation = SoracomCredentials(type: .RootAccount, emailAddress: valFromFuture, password: valFromFuture)
             
             return Request.auth(credentialsBasedOnPreviousOperation) { (response: Response) in
                 
+                
                 values.append("second operation did run")
                 
-                let payload = response.request.payload
+                let foo = response.request.credentials
+                print(foo)
                 
-                if let email    = payload?[.email] as? String,
-                   let password = payload?[.password] as? String
-                {
-                    XCTAssertEqual(email, COM0008)
-                    XCTAssertEqual(password, COM0008)
-                } else {
-                    XCTFail("Operation's request should have used value from previous request for email and password. (Instead: \(String(describing: payload))")
+                guard let rehydratedCredentials = AuthRequest.from(response.request.messageBody) else {
+                    XCTFail()
+                    self.endAsyncSection()
+                    return;
                 }
+                
+                XCTAssertEqual(rehydratedCredentials.email, COM0008)
+                XCTAssertEqual(rehydratedCredentials.password, COM0008)
                 self.endAsyncSection()
             }
 

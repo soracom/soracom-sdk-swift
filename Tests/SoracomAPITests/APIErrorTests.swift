@@ -2,46 +2,48 @@
 
 import XCTest
 
-#if USE_TESTABLE_IMPORT_FOR_MAC_DEMO_APP
-    // Do nothing (it's magic). We unfortunately need 3 different import
-    // modes: Xcode+macOS, Xcode+iOS, and non-Xcode ("swift test" CLI)
-    // due to macOS and iOS not supporting SPM build/test...
-#elseif USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
-    @testable import iOSDemoAppForSoracomSDK
+#if USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
+    @testable import iOSDemoAppForSoracomAPI
 #else
-    @testable import SoracomAPI 
+    @testable import SoracomAPI
 #endif
+
 
 class APIErrorTests: BaseTestCase {
     
     func test_APIError_existence() {
         
         let e = APIError(code: "WTF01234", message: "Hello, error!")
-        XCTAssertTrue(e.code.contains("WTF"))
+        XCTAssertEqual(e.code, "WTF01234")
     }
     
     
-    func test_APIError_init_with_payload() {
+    func test_APIError_init_from_data() {
         
-        let bad: Payload  = [.email: "no error code", .message: "a message"]
-        let good: Payload = [.code: "no error code", .message: "a message"]
+        let bad = ["email": "no error code", "message": "a message"].toData()
+        let good = ["code": "no error code", "message": "a message"].toData()
         
-        XCTAssertNil(APIError(payload: bad))
-        XCTAssertNil(APIError(payload: nil))
+        let e1 = APIError.from(jsonData: bad)
+        let e2 = APIError.from(jsonData: nil)
         
-        XCTAssertNotNil(APIError(payload:good))
+        let e3 = APIError.from(jsonData: good)
+        
+        XCTAssertNil( e1 )
+        XCTAssertNil( e2 )
+        
+        XCTAssertNotNil( e3)
     }
     
 }
+
 
 #if os(Linux)
     extension APIErrorTests {
         static var allTests : [(String, (APIErrorTests) -> () throws -> Void)] {
             return [
                 ("test_APIError_existence", test_APIError_existence),
-                ("test_APIError_init_with_payload", test_APIError_init_with_payload),
+                ("test_APIError_init_from_data", test_APIError_init_from_data),
             ]
         }
     }
 #endif 
-

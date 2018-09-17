@@ -2,19 +2,16 @@
 
 import XCTest
 
-#if USE_TESTABLE_IMPORT_FOR_MAC_DEMO_APP
-    // Do nothing (it's magic). We unfortunately need 3 different import 
-    // modes: Xcode+macOS, Xcode+iOS, and non-Xcode ("swift test" CLI) 
-    // due to macOS and iOS not supporting SPM build/test...
-#elseif USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
-    @testable import iOSDemoAppForSoracomSDK
+#if USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
+    @testable import iOSDemoAppForSoracomAPI
 #else
-    @testable import SoracomAPI 
+    @testable import SoracomAPI
 #endif
 
 #if os(Linux)
     import Dispatch
 #endif
+
 
 class BaseTestCaseTests: BaseTestCase {
     
@@ -39,6 +36,7 @@ class BaseTestCaseTests: BaseTestCase {
     }
     
 }
+
 
 extension BaseTestCaseTests {
     

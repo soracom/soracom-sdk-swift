@@ -43,7 +43,7 @@ open class RequestResponseFormatter {
     
     /// Format a Request instance in human-readable form.
     
-    open func formatRequest(_ request: Request) -> String {
+    open func formatRequest(_ request: BaseRequest) -> String {
         
         let typeName = type(of: request)
         
@@ -68,9 +68,9 @@ open class RequestResponseFormatter {
         }
         result += "}"
         
-        let pretty = prettifyJSON(request.payload?.toJSON())
+        let pretty = prettifyJSON(request.messageBody?.utf8String)
         
-        result += "\n  HTTP body (payload): \(pretty)"
+        result += "\n  HTTP message body: \(pretty)"
         
         result += "\n}"
         
@@ -81,12 +81,12 @@ open class RequestResponseFormatter {
     
     /// Format a Response instance in human-readable form.
     
-    open func formatResponse(_ response: Response) -> String {
+    open func formatResponse(_ response: BaseResponse) -> String {
         let typeName = type(of: response)
         
         var result = ""
         
-        result += "\(typeName) \(response.request.requestId) {\n"
+        result += "\(typeName) \(response.baseRequest.requestId) {\n"
         
         if let status = response.HTTPStatus {
             result += "  HTTP status:  \(status)\n"
@@ -110,7 +110,7 @@ open class RequestResponseFormatter {
         }
         
         let pretty = prettifyJSON(response.text)
-        result += "  HTTP body (payload): \(pretty)\n"
+        result += "  HTTP message body: \(pretty)\n"
         
         result += "}"
         

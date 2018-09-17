@@ -9,25 +9,24 @@ open class CLIDemo {
     
     
     /**
-     By default this CLI demo prints all requests and responses, but we can use this flag to turn that off when it would be confusing (e.g., automatic credentials validation).
+        By default this CLI demo prints all requests and responses, but we can use this flag to turn that off when it would be confusing (e.g., during automatic credentials validation).
      */
     var printRequestResponseTraffic = true;
-    
+
+
     /**
-     Runs the demo tool, which will interactively show the user a few features of this SDK.
+        Runs the demo tool, which will interactively show the user a few features of this SDK.
      */
     open func run() {
         
-
-        
-        Request.beforeRun { (request) in
+        BaseRequest.beforeRun { (request) in
             
             if (self.printRequestResponseTraffic) {
                 print("\n\n\(request)");
             }
         }
         
-        Request.afterRun { (response) in
+        BaseRequest.afterRun { (response) in
             if (self.printRequestResponseTraffic) {
                 print("\n\n\(response)");
             }
@@ -47,14 +46,13 @@ open class CLIDemo {
     // MARK: - User actions that call the API
     
     /**
-      When this action is initiated by the user, the demo program registers a payment method (credit card) in the API Sandbox environment. (This is not a real credit card. It is a dummy card, that just allows the sandbox user to perform various operations in the sandbox which require a payment method to be registered. This also re-authenticates upon success, and saves the resulting API token in the stored sandbox user credentials.
+        When this action is initiated by the user, the demo program registers a payment method (credit card) in the API Sandbox environment. (This is not a real credit card. It is a dummy card, that just allows the sandbox user to perform various operations in the sandbox which require a payment method to be registered. This also re-authenticates upon success, and saves the resulting API token in the stored sandbox user credentials.
      */
     open func registerPaymentMethod() {
         
-        let paymentMethodInfo = PaymentMethodInfoWebPay(cvc: "123", expireMonth: 12, expireYear: 2020, name: "SORAO TAMAGAWA", number: "4242424242424242")
-          // This fake credit card info comes from the API Sandbox docs.
+        let card = CreditCard.testCard
         
-        let registerResponse     = Request.registerWebPayPaymentMethod(paymentMethodInfo).wait()
+        let registerResponse     = Request.registerWebPayPaymentMethod(creditCard: card).wait()
         let authenticateResponse = Request.auth().wait()
           // We need to authenticate again after adding a payment method. We don't need to specify the credentials because this app only uses the single default stored set of credentials.
         
@@ -81,13 +79,14 @@ open class CLIDemo {
      */
     open func registerNewSIM() {
         
-        let createDummySIMResponse = Request.createSandboxSubscriber().wait()
+        let createReq = Request.createSandboxSubscriber()
+        let createDummySIMResponse = createReq.wait().parse()
         
-        guard let payload = createDummySIMResponse.payload,
-              let imsi    = payload[.imsi] as? String,
-              let secret  = payload[.registrationSecret] as? String
+        guard let response = createDummySIMResponse,
+              let imsi     = response.imsi,
+              let secret   = response.registrationSecret
         else {
-            exit("unable to create dummy SIM in API Sandbox environment:\n \(createDummySIMResponse)")
+            exit("unable to create dummy SIM in API Sandbox environment:\n \(createReq)")
         }
         
         let registerResponse = Request.registerSubscriber(imsi, registrationSecret: secret).wait()
@@ -121,7 +120,7 @@ open class CLIDemo {
             showMainMenu(error)
         } else {
             
-            guard let subscriberList = Subscriber.listFrom(response.payload) else {
+            guard let subscriberList = response.parse() else {
                 exit("failed to parse subscriber list")
             }
             
@@ -203,7 +202,7 @@ open class CLIDemo {
         verifyOperator(tokenCredentials)
         
         let sandboxCredentials = SoracomCredentials(type: .RootAccount, emailAddress: email, password: password)
-
+        
         log("""
             👍   Finished creating a user in the API Sandbox environment.
                  Sandbox user credentials have been saved for future use.
@@ -234,9 +233,9 @@ open class CLIDemo {
         
         let authResponse = Request.auth(credentials).wait()
         
-        if let payload = authResponse.payload,
-            let apiKey  = payload[.apiKey] as? String,
-            let token   = payload[.token] as? String
+        if let decoded  = authResponse.parse(),
+            let apiKey  = decoded.apiKey,
+            let token   = decoded.token
         {
             credentials.apiKey = apiKey
             credentials.token  = token
@@ -261,6 +260,9 @@ open class CLIDemo {
         let saveResult = credentials.save();
           // Since this demo program only stores a single set of credentials (those of the demo user in the sandbox environment), we don't have to worry about the save identifier and namespace used for saving, like we might in an app that manages multiple API users.
         
+        Client.sharedInstance.saveCredentials(credentials, user: .APISandboxUser)
+            // This saves them in the place the automated tests expect; we do this so that if tests aren't working because credentials are wrong/expired, they can easily be recreated by running the demo app.
+
         if (!saveResult) {
             exit("Saving credentials failed unexpectedly.")
         }
@@ -314,7 +316,7 @@ open class CLIDemo {
                 link via email) in API Sandbox environment succeeded.
                 """)
             
-            guard let token = signupResponse.payload?[.token] as? String else {
+            guard let token = signupResponse.parse()?.token else {
                 exit("Expected sign-up token was not found in the API response: \(signupResponse)")
             }
             return SoracomCredentials(token: token)

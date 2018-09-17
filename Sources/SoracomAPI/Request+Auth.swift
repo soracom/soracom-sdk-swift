@@ -2,85 +2,63 @@
 
 import Foundation
 
-extension Request {
+extension Request where T == AuthResponse {
     
-    /// Authenticate using one of the supported forms of credentials, and obtain an API Key and API Token for use when making subsequent requests. ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Auth/auth))
-    ///
-    /// - parameter credentials: A credentials object that can (optionally) override the default credentials. Unlike most
-    ///   API requests, which send the API Key and API Token in HTTP headers to authenticate, the `auth()` method requires
-    ///   authenticating with `.RootAccount`, `.SAM`, or `.AuthKey` credentials.
-    ///
-    ///   If no credentials are supplied, the "default" credentials, if they exist, are used. If no credentials are supplied
-    ///   and none can be found, the request will fail.
-    ///
-    /// Upon success, the Response will have a payload that can be used to initialize an AuthResponse struct, that contains the API Key and API Token.
-    
-    public class func auth(_ credentials: SoracomCredentials? = nil, responseHandler: ResponseHandler? = nil) -> Request {
+    /**
+     Authenticate using one of the supported forms of credentials, and obtain an API Key and API Token for use when making subsequent requests. ([API documentation](https://dev.soracom.io/jp/docs/api/#!/Auth/auth))
+     
+     - parameter credentials: A credentials object that can (optionally) override the default credentials. Unlike most API requests, which send the API Key and API Token in HTTP headers to authenticate, the `auth()` method requires authenticating with `.RootAccount`, `.SAM`, or `.AuthKey` credentials.
+     
+     If no credentials are supplied, the "default" credentials, if they exist, are used. If no credentials are supplied and none can be found, the request will fail.
+     
+     Upon success, the response will contain an AuthResponse struct, with the API Key and API Token.
+     */
+    public class func auth(_ credentials: SoracomCredentials? = nil, responseHandler: ResponseHandler<AuthResponse>? = nil) -> Request<AuthResponse> {
         
-        let req = self.init("/auth", responseHandler: responseHandler)
+        let req = Request<AuthResponse>.init("/auth", responseHandler: responseHandler)
         let timeout = 86400
         
         req.credentials = credentials ?? SoracomCredentials.defaultSavedCredentials()
         
-        if req.credentials.type == .RootAccount {
-            
-            req.payload = [
-                .email               : req.credentials.emailAddress,
-                .password            : req.credentials.password,
-                .tokenTimeoutSeconds : timeout
-            ]
-            
-        } else if req.credentials.type == .SAM {
-            
-            req.payload = [
-                .operatorId          : req.credentials.operatorID,
-                .userName            : req.credentials.username,
-                .password            : req.credentials.password,
-                .tokenTimeoutSeconds : timeout
-            ]
-            
-        } else if req.credentials.type == .AuthKey {
-            
-            req.payload = [
-                .authKey             : req.credentials.authKeySecret,
-                .authKeyId           : req.credentials.authKeyID,
-                .tokenTimeoutSeconds : timeout
-            ]
-            
-        } else {
-            
+        guard let requestObject = AuthRequest(from: req.credentials) else {
             fatalError("unsupported auth type other than RootAccount, SAM, or AuthKey. ")
-            // FIXME: fatalError is a little extreme bro... just make the request error. 
+            // FIXME: fatalError is a little extreme bro... just make the request error.
         }
         
-        req.shouldSendAPIKeyAndTokenInHTTPHeaders = false // is auth() the only false case?
+        requestObject.tokenTimeoutSeconds = timeout
         
-        return req
+        return auth(auth: requestObject, responseHandler: responseHandler)
     }
     
+}
+
+
+extension Request where T == NoResponseBody {
     
-    /// Issue a one-time operator password reset token (sent via email). [API docs](https://dev.soracom.io/jp/docs/api/#!/Auth/issuePasswordResetToken)
-    
-    public class func issuePasswordResetToken(_ email: String, responseHandler: ResponseHandler? = nil) -> Request {
+    /**
+     Issues a password reset token for the operatosr.
+     
+     Generates a password reset token and send it to the operator's mail address. After receiving the password reset token, call /v1/auth/password_reset_token/verify API with the token to update operator's password.
+     
+     Docs: https://dev.soracom.io/en/docs/api/#!/Auth/issuePasswordResetToken
+     */
+    public class func issuePasswordResetToken(
+        email: String,
+        responseHandler: ResponseHandler<NoResponseBody>? = nil
+    ) -> Request<NoResponseBody> {
         
-        let req = self.init("/auth/password_reset_token/issue", responseHandler: responseHandler)
-        req.payload = [
-            .email: email
-        ]
-        return req
+        let requestObject = IssuePasswordResetTokenRequest(email: email)
+        return issuePasswordResetToken(email: requestObject, responseHandler: responseHandler)
     }
+
     
     
-    /// Verify an operator password reset token. [API docs](https://dev.soracom.io/jp/docs/api/#!/Auth/verifyPasswordResetToken)
-    
-    public class func verifyPasswordResetToken(_ password: String, token: String, responseHandler: ResponseHandler? = nil) -> Request {
+    public class func verifyPasswordResetToken(_ password: String, token: String, responseHandler: ResponseHandler<NoResponseBody>? = nil) -> Request<NoResponseBody> {
         
-        let req = self.init("/auth/password_reset_token/verify", responseHandler: responseHandler)
-        req.payload = [
-            .password : password,
-            .token    : token,
-        ]
-        return req
+        return verifyPasswordResetToken(
+            request: VerifyPasswordResetTokenRequest(password: password, token: token),
+            responseHandler: responseHandler
+        )
     }
 
 }

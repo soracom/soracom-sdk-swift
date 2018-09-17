@@ -2,14 +2,10 @@
 
 import XCTest
 
-#if USE_TESTABLE_IMPORT_FOR_MAC_DEMO_APP
-    // Do nothing (it's magic). We unfortunately need 3 different import 
-    // modes: Xcode+macOS, Xcode+iOS, and non-Xcode ("swift test" CLI) 
-    // due to macOS and iOS not supporting SPM build/test...
-#elseif USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
-    @testable import iOSDemoAppForSoracomSDK
+#if USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
+    @testable import iOSDemoAppForSoracomAPI
 #else
-    @testable import SoracomAPI 
+    @testable import SoracomAPI
 #endif
 
 class RequestAuthTests: BaseTestCase {
@@ -36,14 +32,12 @@ class RequestAuthTests: BaseTestCase {
             print("AUTH: ", response)
             XCTAssert(response.error == nil)
             
-            if let payload = response.payload {
-                
-                let authResponse = AuthResponse.from(payload)
+            if let authResponse = response.parse() {
                 
                 XCTAssertNotNil(authResponse)
-                XCTAssertNotNil(authResponse?.operatorId)
-                XCTAssertNotNil(authResponse?.apiKey)
-                XCTAssertNotNil(authResponse?.token)
+                XCTAssertNotNil(authResponse.operatorId)
+                XCTAssertNotNil(authResponse.apiKey)
+                XCTAssertNotNil(authResponse.token)
                 
             } else {
                 XCTFail("auth() did not receive a payload")
@@ -66,7 +60,7 @@ class RequestAuthTests: BaseTestCase {
 
         beginAsyncSection()
         
-        Request.issuePasswordResetToken("fragnock@whut.com").run { (response) in
+        Request.issuePasswordResetToken(email: "fragnock@whut.com").run { (response) in
             
             // Mason 2016-06-29: Observed API behavior change: previously err was AUM0004 but as of today looks like it is now AUM0015. For this test, I will just allow both, for now.
             
@@ -95,7 +89,7 @@ class RequestAuthTests: BaseTestCase {
         
         beginAsyncSection()
 
-        let req = Request.issuePasswordResetToken("bob@example.com")
+        let req = Request.issuePasswordResetToken(email: "bob@example.com")
         
         req.responseHandler = { (response) in
             

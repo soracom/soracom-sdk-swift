@@ -2,14 +2,10 @@
 
 import XCTest
 
-#if USE_TESTABLE_IMPORT_FOR_MAC_DEMO_APP
-    // Do nothing (it's magic). We unfortunately need 3 different import 
-    // modes: Xcode+macOS, Xcode+iOS, and non-Xcode ("swift test" CLI) 
-    // due to macOS and iOS not supporting SPM build/test...
-#elseif USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
-    @testable import iOSDemoAppForSoracomSDK
+#if USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
+    @testable import iOSDemoAppForSoracomAPI
 #else
-    @testable import SoracomAPI 
+    @testable import SoracomAPI
 #endif
 
 class RequestSubscriberTests: BaseTestCase {
@@ -39,12 +35,59 @@ class RequestSubscriberTests: BaseTestCase {
         
         r.run { (response) in
             XCTAssertNil(response.error)
-            let list = Subscriber.listFrom(response.payload)
+            let list = response.parse()
             XCTAssertNotNil(list)
             self.endAsyncSection()
         }
         
         waitForAsyncSection()
+    }
+    
+    
+    func test_setImeiLock() {
+
+        let response = Request.listSubscribers().wait()
+        
+        guard let list = response.parse() else {
+            XCTFail("failed to parse subscribers")
+            return
+        }
+        
+        guard list.count > 0 else {
+            return XCTFail("wtf no SIMs found")
+        }
+            
+        let firstSIM = list[0]
+        
+        guard let imsi = firstSIM.imsi else {
+            XCTFail("wtf no imsi")
+            return
+        }
+        
+        print(firstSIM.toData()?.utf8String ?? "no firstSIM data")
+        let imei = "0123456789012345"
+        let setResponse = Request.setImeiLock(imsi: imsi, imei: imei).wait()
+        
+        XCTAssertNil(setResponse.error)
+        guard let lockedSIM = Subscriber.from(setResponse.data) else {
+            XCTFail("decode failed")
+            return
+        }
+        
+        guard let imeiLock = lockedSIM.imeiLock else {
+            XCTFail("SIM should have been IMEI locked")
+            return
+        }
+        
+        XCTAssertEqual(imeiLock.imei, imei)
+        
+        let unsetResponse = Request.unsetImeiLock(imsi: imsi).wait();
+        
+        guard let unlockedSIM = Subscriber.from(unsetResponse.data) else {
+            XCTFail("decode failed")
+            return
+        }
+        XCTAssertNil(unlockedSIM.imeiLock)
     }
     
 }
@@ -55,6 +98,7 @@ class RequestSubscriberTests: BaseTestCase {
             return [
                 ("test_listSubscribers_URL_generation", test_listSubscribers_URL_generation),
                 ("test_listSubscribers", test_listSubscribers),
+                ("test_setImeiLock", test_setImeiLock)
             ]
         }
     }

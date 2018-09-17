@@ -3,14 +3,10 @@
 
 import XCTest
 
-#if USE_TESTABLE_IMPORT_FOR_MAC_DEMO_APP
-    // Do nothing (it's magic). We unfortunately need 3 different import 
-    // modes: Xcode+macOS, Xcode+iOS, and non-Xcode ("swift test" CLI) 
-    // due to macOS and iOS not supporting SPM build/test...
-#elseif USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
-    @testable import iOSDemoAppForSoracomSDK
+#if USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
+    @testable import iOSDemoAppForSoracomAPI
 #else
-    @testable import SoracomAPI 
+    @testable import SoracomAPI
 #endif
 
 class RequestTests: BaseTestCase {
@@ -23,14 +19,14 @@ class RequestTests: BaseTestCase {
         super.setUp()
         SoracomCredentials.defaultStorageNamespace = Client.sharedInstance.storageNamespaceForJunkCredentials
         
-        originalCredentialsFinder = Request.credentialsFinder
-        Request.credentialsFinder = nil;
+        originalCredentialsFinder = BaseRequest.credentialsFinder
+        BaseRequest.credentialsFinder = nil;
     }
     
     override func tearDown() {
         super.tearDown()
         if (originalCredentialsFinder != nil) {
-            Request.credentialsFinder = originalCredentialsFinder;
+            BaseRequest.credentialsFinder = originalCredentialsFinder;
         }
     }
     
@@ -46,7 +42,7 @@ class RequestTests: BaseTestCase {
         _ = defaultCredentials.save()
         
         // An instance-level override should override how credentials are looked up for that instance only...
-        let instanceRequest     = Request("/foo")
+        let instanceRequest     = Request<NoResponseBody>("/foo")
         instanceRequest.credentialsFinder = { (req) in
             return instanceCredentials
         }
@@ -55,7 +51,7 @@ class RequestTests: BaseTestCase {
 
         // ... but not for subsequent Request instances.
         // With no overrides, the default credentials should be used:
-        let defaultRequest     = Request("foo")
+        let defaultRequest     = Request<NoResponseBody>("foo")
         let defaultURLRequest  = defaultRequest.buildURLRequest()
         let defaultHeaders     = defaultURLRequest.allHTTPHeaderFields
         
@@ -66,39 +62,43 @@ class RequestTests: BaseTestCase {
         XCTAssert(instanceHeaders?["X-Soracom-Token"] == instanceCredentials.token)
         
         // A global override should affect all Request instances:
-        Request.credentialsFinder = { (req) in
+        BaseRequest.credentialsFinder = { (req) in
             return globalCredentials
         }
-        let globalRequest     = Request("foo")
+        let globalRequest     = Request<NoResponseBody>("foo")
         let globalURLRequest  = globalRequest.buildURLRequest()
         let globalHeaders     = globalURLRequest.allHTTPHeaderFields
         
         XCTAssert(globalHeaders?["X-Soracom-API-Key"] == globalCredentials.apiKey)
         XCTAssert(globalHeaders?["X-Soracom-Token"] == globalCredentials.token)
         
-        Request.credentialsFinder = nil // good test manners :)
+        BaseRequest.credentialsFinder = nil // good test manners :)
     }
     
     
     func test_buildURL_and_endpointHost() {
         
-        let foo = Request("/foo")
+        let foo = Request<NoResponseBody>("/foo")
         
         XCTAssertEqual(foo.buildURL().absoluteString, "https://api-sandbox.soracom.io/v1/foo")
         
-        let bar              = Request("/bar")
+        let bar              = Request<NoResponseBody>("/bar")
         bar.endpointHost     = "stink.pot"
         bar.apiVersionString = ""
         XCTAssertEqual(bar.buildURL().absoluteString, "https://stink.pot/bar")
         
         bar.endpointHost     = "yes.no"
         XCTAssertEqual(bar.buildURL().absoluteString, "https://yes.no/bar")
+        
+        // ensure domain is changed for all requests
+        BaseRequest.endpointHost = "yes.no"
+        XCTAssertEqual(foo.buildURL().absoluteString, "https://yes.no/v1/foo")
     }
     
     
     func test_error_on_real_world_404() {
         
-        let foo              = Request("/you-aint-no-valid-url-bruv")
+        let foo              = Request<NoResponseBody>("/you-aint-no-valid-url-bruv")
         foo.apiVersionString = ""
         foo.endpointHost     = "www.soracom.jp"
         foo.method           = .get
@@ -123,7 +123,7 @@ class RequestTests: BaseTestCase {
         let defaultCredentials = SoracomCredentials(type: .KeyAndToken, emailAddress: "default@foo.bar")
         _ = defaultCredentials.save()
 
-        let req = Request("fake")
+        let req = Request<NoResponseBody>("fake")
         
         XCTAssertEqual(req.credentials, defaultCredentials)
         
@@ -143,15 +143,15 @@ class RequestTests: BaseTestCase {
         
         var accumulator: [String] = []
         
-        Request.beforeRun { (request) in
+        BaseRequest.beforeRun { (request) in
             accumulator.append("beforeRun")
         }
         
-        Request.afterRun { (request) in
+        BaseRequest.afterRun { (request) in
             accumulator.append("afterRun")
         }
         
-        let req = Request("fake")
+        let req = Request<NoResponseBody>("fake")
 
         beginAsyncSection()
         req.run { (response) in
@@ -173,12 +173,12 @@ class RequestTests: BaseTestCase {
 
         var values: [String] = []
         
-        let req1 = Request("fake") { (response) in
+        let req1 = Request<NoResponseBody>("fake") { (response) in
             values.append("req1 initial instance responseHandler ran")
             expectation1.fulfill()
         }
         
-        let req2 = Request("fake") { (response) in
+        let req2 = Request<NoResponseBody>("fake") { (response) in
             values.append("req2 initial instance responseHandler ran")
             expectation2.fulfill()
         }
@@ -187,7 +187,7 @@ class RequestTests: BaseTestCase {
             expectation2.fulfill()
         }
         
-        let req3 = Request("fake") { (response) in
+        let req3 = Request<NoResponseBody>("fake") { (response) in
             values.append("req3 instance responseHandler ran")
         }
         

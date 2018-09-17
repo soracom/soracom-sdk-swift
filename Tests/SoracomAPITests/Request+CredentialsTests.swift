@@ -2,14 +2,10 @@
 
 import XCTest
 
-#if USE_TESTABLE_IMPORT_FOR_MAC_DEMO_APP
-    // Do nothing (it's magic). We unfortunately need 3 different import 
-    // modes: Xcode+macOS, Xcode+iOS, and non-Xcode ("swift test" CLI) 
-    // due to macOS and iOS not supporting SPM build/test...
-#elseif USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
-    @testable import iOSDemoAppForSoracomSDK
+#if USE_TESTABLE_IMPORT_FOR_IOS_DEMO_APP
+    @testable import iOSDemoAppForSoracomAPI
 #else
-    @testable import SoracomAPI 
+    @testable import SoracomAPI
 #endif
 
 class RequestCredentialsTests: BaseTestCase {
@@ -40,21 +36,22 @@ class RequestCredentialsTests: BaseTestCase {
     func test_CRUD_credentials() {
         
         let junk    = UUID().uuidString
-        let creds   = Credentials(accessKeyId: "foo", secretAccessKey: "bar")
-        var options = CredentialOptions(type: "aws-credentials", description: "test_CRUD_credentials", credentials: creds)
+        let creds   = ["accessKeyId": "foo", "secretAccessKey": "bar"]
+        let options = CreateAndUpdateCredentialsModel(credentials: creds, description: "test_CRUD_credentials", type: .awsCredentials)
         
         // CREATE:
-        let createRequest  = Request.createCredential(id: junk, options: options)
+        let createRequest  = Request.createCredential(credentials: options, credentialsId: junk)
         let createResponse = createRequest.wait()
         
         XCTAssertNil(createResponse.error)
         
-        let created = Credential.from(createResponse.payload)
-        
+        //        let created = CredentialsModel.from(createResponse.payload)
+        let created = createResponse.parse()
+
         XCTAssertNotNil(created)
         XCTAssertNotNil(created?.credentials)
         XCTAssertEqual("test_CRUD_credentials", created?.description)
-        XCTAssertEqual("foo", created?.credentials?.accessKeyId)
+        XCTAssertEqual("foo", created?.credentials?["accessKeyId"] as? String)
         XCTAssertEqual(junk, created?.credentialsId)
         
         XCTAssertNotNil(findCredential(junk))
@@ -62,7 +59,7 @@ class RequestCredentialsTests: BaseTestCase {
         options.description = "updated description"
         
         // UPDATE:
-        let updateRequest  = Request.updateCredential(id: junk, options: options)
+        let updateRequest  = Request.updateCredential(credentials: options, credentialsId: junk)
         let updateResponse = updateRequest.wait()
         
         XCTAssertNil(updateResponse.error)
@@ -71,7 +68,7 @@ class RequestCredentialsTests: BaseTestCase {
         XCTAssertEqual("updated description", updated?.description)
         
         // DELETE:
-        let deleteRequest  = Request.deleteCredential(id: junk)
+        let deleteRequest  = Request.deleteCredential(credentialsId: junk)
         let deleteResponse = deleteRequest.wait()
         
         XCTAssertNil(deleteResponse.error)
@@ -79,12 +76,12 @@ class RequestCredentialsTests: BaseTestCase {
     }
     
     
-    func listCredentials() -> [Credential]? {
+    func listCredentials() -> [CredentialsModel]? {
         
         let listRequest  = Request.listCredentials()
         let listResponse = listRequest.wait()
         
-        guard let credList = Credential.listFrom(listResponse.payload) else {
+        guard let credList = listResponse.parse() else {
             XCTFail()
             return nil
         }
@@ -93,14 +90,14 @@ class RequestCredentialsTests: BaseTestCase {
     }
     
     
-    func findCredential(_ id: String) -> Credential? {
+    func findCredential(_ id: String) -> CredentialsModel? {
         
         guard let list = listCredentials() else {
             XCTFail()
             return nil
         }
         
-        var found: Credential? = nil
+        var found: CredentialsModel? = nil
         
         for cred in list {
             if cred.credentialsId == id {

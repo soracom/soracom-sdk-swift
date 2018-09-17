@@ -1,0 +1,3 @@
+[submodule "Whatever/swaggen/SwagGen"]
+	path = Whatever/swaggen/SwagGen
+	url = https://github.com/masonmark/SwagGen

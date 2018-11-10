@@ -14,7 +14,8 @@ It supports macOS 10.14 and higher, iOS 12 and higher, and Linux (reference plat
 
 ## Release history
 
-- **2018-09-17:** 1.0b1 released.
+- **2018-11-10:** 1.0.0-beta.2 released.
+- **2018-09-17:** 1.0.0-beta.1 released.
 
 ## Components
 

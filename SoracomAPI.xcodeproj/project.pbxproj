@@ -913,6 +913,7 @@
 		93B0F7A521367563003C7EFE /* CreditCard+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreditCard+Extras.swift"; sourceTree = "<group>"; };
 		93B0F7A72137D4CE003C7EFE /* SoracomAPI.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SoracomAPI.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		93C8584321969747006A5B52 /* ListOrdersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOrdersTests.swift; sourceTree = "<group>"; };
+		93C8584621969E09006A5B52 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		93F36B2F212CCFB100F181ED /* Request+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Group.swift"; sourceTree = "<group>"; };
 		93F36B31212CD60000F181ED /* TagUpdateRequest+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagUpdateRequest+Extras.swift"; sourceTree = "<group>"; };
 		93F36B33212CD66500F181ED /* TagUpdateRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagUpdateRequestTests.swift; sourceTree = "<group>"; };
@@ -1662,6 +1663,7 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
+				93C8584621969E09006A5B52 /* README.md */,
 				93B0F7A72137D4CE003C7EFE /* SoracomAPI.playground */,
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,

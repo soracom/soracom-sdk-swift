@@ -422,6 +422,7 @@
 		9389C514210FEF9B0053F9D7 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389C513210FEF9B0053F9D7 /* Enums.swift */; };
 		93926F7C211142630059ED61 /* BeamCounts+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93926F7B211142630059ED61 /* BeamCounts+Extras.swift */; };
 		93B0F7A621367563003C7EFE /* CreditCard+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0F7A521367563003C7EFE /* CreditCard+Extras.swift */; };
+		93C858452196976C006A5B52 /* ListOrdersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8584321969747006A5B52 /* ListOrdersTests.swift */; };
 		93F36B30212CCFB100F181ED /* Request+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F36B2F212CCFB100F181ED /* Request+Group.swift */; };
 		93F36B32212CD60000F181ED /* TagUpdateRequest+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F36B31212CD60000F181ED /* TagUpdateRequest+Extras.swift */; };
 		93F36B34212CD66500F181ED /* TagUpdateRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F36B33212CD66500F181ED /* TagUpdateRequestTests.swift */; };
@@ -911,6 +912,7 @@
 		93B0F7A421366DE8003C7EFE /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LinuxMain.swift; path = Tests/LinuxMain.swift; sourceTree = "<group>"; };
 		93B0F7A521367563003C7EFE /* CreditCard+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreditCard+Extras.swift"; sourceTree = "<group>"; };
 		93B0F7A72137D4CE003C7EFE /* SoracomAPI.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SoracomAPI.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		93C8584321969747006A5B52 /* ListOrdersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOrdersTests.swift; sourceTree = "<group>"; };
 		93F36B2F212CCFB100F181ED /* Request+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Group.swift"; sourceTree = "<group>"; };
 		93F36B31212CD60000F181ED /* TagUpdateRequest+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagUpdateRequest+Extras.swift"; sourceTree = "<group>"; };
 		93F36B33212CD66500F181ED /* TagUpdateRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagUpdateRequestTests.swift; sourceTree = "<group>"; };
@@ -1742,6 +1744,7 @@
 				OBJ_841 /* IssueDebuggingTests.swift */,
 				OBJ_842 /* JSONComparisonTests.swift */,
 				OBJ_843 /* KeychainTests.swift */,
+				93C8584321969747006A5B52 /* ListOrdersTests.swift */,
 				93036A79212631CB00865B1D /* ModelExtensionTests.swift */,
 				OBJ_845 /* NSDate+SoracomAPITests.swift */,
 				933F6F0E21353797001F5B8B /* OrdersTests.swift */,
@@ -1902,6 +1905,7 @@
 				OBJ_1693 /* DevelopmentEnvironmentTests.swift in Sources */,
 				OBJ_1694 /* Fixtures.swift in Sources */,
 				OBJ_1695 /* IssueDebuggingTests.swift in Sources */,
+				93C858452196976C006A5B52 /* ListOrdersTests.swift in Sources */,
 				OBJ_1696 /* JSONComparisonTests.swift in Sources */,
 				OBJ_1697 /* KeychainTests.swift in Sources */,
 				OBJ_1699 /* NSDate+SoracomAPITests.swift in Sources */,

@@ -67,7 +67,7 @@ public struct SoracomCredentials: Equatable, Codable {
     
     /// Support initializing from obsolete formats from previous versions of this SDK.
     
-    mutating func checkForObsoleteFormat(_ dictionary: Dictionary<String, String>) {
+    public mutating func checkForObsoleteFormat(_ dictionary: Dictionary<String, String>) {
         let format = dictionary[kAccountCredentialsStorageFormatVersion] ?? "0"
         
         guard let version = Int(format) else {
@@ -157,7 +157,7 @@ public struct SoracomCredentials: Equatable, Codable {
     
     /// Serialize the receiver to a dictionary. (You can use `init(withDictionary:)` to deserialize.)
     
-    func dictionaryRepresentation() -> [String:String] {
+    public func dictionaryRepresentation() -> [String:String] {
         return [
             kType          : type.rawValue,
             kEmailAddress  : emailAddress,
@@ -178,7 +178,7 @@ public struct SoracomCredentials: Equatable, Codable {
     
     /// Returns an NSData instance, which contains the receiver's contents as JSON.
     
-    func toJSONData() -> Data {
+    public func toJSONData() -> Data {
         
         do {
             let dict = dictionaryRepresentation()
@@ -200,19 +200,19 @@ public struct SoracomCredentials: Equatable, Codable {
     
     /// The storage identifier used to look up the "default" credentials. When reading/writing credentials, if you don't specify an identifier, this will be used.
     
-    static let defaultStorageIdentifier = "SoracomCredentials.Default"
+    public static let defaultStorageIdentifier = "SoracomCredentials.Default"
     
     
     /// The default storage namespace is a UUID that uniquely identifies a type of storage within the scope of a client application. An app might use different namespaces because it offers a "test mode" that performs work in the API Sandbox instead of using a real production account. Another reason might be to read/write credentials from/to a separate namespace when running automated tests.
 
     /// In a more complex case, such as an app that interacts with multiple Soracom accounts, the credentials pertaining to each account could be maintained separately by using a unique namespace for each account.    
 
-    static var defaultStorageNamespace: UUID = UUID(uuidString: "00000000-0000-0000-0000-DEFDEFDEFDEF")!
+    public static var defaultStorageNamespace: UUID = UUID(uuidString: "00000000-0000-0000-0000-DEFDEFDEFDEF")!
 
     
     /// Get a fully-qualified storage identifier based on `identifier`. If `namespace` is not supplied, the default storage namespace is used, which suffices for most purposes.
     
-    static func buildNamespacedIdentifier(_ identifier: String, namespace: UUID? = nil) ->  String {
+    public static func buildNamespacedIdentifier(_ identifier: String, namespace: UUID? = nil) ->  String {
         
         let namespaceString = (namespace ?? defaultStorageNamespace).uuidString
 

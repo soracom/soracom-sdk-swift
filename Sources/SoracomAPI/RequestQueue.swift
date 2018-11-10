@@ -11,7 +11,7 @@ class RequestQueue {
     
     /// Returns a single shared NSOperationQueue instance, that may be used to run all requests, if that's convenient.
     
-    static let sharedQueue: OperationQueue = {
+    public static let sharedQueue: OperationQueue = {
         let q = OperationQueue()
         q.maxConcurrentOperationCount = 1
         return q

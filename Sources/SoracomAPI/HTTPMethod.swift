@@ -2,7 +2,7 @@
 
 /// This enum defines the HTTP methods actually used by this SDK.
 
-enum HTTPMethod: String {
+public enum HTTPMethod: String {
     
     case delete = "DELETE"
     case get    = "GET"

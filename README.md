@@ -39,6 +39,6 @@ The [Soracom API Guide](https://dev.soracom.io/en/docs/api/) is the canonical re
 
 ## License
 
-This project is licensed under the MIT license. See the file `Whatever/LICENSE` for details.
+This project is licensed under the MIT license. See the file `LICENSE` for details.
 
 以上

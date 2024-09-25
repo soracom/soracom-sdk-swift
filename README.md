@@ -1,3 +1,9 @@
+# obsolete — for historical reference only
+
+This SDK has been archived and now exists only for historical reference. In modern code, it would be advisable to use Swift's native HTTP capabilities to call he API directly, as both Swift and the Soracom API have evolved since the time this repo was active.
+
+---
+
 # soracom-sdk-swift
 
 An SDK for the Soracom API in Swift.
